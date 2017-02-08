@@ -50,7 +50,21 @@ You can put as many signals as you want and connect them to as many parameters o
 The basic element of a connection between the two instances, in this case, is a [list] to be sent between the patches. The pd-objects behind this are [netsend] and [netreceive]. This connection is solved for you. Below are instructions on adding new variables in between the instances.
 
 # Sending lists between AUDIO and VIDEO (and viceversa)
+<<<<<<< HEAD
 see message-routing.txt
+=======
+As of now, when you create a new message-route from one pd instance to the other, you need to use [lists]:
+<code>
+	[VARIABLE] <-- whatever incoming list of x lenght
+	|
+	[list prepend VARIABLE-NAME] <-- assign it a name
+	[s to-audio-pd] (or [s to-video-pd] depending where you are)
+</code>
+Then, to use this VARIABLE-NAME on the other instance, you need to go to the other instance, enter [pd from-video-pd] (or [pd from-audio-pd], depending where you are], and edit the [route] object so that:
+	[route x y ... VARIABLE-NAME] <-- put the name here
+	|	|	|
+	[s x]	[s y]	[s VARIABLE-NAME] <-- and here again
+>>>>>>> 57a0b1128326b55067e5ca37d796d1d1ad086297
 
 # To do
 Automated routing of messages between instances. Sending lists between AUDIO and VIDEO (and viceversa) described above works very well. But, it can be rather tedious and one could imagine it happening automatically once you create a send and receive pair. 
