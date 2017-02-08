@@ -1,0 +1,15 @@
+#N canvas 13 69 450 300 10;
+#X declare -path ~/Documents/fd_lib;
+#X obj 86 27 declare -path ~/Documents/fd_lib;
+#X obj 169 160 fd_impulse 64;
+#X floatatom 263 124 5 0 0 0 - - -, f 5;
+#X floatatom 185 98 5 0 0 0 - - -, f 5;
+#X obj 58 75 osc~ 440;
+#X obj 135 215 *~;
+#X obj 135 237 dac~;
+#X connect 1 0 5 1;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;

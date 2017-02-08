@@ -1,0 +1,142 @@
+#N canvas 225 0 907 774 10;
+#X msg 51 70 100;
+#X obj 51 92 until;
+#X obj 51 133 until;
+#X obj 70 159 f;
+#X obj 99 160 + 1;
+#X obj 216 341 >;
+#X obj 216 363 sel 1;
+#X obj 216 547 t b f;
+#X obj 216 644 f;
+#X obj 290 206 + 1;
+#X obj 368 529 t b f;
+#X obj 368 566 f;
+#X text 374 621 list[j+1] = list[j];
+#X obj 216 517 f;
+#X text 119 649 list[j] = tmp;
+#X obj 70 379 t f f;
+#X obj 368 507 f;
+#X obj 70 189 t f f f;
+#X msg 102 102 0;
+#X text 419 401 tmp;
+#X obj 287 284 t f f;
+#X obj 216 385 t b b b;
+#X obj 314 402 pack 0 f f, f 15;
+#X obj 290 228 t f f f, f 19;
+#X obj 241 606 unpack f f f;
+#X obj 349 691 tabwrite index;
+#X obj 216 692 tabwrite value;
+#X obj 368 592 tabwrite value;
+#X obj 287 262 tabread value;
+#X obj 70 321 tabread value;
+#X msg 226 66 100;
+#X obj 226 88 until;
+#X obj 226 110 f;
+#X obj 226 132 + 1;
+#X obj 237 176 tabwrite index;
+#X obj 258 130 t f f;
+#X msg 278 94 0;
+#X msg 228 14 bang;
+#X obj 228 36 t b b;
+#X obj 326 651 f;
+#X obj 472 509 t b f;
+#X obj 472 570 f;
+#X obj 472 487 f;
+#X obj 472 596 tabwrite index;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array value 100 float 3;
+#A 0 -0.671429 -0.671429 -0.666667 -0.661905 -0.657143 -0.657143 -0.528572
+-0.52381 -0.519048 -0.514286 -0.514286 -0.514286 -0.514286 -0.514286
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.314286 -0.314286 -0.314286
+-0.314286 -0.314286 -0.314286 -0.314286 -0.314286 -0.314286 -0.314286
+-0.314286 -0.314286 -0.314286 -0.314286 -0.314286 -0.314286 -0.242857
+-0.242857 -0.242857 -0.242857 -0.242857 -0.242857 -0.242857 -0.242857
+-0.242857 -0.242857 -0.242857 -0.242857 -0.228571 -0.114286 -0.114286
+-0.0999998 -0.0714282 -0.0666662 -0.0619043 -0.0571424 -5.96046e-08
+-5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08
+-5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08
+-5.96046e-08 -5.96046e-08 -5.96046e-08 -5.96046e-08 0 0.0142857 0.0142858
+0.0285716 0.0357145 0.0428574 0.0500003 0.0571432 0.0619051 0.0666671
+0.071429 0.0999973 0.314286 0.319048 0.32381 0.328572 0.331429 0.334286
+0.337143 0.34 0.342857 0.346429 0.442857 0.446427;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 468 46 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array index 100 float 3;
+#A 0 1 2 1 1 0 1 7 7 7 7 8 9 10 11 7 8 9 10 11 12 13 14 15 7 8 9 10
+11 12 13 14 15 16 17 18 19 20 21 22 30 31 32 33 34 35 36 37 38 39 40
+41 30 30 31 32 33 34 35 36 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+22 23 40 7 42 43 44 45 46 47 48 49 50 25 6 7 8 9 10 11 12 13 14 15
+75 76;
+#X coords 0 100 100 0 200 140 1 0 0;
+#X restore 467 197 graph;
+#X obj 487 541 tabread index;
+#X msg 56 15 bang;
+#X obj 127 159 mod 100;
+#X msg 51 112 100;
+#X text 602 589 tmp = list[j+1] \; tmp2 = index j+ list[j+1] = list[j]
+\; j+1 = j list[j] = tmp \; index j = tmp2;
+#X obj 56 37 t b b b;
+#X connect 0 0 1 0;
+#X connect 1 0 49 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 17 0;
+#X connect 4 0 48 0;
+#X connect 5 0 6 0;
+#X connect 6 0 21 0;
+#X connect 7 0 8 0;
+#X connect 7 0 39 0;
+#X connect 7 1 26 1;
+#X connect 7 1 25 1;
+#X connect 8 0 26 0;
+#X connect 9 0 23 0;
+#X connect 10 0 11 0;
+#X connect 10 1 27 1;
+#X connect 11 0 27 0;
+#X connect 13 0 7 0;
+#X connect 15 0 5 0;
+#X connect 15 1 11 1;
+#X connect 16 0 10 0;
+#X connect 17 0 29 0;
+#X connect 17 1 13 1;
+#X connect 17 1 46 0;
+#X connect 17 2 9 0;
+#X connect 18 0 3 1;
+#X connect 20 0 5 1;
+#X connect 20 1 22 1;
+#X connect 21 0 13 0;
+#X connect 21 1 16 0;
+#X connect 21 1 42 0;
+#X connect 21 2 22 0;
+#X connect 22 0 24 0;
+#X connect 23 0 28 0;
+#X connect 23 1 16 1;
+#X connect 23 1 42 1;
+#X connect 23 2 22 2;
+#X connect 24 1 8 1;
+#X connect 24 2 39 1;
+#X connect 28 0 20 0;
+#X connect 29 0 15 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
+#X connect 32 0 35 0;
+#X connect 33 0 32 1;
+#X connect 35 0 34 0;
+#X connect 35 1 34 1;
+#X connect 36 0 32 1;
+#X connect 37 0 38 0;
+#X connect 38 0 30 0;
+#X connect 38 1 36 0;
+#X connect 39 0 25 0;
+#X connect 40 0 41 0;
+#X connect 40 1 43 1;
+#X connect 41 0 43 0;
+#X connect 42 0 40 0;
+#X connect 46 0 41 1;
+#X connect 47 0 51 0;
+#X connect 48 0 3 1;
+#X connect 49 0 2 0;
+#X connect 51 0 0 0;
+#X connect 51 1 18 0;
