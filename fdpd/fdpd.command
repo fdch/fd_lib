@@ -1,8 +1,17 @@
 #!/bin/bash
 #
-# Just open <fdpd.command> by clicking or CMD+O or  ./fdpd.command
+#
+# 1. --To start working on a project-- 
+#   (a) Copy <fdpd.command> into an (empty) working
+# directory and 
+#   (b) open <fdpd.command> by
+# clicking or CMD+O or  ./fdpd.command
+#
+# 2. --To continue working on a project--
+#    (a) open <fdpd.command>
 #
 #
+# --WHAT IT DOES--
 # This shell script allows the user to work with 2 interconnected instances of PD
 # via netsend and netreceive, the former handling audio (main-audio.pd) and the 
 # latter handling VIDEO (main-video.pd). Both files are created in the "/bin" 
