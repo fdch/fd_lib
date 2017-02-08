@@ -1,0 +1,12 @@
+Sending lists between AUDIO and VIDEO (and viceversa)
+
+As of now, when you create a new message-route from one pd instance to the other, you need to use [lists]:
+	[VARIABLE] <-- whatever incoming list of x lenght
+	|
+	[list prepend VARIABLE-NAME] <-- assign it a name
+	[s to-audio-pd] (or [s to-video-pd] depending where you are)
+
+Then, to use this VARIABLE-NAME on the other instance, you need to go to the other instance, enter [pd from-video-pd] (or [pd from-audio-pd], depending where you are], and edit the [route] object so that:
+	[route x y ... VARIABLE-NAME] <-- put the name here
+	|	|	|
+	[s x]	[s y]	[s VARIABLE-NAME] <-- and here again
