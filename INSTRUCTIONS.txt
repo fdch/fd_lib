@@ -20,6 +20,9 @@ INSTRUCTIONS FOR GITHUB PUSHES ON BRANCH <0.01> (ON TERMINAL)
    $ git add <dir/file2>
 
    --> (optionally for all your files) $ git add .
+   
+   --> include a very brief description of what you did
+   $ git commit -m "description"
 
    --> make sure you are adding to the right remote site
    $ git remote add origin http://github.com/fedecamarahalac/fd_lib
