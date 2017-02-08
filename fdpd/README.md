@@ -1,5 +1,5 @@
 # fdpd
-The purpose of <fdpd> is to allow for a single double-click on <fdpd.command> to open a Pureadata workspace with 2 interconnected instances(OSX), one for audio and one for video (Gem). All the trouble of connecting two instances of pd is taken care of by <fdpd>, the rest is up to you.
+The purpose of "fdpd" is to allow for a single double-click on "fdpd.command" to open a Pureadata workspace with 2 interconnected instances(OSX), one for audio and one for video (Gem). All the trouble of connecting two instances of pd is taken care of by "fdpd", the rest is up to you.
 
 # Puredata
 get Pd here: http://msp.ucsd.edu
@@ -15,12 +15,12 @@ get Gem & manuals via deken way
 or here http://gem.iem.at 
 
 # Once fdpd is up and running
-Just opening 'fdpd.command' by clicking (or CMD+O or  ./fdpd.command) works like a charm
+Just opening "fdpd.command" by clicking (or CMD+O or  ./fdpd.command) works like a charm
 
 # Installation (First time only) 
 (requires basic copy-pasting on Terminal):
 
-1. Copy this directory <fdpd> in <your-working-directory>.
+1. Copy this directory "fdpd" in your-working-directory.
 
 2. Open Terminal:
 	$ cd your-working-directory
@@ -33,7 +33,7 @@ Just opening 'fdpd.command' by clicking (or CMD+O or  ./fdpd.command) works like
 # VERY IMPORTANT
 Mantra: "know thy pd path"
 
-Before doing <./fdpd.command> you need to check that the PATH to Pd's bin IS THE SAME than this one: '/Applications/Pd-0.47-1.app/Contents/Resources/bin'. If it isn't, you need to edit (with TextEdit or any text editor) <fdpd.command> in line 36, replacing PD='/Applications/Pd-0.47-1.app/Contents/Resources/bin' with PD='/<your-path>/Pd-<version>.app/Contents/Resources/bin', filling in with your path and your Pd version accordingly.
+Before doing "./fdpd.command" you need to check that the PATH to Pd's bin IS THE SAME than this one: '/Applications/Pd-0.47-1.app/Contents/Resources/bin'. If it isn't, you need to edit (with TextEdit or any text editor) "fdpd.command" in line 36, replacing PD='/Applications/Pd-0.47-1.app/Contents/Resources/bin' with PD='/<your-path>/Pd-<version>.app/Contents/Resources/bin', filling in with your path and your Pd version accordingly.
 
 # Information
  This shell script allows the user to work with 2 interconnected instances of PD via netsend and netreceive, the former handling audio (main-audio.pd) and the latter handling VIDEO (main-video.pd). Both files are created in the "/bin" directory. Once the "/bin" directory has been created, it only opens the files in different instances of Puredata. 
