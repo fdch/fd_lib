@@ -6,7 +6,7 @@ get Gem here: http://gem.iem.at
 
 get Pd here: http://msp.ucsd.edu
 
-Just open 'main.command' by clicking or CMD+O or  ./main.command
+Just open 'fdpd.command' by clicking or CMD+O or  ./fdpd.command
 
 
  This shell script allows the user to work with 2 interconnected instances of PD
