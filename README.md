@@ -9,9 +9,7 @@ see INSTRUCTIONS.txt for github flow and commands from terminal
 report here: camarafede[at]gmail[dot]com
 
 # Information
-
 see list.txt (placeholder for more information)
-
 
 
 
