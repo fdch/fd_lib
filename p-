@@ -3,7 +3,6 @@ ls -l > list.txt
 git init
 git add .
 git commit -m "$1"
-git remote add origin http://github.com/fdch/fd_lib
-git push -u origin master
+git push
 exit
 
