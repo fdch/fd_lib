@@ -1,267 +1,329 @@
-INSTRUCTIONS.txt
-LICENSE
-Makefile
-README.md
-bataille.txt
-cantor1
-clifford
-counter
-crand
-cuadratic
-fd_2pass
-fd_3pass
-fd_3stagelin
-fd_5ms
-fd_5pass
-fd_GEMbuffsize
-fd_adsr
-fd_ain
-fd_allinputs365
-fd_alloutputs365
-fd_appendit
-fd_arcsin
-fd_arraysort1
-fd_arraysort2
-fd_auload
-fd_autopatch
-fd_autopoly-help
-fd_autopoly
-fd_bark-help
-fd_bark
-fd_bark~
-fd_bigmyvu
-fd_blackman
-fd_camara
-fd_canvasplot
-fd_cauchy
-fd_ceil
-fd_choose-windows
-fd_chord
-fd_chroma
-fd_circle-help
-fd_circle
-fd_continunous-distribution
-fd_cosline~
-fd_countdown
-fd_critical
-fd_cuacua
-fd_dacout
-fd_dft
-fd_diads
-fd_distributions-help
-fd_distributions
-fd_draw
-fd_envtables
-fd_etareti
-fd_exp
-fd_expo
-fd_factor-help
-fd_factor
-fd_falling-object-distnace
-fd_fftbark~-graph-help
-fd_fftbark~-graph
-fd_fftbark~-help
-fd_fftbark~
-fd_floor
-fd_fmosc
-fd_g-reader
-fd_gate
-fd_gate2
-fd_gauss-t
-fd_gauss
-fd_gaussian-distribution
-fd_gemcontext
-fd_gemset
-fd_gemsphere
-fd_geometric-mean
-fd_grain
-fd_hann
-fd_hann0
-fd_hompsec-help
-fd_hopmsec
-fd_impulse-help
-fd_impulse
-fd_input
-fd_interp~-help
-fd_interp~
-fd_iterate
-fd_key
-fd_kinetica
-fd_listcl
-fd_logistic-help
-fd_logistic
-fd_logo-help
-fd_logo
-fd_lorenz
-fd_lorsig
-fd_lspace
-fd_m-comb
-fd_markfour-help
-fd_markfour
-fd_markov-5-help-2
-fd_markov-5-help
-fd_markov-5
-fd_markov-test
-fd_markov
-fd_matrix-comb-help
-fd_matrix-comb
-fd_maudio-assign
-fd_maudio-receive
-fd_maudio
-fd_metro-help
-fd_metro
-fd_metronomo
-fd_midinote
-fd_miller-gauss
-fd_milliseconds-tempo
-fd_minimax
-fd_mult
-fd_n!
-fd_n=n-1
-fd_netreceive
-fd_netsend
-fd_next
-fd_nonpulmonic
-fd_norep
-fd_norm-abs
-fd_norm
-fd_nouns
-fd_nountxt
-fd_numkey
-fd_octaver
-fd_osc
-fd_oscil
-fd_out
-fd_oxy-ctlin
-fd_oxy-fad
-fd_oxy-toggle
-fd_oxy
-fd_oxygen-49
-fd_pan
-fd_parsenum
-fd_phasor16~
-fd_phatty
-fd_phrase
-fd_plott
-fd_plotter
-fd_pno-12
-fd_pno-24
-fd_pno
-fd_poisson-help
-fd_poisson
-fd_polea
-fd_preset
-fd_pshift
-fd_random-bar-distribution
-fd_rec
-fd_rec1
-fd_reflect
-fd_rest
-fd_rexpo
-fd_rgb
-fd_round
-fd_rsf-out
-fd_rspline-help
-fd_rspline
-fd_s-grain-envelope
-fd_s-prob-5
-fd_s-prob
-fd_scales-help
-fd_scales
-fd_sgrain
-fd_shader
-fd_shift
-fd_shuffle
-fd_siginfo
-fd_sinc
-fd_sinh-help
-fd_sinh
-fd_sinline
-fd_sinline~
-fd_sp
-fd_spat
-fd_spigot3
-fd_spline~
-fd_splittone
-fd_squareroo-testing
-fd_step
-fd_stepper
-fd_stopwatch
-fd_stp
-fd_stream-onoff
-fd_sum
-fd_switch
-fd_sync
-fd_t-read
-fd_tab
-fd_tabout
-fd_test-12ch
-fd_test-buffer-limit
-fd_test-maudio-video
-fd_test-plott
-fd_test-plott2
-fd_test-plott3
-fd_test-plott4
-fd_test-tone
-fd_test8
-fd_text-read
-fd_textsort2
-fd_tglvis
-fd_toroman
-fd_tovowel
-fd_tracktopol
-fd_trb-ranges
-fd_tri
-fd_triangle
-fd_untext
-fd_updown
-fd_vibrato
-fd_vu
-fd_weightor-control-help
-fd_weightor-test
-fd_weinlevy2-test-audio
-fd_weinlevy2-test
-fd_wetdry
-fd_wetdry~
-fd_wielevy-help
-fd_wielevy-test
-fd_wielevy
-fd_wielevy2
-fd_windows
-fd_write1
-fd_write2
-fd_write5
-fd_xyz_plot-test
-fd_xyz_plot
-fd_xyz_plot2
-fd_z12-help
-fd_z12
-fd_zero-crossing~-help
-fd_zero-crossing~-help2
-fd_zero-crossing~
-fdpd
-gausstwister
-grieta
-halton
-henon
-henon2
-list.txt
-lor8~
-lorenz
-lorsig~
-m_pd.h
-mandelbrot
-minimax
-mtwister
-oil
-parabola
-pdcon16
-pmtwister
-prandom
-randy
-reflect
-siginfo
-siglor~
-spline
-tbessel
-todo
+total 4664
+-rw-r--r--   1 federicocamarahalac  staff    2550 Mar 12 11:30 ------fd_append.pd
+-rw-r--r--@  1 federicocamarahalac  staff    1019 Mar 12 11:30 INSTRUCTIONS.txt
+-rw-r--r--   1 federicocamarahalac  staff   35141 Mar 12 11:30 LICENSE
+-rw-r--r--@  1 federicocamarahalac  staff   20470 Mar 12 11:30 Makefile
+-rw-r--r--@  1 federicocamarahalac  staff     379 Mar 12 11:30 README.md
+-rw-r--r--   1 federicocamarahalac  staff    1025 Mar 12 11:30 ____get-amount-of-bangs-received.pd
+-rw-r--r--   1 federicocamarahalac  staff   14623 Mar 12 11:30 bataille.txt
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 cantor1
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 clifford
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 counter
+drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 crand
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 cuadratic
+-rw-r--r--   1 federicocamarahalac  staff     228 Mar 12 11:30 fd_2bit-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     175 Mar 12 11:30 fd_2bit.pd
+-rw-r--r--   1 federicocamarahalac  staff     450 Mar 12 11:30 fd_2pass.pd
+-rw-r--r--   1 federicocamarahalac  staff     650 Mar 12 11:30 fd_3pass.pd
+-rw-r--r--   1 federicocamarahalac  staff    1232 Mar 12 11:30 fd_3stagelin.pd
+-rw-r--r--   1 federicocamarahalac  staff    1431 Mar 12 11:30 fd_5ms.pd
+-rw-r--r--   1 federicocamarahalac  staff    1100 Mar 12 11:30 fd_5pass.pd
+-rw-r--r--   1 federicocamarahalac  staff     612 Mar 12 11:30 fd_GEMbuffsize.pd
+-rw-r--r--   1 federicocamarahalac  staff    1206 Mar 12 11:30 fd_adsr.pd
+-rw-r--r--   1 federicocamarahalac  staff    1179 Mar 12 11:30 fd_ain.pd
+-rw-r--r--   1 federicocamarahalac  staff    3073 Mar 12 11:30 fd_allinputs365.pd
+-rw-r--r--   1 federicocamarahalac  staff    3073 Mar 12 11:30 fd_alloutputs365.pd
+-rw-r--r--   1 federicocamarahalac  staff     603 Mar 12 11:30 fd_append.pd
+-rw-r--r--   1 federicocamarahalac  staff     817 Mar 12 11:30 fd_appendit.pd
+-rw-r--r--   1 federicocamarahalac  staff     752 Mar 12 11:30 fd_arcsin.pd
+-rw-r--r--   1 federicocamarahalac  staff    1311 Mar 12 11:30 fd_arraymorph.pd
+-rw-r--r--   1 federicocamarahalac  staff    2498 Mar 12 11:30 fd_arraysort1.pd
+-rw-r--r--   1 federicocamarahalac  staff    4143 Mar 12 11:30 fd_arraysort2.pd
+-rw-r--r--   1 federicocamarahalac  staff     422 Mar 12 11:30 fd_auload.pd
+-rw-r--r--   1 federicocamarahalac  staff    3333 Mar 12 11:30 fd_autopatch.pd
+-rw-r--r--   1 federicocamarahalac  staff    2750 Mar 12 11:30 fd_autopoly-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    4629 Mar 12 11:30 fd_autopoly.pd
+-rw-r--r--   1 federicocamarahalac  staff     229 Mar 12 11:30 fd_bang-help.pd
+-rw-r--r--   1 federicocamarahalac  staff      90 Mar 12 11:30 fd_bang.pd
+-rw-r--r--   1 federicocamarahalac  staff  633139 Mar 12 11:30 fd_bark-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    2735 Mar 12 11:30 fd_bark.pd
+-rw-r--r--   1 federicocamarahalac  staff    1233 Mar 12 11:30 fd_bark~.pd
+-rw-r--r--   1 federicocamarahalac  staff    1632 Mar 12 11:30 fd_bigmyvu.pd
+-rw-r--r--   1 federicocamarahalac  staff    3760 Mar 12 11:30 fd_blackman.pd
+-rw-r--r--   1 federicocamarahalac  staff    2833 Mar 12 11:30 fd_camara.pd
+-rw-r--r--   1 federicocamarahalac  staff    1253 Mar 12 11:30 fd_canvasplot.pd
+-rw-r--r--   1 federicocamarahalac  staff     850 Mar 12 11:30 fd_cauchy.pd
+-rw-r--r--   1 federicocamarahalac  staff     605 Mar 12 11:30 fd_ceil.pd
+-rw-r--r--   1 federicocamarahalac  staff     909 Mar 12 11:30 fd_choose-windows.pd
+-rw-r--r--   1 federicocamarahalac  staff     602 Mar 12 11:30 fd_chord.pd
+-rw-r--r--   1 federicocamarahalac  staff    3283 Mar 12 11:30 fd_chroma.pd
+-rw-r--r--   1 federicocamarahalac  staff    1695 Mar 12 11:30 fd_circle-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1582 Mar 12 11:30 fd_circle.pd
+-rw-r--r--   1 federicocamarahalac  staff    2001 Mar 12 11:30 fd_continunous-distribution.pd
+-rw-r--r--   1 federicocamarahalac  staff     976 Mar 12 11:30 fd_cosline~.pd
+-rw-r--r--   1 federicocamarahalac  staff    1955 Mar 12 11:30 fd_countdown.pd
+-rw-r--r--   1 federicocamarahalac  staff    3103 Mar 12 11:30 fd_critical.pd
+-rw-r--r--   1 federicocamarahalac  staff     601 Mar 12 11:30 fd_cuacua.pd
+-rw-r--r--   1 federicocamarahalac  staff     423 Mar 12 11:30 fd_cubic-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     902 Mar 12 11:30 fd_cubic.pd
+-rw-r--r--   1 federicocamarahalac  staff     309 Mar 12 11:30 fd_dacout.pd
+-rw-r--r--   1 federicocamarahalac  staff    3140 Mar 12 11:30 fd_dataDroplet.pd
+-rw-r--r--   1 federicocamarahalac  staff    2166 Mar 12 11:30 fd_dataExp.pd
+-rw-r--r--   1 federicocamarahalac  staff    1778 Mar 12 11:30 fd_dataHann.pd
+-rw-r--r--   1 federicocamarahalac  staff     261 Mar 12 11:30 fd_dataID.pd
+-rw-r--r--   1 federicocamarahalac  staff    2229 Mar 12 11:30 fd_dataLine.pd
+-rw-r--r--   1 federicocamarahalac  staff     574 Mar 12 11:30 fd_dataMorph.pd
+-rw-r--r--   1 federicocamarahalac  staff    1204 Mar 12 11:30 fd_dataMorphArray.pd
+-rw-r--r--   1 federicocamarahalac  staff    1242 Mar 12 11:30 fd_dataMorphWidth.pd
+-rw-r--r--   1 federicocamarahalac  staff    1254 Mar 12 11:30 fd_dataRand.pd
+-rw-r--r--   1 federicocamarahalac  staff    2321 Mar 12 11:30 fd_dataRead.pd
+-rw-r--r--   1 federicocamarahalac  staff     281 Mar 12 11:30 fd_dataRead1.pd
+-rw-r--r--   1 federicocamarahalac  staff    3480 Mar 12 11:30 fd_dataRead3.pd
+-rw-r--r--   1 federicocamarahalac  staff    4062 Mar 12 11:30 fd_dataWalk.pd
+-rw-r--r--   1 federicocamarahalac  staff    1034 Mar 12 11:30 fd_dft.pd
+-rw-r--r--   1 federicocamarahalac  staff     431 Mar 12 11:30 fd_diads.pd
+-rw-r--r--   1 federicocamarahalac  staff     382 Mar 12 11:30 fd_distributions-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    4082 Mar 12 11:30 fd_distributions.pd
+-rw-r--r--   1 federicocamarahalac  staff     536 Mar 12 11:30 fd_draw.pd
+-rw-r--r--   1 federicocamarahalac  staff     516 Mar 12 11:30 fd_dsp.pd
+-rw-r--r--   1 federicocamarahalac  staff   19478 Mar 12 11:30 fd_env-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    9053 Mar 12 11:30 fd_env.pd
+-rw-r--r--   1 federicocamarahalac  staff    1601 Mar 12 11:30 fd_env1-help.pd
+-rw-r--r--   1 federicocamarahalac  staff   14051 Mar 12 11:30 fd_env1.pd
+-rw-r--r--   1 federicocamarahalac  staff    1603 Mar 12 11:30 fd_env12-help.pd
+-rw-r--r--   1 federicocamarahalac  staff   13187 Mar 12 11:30 fd_env12.pd
+-rw-r--r--   1 federicocamarahalac  staff   10248 Mar 12 11:30 fd_envtables.pd
+-rw-r--r--   1 federicocamarahalac  staff     407 Mar 12 11:30 fd_etareti.pd
+-rw-r--r--   1 federicocamarahalac  staff    1137 Mar 12 11:30 fd_exp.pd
+-rw-r--r--   1 federicocamarahalac  staff    1938 Mar 12 11:30 fd_expo.pd
+-rw-r--r--   1 federicocamarahalac  staff     412 Mar 12 11:30 fd_factor-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1774 Mar 12 11:30 fd_factor.pd
+-rw-r--r--   1 federicocamarahalac  staff    1161 Mar 12 11:30 fd_falling-object-distnace.pd
+-rw-r--r--   1 federicocamarahalac  staff    1575 Mar 12 11:30 fd_fftbark~-graph-help.pd
+-rw-r--r--   1 federicocamarahalac  staff   57988 Mar 12 11:30 fd_fftbark~-graph.pd
+-rw-r--r--   1 federicocamarahalac  staff    1552 Mar 12 11:30 fd_fftbark~-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    7496 Mar 12 11:30 fd_fftbark~.pd
+-rw-r--r--   1 federicocamarahalac  staff    2967 Mar 12 11:30 fd_filewindow.pd
+-rw-r--r--   1 federicocamarahalac  staff     521 Mar 12 11:30 fd_floor.pd
+-rw-r--r--   1 federicocamarahalac  staff     468 Mar 12 11:30 fd_fmosc.pd
+-rw-r--r--   1 federicocamarahalac  staff     645 Mar 12 11:30 fd_g-reader.pd
+-rw-r--r--   1 federicocamarahalac  staff    2141 Mar 12 11:30 fd_gate.pd
+-rw-r--r--   1 federicocamarahalac  staff    2314 Mar 12 11:30 fd_gate2.pd
+-rw-r--r--   1 federicocamarahalac  staff    1891 Mar 12 11:30 fd_gauss-t.pd
+-rw-r--r--   1 federicocamarahalac  staff    1978 Mar 12 11:30 fd_gauss.pd
+-rw-r--r--   1 federicocamarahalac  staff    1927 Mar 12 11:30 fd_gaussian-distribution.pd
+-rw-r--r--   1 federicocamarahalac  staff   13359 Mar 12 11:30 fd_gemcontext.pd
+-rw-r--r--   1 federicocamarahalac  staff    1834 Mar 12 11:30 fd_gemset.pd
+-rw-r--r--   1 federicocamarahalac  staff   10314 Mar 12 11:30 fd_gemsphere.pd
+-rw-r--r--   1 federicocamarahalac  staff     443 Mar 12 11:30 fd_geometric-mean.pd
+-rw-r--r--   1 federicocamarahalac  staff     737 Mar 12 11:30 fd_get-element.pd
+-rw-r--r--   1 federicocamarahalac  staff    1286 Mar 12 11:30 fd_get.pd
+-rw-r--r--   1 federicocamarahalac  staff     762 Mar 12 11:30 fd_getfiles-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    2629 Mar 12 11:30 fd_getfiles.pd
+-rw-r--r--   1 federicocamarahalac  staff     640 Mar 12 11:30 fd_getid.pd
+-rw-r--r--   1 federicocamarahalac  staff     448 Mar 12 11:30 fd_getsize.pd
+-rw-r--r--   1 federicocamarahalac  staff    3432 Mar 12 11:30 fd_gr.pd
+-rw-r--r--   1 federicocamarahalac  staff    2434 Mar 12 11:30 fd_grain.pd
+-rw-r--r--   1 federicocamarahalac  staff    1166 Mar 12 11:30 fd_hann.pd
+-rw-r--r--   1 federicocamarahalac  staff    1118 Mar 12 11:30 fd_hann0.pd
+-rw-r--r--   1 federicocamarahalac  staff     501 Mar 12 11:30 fd_hompsec-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    3024 Mar 12 11:30 fd_hopmsec.pd
+-rw-r--r--   1 federicocamarahalac  staff     406 Mar 12 11:30 fd_impulse-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1037 Mar 12 11:30 fd_impulse.pd
+-rw-r--r--   1 federicocamarahalac  staff     435 Mar 12 11:30 fd_input.pd
+-rw-r--r--   1 federicocamarahalac  staff   20662 Mar 12 11:30 fd_interp~-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     952 Mar 12 11:30 fd_interp~.pd
+-rw-r--r--   1 federicocamarahalac  staff     625 Mar 12 11:30 fd_iterate.pd
+-rw-r--r--   1 federicocamarahalac  staff    6028 Mar 12 11:30 fd_key.pd
+-rw-r--r--   1 federicocamarahalac  staff     873 Mar 12 11:30 fd_kinetica.pd
+-rw-r--r--@  1 federicocamarahalac  staff    2373 Mar 12 11:30 fd_lib-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     537 Mar 12 11:30 fd_listcl.pd
+-rw-r--r--   1 federicocamarahalac  staff     720 Mar 12 11:30 fd_listout.pd
+-rw-r--r--   1 federicocamarahalac  staff     776 Mar 12 11:30 fd_log.pd
+-rw-r--r--   1 federicocamarahalac  staff     954 Mar 12 11:30 fd_logistic-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1250 Mar 12 11:30 fd_logistic.pd
+-rw-r--r--   1 federicocamarahalac  staff    1533 Mar 12 11:30 fd_logo-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    3924 Mar 12 11:30 fd_logo.pd
+-rw-r--r--   1 federicocamarahalac  staff    5729 Mar 12 11:30 fd_lorenz.pd
+-rw-r--r--   1 federicocamarahalac  staff     855 Mar 12 11:30 fd_lorsig.pd
+-rw-r--r--   1 federicocamarahalac  staff    1779 Mar 12 11:30 fd_lspace.pd
+-rw-r--r--   1 federicocamarahalac  staff     454 Mar 12 11:30 fd_m-comb.pd
+-rw-r--r--   1 federicocamarahalac  staff   18078 Mar 12 11:30 fd_markfour-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    3393 Mar 12 11:30 fd_markfour.pd
+-rw-r--r--   1 federicocamarahalac  staff    2519 Mar 12 11:30 fd_markov-5-help-2.pd
+-rw-r--r--   1 federicocamarahalac  staff    2472 Mar 12 11:30 fd_markov-5-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    5344 Mar 12 11:30 fd_markov-5.pd
+-rw-r--r--   1 federicocamarahalac  staff    3058 Mar 12 11:30 fd_markov-test.pd
+-rw-r--r--   1 federicocamarahalac  staff    1503 Mar 12 11:30 fd_markov.pd
+-rw-r--r--   1 federicocamarahalac  staff    2501 Mar 12 11:30 fd_markov3-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1996 Mar 12 11:30 fd_markov3.pd
+-rw-r--r--   1 federicocamarahalac  staff     365 Mar 12 11:30 fd_matrix-comb-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     718 Mar 12 11:30 fd_matrix-comb.pd
+-rw-r--r--   1 federicocamarahalac  staff    3019 Mar 12 11:30 fd_maudio-assign.pd
+-rw-r--r--   1 federicocamarahalac  staff    1065 Mar 12 11:30 fd_maudio-receive.pd
+-rw-r--r--   1 federicocamarahalac  staff    5191 Mar 12 11:30 fd_maudio.pd
+-rw-r--r--   1 federicocamarahalac  staff    1745 Mar 12 11:30 fd_metro-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     852 Mar 12 11:30 fd_metro.pd
+-rw-r--r--   1 federicocamarahalac  staff    2939 Mar 12 11:30 fd_metronomo.pd
+-rw-r--r--   1 federicocamarahalac  staff     161 Mar 12 11:30 fd_midinote.pd
+-rw-r--r--   1 federicocamarahalac  staff    2090 Mar 12 11:30 fd_miller-gauss.pd
+-rw-r--r--   1 federicocamarahalac  staff    1951 Mar 12 11:30 fd_milliseconds-tempo.pd
+-rw-r--r--   1 federicocamarahalac  staff    1592 Mar 12 11:30 fd_minimax.pd
+-rw-r--r--   1 federicocamarahalac  staff     443 Mar 12 11:30 fd_mult.pd
+-rw-r--r--   1 federicocamarahalac  staff    1700 Mar 12 11:30 fd_n!.pd
+-rw-r--r--   1 federicocamarahalac  staff     435 Mar 12 11:30 fd_n=n-1.pd
+-rw-r--r--   1 federicocamarahalac  staff    3316 Mar 12 11:30 fd_netreceive.pd
+-rw-r--r--   1 federicocamarahalac  staff    4126 Mar 12 11:30 fd_netsend.pd
+-rw-r--r--   1 federicocamarahalac  staff     517 Mar 12 11:30 fd_next.pd
+-rw-r--r--   1 federicocamarahalac  staff    1458 Mar 12 11:30 fd_nonpulmonic.pd
+-rw-r--r--   1 federicocamarahalac  staff     750 Mar 12 11:30 fd_norep.pd
+-rw-r--r--   1 federicocamarahalac  staff     544 Mar 12 11:30 fd_norm-abs.pd
+-rw-r--r--   1 federicocamarahalac  staff     451 Mar 12 11:30 fd_norm.pd
+-rw-r--r--   1 federicocamarahalac  staff     659 Mar 12 11:30 fd_not.pd
+-rw-r--r--   1 federicocamarahalac  staff    2042 Mar 12 11:30 fd_nouns.pd
+-rw-r--r--   1 federicocamarahalac  staff    3238 Mar 12 11:30 fd_nountxt.pd
+-rw-r--r--   1 federicocamarahalac  staff    1389 Mar 12 11:30 fd_numkey.pd
+-rw-r--r--   1 federicocamarahalac  staff     768 Mar 12 11:30 fd_octaver.pd
+-rw-r--r--   1 federicocamarahalac  staff     391 Mar 12 11:30 fd_once.pd
+-rw-r--r--   1 federicocamarahalac  staff     487 Mar 12 11:30 fd_osc.pd
+-rw-r--r--   1 federicocamarahalac  staff    1085 Mar 12 11:30 fd_oscil.pd
+-rw-r--r--   1 federicocamarahalac  staff    1574 Mar 12 11:30 fd_out.pd
+-rw-r--r--   1 federicocamarahalac  staff     186 Mar 12 11:30 fd_oxy-ctlin.pd
+-rw-r--r--   1 federicocamarahalac  staff     244 Mar 12 11:30 fd_oxy-fad.pd
+-rw-r--r--   1 federicocamarahalac  staff      98 Mar 12 11:30 fd_oxy-toggle.pd
+-rw-r--r--   1 federicocamarahalac  staff     232 Mar 12 11:30 fd_oxy.pd
+-rw-r--r--   1 federicocamarahalac  staff    4887 Mar 12 11:30 fd_oxygen-49.pd
+-rw-r--r--   1 federicocamarahalac  staff     379 Mar 12 11:30 fd_pan.pd
+-rw-r--r--   1 federicocamarahalac  staff     745 Mar 12 11:30 fd_parsenum.pd
+-rw-r--r--   1 federicocamarahalac  staff    1350 Mar 12 11:30 fd_phasor16~.pd
+-rw-r--r--   1 federicocamarahalac  staff    2490 Mar 12 11:30 fd_phatty.pd
+-rw-r--r--   1 federicocamarahalac  staff    1848 Mar 12 11:30 fd_phrase.pd
+-rw-r--r--   1 federicocamarahalac  staff    1347 Mar 12 11:30 fd_plott.pd
+-rw-r--r--   1 federicocamarahalac  staff    5290 Mar 12 11:30 fd_plotter.pd
+-rw-r--r--   1 federicocamarahalac  staff    7504 Mar 12 11:30 fd_pno-12.pd
+-rw-r--r--   1 federicocamarahalac  staff    9702 Mar 12 11:30 fd_pno-24.pd
+-rw-r--r--   1 federicocamarahalac  staff    4821 Mar 12 11:30 fd_pno.pd
+-rw-r--r--   1 federicocamarahalac  staff    1019 Mar 12 11:30 fd_poisson-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1284 Mar 12 11:30 fd_poisson.pd
+-rw-r--r--   1 federicocamarahalac  staff    2574 Mar 12 11:30 fd_polea.pd
+-rw-r--r--   1 federicocamarahalac  staff    1343 Mar 12 11:30 fd_preset.pd
+-rw-r--r--   1 federicocamarahalac  staff    1027 Mar 12 11:30 fd_pshift.pd
+-rw-r--r--   1 federicocamarahalac  staff     827 Mar 12 11:30 fd_r-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1466 Mar 12 11:30 fd_r.pd
+-rw-r--r--   1 federicocamarahalac  staff    1880 Mar 12 11:30 fd_random-bar-distribution.pd
+-rw-r--r--   1 federicocamarahalac  staff    3197 Mar 12 11:30 fd_rec.pd
+-rw-r--r--   1 federicocamarahalac  staff    4142 Mar 12 11:30 fd_rec1.pd
+-rw-r--r--   1 federicocamarahalac  staff     863 Mar 12 11:30 fd_reflect.pd
+-rw-r--r--   1 federicocamarahalac  staff     439 Mar 12 11:30 fd_rest.pd
+-rw-r--r--   1 federicocamarahalac  staff    1359 Mar 12 11:30 fd_rexpo.pd
+-rw-r--r--   1 federicocamarahalac  staff     607 Mar 12 11:30 fd_rgb.pd
+-rw-r--r--   1 federicocamarahalac  staff     662 Mar 12 11:30 fd_round.pd
+-rw-r--r--   1 federicocamarahalac  staff     263 Mar 12 11:30 fd_rsf-out.pd
+-rw-r--r--   1 federicocamarahalac  staff     351 Mar 12 11:30 fd_rspline-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1544 Mar 12 11:30 fd_rspline.pd
+-rw-r--r--   1 federicocamarahalac  staff    1392 Mar 12 11:30 fd_s-grain-envelope.pd
+-rw-r--r--   1 federicocamarahalac  staff    1593 Mar 12 11:30 fd_s-prob-5.pd
+-rw-r--r--   1 federicocamarahalac  staff    1490 Mar 12 11:30 fd_s-prob.pd
+-rw-r--r--   1 federicocamarahalac  staff    2646 Mar 12 11:30 fd_scales-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1848 Mar 12 11:30 fd_scales.pd
+-rw-r--r--   1 federicocamarahalac  staff     964 Mar 12 11:30 fd_set-element.pd
+-rw-r--r--   1 federicocamarahalac  staff     708 Mar 12 11:30 fd_sgrain.pd
+-rw-r--r--   1 federicocamarahalac  staff     920 Mar 12 11:30 fd_shader.pd
+-rw-r--r--   1 federicocamarahalac  staff     290 Mar 12 11:30 fd_shift.pd
+-rw-r--r--   1 federicocamarahalac  staff     574 Mar 12 11:30 fd_shuffle.pd
+-rw-r--r--   1 federicocamarahalac  staff    1530 Mar 12 11:30 fd_siginfo.pd
+-rw-r--r--   1 federicocamarahalac  staff     568 Mar 12 11:30 fd_sin.pd
+-rw-r--r--   1 federicocamarahalac  staff    1386 Mar 12 11:30 fd_sinc.pd
+-rw-r--r--   1 federicocamarahalac  staff    2060 Mar 12 11:30 fd_sinh-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     383 Mar 12 11:30 fd_sinh.pd
+-rw-r--r--   1 federicocamarahalac  staff     713 Mar 12 11:30 fd_sinline.pd
+-rw-r--r--   1 federicocamarahalac  staff     708 Mar 12 11:30 fd_sinline~.pd
+-rw-r--r--   1 federicocamarahalac  staff     410 Mar 12 11:30 fd_sp.pd
+-rw-r--r--   1 federicocamarahalac  staff    4769 Mar 12 11:30 fd_spat.pd
+-rw-r--r--   1 federicocamarahalac  staff     606 Mar 12 11:30 fd_spigot.pd
+-rw-r--r--   1 federicocamarahalac  staff    1129 Mar 12 11:30 fd_spigot3.pd
+-rw-r--r--   1 federicocamarahalac  staff    1783 Mar 12 11:30 fd_spigot5.pd
+-rw-r--r--   1 federicocamarahalac  staff    2194 Mar 12 11:30 fd_spigot6.pd
+-rw-r--r--   1 federicocamarahalac  staff     694 Mar 12 11:30 fd_spline~.pd
+-rw-r--r--   1 federicocamarahalac  staff    3276 Mar 12 11:30 fd_splittone.pd
+-rw-r--r--   1 federicocamarahalac  staff     910 Mar 12 11:30 fd_step.pd
+-rw-r--r--   1 federicocamarahalac  staff     910 Mar 12 11:30 fd_stepper.pd
+-rw-r--r--   1 federicocamarahalac  staff    1966 Mar 12 11:30 fd_stopwatch.pd
+-rw-r--r--   1 federicocamarahalac  staff     284 Mar 12 11:30 fd_stp.pd
+-rw-r--r--   1 federicocamarahalac  staff     759 Mar 12 11:30 fd_stream-onoff.pd
+-rw-r--r--   1 federicocamarahalac  staff     434 Mar 12 11:30 fd_sum.pd
+-rw-r--r--   1 federicocamarahalac  staff    1224 Mar 12 11:30 fd_switch.pd
+-rw-r--r--   1 federicocamarahalac  staff    1386 Mar 12 11:30 fd_sync.pd
+-rw-r--r--   1 federicocamarahalac  staff     453 Mar 12 11:30 fd_t-read.pd
+-rw-r--r--   1 federicocamarahalac  staff    2658 Mar 12 11:30 fd_tab.pd
+-rw-r--r--   1 federicocamarahalac  staff     723 Mar 12 11:30 fd_tabout.pd
+-rw-r--r--   1 federicocamarahalac  staff    1633 Mar 12 11:30 fd_test-12ch.pd
+-rw-r--r--   1 federicocamarahalac  staff     163 Mar 12 11:30 fd_test-buffer-limit.pd
+-rw-r--r--   1 federicocamarahalac  staff    1599 Mar 12 11:30 fd_test-maudio-video.pd
+-rw-r--r--   1 federicocamarahalac  staff    1263 Mar 12 11:30 fd_test-plott.pd
+-rw-r--r--   1 federicocamarahalac  staff     759 Mar 12 11:30 fd_test-plott2.pd
+-rw-r--r--   1 federicocamarahalac  staff     845 Mar 12 11:30 fd_test-plott3.pd
+-rw-r--r--   1 federicocamarahalac  staff     413 Mar 12 11:30 fd_test-plott4.pd
+-rw-r--r--   1 federicocamarahalac  staff    1846 Mar 12 11:30 fd_test-tone.pd
+-rw-r--r--   1 federicocamarahalac  staff    1954 Mar 12 11:30 fd_test8.pd
+-rw-r--r--   1 federicocamarahalac  staff    1203 Mar 12 11:30 fd_text-read.pd
+-rw-r--r--   1 federicocamarahalac  staff    6240 Mar 12 11:30 fd_textsort2.pd
+-rw-r--r--   1 federicocamarahalac  staff    1152 Mar 12 11:30 fd_tglvis.pd
+-rw-r--r--   1 federicocamarahalac  staff    1670 Mar 12 11:30 fd_toroman.pd
+-rw-r--r--   1 federicocamarahalac  staff     541 Mar 12 11:30 fd_tovowel.pd
+-rw-r--r--   1 federicocamarahalac  staff    1007 Mar 12 11:30 fd_tracktopol.pd
+-rw-r--r--   1 federicocamarahalac  staff     726 Mar 12 11:30 fd_traverse.pd
+-rw-r--r--   1 federicocamarahalac  staff    1658 Mar 12 11:30 fd_trb-ranges.pd
+-rw-r--r--   1 federicocamarahalac  staff    1395 Mar 12 11:30 fd_tri.pd
+-rw-r--r--   1 federicocamarahalac  staff     959 Mar 12 11:30 fd_triangle.pd
+-rw-r--r--   1 federicocamarahalac  staff    1675 Mar 12 11:30 fd_uexpo.pd
+-rw-r--r--   1 federicocamarahalac  staff    4314 Mar 12 11:30 fd_untext.pd
+-rw-r--r--   1 federicocamarahalac  staff     700 Mar 12 11:30 fd_updown.pd
+-rw-r--r--   1 federicocamarahalac  staff    1692 Mar 12 11:30 fd_urn.pd
+-rw-r--r--   1 federicocamarahalac  staff    1687 Mar 12 11:30 fd_vibrato.pd
+-rw-r--r--   1 federicocamarahalac  staff    1556 Mar 12 11:30 fd_vu.pd
+-rw-r--r--   1 federicocamarahalac  staff    1257 Mar 12 11:30 fd_weightor-control-help.pd
+-rw-r--r--   1 federicocamarahalac  staff     901 Mar 12 11:30 fd_weightor-test.pd
+-rw-r--r--   1 federicocamarahalac  staff    1769 Mar 12 11:30 fd_weinlevy2-test-audio.pd
+-rw-r--r--   1 federicocamarahalac  staff    1471 Mar 12 11:30 fd_weinlevy2-test.pd
+-rw-r--r--   1 federicocamarahalac  staff     546 Mar 12 11:30 fd_welch-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1181 Mar 12 11:30 fd_welch.pd
+-rw-r--r--   1 federicocamarahalac  staff     644 Mar 12 11:30 fd_wetdry.pd
+-rw-r--r--   1 federicocamarahalac  staff     389 Mar 12 11:30 fd_wetdry~.pd
+-rw-r--r--   1 federicocamarahalac  staff     558 Mar 12 11:30 fd_wielevy-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    1335 Mar 12 11:30 fd_wielevy-test.pd
+-rw-r--r--   1 federicocamarahalac  staff    2999 Mar 12 11:30 fd_wielevy.pd
+-rw-r--r--   1 federicocamarahalac  staff    2713 Mar 12 11:30 fd_wielevy2.pd
+-rw-r--r--   1 federicocamarahalac  staff     227 Mar 12 11:30 fd_windows.pd
+-rw-r--r--   1 federicocamarahalac  staff    3037 Mar 12 11:30 fd_write1.pd
+-rw-r--r--   1 federicocamarahalac  staff    4842 Mar 12 11:30 fd_write2.pd
+-rw-r--r--   1 federicocamarahalac  staff    5241 Mar 12 11:30 fd_write5.pd
+-rw-r--r--   1 federicocamarahalac  staff    1417 Mar 12 11:30 fd_xyz_plot-test.pd
+-rw-r--r--   1 federicocamarahalac  staff    1600 Mar 12 11:30 fd_xyz_plot.pd
+-rw-r--r--   1 federicocamarahalac  staff   14483 Mar 12 11:30 fd_xyz_plot2.pd
+-rw-r--r--   1 federicocamarahalac  staff    1757 Mar 12 11:30 fd_z12-help.pd
+-rw-r--r--   1 federicocamarahalac  staff    4390 Mar 12 11:30 fd_z12.pd
+-rw-r--r--   1 federicocamarahalac  staff   14553 Mar 12 11:30 fd_zero-crossing~-help.pd
+-rw-r--r--   1 federicocamarahalac  staff   15862 Mar 12 11:30 fd_zero-crossing~-help2.pd
+-rw-r--r--   1 federicocamarahalac  staff    1220 Mar 12 11:30 fd_zero-crossing~.pd
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 fdpd
+-rw-r--r--   1 federicocamarahalac  staff   28875 Mar 12 11:30 g_canvas.h
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 gausstwister
+drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 grieta
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 halton
+drwxr-xr-x   7 federicocamarahalac  staff     238 Mar 12 11:30 henon
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 henon2
+-rw-r--r--@  1 federicocamarahalac  staff       0 Mar 12 13:50 list.txt
+drwxr-xr-x  33 federicocamarahalac  staff    1122 Mar 12 11:30 lor8~
+drwxr-xr-x  31 federicocamarahalac  staff    1054 Mar 12 11:30 lorenz
+drwxr-xr-x   8 federicocamarahalac  staff     272 Mar 12 11:30 lorsig~
+-rw-r--r--   1 federicocamarahalac  staff   28415 Mar 12 11:30 m_pd.h
+-rw-r--r--@  1 federicocamarahalac  staff   13548 Mar 12 11:30 mainscore.c
+-rw-r--r--   1 federicocamarahalac  staff   52040 Mar 12 11:30 mainscore.pd_darwin
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 mandelbrot
+drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 minimax
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 mtwister
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 oil
+-rwxr--r--   1 federicocamarahalac  staff      84 Mar 12 13:49 p-
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 parabola
+drwxr-xr-x   4 federicocamarahalac  staff     136 Mar 12 11:30 pdcon16
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 pmtwister
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 prandom
+drwxr-xr-x   4 federicocamarahalac  staff     136 Mar 12 11:30 randy
+drwxr-xr-x   7 federicocamarahalac  staff     238 Mar 12 11:30 reflect
+drwxr-xr-x   7 federicocamarahalac  staff     238 Mar 12 11:30 siginfo
+drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 siglor~
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 spline
+drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 tbessel
+drwxr-xr-x   4 federicocamarahalac  staff     136 Mar 12 11:30 todo
+-rw-r--r--   1 federicocamarahalac  staff   65932 Mar 12 11:30 vera.ttf

@@ -1,7 +1,8 @@
 #!/bin/bash
+ls -l > list.txt
 git init
 git add .
 git commit -m "$1"- 
-git push -u origin 0.01
+git push
 exit
 
