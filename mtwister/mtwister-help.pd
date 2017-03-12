@@ -1,0 +1,17 @@
+#N canvas 623 153 450 300 12;
+#X obj 41 113 mtwister;
+#X obj 54 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 116 56 metro 1;
+#X obj 204 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 124 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 167 111 5 0 0 0 - - -, f 5;
+#X obj 267 86 timer;
+#X obj 38 187 moses 10;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 0 0;

@@ -1,0 +1,69 @@
+#N canvas 725 131 450 300 10;
+#X msg 18 149 reset;
+#X msg 171 140 bang;
+#X obj 51 211 minimax;
+#X obj 51 233 /;
+#X obj 76 234 abs;
+#X obj 101 234 +;
+#X obj 182 107 t b b;
+#X obj 51 257 tabwrite array1;
+#X obj 174 196 f;
+#X obj 174 218 + 1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 100 float 5;
+#A 0 0.5 0.9001 0.906818 0.331546 0.958415 -0.927625 -0.999742 -1 -1
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+nan nan nan nan nan nan;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 235 15 graph;
+#X obj 180 60 until;
+#X msg 190 84 bang;
+#X msg 108 151 0;
+#X msg 180 17 100;
+#X obj 174 240 % 100;
+#X obj 11 207 print;
+#X msg 61 148 flush;
+#X msg 5 29 bang;
+#X msg 55 36 initx \$1;
+#X floatatom 120 18 5 0 0 0 - - -, f 5;
+#X floatatom 56 18 5 0 0 0 - - -, f 5;
+#X text 3 11 reset;
+#X obj 51 189 parabola;
+#X msg 118 36 inita \$1;
+#X text 242 194 x1 = (1 - x0) * a * x0 \;;
+#X obj 186 39 t f b b;
+#X connect 0 0 23 0;
+#X connect 1 0 23 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 1;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X connect 6 0 1 0;
+#X connect 6 1 8 0;
+#X connect 8 0 9 0;
+#X connect 8 0 7 1;
+#X connect 9 0 15 0;
+#X connect 11 0 6 0;
+#X connect 12 0 6 0;
+#X connect 13 0 8 1;
+#X connect 14 0 26 0;
+#X connect 15 0 8 1;
+#X connect 17 0 2 0;
+#X connect 18 0 17 0;
+#X connect 18 0 13 0;
+#X connect 18 0 0 0;
+#X connect 19 0 23 0;
+#X connect 20 0 24 0;
+#X connect 21 0 19 0;
+#X connect 23 0 2 0;
+#X connect 23 0 16 0;
+#X connect 24 0 23 0;
+#X connect 26 0 11 0;
+#X connect 26 1 21 0;
+#X connect 26 2 20 0;

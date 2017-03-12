@@ -1,0 +1,8 @@
+#N canvas 0 22 450 300 10;
+#X obj 64 96 line;
+#X msg 64 74 \$1 66;
+#X obj 63 52 ctlin \$2;
+#X obj 64 118 s \$1-fader-\$3-set;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;

@@ -1,0 +1,7 @@
+#!/bin/bash
+git init
+git add .
+git commit -m "$1"- 
+git puth -u origin 0.01
+exit
+

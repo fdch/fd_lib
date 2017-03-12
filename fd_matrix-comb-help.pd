@@ -1,0 +1,13 @@
+#N canvas 369 68 641 354 10;
+#X msg 184 50 0 1 1 1 \, 1 1 1 0 \, 2 1 0 0 \, 3 0 0 0 \, 4 0 0 1 \,
+5 0 1 1 \, 6 1 0 1 \, 7 0 1 0 \,;
+#X obj 106 221 print;
+#X obj 185 27 loadbang;
+#X obj 73 165 clone fd_matrix-comb 8;
+#X msg 30 93 all 1 1 1;
+#X msg 71 113 all 1 0 1;
+#X connect 0 0 3 1;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;

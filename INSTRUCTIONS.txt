@@ -1,0 +1,37 @@
+INSTRUCTIONS FOR GITHUB PUSHES ON BRANCH <0.01> (ON TERMINAL)
+
+1. First time only, getting the branch (on terminal):
+
+   --> this will create a directory <fd_lib> with the branch <0.01>
+   $ git clone -b 0.01 http://github.com/fedecamarahalac/fd_lib fd_lib
+
+2. Updating the code:
+   --> edit/update all you want in <fd_lib> (i.e., save pd files, code, etc)
+
+3. Push to the branch (on terminal):
+   $ cd fd_lib
+   $ git init
+
+   --> this will show you what you have actually edited
+   $ git status
+
+   --> choose what you want to commit and add it like this
+   $ git add <file1>
+   $ git add <dir/file2>
+
+   --> (optionally for all your files) $ git add .
+   
+   --> include a very brief description of what you did
+   $ git commit -m "description"
+
+   --> make sure you are adding to the right remote site
+   $ git remote add origin http://github.com/fedecamarahalac/fd_lib
+   $ git remote -v
+
+   --> finally, the push is done to the branch <0.01>
+   $ git push -u origin 0.01
+
+That's it!
+
+camarafede[at]gmail[dot]com
+

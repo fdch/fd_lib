@@ -1,0 +1,19 @@
+#N canvas 106 315 323 334 10;
+#X obj 58 177 pointer;
+#X obj 31 81 t a b;
+#X obj 31 53 r fd_append-\$1;
+#X text 155 104 \$1 == instance id;
+#X text 24 8 Facilitate an [append] instance;
+#X text 123 47 receive list of all values;
+#X msg 58 153 traverse \$1 \, bang;
+#X obj 58 130 symbol \$1;
+#X obj 31 217 append \$2 color icolor width a b c d e f g h i j k l
+m n o p q r s t u v w x y z, f 33;
+#X text 16 279 no need to connect patchords if there is a list in the
+first inlet, f 42;
+#X connect 0 0 8 29;
+#X connect 1 0 8 0;
+#X connect 1 1 7 0;
+#X connect 2 0 1 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;

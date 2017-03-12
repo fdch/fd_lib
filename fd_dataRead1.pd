@@ -1,0 +1,12 @@
+#N canvas 0 22 449 354 12;
+#X obj 121 46 inlet;
+#X obj 301 259 fd_getsize \$1;
+#X obj 121 247 fd_get-element \$1;
+#X obj 121 71 t f b;
+#X obj 121 272 outlet;
+#X obj 301 284 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 1 1 0;

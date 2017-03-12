@@ -1,0 +1,119 @@
+#N canvas 640 204 484 388 10;
+#X obj 100 100 cnv 15 115 115 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 100 100 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 120 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 120 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 120 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 120 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 160 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 180 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 160 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 180 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 160 140 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 180 140 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 31 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 31 63 f;
+#X obj 31 85 + 1;
+#X obj 100 120 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 100 140 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 100 160 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 100 180 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 100 200 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 120 100 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 140 100 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 120 140 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 140 140 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 100 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 120 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 140 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 160 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 180 160 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 160 160 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 160 180 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 160 200 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 180 200 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 200 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 200 180 tgl 15 0 fd fd-r empty 17 7 0 10 -262144 -262144 -262144
+0 1;
+#X obj 180 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 82 203 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 31 107 mod 16;
+#X obj 33 128 route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15, f 10;
+#X obj 83 264 s fd-r;
+#X floatatom 89 21 5 0 0 0 - - -, f 5;
+#X obj 83 221 * 22;
+#X msg 83 243 color \$1 \$1 \$1;
+#X obj 50 18 inlet;
+#X obj 31 41 metro 200;
+#X obj 173 45 loadbang;
+#X connect 16 0 48 0;
+#X connect 17 0 18 0;
+#X connect 17 0 42 0;
+#X connect 18 0 41 0;
+#X connect 40 0 45 0;
+#X connect 41 0 17 1;
+#X connect 42 0 8 0;
+#X connect 42 1 9 0;
+#X connect 42 2 6 0;
+#X connect 42 3 7 0;
+#X connect 42 4 4 0;
+#X connect 42 5 5 0;
+#X connect 42 6 2 0;
+#X connect 42 7 3 0;
+#X connect 42 8 10 0;
+#X connect 42 9 11 0;
+#X connect 42 10 12 0;
+#X connect 42 11 13 0;
+#X connect 42 12 14 0;
+#X connect 42 13 15 0;
+#X connect 42 14 39 0;
+#X connect 42 15 40 0;
+#X connect 44 0 48 1;
+#X connect 45 0 46 0;
+#X connect 46 0 43 0;
+#X connect 47 0 16 0;
+#X connect 48 0 17 0;
+#X connect 49 0 16 0;
+#X coords 0 -1 1 1 115 115 1 100 100;

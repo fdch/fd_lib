@@ -1,0 +1,8 @@
+#N canvas 569 64 450 300 10;
+#X declare -path ~/Documents/fd_lib;
+#X obj 42 10 declare -path ~/Documents/fd_lib;
+#X obj 42 81 print;
+#X msg 42 36 all bang;
+#X obj 42 59 clone fd_2bit 128;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;

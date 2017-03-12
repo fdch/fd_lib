@@ -1,0 +1,4 @@
+#N canvas 0 22 450 300 10;
+#X obj 28 31 inlet;
+#X obj 28 97 s toggle-\$1-set;
+#X connect 0 0 1 0;

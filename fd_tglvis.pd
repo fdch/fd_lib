@@ -1,0 +1,39 @@
+#N canvas 387 215 489 298 10;
+#X obj 101 101 cnv 12 12 12 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 103 103 tgl 8 0 \$0-tglvis \$0-tglvis-set empty 17 7 0 10 -24198
+-1 -262144 0 1;
+#X obj 209 63 r \$0-tglvis;
+#X obj 209 85 t f f;
+#X obj 186 123 sel 0 1;
+#X obj 186 145 del 1;
+#X obj 201 174 del 1;
+#X obj 236 229 list append \$1;
+#X obj 99 38 inlet;
+#X obj 99 59 route set;
+#X msg 38 238 set 0 \, color 16 22 0;
+#X msg 191 196 set 1 \, color 13 22 0;
+#X obj 38 168 loadbang;
+#X msg 236 251 \; pd-\$2 vis \$1;
+#X text 36 8 TGLVIS == Toggle Vis;
+#X text 309 131 MUST:;
+#X text 307 153 \$1 == subpatch name;
+#X text 330 229 although it works \, it's not recommended for abstractions
+, f 21;
+#X text 309 9 place this on a GOP (Graph-On-Parent) SUBPATCH to toggle
+visibility. This is only to avoid right-clicking \, or ctrl+click >
+OPEN..., f 27;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 7 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 13 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 1;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 14 14 2 100 100;

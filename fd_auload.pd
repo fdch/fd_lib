@@ -1,0 +1,14 @@
+#N canvas 22 23 444 550 10;
+#N canvas 447 178 450 300 main 0;
+#X obj 10 9 loadbang;
+#X obj 10 31 symbol \$1;
+#X obj 10 53 s root-name;
+#X obj 9 93 clone rsf-out 33;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 228 20 pd main;
+#X obj 24 23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 45 23 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X coords 0 -1 1 1 200 500 1 20 20;

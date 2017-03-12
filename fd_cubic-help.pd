@@ -1,0 +1,15 @@
+#N canvas 643 123 518 411 10;
+#X declare -path ~/Documents/fd_lib;
+#X text 23 12 f(x) = (x3 + 3x2 − 6x − 8)/4.;
+#X msg 27 36 100;
+#X obj 27 68 fd_iterate;
+#X obj 243 14 declare -path ~/Documents/fd_lib;
+#X obj 242 45 array define \$0-cubic;
+#X obj 27 318 tabwrite \$0-cubic;
+#X obj 27 90 t f f;
+#X obj 24 194 fd_cubic;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 5 1;
+#X connect 7 0 5 0;

@@ -1,0 +1,70 @@
+#N canvas 0 22 450 300 10;
+#X obj 227 16 r fd_filewindow;
+#N canvas 0 22 450 300 \$0-subwindow 0;
+#X obj 12 7 cnv 13 190 13 send receive fd_sumalorenz.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 20 cnv 13 190 13 send receive lorabs.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 33 cnv 13 190 13 send receive lorenz-abs.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 46 cnv 13 190 13 send receive lorenz-abs2.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 59 cnv 13 190 13 send receive lorenz-backup-2.c 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 72 cnv 13 190 13 send receive lorenz-backup.c 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 85 cnv 13 190 13 send receive lorenz-bar-distribution-2.pd
+2 7 0 10 -233017 -1 1.04858e+06;
+#X obj 12 98 cnv 13 190 13 send receive lorenz-bar-distribution-3.pd
+2 7 0 10 -233017 -1 1.04858e+06;
+#X obj 12 111 cnv 13 190 13 send receive lorenz-bar-distribution.pd
+2 7 0 10 -233017 -1 1.04858e+06;
+#X obj 12 124 cnv 13 190 13 send receive lorenz-cosinesum.pd 2 7 0
+10 -233017 -1 1.04858e+06;
+#X obj 12 137 cnv 13 190 13 send receive lorenz-gem.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 150 cnv 13 190 13 send receive lorenz-test.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 163 cnv 13 190 13 send receive lorenz-test2.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 176 cnv 13 190 13 send receive lorenz-test4.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 189 cnv 13 190 13 send receive lorenz.c 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 202 cnv 13 190 13 send receive lorenz.o 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 215 cnv 13 190 13 send receive lorenz.pd_darwin 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 228 cnv 13 190 13 send receive lorenzc-test.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 241 cnv 13 190 13 send receive lorenzc.c 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 254 cnv 13 190 13 send receive lorenzc.pd_darwin 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 267 cnv 13 190 13 send receive lorenzo-table-2.pd 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 280 cnv 13 190 13 send receive lorenzo-table.pd 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 293 cnv 13 190 13 send receive lorenzsiginfo.pd 2 7 0 10
+-233017 -1 1.04858e+06;
+#X obj 12 306 cnv 13 190 13 send receive lorenz~.c 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 319 cnv 13 190 13 send receive lornoise-fourier.pd 2 7 0
+10 -233017 -1 1.04858e+06;
+#X obj 12 332 cnv 13 190 13 send receive lornoise.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 345 cnv 13 190 13 send receive lorsig-help.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 358 cnv 13 190 13 send receive lorsig.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X obj 12 371 cnv 13 190 13 send receive lorsigtest.pd 2 7 0 10 -233017
+-1 1.04858e+06;
+#X coords 0 -1 1 1 200 200 2 10 13;
+#X restore 10 13 pd \$0-subwindow;
+#X obj 263 68 s pd-\$0-subwindow;
+#X obj 227 38 route position;
+#X obj 229 102 s \$0-subwindow;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 2 0;
+#X coords 0 -1 1 1 200 200 2 10 13;

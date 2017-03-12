@@ -1,0 +1,11 @@
+#N canvas 766 196 450 300 10;
+#X obj 30 36 sig~ 1;
+#X obj 30 58 lorsig~;
+#X obj 30 80 fd_vu;
+#X obj 30 175 dac~;
+#X obj 78 108 unpack f f f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
