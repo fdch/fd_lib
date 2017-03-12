@@ -303,7 +303,7 @@ drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 grieta
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 halton
 drwxr-xr-x   7 federicocamarahalac  staff     238 Mar 12 11:30 henon
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 henon2
--rw-r--r--@  1 federicocamarahalac  staff       0 Mar 12 14:01 list.txt
+-rw-r--r--@  1 federicocamarahalac  staff       0 Mar 12 14:02 list.txt
 drwxr-xr-x  33 federicocamarahalac  staff    1122 Mar 12 11:30 lor8~
 drwxr-xr-x  31 federicocamarahalac  staff    1054 Mar 12 11:30 lorenz
 drwxr-xr-x   8 federicocamarahalac  staff     272 Mar 12 11:30 lorsig~
@@ -314,7 +314,7 @@ drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 mandelbrot
 drwxr-xr-x   6 federicocamarahalac  staff     204 Mar 12 11:30 minimax
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 mtwister
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 oil
--rwxr--r--   1 federicocamarahalac  staff      82 Mar 12 14:01 p-
+-rwxr--r--   1 federicocamarahalac  staff     126 Mar 12 14:02 p-
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 parabola
 drwxr-xr-x   4 federicocamarahalac  staff     136 Mar 12 11:30 pdcon16
 drwxr-xr-x   5 federicocamarahalac  staff     170 Mar 12 11:30 pmtwister
