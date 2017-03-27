@@ -112,7 +112,12 @@
 #X restore 257 106 pd timer;
 #X obj 323 185 r \$0-msec;
 #X obj 323 207 outlet;
+#X obj 457 46 inlet;
+#X obj 457 68 sel 0 1;
 #X connect 9 0 10 0;
 #X connect 11 0 10 0;
 #X connect 14 0 15 0;
+#X connect 16 0 17 0;
+#X connect 17 0 1 0;
+#X connect 17 1 0 0;
 #X coords 0 -1 1 1 150 100 1 100 100;

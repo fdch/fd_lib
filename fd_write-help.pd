@@ -1,0 +1,6 @@
+#N canvas 123 487 379 156 10;
+#X obj 27 27 fd_write;
+#X text 21 53 run from terminal:;
+#X text 18 80 ./pd -nogui -send " \; full-path FILL/PATH/TO/FILE \;
+length LENGTH_IN_MINUTES \; filename FILENAME \; " fd_write.pd;
+#X coords 0 156 1 155 150 100 0;

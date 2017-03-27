@@ -1,5 +1,5 @@
-#N canvas 466 27 794 461 10;
-#X declare -stdlib zexy -stdlib Gem;
+#N canvas 467 49 794 461 10;
+#X declare -stdlib Gem;
 #X obj 479 71 cnv 15 300 350 empty empty empty 20 12 0 14 -228992 -66577
 0;
 #X obj 25 71 cnv 15 450 100 empty empty empty 20 12 0 14 -233017 -66577
@@ -22,27 +22,26 @@
 1;
 #X floatatom 581 211 5 0 0 0 - - -, f 5;
 #X msg 581 230 smooth \$1;
-#X msg 515 213 16384;
+#X msg 519 188 16384;
 #X obj 493 338 pix_texture;
 #X obj 493 366 square 3;
 #X floatatom 591 252 5 0 0 0 - - -, f 5;
 #X msg 591 271 coef \$1;
-#X msg 514 195 8192;
+#X msg 518 170 8192;
 #X floatatom 569 127 5 0 0 0 - - -, f 5;
 #X floatatom 603 127 5 0 0 0 - - -, f 5;
 #X obj 603 147 t b f;
 #X obj 570 147 pack;
 #X msg 570 186 crop \$1 \$2;
 #N canvas 0 22 410 198 dependencies 0;
-#X text 19 122 add the object [declare -stdlib Gem -stdlib zexy] to
-the parent patch;
-#X obj 150 23 declare -stdlib zexy -stdlib Gem;
-#X text 21 23 Needs Gem and zexy:;
-#X text 22 66 Help>Find Externals> SEARCH:zexy >> DOWNLOAD;
 #X text 20 82 Help>Find Externals> SEARCH:Gem >> DOWNLOAD;
+#X obj 150 23 declare -stdlib Gem;
+#X text 19 122 add the object [declare -stdlib Gem] to the parent patch
+;
+#X text 21 23 Needs Gem;
 #X restore 491 431 pd dependencies;
 #X msg 615 76 \; pd dsp 1;
-#X msg 516 231 32768;
+#X msg 520 206 32768;
 #X msg 507 258 size \$1;
 #X text 51 20 Synopsis: [fd_vidfft];
 #X text 25 75 Description: Renders an fft/ifft image of incoming pixes
@@ -106,6 +105,7 @@ positioning (default 128 128 \, or sqrt(newblocksize));
 #X msg 680 294 sinesum;
 #X text 617 209 -1..1;
 #X text 648 111 shift drag these:;
+#X msg 526 225 65536;
 #X connect 11 0 12 0;
 #X connect 12 0 43 0;
 #X connect 13 0 43 0;
@@ -140,3 +140,4 @@ positioning (default 128 128 \, or sqrt(newblocksize));
 #X connect 59 0 50 0;
 #X connect 60 0 50 0;
 #X connect 61 0 50 0;
+#X connect 64 0 30 0;
