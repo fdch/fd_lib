@@ -1,0 +1,56 @@
+#N canvas 444 74 609 668 12;
+#X msg 181 210 all array1 array2 1000;
+#X text 67 59 NOTE: NEEDS TO BE CLONED OTHERWISE WONT MAKE SENSE...
+;
+#X text 181 232 1) the 'all' is a must (see clone-help.pd);
+#X text 181 291 4) 1000 == time in milliseconds;
+#X text 139 85 [clone fd_arraymorph SIZE TARGET];
+#X text 144 128 \$1 == SIZE: of arrays (float);
+#X text 29 14 MORPH between two arrays (array1 \, array2) in a recipient
+(array3), f 65;
+#X text 145 148 \$2 == RECIPIENT: arrayname (symbol);
+#X text 181 272 3) array2 == target curve;
+#X text 181 252 2) array1 == source curve;
+#X text 62 45 ********************************************************
+;
+#X text 62 107 ********************************************************
+;
+#X text 324 329 source \, target;
+#X text 324 408 recipient;
+#X obj 325 353 array define array1 67;
+#X obj 325 377 array define array2 67;
+#X obj 325 430 array define array3 67;
+#X msg 20 499 all array1 array2 1000;
+#X text 20 331 draw some curve;
+#X text 133 382 draw another curve;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array4 67 float 3;
+#A 0 -0.248842 0 0.248842 0.48175 0.684008 0.843231 0.950296 0.999999
+0.991404 0.927839 0.816555 0.668076 0.49529 0.312373 0.133621 -0.0277025
+-0.160405 -0.256215 -0.310361 -0.321853 -0.293419 -0.231146 -0.14382
+-0.0420646 0.062675 0.15919 0.237525 0.289861 0.311189 0.299717 0.256973
+0.187604 0.0988891 2.71956e-06 -0.098884 -0.1876 -0.25697 -0.299716
+-0.31119 -0.289863 -0.237529 -0.159195 -0.0626805 0.0420589 0.143815
+0.231141 0.293417 0.321852 0.310363 0.256219 0.160411 0.0277106 -0.133611
+-0.312363 -0.49528 -0.668067 -0.816548 -0.927834 -0.991402 -1 -0.9503
+-0.843238 -0.684018 -0.481762 -0.248855 -1.35978e-05 0.248829;
+#X coords 0 1 67 -1 200 140 1;
+#X restore 325 478 graph;
+#X msg 21 579 all array2 array1 2000;
+#X text 19 555 click on array3 to see morphing;
+#X text 17 474 morphing to another recipient;
+#X obj 20 524 clone fd_arraymorph 67 array4;
+#X obj 20 604 clone fd_arraymorph 67 array3;
+#X obj 52 289 loadbang;
+#X text 546 631 fdch;
+#X text 51 184 to make it work \, you need tosend a message like this
+to the clone inlet:;
+#X msg 19 354 cosinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
+#X msg 138 400 sinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
+#X text 22 631 NOTE: all arrays have size = 67;
+#X connect 17 0 24 0;
+#X connect 21 0 25 0;
+#X connect 26 0 29 0;
+#X connect 26 0 30 0;
+#X connect 29 0 14 0;
+#X connect 30 0 15 0;

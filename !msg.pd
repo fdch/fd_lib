@@ -1,0 +1,8 @@
+#N canvas 0 22 450 300 12;
+#X obj 25 86 list prepend wrong message:;
+#X obj 25 111 list trim;
+#X obj 25 38 inlet;
+#X obj 25 136 print \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;

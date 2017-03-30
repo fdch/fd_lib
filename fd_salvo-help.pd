@@ -1,0 +1,32 @@
+#N canvas 351 73 608 420 12;
+#X obj 96 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 96 163 t f f;
+#X obj 96 253 t f f;
+#X obj 96 314 print;
+#X obj 183 249 ==;
+#X obj 183 274 sel 1;
+#X obj 183 299 print ERROR;
+#X obj 96 81 metro 1;
+#X obj 261 235 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 96 197 fd_salvo 200;
+#X msg 132 120 10;
+#X text 208 35 get a random number from 0 to N (\$1) except the number
+sent to the first inlet, f 36;
+#X text 358 203 send a resize message with a new N, f 14;
+#X msg 344 177 resize 132;
+#X msg 205 121 143;
+#X connect 0 0 7 0;
+#X connect 1 0 9 0;
+#X connect 1 1 4 1;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 8 0;
+#X connect 7 0 10 0;
+#X connect 9 0 2 0;
+#X connect 10 0 1 0;
+#X connect 13 0 9 0;
+#X connect 14 0 1 0;

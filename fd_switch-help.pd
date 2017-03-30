@@ -1,0 +1,63 @@
+#N canvas 127 64 601 307 12;
+#X text 321 140 When a 1 or a 0 is received \, a 100 msec line runs
+via 1st outlet. If it's a 1 \, it runs after the 'on'-switching. If
+it's a 0 \, it runs before the 'off'-switching. Thus \, it makes switching
+'softer'., f 32;
+#X text 18 22 A soft switch.;
+#X obj 98 250 dac~;
+#N canvas 525 168 450 300 soft-switch 1;
+#X obj 43 209 outlet~;
+#X obj 250 75 fd_switch;
+#X obj 319 112 switch~;
+#X obj 43 168 *~;
+#X obj 43 43 osc~ 440;
+#X obj 43 68 *~ 0.2;
+#X obj 250 23 inlet;
+#X text 135 138 100 msec envelope to fadeout, f 10;
+#X text 320 139 toggle switching (1|0), f 11;
+#X text 24 19 whatever signal;
+#X text 302 23 1|0;
+#X connect 1 0 3 1;
+#X connect 1 1 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 1 0;
+#X restore 179 200 pd soft-switch;
+#N canvas 145 166 450 300 normal-switch 0;
+#X obj 43 209 outlet~;
+#X obj 250 129 switch~;
+#X obj 43 43 osc~ 440;
+#X obj 43 68 *~ 0.2;
+#X obj 250 23 inlet;
+#X text 30 13 whatever signal;
+#X text 120 176 no fadeout;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X restore 26 200 pd normal-switch;
+#X obj 184 156 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 27 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 45 151 < try this;
+#X text 205 153 < or this;
+#X text 17 55 [fd_switch] receives a 1 or a 0 via 1st inlet. It needs
+to be connected to a [switch~] object on the parent patch via 2nd outlet.
+The 1st outlet is meant to be multiplied to the last outgoing signal
+object of the parent patch. It is meant to reduce computation 'softly'
+, f 70;
+#N canvas 0 22 561 230 arguments 0;
+#X text 16 22 If one or more arguments are provided (max 3) \, these
+will be sent to the 2nd outlet. Arguments therefore behave just like
+the creation arguments for [switch~];
+#X text 15 103 You can also send a 'set' message via 1st inlet \, like
+in [switch~] or [block~];
+#X restore 466 268 pd arguments;
+#X text 348 267 see here -->;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;

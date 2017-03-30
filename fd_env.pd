@@ -1,6 +1,6 @@
-#N struct template-0 float x float y float z float s float id array
-array-0 template-0-element;
-#N struct template-0-element float y float s float w;
+#N struct template-1 float x float y float z float s float id array
+array-1 template-1-element;
+#N struct template-1-element float y float s float w;
 #N canvas 0 22 717 492 12;
 #X obj 235 323 pointer;
 #X msg 235 300 bang;
@@ -15,7 +15,7 @@ array-0 template-0-element;
 #X obj 382 244 pointer;
 #X obj 340 115 t b b b;
 #X msg 334 67 bang;
-#X msg 321 388 200;
+#X msg 321 388 30;
 #X obj 28 354 unpack;
 #X msg 415 341 set \$1;
 #X msg 515 19 clear;
@@ -104,15 +104,15 @@ the template subpatch.);
 #X text 328 121 click to get pointer;
 #X text 461 173 get size;
 #X text 221 158 set size;
-#X text 16 133 select an individual;
-#X text 16 153 element \, which is a;
-#X text 14 169 scalar with template;
-#X text 104 189 template5;
+#X text 14 131 select an individual;
+#X text 17 149 element \, which is a;
+#X text 18 171 scalar with template;
+#X text 149 200 template5;
 #X text 12 413 work as before \, but on;
 #X text 12 433 array elements...;
 #X text 433 424 Updated for Pd version 0.35;
 #X text 17 395 normal "set" amd "get";
-#N canvas 733 57 525 364 onload 0;
+#N canvas 733 57 525 364 onload 1;
 #X obj 18 12 loadbang;
 #X obj 18 65 t b b b b b;
 #X msg 203 108 clear;
@@ -171,35 +171,15 @@ the template subpatch.);
 #X obj 235 346 get template-\$1-element y;
 #X obj 244 229 setsize template-\$1 array-\$1;
 #X obj 476 253 getsize template-\$1 array-\$1;
-#N canvas 146 474 252 224 data-\$1 1;
-#X scalar template-0 20 20 200 1 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0
-\; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0 0 0 \; 0
-0 0 \; 0 0 0 \; \;;
+#N canvas 799 49 252 224 data-\$1 1;
+#X scalar template-1 20 20 30 6 1 \; 150 0 0 \; 107.48 0 0 \; 77.0126
+0 0 \; 55.1819 0 0 \; 39.54 0 0 \; 28.331 0 0 \; 20.3 0 0 \; 14.546
+0 0 \; 10.423 0 0 \; 7.468 0 0 \; 5.351 0 0 \; 3.834 0 0 \; 2.74699
+0 0 \; 1.96899 0 0 \; 1.411 0 0 \; 1.011 0 0 \; 0.723999 0 0 \; 0.518997
+0 0 \; 0.371994 0 0 \; 0.266006 0 0 \; 0.190994 0 0 \; 0.136993 0 0
+\; 0.0980072 0 0 \; 0.0700073 0 0 \; 0.0500031 0 0 \; 0.0359955 0 0
+\; 0.026001 0 0 \; 0.00999451 0 0 \; 0.00999451 0 0 \; 0.00999451 0
+0 \; \;;
 #X coords 0 224 1 223 0 0 0;
 #X restore 508 314 pd data-\$1;
 #N canvas 398 494 646 260 template-\$1 0;
@@ -230,7 +210,7 @@ can't plot the array..;
 #X connect 2 0 3 0;
 #X restore 508 360 pd template-\$1-element;
 #X obj 195 139 t a b;
-#X obj 32 270 route float;
+#X obj 52 197 route float;
 #X obj 256 130 f \$1;
 #X obj 33 323 unpack;
 #X obj 312 302 s \$0-size;

@@ -26,10 +26,10 @@
 #X obj 124 249 fd_exp 0.5;
 #X obj 29 18 inlet;
 #X obj 28 73 route poiss expon gauss cauch arcsi logis, f 68;
-#X msg 28 150 100;
-#X msg 124 150 100;
+#X msg 28 150 64;
+#X msg 124 150 64;
 #X obj 216 105 unpack;
-#X msg 216 150 100;
+#X msg 216 150 64;
 #X obj 505 105 unpack;
 #X obj 76 217 s \$0-i;
 #X obj 28 293 s \$0-f(x);
@@ -42,9 +42,9 @@
 #X obj 343 217 s \$0-i;
 #X obj 446 217 s \$0-i;
 #X obj 546 217 s \$0-i;
-#X msg 505 150 100;
-#X msg 403 150 100;
-#X msg 312 150 100;
+#X msg 505 150 64;
+#X msg 403 150 64;
+#X msg 312 150 64;
 #X obj 155 217 s \$0-i;
 #X text 458 15 Distributions as in Xenakis;
 #X text 473 34 Formalized Music;

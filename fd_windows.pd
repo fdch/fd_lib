@@ -1,8 +1,50 @@
-#N canvas 488 163 186 179 10;
-#X obj 12 12 hann \$1;
-#X obj 12 33 sync \$1 3.5;
-#X obj 12 53 triangle \$1;
-#X obj 12 73 3stagelin \$1 1.66;
-#X obj 12 94 expo \$1;
-#X obj 12 115 rexpo \$1;
-#X obj 12 137 fd_gauss-t \$1 3 0 0.44;
+#N canvas 495 25 456 306 12;
+#X msg 330 82 \; pd dsp 1;
+#X obj 156 36 loadbang;
+#X obj 156 62 t b b;
+#X obj 156 101 fd_sinc~ \$1-sin \$2;
+#X obj 156 121 fd_expo~ \$1-exp \$2;
+#X obj 156 141 fd_hann~ \$1-han \$2;
+#X obj 156 161 fd_rexpo~ \$1-rex \$2;
+#X obj 156 181 fd_gauss~ \$1-gau \$2;
+#X obj 156 201 fd_trapezoid~ \$1-tra \$2;
+#X obj 156 221 fd_blackman~ \$1-bla \$2;
+#X obj 156 241 fd_triangle~ \$1-tri \$2;
+#X text 235 36 see fd_windows-help.pd;
+#X obj 22 127 fd_tabswitch \$1;
+#X obj 23 8 inlet;
+#X obj 23 33 route sin exp han rex gau tra bla tri, f 12;
+#X text 19 274 call [fd_tabswitch \$0] from parent patch;
+#X obj 22 252 print;
+#X obj 72 8 r fd_windows-\$1;
+#N canvas 0 22 573 284 TODO 0;
+#X text 14 40 tabosc4~ is a traditional computer music style wavetable
+lookup oscillator using 4-point polynomial interpolation. The table
+should have a power of two points plus three "guard points" \, one
+at the beginning and two at the end \, which should be wraparound copies
+of the last point and the first two points \, respectively. The "sinesum"
+and "cosinesum" methods for arrays do this automatically for you if
+you just want to specify partial strengths.;
+#X text 244 215 from tabosc4-help.pd;
+#X restore 344 144 pd TODO;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 2 0 5 0;
+#X connect 2 0 6 0;
+#X connect 2 0 7 0;
+#X connect 2 0 8 0;
+#X connect 2 0 9 0;
+#X connect 2 0 10 0;
+#X connect 2 1 0 0;
+#X connect 12 0 16 0;
+#X connect 13 0 14 0;
+#X connect 14 0 3 0;
+#X connect 14 1 4 0;
+#X connect 14 2 5 0;
+#X connect 14 3 6 0;
+#X connect 14 4 7 0;
+#X connect 14 5 8 0;
+#X connect 14 6 9 0;
+#X connect 14 7 10 0;
+#X connect 17 0 14 0;
