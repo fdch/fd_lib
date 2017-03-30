@@ -12,11 +12,10 @@
 #X obj 156 241 fd_triangle~ \$1-tri \$2;
 #X text 235 36 see fd_windows-help.pd;
 #X obj 22 127 fd_tabswitch \$1;
-#X obj 23 8 inlet;
 #X obj 23 33 route sin exp han rex gau tra bla tri, f 12;
 #X text 19 274 call [fd_tabswitch \$0] from parent patch;
 #X obj 22 252 print;
-#X obj 72 8 r fd_windows-\$1;
+#X obj 23 9 r fd_windows-\$1;
 #N canvas 0 22 573 284 TODO 0;
 #X text 14 40 tabosc4~ is a traditional computer music style wavetable
 lookup oscillator using 4-point polynomial interpolation. The table
@@ -37,14 +36,13 @@ you just want to specify partial strengths.;
 #X connect 2 0 9 0;
 #X connect 2 0 10 0;
 #X connect 2 1 0 0;
-#X connect 12 0 16 0;
-#X connect 13 0 14 0;
-#X connect 14 0 3 0;
-#X connect 14 1 4 0;
-#X connect 14 2 5 0;
-#X connect 14 3 6 0;
-#X connect 14 4 7 0;
-#X connect 14 5 8 0;
-#X connect 14 6 9 0;
-#X connect 14 7 10 0;
-#X connect 17 0 14 0;
+#X connect 12 0 15 0;
+#X connect 13 0 3 0;
+#X connect 13 1 4 0;
+#X connect 13 2 5 0;
+#X connect 13 3 6 0;
+#X connect 13 4 7 0;
+#X connect 13 5 8 0;
+#X connect 13 6 9 0;
+#X connect 13 7 10 0;
+#X connect 16 0 13 0;

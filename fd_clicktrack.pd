@@ -1,4 +1,4 @@
-#N canvas 1043 498 233 169 10;
+#N canvas 1511 39 233 169 10;
 #X obj 10 10 cnv 15 198 198 empty empty empty 20 12 0 14 -33289 -66577
 0;
 #X obj 10 68 cnv 15 48 30 empty \$0-beat empty 20 12 0 14 -262144 -166441
@@ -27,9 +27,9 @@
 5 0 8 -261234 -1 -260097;
 #X obj 196 49 tgl 10 0 \$1-click \$1-click-set \$1-click: -40 5 0 8
 -1 -260097 -260097 0 1;
-#N canvas 17 23 1017 722 guts 0;
+#N canvas 50 61 1017 722 guts 1;
 #X obj 166 347 metro 220;
-#X obj 137 89 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 138 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 137 160 sel 1 0;
 #X obj 137 182 timer;
@@ -75,9 +75,9 @@
 #X obj 201 676 + 10;
 #X msg 399 353 color \$1 22 14;
 #X msg 43 234 set \$1;
-#X obj 137 24 key;
-#X obj 137 46 spigot;
-#X obj 137 68 sel 32;
+#X obj 138 36 key;
+#X obj 138 58 spigot;
+#X obj 138 80 sel 32;
 #X msg 436 78 keyboard input \$1;
 #X obj 344 20 sel 0 1;
 #X msg 360 44 symbol disabled;
@@ -113,7 +113,7 @@
 #X obj 372 566 r \$1-reset;
 #X obj 8 7 inlet;
 #X obj 861 485 r \$1-click;
-#X obj 170 25 r \$1-keys;
+#X obj 171 37 r \$1-keys;
 #X obj 166 369 f;
 #X obj 166 391 t f b;
 #X obj 166 850 s \$1-pulse;
@@ -148,15 +148,17 @@
 #X obj 24 52 s \$1-keys-set;
 #X obj 79 106 s \$1-click-set;
 #X obj 54 79 s \$1-click-onoff-set;
-#X obj 25 30 route keys onoff click reset goto;
+#X obj 27 30 route keys onoff click reset goto;
 #X obj 215 97 s \$1-goto;
+#X obj 242 45 !msg fd_clicktrack-\$1;
 #X connect 0 0 5 0;
 #X connect 5 0 2 0;
 #X connect 5 1 4 0;
 #X connect 5 2 3 0;
 #X connect 5 3 1 0;
 #X connect 5 4 6 0;
-#X restore 64 6 pd msg;
+#X connect 5 5 7 0;
+#X restore 64 53 pd msg;
 #X obj 311 363 f;
 #X obj 166 326 t f f b;
 #X obj 333 393 sel 0;
@@ -167,6 +169,7 @@
 #X obj 331 658 t f f;
 #X obj 331 636 r \$1-goto;
 #X obj 736 850 *~ 0.1;
+#X obj 47 9 r fd_clicktrack-\$1;
 #X connect 0 0 84 0;
 #X connect 1 0 35 0;
 #X connect 2 0 3 0;
@@ -327,6 +330,7 @@
 #X connect 120 1 38 0;
 #X connect 121 0 120 0;
 #X connect 122 0 73 0;
+#X connect 123 0 93 0;
 #X restore 15 234 pd guts;
 #X obj 15 213 inlet;
 #X obj 15 256 outlet~;
