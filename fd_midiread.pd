@@ -3,7 +3,7 @@
 #X obj 20 294 outlet;
 #X obj 105 15 inlet;
 #X obj 131 294 outlet;
-#N canvas 0 22 462 521 file 0;
+#N canvas 212 54 462 521 file 0;
 #X msg 37 355 read \$1;
 #X obj 37 320 makefilename;
 #X msg 258 187 /Users/nyu/Desktop/a.le-3.a-master/publish/midi, f
@@ -24,12 +24,10 @@
 #X obj 37 185 symbol \$1;
 #X obj 61 95 loadbang;
 #X obj 61 120 t b b;
-#X obj 246 441 print fd_midiread, f 11;
-#X obj 246 365 ggee/stripdir;
-#X msg 246 390 opened \$1;
+#X obj 276 453 s fd_midiread, f 14;
 #X connect 0 0 6 0;
+#X connect 0 0 18 0;
 #X connect 1 0 0 0;
-#X connect 1 0 19 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
@@ -44,10 +42,8 @@
 #X connect 15 0 1 0;
 #X connect 16 0 17 0;
 #X connect 17 0 15 0;
-#X connect 17 1 14 0;
 #X connect 17 1 9 0;
-#X connect 19 0 20 0;
-#X connect 20 0 18 0;
+#X connect 17 1 14 0;
 #X restore 105 98 pd file;
 #X text 173 95 <<- make sure path is working first, f 12;
 #N canvas 0 22 398 403 line 0;

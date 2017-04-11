@@ -1,0 +1,16 @@
+#N canvas 0 22 398 241 12;
+#X msg 36 84 symbol pd-\$1;
+#X obj 36 191 s;
+#X obj 36 109 t b a;
+#X obj 36 60 symbol;
+#X obj 36 28 inlet;
+#X text 122 33 send a subpatch name to open;
+#X obj 36 134 f \$1;
+#X msg 36 163 vis \$1;
+#X connect 0 0 2 0;
+#X connect 2 0 6 0;
+#X connect 2 1 1 1;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;

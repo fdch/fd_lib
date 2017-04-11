@@ -1,4 +1,4 @@
-#N canvas 441 20 794 461 10;
+#N canvas 441 22 794 461 10;
 #X declare -stdlib Gem;
 #X obj 479 71 cnv 15 300 350 empty empty empty 20 12 0 14 -228992 -66577
 0;
@@ -76,7 +76,7 @@ float| expo float| cosine | sine |;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
 #X restore 683 400 pd gemwin;
-#X msg 683 381 destroy;
+#X msg 683 381 create;
 #X text 679 365 Create window:;
 #X text 604 51 TURN DSP ON!;
 #X text 465 20 GEM abstraction part of fd_lib;

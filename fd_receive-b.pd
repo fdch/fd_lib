@@ -1,0 +1,7 @@
+#N canvas 712 133 450 300 12;
+#X obj 48 105 s \$2;
+#X text 53 149 intended to be used with fd_printer.pd;
+#X obj 48 53 r \$3-\$1;
+#X obj 48 79 list prepend \$3-\$1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;

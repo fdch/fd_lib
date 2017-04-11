@@ -1,4 +1,4 @@
-#N canvas 0 22 329 118 10;
+#N canvas 0 22 325 181 10;
 #X obj 10 10 cnv 15 300 30 empty \$0-fd_netsend MAIN_VIDEO_PATCH 10
 15 1 14 -1 -24198 0;
 #X obj 205 15 cnv 14 100 20 empty empty empty 0 7 1 8 -162280 -1 0
@@ -9,7 +9,7 @@
 -225271 -1 -1;
 #X obj 269 18 cnv 14 33 14 \$0-cnv \$0-cnv-set conctd 2 7 1 9 -225271
 -1 0;
-#N canvas 0 22 342 370 netreceive 1;
+#N canvas 0 22 342 370 netreceive 0;
 #X msg 46 180 listen 0;
 #X obj 126 286 s from-audio-pd;
 #X obj 39 231 netreceive;
@@ -69,6 +69,9 @@
 #X obj 171 203 s \$0-port-set;
 #X text 207 116 auto listen after 100msec, f 13;
 #X obj 205 99 del 200;
+#X obj 139 321 sel 1;
+#X obj 139 343 symbol gemwin;
+#X obj 139 365 fd_visera 1;
 #X connect 0 0 2 0;
 #X connect 2 0 13 0;
 #X connect 3 0 2 0;
@@ -86,9 +89,12 @@
 #X connect 11 0 2 0;
 #X connect 12 0 0 0;
 #X connect 13 0 14 0;
+#X connect 13 0 19 0;
 #X connect 13 1 1 0;
 #X connect 15 0 14 0;
 #X connect 18 0 5 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
 #X restore 11 64 pd netreceive ___________________________________
 ;
 #N canvas 0 22 450 300 report 0;
@@ -122,4 +128,10 @@ pd, f 15;
 #X restore 11 44 pd report _______________________________________
 ;
 #X text 9 85 change port number if there is no connection;
+#X obj 165 17 bng 15 250 50 0 empty empty gem 17 7 0 10 -204786 -1
+-262144;
+#X obj 181 117 symbol gemwin;
+#X obj 181 139 fd_visera 1;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
 #X coords 0 -1 1 1 300 30 2 10 10;

@@ -1,0 +1,15 @@
+#N canvas 0 22 736 440 12;
+#X obj 135 150 fd_dataGui dataWalk;
+#X text 239 214 <-- select tables to graph to: usually 0-6;
+#X text 141 255 ^||, f 1;
+#X text 196 98 ||v, f 1;
+#X text 239 229 <-- BANG TO GRAPH;
+#X text 237 146 <-- Toggling types each time you graph (the default)
+;
+#X text 210 87 <type> is 0|1 \, it inverts the curve, f 19;
+#X text 239 168 <-- <const>: only for Line: like array const;
+#X text 239 183 <-- <coef>: only for Exp: it adjusts steepness.;
+#X text 238 199 <-- <range>: (min-max) only for Walk type 1;
+#X text 137 308 Toggle <all> to graph all tables \, see [clone];
+#X text 132 29 [fd_dataGui] is to be used in conjunction with the fd_data
+abstractions for handling data structure arrays:;

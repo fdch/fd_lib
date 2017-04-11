@@ -21,6 +21,8 @@
 #X msg 307 188 bang;
 #X obj 307 213 array size \$1;
 #X obj 323 244 - 2;
+#X obj 386 248 - 1;
+#X msg 383 284 0 \, 1;
 #X connect 0 0 11 0;
 #X connect 1 0 2 1;
 #X connect 2 0 7 0;
@@ -46,5 +48,9 @@
 #X connect 17 2 7 1;
 #X connect 18 0 10 0;
 #X connect 19 0 20 0;
+#X connect 19 0 23 0;
 #X connect 20 0 21 0;
+#X connect 20 0 22 0;
 #X connect 21 0 18 0;
+#X connect 22 0 18 0;
+#X connect 23 0 18 0;

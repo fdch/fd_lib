@@ -1,0 +1,41 @@
+#N canvas 0 22 450 300 12;
+#X obj 10 10 cnv 25 312 25 empty empty fd_dataStoreGui 2 6 0 10 -233017
+-1 0;
+#X obj 10 35 cnv 15 312 15 empty empty <---------------recall 180 8
+0 10 -191407 -1 0;
+#X msg 32 133 open 1;
+#X msg 265 103 reset;
+#X msg 114 103 store;
+#X obj 108 14 bng 15 250 50 0 empty empty store 17 7 0 10 -262144 -1
+-1;
+#X obj 205 14 bng 15 250 50 0 empty empty restore 17 7 0 10 -262144
+-1 -1;
+#X obj 301 14 bng 15 250 50 0 empty empty reset -32 7 0 10 -262144
+-1 -1;
+#X obj 156 14 nbx 2 14 0 30 0 0 empty empty --> 30 8 0 10 -262144 -1
+-1 0 256;
+#X obj 10 35 hradio 15 1 0 9 empty stored-presets 9-presets 4 -7 0
+10 -262144 -1 -1 4;
+#X obj 169 76 f;
+#X msg 169 103 restore \$1;
+#X msg 251 168 set \$1;
+#X obj 251 143 r stored-presets;
+#X obj 30 244 s dataRead;
+#X obj 139 244 s dataWrite;
+#X obj 119 198 list trim;
+#X obj 10 200 list trim;
+#X connect 2 0 17 0;
+#X connect 3 0 16 0;
+#X connect 4 0 16 0;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 3 0;
+#X connect 8 0 10 1;
+#X connect 9 0 17 0;
+#X connect 10 0 11 0;
+#X connect 11 0 16 0;
+#X connect 12 0 8 0;
+#X connect 13 0 12 0;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X coords 0 -1 1 1 312 40 1 10 10;
