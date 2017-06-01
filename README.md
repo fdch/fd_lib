@@ -36,7 +36,7 @@ Any file/folder that is not preceded by "fd\_", e.g., [mainpath](mainpath)
 
 #### Building tools
 
-* [dirslist.sh](dirslist.sh): tool to get helpfiles and abstractions into homonymous directories.
+* [dirlist.sh](dirlist.sh): tool to get helpfiles and abstractions into homonymous directories.
 * [fdlib.sh](fdlib.sh): makes the Makefile required by pdlibbuilder
 
 #### Workstation template
