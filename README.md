@@ -32,6 +32,11 @@ Any file/folder that is preceded by "fd\_", e.g., [fd_norm](fd_norm)
 ### Objects
 Any file/folder that is not preceded by "fd\_", e.g., [mainpath](mainpath)
 
+### Tutorials
+
+#### [pd-messages](tutorials/pd-messages)
+A brief tutorial on (mostly) undocumented pd-related messages.
+
 ### Scripts
 
 #### Building tools
@@ -42,15 +47,15 @@ Any file/folder that is not preceded by "fd\_", e.g., [mainpath](mainpath)
 #### Workstation template
 * [fdpd](fdpd): Sets up paired instances of Pd to work with Gem.
 
-## Navigating through the library
+### Navigating through the library
 
-###  [fd_navigator](fd_navigator)
+####  [fd_navigator](fd_navigator)
 Navigate throught the helpfiles using Cmd or Control + Left or Right
 
-###  [fd_getfiles](fd_getfiles)
+####  [fd_getfiles](fd_getfiles)
 The help file for this abstraction includes a file navigation tool.
 
-###  Open Pd's *Help Browser* (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
+####  Open Pd's *Help Browser* (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
 
 ## Github pushes on branch <0.01>
 Use and edit whatever you want, but please see the instructions below to push to the branch.
