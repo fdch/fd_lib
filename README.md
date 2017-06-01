@@ -1,56 +1,39 @@
 # fd_lib
-This is my personal library of Pd. Any suggestions are more than welcome.
-Enjoy!
+A suite of abstractions, objects, tutorials, and some shell scripts to work with Puredata.
 
-## Get the library (first time only, or for a blank slate)
+## Get the library
 
-	$ git clone http://github.com/fdch/fd_lib fd_lib
-	
+	$ git clone http://github.com/fdch/fd_lib
 
-## Declare the library
+## Compilation
+Run this script and follow instructions. You might need to clone pdlibbuilder for this:
+
+	$ ./fdlib.sh
+
+## Declare the library on Pd
 1. Put this object on a Pd patch
 
-	[declare -lib fd_lib -path fd_lib]
+	[declare -path fd_lib]
 	
-1. OR: Put/send this message and replace "/path/to/" with your actual path and click it:
+1. Alternatively, put this message and replace "/path/to/" with your actual path and click it:
 	
 	[;
 	pd path-dialog 1 1 +/path/to/fd_lib, save_preferences(
 	
-1. OR: set the path from PREFERENCES>PATH dialog
+1. Alternatively: set the path from PREFERENCES>PATH dialog
 
-## Compile the library
-
-================================================================================
-
-Thanks to the amazing Pd Lib Builder, you can simply do the following:
-
-================================================================================
-
-To compile the library run:
-
-	$ make
-
-To build the entire library in <fd_lib>
-
-	$ make install
-
-You can also compile single files, e.g., 
-
-	$ make counter.pd_darwin
-	
-================================================================================
 
 ## OVERVIEW
-1. Open the HELP>Browser (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
 
 2. Use [fd_navigator.pd](fd_navigator/fd_navigator.pd) to navigate throught the helpfiles using Cmd or Control + Left or Right
 
 3. See the help file for [fd_getfiles.pd](fd_getfiles/fd_getfiles.pd)
 
-3. Use/Edit whatever you want. See instructions below to push to the branch.
+1. Open the HELP>Browser (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
 
-## GITHUB PUSHES ON BRANCH <0.01> (from terminal)
+
+## Github pushes on branch <0.01>
+Use and edit whatever you want, but please see the instructions below to push to the branch.
 
 Initialize git
 
