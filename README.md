@@ -22,8 +22,7 @@ Run this script and follow instructions. You might need to clone [pdlibbuilder](
 	
 1. Alternatively: set the path from PREFERENCES>PATH dialog
 
-
-## OVERVIEW
+## Brief overview
 
 In Pd, right-click on any file to get the help file. For a full list of objects, see [list.txt](list.txt)
 
@@ -31,7 +30,7 @@ In Pd, right-click on any file to get the help file. For a full list of objects,
 Any file/folder that is preceded by "fd\_", e.g., [fd_norm](fd_norm)
 
 ### Objects
-Any file/folder that is not preceded by "fd_"
+Any file/folder that is not preceded by "fd\_", e.g., [mainpath](mainpath)
 
 ### Scripts
 
@@ -43,44 +42,47 @@ Any file/folder that is not preceded by "fd_"
 #### Workstation template
 [fdpd](fdpd): Sets up paired instances of Pd to work with Gem.
 
-2. Use [fd_navigator](fd_navigator) to navigate throught the helpfiles using Cmd or Control + Left or Right
+## Navigating through the library
 
-3. See the help file for [fd_getfiles](fd_getfiles)
+###  [fd_navigator](fd_navigator)
+Navigate throught the helpfiles using Cmd or Control + Left or Right
 
-1. Open the HELP>Browser (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
+###  [fd_getfiles](fd_getfiles)
+The help file for this abstraction includes a file navigation tool.
 
+###  Open Pd's *Help Browser* (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
 
 ## Github pushes on branch <0.01>
 Use and edit whatever you want, but please see the instructions below to push to the branch.
 
-Initialize git
+### Initialize git
 
 	$ cd fd_lib
 	$ git init
 
-Check what you have actually edited:
+### Check what you have actually edited:
 
 	$ git status
 
-Choose what you want to commit and add it like this
+### Choose what you want to commit and add it like this
 
 	$ git add <file1>
 	$ git add <dir/file2>
 
-Or choose All Files:
+### Alternatively, choose All Files:
 
 	$ git add .
 
-Describe briefly:
+### Describe briefly:
 
 	$ git commit -m "description"
 
-Double check:
+### Double check:
 
 	$ git remote add origin http://github.com/fdch/fd_lib
 	$ git remote -v
 
-Push to the branch:
+### Push to the branch:
 
 	$ git push -u origin 0.01
 
