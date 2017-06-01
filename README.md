@@ -52,34 +52,34 @@ You can also compile single files, e.g.,
 
 ## GITHUB PUSHES ON BRANCH <0.01> (from terminal)
 
-3. Initialize git
+Initialize git
 
 	$ cd fd_lib
 	$ git init
 
-4. Check what you have actually edited:
+Check what you have actually edited:
 
 	$ git status
 
-5. Choose what you want to commit and add it like this
+Choose what you want to commit and add it like this
 
 	$ git add <file1>
 	$ git add <dir/file2>
 
-6. Or choose All Files:
+Or choose All Files:
 
 	$ git add .
 
-7. Describe briefly:
+Describe briefly:
 
 	$ git commit -m "description"
 
-8. Double check:
+Double check:
 
 	$ git remote add origin http://github.com/fdch/fd_lib
 	$ git remote -v
 
-9. Push to the branch:
+Push to the branch:
 
 	$ git push -u origin 0.01
 
