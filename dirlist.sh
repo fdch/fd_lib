@@ -12,8 +12,8 @@ PLACEHOLDER=$(echo "
 #X text 400 300 fd_lib;
 ")
 PLACEHOLDERREADME=$(echo "
-#README 
-$i is part of fd_lib
+# $i 
+$i is part of fd_lib.
 ")
 #Check first that directory doesn't exist
 if [ ! -d $i ]; then 
