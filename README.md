@@ -13,7 +13,7 @@ Run the following and follow instructions on terminal:
 	$ cd fd_lib
 	$ ./fdlib.sh
 
-If pd-lib-builder is somewhere else, you need to have pass the path to pddlibbuilder as an argument:
+If pd-lib-builder is somewhere else, you need to pass the path to pd-lib-builder as an argument:
 
 	$ ./fdlib.sh /path/to/pd-lib-builder
 
