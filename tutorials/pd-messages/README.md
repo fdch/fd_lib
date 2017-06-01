@@ -8,5 +8,5 @@ This tutorial is still on the makings, so any suggestions will be more than welc
 
 ### Useful resources:
 * [PdWiki](http://puredata.info/community/pdwiki/PdInternalMessages/): a list of all pd-messages and a tutorial (Pd-0.34) by Damien Henry
-* [iemguts](https://git.iem.at/pd) is really convenient for canvas-related stuff
+* [iemguts](https://git.iem.at/pd/iemguts.git) is really convenient for canvas-related stuff
 * [Barknecht](http://puredata.info/community/conventions/convention04/lectures/tk-barknecht): a tutorial on data structures

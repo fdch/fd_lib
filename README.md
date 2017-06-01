@@ -91,5 +91,14 @@ Use and edit whatever you want, but please see the instructions below to push to
 
 	$ git push -u origin 0.01
 
+## Dependencies
+Some abstractions depend on the following libraries. You can simply get them via deken (*Help/Find Externals*) or here:
+* [ggee](https://github.com/pure-data/ggee)
+* [iemguts](https://git.iem.at/pd/iemguts.git)
+* [zexy](https://git.iem.at/pd/zexy.git)
+* [Gem](https://gem.iem.at/)
+* [cyclone](https://github.com/porres/pd-cyclone)
+
 ## Issues
 fch226 at nyu dot edu
+
