@@ -25,9 +25,27 @@ Run this script and follow instructions. You might need to clone [pdlibbuilder](
 
 ## OVERVIEW
 
-2. Use [fd_navigator.pd](fd_navigator/fd_navigator.pd) to navigate throught the helpfiles using Cmd or Control + Left or Right
+In Pd, right-click on any file to get the help file. For a full list of objects, see [list.txt](list.txt)
 
-3. See the help file for [fd_getfiles.pd](fd_getfiles/fd_getfiles.pd)
+### Abstractions
+Any file/folder that is preceded by "fd\_", e.g., [fd_norm](fd_norm)
+
+### Objects
+Any file/folder that is not preceded by "fd_"
+
+### Scripts
+
+#### Building tools
+
+[dirslist.sh](dirslit.sh): tool to get helpfiles and abstractions into homonymous directories.
+[fdlib.sh](fdlib.sh): makes the Makefile required by pdlibbuilder
+
+#### Workstation template
+[fdpd](fdpd): Sets up paired instances of Pd to work with Gem.
+
+2. Use [fd_navigator](fd_navigator) to navigate throught the helpfiles using Cmd or Control + Left or Right
+
+3. See the help file for [fd_getfiles](fd_getfiles)
 
 1. Open the HELP>Browser (Cmd+b) or (ctrl+b) and navigate to the *fd_lib* entry
 
