@@ -1,0 +1,11 @@
+#N canvas 462 23 450 300 12;
+#X obj 127 99 fd_log 5;
+#X floatatom 127 124 0 0 0 0 - - -;
+#X floatatom 127 67 5 0 0 0 - - -, f 5;
+#X text 132 186 Inlet 1 (float) : 0-1;
+#X text 134 208 Argument/Inlet 2: division factor;
+#X text 102 27 Normalized log function;
+#X floatatom 212 67 5 0 0 0 - - -, f 5;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 6 0 0 1;

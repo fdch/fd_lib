@@ -1,0 +1,11 @@
+[loadbang]
+|
+[toggle]
+|
+[metro 100]
+|
+[toggle]
+|
+[my number is $1(
+|
+[print]

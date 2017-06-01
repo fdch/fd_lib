@@ -1,0 +1,30 @@
+#N canvas 522 53 564 400 12;
+#X text 87 290 instance N of clone depends on size of data array;
+#X obj 63 52 inlet;
+#X text 53 29 cloning indexes and making a line for each value pair
+;
+#X text 265 74 \$1 == data id;
+#X text 266 93 \$2 == size of data array;
+#X text 227 57 arguments:;
+#X obj 63 257 list trim;
+#X msg 194 257 vis 29 1;
+#X text 226 148 inlet 1 : list source (id) \, target (id) \, time (msec)
+, f 37;
+#X obj 63 321 clone fd_dataMorphArray \$2 \$1 \$3;
+#X obj 81 117 t b a;
+#X obj 63 232 list;
+#X obj 63 153 fd_delit \$2 100;
+#X obj 63 178 bang;
+#X msg 63 203 next;
+#X obj 63 77 route delit;
+#X connect 1 0 15 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 10 0 12 0;
+#X connect 10 1 11 1;
+#X connect 11 0 6 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 12 0;
+#X connect 15 1 10 0;

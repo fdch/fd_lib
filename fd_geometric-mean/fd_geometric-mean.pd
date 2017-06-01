@@ -1,0 +1,20 @@
+#N canvas 525 51 450 300 10;
+#X msg 63 14 16.5 \, 181.8 \, 162.9 \, 248 \, 342.52 \, 245.7 \, 2.4
+;
+#X obj 95 122 int 1;
+#X msg 138 47 bang;
+#X obj 70 192 pow;
+#X obj 95 100 t b b;
+#X obj 95 157 / 7;
+#X obj 63 80 t f b;
+#X obj 70 214 print;
+#X obj 63 36 fd_mult;
+#X connect 0 0 8 0;
+#X connect 1 0 5 0;
+#X connect 2 0 8 1;
+#X connect 3 0 7 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 1;
+#X connect 6 0 3 0;
+#X connect 6 1 4 0;
+#X connect 8 0 6 0;

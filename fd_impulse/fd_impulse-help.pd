@@ -1,0 +1,14 @@
+#N canvas 528 57 450 300 12;
+#X obj 198 138 fd_impulse 64;
+#X floatatom 299 112 5 0 0 0 - - -, f 5;
+#X floatatom 198 110 5 0 0 0 - - -, f 5;
+#X obj 128 74 osc~ 440;
+#X obj 128 175 *~;
+#X obj 128 231 dac~;
+#X text 98 29 pulsetrain using lrshifting;
+#X connect 0 0 4 1;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;

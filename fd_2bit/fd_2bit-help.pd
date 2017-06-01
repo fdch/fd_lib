@@ -1,0 +1,6 @@
+#N canvas 569 64 450 300 12;
+#X obj 42 121 print;
+#X msg 42 36 all bang;
+#X obj 42 79 clone fd_2bit 128;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;

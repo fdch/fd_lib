@@ -1,4 +1,4 @@
-#N canvas 483 61 597 352 12;
+#N canvas 527 49 597 352 12;
 #X msg 85 144 bang;
 #X msg 95 173 set -1000 1000;
 #X obj 85 279 crand -1 1;

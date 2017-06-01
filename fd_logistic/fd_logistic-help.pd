@@ -1,0 +1,26 @@
+#N canvas 527 54 467 381 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array logic 10 float 3;
+#A 0 2 1.36788 1.13534 1.04979 1.01832 1.00674 1.00248 1.00091 1.00034
+1.00012;
+#X coords 0 -4 10 4 200 140 1 0 0;
+#X restore 215 103 graph;
+#X obj 41 223 /;
+#X obj 41 250 tabwrite logic;
+#X msg 41 60 bang;
+#X obj 41 85 fd_iterate 10;
+#X obj 41 143 exp;
+#X obj 41 168 t f f;
+#X obj 41 193 + 1;
+#X obj 221 282 fd_logistic 3.3 1.3;
+#X obj 41 118 t f f;
+#X text 218 313 see fd_distributions-help.pd;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 1 1;
+#X connect 7 0 1 0;
+#X connect 9 0 5 0;
+#X connect 9 1 2 1;

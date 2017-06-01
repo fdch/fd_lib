@@ -1,0 +1,42 @@
+#N canvas 528 42 711 566 12;
+#X text 388 59 Inlet/argument \$1:;
+#X msg 43 91 ..;
+#X obj 33 317 fd_getfiles;
+#X msg 33 64 bang;
+#X symbolatom 119 363 0 0 0 0 found_file - -;
+#X msg 57 123 ../..;
+#X msg 96 281 reset;
+#X text 312 219 Up / Down Keys / Click : Selection;
+#X text 359 306 TIP: Use ".." to go back one dir;
+#X text 308 187 MENU NAVIGATION;
+#X text 116 25 GET FILES FROM A DIRECTORY AND DISPLAY A MENU;
+#X text 391 104 Outlet: (symbol) selected file or path/to/file, f
+25;
+#X text 312 238 Return Key / Double-click : Enter dir || Open;
+#X text 311 257 Escape key : Close the canvas;
+#X text 400 81 New (relative) directory.;
+#X text 49 494 BUG: paths get stacked when entering dir or opening
+files. It works \, but if path is too long \, it might end up braking.
+You can use "reset" to temporarily get away with this., f 70;
+#X msg 85 226 keys \$1;
+#X obj 85 190 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 107 185 enable/disable Key Input (def ault 1), f 18;
+#X msg 70 149 ../lorenz;
+#X text 79 91 <-- change directory;
+#X text 77 64 <-- current directory;
+#X text 235 8 "file navigator";
+#X obj 369 456 back;
+#X obj 415 455 scroll;
+#X text 371 427 see help for these:;
+#X obj 476 454 fd_list-pointer;
+#X text 310 279 Page Up/Down: Scroll Up / Down;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X connect 16 0 2 0;
+#X connect 17 0 16 0;
+#X connect 19 0 2 0;
+#X coords 0 0 1 1 85 60 0;

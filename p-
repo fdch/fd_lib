@@ -1,5 +1,5 @@
 #!/bin/bash
-ls -l > list.txt
+
 ARG=$1
 git init
 git add .

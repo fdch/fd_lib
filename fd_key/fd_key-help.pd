@@ -1,0 +1,4 @@
+#N canvas 521 52 463 254 12;
+#X text 20 116 on/off -->;
+#X text 122 51 An unfinished bang keyboard;
+#X obj 112 87 fd_key;

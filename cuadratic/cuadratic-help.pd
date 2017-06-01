@@ -1,4 +1,4 @@
-#N canvas 1044 218 450 300 10;
+#N canvas 698 251 450 300 10;
 #X obj 51 189 cuadratic;
 #X msg 18 149 reset;
 #X msg 171 140 bang;
@@ -41,7 +41,7 @@
 #X floatatom 120 18 5 0 0 0 - - -, f 5;
 #X floatatom 56 18 5 0 0 0 - - -, f 5;
 #X text 3 11 reset;
-#N canvas 331 108 719 529 some-cool-sounds 1;
+#N canvas 331 108 719 529 some-cool-sounds 0;
 #X obj 389 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 371 95 cuadratic;

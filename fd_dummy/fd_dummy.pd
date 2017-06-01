@@ -1,0 +1,11 @@
+#N canvas 524 50 450 300 12;
+#X text 64 19 This file is used in fd_arg1-help.pd;
+#X obj 63 120 fd_arg1 \$1;
+#X obj 63 55 inlet;
+#X obj 64 211 outlet;
+#X obj 123 211 outlet;
+#X obj 182 212 outlet;
+#X connect 1 0 3 0;
+#X connect 1 1 4 0;
+#X connect 1 2 5 0;
+#X connect 2 0 1 0;
