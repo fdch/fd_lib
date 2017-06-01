@@ -3,21 +3,21 @@ This is my personal library of Pd. Any suggestions are more than welcome.
 Enjoy!
 
 ## Get the library (first time only, or for a blank slate)
-1. Click the green download-as-zip button above or do this from terminal:
-	
-	$ git clone http://github.com/fdch/fd_lib fd_lib
 
-2. Declare the library
-	1. Put this object on a Pd patch
+$ git clone http://github.com/fdch/fd_lib fd_lib
+	
+
+## Declare the library
+1. Put this object on a Pd patch
 
 	[declare -lib fd_lib -path fd_lib]
 	
-	1. OR: Put/send this message and replace "/path/to/" with your actual path and click it:
+1. OR: Put/send this message and replace "/path/to/" with your actual path and click it:
 	
 	[;
 	pd path-dialog 1 1 +/path/to/fd_lib, save_preferences(
 	
-	1. OR: set the path from PREFERENCES>PATH dialog
+1. OR: set the path from PREFERENCES>PATH dialog
 
 ## Compile the library
 
