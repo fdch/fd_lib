@@ -6,21 +6,21 @@ A suite of abstractions, objects, tutorials, and some shell scripts to work with
 	$ git clone http://github.com/fdch/fd_lib
 
 ## Compilation
-Run this script and follow instructions. You might need to clone [pdlibbuilder](https://github.com/pure-data/pd-lib-builder) for this:
+Run this script and follow instructions. You need to have [pdlibbuilder](https://github.com/pure-data/pd-lib-builder) for this:
 
-	$ ./fdlib.sh
+	$ ./fdlib.sh /path/to/pdlibbuilder
 
 ## Declare the library on Pd
-1. Put this object on a Pd patch
+* Put this object on a Pd patch
 
 	[declare -path fd_lib]
 	
-1. Alternatively, put this message and replace "/path/to/" with your actual path and click it:
+* Alternatively, put this message and replace "/path/to/" with your actual path and click it:
 	
 	[;
 	pd path-dialog 1 1 +/path/to/fd_lib, save_preferences(
 	
-1. Alternatively: set the path from PREFERENCES>PATH dialog
+* Alternatively: set the path from PREFERENCES>PATH dialog
 
 ## Brief overview
 
@@ -36,11 +36,11 @@ Any file/folder that is not preceded by "fd\_", e.g., [mainpath](mainpath)
 
 #### Building tools
 
-[dirslist.sh](dirslit.sh): tool to get helpfiles and abstractions into homonymous directories.
-[fdlib.sh](fdlib.sh): makes the Makefile required by pdlibbuilder
+* [dirslist.sh](dirslist.sh): tool to get helpfiles and abstractions into homonymous directories.
+* [fdlib.sh](fdlib.sh): makes the Makefile required by pdlibbuilder
 
 #### Workstation template
-[fdpd](fdpd): Sets up paired instances of Pd to work with Gem.
+* [fdpd](fdpd): Sets up paired instances of Pd to work with Gem.
 
 ## Navigating through the library
 
