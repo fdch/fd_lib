@@ -68,7 +68,7 @@ To compile the library run:
 
 To build the entire library in <fd_lib>
 
-	$ make install
+	$ make install objectsdir=./
 
 You can also compile single files, e.g., 
 
