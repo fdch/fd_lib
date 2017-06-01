@@ -1,1 +1,3 @@
-#README ./fd_scales is part of fd_lib
+# fd_scales 
+part of fd_lib
+

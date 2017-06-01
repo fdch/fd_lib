@@ -1,1 +1,3 @@
-#README ./fd_spat is part of fd_lib
+# fd_spat 
+part of fd_lib
+

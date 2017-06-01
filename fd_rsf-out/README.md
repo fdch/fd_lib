@@ -1,1 +1,3 @@
-#README ./fd_rsf-out is part of fd_lib
+# fd_rsf-out 
+part of fd_lib
+

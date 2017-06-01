@@ -1,1 +1,3 @@
-#README ./fd_not is part of fd_lib
+# fd_not 
+part of fd_lib
+

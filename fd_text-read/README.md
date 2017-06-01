@@ -1,1 +1,3 @@
-#README ./fd_text-read is part of fd_lib
+# fd_text-read 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_objcreator is part of fd_lib
+# fd_objcreator 
+part of fd_lib
+

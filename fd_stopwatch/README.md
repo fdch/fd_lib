@@ -1,1 +1,3 @@
-#README ./fd_stopwatch is part of fd_lib
+# fd_stopwatch 
+part of fd_lib
+

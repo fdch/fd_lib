@@ -1,1 +1,3 @@
-#README ./fd_own is part of fd_lib
+# fd_own 
+part of fd_lib
+

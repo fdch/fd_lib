@@ -1,1 +1,3 @@
-#README ./fd_oscil is part of fd_lib
+# fd_oscil 
+part of fd_lib
+

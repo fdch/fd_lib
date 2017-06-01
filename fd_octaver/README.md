@@ -1,1 +1,3 @@
-#README ./fd_octaver is part of fd_lib
+# fd_octaver 
+part of fd_lib
+

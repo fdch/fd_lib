@@ -1,1 +1,3 @@
-#README ./fd_rec1 is part of fd_lib
+# fd_rec1 
+part of fd_lib
+

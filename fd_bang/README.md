@@ -1,1 +1,3 @@
-#README ./fd_bang is part of fd_lib
+# fd_bang 
+part of fd_lib
+

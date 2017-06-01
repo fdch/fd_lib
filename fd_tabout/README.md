@@ -1,1 +1,3 @@
-#README ./fd_tabout is part of fd_lib
+# fd_tabout 
+part of fd_lib
+

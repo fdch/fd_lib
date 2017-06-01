@@ -1,1 +1,3 @@
-#README ./fd_spigot3 is part of fd_lib
+# fd_spigot3 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_rgb is part of fd_lib
+# fd_rgb 
+part of fd_lib
+

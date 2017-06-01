@@ -1,1 +1,3 @@
-#README ./fd_markov is part of fd_lib
+# fd_markov 
+part of fd_lib
+

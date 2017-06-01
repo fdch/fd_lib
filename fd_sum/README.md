@@ -1,1 +1,3 @@
-#README ./fd_sum is part of fd_lib
+# fd_sum 
+part of fd_lib
+

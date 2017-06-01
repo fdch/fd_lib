@@ -1,1 +1,3 @@
-#README ./fd_weightor-test is part of fd_lib
+# fd_weightor-test 
+part of fd_lib
+

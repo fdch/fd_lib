@@ -1,1 +1,3 @@
-#README ./fd_test-plott2 is part of fd_lib
+# fd_test-plott2 
+part of fd_lib
+

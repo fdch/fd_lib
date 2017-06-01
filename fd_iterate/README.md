@@ -1,1 +1,3 @@
-#README ./fd_iterate is part of fd_lib
+# fd_iterate 
+part of fd_lib
+

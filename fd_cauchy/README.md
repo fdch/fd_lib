@@ -1,1 +1,3 @@
-#README ./fd_cauchy is part of fd_lib
+# fd_cauchy 
+part of fd_lib
+

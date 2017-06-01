@@ -1,1 +1,3 @@
-#README ./fd_GEMbuffsize is part of fd_lib
+# fd_GEMbuffsize 
+part of fd_lib
+

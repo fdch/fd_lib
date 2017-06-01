@@ -1,1 +1,3 @@
-#README ./fd_zero-crossing~ is part of fd_lib
+# fd_zero-crossing~ 
+part of fd_lib
+

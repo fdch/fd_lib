@@ -1,1 +1,3 @@
-#README ./fd_interp~ is part of fd_lib
+# fd_interp~ 
+part of fd_lib
+

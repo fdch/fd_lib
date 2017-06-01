@@ -1,1 +1,3 @@
-#README ./fd_arrayautotrim is part of fd_lib
+# fd_arrayautotrim 
+part of fd_lib
+

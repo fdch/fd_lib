@@ -1,1 +1,3 @@
-#README ./fd_s-prob is part of fd_lib
+# fd_s-prob 
+part of fd_lib
+

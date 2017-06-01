@@ -1,1 +1,3 @@
-#README ./fd_miller-gauss is part of fd_lib
+# fd_miller-gauss 
+part of fd_lib
+

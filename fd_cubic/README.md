@@ -1,1 +1,3 @@
-#README ./fd_cubic is part of fd_lib
+# fd_cubic 
+part of fd_lib
+

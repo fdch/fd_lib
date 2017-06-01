@@ -1,1 +1,3 @@
-#README ./fd_dataMorphWidth is part of fd_lib
+# fd_dataMorphWidth 
+part of fd_lib
+

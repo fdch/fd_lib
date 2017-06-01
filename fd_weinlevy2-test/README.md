@@ -1,1 +1,3 @@
-#README ./fd_weinlevy2-test is part of fd_lib
+# fd_weinlevy2-test 
+part of fd_lib
+

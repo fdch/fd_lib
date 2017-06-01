@@ -1,1 +1,3 @@
-#README ./fd_phrase is part of fd_lib
+# fd_phrase 
+part of fd_lib
+

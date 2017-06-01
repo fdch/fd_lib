@@ -1,1 +1,3 @@
-#README ./fd_gemset is part of fd_lib
+# fd_gemset 
+part of fd_lib
+

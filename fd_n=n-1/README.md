@@ -1,1 +1,3 @@
-#README ./fd_n=n-1 is part of fd_lib
+# fd_n=n-1 
+part of fd_lib
+

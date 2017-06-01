@@ -1,1 +1,3 @@
-#README ./fd_tovowel is part of fd_lib
+# fd_tovowel 
+part of fd_lib
+

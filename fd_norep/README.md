@@ -1,1 +1,3 @@
-#README ./fd_norep is part of fd_lib
+# fd_norep 
+part of fd_lib
+

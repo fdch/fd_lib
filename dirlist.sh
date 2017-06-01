@@ -13,7 +13,8 @@ PLACEHOLDER=$(echo "
 ")
 PLACEHOLDERREADME=$(echo "
 # $i 
-$i is part of fd_lib.
+part of fd_lib
+.
 ")
 #Check first that directory doesn't exist
 if [ ! -d $i ]; then 

@@ -1,1 +1,3 @@
-#README ./fd_sin is part of fd_lib
+# fd_sin 
+part of fd_lib
+

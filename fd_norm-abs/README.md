@@ -1,1 +1,3 @@
-#README ./fd_norm-abs is part of fd_lib
+# fd_norm-abs 
+part of fd_lib
+

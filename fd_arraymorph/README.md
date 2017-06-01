@@ -1,1 +1,3 @@
-#README ./fd_arraymorph is part of fd_lib
+# fd_arraymorph 
+part of fd_lib
+

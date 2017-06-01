@@ -1,1 +1,3 @@
-#README ./fd_lorsig is part of fd_lib
+# fd_lorsig 
+part of fd_lib
+

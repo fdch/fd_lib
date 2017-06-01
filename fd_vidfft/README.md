@@ -1,1 +1,3 @@
-#README ./fd_vidfft is part of fd_lib
+# fd_vidfft 
+part of fd_lib
+

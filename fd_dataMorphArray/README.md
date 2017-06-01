@@ -1,1 +1,3 @@
-#README ./fd_dataMorphArray is part of fd_lib
+# fd_dataMorphArray 
+part of fd_lib
+

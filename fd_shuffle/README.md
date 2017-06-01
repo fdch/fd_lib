@@ -1,1 +1,3 @@
-#README ./fd_shuffle is part of fd_lib
+# fd_shuffle 
+part of fd_lib
+

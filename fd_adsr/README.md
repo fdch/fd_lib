@@ -1,1 +1,3 @@
-#README ./fd_adsr is part of fd_lib
+# fd_adsr 
+part of fd_lib
+

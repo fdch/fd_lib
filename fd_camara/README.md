@@ -1,1 +1,3 @@
-#README ./fd_camara is part of fd_lib
+# fd_camara 
+part of fd_lib
+

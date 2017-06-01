@@ -1,1 +1,3 @@
-#README ./fd_appendit is part of fd_lib
+# fd_appendit 
+part of fd_lib
+

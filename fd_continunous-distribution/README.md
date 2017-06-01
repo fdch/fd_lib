@@ -1,1 +1,3 @@
-#README ./fd_continunous-distribution is part of fd_lib
+# fd_continunous-distribution 
+part of fd_lib
+

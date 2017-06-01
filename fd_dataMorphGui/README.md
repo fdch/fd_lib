@@ -1,1 +1,3 @@
-#README ./fd_dataMorphGui is part of fd_lib
+# fd_dataMorphGui 
+part of fd_lib
+

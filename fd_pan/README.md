@@ -1,1 +1,3 @@
-#README ./fd_pan is part of fd_lib
+# fd_pan 
+part of fd_lib
+

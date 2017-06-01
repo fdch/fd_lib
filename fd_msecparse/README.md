@@ -1,1 +1,3 @@
-#README ./fd_msecparse is part of fd_lib
+# fd_msecparse 
+part of fd_lib
+

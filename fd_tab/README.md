@@ -1,1 +1,3 @@
-#README ./fd_tab is part of fd_lib
+# fd_tab 
+part of fd_lib
+

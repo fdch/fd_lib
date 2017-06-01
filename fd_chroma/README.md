@@ -1,1 +1,3 @@
-#README ./fd_chroma is part of fd_lib
+# fd_chroma 
+part of fd_lib
+

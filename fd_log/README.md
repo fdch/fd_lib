@@ -1,1 +1,3 @@
-#README ./fd_log is part of fd_lib
+# fd_log 
+part of fd_lib
+

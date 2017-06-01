@@ -1,1 +1,3 @@
-#README ./fd_midinote is part of fd_lib
+# fd_midinote 
+part of fd_lib
+

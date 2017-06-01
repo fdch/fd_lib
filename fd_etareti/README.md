@@ -1,1 +1,3 @@
-#README ./fd_etareti is part of fd_lib
+# fd_etareti 
+part of fd_lib
+

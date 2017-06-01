@@ -1,1 +1,3 @@
-#README ./fd_lorenz is part of fd_lib
+# fd_lorenz 
+part of fd_lib
+

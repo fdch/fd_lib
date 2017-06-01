@@ -1,1 +1,3 @@
-#README ./fd_midiread is part of fd_lib
+# fd_midiread 
+part of fd_lib
+

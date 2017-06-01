@@ -1,1 +1,3 @@
-#README ./fd_countdown is part of fd_lib
+# fd_countdown 
+part of fd_lib
+

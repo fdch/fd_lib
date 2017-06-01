@@ -1,1 +1,3 @@
-#README ./fd_autopoly is part of fd_lib
+# fd_autopoly 
+part of fd_lib
+

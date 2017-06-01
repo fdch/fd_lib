@@ -1,1 +1,3 @@
-#README ./fd_canvasplot is part of fd_lib
+# fd_canvasplot 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_chord is part of fd_lib
+# fd_chord 
+part of fd_lib
+

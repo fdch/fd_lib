@@ -1,1 +1,3 @@
-#README ./fd_shift is part of fd_lib
+# fd_shift 
+part of fd_lib
+

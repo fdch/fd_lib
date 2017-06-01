@@ -1,1 +1,3 @@
-#README ./fd_gt is part of fd_lib
+# fd_gt 
+part of fd_lib
+

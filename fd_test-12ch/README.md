@@ -1,1 +1,3 @@
-#README ./fd_test-12ch is part of fd_lib
+# fd_test-12ch 
+part of fd_lib
+

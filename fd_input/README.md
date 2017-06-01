@@ -1,1 +1,3 @@
-#README ./fd_input is part of fd_lib
+# fd_input 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_printer is part of fd_lib
+# fd_printer 
+part of fd_lib
+

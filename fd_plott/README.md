@@ -1,1 +1,3 @@
-#README ./fd_plott is part of fd_lib
+# fd_plott 
+part of fd_lib
+

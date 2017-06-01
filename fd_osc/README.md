@@ -1,1 +1,3 @@
-#README ./fd_osc is part of fd_lib
+# fd_osc 
+part of fd_lib
+

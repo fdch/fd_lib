@@ -1,1 +1,3 @@
-#README ./fd_random-bar-distribution is part of fd_lib
+# fd_random-bar-distribution 
+part of fd_lib
+

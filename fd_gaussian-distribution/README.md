@@ -1,1 +1,3 @@
-#README ./fd_gaussian-distribution is part of fd_lib
+# fd_gaussian-distribution 
+part of fd_lib
+

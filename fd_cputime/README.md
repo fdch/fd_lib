@@ -1,1 +1,3 @@
-#README ./fd_cputime is part of fd_lib
+# fd_cputime 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_trapezoid~ is part of fd_lib
+# fd_trapezoid~ 
+part of fd_lib
+

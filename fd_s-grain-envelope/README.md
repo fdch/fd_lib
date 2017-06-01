@@ -1,1 +1,3 @@
-#README ./fd_s-grain-envelope is part of fd_lib
+# fd_s-grain-envelope 
+part of fd_lib
+

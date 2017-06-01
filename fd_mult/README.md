@@ -1,1 +1,3 @@
-#README ./fd_mult is part of fd_lib
+# fd_mult 
+part of fd_lib
+

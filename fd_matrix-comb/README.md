@@ -1,1 +1,3 @@
-#README ./fd_matrix-comb is part of fd_lib
+# fd_matrix-comb 
+part of fd_lib
+

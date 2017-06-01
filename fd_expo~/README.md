@@ -1,1 +1,3 @@
-#README ./fd_expo~ is part of fd_lib
+# fd_expo~ 
+part of fd_lib
+

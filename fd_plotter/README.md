@@ -1,1 +1,3 @@
-#README ./fd_plotter is part of fd_lib
+# fd_plotter 
+part of fd_lib
+

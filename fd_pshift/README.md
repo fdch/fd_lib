@@ -1,1 +1,3 @@
-#README ./fd_pshift is part of fd_lib
+# fd_pshift 
+part of fd_lib
+

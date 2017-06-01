@@ -1,1 +1,3 @@
-#README ./fd_wind is part of fd_lib
+# fd_wind 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_poisson is part of fd_lib
+# fd_poisson 
+part of fd_lib
+

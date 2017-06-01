@@ -1,1 +1,3 @@
-#README ./fd_dacout is part of fd_lib
+# fd_dacout 
+part of fd_lib
+

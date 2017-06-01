@@ -1,1 +1,3 @@
-#README ./fd_append is part of fd_lib
+# fd_append 
+part of fd_lib
+

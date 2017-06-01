@@ -1,1 +1,3 @@
-#README ./fd_geometric-mean is part of fd_lib
+# fd_geometric-mean 
+part of fd_lib
+

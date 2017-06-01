@@ -1,1 +1,3 @@
-#README ./fd_nouns is part of fd_lib
+# fd_nouns 
+part of fd_lib
+

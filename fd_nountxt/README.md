@@ -1,1 +1,3 @@
-#README ./fd_nountxt is part of fd_lib
+# fd_nountxt 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_blackman~ is part of fd_lib
+# fd_blackman~ 
+part of fd_lib
+

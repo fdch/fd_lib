@@ -1,1 +1,3 @@
-#README ./fd_arraytrim is part of fd_lib
+# fd_arraytrim 
+part of fd_lib
+

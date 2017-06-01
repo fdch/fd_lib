@@ -1,1 +1,3 @@
-#README ./fd_gemsphere is part of fd_lib
+# fd_gemsphere 
+part of fd_lib
+

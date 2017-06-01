@@ -1,1 +1,3 @@
-#README ./fd_fftbark~-graph is part of fd_lib
+# fd_fftbark~-graph 
+part of fd_lib
+

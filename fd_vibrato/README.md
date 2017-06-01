@@ -1,1 +1,3 @@
-#README ./fd_vibrato is part of fd_lib
+# fd_vibrato 
+part of fd_lib
+

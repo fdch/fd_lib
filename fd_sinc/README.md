@@ -1,1 +1,3 @@
-#README ./fd_sinc is part of fd_lib
+# fd_sinc 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_fmosc is part of fd_lib
+# fd_fmosc 
+part of fd_lib
+

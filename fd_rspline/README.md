@@ -1,1 +1,3 @@
-#README ./fd_rspline is part of fd_lib
+# fd_rspline 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_write1 is part of fd_lib
+# fd_write1 
+part of fd_lib
+

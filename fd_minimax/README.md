@@ -1,1 +1,3 @@
-#README ./fd_minimax is part of fd_lib
+# fd_minimax 
+part of fd_lib
+

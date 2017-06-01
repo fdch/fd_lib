@@ -1,1 +1,3 @@
-#README ./fd_dataGui is part of fd_lib
+# fd_dataGui 
+part of fd_lib
+

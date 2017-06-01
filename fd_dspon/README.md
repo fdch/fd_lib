@@ -1,1 +1,3 @@
-#README ./fd_dspon is part of fd_lib
+# fd_dspon 
+part of fd_lib
+

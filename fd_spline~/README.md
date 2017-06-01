@@ -1,1 +1,3 @@
-#README ./fd_spline~ is part of fd_lib
+# fd_spline~ 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_textsort2 is part of fd_lib
+# fd_textsort2 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_metronomo is part of fd_lib
+# fd_metronomo 
+part of fd_lib
+

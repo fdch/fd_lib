@@ -1,1 +1,3 @@
-#README ./fd_dataRead1 is part of fd_lib
+# fd_dataRead1 
+part of fd_lib
+

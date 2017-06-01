@@ -1,1 +1,3 @@
-#README ./fd_stepper is part of fd_lib
+# fd_stepper 
+part of fd_lib
+

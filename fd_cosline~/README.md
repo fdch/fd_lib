@@ -1,1 +1,3 @@
-#README ./fd_cosline~ is part of fd_lib
+# fd_cosline~ 
+part of fd_lib
+

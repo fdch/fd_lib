@@ -1,1 +1,3 @@
-#README ./fd_gauss-t is part of fd_lib
+# fd_gauss-t 
+part of fd_lib
+

@@ -1,1 +1,3 @@
-#README ./fd_distributions is part of fd_lib
+# fd_distributions 
+part of fd_lib
+

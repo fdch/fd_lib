@@ -1,1 +1,3 @@
-#README ./fd_gr is part of fd_lib
+# fd_gr 
+part of fd_lib
+

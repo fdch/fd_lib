@@ -1,1 +1,3 @@
-#README ./fd_impulse is part of fd_lib
+# fd_impulse 
+part of fd_lib
+

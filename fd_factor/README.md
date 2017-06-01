@@ -1,1 +1,3 @@
-#README ./fd_factor is part of fd_lib
+# fd_factor 
+part of fd_lib
+

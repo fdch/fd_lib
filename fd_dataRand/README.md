@@ -1,1 +1,3 @@
-#README ./fd_dataRand is part of fd_lib
+# fd_dataRand 
+part of fd_lib
+

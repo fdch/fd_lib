@@ -1,1 +1,3 @@
-#README ./fd_listout is part of fd_lib
+# fd_listout 
+part of fd_lib
+

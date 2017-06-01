@@ -1,1 +1,3 @@
-#README ./fd_tri is part of fd_lib
+# fd_tri 
+part of fd_lib
+

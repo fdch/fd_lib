@@ -1,1 +1,3 @@
-#README ./fd_z12 is part of fd_lib
+# fd_z12 
+part of fd_lib
+

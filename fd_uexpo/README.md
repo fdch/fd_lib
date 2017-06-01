@@ -1,1 +1,3 @@
-#README ./fd_uexpo is part of fd_lib
+# fd_uexpo 
+part of fd_lib
+

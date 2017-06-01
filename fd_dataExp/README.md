@@ -1,1 +1,3 @@
-#README ./fd_dataExp is part of fd_lib
+# fd_dataExp 
+part of fd_lib
+

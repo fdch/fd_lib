@@ -1,1 +1,3 @@
-#README ./fd_getsize is part of fd_lib
+# fd_getsize 
+part of fd_lib
+

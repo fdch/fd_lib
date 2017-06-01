@@ -1,1 +1,3 @@
-#README ./fd_fftbark~ is part of fd_lib
+# fd_fftbark~ 
+part of fd_lib
+

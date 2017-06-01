@@ -1,1 +1,3 @@
-#README ./fd_wetdry~ is part of fd_lib
+# fd_wetdry~ 
+part of fd_lib
+

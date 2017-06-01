@@ -1,1 +1,3 @@
-#README ./fd_exp is part of fd_lib
+# fd_exp 
+part of fd_lib
+

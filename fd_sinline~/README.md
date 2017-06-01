@@ -1,1 +1,3 @@
-#README ./fd_sinline~ is part of fd_lib
+# fd_sinline~ 
+part of fd_lib
+

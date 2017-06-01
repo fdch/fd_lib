@@ -1,1 +1,3 @@
-#README ./fd_triangle~ is part of fd_lib
+# fd_triangle~ 
+part of fd_lib
+

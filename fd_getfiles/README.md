@@ -1,1 +1,3 @@
-#README ./fd_getfiles is part of fd_lib
+# fd_getfiles 
+part of fd_lib
+

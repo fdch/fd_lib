@@ -1,1 +1,3 @@
-#README ./fd_mtxout is part of fd_lib
+# fd_mtxout 
+part of fd_lib
+

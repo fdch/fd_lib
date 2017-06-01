@@ -1,1 +1,3 @@
-#README ./fd_shader is part of fd_lib
+# fd_shader 
+part of fd_lib
+

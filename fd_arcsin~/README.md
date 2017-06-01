@@ -1,1 +1,3 @@
-#README ./fd_arcsin~ is part of fd_lib
+# fd_arcsin~ 
+part of fd_lib
+

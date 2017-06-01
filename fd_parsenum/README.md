@@ -1,1 +1,3 @@
-#README ./fd_parsenum is part of fd_lib
+# fd_parsenum 
+part of fd_lib
+

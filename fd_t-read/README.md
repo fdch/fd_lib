@@ -1,1 +1,3 @@
-#README ./fd_t-read is part of fd_lib
+# fd_t-read 
+part of fd_lib
+

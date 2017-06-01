@@ -1,1 +1,3 @@
-#README ./fd_relocate is part of fd_lib
+# fd_relocate 
+part of fd_lib
+
