@@ -3,12 +3,19 @@ A suite of abstractions, objects, tutorials, and some shell scripts to work with
 
 ## Get the library
 
-	$ git clone http://github.com/fdch/fd_lib
+If you have [pd-lib-builder](https://github.com/pure-data/pd-lib-builder), you can omit the *--recursive* flag:
+
+	$ git clone --recursive https://github.com/fdch/fd_lib
 
 ## Compilation
-Run this script and follow instructions. You need to have [pdlibbuilder](https://github.com/pure-data/pd-lib-builder) for this:
+Run the following and follow instructions on terminal:
 
-	$ ./fdlib.sh /path/to/pdlibbuilder
+	$ cd fd_lib
+	$ ./fdlib.sh
+
+If pd-lib-builder is somewhere else, you need to have pass the path to pddlibbuilder as an argument:
+
+	$ ./fdlib.sh /path/to/pd-lib-builder
 
 ## Declare the library on Pd
 * Put this object on a Pd patch

@@ -5,7 +5,7 @@ AUTHOR="Author: Fede Camara Halac"
 AUTHEMAIL="Email: fch226@nyu.edu"
 if [ ! $1 ]
 then
-PDLIBBUILDER_DIR=~/Documents/dep/pd-lib-builder
+PDLIBBUILDER_DIR=pd-lib-builder
 else
 PDLIBBUILDER_DIR="$1"
 fi
@@ -23,11 +23,11 @@ Couldn't find Pd Lib Builder in:
 	$(tput setaf 1)$PDLIBBUILDER_DIR$(tput sgr 0)
 	
 Please provide a path to pdlibbuilder via argument, as in:
-	$ /bin/bash fdlib path/to/pdlibbuilder
+	$ /bin/bash fdlib path/to/pd-lib-builder
 
 If you don't have pdlibbuilder, follow these instructions:
-	$ git clone https://github.com/pure-data/pd-lib-builder pdlibbuilder
-	$ /bin/bash fdlib pdlibbuilder
+	$ git clone https://github.com/pure-data/pd-lib-builder pd-lib-builder
+	$ /bin/bash fdlib pd-lib-builder
 "
 exit
 else
