@@ -6,7 +6,7 @@ A suite of abstractions, objects, tutorials, and some shell scripts to work with
 	$ git clone http://github.com/fdch/fd_lib
 
 ## Compilation
-Run this script and follow instructions. You might need to clone pdlibbuilder for this:
+Run this script and follow instructions. You might need to clone [pdlibbuilder](https://github.com/pure-data/pd-lib-builder) for this:
 
 	$ ./fdlib.sh
 
