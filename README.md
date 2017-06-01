@@ -4,7 +4,7 @@ Enjoy!
 
 ## Get the library (first time only, or for a blank slate)
 
-$ git clone http://github.com/fdch/fd_lib fd_lib
+	$ git clone http://github.com/fdch/fd_lib fd_lib
 	
 
 ## Declare the library
