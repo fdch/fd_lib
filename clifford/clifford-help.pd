@@ -1,5 +1,5 @@
-#N struct 1071-xyz_plotter float x float y float z float rgb;
-#N canvas 530 49 638 688 10;
+#N struct 1663-xyz_plotter float x float y float z float rgb;
+#N canvas 530 49 638 688 12;
 #X obj 97 39 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 97 61 metro 1;

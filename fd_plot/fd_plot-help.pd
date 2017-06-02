@@ -1,0 +1,94 @@
+#N struct 1-plot float x float y float z float rgb float o;
+#N canvas 525 50 530 530 12;
+#N canvas 156 49 363 347 controls 1;
+#N canvas 0 22 805 723 ctrls 0;
+#X obj 67 536 t b f;
+#X obj 18 669 s 1-plot-set;
+#X obj 115 535 t b f;
+#X obj 171 535 t b f;
+#X msg 475 455 \; pd-1-graph clear \; pd-fd_plot-help.pd map 0 \, map
+1;
+#X text 158 153 Clear the plotting graph and start over:, f 22;
+#X text 151 210 Here we set a circle: x \, y \, radius \, color, f
+21;
+#X floatatom 147 255 5 0 0 0 - - -, f 5;
+#X floatatom 199 255 5 0 0 0 - - -, f 5;
+#X floatatom 251 255 5 0 0 0 - - -, f 5;
+#X floatatom 302 255 5 0 0 0 - - -, f 5;
+#X obj 115 508 max 1;
+#X obj 131 310 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 104 418 metro 10;
+#X floatatom 131 334 5 0 0 0 - - -, f 5;
+#X msg 176 418 radius \$1;
+#X obj 18 536 t b f;
+#X obj 21 563 unpack;
+#X obj 109 466 fd_circle;
+#X obj 18 589 + 150;
+#X obj 67 591 + 150;
+#X obj 18 616 pack 50 50 50 0;
+#X obj 333 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 179 332 <-- radius;
+#X text 152 307 <-- in circular motion;
+#X obj 365 370 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 304 416 \; fd_plot-1 vis 1;
+#X text 284 369 see here:;
+#X obj 178 370 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 128 369 more:;
+#X msg 273 462 \; pd-ctrls menu-open;
+#X text 476 197 You can use this to visualize some motions \, but that's
+pretty much it for now., f 27;
+#X text 475 107 The idea for this plot is to simply make a flying dot
+on the parent canvas without much effort., f 28;
+#X msg 517 306 x y radius color;
+#X text 479 271 All you need is to send a list;
+#X text 129 670 <-- like this;
+#X text 542 68 "fd_plot";
+#X text 203 106 "fd_plot";
+#X obj 517 374 s 1-plot-set;
+#X text 469 339 to the numbered instance:;
+#X msg 591 667 \; pd-ctrls menuclose;
+#X text 600 642 Close this window:;
+#X text 128 126 A CIRCLE ON THE PARENT CANVAS;
+#X obj 235 507 loadbang;
+#X msg 254 537 \; pd-fd_plot-help.pd editmode 0 \, vis 0 \, setbounds
+525 50 1055 580 \, vis 1 \; pd-ctrls menuclose \; pd-1-graph clear
+\; pd-controls vis 1 \, editmode 0 \;, f 23;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 1 20 1;
+#X connect 2 0 21 0;
+#X connect 2 1 21 2;
+#X connect 3 0 21 0;
+#X connect 3 1 21 3;
+#X connect 7 0 16 0;
+#X connect 8 0 0 0;
+#X connect 9 0 11 0;
+#X connect 10 0 3 0;
+#X connect 11 0 2 0;
+#X connect 12 0 13 0;
+#X connect 13 0 18 0;
+#X connect 14 0 15 0;
+#X connect 15 0 18 0;
+#X connect 16 0 19 0;
+#X connect 16 1 19 1;
+#X connect 17 0 19 0;
+#X connect 17 1 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 1;
+#X connect 21 0 1 0;
+#X connect 22 0 4 0;
+#X connect 25 0 26 0;
+#X connect 28 0 30 0;
+#X connect 33 0 38 0;
+#X connect 43 0 44 0;
+#X coords 0 -1 1 1 300 300 2 100 100;
+#X restore 35 17 pd ctrls;
+#X restore 33 14 pd controls;
+#X obj 60 63 fd_plot 1;
+#X obj 13 11 cnv 15 500 500 empty empty fd_plot-help 20 12 0 14 -262144
+-4160 0;

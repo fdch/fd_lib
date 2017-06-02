@@ -8,6 +8,7 @@
 ./clifford/clifford-help.pd
 ./connect/connect-help.pd
 ./counter/counter-help.pd
+./counter/counter-test.pd
 ./crand/crand-help.pd
 ./cuadratic/cuadratic-help.pd
 ./fd_2bit/fd_2bit-help.pd
@@ -352,8 +353,8 @@
 ./fd_phrase/fd_phrase.pd
 ./fd_pixrecord/fd_pixrecord-help.pd
 ./fd_pixrecord/fd_pixrecord.pd
-./fd_plott/fd_plott-help.pd
-./fd_plott/fd_plott.pd
+./fd_plot/fd_plot-help.pd
+./fd_plot/fd_plot.pd
 ./fd_plotter/fd_plotter-help.pd
 ./fd_plotter/fd_plotter.pd
 ./fd_pno/fd_pno-help.pd
@@ -574,12 +575,6 @@
 ./fd_write2/fd_write2.pd
 ./fd_write5/fd_write5-help.pd
 ./fd_write5/fd_write5.pd
-./fd_xyz_plot/fd_xyz_plot-help.pd
-./fd_xyz_plot/fd_xyz_plot.pd
-./fd_xyz_plot-test/fd_xyz_plot-test-help.pd
-./fd_xyz_plot-test/fd_xyz_plot-test.pd
-./fd_xyz_plot2/fd_xyz_plot2-help.pd
-./fd_xyz_plot2/fd_xyz_plot2.pd
 ./fd_z12/fd_z12-help.pd
 ./fd_z12/fd_z12.pd
 ./fd_zero-crossing~/fd_zero-crossing~-help.pd
@@ -643,6 +638,7 @@
 ./pointerlist/pointerlist-help.pd
 ./prandom/prandom-help.pd
 ./reflect/reflect-help.pd
+./reflect/reflect-test.pd
 ./reflect/reflect.pd
 ./scroll/scroll-help.pd
 ./siginfo/siginfo-help-bkup.pd
