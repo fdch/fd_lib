@@ -18,6 +18,7 @@ If pd-lib-builder is somewhere else, you need to pass the path to pd-lib-builder
 	$ ./fdlib.sh /path/to/pd-lib-builder
 
 ## Declare the library on Pd
+
 * Put this object on a Pd patch
 
 	[declare -path fd_lib]

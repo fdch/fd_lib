@@ -10,7 +10,6 @@
 ./counter/counter-help.pd
 ./crand/crand-help.pd
 ./cuadratic/cuadratic-help.pd
-./dictate/dictate-help.pd
 ./fd_2bit/fd_2bit-help.pd
 ./fd_2bit/fd_2bit.pd
 ./fd_6x6/fd_6x6-help.pd

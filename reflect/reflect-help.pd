@@ -1,55 +1,60 @@
-#N canvas 578 121 450 300 10;
-#X floatatom 30 203 5 0 0 0 - - -, f 5;
-#X msg 138 134 set 30 50;
+#N canvas 522 52 704 553 12;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array array1 100 float 3;
-#A 0 -0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46
-47 48 49 50 51 52 53 54 55 56 57 58 59 35 61 62 63 64 65 66 67 68 69
-70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92
-93 94 95 96 97 98 99;
-#X coords 0 100 100 -100 200 140 1 0 0;
-#X restore 223 58 graph;
-#X msg 56 44 100;
-#X obj 56 65 until;
-#X obj 56 86 f;
-#X obj 91 89 + 1;
-#X msg 56 5 bang;
-#X obj 56 26 t b b;
-#X msg 94 44 0;
-#X floatatom 122 114 5 0 0 0 - - -, f 5;
-#X obj 53 113 t f f;
-#X obj 68 219 tabwrite array1;
-#X floatatom 135 54 5 0 0 0 - - -, f 5;
-#X msg 154 159 set 33 66;
-#X msg 197 5 100;
-#X obj 197 26 until;
-#X obj 131 29 random 100;
-#X msg 155 186 set 70 30;
-#X floatatom 187 232 5 0 0 0 - - -, f 5;
-#X obj 187 271 print;
-#X obj 66 173 reflect 100;
-#X obj 187 250 reflect 5;
-#X connect 1 0 21 0;
-#X connect 3 0 4 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 5 0 11 0;
-#X connect 6 0 5 1;
+#A 0 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
+0.3 0.2 0.1 0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1 -0.9
+-0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7
+0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0 -0.1 -0.2 -0.3 -0.4
+-0.5 -0.6 -0.7 -0.8 -0.9 -1 -0.9 -0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2
+-0.1 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
+0.3 0.2 0.1;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 337 385 graph;
+#X obj 148 435 t f f, f 10;
+#X obj 148 513 tabwrite array1;
+#X floatatom 55 134 5 0 0 0 - - -, f 5;
+#X obj 111 238 print;
+#X text 274 15 "reflect";
+#X text 140 34 Reflect an incoming float from -value to +value;
+#X floatatom 185 130 5 0 0 0 - - -, f 5;
+#X obj 185 169 reflect;
+#X msg 238 128 5;
+#X text 149 169 ==;
+#X obj 55 171 reflect 5;
+#X obj 453 231 print;
+#X obj 148 462 reflect 10;
+#X floatatom 549 86 5 0 0 0 - - -, f 5;
+#X text 162 241 output: -5 \, 5;
+#X text 214 89 Arg 2: (optional) offset;
+#X text 214 70 Arg 1: range (also via 2nd inlet);
+#X text 25 289 Reflection is performed on the X-axis and the axis of
+symmetry is the Y-axis. The "value" is the range of the reflection.
+An offset is a value added to the Y-axis., f 81;
+#X text 505 232 output: 8 \, 12;
+#X obj 549 183 reflect;
+#X floatatom 388 148 5 0 0 0 - - -, f 5;
+#X text 503 183 ==;
+#X text 556 106 set message:;
+#X obj 388 183 reflect 2 10;
+#X msg 571 131 set 2 10;
+#X obj 148 411 counter -m 100;
+#X msg 148 360 100;
+#X obj 148 385 until;
+#X obj 148 487 / 10;
+#X connect 1 0 13 0;
+#X connect 1 1 2 1;
+#X connect 3 0 11 0;
 #X connect 7 0 8 0;
-#X connect 8 0 3 0;
-#X connect 8 1 9 0;
-#X connect 9 0 5 1;
-#X connect 10 0 21 0;
-#X connect 11 0 21 0;
-#X connect 11 1 12 1;
-#X connect 13 0 11 0;
-#X connect 14 0 21 0;
-#X connect 15 0 16 0;
-#X connect 16 0 17 0;
-#X connect 17 0 11 0;
-#X connect 18 0 21 0;
-#X connect 19 0 22 0;
-#X connect 21 0 0 0;
-#X connect 21 0 12 0;
-#X connect 22 0 20 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 1;
+#X connect 11 0 4 0;
+#X connect 13 0 29 0;
+#X connect 14 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 24 0;
+#X connect 24 0 12 0;
+#X connect 25 0 20 0;
+#X connect 26 0 1 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 29 0 2 0;
