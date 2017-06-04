@@ -27,9 +27,6 @@
 #X obj 52 309 *~;
 #X obj 94 220 sig~ 3.14159;
 #X obj 94 245 pow~ -1;
-#X text 142 310 xenakis' arc sin (Formalized Music \, p.246);
-#X text 168 333 PI^-1 * ( x * (1 - x) ) ) ^-1/2;
-#X text 217 357 see fd_arcsin.pd;
 #X obj 52 220 *~;
 #X connect 0 0 6 0;
 #X connect 1 0 9 1;
@@ -38,7 +35,7 @@
 #X connect 4 0 8 0;
 #X connect 6 0 9 0;
 #X connect 9 0 22 1;
-#X connect 9 0 31 1;
+#X connect 9 0 28 1;
 #X connect 11 0 12 0;
 #X connect 11 0 15 0;
 #X connect 12 0 13 0;
@@ -53,6 +50,7 @@
 #X connect 14 1 11 1;
 #X connect 14 2 12 1;
 #X connect 14 3 24 1;
+#X connect 14 4 5 0;
 #X connect 15 0 16 0;
 #X connect 16 0 18 0;
 #X connect 16 0 19 0;
@@ -61,10 +59,10 @@
 #X connect 19 0 20 0;
 #X connect 20 0 5 0;
 #X connect 21 0 22 0;
-#X connect 22 0 31 0;
+#X connect 22 0 28 0;
 #X connect 23 0 24 0;
 #X connect 24 0 25 0;
 #X connect 25 0 7 0;
 #X connect 26 0 27 0;
 #X connect 27 0 25 1;
-#X connect 31 0 23 0;
+#X connect 28 0 23 0;

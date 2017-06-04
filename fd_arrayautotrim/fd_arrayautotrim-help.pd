@@ -1,4 +1,4 @@
-#N canvas 43 15 1177 642 12;
+#N canvas 43 22 1173 752 12;
 #X obj 80 95 adc~ 1;
 #X obj 80 120 tabwrite~ word;
 #N canvas 0 22 450 278 (subpatch) 0;

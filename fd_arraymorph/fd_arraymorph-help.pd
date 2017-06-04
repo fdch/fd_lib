@@ -20,7 +20,7 @@
 #X obj 325 353 array define array1 67;
 #X obj 325 377 array define array2 67;
 #X obj 325 430 array define array3 67;
-#X msg 20 499 all array1 array2 1000;
+#X msg 20 569 all array1 array2 1000;
 #X text 20 331 draw some curve;
 #X text 133 382 draw another curve;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -36,11 +36,11 @@
 -0.843238 -0.684018 -0.481762 -0.248855 -1.35978e-05 0.248829;
 #X coords 0 1 67 -1 200 140 1;
 #X restore 325 478 graph;
-#X msg 21 579 all array2 array1 2000;
-#X text 19 555 click on array3 to see morphing;
-#X text 17 474 morphing to another recipient;
-#X obj 20 524 clone fd_arraymorph 67 array4;
-#X obj 20 604 clone fd_arraymorph 67 array3;
+#X msg 21 489 all array2 array1 2000;
+#X text 19 465 click on array3 to see morphing;
+#X text 17 544 morphing to another recipient;
+#X obj 20 594 clone fd_arraymorph 67 array4;
+#X obj 20 514 clone fd_arraymorph 67 array3;
 #X obj 52 289 loadbang;
 #X text 546 631 fdch;
 #X text 51 184 to make it work \, you need tosend a message like this
