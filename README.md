@@ -106,6 +106,7 @@ Some abstractions depend on the following libraries. You can simply get them via
 * [zexy](https://git.iem.at/pd/zexy.git)
 * [Gem](https://gem.iem.at/)
 * [cyclone](https://github.com/porres/pd-cyclone)
+* [tof](https://github.com/electrickery/pd-tof)
 
 ## Issues
 fch226 at nyu dot edu
