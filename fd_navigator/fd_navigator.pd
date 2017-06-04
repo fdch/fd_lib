@@ -1,7 +1,7 @@
 #N canvas 193 478 326 77 12;
 #N canvas 524 49 406 193 folder-loader 0;
-#X obj 55 26 cnv 15 300 50 empty \$0-filename-label fd_blackman~ 4
-7 0 10 -1 -262144 0;
+#X obj 55 26 cnv 15 300 50 empty \$0-filename-label fd_dspon 4 7 0
+10 -1 -262144 0;
 #X obj 186 42 bng 15 250 50 0 \$0-cls \$0-cls-s close 17 7 0 10 -261682
 -1 -262144;
 #X obj 63 59 bng 15 250 50 0 \$0-prv \$0-prv-s CMD_<- 17 7 0 10 -24198
@@ -9,7 +9,7 @@
 #X obj 63 42 tgl 15 0 \$0-keys \$0-keys-s _____keys_____ 17 7 0 10
 -261682 -1 -262144 1 1;
 #X obj 202 59 nbx 4 14 0 1e+37 0 0 \$0-indx \$0-indx-s index 46 7 0
-10 -261682 -1 -262144 30 256;
+10 -261682 -1 -262144 73 256;
 #X obj 282 44 tgl 15 0 \$0-vis \$0-vis-s vis 17 7 0 10 -13330 -4034
 -262144 0 1;
 #X obj 123 59 bng 15 250 50 0 \$0-nxt \$0-nxt-s CMD_-> 17 7 0 10 -24198
@@ -75,7 +75,7 @@
 #X connect 21 1 0 0;
 #X restore 192 79 pd s prev next close;
 #N canvas 482 50 552 571 s 0;
-#X msg 116 142 30;
+#X msg 116 142 31;
 #X msg 150 142 set \$1;
 #X obj 45 175 max;
 #X obj 45 199 t f f f;
@@ -161,7 +161,7 @@
 #X obj 408 371 symbol;
 #X obj 165 120 s \$0-direction;
 #X obj 231 148 loadbang;
-#X msg 150 167 30;
+#X msg 150 167 31;
 #X obj 150 191 s \$0-indx-s;
 #X msg 257 421 label \$1;
 #X obj 45 21 route bang;
@@ -279,15 +279,11 @@
 #X msg 411 239 0;
 #X msg 102 353 0;
 #X obj 355 266 * 16;
-#X obj 276 69 sel Up Down;
-#X obj 279 120 tof/increment;
-#X obj 276 23 sel 1;
-#X obj 276 48 symbol;
-#X msg 275 89 1;
-#X msg 312 92 -1;
-#X obj 279 144 mod;
-#X obj 313 146 r \$0-size-s;
-#X obj 279 168 s \$0-indx-s;
+#X obj 275 48 sel Up Down;
+#X obj 275 2 sel 1;
+#X obj 275 27 symbol;
+#X obj 334 159 r \$0-size-s;
+#X obj 300 196 s \$0-indx-s;
 #X obj 177 329 sel Left Right Return;
 #X msg 316 381 1;
 #X msg 349 381 0;
@@ -296,6 +292,12 @@
 #X obj 236 500 s \$0-bi-s;
 #X obj 351 482 s \$0-bi-s;
 #X msg 357 314 color \$1 22 16;
+#X obj 390 18 r \$0-indx;
+#X obj 279 120 counter -i 1;
+#X msg 342 79 i -1 \, bang;
+#X msg 250 77 i 1 \, bang;
+#X msg 226 127 0;
+#X obj 279 159 sel;
 #X connect 0 0 16 0;
 #X connect 3 0 14 0;
 #X connect 3 1 15 0;
@@ -308,7 +310,7 @@
 #X connect 7 0 11 0;
 #X connect 8 0 12 0;
 #X connect 9 0 17 0;
-#X connect 10 0 41 0;
+#X connect 10 0 37 0;
 #X connect 11 0 13 0;
 #X connect 11 0 29 0;
 #X connect 12 0 9 0;
@@ -316,9 +318,9 @@
 #X connect 13 0 9 0;
 #X connect 13 0 10 0;
 #X connect 14 0 6 0;
-#X connect 14 0 34 0;
+#X connect 14 0 33 0;
 #X connect 15 0 8 1;
-#X connect 15 0 35 1;
+#X connect 15 0 34 1;
 #X connect 16 0 14 1;
 #X connect 16 1 15 1;
 #X connect 17 0 18 0;
@@ -326,7 +328,7 @@
 #X connect 18 0 23 1;
 #X connect 18 0 24 1;
 #X connect 18 0 31 0;
-#X connect 18 0 44 1;
+#X connect 18 0 40 1;
 #X connect 19 0 23 0;
 #X connect 20 0 23 0;
 #X connect 21 0 24 0;
@@ -335,39 +337,42 @@
 #X connect 24 0 26 0;
 #X connect 25 0 2 0;
 #X connect 26 0 1 0;
-#X connect 29 0 48 0;
+#X connect 29 0 44 0;
 #X connect 30 0 23 1;
 #X connect 30 0 24 1;
-#X connect 30 0 44 1;
-#X connect 31 0 48 0;
-#X connect 32 0 36 0;
-#X connect 32 1 37 0;
-#X connect 33 0 38 0;
-#X connect 34 0 35 0;
-#X connect 35 0 32 0;
-#X connect 36 0 33 0;
-#X connect 37 0 33 0;
+#X connect 30 0 40 1;
+#X connect 31 0 44 0;
+#X connect 32 0 48 0;
+#X connect 32 1 47 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
+#X connect 35 0 50 1;
+#X connect 37 0 19 0;
+#X connect 37 0 22 0;
+#X connect 37 0 39 0;
+#X connect 37 1 20 0;
+#X connect 37 1 21 0;
+#X connect 37 1 39 0;
+#X connect 37 2 20 0;
+#X connect 37 2 22 0;
+#X connect 37 2 38 0;
+#X connect 37 3 22 0;
+#X connect 37 3 20 0;
+#X connect 37 3 39 0;
 #X connect 38 0 40 0;
-#X connect 39 0 38 1;
-#X connect 41 0 19 0;
-#X connect 41 0 22 0;
-#X connect 41 0 43 0;
-#X connect 41 1 20 0;
-#X connect 41 1 21 0;
-#X connect 41 1 43 0;
-#X connect 41 2 20 0;
-#X connect 41 2 22 0;
-#X connect 41 2 42 0;
-#X connect 41 3 22 0;
-#X connect 41 3 20 0;
-#X connect 41 3 43 0;
-#X connect 42 0 44 0;
-#X connect 43 0 44 0;
-#X connect 44 0 45 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 44 0 28 0;
+#X connect 44 0 27 0;
+#X connect 44 0 43 0;
 #X connect 45 0 46 0;
-#X connect 48 0 28 0;
-#X connect 48 0 27 0;
-#X connect 48 0 47 0;
+#X connect 46 0 50 0;
+#X connect 47 0 46 0;
+#X connect 48 0 46 0;
+#X connect 49 0 46 0;
+#X connect 50 0 49 0;
+#X connect 50 1 36 0;
 #X restore 55 103 pd s keys ______;
 #N canvas 0 22 450 300 s 0;
 #X obj 83 181 s pd-folder-loader;
