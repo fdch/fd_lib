@@ -1,6 +1,6 @@
 #N canvas 526 52 566 397 12;
 #X text 216 18 "cuadratic";
-#X obj 387 351 dac~;
+#X obj 384 327 dac~;
 #N canvas 0 22 540 319 s 0;
 #X obj 43 104 cuadratic;
 #X obj 43 158 vline~;
@@ -40,11 +40,11 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X connect 16 0 17 0;
 #X connect 17 0 0 0;
 #X connect 18 0 0 0;
-#X restore 387 316 pd s noise;
-#X obj 387 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 384 292 pd s noise;
+#X obj 384 262 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 407 283 <-- try this;
-#X text 259 275 See here:;
+#X text 404 259 <-- try this;
+#X text 252 256 See here:;
 #X msg 45 97 bang;
 #X obj 45 253 cuadratic;
 #X obj 45 312 print -n;
@@ -82,14 +82,14 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X connect 0 0 3 0;
 #X connect 2 0 0 0;
 #X connect 6 0 7 0;
-#X restore 259 300 pd s graph;
+#X restore 252 281 pd s graph;
 #X msg 58 132 print 5;
 #N canvas 0 22 450 300 s 0;
 #X text 108 25 just this help file's init;
 #X obj 225 78 loadbang;
 #X msg 225 103 \; pd-s vis 0 \;;
 #X connect 1 0 2 0;
-#X restore 259 350 pd s init;
+#X restore 252 331 pd s init;
 #N canvas 525 51 450 300 s 0;
 #X text 58 55 possible ranges (not very well tested):;
 #X text 234 102 c: -2 ... -0.97;
@@ -108,10 +108,10 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X connect 7 0 8 0;
 #X connect 8 0 4 0;
 #X connect 10 0 4 0;
-#X restore 259 325 pd s variable;
+#X restore 252 306 pd s variable;
 #X text 189 176 <-- X and coefficient C;
 #X text 104 49 Computes this equation: x1 = x^2 + c;
-#X obj 130 349 cuadratic-test;
+#X text 253 365 see also cuadratic-test.pd;
 #X connect 2 0 1 0;
 #X connect 2 0 1 1;
 #X connect 3 0 2 0;

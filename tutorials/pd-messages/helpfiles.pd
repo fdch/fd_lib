@@ -5,8 +5,8 @@
 #X restore 8 8 pd sub;
 #X obj 280 175 bng 15 250 50 0 start-here empty start-here 17 7 0 10
 -24198 -262144 -1;
-#N canvas 320 400 200 290 menu 1;
-#X obj 10 239 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
+#N canvas 320 400 200 290 menu 0;
+#X obj 10 10 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
 -66577 0;
 #N canvas 525 50 725 640 data-structures 0;
 #X floatatom 36 190 5 0 0 0 - - -, f 5;
@@ -1871,7 +1871,7 @@ new graph;
 #X obj 180 68 tgl 15 0 empty menuopener empty 17 7 0 10 -262144 -1
 -1 0 1;
 #X obj 180 93 metro 1000;
-#X obj 180 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 180 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 180 143 sel;
 #X text 24 131 "click" opens it;
@@ -2465,7 +2465,7 @@ orientation and scale, f 80;
 #X connect 37 0 34 0;
 #X connect 39 0 32 0;
 #X restore 23 215 pd more-graphing _;
-#N canvas 525 50 725 640 creator 1;
+#N canvas 525 50 725 640 creator 0;
 #X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
 -262144 -1;
 #N canvas 0 22 527 188 prev 0;
