@@ -1,1 +1,16 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_n!; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_n!; #X text 400 300 fd_lib;
+#N canvas 521 50 534 380 12;
+#X text 385 337 fd_lib;
+#X text 218 19 "fd_n!";
+#X text 61 49 Computes the factorial of an incoming number;
+#X floatatom 120 128 5 0 0 0 - - -, f 5;
+#X text 175 70 upper limit is 34;
+#X obj 294 194 fd_n! 4;
+#X msg 294 125 bang;
+#X obj 120 269 print -n;
+#X obj 294 269 print -n;
+#X text 368 194 <-- as argument;
+#X obj 120 194 fd_n!;
+#X connect 3 0 10 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 10 0 7 0;
