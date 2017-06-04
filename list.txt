@@ -6,6 +6,8 @@
 ./cantor/cantor-help.pd
 ./cantor/cantor1-help.pd
 ./clifford/clifford-help.pd
+./clifford/clifford-test-2.pd
+./clifford/clifford-test.pd
 ./connect/connect-help.pd
 ./counter/counter-help.pd
 ./counter/counter-test.pd
