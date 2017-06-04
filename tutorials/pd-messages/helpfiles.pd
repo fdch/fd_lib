@@ -5,8 +5,8 @@
 #X restore 8 8 pd sub;
 #X obj 280 175 bng 15 250 50 0 start-here empty start-here 17 7 0 10
 -24198 -262144 -1;
-#N canvas 320 400 200 290 menu 0;
-#X obj 10 10 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
+#N canvas 320 400 200 290 menu 1;
+#X obj 10 239 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
 -66577 0;
 #N canvas 525 50 725 640 data-structures 0;
 #X floatatom 36 190 5 0 0 0 - - -, f 5;
@@ -1409,55 +1409,6 @@ vis 0 \, setbounds 525 50 1250 690 \, vis 1 \; pd-prev vis 0 \;;
 #X msg 110 264 1;
 #X msg 110 316 arraydialog myarray-1 67 0 \$1;
 #X msg 116 290 0;
-#N canvas 524 52 727 453 more 0;
-#X obj 41 383 s pd-sub;
-#X obj 600 327 s pd-sub;
-#X msg 555 246 key 1 Up 1;
-#X msg 501 274 key 1 Left 1;
-#X msg 543 300 key 1 Down 1;
-#X msg 609 274 key 1 Right 1;
-#X msg 511 21 menu-open;
-#X msg 533 48 menuclose;
-#X obj 512 142 s;
-#X msg 543 142 symbol pd-graph\$1;
-#X text 540 75 choose one:;
-#X text 64 236 the old [table] object;
-#X obj 553 94 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 1;
-#X obj 553 114 + 1;
-#X text 99 286 the new array suite;
-#X text 44 218 (also named with graph+index);
-#X msg 67 255 obj 10 160 table;
-#X msg 94 334 obj 10 190 array define newarray;
-#X text 38 28 Finding graphed arrays doesn't seem to work., f 45;
-#X text 39 52 When an array is placed with [menuarray( or from the
-Put>Array menu \, Pd creates a subcanvas named 'graph' + index number
-(starting with 1)., f 48;
-#X text 480 181 If placed with [menuarray( it is automatically selected
-so you can move it:, f 27;
-#X text 94 306 (also named with graph+index);
-#X msg 472 386 vis 0;
-#X obj 472 411 s pd-more;
-#X text 524 386 <-- bang to close;
-#X msg 41 112 \; pd-sub menu-open \, map 0 \, map 1;
-#X msg 300 111 \; pd-sub clear;
-#X floatatom 634 116 5 0 0 0 - - -, f 5;
-#X msg 31 177 menuarray;
-#X connect 2 0 1 0;
-#X connect 3 0 1 0;
-#X connect 4 0 1 0;
-#X connect 5 0 1 0;
-#X connect 6 0 8 0;
-#X connect 7 0 8 0;
-#X connect 9 0 8 1;
-#X connect 12 0 13 0;
-#X connect 13 0 9 0;
-#X connect 16 0 0 0;
-#X connect 17 0 0 0;
-#X connect 22 0 23 0;
-#X connect 27 0 9 0;
-#X connect 28 0 0 0;
-#X restore 426 583 pd more array-naming;
 #N canvas 525 51 562 352 more 0;
 #X text 115 119 size of the array;
 #X text 120 179 size of the box;
@@ -1471,8 +1422,8 @@ do essentially the same things to it as to a data structure;
 #X text 274 93 name (symbol) \; x1 \; y1 \; x2 \; y2 \; xpos1 \; ypos1
 \; xpos2 \; ypos2 \;;
 #X connect 4 0 5 0;
-#X restore 426 558 pd more graph;
-#X text 422 534 See here:;
+#X restore 426 508 pd more graph;
+#X text 422 484 See here:;
 #X text 46 25 CHECK OUT THIS MINI TUTORIAL:, f 9;
 #X obj 129 26 bng 50 250 50 0 array-tutorial empty empty 17 7 0 10
 -24198 -1 -1;
@@ -1908,11 +1859,119 @@ rename \, files, f 24;
 #X connect 15 0 18 0;
 #X connect 16 0 17 0;
 #X restore 79 333 pd preset arrays;
-#X restore 427 608 pd array tutorial;
+#X restore 426 608 pd array tutorial;
 #X text 89 105 BUILT-IN GUI TO PUT ARRAYS;
 #X text 179 133 <-- this opens the array menu.;
 #X text 153 289 <-- NOTE: if 4th argument is 0 \, it is drawn in a
 new graph;
+#N canvas 528 54 487 324 more 0;
+#X obj 63 260 array define foo;
+#X msg 51 190 click 0 0 0 0 0;
+#X msg 191 189 menuclose;
+#X obj 180 68 tgl 15 0 empty menuopener empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 180 93 metro 1000;
+#X obj 180 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 180 143 sel;
+#X text 24 131 "click" opens it;
+#X text 221 148 "menuclose" closes it;
+#X text 200 66 <-- try this;
+#X msg 341 254 \; pd-more vis 0 \; menuopener 0 \;;
+#X text 44 25 You can use these messages to open the array:;
+#X text 353 226 Close this:;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X restore 426 533 pd more array clicking;
+#N canvas 527 48 699 442 more 0;
+#X obj 31 116 array define dog;
+#X obj 32 142 array define cat;
+#X msg 276 272 \; pd-graph2 vis 1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array-somename 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 31 195 graph;
+#X msg 266 117 \; pd-graph1 rename thedog;
+#X msg 267 164 \; pd-thedog vis 1;
+#X msg 404 163 \; pd-thedog vis 0;
+#X msg 270 210 \; pd-thedog vis 0 \, setbounds 0 22 400 400 \, vis
+1;
+#X text 410 284 <-- the cat;
+#X msg 522 276 \; pd-graph2 vis 0;
+#X text 237 130 1;
+#X text 239 176 2;
+#X text 246 220 3;
+#X text 248 281 4;
+#X text 64 340 ^^ No way to open this unless right-click > open, f
+21;
+#X msg 532 378 \; pd-more vis 0 \;;
+#X text 529 350 Close this;
+#X text 35 13 Every time you create an [array define myname] object
+there is a canvas named pd-graphX (created by array_define_new). If
+you know the order of creation of the array \, you can send [ \; pd-graph1
+vis 1( \, and (probably) any other message you send to canvases. You
+can even rename it: [ \; pd-graph1 rename dog( \, and then just send
+[ \; pd-dog vis 1( \; The name won't stick \, though \, on next load.
+, f 77;
+#X restore 426 583 pd more array naming;
+#N canvas 524 52 727 453 more 0;
+#X obj 41 383 s pd-sub;
+#X obj 600 327 s pd-sub;
+#X msg 555 246 key 1 Up 1;
+#X msg 501 274 key 1 Left 1;
+#X msg 543 300 key 1 Down 1;
+#X msg 609 274 key 1 Right 1;
+#X msg 511 21 menu-open;
+#X msg 533 48 menuclose;
+#X obj 512 142 s;
+#X msg 543 142 symbol pd-graph\$1;
+#X text 540 75 choose one:;
+#X text 64 236 the old [table] object;
+#X obj 553 94 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X obj 553 114 + 1;
+#X text 99 286 the new array suite;
+#X text 44 218 (also named with graph+index);
+#X msg 67 255 obj 10 160 table;
+#X msg 94 334 obj 10 190 array define newarray;
+#X text 38 28 Finding graphed arrays doesn't seem to work., f 45;
+#X text 39 52 When an array is placed with [menuarray( or from the
+Put>Array menu \, Pd creates a subcanvas named 'graph' + index number
+(starting with 1)., f 48;
+#X text 480 181 If placed with [menuarray( it is automatically selected
+so you can move it:, f 27;
+#X text 94 306 (also named with graph+index);
+#X msg 472 386 vis 0;
+#X obj 472 411 s pd-more;
+#X text 524 386 <-- bang to close;
+#X msg 41 112 \; pd-sub menu-open \, map 0 \, map 1;
+#X msg 300 111 \; pd-sub clear;
+#X floatatom 634 116 5 0 0 0 - - -, f 5;
+#X msg 31 177 menuarray;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 9 0 8 1;
+#X connect 12 0 13 0;
+#X connect 13 0 9 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X connect 22 0 23 0;
+#X connect 27 0 9 0;
+#X connect 28 0 0 0;
+#X restore 426 558 pd more array finding;
 #X connect 0 0 15 0;
 #X connect 1 0 16 0;
 #X connect 3 0 16 0;
@@ -2406,29 +2465,7 @@ orientation and scale, f 80;
 #X connect 37 0 34 0;
 #X connect 39 0 32 0;
 #X restore 23 215 pd more-graphing _;
-#N canvas 525 50 725 640 creator 0;
-#X msg 111 80 \; pd menunew 01.PART1.hello.pd /Users/federicocamarahalac/Documents/fd_work/dynamic-patching/
-\; pd-01.PART1.hello.pd clear \, menusave \, vis 0 \, relocate 600x600+0+0
-0x0+30+10 \, vis 1 \, msg 200 50 hello world \, floatatom 300 50 \,
-obj 200 150 print \, connect 0 0 2 0 \, connect 1 0 2 0 \, font 12
-100 0 \,;
-#X msg 112 374 key 1 \$1 0;
-#X obj 112 399 s pd-01.PART1.hello.pd;
-#X msg 355 293 bang;
-#X obj 315 325 t b b b;
-#X msg 334 370 reselect \, reselect;
-#X msg 134 430 \; pd-01.PART1.hello.pd text 30 200 T \, find T 0 0
-\, reselect;
-#X obj 405 343 del 1;
-#X obj 112 292 symbol;
-#X obj 110 331 list fromsymbol;
-#X msg 111 234 T \, h \, e \, r \, e \, \, \, a \, r \, e \, \, f \,
-o \, u \, r \, \, t \, y \, p \, e \, s \, \, o \, f \, \, t \, e \,
-x \, t \, \, o \, b \, j \, e \, c \, t \, s \, \, i \, n \, \, P \,
-d \, : \, \, m \, e \, s \, s \, a \, g \, e \, \, \, \, a \, t \,
-o \, m \, \, \, \, o \, b \, j \, e \, c \, t \, \, \, a \, n \, d
-\, \, c \, o \, m \, m \, e \, n \, t \, .;
-#X msg 498 331 editmode 0;
+#N canvas 525 50 725 640 creator 1;
 #X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
 -262144 -1;
 #N canvas 0 22 527 188 prev 0;
@@ -2455,21 +2492,10 @@ o \, m \, \, \, \, o \, b \, j \, e \, c \, t \, \, \, a \, n \, d
 \, setbounds 512 50 1250 1050 \, vis 1 \; pd-next vis 0 \;;
 #X connect 0 0 1 0;
 #X restore 644 591 pd next;
-#X text 196 43 This is still on the workings...;
-#X connect 1 0 2 0;
+#X text 224 218 This is still on the workings...;
+#X connect 0 0 1 0;
 #X connect 3 0 4 0;
-#X connect 4 0 10 0;
-#X connect 4 1 7 0;
-#X connect 4 2 6 0;
-#X connect 5 0 2 0;
-#X connect 7 0 5 0;
-#X connect 8 0 9 0;
-#X connect 9 0 1 0;
-#X connect 10 0 8 0;
-#X connect 11 0 2 0;
-#X connect 12 0 13 0;
-#X connect 15 0 16 0;
-#X connect 17 0 18 0;
+#X connect 5 0 6 0;
 #X restore 23 240 pd creator _______;
 #N canvas 525 50 725 640 goodbye 0;
 #X text 111 133 And a nice data-structure tutorial by Frank Barknecht

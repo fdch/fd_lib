@@ -1,5 +1,0 @@
-0-list.txt
-reflect-help.pd
-reflect.c
-reflect.pd
-reflect.pd_darwin

@@ -1,146 +1,61 @@
-#N struct 1663-xyz_plotter float x float y float z float rgb;
-#N canvas 530 49 638 688 12;
-#X obj 97 39 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 97 61 metro 1;
-#X obj 97 115 unpack;
-#X obj 89 144 fd_norm;
-#X obj 133 141 fd_norm;
-#X msg 155 73 reset;
-#X obj 97 93 clifford;
-#X msg 163 107 flush;
-#X floatatom 244 131 5 0 0 0 - - -, f 5;
-#X floatatom 138 36 5 0 0 0 - - -, f 5;
-#X msg 187 34 tempo 1 samp;
-#X obj 66 236 gemhead;
-#X obj 37 321 translateXYZ 0 0 0;
-#X obj 37 343 circle 0.1;
-#X obj 96 173 * 1;
-#X obj 133 177 * 1;
-#X floatatom 179 256 5 0 0 0 - - -, f 5;
-#X msg 280 33 inita -1.4 \, initb 1.6 \, initc 1 \, initd 0.7;
-#X obj 96 195 pack f 100;
-#X obj 145 220 pack f 100;
-#X obj 107 264 line;
-#X obj 137 259 line;
-#X floatatom 258 201 5 0 0 0 - - -, f 5;
-#X obj 280 84 loadbang;
-#X msg 280 106 2;
-#X msg 303 128 440;
-#X obj 312 264 *;
-#X obj 340 266 *;
-#X obj 312 286 +;
-#X obj 312 308 sqrt;
-#X obj 312 371 pack f 100;
-#X obj 312 393 line;
-#X obj 312 330 fd_norm;
-#X obj 312 352 * 1;
-#X floatatom 414 285 5 0 0 0 - - -, f 5;
-#X obj 33 263 color 1 1 1;
-#X obj 174 519 list prepend 0 0;
-#X obj 174 541 list trim;
-#X msg 357 107 initd -0.9;
-#X msg 181 487 1;
-#X obj 414 304 / 1000;
-#X msg 48 43 100;
-#X obj 48 65 until;
-#X floatatom 389 402 5 0 0 0 - - -, f 5;
-#X floatatom 462 448 5 0 0 0 - - -, f 5;
-#X obj 434 352 * 9;
-#X obj 232 411 * 0.5;
-#X floatatom 251 333 5 0 0 0 - - -, f 5;
-#X obj 273 435 +;
-#X floatatom 179 409 5 0 0 0 - - -, f 5;
-#X obj 273 467 pack f f 0.01;
-#X obj 292 500 list append;
-#X obj 434 374 int;
-#X msg 462 467 1\$1\$1;
-#X obj 232 433 + 0.5;
-#X obj 72 525 loadbang;
-#X obj 81 573 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 72 607 \; xyz_plot autoclear \$1 \;;
-#X msg 72 547 0;
-#X obj 273 413 * -0.5;
-#X msg 417 255 100;
-#X obj 251 352 * -1;
-#X obj 293 525 fd_xyz_plot2 cliff;
+#N canvas 530 49 598 427 12;
+#X msg 76 146 reset;
+#X obj 42 192 clifford;
+#X msg 77 116 a -1.4 \, b 1.6 \, c 1 \, d 0.7;
+#X msg 57 87 print 100;
+#X msg 42 35 bang;
+#X obj 101 221 unpack f f f;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0.0908626 0.0147928 0.778716 -0.369028 -0.114102 0.0845423 -0.847504
+-0.509862 0.376416 -0.028813 0.00843132 0.868487 -0.848116 -0.604271
+0.36439 0.340316 0.467724 -0.20671 0.301261 0.699685 -0.442192 -0.0325608
+0.509616 -0.830327 -0.934028 0.921978 0.940435 -0.80281 -0.560268 0.299643
+0.267715 0.45477 -0.182751 0.188343 0.85701 -0.620806 -0.331749 0.191757
+-0.372235 -0.0610003 0.455621 -0.848509 -0.959217 0.887001 0.990132
+-0.721516 -0.455391 0.201267 0.138928 0.504258 -0.145418 0.0224594
+0.789216 -0.966228 -0.773655 0.550924 0.541948 0.145559 0.00834 0.85348
+-0.86752 -0.630708 0.393272 0.369036 0.433177 -0.176459 0.396505 0.496566
+-0.219813 0.376776 0.601126 -0.321253 0.210055 0.98576 -0.84112 -0.586816
+0.352835 0.200159 0.105538 0.257745 0.207702 0.0470408 0.345941 0.181782
+-0.00831676 0.585898 -0.067291 0.00197029 0.529388 -0.789971 -0.877126
+0.997155 0.827399 -0.98431 -0.84831 0.627194 0.655433 -0.20852 -0.0378189
+0.299138;
+#X array array2 100 float 3;
+#A 0 0.968931 0.159222 0.701074 0.748407 -0.849656 -0.0347066 0.775705
+-0.750411 -0.475039 0.975204 -0.0942607 0.705544 0.729196 -0.710446
+-0.845933 0.310319 0.866529 0.512171 0.153085 0.857325 0.721627 -0.366945
+0.530707 0.850827 -0.859583 -0.83326 0.78398 0.789919 -0.790623 -0.969552
+0.354204 0.994071 0.638026 0.0776007 0.99142 0.969317 -0.823905 -0.331312
+0.849786 -0.414285 0.454321 0.855494 -0.856418 -0.825222 0.765257 0.763362
+-0.807808 -0.897113 0.355078 0.810498 0.911496 -0.152059 0.715312 0.776946
+-0.73671 -0.750146 0.442083 0.705466 -0.105084 0.703473 0.733079 -0.708228
+-0.820468 0.322489 0.834393 0.435947 0.257909 0.766057 0.438662 0.190055
+0.76513 0.544414 -0.0408579 0.971699 0.946557 -0.935401 -0.755051 0.733165
+0.585938 0.582322 0.818322 0.507197 0.557074 0.965543 0.304915 0.605029
+0.797119 -0.349992 0.596236 0.885713 -0.918632 -0.914282 0.883786 0.936995
+-0.910722 -0.902864 0.682055 0.810288 -0.556123 0.380226;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 331 64 graph;
+#X obj 101 246 reflect 1;
+#X obj 118 270 reflect 1;
+#X obj 101 297 array set array1 0 1;
+#X obj 114 322 array set array2 0 1;
+#X obj 42 217 print;
+#X floatatom 129 178 5 0 0 0 - - -, f 5;
+#X msg 135 368 open http://paulbourke.net/fractals/clifford/;
+#X obj 135 393 ggee/shell;
 #X connect 0 0 1 0;
-#X connect 1 0 6 0;
-#X connect 2 0 14 0;
-#X connect 2 1 15 0;
-#X connect 3 0 14 0;
-#X connect 4 0 15 0;
-#X connect 5 0 6 0;
-#X connect 6 0 2 0;
-#X connect 7 0 3 0;
-#X connect 7 0 4 0;
-#X connect 8 0 14 1;
-#X connect 8 0 15 1;
-#X connect 9 0 1 1;
-#X connect 10 0 1 0;
-#X connect 11 0 35 0;
-#X connect 12 0 13 0;
-#X connect 14 0 18 0;
-#X connect 14 0 26 0;
-#X connect 14 0 26 1;
-#X connect 15 0 19 0;
-#X connect 15 0 27 0;
-#X connect 15 0 27 1;
-#X connect 16 0 13 1;
-#X connect 17 0 6 0;
-#X connect 18 0 20 0;
-#X connect 19 0 21 0;
-#X connect 20 0 12 1;
-#X connect 20 0 46 0;
-#X connect 21 0 12 2;
-#X connect 21 0 59 0;
-#X connect 22 0 18 1;
-#X connect 22 0 19 1;
-#X connect 22 0 9 0;
-#X connect 22 0 30 1;
-#X connect 23 0 24 0;
-#X connect 23 0 25 0;
-#X connect 23 0 17 0;
-#X connect 23 0 60 0;
-#X connect 23 0 41 0;
-#X connect 24 0 8 0;
-#X connect 25 0 22 0;
-#X connect 26 0 28 0;
-#X connect 27 0 28 1;
-#X connect 28 0 29 0;
-#X connect 29 0 32 0;
-#X connect 30 0 31 0;
-#X connect 31 0 13 1;
-#X connect 32 0 33 0;
-#X connect 32 0 45 0;
-#X connect 33 0 30 0;
-#X connect 34 0 40 0;
-#X connect 35 0 12 0;
-#X connect 36 0 37 0;
-#X connect 37 0 35 1;
-#X connect 38 0 6 0;
-#X connect 39 0 36 0;
-#X connect 40 0 33 1;
-#X connect 40 0 47 0;
-#X connect 41 0 42 0;
-#X connect 42 0 6 0;
-#X connect 43 0 50 2;
-#X connect 44 0 53 0;
-#X connect 45 0 52 0;
-#X connect 46 0 54 0;
-#X connect 47 0 46 1;
-#X connect 47 0 61 0;
-#X connect 48 0 50 1;
-#X connect 49 0 54 1;
-#X connect 50 0 51 0;
-#X connect 51 0 62 0;
-#X connect 52 0 44 0;
-#X connect 53 0 51 1;
-#X connect 54 0 50 0;
-#X connect 55 0 58 0;
-#X connect 56 0 57 0;
-#X connect 58 0 56 0;
-#X connect 59 0 48 0;
-#X connect 60 0 34 0;
-#X connect 61 0 59 1;
+#X connect 1 0 11 0;
+#X connect 1 1 5 0;
+#X connect 1 2 12 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 2 9 1;
+#X connect 5 2 10 1;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 13 0 14 0;
