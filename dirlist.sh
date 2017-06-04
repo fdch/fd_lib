@@ -1,9 +1,10 @@
 #!/bin/bash
-#Iterate through all non-help files
-DIRLIST=$(find . ! -name "*-help.pd" -name "*.pd" -maxdepth 1 | sed -e 's/.pd//g')
+#Iterate through all non-help or -test files
+DIRLIST=$(find . ! -name "*-help.pd" ! -name "*-test.pd" -name "*.pd" -maxdepth 1 | sed -e 's/.pd//g')
 for i in $DIRLIST; do
 PATCHFILE="$i.pd"
 HELPFILE="$i-help.pd"
+TESTFILE="$i-test.pd"
 PLACEHOLDER=$(echo "
 #N canvas 0 22 450 350 14;
 #X text 10 10 $i;
@@ -26,6 +27,8 @@ if [ ! -d $i ]; then
 	mv $PATCHFILE $i
 	#Replace the placeholder with an existing help file
 	mv $HELPFILE $i
+	#put testfiles in there as well if there are any
+	mv $TESTFILE $i
 elif [ ! -f "$i/$PATCHFILE" ]; then
 	mv $PATCHFILE $i 
 elif [ ! -f "$i/$HELPFILE" ]; then

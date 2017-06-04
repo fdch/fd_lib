@@ -13,6 +13,8 @@
 ./counter/counter-test.pd
 ./crand/crand-help.pd
 ./cuadratic/cuadratic-help.pd
+./cuadratic/cuadratic-test.pd
+./factor/factor-help.pd
 ./fd_2bit/fd_2bit-help.pd
 ./fd_2bit/fd_2bit.pd
 ./fd_6x6/fd_6x6-help.pd

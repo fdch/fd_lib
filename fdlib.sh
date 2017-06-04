@@ -13,6 +13,7 @@ FOUND=0
 CLASSSOURCES=""
 READMEFILES=""
 HELPMEFILES=""
+TESTFILES=""
 if [ ! -d $PDLIBBUILDER_DIR ]
 then
 echo "
@@ -33,8 +34,9 @@ exit
 else
 CLASSSOURCES=$(find . -name "*.c" ! -name "*-*.c" | awk -v RS="" '{gsub (/\n/," ")}1')
 HELPFILES=$(find . -name "*-help.pd" | awk -v RS="" '{gsub (/\n/," ")}1')
+TESTFILES=$(find . -name "*-test.pd" | awk -v RS="" '{gsub (/\n/," ")}1')
 READMEFILES=$(find . -name "README.txt" -name "README.md"| awk -v RS="" '{gsub (/\n/," ")}1')
-for i in $CLASSSOURCES, $HELPFILES, $READMEFILES
+for i in $CLASSSOURCES, $HELPFILES, $TESTFILES, $READMEFILES
 do 
 ((FOUND++))
 done
@@ -51,7 +53,7 @@ lib.name = fd_lib
 
 class.sources = $CLASSSOURCES
 
-datafiles = $HELPFILES $READMEFILES
+datafiles = $HELPFILES $TESTFILES $READMEFILES
 
 include $PDLIBBUILDER_DIR/Makefile.pdlibbuilder
 
