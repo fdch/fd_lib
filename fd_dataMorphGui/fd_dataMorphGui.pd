@@ -1,21 +1,21 @@
 #N canvas 345 46 918 566 12;
-#X obj 10 10 cnv 15 100 100 empty empty dataMorphGui 8 8 0 10 -228856
+#X obj 12 12 cnv 15 96 96 empty empty dataMorphGui 8 8 0 10 -228856
 -1 0;
 #X obj 14 92 tgl 15 0 empty empty all 17 7 0 10 -262144 -1 -1 0 1;
 #X obj 89 92 bng 15 250 50 0 empty empty graph -33 7 0 10 -262144 -1
 -1;
-#X obj 10 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 12 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
 #X msg 354 113 1;
 #X obj 27 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
-#X obj 44 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 45 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
-#X obj 61 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 60 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
 #X obj 78 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
-#X obj 95 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 93 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -262144;
 #X msg 371 113 2;
 #X msg 388 113 3;
@@ -78,13 +78,13 @@
 #X obj 24 233 del;
 #X obj 24 295 list prepend 7, f 9;
 #X obj 24 336 list prepend all, f 9;
-#X obj 99 11 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 98 12 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 117 6 loadbang;
 #X msg 117 31 100;
 #X obj 24 268 f;
 #X msg 88 112 0;
-#X obj 69 80 hradio 8 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
+#X obj 68 80 hradio 8 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
 -1 4;
 #X msg 712 237 Hann;
 #X obj 713 393 makefilename data%s, f 12;
@@ -99,19 +99,19 @@
 #X msg 539 391 vis \$1;
 #X obj 544 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 69 68 bng 10 250 50 0 empty empty vis-7 12 5 0 8 -262144 -1
+#X obj 68 68 bng 10 250 50 0 empty empty vis-7 12 5 0 8 -262144 -1
 -1;
 #X obj 84 21 tgl 15 0 random-morphing random-morphing-set randomizer
 -50 8 0 8 -262144 -1 -1 0 1;
-#X obj 10 10 bng 8 250 50 0 \$0 \$0- empty 17 7 0 8 -262144 -1 -1;
-#X obj 478 8 fd_visera 1;
-#X obj 302 8 symbol dataModifiers;
-#X obj 10 21 bng 10 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+#X obj 12 12 bng 8 250 50 0 \$0 \$0- empty 17 7 0 8 -262144 -1 -1;
+#X obj 12 23 bng 10 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X obj 271 133 s panic;
 #X obj 108 460 s dataMorph;
 #X obj 107 435 list trim;
 #X obj 346 482 r toggle-1;
+#X obj 534 491 b;
+#X msg 534 516 \; pd-dataModifiers menu-open;
 #X connect 1 0 62 1;
 #X connect 1 0 64 0;
 #X connect 2 0 62 0;
@@ -160,7 +160,7 @@
 #X connect 33 0 24 0;
 #X connect 34 0 25 0;
 #X connect 35 0 26 0;
-#X connect 36 0 95 0;
+#X connect 36 0 93 0;
 #X connect 37 0 39 0;
 #X connect 37 1 36 0;
 #X connect 38 0 29 0;
@@ -217,7 +217,7 @@
 #X connect 65 1 72 0;
 #X connect 66 0 73 0;
 #X connect 67 0 68 0;
-#X connect 68 0 95 0;
+#X connect 68 0 93 0;
 #X connect 69 0 42 0;
 #X connect 70 0 71 0;
 #X connect 71 0 27 0;
@@ -239,9 +239,9 @@
 #X connect 85 0 84 0;
 #X connect 86 0 85 0;
 #X connect 87 0 86 0;
-#X connect 89 0 91 0;
-#X connect 91 0 90 0;
-#X connect 92 0 93 0;
-#X connect 95 0 94 0;
-#X connect 96 0 88 0;
+#X connect 89 0 95 0;
+#X connect 90 0 91 0;
+#X connect 93 0 92 0;
+#X connect 94 0 88 0;
+#X connect 95 0 96 0;
 #X coords 0 -1 1 1 100 100 2 10 10;
