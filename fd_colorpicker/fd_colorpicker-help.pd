@@ -1,9 +1,10 @@
 #N struct color-tester float x float y float color;
 #N canvas 527 58 450 350 12;
-#X text 330 294 fd_lib;
 #X text 144 14 "fd_colorpicker";
 #X text 10 40 Prompts a data structures color picker. Click color;
 #X obj 145 93 fd_colorpicker;
 #X floatatom 179 156 5 0 0 0 - - -, f 5;
 #X obj 179 131 r fd_color;
-#X connect 5 0 4 0;
+#X text 41 242 Used in conjunction with the [back] object;
+#X text 233 273 see back-help.pd;
+#X connect 4 0 3 0;

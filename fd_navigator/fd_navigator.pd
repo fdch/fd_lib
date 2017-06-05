@@ -1,7 +1,7 @@
 #N canvas 193 478 325 75 12;
 #N canvas 524 49 406 193 folder-loader 0;
-#X obj 55 26 cnv 15 300 50 empty \$0-filename-label fd_clicktrack 4
-7 0 10 -1 -262144 0;
+#X obj 55 26 cnv 15 300 50 empty \$0-filename-label fd_continunous-distribution
+4 7 0 10 -1 -262144 0;
 #X obj 186 42 bng 15 250 50 0 \$0-cls \$0-cls-s close 17 7 0 10 -261682
 -1 -262144;
 #X obj 63 59 bng 15 250 50 0 \$0-prv \$0-prv-s CMD_<- 17 7 0 10 -24198
@@ -9,7 +9,7 @@
 #X obj 63 42 tgl 15 0 \$0-keys \$0-keys-s _____keys_____ 17 7 0 10
 -261682 -1 -262144 1 1;
 #X obj 202 59 nbx 4 14 0 1e+37 0 0 \$0-indx \$0-indx-s index 46 7 0
-10 -261682 -1 -262144 40 256;
+10 -261682 -1 -262144 42 256;
 #X obj 282 44 tgl 15 0 \$0-vis \$0-vis-s vis 17 7 0 10 -13330 -4034
 -262144 0 1;
 #X obj 123 59 bng 15 250 50 0 \$0-nxt \$0-nxt-s CMD_-> 17 7 0 10 -24198
@@ -75,7 +75,7 @@
 #X connect 21 1 0 0;
 #X restore 192 79 pd s prev next close;
 #N canvas 482 50 552 571 s 0;
-#X msg 116 142 40;
+#X msg 116 142 43;
 #X msg 150 142 set \$1;
 #X obj 45 175 max;
 #X obj 45 199 t f f f;
@@ -161,7 +161,7 @@
 #X obj 408 371 symbol;
 #X obj 165 120 s \$0-direction;
 #X obj 231 148 loadbang;
-#X msg 150 167 40;
+#X msg 150 167 43;
 #X obj 150 191 s \$0-indx-s;
 #X msg 257 421 label \$1;
 #X obj 45 21 route bang;
