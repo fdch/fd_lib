@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dacout; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dacout; #X text 400 300 fd_lib;
+#N canvas 522 52 450 350 12;
+#X text 177 11 "fd_dacout";
+#X floatatom 273 264 5 0 100 0 dB - -, f 5;
+#X obj 43 198 noise~;
+#X obj 43 223 throw~ dacout-1;
+#X msg 350 34 \; pd dsp 1;
+#X msg 350 74 \; pd dsp 0;
+#X text 34 139 Argument 1: dacout INDEX (float);
+#X text 178 226 <-- throw~ to dacout-INDEX;
+#X text 25 47 End-line of a mixer with multiple dacs;
+#X text 33 82 Two creation arguments:;
+#X text 34 159 Argument 2: Dac-index-volume NAME (symbol);
+#X text 37 286 controls volume via NAME -->;
+#X obj 35 106 fd_dacout 1 mynameis;
+#X obj 273 286 s mynameis;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
