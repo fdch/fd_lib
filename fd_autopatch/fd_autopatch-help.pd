@@ -1,1 +1,18 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_autopatch; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_autopatch; #X text 400 300 fd_lib;
+#N canvas 526 52 529 447 12;
+#X text 208 246 CREATION ARGUMENTS;
+#X text 206 322 \$3 float: target object;
+#X text 206 298 \$2 float: source object;
+#X text 206 274 \$1 symbol: subpatch name;
+#X text 206 346 \$4 float: (also via inlet): number of patchcords,
+f 29;
+#X text 186 11 "fd_autopatch";
+#N canvas 0 22 450 300 mysub 0;
+#X obj 100 70 unpack 0 1 2 3 4 5 6;
+#X obj 125 201 pack 0 1 2 3 4 5 6;
+#X restore 63 300 pd mysub;
+#X obj 105 190 fd_autopatch mysub 0 1 8;
+#X msg 55 116 name mysub \, source 0 \, target 1 \, number 8 \, offset
+2 1;
+#X text 54 42 AUTOMATICALLY CONNECT CORDS BETWEEN OUTLETS AND INLETS
+;
+#X connect 8 0 7 0;

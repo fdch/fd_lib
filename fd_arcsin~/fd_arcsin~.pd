@@ -1,4 +1,4 @@
-#N canvas 508 102 527 406 12;
+#N canvas 522 51 527 406 12;
 #X obj 73 109 samplerate~;
 #X msg 114 131 0;
 #X obj 108 12 inlet;
