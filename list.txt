@@ -21,10 +21,6 @@
 ./fd_6x6/fd_6x6.pd
 ./fd_ain/fd_ain-help.pd
 ./fd_ain/fd_ain.pd
-./fd_append/fd_append-help.pd
-./fd_append/fd_append.pd
-./fd_appendit/fd_appendit-help.pd
-./fd_appendit/fd_appendit.pd
 ./fd_arcsin/fd_arcsin-help.pd
 ./fd_arcsin/fd_arcsin.pd
 ./fd_arcsin~/fd_arcsin~-help.pd
@@ -41,8 +37,6 @@
 ./fd_arraysort2/fd_arraysort2.pd
 ./fd_arraytrim/fd_arraytrim-help.pd
 ./fd_arraytrim/fd_arraytrim.pd
-./fd_auload/fd_auload-help.pd
-./fd_auload/fd_auload.pd
 ./fd_autopatch/fd_autopatch-help.pd
 ./fd_autopatch/fd_autopatch.pd
 ./fd_autopoly/fd_autopoly-help.pd
@@ -126,8 +120,6 @@
 ./fd_dataWalk/fd_dataWalk.pd
 ./fd_delit/fd_delit-help.pd
 ./fd_delit/fd_delit.pd
-./fd_diads/fd_diads-help.pd
-./fd_diads/fd_diads.pd
 ./fd_distributions/fd_distributions-help.pd
 ./fd_distributions/fd_distributions.pd
 ./fd_dory/fd_dory-help.pd
@@ -162,8 +154,12 @@
 ./fd_flip/fd_flip.pd
 ./fd_floor/fd_floor-help.pd
 ./fd_floor/fd_floor.pd
+./fd_fm/fd_fm-help.pd
+./fd_fm/fd_fm.pd
 ./fd_fmosc/fd_fmosc-help.pd
 ./fd_fmosc/fd_fmosc.pd
+./fd_fromsig/fd_fromsig-help.pd
+./fd_fromsig/fd_fromsig.pd
 ./fd_g-reader/fd_g-reader-help.pd
 ./fd_g-reader/fd_g-reader.pd
 ./fd_gauss/fd_gauss-help.pd
@@ -209,6 +205,7 @@
 ./fd_hopmsec/fd_hopmsec-help.pd
 ./fd_hopmsec/fd_hopmsec.pd
 ./fd_impulse/fd_impulse-help.pd
+./fd_impulse/fd_impulse-test.pd
 ./fd_impulse/fd_impulse.pd
 ./fd_input/fd_input-help.pd
 ./fd_input/fd_input.pd
@@ -351,8 +348,6 @@
 ./fd_plot/fd_plot-help.pd
 ./fd_plot/fd_plot-test.pd
 ./fd_plot/fd_plot.pd
-./fd_plotter/fd_plotter-help.pd
-./fd_plotter/fd_plotter.pd
 ./fd_pno/fd_pno-help.pd
 ./fd_pno/fd_pno.pd
 ./fd_pno-12/fd_pno-12-help.pd

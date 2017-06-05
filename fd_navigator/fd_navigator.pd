@@ -1,7 +1,7 @@
 #N canvas 193 478 325 75 12;
-#N canvas 524 49 406 193 folder-loader 0;
-#X obj 55 26 cnv 15 300 50 empty \$0-filename-label ./fd_blackman/fd_blackman.pd
-4 7 0 10 -1 -262144 0;
+#N canvas 524 49 559 329 folder-loader 0;
+#X obj 55 26 cnv 15 300 50 empty \$0-filename-label fd_autopoly.pd
+4 7 0 14 -1 -262144 0;
 #X obj 186 42 bng 15 250 50 0 \$0-cls \$0-cls-s close 17 7 0 10 -261682
 -1 -262144;
 #X obj 63 59 bng 15 250 50 0 \$0-prv \$0-prv-s CMD_<- 17 7 0 10 -24198
@@ -9,7 +9,7 @@
 #X obj 63 42 tgl 15 0 \$0-keys \$0-keys-s _____keys_____ 17 7 0 10
 -261682 -1 -262144 1 1;
 #X obj 202 59 nbx 4 14 0 1e+37 0 0 \$0-indx \$0-indx-s index 46 7 0
-10 -261682 -1 -262144 58 256;
+10 -261682 -1 -262144 42 256;
 #X obj 282 44 tgl 15 0 \$0-vis \$0-vis-s vis 17 7 0 10 -13330 -4034
 -262144 0 1;
 #X obj 123 59 bng 15 250 50 0 \$0-nxt \$0-nxt-s CMD_-> 17 7 0 10 -24198
@@ -17,7 +17,7 @@
 #X obj 186 59 bng 14 250 50 0 \$0-bi \$0-bi-s go 3 7 0 8 -24198 -1
 -24198;
 #X obj 305 61 nbx 5 12 -1e+37 1e+37 0 0 \$0-size \$0-size-s size -20
-7 0 8 -1 -261682 -262144 656 256;
+7 0 8 -1 -261682 -262144 653 256;
 #X obj 347 26 bng 8 250 50 0 \$0-closepatch \$0-closepatch-set quit
 -23 4 0 8 -258113 -1 -1;
 #N canvas 553 223 500 310 s 0;
@@ -77,9 +77,9 @@
 #X connect 21 1 0 0;
 #X connect 23 0 24 0;
 #X connect 24 0 0 1;
-#X restore 192 79 pd s prev next close;
+#X restore 192 90 pd s prev next close;
 #N canvas 482 50 552 571 s 0;
-#X msg 110 161 53;
+#X msg 110 161 110;
 #X msg 144 161 set \$1;
 #X obj 39 194 max;
 #X obj 39 218 t f f f;
@@ -100,7 +100,7 @@
 #X msg 131 348 1;
 #X obj 168 396 symbol;
 #X obj 168 420 t a a;
-#X obj 251 468 s \$0-filename-label;
+#X obj 327 498 s \$0-filename-label;
 #X obj 39 348 spigot;
 #X obj 110 526 s \$0-indx-set;
 #X obj 44 526 s \$0-bi;
@@ -162,14 +162,15 @@
 #X obj 370 327 text get \$0-list;
 #X obj 370 351 route bang;
 #X msg 114 496 set \$1;
-#X obj 402 390 symbol;
+#X obj 321 408 symbol;
 #X obj 159 139 s \$0-direction;
 #X obj 225 167 loadbang;
-#X msg 144 186 53;
+#X msg 144 186 110;
 #X obj 144 210 s \$0-indx-s;
-#X msg 251 440 label \$1;
+#X msg 327 470 label \$1;
 #X obj 39 40 route bang;
 #X obj 123 103 t f f;
+#X obj 321 433 ggee/stripdir;
 #X connect 0 0 29 0;
 #X connect 1 0 0 0;
 #X connect 1 0 37 0;
@@ -197,7 +198,7 @@
 #X connect 18 0 22 1;
 #X connect 19 0 20 0;
 #X connect 20 0 28 0;
-#X connect 20 1 39 0;
+#X connect 20 1 34 0;
 #X connect 22 0 15 0;
 #X connect 25 0 26 0;
 #X connect 26 1 27 0;
@@ -208,7 +209,7 @@
 #X connect 31 0 32 0;
 #X connect 32 1 34 0;
 #X connect 33 0 23 0;
-#X connect 34 0 39 0;
+#X connect 34 0 42 0;
 #X connect 36 0 37 0;
 #X connect 37 0 38 0;
 #X connect 39 0 21 0;
@@ -216,7 +217,8 @@
 #X connect 40 1 41 0;
 #X connect 41 0 29 1;
 #X connect 41 1 35 0;
-#X restore 192 103 pd s get list ______;
+#X connect 42 0 39 0;
+#X restore 192 114 pd s get list ______;
 #N canvas 535 259 401 472 s 0;
 #X msg 119 274 open \$1 \$2;
 #X obj 249 390 print -n;
@@ -273,7 +275,7 @@
 #X connect 22 1 24 0;
 #X connect 23 0 0 0;
 #X connect 24 0 2 0;
-#X restore 192 125 pd s open file _____;
+#X restore 192 136 pd s open file _____;
 #N canvas 494 191 482 566 s 0;
 #X obj 143 23 r \$0-keys;
 #X obj 132 502 s \$0-nxt-s;
@@ -401,7 +403,7 @@
 #X connect 49 0 46 0;
 #X connect 50 0 49 0;
 #X connect 50 1 36 0;
-#X restore 55 103 pd s keys ______;
+#X restore 55 114 pd s keys ______;
 #N canvas 0 22 450 300 s 0;
 #X obj 83 181 s pd-folder-loader;
 #X msg 116 130 menu-open;
@@ -418,7 +420,7 @@
 #X connect 4 0 5 0;
 #X connect 5 0 7 0;
 #X connect 6 0 2 0;
-#X restore 55 125 pd s vis _______;
+#X restore 55 136 pd s vis _______;
 #N canvas 510 22 606 741 s 0;
 #X obj 80 23 loadbang;
 #X obj 387 312 text define \$0-list;
@@ -444,7 +446,6 @@ dirlist.sh, f 14;
 #X msg 447 555 100000;
 #X obj 82 71 t b b b b, f 25;
 #X obj 237 526 sel fd_navigator fdpd .gitmodules, f 10;
-#X msg 373 200 read -c ../full-list.txt;
 #X obj 161 166 t b b b b, f 20;
 #X obj 265 207 spigot;
 #X obj 336 230 spigot;
@@ -453,6 +454,7 @@ dirlist.sh, f 14;
 1;
 #X obj 445 170 == 0;
 #X text 400 30 full-list/helpfileonly;
+#X msg 373 200 read -c ../list.txt;
 #X connect 0 0 20 0;
 #X connect 2 0 8 0;
 #X connect 3 0 4 0;
@@ -469,23 +471,23 @@ dirlist.sh, f 14;
 #X connect 18 8 17 0;
 #X connect 19 0 16 1;
 #X connect 20 0 2 0;
-#X connect 20 1 23 0;
+#X connect 20 1 22 0;
 #X connect 20 2 7 0;
 #X connect 20 3 5 0;
 #X connect 21 3 15 0;
-#X connect 22 0 1 0;
-#X connect 23 0 3 0;
-#X connect 23 1 24 0;
-#X connect 23 2 25 0;
-#X connect 23 3 26 0;
-#X connect 24 0 13 0;
-#X connect 25 0 12 0;
-#X connect 26 0 22 0;
-#X connect 27 0 28 0;
+#X connect 22 0 3 0;
+#X connect 22 1 23 0;
+#X connect 22 2 24 0;
+#X connect 22 3 25 0;
+#X connect 23 0 13 0;
+#X connect 24 0 12 0;
+#X connect 25 0 29 0;
+#X connect 26 0 27 0;
+#X connect 26 0 24 1;
+#X connect 26 0 23 1;
 #X connect 27 0 25 1;
-#X connect 27 0 24 1;
-#X connect 28 0 26 1;
-#X restore 55 79 pd s init text _;
+#X connect 29 0 1 0;
+#X restore 55 90 pd s init text _;
 #X obj 320 44 bng 15 250 50 0 \$0-txt \$0-txt-s txt 17 7 0 10 -261682
 -1 -262144;
 #X obj 347 35 bng 8 250 50 0 \$0-reload \$0-reload-set text_reload
