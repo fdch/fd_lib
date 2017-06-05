@@ -1,1 +1,9 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_colorpicker; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_colorpicker; #X text 400 300 fd_lib;
+#N struct color-tester float x float y float color;
+#N canvas 527 58 450 350 12;
+#X text 330 294 fd_lib;
+#X text 144 14 "fd_colorpicker";
+#X text 10 40 Prompts a data structures color picker. Click color;
+#X obj 145 93 fd_colorpicker;
+#X floatatom 179 156 5 0 0 0 - - -, f 5;
+#X obj 179 131 r fd_color;
+#X connect 5 0 4 0;
