@@ -1,1 +1,4 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_cputime; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_cputime; #X text 400 300 fd_lib;
+#N canvas 534 36 450 350 12;
+#X obj 184 102 ./fd_cputime;
+#X text 166 21 "fd_cputime";
+#X text 19 53 Small gui that queries cputime as in load-meter.pd;
