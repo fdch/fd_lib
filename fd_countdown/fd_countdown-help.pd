@@ -1,1 +1,10 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_countdown; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_countdown; #X text 400 300 fd_lib;
+#N canvas 526 56 450 350 12;
+#X text 148 28 "fd_countdown";
+#X text 49 54 A simple gui abstraction for a countdown;
+#X obj 51 108 fd_countdown;
+#X text 162 110 toggle: on/off;
+#X text 163 131 nbox: time (msec);
+#X obj 51 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 75 227 <-- outlet bang when done;
+#X connect 2 0 5 0;
