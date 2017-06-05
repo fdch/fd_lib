@@ -523,7 +523,7 @@ send ptr \; pd-back-help.pd vis 0 \, setbounds 20 480 1250 770 \, vis
 #X connect 5 1 6 1;
 #X restore 155 110 pd mixer;
 #X obj 433 174 vsl 30 80 0.01 6 1 0 mainvol empty mainvol 0 -9 0 10
--262144 -1 -1 7900 1;
+-262144 -1 -1 0 1;
 #N canvas 27 101 505 274 type 0;
 #N canvas 0 23 469 295 dots 0;
 #X obj 14 22 struct dots float x float y float w float color;
@@ -837,7 +837,7 @@ create \, 1, f 17;
 #X msg 839 93 create;
 #X msg 1000 241 \; pd-gem-scanner vis \$1;
 #X obj 1000 212 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #N canvas 0 23 518 299 accessibility 0;
 #X obj 19 51 bang;
 #X msg 19 100 \; this cursor pencil;
@@ -882,7 +882,7 @@ create \, 1, f 17;
 2400 2400 \;;
 #X msg 1153 165 3;
 #X msg 817 34 bang;
-#X obj 515 202 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 515 202 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 515 222 \; pd-color-picker vis \$1 \; pd-fd_colorpicker.pd vis
 \$1 \;;

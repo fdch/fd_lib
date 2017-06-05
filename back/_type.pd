@@ -1,4 +1,4 @@
-#N canvas 0 22 417 410 12;
+#N canvas 523 52 417 410 12;
 #X obj 82 334 pack f f f f;
 #X obj 41 156 / 1;
 #X obj 122 158 / 1;
@@ -24,6 +24,7 @@
 #X obj 41 51 pointer \$1;
 #X obj 41 79 get \$1 x y w color;
 #X obj 82 359 s \$1;
+#X text 140 16 used in back-help.pd;
 #X connect 0 0 24 0;
 #X connect 1 0 3 0;
 #X connect 2 0 13 0;

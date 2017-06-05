@@ -27,12 +27,12 @@
 #X obj 337 357 fd_list-pointer;
 #N canvas 31 386 450 300 this3 1;
 #X scalar fd_list-point-tmpl1 100 10 0 \;;
-#X scalar fd_list-point-tmpl1 100 50 0 \;;
-#X scalar fd_list-point-tmpl1 100 80 0 \;;
-#X scalar fd_list-point-tmpl1 100 100 0 \;;
-#X scalar fd_list-point-tmpl1 200 100 0 \;;
-#X scalar fd_list-point-tmpl1 130 20 0 \;;
+#X scalar fd_list-point-tmpl1 100 50 9 \;;
+#X scalar fd_list-point-tmpl1 100 80 9 \;;
+#X scalar fd_list-point-tmpl1 100 100 9 \;;
+#X scalar fd_list-point-tmpl1 130 20 9 \;;
 #X scalar fd_list-point-tmpl1 130 240 0 \;;
+#X scalar fd_list-point-tmpl1 200 100 9 \;;
 #X restore 513 239 pd this3;
 #X obj 188 275 fd_itpoint pd-this3;
 #X floatatom 275 384 5 0 0 0 change_color - -, f 5;

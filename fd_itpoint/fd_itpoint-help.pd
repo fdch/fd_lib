@@ -59,13 +59,15 @@
 #X text 49 77 When you send in a symbol or a bang \, out comes pointers
 to all found objects in a scalar through outlet 2 After this \, the
 total number of stored pointers is shown out of outlet 1, f 61;
-#X text 116 460 Use in conjunction with:;
-#X obj 323 459 fd_list-pointer;
-#X text 323 489 see fd_list-pointer-help.pd;
+#X text 116 470 Use in conjunction with:;
+#X obj 323 469 fd_list-pointer;
+#X text 323 495 see fd_list-pointer-help.pd;
 #X text 335 288 open to see -->;
 #X text 335 308 open to see -->;
 #X msg 466 142 bang;
 #X text 187 142 bang this first to initialize -->;
+#X text 63 437 This is an abstraction identical to [back]'s "flush"
+method;
 #X connect 2 0 11 0;
 #X connect 4 0 11 0;
 #X connect 11 0 7 0;
