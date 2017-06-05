@@ -138,7 +138,9 @@ void mainpath_open(t_mainpath *x, t_symbol *s)
 		sprintf(buf, "open %s%s", x->x_newpath->s_name, s->s_name);
 	} else 
 		sprintf(buf, "open %s/%s", x->x_sym->s_name, s->s_name);
-	if ((system(buf))) post("Couldn't %s", buf);
+	if ((system(buf))) pd_error(x,"Couldn't %s", buf);
+	else 
+		outlet_bang(x->x_obj.ob_outlet);
 }
 
 

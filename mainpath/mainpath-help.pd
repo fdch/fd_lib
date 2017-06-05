@@ -17,8 +17,6 @@
 #X obj 33 286 mainpath;
 #X msg 33 83 getfiles;
 #X text 113 82 <-- Outputs all files in current directory;
-#X text 206 185 <-- Opens a specified file in its default app, f 25
-;
 #X msg 43 117 getpdfiles;
 #X text 135 114 <-- Outputs all ".pd" files in current directory,
 f 38;
@@ -35,14 +33,16 @@ or abstraction \, the directory will not change., f 47;
 #X obj 274 380 mainpath ..;
 #X msg 274 303 getfiles;
 #X msg 291 344 getpdfiles;
-#X connect 0 0 7 0;
+#X text 206 185 <-- outputs a bang if successfull and then opens a
+specified file in its default app, f 38;
+#X connect 0 0 6 0;
 #X connect 1 0 0 0;
-#X connect 4 0 0 0;
-#X connect 8 0 0 0;
-#X connect 11 0 0 0;
-#X connect 14 0 7 0;
-#X connect 15 0 14 0;
-#X connect 16 0 14 0;
+#X connect 3 0 0 0;
+#X connect 7 0 0 0;
+#X connect 10 0 0 0;
+#X connect 13 0 6 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
 #X restore 205 474 pd file stuff;
 #X text 222 14 "mainpath";
 #X text 240 362 <-- goes back two directories;
