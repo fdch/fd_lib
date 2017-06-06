@@ -1,11 +1,13 @@
 #N canvas 905 22 343 98 12;
+#X obj 16 18 cnv 15 308 58 empty empty empty 20 12 0 14 -99865 -66577
+0;
 #N canvas 524 49 401 154 \$0-loader 0;
-#X obj 55 25 cnv 15 300 50 empty \$0-filename-set !msg-help.pd 4 7
-0 14 -262144 -6 0;
+#X obj 55 25 cnv 15 300 50 empty \$0-filename-set fd_fftbark~-help.pd
+4 7 0 14 -262144 -6 0;
 #X obj 60 55 nbx 4 18 0 1e+37 0 0 \$0-index \$0-index-set index 0 -8
-0 14 -262144 -3 -6 0 256;
+0 14 -262144 -3 -6 144 256;
 #X obj 347 43 tgl 8 0 \$0-vis \$0-vis-set vis -16 4 0 8 -262144 -3
--6 1 1;
+-6 0 1;
 #X obj 347 25 bng 8 250 50 0 \$0-quit \$0-quit-set quit -23 4 0 8 -262144
 -3 -6;
 #X obj 347 51 bng 8 250 50 0 \$0-text \$0-text-set text -20 4 0 8 -262144
@@ -32,7 +34,7 @@
 #X obj 252 520 route bang;
 #X obj 231 569 symbol;
 #X obj 323 430 loadbang;
-#X msg 289 430 0;
+#X msg 289 430 144;
 #X msg 369 603 label \$1;
 #X obj 369 575 ggee/stripdir;
 #X obj 252 362 t f f;
@@ -73,11 +75,11 @@
 #X msg 879 434 0;
 #X obj 739 512 &&;
 #X obj 739 536 sel 1;
-#X obj 1060 620 counter -i 1;
-#X msg 1059 545 i -1 \, bang;
-#X msg 1034 445 i 1 \, bang;
-#X msg 1021 639 0;
-#X obj 1060 659 sel;
+#X obj 1066 616 counter -i 1;
+#X msg 986 449 i -1 \, bang;
+#X msg 1078 450 i 1 \, bang;
+#X msg 1022 615 0;
+#X obj 1066 647 sel;
 #X obj 846 387 sel Return;
 #X obj 739 576 s \$0-open-set;
 #X obj 854 283 t b b;
@@ -109,9 +111,9 @@
 #X connect 9 0 4 0;
 #X connect 10 0 6 0;
 #X restore 855 576 pd s key-color;
-#X obj 1116 579 r \$0-index;
-#X obj 1115 659 r \$0-size;
-#X obj 1081 696 s \$0-index-set;
+#X obj 1100 565 r \$0-index;
+#X obj 1106 643 r \$0-size;
+#X obj 1087 676 s \$0-index-set;
 #X obj 1032 222 sel Up Down Left Right, f 11;
 #X obj 1032 267 s \$0-up-set;
 #X obj 1042 287 s \$0-down-set;
@@ -170,17 +172,20 @@
 #X obj 603 155 s \$0-rgb-set;
 #X msg 602 106 set \$1;
 #X msg 80 432 label size-\$1-;
-#X obj 1034 396 r \$0-right;
-#X obj 1043 416 r \$0-up;
-#X obj 1059 497 r \$0-left;
-#X obj 1068 517 r \$0-down;
+#X obj 1078 401 r \$0-right;
+#X obj 1087 421 r \$0-up;
+#X obj 986 401 r \$0-left;
+#X obj 995 421 r \$0-down;
 #X obj 528 522 r \$0-close;
 #X obj 528 547 t b b;
 #X obj 33 252 text;
 #X obj 33 277 t b p p, f 39;
 #X obj 33 333 text size -s text t;
-#X msg 208 149 \; pd-s vis 0 \; pd-\$1-loader menuclose \; \$1-vis-set
-set 0 \;;
+#X msg 208 149 \; pd-s vis 0 \; \$1-vis-set 0 \; pd-\$1-loader menuclose
+\;;
+#X msg 1100 588 set \$1;
+#X msg 1067 566 144;
+#X obj 1067 538 loadbang;
 #X connect 0 0 12 0;
 #X connect 1 0 4 0;
 #X connect 2 0 125 0;
@@ -264,6 +269,7 @@ set 0 \;;
 #X connect 66 0 50 0;
 #X connect 66 1 67 0;
 #X connect 68 0 58 0;
+#X connect 68 0 129 0;
 #X connect 69 0 62 1;
 #X connect 71 0 72 0;
 #X connect 71 1 73 0;
@@ -314,6 +320,9 @@ set 0 \;;
 #X connect 126 1 127 1;
 #X connect 126 2 29 3;
 #X connect 127 0 8 0;
+#X connect 129 0 130 0;
+#X connect 130 0 58 0;
+#X connect 131 0 130 0;
 #X restore 55 90 pd \$0-guts;
 #X obj 127 44 cnv 8 163 30 empty \$0-keys-back ---------keys---------
 12 4 0 8 -233017 -6 0;
@@ -335,5 +344,3 @@ set 0 \;;
 -3 -6 0 256;
 #X coords 0 -1 1 1 304 54 2 53 23;
 #X restore 18 20 pd \$0-loader;
-#X obj 16 18 cnv 15 308 58 empty empty empty 20 12 0 14 -99865 -66577
-0;
