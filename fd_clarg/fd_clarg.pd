@@ -1,0 +1,18 @@
+#N canvas 0 22 450 300 12;
+#X obj 113 18 inlet;
+#X obj 113 84 list append \$1 \$2;
+#X msg 165 181 \$2-\$1;
+#X obj 132 217 outlet;
+#X obj 113 109 list prepend;
+#X msg 113 179 \$1-\$2;
+#X obj 113 134 route 0 1;
+#X obj 113 42 t b f;
+#X connect 0 0 7 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 6 1 2 0;
+#X connect 7 0 1 0;
+#X connect 7 1 4 1;

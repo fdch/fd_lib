@@ -1,0 +1,4 @@
+#N canvas 99 284 450 300 12;
+#X obj 81 63 r get-\$2-\$1;
+#X obj 81 107 array set \$3-status \$1 1;
+#X connect 0 0 1 0;

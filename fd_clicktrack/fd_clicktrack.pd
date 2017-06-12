@@ -2,7 +2,7 @@
 #X obj 16 220 inlet;
 #X obj 16 292 outlet;
 #X obj 79 290 outlet~;
-#N canvas 155 22 1017 722 clicktrack-guts 0;
+#N canvas 155 22 1017 722 clicktrack-guts 1;
 #X obj 166 347 metro 220;
 #X obj 138 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -37,7 +37,7 @@
 #X obj 137 225 t f f f f, f 15;
 #X obj 182 588 t f f f;
 #X obj 273 614 sel 0;
-#X obj 166 306 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 166 306 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 763.356
 1;
 #X msg 386 489 color \$1 22 22;
 #X obj 137 140 t f f, f 8;
@@ -150,7 +150,6 @@
 #X obj 667 229 r hideguts;
 #X obj 901 31 bng 80 250 50 0 hideguts hideguts-set hideguts 0 -10
 0 14 -262144 -1 -1;
-#X text 586 304 ps: guts are behind the canvas, f 18;
 #X msg 584 254 vis 1;
 #X msg 667 254 vis 0, f 16;
 #X obj 483 416 s \$1-bpm;
@@ -161,7 +160,7 @@
 #X msg 440 318 21;
 #X msg 244 451 color 21 1 1;
 #X msg 580 394 set \$1;
-#X msg 602 468;
+#X msg 602 468 78;
 #X obj 602 415 loadbang;
 #X obj 602 440 del 2;
 #X connect 0 0 80 0;
@@ -185,7 +184,7 @@
 #X connect 15 0 31 0;
 #X connect 16 0 13 1;
 #X connect 17 0 18 0;
-#X connect 17 1 136 0;
+#X connect 17 1 135 0;
 #X connect 18 0 42 0;
 #X connect 18 0 34 0;
 #X connect 19 0 20 0;
@@ -215,10 +214,10 @@
 #X connect 35 0 2 0;
 #X connect 35 1 29 0;
 #X connect 36 0 4 0;
-#X connect 37 0 137 0;
+#X connect 37 0 136 0;
 #X connect 37 0 16 0;
 #X connect 37 1 25 0;
-#X connect 37 1 136 0;
+#X connect 37 1 135 0;
 #X connect 37 1 39 0;
 #X connect 37 2 39 0;
 #X connect 38 0 6 0;
@@ -227,7 +226,7 @@
 #X connect 38 3 71 0;
 #X connect 39 0 115 0;
 #X connect 40 0 41 0;
-#X connect 41 0 133 0;
+#X connect 41 0 132 0;
 #X connect 42 0 28 0;
 #X connect 43 0 88 0;
 #X connect 44 0 45 0;
@@ -269,7 +268,7 @@
 #X connect 75 0 67 0;
 #X connect 76 0 36 0;
 #X connect 77 0 89 0;
-#X connect 78 0 135 0;
+#X connect 78 0 134 0;
 #X connect 79 0 45 1;
 #X connect 79 0 48 0;
 #X connect 80 0 81 0;
@@ -289,7 +288,7 @@
 #X connect 91 0 92 0;
 #X connect 92 0 30 0;
 #X connect 93 0 109 0;
-#X connect 93 1 136 0;
+#X connect 93 1 135 0;
 #X connect 93 2 94 0;
 #X connect 94 0 22 0;
 #X connect 95 0 101 0;
@@ -315,52 +314,52 @@
 #X connect 110 1 37 0;
 #X connect 110 2 109 0;
 #X connect 111 1 26 0;
-#X connect 111 1 131 0;
-#X connect 111 1 138 0;
+#X connect 111 1 130 0;
+#X connect 111 1 137 0;
 #X connect 116 0 4 1;
 #X connect 116 1 38 0;
 #X connect 117 0 116 0;
 #X connect 118 0 69 0;
 #X connect 119 0 89 0;
-#X connect 125 0 129 0;
-#X connect 126 0 130 0;
-#X connect 129 0 132 0;
-#X connect 130 0 132 0;
-#X connect 133 0 115 0;
-#X connect 134 0 118 1;
-#X connect 135 0 69 1;
-#X connect 135 1 68 0;
-#X connect 136 0 42 0;
-#X connect 137 0 28 0;
-#X connect 137 0 115 0;
-#X connect 138 0 139 0;
-#X connect 139 0 26 0;
-#X connect 140 0 141 0;
-#X connect 141 0 139 0;
+#X connect 125 0 128 0;
+#X connect 126 0 129 0;
+#X connect 128 0 131 0;
+#X connect 129 0 131 0;
+#X connect 132 0 115 0;
+#X connect 133 0 118 1;
+#X connect 134 0 69 1;
+#X connect 134 1 68 0;
+#X connect 135 0 42 0;
+#X connect 136 0 28 0;
+#X connect 136 0 115 0;
+#X connect 137 0 138 0;
+#X connect 138 0 26 0;
+#X connect 139 0 140 0;
+#X connect 140 0 138 0;
 #X restore 16 254 pd clicktrack-guts;
 #X obj 78 222 inlet;
 #X obj 10 8 cnv 15 198 170 empty empty empty 20 12 0 14 -1 -66577 0
 ;
-#X obj 60 65 cnv 15 48 30 empty \$0-beat empty 20 12 0 14 -99865 -166441
-0;
+#X obj 160 65 cnv 15 48 30 empty \$0-beat empty 20 12 0 14 -260818
+-1 0;
 #X obj 150 104 nbx 1 40 -1e+37 1e+37 0 0 empty \$0-uni empty 0 -8 0
 40 -1 -260097 -260097 0 256;
 #X obj 81 103 nbx 1 40 -1e+37 1e+37 0 0 empty \$0-dec empty 0 -8 0
-40 -1 -260097 -260097 0 256;
+40 -1 -260097 -260097 2 256;
 #X obj 10 102 nbx 1 40 -1e+37 1e+37 0 0 empty \$0-cen empty 0 -8 0
 40 -1 -260097 -260097 0 256;
-#X obj 10 8 cnv 50 198 50 empty \$0-bpm 144bpm 40 25 0 33 -99865 -166441
+#X obj 10 8 cnv 50 198 50 empty \$0-bpm 78bpm 40 25 0 33 -99865 -260818
 0;
 #X obj 17 161 nbx 5 14 -1e+37 1e+37 0 0 empty \$1-beatmsec \$1-beatmsec
-0 -8 0 8 -262144 -1 -262144 0 256;
+0 -8 0 8 -262144 -1 -262144 763.356 256;
 #X obj 72 161 nbx 5 14 -1e+37 1e+37 0 0 empty \$1-pulse \$1-pulse 0
--8 0 8 -262144 -1 -262144 0 256;
+-8 0 8 -262144 -1 -262144 763.356 256;
 #X obj 126 161 nbx 5 14 -1e+37 1e+37 0 0 empty \$1-barcount \$1-barcount
-0 -8 0 8 -262144 -1 -262144 0 256;
+0 -8 0 8 -262144 -1 -262144 20 256;
 #X obj 193 9 tgl 15 0 \$1-keys \$1-keys-set \$1-keys: -40 7 0 10 -1
 -260097 -260097 0 1;
 #X obj 10 8 tgl 15 0 \$1-click-onoff \$1-click-onoff-set 1|0 20 7 0
-10 -1 -260097 -260097 0 1;
+10 -1 -260097 -260097 763.356 1;
 #X obj 120 8 bng 10 250 50 0 \$1-reset \$1-reset-set \$1-reset -40
 5 0 8 -261234 -1 -260097;
 #X obj 183 46 tgl 10 0 \$1-click \$1-click-set \$1-click: -40 5 0 8

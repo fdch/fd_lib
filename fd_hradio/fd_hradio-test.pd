@@ -1,0 +1,272 @@
+#N canvas 525 49 748 665 12;
+#X obj 287 307 array get -s float-array z 0 1, f 17;
+#X obj 231 392 sel;
+#X obj 365 209 counter -m 16;
+#N canvas 0 22 450 300 hihat 0;
+#X obj -2 -2 cnv 24 324 24 empty hihat-set hihat 0 -10 0 15 -233017
+-1 1.04858e+06;
+#X obj 0 0 tgl 20 0 get-hihat-0 hihat-0-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 20 0 tgl 20 0 get-hihat-1 hihat-1-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 40 0 tgl 20 0 get-hihat-2 hihat-2-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 60 0 tgl 20 0 get-hihat-3 hihat-3-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 80 0 tgl 20 0 get-hihat-4 hihat-4-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 100 0 tgl 20 0 get-hihat-5 hihat-5-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 120 0 tgl 20 0 get-hihat-6 hihat-6-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 140 0 tgl 20 0 get-hihat-7 hihat-7-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 160 0 tgl 20 0 get-hihat-8 hihat-8-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 180 0 tgl 20 0 get-hihat-9 hihat-9-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 200 0 tgl 20 0 get-hihat-10 hihat-10-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 220 0 tgl 20 0 get-hihat-11 hihat-11-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 240 0 tgl 20 0 get-hihat-12 hihat-12-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 260 0 tgl 20 0 get-hihat-13 hihat-13-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 280 0 tgl 20 0 get-hihat-14 hihat-14-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 300 0 tgl 20 0 get-hihat-15 hihat-15-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X coords 0 0 324 24 324 24 2 -2 -2;
+#X restore 23 36 pd hihat;
+#N canvas 0 22 450 300 snare 0;
+#X obj -2 -2 cnv 24 324 24 empty snare-set snare 0 -10 0 15 -233017
+-1 1.04858e+06;
+#X obj 0 0 tgl 20 0 get-snare-0 snare-0-set empty 0 0 0 4 -233017 -1
+-12 1 1;
+#X obj 20 0 tgl 20 0 get-snare-1 snare-1-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 40 0 tgl 20 0 get-snare-2 snare-2-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 60 0 tgl 20 0 get-snare-3 snare-3-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 80 0 tgl 20 0 get-snare-4 snare-4-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 100 0 tgl 20 0 get-snare-5 snare-5-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 120 0 tgl 20 0 get-snare-6 snare-6-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 140 0 tgl 20 0 get-snare-7 snare-7-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 160 0 tgl 20 0 get-snare-8 snare-8-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 180 0 tgl 20 0 get-snare-9 snare-9-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 200 0 tgl 20 0 get-snare-10 snare-10-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 220 0 tgl 20 0 get-snare-11 snare-11-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 240 0 tgl 20 0 get-snare-12 snare-12-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 260 0 tgl 20 0 get-snare-13 snare-13-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 280 0 tgl 20 0 get-snare-14 snare-14-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 300 0 tgl 20 0 get-snare-15 snare-15-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X coords 0 0 324 24 324 24 2 -2 -2;
+#X restore 23 81 pd snare;
+#N canvas 0 22 450 300 bass 0;
+#X obj -2 -2 cnv 24 324 24 empty bass-set bass 0 -10 0 15 -233017 -1
+1.04858e+06;
+#X obj 0 0 tgl 20 0 get-bass-0 bass-0-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 20 0 tgl 20 0 get-bass-1 bass-1-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 40 0 tgl 20 0 get-bass-2 bass-2-set empty 0 0 0 4 -233017 -1
+-12 1 1;
+#X obj 60 0 tgl 20 0 get-bass-3 bass-3-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 80 0 tgl 20 0 get-bass-4 bass-4-set empty 0 0 0 4 -233017 -1
+-12 1 1;
+#X obj 100 0 tgl 20 0 get-bass-5 bass-5-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 120 0 tgl 20 0 get-bass-6 bass-6-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 140 0 tgl 20 0 get-bass-7 bass-7-set empty 0 0 0 4 -233017 -1
+-12 1 1;
+#X obj 160 0 tgl 20 0 get-bass-8 bass-8-set empty 0 0 0 4 -233017 -1
+-12 1 1;
+#X obj 180 0 tgl 20 0 get-bass-9 bass-9-set empty 0 0 0 4 -233017 -1
+-12 0 1;
+#X obj 200 0 tgl 20 0 get-bass-10 bass-10-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 220 0 tgl 20 0 get-bass-11 bass-11-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 240 0 tgl 20 0 get-bass-12 bass-12-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 260 0 tgl 20 0 get-bass-13 bass-13-set empty 0 0 0 4 -233017
+-1 -12 1 1;
+#X obj 280 0 tgl 20 0 get-bass-14 bass-14-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X obj 300 0 tgl 20 0 get-bass-15 bass-15-set empty 0 0 0 4 -233017
+-1 -12 0 1;
+#X coords 0 0 324 24 324 24 2 -2 -2;
+#X restore 23 124 pd bass;
+#X obj 372 140 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 375 374 array get -s float-array z 0 1, f 17;
+#X obj 375 431 sel;
+#X obj 504 422 array get -s float-array z 0 1, f 17;
+#X obj 420 541 sel;
+#X msg 469 303 send;
+#X obj 176 584 *~;
+#X obj 176 609 dac~;
+#X obj 38 404 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 38 540 \$1 10;
+#X obj 38 565 vline~;
+#X obj 39 590 dbtorms~;
+#X obj 25 157 hradio 20 1 0 16 empty empty empty 0 -8 0 10 -233017
+-1 -1 15;
+#X obj 129 207 route color random;
+#X msg 491 222 number 16 \, color 10 \, size 20 \, random 70;
+#X obj 422 566 _bass;
+#X msg 674 179 random;
+#X msg 574 157 clear;
+#X msg 647 251 clear;
+#X msg 681 299 clear;
+#X msg 610 285 random;
+#X msg 594 182 random;
+#X msg 664 346 random;
+#X obj 213 441 _note 400;
+#X floatatom 418 125 5 0 0 0 - - -, f 5;
+#X obj 350 250 t f f f f;
+#X obj 213 466 *~ 0.5;
+#X obj 356 504 *~ 0.4;
+#X obj 213 491 +~;
+#X obj 264 573 +~;
+#X obj 356 479 _note 231;
+#X floatatom 214 337 5 0 0 0 - - -, f 5;
+#X obj 291 383 * 0.58;
+#X msg 215 304 400;
+#X obj 366 176 metro 0.6 240 permin;
+#X obj 32 330 *~;
+#X obj 57 445 rev3~ 110 50 4000 1;
+#X obj 142 267 cos~;
+#X obj 142 292 *~ -0.5;
+#X obj 142 317 +~ 0.5;
+#X obj 29 219 line~;
+#X obj 596 11 fd_windows 0 64;
+#X obj 29 244 *~ 61;
+#X obj 29 269 +~ 1;
+#X obj 12 298 tabread4~ 0-cau;
+#X obj 72 335 noise~;
+#X msg 29 194 0 \, 1 100;
+#X obj 65 378 bp~ 2500 5;
+#X floatatom 168 354 5 0 0 0 - - -, f 5;
+#X msg 615 74 reload;
+#X msg 405 53 recall \$1;
+#X msg 670 429 color \$1;
+#X floatatom 672 407 5 0 0 0 - - -, f 5;
+#X obj 457 262 fd_hradio hihat;
+#X obj 422 616 clip~ 0 1;
+#X obj 502 571 mtof;
+#X obj 504 463 t f b;
+#X obj 505 492 random 17;
+#X obj 508 517 reflect 40 17;
+#X obj 511 542 fd_scales 2;
+#X obj 422 591 *~ 17;
+#X obj 502 596 * 2;
+#X obj 614 375 fd_hradio bass;
+#X obj 531 318 fd_hradio snare;
+#X obj 509 44 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 399 11 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X msg 506 75 store \$1;
+#X connect 0 0 1 0;
+#X connect 1 1 29 0;
+#X connect 2 0 31 0;
+#X connect 6 0 40 0;
+#X connect 7 0 8 0;
+#X connect 8 1 36 0;
+#X connect 9 0 62 0;
+#X connect 10 1 21 0;
+#X connect 11 0 59 0;
+#X connect 11 0 68 0;
+#X connect 11 0 69 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 12 0;
+#X connect 19 2 18 0;
+#X connect 20 0 19 0;
+#X connect 20 0 59 0;
+#X connect 20 0 68 0;
+#X connect 20 0 69 0;
+#X connect 21 0 66 0;
+#X connect 22 0 59 0;
+#X connect 22 0 68 0;
+#X connect 22 0 69 0;
+#X connect 23 0 59 0;
+#X connect 24 0 69 0;
+#X connect 25 0 68 0;
+#X connect 26 0 69 0;
+#X connect 27 0 59 0;
+#X connect 28 0 68 0;
+#X connect 29 0 32 0;
+#X connect 30 0 40 1;
+#X connect 31 0 0 0;
+#X connect 31 1 7 0;
+#X connect 31 2 9 0;
+#X connect 31 3 18 0;
+#X connect 32 0 34 0;
+#X connect 33 0 34 1;
+#X connect 34 0 35 0;
+#X connect 35 0 12 1;
+#X connect 36 0 33 0;
+#X connect 38 0 29 1;
+#X connect 39 0 37 0;
+#X connect 40 0 2 0;
+#X connect 41 0 53 0;
+#X connect 42 0 12 0;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
+#X connect 46 0 48 0;
+#X connect 48 0 49 0;
+#X connect 49 0 50 0;
+#X connect 50 0 41 0;
+#X connect 51 0 41 1;
+#X connect 52 0 46 0;
+#X connect 53 0 42 0;
+#X connect 54 0 53 1;
+#X connect 55 0 59 0;
+#X connect 55 0 68 0;
+#X connect 55 0 69 0;
+#X connect 56 0 59 0;
+#X connect 56 0 68 0;
+#X connect 56 0 69 0;
+#X connect 57 0 68 0;
+#X connect 58 0 57 0;
+#X connect 59 0 0 2;
+#X connect 60 0 35 1;
+#X connect 61 0 21 1;
+#X connect 61 0 67 0;
+#X connect 62 0 10 0;
+#X connect 62 1 63 0;
+#X connect 63 0 64 0;
+#X connect 64 0 65 0;
+#X connect 65 0 61 0;
+#X connect 66 0 60 0;
+#X connect 67 0 36 1;
+#X connect 67 0 38 0;
+#X connect 68 0 9 2;
+#X connect 69 0 7 2;
+#X connect 70 0 72 0;
+#X connect 71 0 56 0;
+#X connect 72 0 59 0;
+#X connect 72 0 68 0;
+#X connect 72 0 69 0;

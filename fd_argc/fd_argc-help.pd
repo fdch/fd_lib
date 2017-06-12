@@ -1,0 +1,17 @@
+#N canvas 278 45 449 297 12;
+#X msg 36 80 bang;
+#X text 177 13 "fd_argc";
+#X obj 36 163 unpack f f f;
+#X obj 36 112 fd_argc one 2 three 4 five 6 seven 8 nine, f 23;
+#X obj 82 230 print floats;
+#X obj 129 204 print symbols;
+#X obj 36 258 print argc;
+#X text 34 45 Bang to output argument count sorted by type;
+#X text 282 208 see also:;
+#X obj 316 240 fd_argv;
+#X obj 316 265 fd_arg1;
+#X connect 0 0 3 0;
+#X connect 2 0 6 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 2 0;
