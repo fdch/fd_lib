@@ -1,0 +1,59 @@
+#N canvas 554 65 630 510 10;
+#X obj 99 165 sradio 15 1 0 6 empty empty empty 0 -8 0 10 -261682 -1
+-1 0;
+#X msg 285 109 number 10;
+#X msg 291 130 number 20;
+#X obj 99 111 hradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X msg 157 30 bang;
+#X msg 279 86 number 6;
+#X obj 78 55 f;
+#X obj 106 55 + 1;
+#X obj 105 81 mod 6;
+#X obj 59 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 133 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 81 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 99 194 route float list;
+#X obj 141 226 print;
+#X obj 90 225 sel;
+#X obj 59 25 metro 300;
+#X msg 46 324 hradio 10 0 1 5 receive send name 0 -10 0 15 9 19 29
+2;
+#X obj 45 381 sradio 30 0 1 16 mysradio mysradio-set mysradio 0 -10
+0 15 -228992 -62784 -355 2;
+#X msg 310 231 \; mysradio-set color 8 18 28;
+#X obj 49 418 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 49 440 metro 300;
+#X obj 49 462 counter;
+#X obj 171 421 r mysradio;
+#X obj 49 484 s mysradio-set;
+#X obj 171 443 sel 1;
+#X obj 171 465 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 195 31 to output the list;
+#X connect 0 0 12 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 1;
+#X connect 8 0 3 0;
+#X connect 9 0 15 0;
+#X connect 12 0 14 0;
+#X connect 12 1 13 0;
+#X connect 14 0 11 0;
+#X connect 14 1 10 0;
+#X connect 15 0 6 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 24 0 25 0;
