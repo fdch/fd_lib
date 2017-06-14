@@ -1,4 +1,4 @@
-#N canvas 299 52 911 707 12;
+#N canvas 315 25 916 705 12;
 #X msg 352 237 send \$1;
 #X msg 439 217 symbol s-selector;
 #X msg 352 260 receive \$1;
@@ -25,16 +25,15 @@
 #X msg 352 389 color \$1 \$2 \$3;
 #X floatatom 673 115 5 0 0 0 - - -, f 5;
 #X msg 673 137 float \$1;
-#X msg 686 345 bang;
-#X floatatom 648 544 5 0 0 0 - - -, f 5;
-#X floatatom 768 566 5 0 0 0 - - -, f 5;
-#X obj 648 566 s r-selector;
-#X obj 768 541 r s-selector;
-#X text 730 464 [***];
+#X msg 691 331 bang;
+#X floatatom 648 514 5 0 0 0 - - -, f 5;
+#X obj 648 536 s r-selector;
+#X obj 768 511 r s-selector;
+#X text 730 434 [***];
 #X text 582 216 [***];
 #X text 596 237 [***];
-#X text 640 492 send to the "receive selector";
-#X text 641 509 receive from the send selector";
+#X text 640 462 send to the "receive selector";
+#X text 641 479 receive from the send selector";
 #X text 27 60 ARGUMENT LIST: [*];
 #X text 345 60 EQUIVALENT MESSAGES: [*], f 25;
 #X text 66 461 [*] All of this \, you can use right-click > properties
@@ -51,14 +50,13 @@
 #X floatatom 767 276 5 0 0 0 - - -, f 5;
 #X msg 685 276 352 420;
 #N canvas 0 22 450 300 \$0-sub 0;
-#X obj 10 20 hradio 10 0 1 5 receive send name 0 -10 0 15 -257472 -250685
--90133 2;
+#X obj 10 20 sradio 10 0 1 5 receive send name 0 -10 0 15 -257472 -250685
+-90133 0;
 #X restore 493 672 pd \$0-sub;
 #X obj 397 672 s pd-\$0-sub;
 #X text 400 609 Create by sending message to canvas (subpatch):;
-#X msg 781 380 double_change;
-#X obj 352 420 hradio 17 1 1 14 s-selector r-selector label-name 31
-31 0 26 -228992 -62784 -355 8;
+#X obj 352 420 sradio 16 0 1 12 s-selector r-selector label-name 41
+41 0 26 -228992 -62784 -355 0;
 #X text 27 173 [3] (float) init: 1|0;
 #X text 27 153 [2] (float) 0;
 #X text 27 193 [4] (float) number: \$1 >= 1;
@@ -72,35 +70,46 @@
 #X text 27 353 [12] (float) color: background (\$1);
 #X text 27 373 [13] (float) color: front (\$2);
 #X text 27 393 [14] (float) color: label (\$3);
-#X text 27 413 [15] (float) init-value: 1|0 (see [6]);
-#X msg 18 572 hradio 10 0 1 5 receive send name 0 -10 0 15 9 19 29
-2;
-#X obj 30 641 hradio 10 0 1 5 receive send name 0 -10 0 15 -257472
--250685 -90133 2;
-#X msg 397 632 clear \, obj 10 20 hradio 10 0 1 5 receive send name
+#X obj 30 641 sradio 10 0 1 5 receive send name 0 -10 0 15 -257472
+-250685 -90133 0;
+#X msg 397 632 clear \, obj 10 20 sradio 10 0 1 5 receive send name
 0 -10 0 15 9 19 29 2 \, vis 1;
 #X msg 352 112 size \$1;
 #X msg 352 161 number \$1;
 #X floatatom 443 144 5 0 0 0 - - -, f 5;
-#X msg 767 355 single_change;
-#X floatatom 681 163 5 0 0 0 - - -, f 5;
-#X msg 673 190 set \$1;
-#X text 89 110 hdl (obsolete version);
-#X text 27 93 [0] hradio | rdb | radiobut | radiobutton;
+#X text 89 110 sradio (obsolete version);
+#X text 27 93 [0] sradio | rdb | radiobut | radiobutton;
 #X text 65 33 ARGUMENT LIST == [1] [2] [3] [4] [5] [6] [7] [8] [9]
 [10] [11] [12] [13] [14] [15], f 83;
+#X text 249 10 sradio creation arguments and messages explained;
 #X obj 240 633;
-#X text 249 10 hradio creation arguments and mesages explained;
-#X connect 0 0 53 0;
+#X msg 673 170 set 1 1 0 1 0 1 1 1;
+#X obj 768 536 route float list;
+#X floatatom 768 561 5 0 0 0 - - -, f 5;
+#X text 27 413 [15] (float) focus: 1|0 (default: 1);
+#X msg 18 570 sradio 10 0 1 5 receive send name 0 -10 0 15 9 19 29
+1;
+#X obj 352 490 list prepend set;
+#X obj 352 515 list trim;
+#X msg 352 540 0;
+#X obj 830 562 t a b;
+#X obj 830 587 print;
+#X obj 888 589 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 713 355 next;
+#X msg 724 380 prev;
+#X text 756 354 (modulo number);
+#X text 747 136 (modulo number);
+#X connect 0 0 51 0;
 #X connect 1 0 0 0;
-#X connect 2 0 53 0;
+#X connect 2 0 51 0;
 #X connect 3 0 2 0;
-#X connect 4 0 53 0;
+#X connect 4 0 51 0;
 #X connect 5 0 7 0;
 #X connect 6 0 9 0;
-#X connect 7 0 53 0;
-#X connect 8 0 53 0;
-#X connect 9 0 53 0;
+#X connect 7 0 51 0;
+#X connect 8 0 51 0;
+#X connect 9 0 51 0;
 #X connect 14 0 4 0;
 #X connect 15 0 16 0;
 #X connect 16 0 8 0;
@@ -110,27 +119,33 @@
 #X connect 20 0 6 0;
 #X connect 21 0 23 0;
 #X connect 22 0 23 0;
-#X connect 23 0 53 0;
+#X connect 23 0 51 0;
 #X connect 24 0 25 0;
 #X connect 25 0 9 0;
 #X connect 26 0 9 0;
-#X connect 27 0 29 0;
-#X connect 30 0 28 0;
-#X connect 39 0 71 0;
-#X connect 40 0 53 0;
-#X connect 41 0 40 0;
-#X connect 43 0 9 0;
+#X connect 27 0 28 0;
+#X connect 29 0 76 0;
+#X connect 38 0 67 0;
+#X connect 39 0 51 0;
+#X connect 40 0 39 0;
+#X connect 42 0 9 0;
+#X connect 43 0 44 0;
 #X connect 44 0 45 0;
-#X connect 45 0 46 0;
-#X connect 45 1 46 1;
-#X connect 46 0 43 0;
-#X connect 47 0 46 0;
-#X connect 48 0 43 0;
-#X connect 52 0 9 0;
-#X connect 70 0 50 0;
-#X connect 71 0 53 0;
-#X connect 72 0 53 0;
-#X connect 73 0 72 0;
-#X connect 74 0 9 0;
-#X connect 75 0 76 0;
-#X connect 76 0 9 0;
+#X connect 44 1 45 1;
+#X connect 45 0 42 0;
+#X connect 46 0 45 0;
+#X connect 47 0 42 0;
+#X connect 51 0 80 0;
+#X connect 66 0 49 0;
+#X connect 67 0 51 0;
+#X connect 68 0 51 0;
+#X connect 69 0 68 0;
+#X connect 75 0 9 0;
+#X connect 76 0 77 0;
+#X connect 76 1 83 0;
+#X connect 80 0 81 0;
+#X connect 81 0 82 0;
+#X connect 83 0 84 0;
+#X connect 83 1 85 0;
+#X connect 86 0 9 0;
+#X connect 87 0 9 0;
