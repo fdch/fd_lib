@@ -656,6 +656,7 @@
 ./tutorials/create-hradio.pd
 ./tutorials/create-hslider.pd
 ./tutorials/create-numbox.pd
+./tutorials/create-sradio.pd
 ./tutorials/create-toggle.pd
 ./tutorials/create-vradio.pd
 ./tutorials/create-vslider.pd

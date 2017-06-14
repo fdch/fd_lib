@@ -1,17 +1,15 @@
-#N canvas 523 51 598 566 12;
+#N canvas 524 51 626 547 12;
 #X msg 57 120 bang;
-#X obj 78 413 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 78 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 57 413 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 57 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 57 348 route float list;
-#X obj 57 285 sradio 17 1 0 8 sradio-help sradio-r-help sradio 20 -10
-0 15 -261682 -1 -1 0;
-#X msg 329 197 clear;
+#X obj 57 418 route float list;
+#X msg 336 196 clear;
 #X obj 392 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 392 245 focus \$1;
-#X obj 57 378 sel;
+#X obj 57 448 sel;
 #X obj 314 265 t a;
 #X floatatom 314 95 5 0 0 0 - - -, f 5;
 #X msg 314 121 number \$1;
@@ -20,106 +18,152 @@
 #X text 137 185 <-- next index;
 #X msg 100 214 prev;
 #X text 471 246 (overriden by next/prev), f 13;
-#X text 252 511 see fd_lib/tutorials/create-sradio.pd;
+#X text 278 502 see fd_lib/tutorials/create-sradio.pd;
 #X text 258 18 "sradio";
-#X text 44 46 A hack to the 'hradio' to behave like a small array of
-toggles, f 62;
 #X text 412 218 <-- show index;
 #X text 367 94 <-- array size;
-#X obj 321 147 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 328 146 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 321 172 set 0 \$1 1 0 1 0 1 \$1;
-#X text 342 145 <-- set array;
-#X text 376 195 <-- clear array;
-#X text 105 121 <-- array output;
-#X text 115 151 <-- array get index;
+#X msg 328 171 set 0 \$1 1 0 1 0 1 \$1;
+#X text 349 144 <-- set array;
+#X text 383 194 <-- clear array;
 #X text 139 214 <-- previous index;
 #X obj 57 234 t a;
-#X text 62 307 right-click + properties is just like hradio, f 25
-;
-#X obj 280 311 r sradio-help;
-#X obj 280 336 list prepend set;
-#X obj 280 361 list trim;
-#X msg 280 386 1;
-#X obj 119 379 t a b;
-#X obj 119 404 print;
-#X obj 173 407 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 300 320 r sradio-help;
+#X obj 300 345 list prepend set;
+#X obj 300 370 list trim;
+#X msg 300 395 0;
+#X obj 119 449 t a b;
+#X obj 119 474 print;
+#X obj 173 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 399 312 <-- send like hradio;
-#X floatatom 439 373 5 0 0 0 - - -, f 5;
-#X text 436 350 receives :;
-#X obj 439 395 s sradio-r-help;
-#N canvas 526 112 644 491 storage 0;
-#X obj 126 179 sradio 15 1 0 8 store-send store-receive empty 0 -8
-0 10 -262144 -1 -1 0;
-#X obj 205 414 + 1;
-#X obj 172 414 f;
-#X obj 390 378 list prepend set;
-#X obj 390 405 list trim;
-#X msg 305 209 clear;
-#X obj 210 319 text define \$0-txt;
-#X f 11;
-#X obj 132 440 text set \$0-txt;
-#X obj 390 354 text get \$0-txt, f 19;
-#X obj 132 414 list;
-#X msg 305 179 store;
-#X obj 132 295 t b b;
-#X obj 161 364 r store-send;
-#X obj 390 435 s store-receive;
-#X msg 184 387 0;
-#X floatatom 430 179 5 0 0 0 recall - -, f 5;
-#X obj 196 243 t b b;
-#X msg 126 81 set 1 1 0 1 0 0 1 0;
-#X msg 136 101 set 0 0 0 1 0 0 0 1;
-#X msg 146 121 set 0 1 0 1 0 1 1 0;
-#X obj 184 294 t b a a;
-#X text 302 150 use these to store/clear/recall;
-#X text 121 50 fill the array with something;
-#X connect 1 0 2 1;
-#X connect 2 0 1 0;
-#X connect 2 0 7 1;
-#X connect 3 0 4 0;
-#X connect 4 0 13 0;
-#X connect 5 0 20 0;
-#X connect 8 0 3 0;
-#X connect 9 0 7 0;
-#X connect 10 0 16 0;
-#X connect 11 0 9 0;
-#X connect 11 1 2 0;
-#X connect 12 0 9 1;
-#X connect 14 0 2 1;
-#X connect 15 0 8 0;
-#X connect 16 0 11 0;
-#X connect 16 1 0 0;
-#X connect 17 0 0 0;
-#X connect 18 0 0 0;
-#X connect 19 0 0 0;
-#X connect 20 0 14 0;
-#X connect 20 1 6 0;
-#X connect 20 2 0 0;
-#X restore 457 483 pd storage;
-#X text 449 456 see here:;
-#X connect 0 0 29 0;
-#X connect 3 0 8 0;
-#X connect 3 1 35 0;
-#X connect 4 0 3 0;
-#X connect 5 0 9 0;
-#X connect 6 0 7 0;
-#X connect 7 0 9 0;
-#X connect 8 0 2 0;
-#X connect 8 1 1 0;
-#X connect 9 0 4 0;
-#X connect 10 0 11 0;
-#X connect 11 0 9 0;
-#X connect 12 0 29 0;
-#X connect 13 0 29 0;
-#X connect 15 0 29 0;
-#X connect 22 0 23 0;
-#X connect 23 0 9 0;
-#X connect 29 0 4 0;
-#X connect 31 0 32 0;
-#X connect 32 0 33 0;
+#X text 419 321 <-- send like hradio;
+#X floatatom 457 373 5 0 0 0 - - -, f 5;
+#X text 454 350 receives :;
+#X obj 457 395 s sradio-r-help;
+#N canvas 115 3 1075 676 storage 0;
+#X msg 43 286 set 1 1 0 1 0 0 1 0;
+#X msg 53 306 set 0 0 0 1 0 0 0 1;
+#X msg 63 326 set 0 1 0 1 0 1 1 0;
+#X msg 343 529 recall \$1;
+#X msg 266 329 store \$1;
+#X msg 412 352 store;
+#X msg 356 569 recall;
+#X msg 59 481 open;
+#X msg 108 481 close;
+#X msg 576 345 write mypreset.txt;
+#X msg 585 372 read mypreset.txt;
+#X msg 575 199 flush myname;
+#X obj 921 199 r myname;
+#X text 343 551 1st line;
+#X text 258 269 [2] store;
+#X text 56 429 [3] see text;
+#X text 328 445 [4] repeat [1 \, 2 \, 3], f 21;
+#X obj 921 224 t a b;
+#X obj 921 249 print;
+#X obj 978 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 732 343 [7.1] write first;
+#X obj 266 307 hradio 15 1 0 4 empty empty store 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 341 510 hradio 15 1 0 4 empty empty recall 0 -8 0 10 -262144
+-1 -1 0;
+#X text 732 371 [7.2] read;
+#X obj 59 584 s store-receive;
+#X obj 266 388 s store-receive;
+#X obj 343 594 s store-receive;
+#X obj 575 224 s store-receive;
+#X obj 576 402 s store-receive;
+#X text 733 394 [7.3] open/recall;
+#X text 362 260 A 'store' message with no float will automatically
+add the current set as a new line to the text, f 18;
+#X text 41 124 "sradio" has an internal storage mechanism taken from
+the [text] object. It behaves similarly \, but you need to send 'store'
+and 'recall' messages. You can 'write' and 'read' from textfile \,
+and also 'flush' the text to a given [receive <target>] to use with
+other [text] objects. Use Shift+click to see the text., f 58;
+#X text 329 465 [5] recall index;
+#X obj 577 527 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 577 550 keep \$1;
+#X obj 577 592 s store-receive;
+#X msg 113 521 clear;
+#X text 162 517 <-- clear both text and current set, f 13;
+#X text 686 199 <-- flush text to target -->;
+#X text 39 255 [1] set some values;
+#X text 240 31 "sradio" internal storage / preset manager / array of
+arrays / t_textbuf hack, f 77;
+#X obj 41 80 sradio 20 1 8 store-send store-receive store-receive 0
+-15 0 20 -262144 -1 -1;
+#A preset 1 1 0 1 0 0 1 0 \; 0 0 0 1 0 0 0 1 \; 0 1 0 1 0 1 1 0 \;
+1 0 0 0 1 1 0 1 \;;
+#X obj 43 365 s store-receive;
+#X text 211 80 <--= Shift + click to open text;
+#X text 787 587 (defaults to 1);
+#X text 720 523 Alternatively: Right-click + properties: click on 'keep/dont'
+, f 34;
+#X text 718 560 Alternatively: 2nd creation argument;
+#X text 563 122 KEEPING THE STORED TEXT:;
+#X text 568 168 [6] Send the text;
+#X text 565 306 [7] Write/Read as textfile;
+#X text 571 484 [8] Keep it: '-k'-type flag to keep text on next load
+;
+#X connect 0 0 42 0;
+#X connect 1 0 42 0;
+#X connect 2 0 42 0;
+#X connect 3 0 26 0;
+#X connect 4 0 25 0;
+#X connect 5 0 25 0;
+#X connect 6 0 26 0;
+#X connect 7 0 24 0;
+#X connect 8 0 24 0;
+#X connect 9 0 28 0;
+#X connect 10 0 28 0;
+#X connect 11 0 27 0;
+#X connect 12 0 17 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 21 0 4 0;
+#X connect 22 0 3 0;
 #X connect 33 0 34 0;
-#X connect 35 0 36 0;
-#X connect 35 1 37 0;
-#X connect 39 0 41 0;
+#X connect 34 0 35 0;
+#X connect 36 0 24 0;
+#X restore 396 456 pd storage;
+#X obj 57 285 sradio 15 1 8 sradio-help sradio-r-help sradio 0 -8 0
+10 -261234 -33289 -86277;
+#A preset 0 0 0 0 0 1 0 0 \; 0 1 0 0 0 0 0 0 \; 1 0 0 1 1 1 1 0 \;
+;
+#X text 64 314 Right-click + properties is just like hradio, f 25
+;
+#X text 65 364 Shift+click to open (see pd-storage), f 19;
+#X text 44 43 A hack to the 'hradio' to behave like a small array of
+toggles with internal storage (see pd-storage)., f 62;
+#X text 290 456 see here -->;
+#X text 105 121 <-- get the array;
+#X text 115 151 <-- get value at index;
+#X text 289 428 __________________________________;
+#X text 289 478 __________________________________;
+#X connect 0 0 25 0;
+#X connect 3 0 7 0;
+#X connect 3 1 30 0;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 7 1 1 0;
+#X connect 8 0 38 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 25 0;
+#X connect 12 0 25 0;
+#X connect 14 0 25 0;
+#X connect 20 0 21 0;
+#X connect 21 0 8 0;
+#X connect 25 0 38 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 30 0 31 0;
+#X connect 30 1 32 0;
+#X connect 34 0 36 0;
+#X connect 38 0 3 0;
