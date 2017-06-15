@@ -1,0 +1,331 @@
+#N canvas 523 52 691 400 12;
+#X obj 113 89 sradio 15 0 8 gen0 gen0-set generation-0 0 -8 0 10 -262144
+-1 -1;
+#X obj 267 89 sradio 15 1 8 rule rule-set rule 0 -8 0 10 -262144 -1
+-1;
+#A preset 0 0 0 0 0 0 0 0 \; 1 0 0 0 0 0 0 0 \; 0 1 0 0 0 0 0 0 \;
+1 1 0 0 0 0 0 0 \; 0 0 1 0 0 0 0 0 \; 1 0 1 0 0 0 0 0 \; 0 1 1 0 0
+0 0 0 \; 1 1 1 0 0 0 0 0 \; 0 0 0 1 0 0 0 0 \; 1 0 0 1 0 0 0 0 \; 0
+1 0 1 0 0 0 0 \; 1 1 0 1 0 0 0 0 \; 0 0 1 1 0 0 0 0 \; 1 0 1 1 0 0
+0 0 \; 0 1 1 1 0 0 0 0 \; 1 1 1 1 0 0 0 0 \; 0 0 0 0 1 0 0 0 \; 1 0
+0 0 1 0 0 0 \; 0 1 0 0 1 0 0 0 \; 1 1 0 0 1 0 0 0 \; 0 0 1 0 1 0 0
+0 \; 1 0 1 0 1 0 0 0 \; 0 1 1 0 1 0 0 0 \; 1 1 1 0 1 0 0 0 \; 0 0 0
+1 1 0 0 0 \; 1 0 0 1 1 0 0 0 \; 0 1 0 1 1 0 0 0 \; 1 1 0 1 1 0 0 0
+\; 0 0 1 1 1 0 0 0 \; 1 0 1 1 1 0 0 0 \; 0 1 1 1 1 0 0 0 \; 1 1 1 1
+1 0 0 0 \; 0 0 0 0 0 1 0 0 \; 1 0 0 0 0 1 0 0 \; 0 1 0 0 0 1 0 0 \;
+1 1 0 0 0 1 0 0 \; 0 0 1 0 0 1 0 0 \; 1 0 1 0 0 1 0 0 \; 0 1 1 0 0
+1 0 0 \; 1 1 1 0 0 1 0 0 \; 0 0 0 1 0 1 0 0 \; 1 0 0 1 0 1 0 0 \; 0
+1 0 1 0 1 0 0 \; 1 1 0 1 0 1 0 0 \; 0 0 1 1 0 1 0 0 \; 1 0 1 1 0 1
+0 0 \; 0 1 1 1 0 1 0 0 \; 1 1 1 1 0 1 0 0 \; 0 0 0 0 1 1 0 0 \; 1 0
+0 0 1 1 0 0 \; 0 1 0 0 1 1 0 0 \; 1 1 0 0 1 1 0 0 \; 0 0 1 0 1 1 0
+0 \; 1 0 1 0 1 1 0 0 \; 0 1 1 0 1 1 0 0 \; 1 1 1 0 1 1 0 0 \; 0 0 0
+1 1 1 0 0 \; 1 0 0 1 1 1 0 0 \; 0 1 0 1 1 1 0 0 \; 1 1 0 1 1 1 0 0
+\; 0 0 1 1 1 1 0 0 \; 1 0 1 1 1 1 0 0 \; 0 1 1 1 1 1 0 0 \; 1 1 1 1
+1 1 0 0 \; 0 0 0 0 0 0 1 0 \; 1 0 0 0 0 0 1 0 \; 0 1 0 0 0 0 1 0 \;
+1 1 0 0 0 0 1 0 \; 0 0 1 0 0 0 1 0 \; 1 0 1 0 0 0 1 0 \; 0 1 1 0 0
+0 1 0 \; 1 1 1 0 0 0 1 0 \; 0 0 0 1 0 0 1 0 \; 1 0 0 1 0 0 1 0 \; 0
+1 0 1 0 0 1 0 \; 1 1 0 1 0 0 1 0 \; 0 0 1 1 0 0 1 0 \; 1 0 1 1 0 0
+1 0 \; 0 1 1 1 0 0 1 0 \; 1 1 1 1 0 0 1 0 \; 0 0 0 0 1 0 1 0 \; 1 0
+0 0 1 0 1 0 \; 0 1 0 0 1 0 1 0 \; 1 1 0 0 1 0 1 0 \; 0 0 1 0 1 0 1
+0 \; 1 0 1 0 1 0 1 0 \; 0 1 1 0 1 0 1 0 \; 1 1 1 0 1 0 1 0 \; 0 0 0
+1 1 0 1 0 \; 1 0 0 1 1 0 1 0 \; 0 1 0 1 1 0 1 0 \; 1 1 0 1 1 0 1 0
+\; 0 0 1 1 1 0 1 0 \; 1 0 1 1 1 0 1 0 \; 0 1 1 1 1 0 1 0 \; 1 1 1 1
+1 0 1 0 \; 0 0 0 0 0 1 1 0 \; 1 0 0 0 0 1 1 0 \; 0 1 0 0 0 1 1 0 \;
+1 1 0 0 0 1 1 0 \; 0 0 1 0 0 1 1 0 \; 1 0 1 0 0 1 1 0 \; 0 1 1 0 0
+1 1 0 \; 1 1 1 0 0 1 1 0 \; 0 0 0 1 0 1 1 0 \; 1 0 0 1 0 1 1 0 \; 0
+1 0 1 0 1 1 0 \; 1 1 0 1 0 1 1 0 \; 0 0 1 1 0 1 1 0 \; 1 0 1 1 0 1
+1 0 \; 0 1 1 1 0 1 1 0 \; 1 1 1 1 0 1 1 0 \; 0 0 0 0 1 1 1 0 \; 1 0
+0 0 1 1 1 0 \; 0 1 0 0 1 1 1 0 \; 1 1 0 0 1 1 1 0 \; 0 0 1 0 1 1 1
+0 \; 1 0 1 0 1 1 1 0 \; 0 1 1 0 1 1 1 0 \; 1 1 1 0 1 1 1 0 \; 0 0 0
+1 1 1 1 0 \; 1 0 0 1 1 1 1 0 \; 0 1 0 1 1 1 1 0 \; 1 1 0 1 1 1 1 0
+\; 0 0 1 1 1 1 1 0 \; 1 0 1 1 1 1 1 0 \; 0 1 1 1 1 1 1 0 \; 1 1 1 1
+1 1 1 0 \; 0 0 0 0 0 0 0 1 \; 1 0 0 0 0 0 0 1 \; 0 1 0 0 0 0 0 1 \;
+1 1 0 0 0 0 0 1 \; 0 0 1 0 0 0 0 1 \; 1 0 1 0 0 0 0 1 \; 0 1 1 0 0
+0 0 1 \; 1 1 1 0 0 0 0 1 \; 0 0 0 1 0 0 0 1 \; 1 0 0 1 0 0 0 1 \; 0
+1 0 1 0 0 0 1 \; 1 1 0 1 0 0 0 1 \; 0 0 1 1 0 0 0 1 \; 1 0 1 1 0 0
+0 1 \; 0 1 1 1 0 0 0 1 \; 1 1 1 1 0 0 0 1 \; 0 0 0 0 1 0 0 1 \; 1 0
+0 0 1 0 0 1 \; 0 1 0 0 1 0 0 1 \; 1 1 0 0 1 0 0 1 \; 0 0 1 0 1 0 0
+1 \; 1 0 1 0 1 0 0 1 \; 0 1 1 0 1 0 0 1 \; 1 1 1 0 1 0 0 1 \; 0 0 0
+1 1 0 0 1 \; 1 0 0 1 1 0 0 1 \; 0 1 0 1 1 0 0 1 \; 1 1 0 1 1 0 0 1
+\; 0 0 1 1 1 0 0 1 \; 1 0 1 1 1 0 0 1 \; 0 1 1 1 1 0 0 1 \; 1 1 1 1
+1 0 0 1 \; 0 0 0 0 0 1 0 1 \; 1 0 0 0 0 1 0 1 \; 0 1 0 0 0 1 0 1 \;
+1 1 0 0 0 1 0 1 \; 0 0 1 0 0 1 0 1 \; 1 0 1 0 0 1 0 1 \; 0 1 1 0 0
+1 0 1 \; 1 1 1 0 0 1 0 1 \; 0 0 0 1 0 1 0 1 \; 1 0 0 1 0 1 0 1 \; 0
+1 0 1 0 1 0 1 \; 1 1 0 1 0 1 0 1 \; 0 0 1 1 0 1 0 1 \; 1 0 1 1 0 1
+0 1 \; 0 1 1 1 0 1 0 1 \; 1 1 1 1 0 1 0 1 \; 0 0 0 0 1 1 0 1 \; 1 0
+0 0 1 1 0 1 \; 0 1 0 0 1 1 0 1 \; 1 1 0 0 1 1 0 1 \; 0 0 1 0 1 1 0
+1 \; 1 0 1 0 1 1 0 1 \; 0 1 1 0 1 1 0 1 \; 1 1 1 0 1 1 0 1 \; 0 0 0
+1 1 1 0 1 \; 1 0 0 1 1 1 0 1 \; 0 1 0 1 1 1 0 1 \; 1 1 0 1 1 1 0 1
+\; 0 0 1 1 1 1 0 1 \; 1 0 1 1 1 1 0 1 \; 0 1 1 1 1 1 0 1 \; 1 1 1 1
+1 1 0 1 \; 0 0 0 0 0 0 1 1 \; 1 0 0 0 0 0 1 1 \; 0 1 0 0 0 0 1 1 \;
+1 1 0 0 0 0 1 1 \; 0 0 1 0 0 0 1 1 \; 1 0 1 0 0 0 1 1 \; 0 1 1 0 0
+0 1 1 \; 1 1 1 0 0 0 1 1 \; 0 0 0 1 0 0 1 1 \; 1 0 0 1 0 0 1 1 \; 0
+1 0 1 0 0 1 1 \; 1 1 0 1 0 0 1 1 \; 0 0 1 1 0 0 1 1 \; 1 0 1 1 0 0
+1 1 \; 0 1 1 1 0 0 1 1 \; 1 1 1 1 0 0 1 1 \; 0 0 0 0 1 0 1 1 \; 1 0
+0 0 1 0 1 1 \; 0 1 0 0 1 0 1 1 \; 1 1 0 0 1 0 1 1 \; 0 0 1 0 1 0 1
+1 \; 1 0 1 0 1 0 1 1 \; 0 1 1 0 1 0 1 1 \; 1 1 1 0 1 0 1 1 \; 0 0 0
+1 1 0 1 1 \; 1 0 0 1 1 0 1 1 \; 0 1 0 1 1 0 1 1 \; 1 1 0 1 1 0 1 1
+\; 0 0 1 1 1 0 1 1 \; 1 0 1 1 1 0 1 1 \; 0 1 1 1 1 0 1 1 \; 1 1 1 1
+1 0 1 1 \; 0 0 0 0 0 1 1 1 \; 1 0 0 0 0 1 1 1 \; 0 1 0 0 0 1 1 1 \;
+1 1 0 0 0 1 1 1 \; 0 0 1 0 0 1 1 1 \; 1 0 1 0 0 1 1 1 \; 0 1 1 0 0
+1 1 1 \; 1 1 1 0 0 1 1 1 \; 0 0 0 1 0 1 1 1 \; 1 0 0 1 0 1 1 1 \; 0
+1 0 1 0 1 1 1 \; 1 1 0 1 0 1 1 1 \; 0 0 1 1 0 1 1 1 \; 1 0 1 1 0 1
+1 1 \; 0 1 1 1 0 1 1 1 \; 1 1 1 1 0 1 1 1 \; 0 0 0 0 1 1 1 1 \; 1 0
+0 0 1 1 1 1 \; 0 1 0 0 1 1 1 1 \; 1 1 0 0 1 1 1 1 \; 0 0 1 0 1 1 1
+1 \; 1 0 1 0 1 1 1 1 \; 0 1 1 0 1 1 1 1 \; 1 1 1 0 1 1 1 1 \; 0 0 0
+1 1 1 1 1 \; 1 0 0 1 1 1 1 1 \; 0 1 0 1 1 1 1 1 \; 1 1 0 1 1 1 1 1
+\; 0 0 1 1 1 1 1 1 \; 1 0 1 1 1 1 1 1 \; 0 1 1 1 1 1 1 1 \; 1 1 1 1
+1 1 1 1 \;;
+#X floatatom 118 166 5 0 0 0 - - -, f 5;
+#X obj 118 188 s limit;
+#X obj 273 168 s gen0-set;
+#X msg 277 224 reset;
+#X obj 277 258 s choice;
+#X msg 334 223 print;
+#N canvas 0 22 848 415 s 0;
+#X obj 120 138 fd_listout;
+#X obj 329 97 t f f b;
+#X obj 442 124 t f f b;
+#X obj 382 126 f -1;
+#X obj 495 161 f -1;
+#X obj 382 151 sel -1;
+#X obj 495 191 sel -1;
+#X obj 419 240 pack f f f;
+#X obj 473 326 choice;
+#X obj 120 178 t b f;
+#X obj 102 258 f;
+#X obj 102 282 list prepend;
+#X obj 102 308 t a a;
+#X obj 64 339 list;
+#X obj 146 229 r rule;
+#X obj 64 364 s nextone;
+#X msg 590 223 clear \, add 0 0 0 \, add 0 0 1 \, add 0 1 0 \, add
+0 1 1 \, add 1 0 0 \, add 1 0 1 \, add 1 1 0 \, add 1 1 1, f 25;
+#X obj 94 40 t b a a a b;
+#X obj 45 222 del 10;
+#X msg 492 56 -1;
+#X obj 595 167 loadbang;
+#X obj 94 15 r gen0;
+#X obj 694 171 route reset;
+#X text 420 16 check the rule using [choice];
+#X obj 694 146 r choice;
+#X obj 473 351 s rule-set;
+#X obj 146 254 route float;
+#X connect 0 0 9 0;
+#X connect 1 0 7 0;
+#X connect 1 1 3 1;
+#X connect 1 2 3 0;
+#X connect 2 0 7 1;
+#X connect 2 1 4 1;
+#X connect 2 2 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 1 2 0;
+#X connect 6 1 7 2;
+#X connect 7 0 8 0;
+#X connect 8 0 25 0;
+#X connect 9 0 10 0;
+#X connect 9 1 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 1;
+#X connect 12 1 11 1;
+#X connect 13 0 15 0;
+#X connect 14 0 26 0;
+#X connect 16 0 8 0;
+#X connect 17 0 18 0;
+#X connect 17 1 0 0;
+#X connect 17 2 0 0;
+#X connect 17 3 0 0;
+#X connect 17 4 11 1;
+#X connect 17 4 19 0;
+#X connect 18 0 13 0;
+#X connect 19 0 3 1;
+#X connect 19 0 4 1;
+#X connect 20 0 16 0;
+#X connect 21 0 17 0;
+#X connect 22 0 16 0;
+#X connect 22 1 8 0;
+#X connect 24 0 22 0;
+#X connect 26 0 10 1;
+#X restore 508 151 pd s choice;
+#X obj 195 144 r gen;
+#X floatatom 195 169 5 0 0 0 - - -, f 5;
+#N canvas 0 22 812 628 start 0;
+#X obj 413 124 random 2;
+#X obj 413 149 list prepend;
+#X msg 414 73 8;
+#X obj 414 98 until;
+#X obj 413 174 t a a;
+#X obj 361 176 list;
+#X obj 359 299 list trim;
+#X obj 359 274 list prepend set;
+#X obj 85 189 counter;
+#X obj 85 214 t f f;
+#X obj 161 264 < 200;
+#X obj 203 237 r limit;
+#X obj 85 315 spigot 1;
+#X msg 86 391 recall \$1 \, bang;
+#X obj 206 170 r nextone;
+#X obj 206 195 t b a;
+#X obj 238 471 s gen0-set;
+#X msg 138 138 0;
+#X obj 85 32 r start;
+#X obj 38 253 s gen;
+#X obj 227 19 r random-start;
+#X obj 227 44 t b b b;
+#X obj 499 350 sel 0;
+#X obj 161 289 t f f;
+#X obj 500 411 spigot 1;
+#X obj 601 314 r nextrule;
+#X obj 500 436 counter 1;
+#X msg 564 461 recall \$1 \, bang;
+#X obj 564 486 s rule-set;
+#X obj 498 460 t b f;
+#X obj 413 571 s start;
+#X msg 217 370 store \$1;
+#X obj 85 340 t f f;
+#X obj 178 337 + 1;
+#X obj 499 375 del 10;
+#X obj 415 492 del 100;
+#X obj 601 339 route bang;
+#X msg 313 422 set 0 0 0 1 0 0 0 0;
+#X obj 90 100 t b b b;
+#X obj 481 504 t b b;
+#X msg 538 546 clear;
+#X obj 538 571 s gen0-set;
+#X obj 415 517 t b b;
+#X obj 415 542 del 10;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 1;
+#X connect 4 1 1 1;
+#X connect 5 0 7 0;
+#X connect 6 0 16 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 9 0 19 0;
+#X connect 9 1 10 0;
+#X connect 10 0 23 0;
+#X connect 11 0 10 1;
+#X connect 12 0 32 0;
+#X connect 13 0 16 0;
+#X connect 14 0 15 0;
+#X connect 15 0 8 0;
+#X connect 15 1 7 0;
+#X connect 17 0 8 0;
+#X connect 18 0 38 0;
+#X connect 20 0 21 0;
+#X connect 21 0 38 0;
+#X connect 21 1 5 0;
+#X connect 21 2 2 0;
+#X connect 22 0 34 0;
+#X connect 23 0 12 1;
+#X connect 23 1 22 0;
+#X connect 24 0 26 0;
+#X connect 25 0 36 0;
+#X connect 26 0 29 0;
+#X connect 27 0 28 0;
+#X connect 29 0 39 0;
+#X connect 29 1 27 0;
+#X connect 31 0 16 0;
+#X connect 32 0 13 0;
+#X connect 32 1 33 0;
+#X connect 33 0 31 0;
+#X connect 34 0 24 0;
+#X connect 35 0 42 0;
+#X connect 36 0 26 0;
+#X connect 36 1 24 1;
+#X connect 37 0 16 0;
+#X connect 38 0 8 0;
+#X connect 38 1 17 0;
+#X connect 38 2 37 0;
+#X connect 39 0 35 0;
+#X connect 39 1 40 0;
+#X connect 40 0 41 0;
+#X connect 42 0 43 0;
+#X connect 42 1 37 0;
+#X connect 43 0 30 0;
+#X restore 506 125 pd start;
+#X obj 199 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 199 312 s random-start;
+#X obj 125 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 125 311 s start;
+#X text 116 27 A cellular automata one-dimentional program;
+#N canvas 0 22 339 396 all-rules 0;
+#X obj 59 98 until;
+#X msg 59 73 256;
+#X obj 59 122 counter;
+#X msg 172 133 0;
+#X obj 59 147 fd_2bit;
+#X obj 60 177 unpack f f f f f f f f;
+#X obj 59 205 pack f 0 0 0 0 0 0 0;
+#X obj 59 230 list prepend set;
+#X obj 59 255 list trim;
+#X obj 59 280 t b a;
+#X msg 59 305 store;
+#X obj 128 53 t b b b;
+#X msg 190 90 clear;
+#X obj 129 26 inlet;
+#X obj 59 330 s rule-set;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 0 6 1;
+#X connect 3 0 6 2;
+#X connect 3 0 6 3;
+#X connect 3 0 6 4;
+#X connect 3 0 6 5;
+#X connect 3 0 6 6;
+#X connect 3 0 6 7;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 5 2 6 2;
+#X connect 5 3 6 3;
+#X connect 5 4 6 4;
+#X connect 5 5 6 5;
+#X connect 5 6 6 6;
+#X connect 5 7 6 7;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 14 0;
+#X connect 10 0 14 0;
+#X connect 11 0 1 0;
+#X connect 11 1 3 0;
+#X connect 11 2 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X restore 503 91 pd all-rules;
+#X msg 503 56 bang;
+#X obj 122 226 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 122 246 s nextrule;
+#X msg 273 143 clear \, keep 0;
+#X msg 154 222 bang;
+#X msg 118 142 200;
+#X obj 444 243 r rule-set;
+#X obj 444 268 route recall;
+#X floatatom 444 293 5 0 0 0 - - -, f 5;
+#X msg 446 323 \; rule-set recall 30;
+#X connect 2 0 3 0;
+#X connect 5 0 6 0;
+#X connect 7 0 6 0;
+#X connect 9 0 10 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 21 0 4 0;
+#X connect 22 0 20 0;
+#X connect 23 0 2 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;

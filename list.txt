@@ -651,7 +651,10 @@
 ./siginfo/siginfo-help1.pd
 ./siglor~/siglor~-help.pd
 ./spline/spline-help.pd
+./sradio/_sradii.pd
+./sradio/sradio-cellular.pd
 ./sradio/sradio-help.pd
+./sradio/sradio-test.pd
 ./tutorials/create-canvas.pd
 ./tutorials/create-hradio.pd
 ./tutorials/create-hslider.pd
