@@ -386,6 +386,11 @@ static void back_define_write(t_glist *x, t_symbol *filename, t_symbol *format)
   glist_back_write(x, filename, format);
 }
 
+static void back_define_print(t_glist *x, t_symbol *s) {
+  if (*s->s_name) sys_vgui(".x%lx.c postscript -file %s\n", glist_getcanvas(x), s->s_name);
+  else sys_vgui(".x%lx.c postscript -file x.ps\n", glist_getcanvas(x));
+}
+
 /* ---------------- memory -------------------- */
 static void back_define_free(t_glist *x)
 {
@@ -416,6 +421,7 @@ void back_setup(void ) {
   class_addmethod(back_define_class, (t_method)back_define_write, gensym("write"), A_SYMBOL, A_DEFSYM, 0);
   class_addmethod(back_define_class, (t_method)back_define_read, gensym("read"), A_SYMBOL, A_DEFSYM, 0);
   class_addmethod(back_define_class, (t_method)back_define_mergefile, gensym("mergefile"), A_SYMBOL, A_DEFSYM, 0);
+  class_addmethod(back_define_class, (t_method)back_define_print, gensym("print"), A_DEFSYM, A_NULL);
   class_addmethod(back_define_class, (t_method)back_define_cursor, gensym("cursor"), A_SYMBOL, 0);
   class_addmethod(back_define_class, (t_method)back_define_background, gensym("background"), A_SYMBOL, 0);
   class_addmethod(back_define_class, (t_method)back_define_text, gensym("text"), A_FLOAT,A_FLOAT,A_SYMBOL, 0);
