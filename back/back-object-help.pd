@@ -94,7 +94,7 @@ to <target>, f 36;
 #X text 154 101 (remap to get full dimen);
 #X text 70 15 Click these to scroll (if canvas is scrollable);
 #X restore 318 237 pd s scrolling the canvas;
-#N canvas 760 485 520 326 s 0;
+#N canvas 526 49 520 326 s 0;
 #X obj 173 124 route click;
 #X obj 173 242 spigot;
 #X obj 218 216 r editmode;
@@ -154,7 +154,7 @@ tested), f 35;
 #X text 66 238 Scroll the canvas via messages:;
 #X text 154 118 Set backround color:;
 #X text 10 207 Appending stuff \, just like any scalar:;
-#N canvas 530 67 734 417 s 0;
+#N canvas 530 67 733 501 s 0;
 #X msg 385 241 \; mydata vis 0 \, setbounds 20 475 520 775 \, vis 1
 , f 39;
 #X msg 392 183 \; mydata vis 0;
@@ -178,8 +178,17 @@ tested), f 35;
 #X text 15 68 Get in-patch dimensions to target;
 #X msg 38 90 \; mydata getbounds walter;
 #X text 198 13 Some of these are already used in this helpfile;
+#X msg 200 410 read -c ../allmethods/back-methods.txt;
+#X obj 200 435 text define -k methods;
+#A set bind symbol \; unbind \; getbounds symbol \; motion float float
+A_FLOAT \, \; send symbol \; flush symbol \; write symbol defsymbol
+\, \; read symbol defsymbol \, \; mergefile symbol defsymbol \, \;
+cursor symbol \; background symbol \; text float float symbol \; shape
+symbol float float \, A_FLOAT \, A_FLOAT \, \; vis float \; clear \;
+sort \; delete \; xaxis float \; yaxis float \;;
 #X connect 9 0 11 0;
 #X connect 17 0 18 0;
+#X connect 22 0 23 0;
 #X restore 318 357 pd s useful messages;
 #X text 50 357 Canvas-type messages you can use:;
 #N canvas 0 22 450 300 s 0;
@@ -325,7 +334,7 @@ it: ******, f 67;
 #X connect 29 0 28 0;
 #X restore 318 267 pd s setting example;
 #X text 10 327 Storing/Recalling data with textfiles:;
-#N canvas 0 22 620 489 s 0;
+#N canvas 223 25 620 489 s 0;
 #X obj 339 168 mainpath;
 #X msg 339 143 add \$1;
 #X msg 339 193 \; mydata write \$1;
