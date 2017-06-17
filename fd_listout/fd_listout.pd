@@ -9,10 +9,10 @@
 #X obj 82 105 list;
 #X obj 383 60 inlet;
 #X text 334 89 (cold inlet);
-#X obj 153 107 loadbang;
-#X obj 153 129 f \$1;
-#X obj 153 151 sel 0;
-#X msg 221 189 1;
+#X obj 216 109 loadbang;
+#X obj 216 131 f \$1;
+#X obj 216 153 sel 0;
+#X msg 161 156 1;
 #X obj 37 189 del \$1;
 #X connect 0 0 6 0;
 #X connect 0 1 1 1;
@@ -27,7 +27,6 @@
 #X connect 10 0 11 0;
 #X connect 11 0 12 0;
 #X connect 12 0 13 0;
-#X connect 12 1 0 1;
 #X connect 12 1 14 1;
 #X connect 13 0 0 1;
 #X connect 13 0 14 1;

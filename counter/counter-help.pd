@@ -61,6 +61,7 @@
 #X text 509 56 This:;
 #X text 472 141 allows -->;
 #X obj 458 80 declare -lib counter;
+#X msg 520 579 i -1;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -95,3 +96,4 @@
 #X connect 51 0 48 0;
 #X connect 52 0 53 0;
 #X connect 54 0 52 0;
+#X connect 60 0 44 0;

@@ -1,12 +1,14 @@
 #N canvas 20 475 500 215 14;
 #X declare -path ~/Documents/fd_lib -path ./_lib;
 #N canvas 70 100 450 250 sub 0;
+#X obj 45 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X coords 0 0 100 100 200 200 2 20 20;
 #X restore 8 8 pd sub;
 #X obj 280 175 bng 15 250 50 0 start-here empty start-here 17 7 0 10
 -24198 -262144 -1;
 #N canvas 320 400 200 290 menu 0;
-#X obj 10 10 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
+#X obj 10 111 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
 -66577 0;
 #N canvas 525 50 725 640 data-structures 0;
 #X floatatom 36 190 5 0 0 0 - - -, f 5;
@@ -491,9 +493,9 @@ bang \;;
 #X msg 501 51 example1 whatnot;
 #X msg 508 74 whatnot example1;
 #X obj 501 111 list;
-#X obj 446 473 cnv 15 180 100 empty empty empty 20 12 0 14 -233017
+#X obj 446 503 cnv 15 180 100 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X text 451 478 "pd-sub" is the subpatch on the main window where all
+#X text 451 508 "pd-sub" is the subpatch on the main window where all
 following examples will be performed., f 20;
 #X obj 344 385 s pd-sub;
 #N canvas 523 51 462 336 more 0;
@@ -554,6 +556,54 @@ the main patch (even if you save)., f 43;
 #X text 401 332 (somewhat less efficient);
 #X text 106 555 <-----------------------------------------;
 #X text 171 592 shortcut here -->;
+#N canvas 526 51 723 642 more 0;
+#X text 26 85 "done-popup" float float float;
+#X text 49 134 arg1: menu-option;
+#X text 113 157 0: properties;
+#X text 113 177 1: open;
+#X text 113 197 2: help;
+#X text 51 229 arg2-3: x y position in canvas;
+#X obj 126 332 s pd-sub;
+#X msg 102 255 0;
+#X msg 141 255 1;
+#X msg 182 255 2;
+#X obj 428 345 s pd-sub;
+#X msg 452 158 8;
+#X msg 428 193 mouse 50 50 1 \$1;
+#X msg 462 246 100;
+#X msg 504 266 200;
+#X text 542 252 click-drag type;
+#X msg 463 295 mouse \$1 \$1 0 16;
+#X msg 358 105 0;
+#X msg 255 16 obj 45 45 bng;
+#X msg 123 300 done-popup \$1 50 50;
+#X obj 255 41 s pd-sub;
+#X text 384 69 "mouse" float float float float;
+#X text 514 234 editmode 1:;
+#X text 372 15 <-- put a bang(*) there;
+#X text 398 108 <-- 0-8 left-click: clicks the bang(*);
+#X text 435 127 or whatever is under (50 \, 50);
+#X text 489 160 <-- 8-16 right-click;
+#X obj 421 527 s pd-sub;
+#X msg 447 477 mouseup 0 0 0;
+#X msg 421 408 click 50 50 0 0 0;
+#X msg 447 442 motion 45 45 -1;
+#X text 380 381 These are mostly for internal use;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;
+#X connect 13 0 16 0;
+#X connect 14 0 16 0;
+#X connect 16 0 10 0;
+#X connect 17 0 12 0;
+#X connect 18 0 20 0;
+#X connect 19 0 6 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 0;
+#X connect 30 0 27 0;
+#X restore 447 467 pd more mouse-interaction;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
 #X connect 8 0 10 0;
@@ -2498,7 +2548,7 @@ orientation and scale, f 80;
 #X connect 5 0 6 0;
 #X restore 23 240 pd creator _______;
 #N canvas 525 50 725 640 goodbye 0;
-#X text 111 133 And a nice data-structure tutorial by Frank Barknecht
+#X text 111 113 And a nice data-structure tutorial by Frank Barknecht
 ;
 #X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
 -262144 -1;
@@ -2510,123 +2560,80 @@ orientation and scale, f 80;
 #X restore 27 592 pd prev;
 #X obj 637 595 bng 15 250 50 0 close empty close 17 7 0 10 -258699
 -1 -1;
-#N canvas 561 273 450 300 more 0;
-#X msg 41 26 protectmode \$1;
-#X msg 42 49 radio;
-#X msg 42 72 help 1 1;
-#X msg 43 95 properties;
-#X msg 43 117 atom;
-#X msg 43 139 intatom;
-#X obj 43 164 s pd-sub;
+#N canvas 729 116 450 300 more 0;
+#X msg 39 66 pop;
+#X obj 40 95 s pd-sub;
+#X connect 0 0 1 0;
+#X restore 335 463 pd more error;
+#N canvas 732 418 450 300 more 0;
+#X msg 17 44 restore 246 63 pd this 1;
+#X msg 29 103 vis 0 \, undo \, vis 1;
+#X msg 29 123 vis 0 \, redo \, vis 1;
+#X msg 54 154 texteditor;
+#X obj 68 206 s pd-sub;
+#X text 29 7 These will crash pd \, not meant to be used like this
+;
+#X restore 335 486 pd more crash;
+#N canvas 593 289 586 296 more 0;
+#X obj 24 209 s pd-sub;
+#X msg 33 32 array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+20 21 22, f 62;
+#X msg 49 124 saveto helpfiles2.pd /Users/federicocamarahalac/Documents/fd_work/dynamic-patching
+;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X restore 335 510 pd more bad-arguments;
+#X text 142 246 Also \, iemguts is really convenient for canvas-related
+stuff;
+#X text 77 50 For more info \, here's a list of all pd-messages and
+a tutorial (Pd-0.34) by Damien Henry:;
+#X text 100 473 Here are stuff I could not figure out. Any help is
+more than welcomed:, f 24;
+#X text 198 582 fdch.github.io/tv || fch226 at nyu dot edu;
+#X text 182 357 <-- just using [ggee/shell] to go to the links... you
+can copy-paste them on your browser if this doesn't work., f 50;
+#X obj 84 311 symbol;
+#X msg 84 336 open \$1;
+#X msg 140 273 https://git.iem.at/pd;
+#X msg 120 138 http://puredata.info/community/conventions/convention04/lectures/tk-barknecht
+;
+#X msg 83 90 http://puredata.info/community/pdwiki/PdInternalMessages/
+;
+#X text 86 410 ______________________________________________________________________
+, f 70;
+#X text 86 546 ______________________________________________________________________
+, f 70;
+#X msg 141 222 https://puredata.info/docs/developer/PdFileFormat;
+#X obj 84 361 ggee/shell;
+#X text 140 182 Unofficial PD v0.37 fileformat specification by Simon
+Asselbergs and Tjeerd Sietsma, f 45;
+#X text 80 22 ____________________________more info_________________________________
+, f 70;
+#N canvas 561 273 542 288 more 0;
+#X msg 41 66 protectmode \$1;
+#X msg 53 89 radio;
+#X msg 70 111 help 1 1;
+#X msg 78 135 properties;
+#X msg 82 156 atom;
+#X msg 88 184 intatom;
+#X obj 41 214 s pd-sub;
+#X text 22 8 These were marked as methods in previous tutorials;
+#X text 24 29 They might work in extended \, but I haven't tested them
+;
 #X connect 0 0 6 0;
 #X connect 1 0 6 0;
 #X connect 2 0 6 0;
 #X connect 3 0 6 0;
 #X connect 4 0 6 0;
 #X connect 5 0 6 0;
-#X restore 336 409 pd more no-method;
-#N canvas 729 116 450 300 more 0;
-#X obj 40 95 s pd-sub;
-#X msg 39 66 pop 1;
-#X connect 1 0 0 0;
-#X restore 335 433 pd more error;
-#N canvas 732 418 450 300 more 0;
-#X msg 19 67 restore 246 63 pd this 1;
-#X msg 29 103 vis 0 \, undo \, vis 1;
-#X msg 29 123 vis 0 \, redo \, vis 1;
-#X msg 54 154 texteditor;
-#X obj 68 206 s pd-sub;
-#X restore 335 456 pd more crash;
-#N canvas 593 289 586 296 more 0;
-#X obj 24 209 s pd-sub;
-#X msg 33 32 array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
-20 21 22, f 62;
-#X msg 56 92 saveto helpfiles2.pd /Users/federicocamarahalac/Documents/fd_work/dynamic-patching
-;
-#X connect 1 0 0 0;
-#X connect 2 0 0 0;
-#X restore 335 480 pd more bad-arguments;
-#N canvas 700 22 514 447 more 0;
-#X text 105 176 weird response:;
-#X msg 280 73 findparent;
-#X obj 79 233 s pd-sub;
-#X msg 163 244 motion 200 100 0;
-#X msg 163 284 motion 200 100 2;
-#X msg 163 264 motion 200 100 1;
-#X msg 273 160 obj 200 100 bng;
-#X msg 273 181 obj 180 80 bng;
-#X msg 163 224 motion 240 100 -1;
-#X msg 163 315 mouse 240 100 1 1;
-#X msg 73 44 mouseup 240 100 1;
-#X msg 83 78 click 240 100 1 1 1;
-#X msg 143 398 motion 200 100 2 1;
-#X msg 104 118 done-popup 1 10 10;
-#X obj 43 298 s pd;
-#X connect 3 0 2 0;
-#X connect 4 0 2 0;
-#X connect 5 0 2 0;
-#X connect 6 0 2 0;
-#X connect 7 0 2 0;
-#X connect 8 0 2 0;
-#X connect 9 0 2 0;
-#X connect 10 0 2 0;
-#X connect 11 0 2 0;
-#X connect 12 0 2 0;
-#X connect 13 0 2 0;
-#X restore 335 504 pd more no-response;
-#N canvas 709 60 450 300 more 0;
-#X text 47 11 Another way to stack subcanvases:, f 13;
-#X obj 53 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 53 169 vis \$1;
-#X obj 53 212 s;
-#X obj 86 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 86 192 symbol pd-sub\$1;
-#X symbolatom 86 215 10 0 0 0 - - -, f 10;
-#N canvas 241 318 450 300 sub0 0;
-#X obj 29 16 inlet;
-#X obj 29 41 print sub0;
-#X connect 0 0 1 0;
-#X restore 53 70 pd sub0 \; sub1 \;;
-#X msg 218 123 \; pd-sub1 vis 1;
-#X msg 189 73 \; pd-sub0 vis 1;
-#X text 146 88 ??;
+#X restore 336 439 pd more obsolete?;
 #X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 5 0 3 1;
-#X connect 5 0 6 0;
-#X restore 335 528 pd more stack-canvases;
-#X text 128 214 Also \, iemguts is really convenient for canvas-related
-stuff;
-#X text 77 50 For more info \, here's a list of all pd-messages and
-a tutorial (Pd-0.34) by Damien Henry:;
-#X text 100 443 Here are stuff I could not figure out. Any help is
-more than welcomed:, f 24;
-#X text 198 582 fdch.github.io/tv || fch226 at nyu dot edu;
-#X text 182 327 <-- just using [ggee/shell] to go to the links... you
-can copy-paste them on your browser if this doesn't work., f 50;
-#X obj 84 281 symbol;
-#X msg 84 306 open \$1;
-#X obj 84 331 ggee/shell;
-#X msg 140 243 https://git.iem.at/pd;
-#X msg 120 158 http://puredata.info/community/conventions/convention04/lectures/tk-barknecht
-;
-#X msg 83 90 http://puredata.info/community/pdwiki/PdInternalMessages/
-;
-#X text 86 380 ______________________________________________________________________
-, f 70;
-#X text 86 546 ______________________________________________________________________
-, f 70;
-#X text 80 22 ______________________________________________________________________
-, f 70;
-#X connect 1 0 2 0;
-#X connect 15 0 16 0;
-#X connect 16 0 17 0;
-#X connect 18 0 15 0;
-#X connect 19 0 15 0;
-#X connect 20 0 15 0;
+#X connect 12 0 13 0;
+#X connect 13 0 20 0;
+#X connect 14 0 12 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 0;
+#X connect 19 0 12 0;
 #X restore 23 265 pd goodbye _______;
 #X restore 217 175 pd menu;
 #X obj 363 175 bng 15 250 50 0 close empty close 17 7 0 10 -258699
