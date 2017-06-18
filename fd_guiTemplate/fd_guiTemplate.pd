@@ -1,0 +1,69 @@
+#N canvas 272 22 633 591 12;
+#X obj 21 70 list split 2;
+#X obj 225 183 unpack;
+#X obj 239 236 - 4;
+#X obj 273 237 - 8;
+#X obj 214 264 pack f f f;
+#X obj 333 245 t f f f;
+#X obj 355 269 - 4;
+#X obj 389 270 - 8;
+#X obj 261 311 list;
+#X obj 93 366 list;
+#X obj 235 138 t a a;
+#X obj 217 212 t f f f;
+#X obj 352 318 pack f f f f f;
+#X obj 425 224 t f f;
+#X obj 478 283 - 4;
+#X obj 429 270 + 12;
+#X obj 20 43 list;
+#X obj 20 16 inlet list parent child width height;
+#X obj 425 199 list split 1;
+#X obj 23 112 list split 1;
+#X obj 23 140 symbol;
+#X obj 23 179 makefilename %s.pd;
+#X obj 66 264 s pd;
+#X msg 64 233 menunew \$1 -;
+#X obj 23 204 t a a;
+#X obj 92 341 list;
+#X msg 94 392 \; pd-\$1 clear \, obj 10 10 cnv 4 \$3 \$6 BG0 BG0-set
+empty 0 0 0 0 21 0 \, obj 12 12 pd \$2 \; pd-\$2 donecanvasdialog 1
+-1 2 0 0 \$4 \$7 \$4 \$7 10 10 \, obj 12 12 cnv 14 \$5 \$8 BG BG-set
+\$2 4 7 0 12 10 22 \, menuclose \; pd-\$1 donecanvasdialog 1 -1 2 0
+0 \$3 \$6 \$3 \$6 10 10 \; pd-\$2 obj \$10 12 bng 8 0 0 0 empty emtpy
+emtpy 0 0 0 0 0 22 22 \, msg \$9 16 menu-open \, obj \$9 40 s pd-\$2
+\, connect 1 0 2 0 \, connect 2 0 3 0 \;;
+#X connect 0 0 19 0;
+#X connect 0 1 10 0;
+#X connect 1 0 11 0;
+#X connect 1 1 5 0;
+#X connect 2 0 4 1;
+#X connect 3 0 4 2;
+#X connect 4 0 8 0;
+#X connect 5 0 12 0;
+#X connect 5 1 6 0;
+#X connect 5 2 7 0;
+#X connect 6 0 12 1;
+#X connect 7 0 12 2;
+#X connect 8 0 9 1;
+#X connect 9 0 26 0;
+#X connect 10 0 1 0;
+#X connect 10 1 18 0;
+#X connect 11 0 4 0;
+#X connect 11 1 2 0;
+#X connect 11 2 3 0;
+#X connect 12 0 8 1;
+#X connect 13 0 15 0;
+#X connect 13 1 14 0;
+#X connect 14 0 12 4;
+#X connect 15 0 12 3;
+#X connect 16 0 0 0;
+#X connect 17 0 16 0;
+#X connect 18 0 13 0;
+#X connect 19 0 20 0;
+#X connect 19 1 25 1;
+#X connect 20 0 21 0;
+#X connect 21 0 24 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 24 1 23 0;
+#X connect 25 0 9 0;

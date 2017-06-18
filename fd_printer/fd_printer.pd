@@ -20,7 +20,7 @@
 #X obj 96 437 text set \$0-fd_printer, f 13;
 #X msg 114 411 1e+07;
 #X obj 190 145 t b b;
-#N canvas 451 33 602 676 text 0;
+#N canvas 451 33 602 676 text 1;
 #X msg 87 402 set \$1;
 #X obj 50 429 makefilename;
 #X obj 87 183 f;
@@ -42,8 +42,8 @@
 #X obj 50 59 route write filename full-path;
 #X obj 50 10 inlet;
 #X obj 287 511 t a;
-#X msg 102 159 2;
-#X obj 87 324 symbol /Users/federicocamarahalac/Documents/fd_work/a.le.a/log
+#X msg 102 159 3;
+#X obj 87 324 symbol /Users/federicocamarahalac/Documents/fd_work/bcbfm/a.le.a/log
 , f 32;
 #X connect 0 0 1 0;
 #X connect 1 0 11 0;

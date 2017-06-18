@@ -14,6 +14,12 @@
 ./cuadratic/cuadratic-help.pd
 ./cuadratic/cuadratic-test.pd
 ./factor/factor-help.pd
+./fd/_bass.pd
+./fd/_distor-help.pd
+./fd/_distor.pd
+./fd/_legato.pd
+./fd/_note.pd
+./fd/_tom.pd
 ./fd_2bit/fd_2bit-help.pd
 ./fd_2bit/fd_2bit.pd
 ./fd_6x6/fd_6x6-help.pd
@@ -158,6 +164,11 @@
 ./fd_fftfilt/fd_fftfilt.pd
 ./fd_filewindow/fd_filewindow-help.pd
 ./fd_filewindow/fd_filewindow.pd
+./fd_filt/_A.pd
+./fd_filt/_alpha.pd
+./fd_filt/_omega.pd
+./fd_filt/fd_filt-help.pd
+./fd_filt/fd_filt.pd
 ./fd_flip/fd_flip-help.pd
 ./fd_flip/fd_flip.pd
 ./fd_floor/fd_floor-help.pd
@@ -206,6 +217,13 @@
 ./fd_grain/fd_grain.pd
 ./fd_gt/fd_gt-help.pd
 ./fd_gt/fd_gt.pd
+./fd_guiDelta/fd_guiDelta-help.pd
+./fd_guiDelta/fd_guiDelta.pd
+./fd_guiFont/fd_guiFont-help.pd
+./fd_guiFont/fd_guiFont.pd
+./fd_guiTemplate/fd_guiTemplate-help.pd
+./fd_guiTemplate/fd_guiTemplate-test.pd
+./fd_guiTemplate/fd_guiTemplate.pd
 ./fd_hann0/fd_hann0-help.pd
 ./fd_hann0/fd_hann0.pd
 ./fd_hann~/fd_hann~-help.pd
@@ -631,6 +649,7 @@
 ./lorsig~/lorsig~-help.pd
 ./lorsig~/lorsig~-help3.pd
 ./lorsig~/lorsig~-help4.pd
+./lor~/lor~-help.pd
 ./mainpath/mainpath-help.pd
 ./mandelbrot/mandelbrot-help.pd
 ./minimax/minimax-help.pd
@@ -645,6 +664,7 @@
 ./reflect/reflect-help.pd
 ./reflect/reflect-test.pd
 ./reflect/reflect.pd
+./root/root-help.pd
 ./scroll/scroll-help.pd
 ./siginfo/siginfo-help-bkup.pd
 ./siginfo/siginfo-help.pd
@@ -652,6 +672,7 @@
 ./siglor~/siglor~-help.pd
 ./spline/spline-help.pd
 ./sradio/_sradii.pd
+./sradio/sradio-cellular-gem.pd
 ./sradio/sradio-cellular.pd
 ./sradio/sradio-help.pd
 ./sradio/sradio-test.pd
@@ -669,7 +690,7 @@
 ./tutorials/pd-messages/abstractions/test1.pd
 ./tutorials/pd-messages/abstractions/test2.pd
 ./tutorials/pd-messages/abstractions/test3.pd
-./tutorials/pd-messages/helpfiles.pd
+./tutorials/pd-messages/main.pd
 ./tutorials/pd-messages/more/main-2.pd
 ./tutorials/pd-messages/more/main-3.pd
 ./tutorials/pd-messages/more/receiving-canvas.pd

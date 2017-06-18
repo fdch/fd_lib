@@ -1,0 +1,21 @@
+#N canvas 0 22 450 300 12;
+#X obj 10 10 cnv 4 100 130 BG0 BG0-set empty 0 0 0 4 -99865 -262144
+0;
+#N canvas 0 22 450 300 ctrl 0;
+#X obj 12 12 cnv 14 92 122 BG BG-set ctrl 4 7 0 12 -233017 -1 0;
+#X obj 96 12 bng 8 50 10 0 empty emtpy emtpy 0 0 0 4 -262144 -1 -1
+;
+#X msg 112 16 menu-open;
+#X obj 112 40 s pd-ctrl;
+#X obj 29 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 151 135 send \$0-print;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X coords 0 0 96 126 96 126 2 10 10;
+#X restore 12 12 pd ctrl;
+#X obj 149 89 print;
+#X obj 149 64 r \$0-print;
+#X connect 3 0 2 0;
+#X coords 0 0 100 130 100 130 2 10 10;

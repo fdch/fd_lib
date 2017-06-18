@@ -1,0 +1,16 @@
+#N canvas 0 22 450 300 12;
+#X obj 26 186 outlet~;
+#X obj 26 25 inlet~;
+#X obj 26 106 biquad~ 1.99943 -0.999556 1.03535 -1.99943 0.964202;
+#X obj 26 131 biquad~ 1.99949 -0.999767 1.06633 -1.99949 0.933437;
+#X obj 26 156 biquad~ 1.99897 -0.999463 1.02967 -1.99897 0.969795;
+#X obj 100 25 inlet;
+#X msg 40 75 clear;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;

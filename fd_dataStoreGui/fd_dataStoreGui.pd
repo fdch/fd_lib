@@ -2,7 +2,7 @@
 #X obj 12 12 cnv 21 308 21 empty empty fd_dataStoreGui 2 6 0 10 -233017
 -1 0;
 #X obj 12 34 cnv 14 308 14 empty empty <---------------recall 175 8
-0 10 -191407 -1 0;
+0 10 -1 -262144 0;
 #X msg 32 133 open 1;
 #X msg 265 103 reset;
 #X msg 114 103 store;
@@ -13,8 +13,8 @@
 #X obj 301 14 bng 15 250 50 0 empty empty reset -32 7 0 10 -262144
 -1 -1;
 #X obj 156 14 nbx 2 14 0 30 0 0 empty empty --> 30 8 0 10 -262144 -1
--1 9 256;
-#X obj 12 34 hradio 14 1 0 9 empty stored-presets 9-presets 4 -5 0
+-1 0 256;
+#X obj 13 35 hradio 12 1 0 9 empty stored-presets 9-presets 4 -5 0
 10 -262144 -1 -1 4;
 #X obj 169 76 f;
 #X msg 169 103 restore \$1;

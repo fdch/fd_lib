@@ -1,21 +1,21 @@
 #N canvas 522 51 621 395 12;
 #X obj 12 12 cnv 15 96 96 empty empty \$1 4 10 0 10 -228856 -1 0;
-#X obj 14 92 tgl 15 0 empty empty all 17 7 0 10 -262144 -1 -1 0 1;
-#X obj 14 75 hradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
+#X obj 21 93 tgl 13 0 empty empty all 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 24 79 hradio 11 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
 -1 0;
-#X obj 69 14 tgl 15 0 empty empty type 17 13 0 10 -262144 -1 -1 0 1
+#X obj 73 22 tgl 10 0 empty empty type -2 -4 0 8 -262144 -1 -1 0 1
 ;
-#X obj 65 59 nbx 3 14 10 2000 0 0 empty empty empty 0 -8 0 10 -262144
+#X obj 59 62 nbx 3 14 10 2000 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 10 256;
-#X obj 89 92 bng 15 250 50 0 empty empty graph -33 7 0 10 -262144 -1
+#X obj 59 93 bng 13 250 50 0 empty empty graph 15 7 0 10 -262144 -1
 -1;
-#X obj 19 59 nbx 3 14 1 200 0 0 empty empty empty 0 -8 0 10 -262144
+#X obj 21 62 nbx 3 14 1 200 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 1 256;
-#X obj 17 35 hsl 85 10 0 150 0 0 empty empty const 30 5 0 8 -262144
+#X obj 24 36 hsl 72 10 0 150 0 0 empty empty const 30 5 0 8 -262144
 -1 -1 0 1;
 #X obj 14 118 sel;
 #X msg 35 143 symbol all;
-#X obj 17 47 hsl 85 10 0 150 0 0 empty empty coeff 30 6 0 8 -262144
+#X obj 24 49 hsl 72 10 0 150 0 0 empty empty coeff 30 6 0 8 -262144
 -1 -1 0 1;
 #X msg 548 166 const;
 #X msg 548 186 coeff;
@@ -42,16 +42,16 @@
 #X msg 128 31 0;
 #X obj 123 90 t b f;
 #X obj 64 216 t b b;
-#X obj 37 178 spigot 1;
-#X obj 98 12 bng 10 250 50 0 empty empty empty 17 7 0 8 -262144 -1
--1;
+#X obj 24 240 spigot 1;
+#X obj 98 14 bng 8 250 50 0 empty empty empty 17 7 0 8 -262144 -1 -1
+;
 #X obj 115 187 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 152 225 print _dataGui-\$1;
 #X msg 146 194 toggle \$1;
-#X obj 12 12 bng 8 250 50 0 \$0 \$0- empty 17 7 0 8 -262144 -1 -1;
-#X obj 225 319 s \$1;
-#X obj 226 294 list trim;
+#X obj 98 24 bng 8 250 50 0 \$0 \$0- empty 17 7 0 8 -262144 -1 -1;
+#X obj 275 353 s \$1;
+#X obj 276 328 list trim;
 #X msg 12 347 \; pd-dataModifiers menu-open;
 #X connect 1 0 8 0;
 #X connect 2 0 34 0;
