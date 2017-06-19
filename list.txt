@@ -287,6 +287,7 @@
 ./fd_lspace/fd_lspace.pd
 ./fd_m-comb/fd_m-comb-help.pd
 ./fd_m-comb/fd_m-comb.pd
+./fd_map/fd_map.pd
 ./fd_markfour/fd_markfour-help.pd
 ./fd_markfour/fd_markfour.pd
 ./fd_markov/fd_markov-help.pd
