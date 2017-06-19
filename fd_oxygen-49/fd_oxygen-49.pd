@@ -1,10 +1,10 @@
-#N canvas 469 67 312 155 10;
+#N canvas 469 67 476 265 12;
 #X obj 10 32 vsl 15 80 0 127 0 0 fader-0 fader-0-set empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 2550 1;
 #X obj 25 32 vsl 15 80 0 127 0 0 fader-1 fader-1-set empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 3297 1;
 #X obj 40 32 vsl 15 80 0 127 0 0 fader-2 fader-2-set empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 1742 1;
 #X obj 55 32 vsl 15 80 0 127 0 0 fader-3 fader-3-set empty 0 -9 0 10
 -262144 -1 -1 0 1;
 #X obj 70 32 vsl 15 80 0 127 0 0 fader-4 fader-4-set empty 0 -9 0 10
@@ -100,7 +100,7 @@
 #X obj 13 133 fd_oxy fader-6 74;
 #X obj 14 153 fd_oxy fader-7 70;
 #X obj 14 173 fd_oxy fader-8 63;
-#X restore 197 31 pd faders;
+#X restore 197 43 pd faders;
 #N canvas 0 22 158 218 knobs 0;
 #X obj 27 17 fd_oxy knob-0 22;
 #X obj 27 37 fd_oxy knob-1 23;
@@ -110,7 +110,7 @@
 #X obj 27 117 fd_oxy knob-5 27;
 #X obj 27 137 fd_oxy knob-6 62;
 #X obj 27 157 fd_oxy knob-7 95;
-#X restore 198 52 pd knobs;
+#X restore 196 73 pd knobs;
 #N canvas 0 22 203 235 notein 0;
 #X obj 19 13 notein;
 #X obj 19 122 t f f;
@@ -130,7 +130,7 @@
 #X connect 3 1 2 1;
 #X connect 4 0 5 0;
 #X connect 5 0 7 0;
-#X restore 198 73 pd notein;
+#X restore 196 100 pd notein;
 #N canvas 0 22 450 300 wheels 0;
 #X obj 36 16 ctlin 1;
 #X obj 36 38 s wheel;
@@ -138,7 +138,7 @@
 #X obj 127 50 s bend;
 #X connect 0 0 1 0;
 #X connect 2 0 3 0;
-#X restore 199 95 pd wheels;
+#X restore 197 130 pd wheels;
 #X obj 147 75 vsl 20 44 0 127 0 0 empty wheel empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 167 75 vsl 20 44 0 16384 0 0 empty bend empty 0 -9 0 10 -262144

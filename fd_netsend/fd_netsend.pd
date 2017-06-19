@@ -39,7 +39,7 @@ pd, f 15;
 #X connect 11 0 1 0;
 #X restore 10 45 pd report _______________________________________
 ;
-#N canvas 568 190 366 489 netsend 1;
+#N canvas 568 190 366 489 netsend 0;
 #X obj 41 335 netsend;
 #X msg 55 276 disconnect;
 #X obj 246 254 r \$0-connect;
@@ -69,8 +69,8 @@ pd, f 15;
 #X obj 30 189 list append 3001;
 #X msg 42 223 connect \$1 \$2;
 #X text 72 130 then bang it to connect;
-#X msg 120 104 symbol localhost;
 #X text 114 78 or within the same computer;
+#X msg 120 104 symbol localhost;
 #X connect 0 0 10 0;
 #X connect 0 0 12 0;
 #X connect 0 1 8 0;
@@ -89,7 +89,7 @@ pd, f 15;
 #X connect 16 0 15 0;
 #X connect 18 0 19 0;
 #X connect 19 0 0 0;
-#X connect 21 0 15 0;
+#X connect 22 0 15 0;
 #X restore 10 66 pd netsend ______________________________________
 ;
 #X text 8 84 change port number if there is no connection;

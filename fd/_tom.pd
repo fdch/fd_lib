@@ -6,9 +6,13 @@
 #X obj 26 131 biquad~ 1.97598 -0.994255 1.18303 -1.97598 0.81123;
 #X obj 26 106 biquad~ 1.99959 -0.999955 1.01269 -1.99959 0.987262;
 #X obj 26 186 outlet~;
+#X obj 337 40 inlet;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 5 0;
 #X connect 3 0 6 0;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
+#X connect 7 0 4 0;
+#X connect 7 0 5 0;
+#X connect 7 0 3 0;
