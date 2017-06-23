@@ -1,0 +1,130 @@
+#N canvas 521 50 520 459 12;
+#X obj 89 399 bendin;
+#X obj 332 397 notein;
+#X obj 76 197 fd_ma ctlin 74 71 91 93 73 72 5 84 7, f 18;
+#X obj 279 300 fd_ma ctlin 113 116 117 118, f 15;
+#X obj 160 399 ctlin 1;
+#X obj 237 399 ctlin 64;
+#X text 199 20 "fd_ma";
+#X text 83 165 Faders;
+#X text 293 169 Knobs;
+#X text 125 290 Buttons;
+#X text 274 282 Value buttons;
+#X text 22 133 Example setuf for a m-audio oxygen 49 keyboard contoller:
+;
+#X text 22 58 Assign a bunch of ctlin or pgmin from incoming midi to
+the corresponding outlets. \$1 is left for "ctlin" \, "pgmin" or any
+other object \, really. Look inside. Outles are fixed...;
+#X text 157 377 mod;
+#X text 235 377 pedal;
+#X text 78 377 bend;
+#X text 333 376 pitch/vel;
+#X obj 94 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 106 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 297 1;
+#X obj 126 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1553 1;
+#X obj 136 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1987 1;
+#X obj 146 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1005 1;
+#X obj 156 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1324 1;
+#X obj 176 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1256 1;
+#X obj 186 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1347 1;
+#X obj 196 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1302 1;
+#X obj 206 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 104 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 114 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 124 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 144 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 154 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 164 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 174 352 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 296 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 23 1;
+#X obj 306 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1553 1;
+#X obj 316 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1781 1;
+#X obj 326 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1758 1;
+#X obj 346 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 91 1;
+#X obj 356 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 366 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1987 1;
+#X obj 376 241 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1233 1;
+#X obj 272 197 fd_ma ctlin 10 2 12 13 75 76 91 95, f 17;
+#X obj 279 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 299 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 319 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 339 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 160 421 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 99 256;
+#X obj 237 421 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 332 419 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 45 256;
+#X obj 389 419 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 89 421 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 8192 256;
+#X obj 76 310 route 1 2 3 4 5 6 7 8 9, f 15;
+#X obj 76 286 pgmin;
+#X connect 0 0 52 0;
+#X connect 1 0 50 0;
+#X connect 1 1 51 0;
+#X connect 2 0 18 0;
+#X connect 2 1 19 0;
+#X connect 2 2 20 0;
+#X connect 2 3 21 0;
+#X connect 2 4 22 0;
+#X connect 2 5 23 0;
+#X connect 2 6 24 0;
+#X connect 2 7 25 0;
+#X connect 2 8 26 0;
+#X connect 3 0 44 0;
+#X connect 3 1 45 0;
+#X connect 3 2 46 0;
+#X connect 3 3 47 0;
+#X connect 4 0 48 0;
+#X connect 5 0 49 0;
+#X connect 43 0 35 0;
+#X connect 43 1 36 0;
+#X connect 43 2 37 0;
+#X connect 43 3 38 0;
+#X connect 43 4 39 0;
+#X connect 43 5 40 0;
+#X connect 43 6 41 0;
+#X connect 43 7 42 0;
+#X connect 53 0 17 0;
+#X connect 53 1 27 0;
+#X connect 53 2 28 0;
+#X connect 53 3 29 0;
+#X connect 53 4 30 0;
+#X connect 53 5 31 0;
+#X connect 53 6 32 0;
+#X connect 53 7 33 0;
+#X connect 53 8 34 0;
+#X connect 54 0 53 0;

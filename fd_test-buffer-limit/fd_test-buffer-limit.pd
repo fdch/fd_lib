@@ -1,6 +1,0 @@
-#N canvas 0 22 450 300 10;
-#X obj 31 131 pix_buffer thit\$1 100;
-#X msg 166 94 allocate 480 270 3;
-#X obj 172 41 loadbang;
-#X connect 1 0 0 0;
-#X connect 2 0 1 0;
