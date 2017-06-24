@@ -1,1 +1,13 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_write2; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_write2; #X text 400 300 fd_lib;
+#N canvas 523 52 523 308 12;
+#X obj 46 129 ./fd_write2;
+#X text 233 193 reset: all counters back to 0;
+#X text 235 216 stop: stop recording;
+#X text 233 172 start: start file recording;
+#X text 236 151 MESSAGES:;
+#X text 237 113 OPEN FILE TO WRITE FIRST!;
+#X text 14 81 ***********************************************************
+;
+#X text 139 63 STEREO FILE RECORDER;
+#X text 14 51 ***********************************************************
+;
+#X text 192 18 "fd_write2";

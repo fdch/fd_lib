@@ -1,1 +1,13 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_write1; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_write1; #X text 400 300 fd_lib;
+#N canvas 524 52 526 348 12;
+#X obj 75 131 ./fd_write1;
+#X text 243 189 reset: all counters back to 0;
+#X text 245 212 stop: stop recording;
+#X text 243 168 start: start file recording;
+#X text 246 147 MESSAGES:;
+#X text 245 113 OPEN FILE TO WRITE FIRST!;
+#X text 22 81 ***********************************************************
+;
+#X text 22 51 ***********************************************************
+;
+#X text 211 23 "fd_write1";
+#X text 189 63 MONO FILE RECORDER;

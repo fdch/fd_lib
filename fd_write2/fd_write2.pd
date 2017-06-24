@@ -88,9 +88,6 @@
 #X obj 193 158 tgl 15 0 \$0-listen \$0-listen-set listen 17 7 0 10
 -262144 -1 -1 1 1;
 #X obj 398 305 r \$0-sec;
-#X text 257 171 reset: all counters back to 0;
-#X text 259 194 stop: stop recording;
-#X text 257 150 start: start file recording;
 #X obj 122 238 r \$0-listen;
 #N canvas 0 22 244 110 messages 0;
 #X obj 9 11 r write2;
@@ -162,25 +159,17 @@
 #X connect 22 1 11 0;
 #X restore 383 100 pd write2info;
 #X text 263 128 MESSAGES:;
-#X text 267 69 OPEN FILE TO WRITE FIRST!;
-#X text 97 36 ***********************************************************
-;
-#X text 96 382 ***********************************************************
-;
-#X text 222 18 STEREO FILE RECORDER;
-#X text 97 6 ***********************************************************
-;
-#X connect 8 0 23 0;
-#X connect 11 0 24 0;
+#X connect 8 0 20 0;
+#X connect 11 0 21 0;
 #X connect 12 0 14 0;
 #X connect 13 0 15 0;
 #X connect 17 0 10 0;
-#X connect 21 0 27 0;
-#X connect 25 0 12 0;
-#X connect 26 0 13 0;
+#X connect 18 0 24 0;
+#X connect 22 0 12 0;
+#X connect 23 0 13 0;
+#X connect 24 0 25 0;
+#X connect 25 0 12 1;
+#X connect 26 0 27 0;
 #X connect 27 0 28 0;
-#X connect 28 0 12 1;
-#X connect 29 0 30 0;
-#X connect 30 0 31 0;
-#X connect 31 0 13 1;
+#X connect 28 0 13 1;
 #X coords 0 -1 1 1 150 100 1 100 100;
