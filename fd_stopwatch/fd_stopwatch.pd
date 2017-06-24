@@ -30,8 +30,8 @@
 #X obj 46 270 outlet;
 #X obj 258 52 sel 1;
 #X msg 258 74 set 0;
-#X obj 89 31 r fd_stopwatch;
-#X obj 89 53 route start still;
+#X obj 64 17 r fd_stopwatch;
+#X obj 64 39 route start still;
 #X obj 140 280 s time;
 #X obj 115 168 t b f;
 #X obj 61 225 t l l;
