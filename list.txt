@@ -482,18 +482,10 @@
 ./fd_spigot6/fd_spigot6.pd
 ./fd_spline~/fd_spline~-help.pd
 ./fd_spline~/fd_spline~.pd
-./fd_splittone/fd_splittone-help.pd
-./fd_splittone/fd_splittone.pd
 ./fd_step/fd_step-help.pd
 ./fd_step/fd_step.pd
-./fd_stepper/fd_stepper-help.pd
-./fd_stepper/fd_stepper.pd
 ./fd_stopwatch/fd_stopwatch-help.pd
 ./fd_stopwatch/fd_stopwatch.pd
-./fd_stp/fd_stp-help.pd
-./fd_stp/fd_stp.pd
-./fd_stream-onoff/fd_stream-onoff-help.pd
-./fd_stream-onoff/fd_stream-onoff.pd
 ./fd_sum/fd_sum-help.pd
 ./fd_sum/fd_sum.pd
 ./fd_swap/fd_swap-help.pd
@@ -636,8 +628,6 @@
 ./siginfo/siginfo-help-bkup.pd
 ./siginfo/siginfo-help.pd
 ./siginfo/siginfo-help1.pd
-./siglor~/siglor~-help.pd
-./spline/spline-help.pd
 ./sradio/_sradii.pd
 ./sradio/sradio-cellular-gem.pd
 ./sradio/sradio-cellular.pd
