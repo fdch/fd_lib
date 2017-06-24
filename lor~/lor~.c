@@ -1,129 +1,162 @@
 #include "m_pd.h"
-/* ---------------- lor~ ----------------- */
+#include <math.h>
+#ifdef NT
+#pragma warning( disable : 4244 )
+#pragma warning( disable : 4305 )
+#endif
 
-typedef struct lorctl
+/* ------------------------ lor~ ----------------------------- */
+
+
+static t_class *lor_class;
+
+typedef struct _lor
 {
-    t_sample c_x1;
-    t_sample c_x2;
-    t_sample c_y1;
-    t_sample c_y2;
-    t_sample c_z1;
-    t_sample c_z2;
-    t_sample c_ia;
-    t_sample c_ib;
-    t_sample c_ic;
-    t_sample c_ih;
+  t_object x_obj;   /* obligatory header */
+  t_float x_f;
+  t_inlet *in2;
+  t_inlet *in3;
+  t_inlet *in4;
+  t_outlet *out1;
+  t_outlet *out2;
+  t_outlet *out3;
+  t_float x, y, z;
+} t_lor;
 
-} t_lorctl;
 
-typedef struct siglor
+
+static t_int *lor_perform(t_int *w)
 {
-    t_object x_obj;
-    t_float x_f;
-    t_lorctl x_cspace;
-    t_lorctl *x_ctl;
-} t_siglor;
+  t_lor *x = (t_lor *)(w[1]);  
+  t_sample *in1 = (t_sample *)(w[2]);
+  t_sample *in2 = (t_sample *)(w[3]);
+  t_sample *in3 = (t_sample *)(w[4]);
+  t_sample *in4 = (t_sample *)(w[5]);
+  t_sample *out1 = (t_sample *)(w[6]);
+  t_sample *out2 = (t_sample *)(w[7]);
+  t_sample *out3 = (t_sample *)(w[8]);
+  int n = (int)(w[9]);
+  
+  float x0, y0, z0, x1, y1, z1;
+  float h, a, b, c;
 
-t_class *siglor_class;
+  while (n--)
+  {
+    h= *in1++;
+  a= *in2++;
+  b=*in3++;
+  c=*in4++;
+  
+  x0 = x->x;
+     y0 = x->y;
+     z0 = x->z;
+     
+     x1 = x0 + h * a * (y0 - x0);
+     y1 = y0 + h * (x0 * (b - z0) - y0);
+     z1 = z0 + h * (x0 * y0 - c * z0);   
+   
+  /*
+  distance = sqrt((x1 * x1) + (y1 * y1)  + (z1 * z1));
+   */
+   
+    *out1++ = x->x = x1;
+  *out2++ = x->y = y1;
+    *out3++ = x->z = z1;
 
-static void siglor_list(t_siglor *x, t_symbol *s, int argc, t_atom *argv);
-
-static void *siglor_new(t_symbol *s, int argc, t_atom *argv)
-{
-    t_siglor *x = (t_siglor *)pd_new(siglor_class);
-    outlet_new(&x->x_obj, &s_signal);
-    x->x_ctl = &x->x_cspace;
-    x->x_cspace.c_x1 = x->x_cspace.c_x2 = 0;
-    siglor_list(x, s, argc, argv);
-    x->x_f = 0;
-    return (x);
+  }
+  return (w+10);
 }
 
-static t_int *siglor_perform(t_int *w)
+
+void lor_tilde_free(t_lor *x)
 {
-    //t_sample *in = (t_sample *)(w[1]);
-    t_sample *out0 = (t_sample *)(w[1]);
-    t_sample *out1 = (t_sample *)(w[2]);
-    t_sample *out2 = (t_sample *)(w[3]);
-    t_lorctl *c = (t_lorctl *)(w[4]);
-    int n = (t_int)(w[5]);
-    int i;
-    t_sample xlast = c->c_x1;
-    t_sample xprev = c->c_x2;
-    t_sample ylast = c->c_y1;
-    t_sample yprev = c->c_y2;
-    t_sample zlast = c->c_z1;
-    t_sample zprev = c->c_z2;
-    t_sample ia = c->c_ia;
-    t_sample ib = c->c_ib;
-    t_sample ic = c->c_ic;
-    t_sample ih = c->c_ih;
-    for (i = 0; i < n; i++)
+inlet_free(x->in2);
+inlet_free(x->in3);
+inlet_free(x->in4);
+ outlet_free(x->out1);
+ outlet_free(x->out2);
+ outlet_free(x->out3);
+}
+
+
+static void lor_dsp(t_lor *x, t_signal **sp)
+{
+  dsp_add(lor_perform, 9,  x, 
+  sp[0]->s_vec, 
+  sp[1]->s_vec,
+  sp[2]->s_vec,
+  sp[3]->s_vec,
+  sp[4]->s_vec,
+  sp[5]->s_vec,
+  sp[6]->s_vec,
+  sp[0]->s_n);
+}
+
+
+void lor_initx(t_lor *x,  int argcount, t_atom *argvec)
+{
+  int i;
+  for (i = 0; i < argcount; i++)
+  {
+    if (argvec[i].a_type == A_FLOAT)
     {
-
-        xprev = xlast + ih * ia * (ylast - xlast);
-        yprev = ylast + ih * (xlast * (ib - zlast) - ylast);
-        zprev = zlast + ih * (xlast * ylast - ic * zlast);
-        
-        *out0++ = xprev;
-        *out1++ = yprev;
-        *out2++ = zprev;
-        
-        xlast = xprev;
-        ylast = yprev;
-        zlast = zprev;
+    x->x = argvec[i].a_w.w_float;
     }
-    c->c_x1 = xlast;
-    c->c_x2 = xprev;
-    c->c_y1 = ylast;
-    c->c_y2 = yprev;
-    c->c_z1 = zlast;
-    c->c_z2 = zprev;
-    return (w+6);
+  }
+}
+void lor_inity(t_lor *x,  int argcount, t_atom *argvec)
+{
+  int i;
+  for (i = 0; i < argcount; i++)
+  {
+    if (argvec[i].a_type == A_FLOAT)
+    {
+    x->y = argvec[i].a_w.w_float;
+    }
+  }
+}
+void lor_initz(t_lor *x,  int argcount, t_atom *argvec)
+{
+  int i;
+  for (i = 0; i < argcount; i++)
+  {
+    if (argvec[i].a_type == A_FLOAT)
+    {
+    x->z = argvec[i].a_w.w_float;
+    }
+  }
 }
 
-static void siglor_list(t_siglor *x, t_symbol *s, int argc, t_atom *argv)
+static void *lor_new(void)
 {
-    c->c_ia = atom_getfloatarg(0, argc, argv);
-    c->c_ib = atom_getfloatarg(1, argc, argv);
-    c->c_ic = atom_getfloatarg(2, argc, argv);
-    c->c_ih = atom_getfloatarg(3, argc, argv);
-    t_lorctl *c = x->x_ctl;
-}
-
-static void siglor_set(t_siglor *x, t_symbol *s, int argc, t_atom *argv)
-{
-    t_lorctl *c = x->x_ctl;
-    c->c_ia = 0;
-    c->c_ib = 0;
-    c->c_ic = 0;
-    c->c_ih = 0;
-    c->c_x1 = 0;
-    c->c_x2 = 0;
-    c->c_y1 = 0;
-    c->c_y2 = 0;
-    c->c_z1 = 0;
-    c->c_z2 = 0;
-}
-
-static void siglor_dsp(t_siglor *x, t_signal **sp)
-{
-    dsp_add(siglor_perform, 5,
-        sp[1]->s_vec, sp[2]->s_vec, sp[3]->s_vec,
-            x->x_ctl, sp[0]->s_n);
-
+  t_lor *x = (t_lor *)pd_new(lor_class);
+  x->in2 = inlet_new(&x->x_obj,&x->x_obj.ob_pd, &s_signal,&s_signal);
+  x->in3 = inlet_new(&x->x_obj,&x->x_obj.ob_pd, &s_signal,&s_signal);
+  x->in4 = inlet_new(&x->x_obj,&x->x_obj.ob_pd, &s_signal,&s_signal);
+  x->out1 = outlet_new(&x->x_obj, &s_signal);
+  x->out2 = outlet_new(&x->x_obj, &s_signal);
+  x->out3 = outlet_new(&x->x_obj, &s_signal);
+  x->x_f = 0.0;
+  x->x = 0.1;
+  x->y = 0;
+  x->z = 0;
+  /*
+  x->x1max = 10000000000.0;
+  x->x1min = 0.0;
+  */
+  return (x);
 }
 
 void lor_tilde_setup(void)
 {
-    siglor_class = class_new(gensym("lor~"), (t_newmethod)siglor_new,
-        0, sizeof(t_siglor), 0, A_GIMME, 0);
-    CLASS_MAINSIGNALIN(siglor_class, t_siglor, x_f);
-    class_addmethod(siglor_class, (t_method)siglor_dsp,
-        gensym("dsp"), A_CANT, 0);
-    class_addlist(siglor_class, siglor_list);
-    class_addmethod(siglor_class, (t_method)siglor_set, gensym("set"),
-        A_GIMME, 0);
-    class_addmethod(siglor_class, (t_method)siglor_set, gensym("clear"),
-        A_GIMME, 0);
+  lor_class = class_new(gensym("lor~"),
+  (t_newmethod)lor_new, 0,
+    sizeof(t_lor), 0, A_DEFFLOAT, 0);
+
+  CLASS_MAINSIGNALIN(lor_class, t_lor, x_f);
+
+  class_addmethod(lor_class, (t_method)lor_dsp, gensym("dsp"), 0);
+  class_addmethod(lor_class, (t_method)lor_initx, gensym("initx"), A_GIMME, 0);
+  class_addmethod(lor_class, (t_method)lor_inity, gensym("inity"), A_GIMME, 0);
+  class_addmethod(lor_class, (t_method)lor_initz, gensym("initz"), A_GIMME, 0);
 }
