@@ -20,7 +20,7 @@
 #X obj 96 437 text set \$0-fd_printer, f 13;
 #X msg 114 411 1e+07;
 #X obj 190 145 t b b;
-#N canvas 451 33 602 676 text 1;
+#N canvas 451 33 399 675 text 0;
 #X msg 87 402 set \$1;
 #X obj 50 429 makefilename;
 #X obj 87 183 f;
@@ -85,39 +85,12 @@
 #X obj 77 77 route float;
 #X obj 382 97 t a;
 #X obj 190 118 sel;
-#N canvas 0 22 534 648 messages 0;
-#X text 115 303 1|0 (float) for starting or stopping;
-#X msg 29 399 printing path filename your_text_name;
-#X msg 29 429 printing path full-path /your/full/path/here;
-#X msg 36 575 printing clear;
-#X msg 174 576 printing set;
-#X msg 118 324 printing 1;
-#X msg 244 323 printing 0;
-#X text 28 464 NOTE: filename will be automatically indexed with a
-suffix (eg. name-0 \, name-1 \, etc);
-#X text 31 546 other [text] msgs;
-#X text 19 200 SETUP MESSAGES;
-#X text 22 16 SCOREFILE FOR YOU PATCH;
-#X text 69 230 setup messages need to be prepended with the symbol:
-;
-#X obj 195 261 symbol printing;
-#X text 295 575 see [text] helpfile;
-#X text 65 365 IMPORTANT: path filename \, path full-path;
-#X text 18 40 [fd_printer] will post any message you send to it and
-it will store them in a text file with appended 'waits' for later use.
-This will allow you to store your interaction with the gui \, that
-is \, if you send to [fd_printer] the same messages you use as control
-of your patch.;
-#X text 17 130 It is intended as a score for your patch \, if you want
-to recreate you interaction. Also \, it might be useful to use in conjunction
-with [fd_receive];
-#X restore 324 10 pd messages;
 #X obj 382 440 route posting, f 7;
 #X obj 32 476 spigot;
 #X connect 0 0 4 0;
 #X connect 1 0 26 0;
 #X connect 1 1 0 1;
-#X connect 2 0 34 0;
+#X connect 2 0 33 0;
 #X connect 3 0 2 1;
 #X connect 4 0 3 0;
 #X connect 4 1 5 0;
@@ -152,9 +125,9 @@ with [fd_receive];
 #X connect 28 1 11 0;
 #X connect 29 0 12 0;
 #X connect 29 1 30 0;
-#X connect 30 0 33 0;
+#X connect 30 0 32 0;
 #X connect 31 0 20 0;
 #X connect 31 1 13 0;
-#X connect 33 0 34 1;
-#X connect 33 1 21 0;
-#X connect 34 0 17 0;
+#X connect 32 0 33 1;
+#X connect 32 1 21 0;
+#X connect 33 0 17 0;

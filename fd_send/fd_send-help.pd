@@ -1,4 +1,4 @@
-#N canvas 0 22 450 350 12;
+#N canvas 528 47 450 350 12;
 #X text 101 281 intended to be used with fd_printer.pd;
 #X text 227 300 see fd_printer-help.pd;
 #X floatatom 38 135 5 0 0 0 - - -, f 5;

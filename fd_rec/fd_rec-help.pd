@@ -1,1 +1,9 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_rec; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_rec; #X text 400 300 fd_lib;
+#N canvas 525 50 450 350 12;
+#X obj 132 132 fd_rec;
+#X obj 132 84 adc~ 1;
+#X obj 132 258 dac~;
+#X text 176 12 "fd_rec";
+#X text 28 40 Recorder;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;

@@ -1,1 +1,33 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_printer; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_printer; #X text 400 300 fd_lib;
+#N canvas 529 50 542 654 12;
+#X text 115 333 1|0 (float) for starting or stopping;
+#X msg 29 429 printing path filename your_text_name;
+#X msg 29 459 printing path full-path /your/full/path/here;
+#X msg 36 605 printing clear;
+#X msg 174 606 printing set;
+#X msg 118 354 printing 1;
+#X msg 244 353 printing 0;
+#X text 28 494 NOTE: filename will be automatically indexed with a
+suffix (eg. name-0 \, name-1 \, etc);
+#X text 31 576 other [text] msgs;
+#X text 19 230 SETUP MESSAGES;
+#X text 22 46 SCOREFILE FOR YOU PATCH;
+#X text 69 260 setup messages need to be prepended with the symbol:
+;
+#X obj 195 291 symbol printing;
+#X text 295 605 see [text] helpfile;
+#X text 65 395 IMPORTANT: path filename \, path full-path;
+#X text 18 70 [fd_printer] will post any message you send to it and
+it will store them in a text file with appended 'waits' for later use.
+This will allow you to store your interaction with the gui \, that
+is \, if you send to [fd_printer] the same messages you use as control
+of your patch.;
+#X text 218 15 "fd_printer";
+#X obj 416 26 fd_printer;
+#X text 30 542 Turn posting to console on/off with:;
+#X msg 333 541 printing posting 1;
+#X msg 333 564 printing posting 0;
+#X text 17 160 It is intended as a score for your patch \, if you want
+to recreate you interaction. Also \, it might be useful to use in conjunction
+with [fd_send] and [fd_receive];
+#X obj 256 224 fd_send;
+#X obj 326 224 fd_receive;
