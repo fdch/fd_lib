@@ -75,7 +75,7 @@ f 14;
 #X obj 13 38 route bang;
 #X obj 13 63 t b b;
 #X obj 115 250 text define -k \$1-argv;
-#A set PD MESSAGES HELPER FILES \;;
+#A set 1 THIS IS AN EXAMPLE OF FD_TITLE \;;
 #X obj 257 196 s pd-\$1-title;
 #X obj 222 43 r \$1-do;
 #X connect 0 0 2 0;
@@ -293,10 +293,10 @@ f 14;
 #X restore 20 364 pd \$1-canvas _____;
 #X obj 205 363 namecanvas \$1-title-cont;
 #N canvas 0 22 742 272 \$1-title 0;
-#X obj 20 20 cnv 22 245 22 1-mycnv 1-mycnvrcv empty 20 12 2 4 -228992
+#X obj 20 20 cnv 22 421 22 1-mycnv 1-mycnvrcv empty 20 12 2 4 -228992
 -262144 0;
-#X text 40 22 PD MESSAGES HELPER FILES;
-#X coords 0 0 100 100 245 22 2 20 20;
+#X text 40 22 1 THIS IS AN EXAMPLE OF FD_TITLE;
+#X coords 0 0 100 100 421 22 2 20 20;
 #X restore 20 20 pd \$1-title;
 #X connect 0 0 5 0;
 #X connect 0 1 3 0;
@@ -306,4 +306,4 @@ f 14;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 6 0 7 0;
-#X coords 0 0 100 100 245 22 2 20 20;
+#X coords 0 0 100 100 421 22 2 20 20;

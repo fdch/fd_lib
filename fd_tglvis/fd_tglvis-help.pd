@@ -1,1 +1,13 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_tglvis; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_tglvis; #X text 400 300 fd_lib;
+#N canvas 523 50 546 282 12;
+#X text 221 20 "fd_tglvis";
+#N canvas 0 22 450 300 example 0;
+#X obj 134 132 fd_tglvis example;
+#X coords 0 -1 1 1 85 60 1 100 100;
+#X restore 191 132 pd example;
+#X text 359 144 MUST:;
+#X text 329 168 \$1 == subpatch name;
+#X text 41 229 although it works \, it's not recommended for abstractions
+, f 57;
+#X text 19 47 place this on a GOP (Graph-On-Parent) SUBPATCH to toggle
+visibility. This is only to avoid right-clicking \, or ctrl+click >
+OPEN..., f 63;

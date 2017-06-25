@@ -1,7 +1,8 @@
 #N canvas 180 96 450 300 12;
-#X text 53 149 intended to be used with fd_printer.pd;
 #X obj 48 53 r \$2;
 #X obj 48 80 route \$3-\$1;
 #X obj 48 105 s \$3-\$1;
+#X text 93 195 intended to be used with fd_printer.pd;
+#X text 219 214 see fd_printer-help.pd;
+#X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 2 0 3 0;
