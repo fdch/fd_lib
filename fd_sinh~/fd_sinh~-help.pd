@@ -1,4 +1,4 @@
-#N canvas 543 54 450 350 12;
+#N canvas 742 142 450 385 12;
 #X obj 39 312 array define;
 #X text 21 129 Arguments: array-name(symbol) array-size(float), f
 48;
@@ -11,14 +11,14 @@
 #X text 191 164 hack to see array:;
 #X text 30 272 following naming conventions as, f 16;
 #X text 45 156 load table ->;
+#X obj 297 292 fd_sinh;
+#X text 253 270 see fd_sinh-help.pd;
+#X text 20 45 Same as [fd_sinh] \, but stored via dsp into array;
+#X obj 157 219 fd_sinh~ sinh-tilde 128, f 16;
+#X text 170 13 "fd_sinh~";
 #X msg 333 187 q \$1 \, bang;
 #X floatatom 367 159 5 0 0 0 - - -, f 5;
-#X text 170 13 "fd_sinc~";
-#X obj 157 219 fd_sinc~ sinc-tilde 128, f 16;
-#X obj 297 292 fd_sinc;
-#X text 253 270 see fd_sinc-help.pd;
-#X text 20 45 Same as [fd_sinc] \, but stored via dsp into array;
 #X connect 2 0 13 0;
 #X connect 6 0 13 0;
-#X connect 10 0 13 0;
-#X connect 11 0 10 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
