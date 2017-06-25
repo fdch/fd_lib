@@ -1,1 +1,25 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_round; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_round; #X text 400 300 fd_lib;
+#N canvas 524 50 450 350 12;
+#X text 24 49 Rounding function;
+#X text 167 12 "fd_round";
+#X obj 153 167 * 0.001;
+#X obj 153 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 153 140 counter;
+#X msg 245 120 0;
+#X floatatom 38 240 0 0 0 0 - - -;
+#X floatatom 157 240 0 0 0 0 - - -;
+#X floatatom 279 240 0 0 0 0 - - -;
+#X obj 38 215 fd_round 0 10;
+#X obj 157 215 fd_round 0 100;
+#X obj 279 215 fd_round 0 1000;
+#X obj 153 115 metro 10;
+#X connect 2 0 9 0;
+#X connect 2 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 12 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 9 0 6 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 4 0;

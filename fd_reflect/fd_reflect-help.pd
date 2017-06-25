@@ -1,1 +1,10 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_reflect; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_reflect; #X text 400 300 fd_lib;
+#N canvas 523 51 450 350 12;
+#X text 170 18 "fd_reflect";
+#X floatatom 154 107 5 0 0 0 - - -, f 5;
+#X floatatom 154 198 5 0 0 0 - - -, f 5;
+#X obj 154 148 fd_reflect 10;
+#X text 18 54 Abstraction of the [reflect] object.;
+#X obj 288 292 reflect;
+#X text 162 293 see help for:;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
