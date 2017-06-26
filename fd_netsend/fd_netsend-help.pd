@@ -1,1 +1,10 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_netsend; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_netsend; #X text 400 300 fd_lib;
+#N canvas 527 49 517 296 12;
+#X text 196 15 "fd_netsend";
+#X text 28 47 "netsend" side to connect to another instance of pd.
+Use only one of these per patch. Use in conjunction with [fd_netreceive]
+in another patch.;
+#X text 18 183 Colors will change to GREEN when connected to the video
+pd;
+#X text 18 211 A 'connected 1' message is sent to the connected intance
+once the connection is established.;
+#X obj 88 120 fd_netsend;

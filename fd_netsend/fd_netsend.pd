@@ -1,52 +1,23 @@
-#N canvas 465 61 335 123 12;
-#X obj 10 10 cnv 15 300 30 empty \$0-fd_netsend MAIN_AUDIO_PATCH 10
-15 1 14 -1 -24198 0;
-#X obj 205 15 cnv 14 100 20 empty empty empty 0 7 1 8 -162280 -1 0
-;
-#X obj 209 18 nbx 4 14 0 9999 0 0 \$0-port \$0-port-set empty 0 -8
-0 8 -225271 -1 -1 0 256;
-#X obj 250 18 bng 14 250 50 0 \$0-connect \$0-connect-set 2 5 8 0 8
+#N canvas 291 153 450 300 12;
+#X obj 10 10 cnv 4 304 21 BG0 BG0-set empty 0 0 0 4 -99865 -262144
+0;
+#N canvas 0 22 582 587 fd_netsend_(main_audio) 0;
+#X obj 12 12 cnv 13 296 13 BG BG-set fd_netsend_(main_audio) 4 7 0
+11 -233017 -1 0;
+#X obj 186 13 nbx 4 11 0 9999 0 0 \$0-port \$0-port-set empty 0 -8
+0 10 -204786 -1 -1 0 256;
+#X obj 232 13 bng 11 250 50 0 \$0-connect \$0-connect-set 2 4 6 0 8
 -225271 -1 -1;
-#X obj 269 18 cnv 14 33 14 \$0-cnv \$0-cnv-set conctd 2 7 1 9 -225271
+#X obj 247 13 cnv 11 60 11 \$0-cnv \$0-cnv-set connected 2 6 1 10 -225271
 -1 0;
-#N canvas 511 56 450 300 report 0;
-#X obj 38 23 r report;
-#X obj 38 219 print MAIN_AUDIO_PD;
-#X obj 142 13 loadbang;
-#X obj 142 35 t b b b b;
-#X obj 197 88 until;
-#X obj 176 178 print;
-#X msg 197 110 .;
-#X obj 219 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 197 66 3;
-#X msg 176 136 **** MAIN_AUDIO_PD ***;
-#X obj 38 45 list trim;
-#X msg 48 70 colors will change to GREEN when connected to the video
-pd, f 15;
-#X connect 0 0 10 0;
-#X connect 2 0 3 0;
-#X connect 3 0 11 0;
-#X connect 3 1 8 0;
-#X connect 3 2 9 0;
-#X connect 3 3 8 0;
-#X connect 4 0 6 0;
-#X connect 6 0 5 0;
-#X connect 7 0 3 0;
-#X connect 8 0 4 0;
-#X connect 9 0 5 0;
-#X connect 10 0 1 0;
-#X connect 11 0 1 0;
-#X restore 10 45 pd report _______________________________________
-;
-#N canvas 568 190 366 489 netsend 0;
-#X obj 41 335 netsend;
-#X msg 55 276 disconnect;
-#X obj 246 254 r \$0-connect;
-#X obj 55 254 r \$0-disconnect;
-#X obj 260 180 r \$0-port;
-#X obj 259 207 sel 0;
-#X msg 210 182 3001;
+#X msg 261 317 menu-open;
+#X obj 261 350 s pd-fd_netsend_(main_audio);
+#X obj 35 373 netsend;
+#X msg 49 314 disconnect;
+#X obj 261 290 r \$0-connect;
+#X obj 49 287 r \$0-disconnect;
+#X obj 174 184 r \$0-port;
+#X msg 174 230 3001;
 #N canvas 0 22 450 300 to-video-pd 0;
 #X obj 31 46 list prepend send;
 #X obj 31 68 list trim;
@@ -55,42 +26,42 @@ pd, f 15;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 3 0 0 0;
-#X restore 63 304 pd to-video-pd;
-#X obj 80 357 s from-video-pd;
-#X obj 41 454 s report;
-#X msg 41 424 status \$1;
-#X obj 133 440 s to-video-pd;
-#X msg 133 418 connected \$1;
-#X msg 246 279 netsend;
-#X obj 246 304 fd_visera 1;
-#X obj 30 153 symbol;
-#X msg 73 52 symbol 169.254.192.74;
-#X text 72 18 adjust IP address here;
-#X obj 30 189 list append 3001;
-#X msg 42 223 connect \$1 \$2;
-#X text 72 130 then bang it to connect;
-#X text 114 78 or within the same computer;
-#X msg 120 104 symbol localhost;
-#X connect 0 0 10 0;
-#X connect 0 0 12 0;
-#X connect 0 1 8 0;
-#X connect 1 0 0 0;
-#X connect 2 0 13 0;
-#X connect 3 0 1 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 5 1 18 1;
-#X connect 6 0 18 1;
-#X connect 7 0 0 0;
-#X connect 10 0 9 0;
-#X connect 12 0 11 0;
-#X connect 13 0 14 0;
-#X connect 15 0 18 0;
-#X connect 16 0 15 0;
-#X connect 18 0 19 0;
-#X connect 19 0 0 0;
-#X connect 22 0 15 0;
-#X restore 10 66 pd netsend ______________________________________
+#X restore 57 342 pd to-video-pd;
+#X obj 88 403 s from-video-pd;
+#X msg 35 462 status \$1;
+#X obj 127 478 s to-video-pd;
+#X msg 127 453 connected \$1;
+#X obj 35 191 symbol;
+#X msg 35 83 symbol 169.254.192.74;
+#X text 34 58 adjust IP address here;
+#X obj 35 227 list append 3001;
+#X msg 35 261 connect \$1 \$2;
+#X text 53 109 or within the same computer;
+#X msg 59 135 symbol localhost;
+#X obj 174 207 sel;
+#X text 96 159 bang to connect;
+#X obj 35 514 print fd_netsend;
+#X text 292 73 change port number if there is no connection, f 24
 ;
-#X text 8 84 change port number if there is no connection;
-#X coords 0 -1 1 1 300 30 2 10 10;
+#X connect 4 0 5 0;
+#X connect 6 0 14 0;
+#X connect 6 0 16 0;
+#X connect 6 1 13 0;
+#X connect 7 0 6 0;
+#X connect 8 0 4 0;
+#X connect 9 0 7 0;
+#X connect 10 0 24 0;
+#X connect 11 0 20 1;
+#X connect 12 0 6 0;
+#X connect 14 0 26 0;
+#X connect 16 0 15 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 20 0 21 0;
+#X connect 21 0 6 0;
+#X connect 23 0 17 0;
+#X connect 24 0 11 0;
+#X connect 24 1 20 1;
+#X coords 0 0 300 17 300 17 2 10 10;
+#X restore 12 12 pd fd_netsend_(main_audio);
+#X coords 0 0 304 21 304 21 2 10 10;

@@ -339,6 +339,7 @@
 ./fd_netreceive/fd_netreceive.pd
 ./fd_netsend/fd_netsend-help.pd
 ./fd_netsend/fd_netsend.pd
+./fd_next/_dummy.pd
 ./fd_next/fd_next-help.pd
 ./fd_next/fd_next.pd
 ./fd_nonpulmonic/fd_nonpulmonic-help.pd
@@ -527,6 +528,9 @@
 ./fd_zero-crossing~/fd_zero-crossing~.pd
 ./gausstwister/gausstwister-help.pd
 ./gemvertexbuffer/gemvertexbuffer-help.pd
+./glistinfo/_dummy.pd
+./glistinfo/_pdump.pd
+./glistinfo/glistinfo-help.pd
 ./halton/halton-help.pd
 ./halton/halton-test.pd
 ./henon/henon-help.pd

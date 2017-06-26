@@ -1,0 +1,9 @@
+#N canvas 523 52 450 300 12;
+#X obj 44 37 inlet;
+#X obj 44 155 outlet current;
+#X obj 278 157 outlet next;
+#X obj 102 81 fd_next \$2 \$1;
+#X obj 278 132 r \$2-\$1;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 4 0 2 0;

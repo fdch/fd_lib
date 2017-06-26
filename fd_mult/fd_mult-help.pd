@@ -1,1 +1,10 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_mult; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_mult; #X text 400 300 fd_lib;
+#N canvas 526 49 450 350 12;
+#X text 162 44 "fd_mult";
+#X text 26 76 Multiply incoming values. Inlet 2 resets mult;
+#X obj 124 201 fd_mult;
+#X floatatom 124 254 5 0 0 0 - - -, f 5;
+#X msg 298 155 bang;
+#X msg 124 138 2 \, 2 \, 2 \, 2 \, 3;
+#X connect 2 0 3 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 0;
