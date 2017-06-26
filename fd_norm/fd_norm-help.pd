@@ -1,1 +1,35 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_norm; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_norm; #X text 400 300 fd_lib;
+#N canvas 524 52 549 395 12;
+#X text 78 236 -1...1;
+#X text 33 291 0...1;
+#X text 232 21 "fd_norm";
+#X obj 51 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 51 313 5 0 0 0 - - -, f 5;
+#X obj 51 100 random 2000;
+#X obj 51 125 - 1000;
+#X obj 51 213 fd_norm;
+#X obj 104 253 * 1000;
+#X obj 51 180 t f f, f 13;
+#X obj 104 278 int;
+#X obj 156 214 ==;
+#X obj 186 172 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 206 172 <-- It might take time until this is completely convergent
+, f 39;
+#X obj 51 70 metro 1;
+#X text 163 53 Normalize a range over time. See below to see if its
+working., f 34;
+#X text 186 129 If this is == 1 \, then it's convergent.;
+#X text 251 268 see also help for;
+#X obj 280 293 fd_norm-abs;
+#X connect 3 0 14 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 4 0;
+#X connect 7 1 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 7 0;
+#X connect 9 1 11 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 14 0 5 0;

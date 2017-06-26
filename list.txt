@@ -349,12 +349,8 @@
 ./fd_norm/fd_norm.pd
 ./fd_norm-abs/fd_norm-abs-help.pd
 ./fd_norm-abs/fd_norm-abs.pd
-./fd_not/fd_not-help.pd
-./fd_not/fd_not.pd
 ./fd_nouns/fd_nouns-help.pd
 ./fd_nouns/fd_nouns.pd
-./fd_nountxt/fd_nountxt-help.pd
-./fd_nountxt/fd_nountxt.pd
 ./fd_numkey/fd_numkey-help.pd
 ./fd_numkey/fd_numkey.pd
 ./fd_objcreator/fd_objcreator-help.pd
@@ -365,8 +361,6 @@
 ./fd_once/fd_once.pd
 ./fd_osc/fd_osc-help.pd
 ./fd_osc/fd_osc.pd
-./fd_oscil/fd_oscil-help.pd
-./fd_oscil/fd_oscil.pd
 ./fd_out/fd_out-help.pd
 ./fd_out/fd_out.pd
 ./fd_pan/fd_pan-help.pd
@@ -375,8 +369,6 @@
 ./fd_parsenum/fd_parsenum.pd
 ./fd_phatty/fd_phatty-help.pd
 ./fd_phatty/fd_phatty.pd
-./fd_phrase/fd_phrase-help.pd
-./fd_phrase/fd_phrase.pd
 ./fd_pixrecord/fd_pixrecord-help.pd
 ./fd_pixrecord/fd_pixrecord.pd
 ./fd_plot/fd_plot-help.pd
@@ -384,10 +376,6 @@
 ./fd_plot/fd_plot.pd
 ./fd_pno/fd_pno-help.pd
 ./fd_pno/fd_pno.pd
-./fd_pno-12/fd_pno-12-help.pd
-./fd_pno-12/fd_pno-12.pd
-./fd_pno-24/fd_pno-24-help.pd
-./fd_pno-24/fd_pno-24.pd
 ./fd_poisson/fd_poisson-help.pd
 ./fd_poisson/fd_poisson.pd
 ./fd_poisson~/fd_poisson~-help.pd
@@ -542,6 +530,7 @@
 ./halton/halton-help.pd
 ./halton/halton-test.pd
 ./henon/henon-help.pd
+./ipa/ipa-help.pd
 ./lorenz/fd_sumalorenz.pd
 ./lorenz/lorabs.pd
 ./lorenz/lorenz-abs.pd

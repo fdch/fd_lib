@@ -1,1 +1,11 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_numkey; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_numkey; #X text 400 300 fd_lib;
+#N canvas 523 52 517 355 12;
+#X text 190 30 "fd_numkey";
+#X text 16 66 Turns the number keys into their respective float values.
+;
+#X obj 192 122 fd_numkey;
+#X floatatom 172 168 5 0 0 0 - - -, f 5;
+#X floatatom 281 166 5 0 0 0 - - -, f 5;
+#X text 99 199 Outlet key down;
+#X text 267 199 Outlet key up;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;

@@ -1,1 +1,22 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_osc; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_osc; #X text 400 300 fd_lib;
+#N canvas 528 49 492 392 12;
+#X text 192 21 "fd_osc";
+#X text 16 56 An oscillator that takes frequency and phase. 3d inlet
+is the time for the [line~] inside.;
+#X obj 168 241 fd_osc;
+#X obj 173 325 dac~;
+#X floatatom 249 121 5 0 0 0 - - -, f 5;
+#X obj 249 143 / 100;
+#X obj 249 168 pack f 10;
+#X obj 249 193 line~;
+#X floatatom 135 125 5 0 0 0 - - -, f 5;
+#X obj 135 147 sig~ 440;
+#X text 226 265 Phased output;
+#X text 25 266 Non-phased output;
+#X connect 2 0 3 0;
+#X connect 2 1 3 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;

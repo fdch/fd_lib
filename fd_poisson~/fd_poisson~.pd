@@ -30,6 +30,7 @@ pd?;
 #X connect 6 1 18 1;
 #X connect 6 2 4 1;
 #X connect 6 3 19 1;
+#X connect 6 4 2 0;
 #X connect 7 0 8 0;
 #X connect 8 0 10 0;
 #X connect 8 0 11 0;

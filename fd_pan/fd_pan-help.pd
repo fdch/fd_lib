@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_pan; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_pan; #X text 400 300 fd_lib;
+#N canvas 525 51 439 377 12;
+#X obj 143 172 fd_pan;
+#X obj 143 217 env~;
+#X floatatom 143 242 5 0 0 0 - - -, f 5;
+#X obj 188 217 env~;
+#X floatatom 188 242 5 0 0 0 - - -, f 5;
+#X obj 146 113 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 11600 1;
+#X obj 143 133 / 127;
+#X text 172 21 "fd_pan";
+#X text 34 60 Cosine panning.;
+#X connect 0 0 1 0;
+#X connect 0 1 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;

@@ -1,1 +1,5 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_nouns; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_nouns; #X text 400 300 fd_lib;
+#N canvas 527 52 423 343 12;
+#X obj 10 61 fd_nouns;
+#X text 162 20 "fd_nouns";
+#X obj 10 151 fd_nouns;
+#X obj 10 241 fd_nouns;

@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_parsenum; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_parsenum; #X text 400 300 fd_lib;
+#N canvas 535 50 529 372 12;
+#X obj 192 136 fd_parsenum;
+#X obj 277 167 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 192 169 5 0 0 0 - - -, f 5;
+#X floatatom 192 105 5 0 0 0 - - -, f 5;
+#X text 161 239 0 when iteration begins;
+#X text 121 212 Outlet:;
+#X text 169 278 2 when iteration ends;
+#X text 169 258 1 while iterating;
+#X text 303 166 <-- bang when ends;
+#X text 193 21 "fd_parsenum";
+#X text 23 52 Inlet is iteration limit and output is status of iteration.
+;
+#X connect 0 0 2 0;
+#X connect 0 1 1 0;
+#X connect 3 0 0 0;
