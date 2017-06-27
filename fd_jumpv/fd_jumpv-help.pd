@@ -1,0 +1,16 @@
+#N canvas 523 51 498 358 12;
+#X text 153 25 "fd_jumpv" | jump value;
+#X obj 84 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 84 234 fd_jumpv;
+#X obj 84 154 metro 100;
+#X obj 84 178 counter -r 10;
+#X obj 84 269 print;
+#X text 17 66 Calculate absolute value of difference beetween extremes
+when a change in direction is detected.;
+#X text 200 178 <-- reflecting betwen -10 and 10;
+#X text 273 201 difference is = 20;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;

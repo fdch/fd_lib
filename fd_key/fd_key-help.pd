@@ -1,4 +1,29 @@
-#N canvas 521 52 463 254 12;
-#X text 20 116 on/off -->;
-#X text 122 51 An unfinished bang keyboard;
-#X obj 112 87 fd_key;
+#N canvas 525 50 529 348 12;
+#X obj 77 114 fd_key;
+#X obj 75 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 75 284 r bar-bng;
+#X text 23 45 A bang keyboard. Click on 'allow' to enable keys. Keys
+are routed to equivalent 'key'-bng messages \, and they send a bang
+everytime they get pressed.;
+#X obj 158 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 158 284 r ~-bng;
+#X obj 228 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 228 284 r a-bng;
+#X obj 298 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 298 284 r 1-bng;
+#X msg 348 132 \; allow-set 1 \;;
+#X msg 348 172 \; allow-set 0 \;;
+#X text 217 12 "fd_key";
+#X obj 77 221 print;
+#X text 125 222 <-- non-routed keys;
+#X text 74 261 For example \, here's how you get messages:;
+#X text 348 106 (alt) an allow msg:;
+#X connect 0 0 13 0;
+#X connect 2 0 1 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 9 0 8 0;

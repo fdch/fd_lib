@@ -257,13 +257,13 @@
 ./fd_impulse/fd_impulse.pd
 ./fd_input/fd_input-help.pd
 ./fd_input/fd_input.pd
-./fd_interp~/fd_interp~-help.pd
-./fd_interp~/fd_interp~.pd
 ./fd_iterate/fd_iterate-help.pd
 ./fd_iterate/fd_iterate.pd
 ./fd_itpoint/fd_itpoint-help.pd
 ./fd_itpoint/fd_itpoint.pd
+./fd_jumpv/fd_jumpv-help.pd
 ./fd_jumpv/fd_jumpv.pd
+./fd_key/_route.pd
 ./fd_key/fd_key-help.pd
 ./fd_key/fd_key.pd
 ./fd_keycomb/fd_keycomb-help.pd

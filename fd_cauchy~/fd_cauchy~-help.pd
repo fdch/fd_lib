@@ -13,9 +13,17 @@
 #X text 45 156 load table ->;
 #X obj 297 292 fd_cauchy;
 #X text 253 270 see fd_cauchy-help.pd;
-#X obj 157 219 fd_cauchy~ cauchy-tilde 128, f 16;
+#X obj 157 232 fd_cauchy~ cauchy-tilde 128, f 16;
 #X text 20 45 Same as [fd_cauchy] \, but stored via dsp into array
 ;
 #X text 170 13 "fd_cauchy~";
+#X msg 333 192 q \$1 \, bang;
+#X msg 343 212 w \$1 \, bang;
+#X floatatom 344 168 5 0 0 0 - - -, f 5;
+#X floatatom 391 168 5 0 0 0 - - -, f 5;
 #X connect 2 0 12 0;
 #X connect 6 0 12 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 0;
+#X connect 17 0 15 0;
+#X connect 18 0 16 0;
