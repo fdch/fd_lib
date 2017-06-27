@@ -19,6 +19,7 @@ typedef struct mainscore 														{
   t_object x_ob;
   t_outlet *x_outlet0, *x_outlet1, *x_outlet2;
   t_canvas *x_canvas;
+  int x_n;
   FILE *fp1;
   
   int part_n[MXV][2], i_part_n[MXV][2];
@@ -259,7 +260,10 @@ void mainscore_write(t_mainscore *x, t_symbol *s)								{
 			strcat( command, x->lily_dir);
 		}				
 		strcat( command, "/temp.pdf");
-		system( command);
+		if((system( command)==0)) {
+		  outlet_bang(x->x_outlet0);
+		  x->x_n++l
+		}
 	} else {
 	post("render is %d", render);
 	} //if rendering is 1/0

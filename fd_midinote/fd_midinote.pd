@@ -1,5 +1,0 @@
-#N canvas 346 85 465 226 10;
-#X obj 19 62 notein;
-#X obj 19 83 nbx 4 100 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 100
--262144 -1 -1 70 256;
-#X connect 0 0 1 0;

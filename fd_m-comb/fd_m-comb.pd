@@ -26,9 +26,6 @@
 #X connect 6 0 5 0;
 #X restore 227 103 pd init;
 #X text 297 102 <-- see list here, f 10;
-#X text 93 230 eg: 1 1 1 becomes 0 \, 1 1 0 becomes 1 \, etc.;
-#X text 40 185 Outputs indices of matrix combinations according to
-a list provided via 2nd inlet., f 49;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;

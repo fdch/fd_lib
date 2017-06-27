@@ -1,13 +1,21 @@
-#N canvas 369 68 711 329 12;
-#X msg 184 50 0 1 1 1 \, 1 1 1 0 \, 2 1 0 0 \, 3 0 0 0 \, 4 0 0 1 \,
-5 0 1 1 \, 6 1 0 1 \, 7 0 1 0 \,;
-#X obj 106 221 print;
-#X obj 185 27 loadbang;
-#X obj 73 165 clone fd_matrix-comb 8;
-#X msg 30 93 all 1 1 1;
-#X msg 71 113 all 1 0 1;
-#X connect 0 0 3 1;
-#X connect 2 0 0 0;
-#X connect 3 0 1 0;
-#X connect 4 0 3 0;
-#X connect 5 0 3 0;
+#N canvas 523 50 540 393 12;
+#X msg 268 195 0 1 1 1 \, 1 1 1 0 \, 2 1 0 0 \, 3 0 0 0 \, 4 0 0 1
+\, 5 0 1 1 \, 6 1 0 1 \, 7 0 1 0 \,, f 24;
+#X obj 268 172 loadbang;
+#X obj 95 257 clone fd_matrix-comb 8;
+#X msg 95 172 all 1 1 1;
+#X msg 110 201 all 1 0 1;
+#X text 27 52 An abstraction of a simplified [choice] object.;
+#X text 194 19 "fd_matrix-comb";
+#X obj 95 298 list split 1;
+#X obj 95 323 print;
+#X text 25 79 It needs to be cloned. You feed the list via 2nd inlet.
+Send a list prepended with 'all' \, and the outptu is the index of
+the stored lists.;
+#X text 300 316 see fd_m-comb.pd;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 7 0 8 0;

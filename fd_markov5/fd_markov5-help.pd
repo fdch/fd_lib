@@ -1,0 +1,29 @@
+#N canvas 532 47 478 372 12;
+#X obj 254 288 fd_markov5-test;
+#X obj 69 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 88 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 107 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 126 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 146 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 69 148 metro 300;
+#X obj 69 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 69 212 fd_markov5;
+#X msg 169 139 10 30 30 20 10 20 30 40 50 30 20 30 20 10 20 30 20 10
+20 30, f 30;
+#X text 164 20 "fd_markov5";
+#X text 35 52 A five ordered markov chain.;
+#X text 193 115 New probs;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 0 1 0;
+#X connect 8 1 2 0;
+#X connect 8 2 3 0;
+#X connect 8 3 4 0;
+#X connect 8 4 5 0;
+#X connect 9 0 8 1;
