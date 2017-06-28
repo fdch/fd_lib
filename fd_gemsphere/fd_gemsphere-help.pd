@@ -1,1 +1,50 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_gemsphere; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_gemsphere; #X text 400 300 fd_lib;
+#N canvas 522 53 516 526 12;
+#X declare -lib Gem;
+#X text 287 214 <-- use this [x] to close/open this window, f 22;
+#X text 19 139 It is recommended to use [separator] as a second element
+of the chain. You can put whatever afterwards. The gemhead behind all
+this is at render position 0;
+#X text 14 54 [fd_gemsphere] plots a sphere onto the screen and sends
+out a gemlist so that you can use this same sphere as a global surface.
+You can map any chain onto this 'gemsphere' by replacing the regular
+[gemhead] with [r gemlist];
+#X text 167 19 "fd_gemsphere";
+#X text 13 342 You can navigate throught the [fd_gemsphere] with:;
+#X text 97 482 SPACEBAR = Default position;
+#X text 64 376 [1] Controls provided;
+#X text 64 396 [2] The Keyboard: (W \, A \, S \, D + arrows);
+#X text 64 415 [3] Combining Keyboard (WASD) with the Mouse;
+#X text 64 434 [4] All controls work on Midi settings \, so you can
+plug in any midi faders/knobs with [ctlin n], f 50;
+#X obj 316 22 declare -lib Gem;
+#X obj 195 215 ./fd_gemsphere;
+#X text 65 312 INSTRUCTIONS: (click gemwin to toggle navigation);
+#X obj 42 217 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 610 335 450 300 gemwin 0;
+#X obj 52 145 gemwin;
+#X msg 63 87 create \, 1;
+#X obj 196 122 pix_image ../88.jpg;
+#X obj 196 152 pix_texture;
+#X obj 196 95 rotate 0 1 1 1;
+#X obj 196 58 t a b;
+#X obj 255 60 counter;
+#X obj 196 33 r gemlist;
+#X obj 196 184 cube 0.5;
+#X obj 45 34 inlet;
+#X obj 45 59 sel;
+#X msg 42 115 0 \, destroy;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 5 1 6 0;
+#X connect 6 0 4 1;
+#X connect 7 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 1 0;
+#X connect 11 0 0 0;
+#X restore 42 245 pd gemwin;
+#X connect 13 0 14 0;

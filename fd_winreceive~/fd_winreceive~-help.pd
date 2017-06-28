@@ -1,0 +1,33 @@
+#N canvas 526 61 570 434 12;
+#X text 192 25 "fd_hannreceive~";
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array hannreceive-array 64 float 3;
+#A 0 9.16799e-07 0.0319635 0.0632125 0.090985 0.112626 0.125811 0.12876
+0.120412 0.100566 0.0699582 0.0302687 -0.0159317 -0.0653115 -0.113968
+-0.157672 -0.192139 -0.213333 -0.217757 -0.202719 -0.166568 -0.10885
+-0.0304124 0.0665939 0.178785 0.301702 0.430044 0.557959 0.679379 0.788377
+0.879515 0.948176 0.990841 1 0.990841 0.948175 0.879516 0.788378 0.67938
+0.557957 0.43004 0.301697 0.178779 0.0665881 -0.0304178 -0.108855 -0.166571
+-0.202722 -0.217758 -0.213333 -0.192139 -0.157671 -0.113968 -0.0653115
+-0.0159317 0.0302686 0.0699582 0.100567 0.120412 0.12876 0.125811 0.112625
+0.0909837 0.0632109 0.0319617;
+#X coords 0 1 64 -1 200 140 1;
+#X restore 317 191 graph;
+#X obj 64 272 metro 100;
+#X obj 32 309 tabwrite~ hannreceive-array;
+#X obj 64 241 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 32 160 bang;
+#X text 78 113 Argument 2: blocksize;
+#X text 78 92 Argument 1: abstraction name \, EXACTLY one of [WINDOWS]
+;
+#X text 18 59 Receives a window table on every block. A bang redraws
+the table., f 65;
+#X text 39 360 [WINDOWS]: hann \, cauchy \, triangle \, trapezoid \,
+arcsin \, blackman \, expo \, gauss \, logistic \, poisson \, rexpo
+\, sinc \, sinh \, welch;
+#X obj 32 204 fd_winreceive~ sinc 64;
+#X connect 2 0 3 0;
+#X connect 4 0 2 0;
+#X connect 5 0 10 0;
+#X connect 10 0 3 0;

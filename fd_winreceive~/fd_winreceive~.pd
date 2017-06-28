@@ -1,0 +1,10 @@
+#N canvas 634 241 315 212 12;
+#X obj 31 129 outlet~;
+#X obj 30 44 fd_dsp-bang;
+#X obj 30 20 inlet;
+#X obj 31 102 tabreceive~ \$0-arr;
+#X obj 30 69 fd_\$1~ \$0-arr \$2;
+#X text 92 164 see fd_winreceive~-help.pd;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;

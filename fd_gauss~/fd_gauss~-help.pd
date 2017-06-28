@@ -1,1 +1,30 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_gauss~; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_gauss~; #X text 400 300 fd_lib;
+#N canvas 525 50 486 423 12;
+#X text 24 36 1/sqrt(2*stdev^2*PI) EXP -((x-mean)^2/2*stdv));
+#X obj 39 332 array define;
+#X text 18 134 Arguments: array-name(symbol) array-size(float), f
+48;
+#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 148 86 \; pd dsp 1;
+#X text 221 104 <-- must be on;
+#X text 247 340 used in [fd_windows];
+#X msg 188 184 click 0 0 0 0 0;
+#X text 191 164 hack to see array:;
+#X text 30 292 following naming conventions as, f 16;
+#X text 45 156 load table ->;
+#X msg 333 192 q \$1 \, bang;
+#X msg 343 212 w \$1 \, bang;
+#X floatatom 344 168 5 0 0 0 - - -, f 5;
+#X floatatom 391 168 5 0 0 0 - - -, f 5;
+#X text 170 13 "fd_gauss~";
+#X text 20 63 Same as [fd_gauss] \, but stored via dsp into array;
+#X obj 157 232 fd_gauss~ gauss-tilde 128, f 15;
+#X obj 297 312 fd_gauss;
+#X text 253 290 see fd_gauss-help.pd;
+#X obj 245 371 fd_gauss-test;
+#X connect 3 0 17 0;
+#X connect 7 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;

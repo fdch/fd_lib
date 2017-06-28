@@ -1,1 +1,7 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_gr; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_gr; #X text 400 300 fd_lib;
+#N canvas 527 62 513 371 12;
+#X obj 219 153 fd_gr;
+#X text 216 26 "fd_gr";
+#X text 238 300 see also fd_env-help.pd;
+#X text 13 65 An utility to work as the last piece in the granular
+synthesis chain started with [fd_env]. It is intended to be cloned.
+More to follow.;

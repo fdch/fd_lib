@@ -1,0 +1,43 @@
+#N canvas 0 22 450 300 12;
+#X obj 10 10 cnv 4 104 104 BG0 BG0-set empty 0 0 0 4 -99865 -262144
+0;
+#N canvas 0 22 450 300 input-\$1 1;
+#X obj 12 12 cnv 14 96 96 BG BG-set input_\$1 4 7 0 12 -233017 -1 0
+;
+#X obj 100 12 bng 8 50 10 0 empty emtpy emtpy 0 0 0 4 -262144 -1 -1
+;
+#X msg 116 16 menu-open;
+#X obj 39 39 tgl 15 0 \$1-adc-onoff \$1-adc-onoff-set onoff 17 7 0
+10 -262144 -1 -1 1 1;
+#X obj 14 157 env~;
+#X obj 19 41 vsl 15 40 0.01 12 1 0 \$1-adc-gain \$1-adc-gain-set gain
+-2 -9 0 10 -262144 -1 -1 3200 1;
+#X obj 14 182 - 100;
+#X obj 96 24 vu 10 80 \$1-adc-gain-vu empty -1 -8 0 10 -66577 -1 0
+0;
+#X obj 18 89 nbx 5 14 -1e+37 1e+37 0 0 empty \$1-adc-gain dB 60 8 0
+10 -262144 -1 -1 3.3613 256;
+#X obj 14 207 s \$1-adc-gain-vu;
+#X obj 39 59 tgl 15 0 \$1-adc-vu \$1-adc-vu-set vu 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 14 127 r~ \$1-adc;
+#X obj 209 143 switch~;
+#X obj 116 40 s pd-input-\$1;
+#X obj 172 91 r \$1-adc-vu;
+#X obj 172 207 s \$1-adc-gain-vu;
+#X msg 172 177 -120;
+#X obj 172 116 t f f;
+#X obj 172 143 sel;
+#X connect 1 0 2 0;
+#X connect 2 0 13 0;
+#X connect 4 0 6 0;
+#X connect 6 0 9 0;
+#X connect 11 0 4 0;
+#X connect 14 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 17 1 12 0;
+#X connect 18 0 16 0;
+#X coords 0 -1 1 1 100 100 2 10 10;
+#X restore 12 12 pd input-\$1;
+#X coords 0 0 104 104 104 104 2 10 10;
