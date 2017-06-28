@@ -1,4 +1,4 @@
-#N canvas 524 52 450 300 12;
+#N canvas 524 133 450 300 12;
 #X declare -path ~/Documents/dep/notes_lib;
 #X obj 52 29 declare -path ~/Documents/dep/notes_lib;
 #N canvas 0 22 565 418 staves 0;
@@ -109,13 +109,15 @@ and [mainscore] objects \, paper 4 2, f 34;
 #X connect 46 0 47 0;
 #X connect 47 1 41 0;
 #X connect 48 0 45 0;
-#X restore 135 205 pd staves;
-#X obj 50 206 del 3000;
-#X obj 105 170 spigot;
-#X obj 106 88 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 106 120 t f f;
-#X obj 106 145 sel 1;
+#X restore 101 206 pd staves;
+#X obj 16 207 del 3000;
+#X obj 71 171 spigot;
+#X obj 72 89 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 72 121 t f f;
+#X obj 72 146 sel 1;
+#X text 122 74 Hacked from Jaime Oliver's object to output a bang \,
+and to turnrendering on/off, f 36;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;

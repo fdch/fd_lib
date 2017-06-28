@@ -1,4 +1,5 @@
 ./!an_overview/an_overview-help.pd
+./!an_overview/externals-overview.pd
 ./!msg/!msg-help.pd
 ./!msg/!msg.pd
 ./back/_type.pd
@@ -464,8 +465,6 @@
 ./fd_untext/fd_untext.pd
 ./fd_updown/fd_updown-help.pd
 ./fd_updown/fd_updown.pd
-./fd_urn/fd_urn-help.pd
-./fd_urn/fd_urn.pd
 ./fd_vibrato/fd_vibrato-help.pd
 ./fd_vibrato/fd_vibrato.pd
 ./fd_vidfft/fd_vidfft-help.pd

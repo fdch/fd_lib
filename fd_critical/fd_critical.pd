@@ -1,5 +1,4 @@
 #N canvas 525 50 551 637 12;
-#X declare -path ~/Documents/fd_lib;
 #X obj 24 21 inlet;
 #X obj 37 253 until;
 #X obj 37 277 f;
@@ -78,7 +77,6 @@
 #X obj 235 279 t f f, f 23;
 #X obj 235 304 tabread \$1;
 #X obj 303 535 tabwrite \$2;
-#X obj 254 34 declare -path ~/Documents/fd_lib;
 #X obj 272 370 / 6;
 #X obj 272 394 fd_sinh;
 #X obj 272 418 * 600;
@@ -129,7 +127,7 @@
 #X connect 36 0 34 0;
 #X connect 37 0 38 0;
 #X connect 37 1 39 1;
-#X connect 38 0 41 0;
+#X connect 38 0 40 0;
+#X connect 40 0 41 0;
 #X connect 41 0 42 0;
-#X connect 42 0 43 0;
-#X connect 43 0 39 0;
+#X connect 42 0 39 0;

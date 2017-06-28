@@ -1,5 +1,5 @@
 #!/bin/bash
-FILENAME="!an_overview/an_overview-help.pd"
+FILENAME="!an_overview/an_overview-help-$1.pd"
 SCREENX=1280
 SCREENY=700
 INC=25

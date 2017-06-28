@@ -24,7 +24,7 @@
 #X connect 7 0 4 1;
 #X connect 7 0 10 0;
 #X connect 8 0 9 0;
-#X restore 330 68 pd counter;
+#X restore 341 79 pd counter;
 #N canvas 0 22 201 225 text 0;
 #X obj 29 84 text define untitled-text;
 #X msg 9 112 bang;
@@ -39,7 +39,7 @@
 #X connect 4 1 6 0;
 #X connect 5 0 4 0;
 #X connect 6 0 0 0;
-#X restore 330 24 pd text;
+#X restore 341 35 pd text;
 #N canvas 444 75 450 300 order 0;
 #X obj 42 38 r count-order;
 #X obj 228 244 s counter;
@@ -52,7 +52,7 @@
 #X obj 228 171 spigot;
 #X msg 324 130 1;
 #X msg 352 129 0;
-#X obj 324 156 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 324 156 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 264 24 r order;
 #X obj 42 119 fd_spigot3, f 17;
@@ -70,9 +70,9 @@
 #X connect 12 0 7 0;
 #X connect 12 0 13 3;
 #X connect 13 0 5 0;
-#X restore 330 110 pd order;
+#X restore 341 121 pd order;
 #N canvas 0 22 202 171 metro 0;
-#X obj 26 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 26 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X floatatom 77 53 5 0 0 0 - - -, f 5;
 #X obj 26 95 t b b;
@@ -88,7 +88,7 @@
 #X connect 4 0 0 0;
 #X connect 5 0 1 0;
 #X connect 6 0 2 0;
-#X restore 330 46 pd metro;
+#X restore 341 57 pd metro;
 #N canvas 0 22 368 201 lorenz-read 0;
 #X obj 29 107 change;
 #X obj 29 151 s get-0;
@@ -119,27 +119,27 @@
 #X connect 13 2 2 0;
 #X connect 13 3 3 0;
 #X connect 13 4 11 0;
-#X restore 330 89 pd lorenz-read;
-#X obj 1 1 cnv 15 320 190 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 6 5 cnv 15 300 45 empty canv-0 what 20 20 0 40 -228856 -1 0
-;
-#X obj 6 55 cnv 15 300 45 empty canv-1 signifies 20 20 0 40 -228856
--1 0;
-#X obj 6 105 cnv 15 300 45 empty canv-2 in 20 20 0 40 -228856 -1 0
-;
-#X obj 6 153 cnv 15 300 30 empty empty empty 20 20 0 40 -228856 -1
+#X restore 341 100 pd lorenz-read;
+#X obj 12 12 cnv 15 320 190 empty empty empty 20 12 0 14 -1 -66577
 0;
-#X obj 7 165 hradio 15 1 0 3 order order-set order 0 -8 0 10 -262144
--1 -1 3;
-#X obj 67 165 tgl 15 0 metro-onoff metro-onoff-set metro 0 -7 0 10
--262144 -1 -1 1 1;
-#X obj 155 165 bng 15 250 50 0 reload empty reload-text 17 7 0 10 -262144
+#X obj 17 16 cnv 15 300 45 empty canv-0 what 20 20 0 40 -228856 -1
+0;
+#X obj 17 66 cnv 15 300 45 empty canv-1 signifies 20 20 0 40 -228856
+-1 0;
+#X obj 17 116 cnv 15 300 45 empty canv-2 in 20 20 0 40 -228856 -1 0
+;
+#X obj 17 164 cnv 15 300 30 empty empty empty 20 20 0 40 -228856 -1
+0;
+#X obj 18 176 hradio 15 1 0 3 order order-set order 0 -8 0 10 -262144
+-1 -1 2;
+#X obj 78 176 tgl 15 0 metro-onoff metro-onoff-set metro 0 -7 0 10
+-262144 -1 -1 0 1;
+#X obj 166 176 bng 15 250 50 0 reload empty reload-text 17 7 0 10 -262144
 -1 -1;
-#X obj 290 164 bng 15 250 50 0 empty text-end end -20 7 0 10 -262144
+#X obj 301 175 bng 15 250 50 0 empty text-end end -20 7 0 10 -262144
 -1 -1;
-#X obj 102 166 nbx 4 14 1 5000 0 0 metro-speed metro-speed-set speed
-0 -8 0 10 -262144 -1 -1 76 256;
+#X obj 113 177 nbx 4 14 1 5000 0 0 metro-speed metro-speed-set speed
+0 -8 0 10 -262144 -1 -1 100 256;
 #N canvas 0 22 198 179 loadbang 0;
 #X msg 7 101 \; reload bang \; order-set 2 \; metro-onoff-set 0 \;
 metro-speed-set 100 \;;
@@ -151,12 +151,13 @@ metro-speed-set 100 \;;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 3 0 0 0;
-#X restore 330 4 pd loadbang;
+#X restore 341 15 pd loadbang;
 #N canvas 0 22 176 126 fd_t-reads 0;
 #X obj 9 32 fd_t-read 1 untitled-text;
 #X obj 9 52 fd_t-read 2 untitled-text;
 #X obj 10 74 fd_t-read 3 untitled-text;
 #X obj 8 11 fd_t-read 0 untitled-text;
-#X restore 330 132 pd fd_t-reads;
-#X coords 0 1 100 -1 320 190 1 0 0;
-#X restore 9 10 graph;
+#X restore 341 143 pd fd_t-reads;
+#X coords 0 1 100 -1 324 194 1 10 10;
+#X restore 10 10 graph;
+#X coords 0 -1 1 1 324 194 2 10 10;
