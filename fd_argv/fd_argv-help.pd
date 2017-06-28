@@ -1,4 +1,4 @@
-#N canvas 278 45 449 297 12;
+#N canvas 520 46 449 297 12;
 #X obj 241 188 print symbols;
 #X obj 138 212 print numbers;
 #X msg 36 80 bang;

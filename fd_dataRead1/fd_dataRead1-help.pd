@@ -1,1 +1,6 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataRead1; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataRead1; #X text 400 300 fd_lib;
+#N canvas 529 49 538 367 12;
+#X text 248 232 see fd_data.pd;
+#X obj 188 154 fd_dataRead1 0;
+#X text 27 70 Read from one data structure arrays. Arguments is index
+of the data structure;
+#X text 196 33 "fd_dataRead1";

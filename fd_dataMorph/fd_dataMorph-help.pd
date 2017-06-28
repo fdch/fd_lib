@@ -1,1 +1,11 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataMorph; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataMorph; #X text 400 300 fd_lib;
+#N canvas 526 52 530 378 12;
+#X text 86 276 instance N of clone depends on size of data array;
+#X text 260 139 \$1 == data id;
+#X text 261 158 \$2 == size of data array;
+#X text 222 122 arguments:;
+#X text 221 213 inlet 1 : list source (id) \, target (id) \, time (msec)
+, f 34;
+#X text 172 28 "fd_dataMorph";
+#X text 27 64 Cloning indexes and making a line for each value pair
+;
+#X obj 68 161 fd_dataMorph;

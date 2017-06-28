@@ -1,1 +1,27 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_s-prob-5; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_s-prob-5; #X text 400 300 fd_lib;
+#N canvas 529 48 450 350 12;
+#X text 224 111 inlet 2: new probs;
+#X text 161 264 see help for fd_markov.pd;
+#X msg 84 143 bang;
+#X obj 84 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 129 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 174 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 155 31 "fd_s-prob-5";
+#X obj 219 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 265 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 208 297 fd_markov5;
+#X msg 264 148 30 10 20 4;
+#X text 35 66 Used in markov chains. Define probabilities for state
+0 \, 1 \, 2 \, 3 and state 4 == remaining prob., f 47;
+#X obj 84 189 fd_s-prob-5 10 20 30 35;
+#X connect 2 0 12 0;
+#X connect 10 0 12 1;
+#X connect 12 0 3 0;
+#X connect 12 1 4 0;
+#X connect 12 2 5 0;
+#X connect 12 3 7 0;
+#X connect 12 4 8 0;

@@ -1,1 +1,5 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataID; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataID; #X text 400 300 fd_lib;
+#N canvas 0 22 450 350 12;
+#X text 158 17 "fd_dataID";
+#X obj 171 104 fd_dataID;
+#X text 118 55 Get Id;
+#X text 216 195 see fd_data.pd;

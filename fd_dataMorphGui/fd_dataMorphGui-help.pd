@@ -1,1 +1,5 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataMorphGui; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataMorphGui; #X text 400 300 fd_lib;
+#N canvas 527 51 450 350 12;
+#X obj 156 93 ./fd_dataMorphGui;
+#X text 135 20 "fd_dataMorphGui";
+#X text 47 51 Gui for dataMorph-ing;
+#X text 202 245 see fd_data.pd;

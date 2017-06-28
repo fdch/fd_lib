@@ -1,22 +1,23 @@
-#N canvas 351 73 608 420 12;
-#X obj 96 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 96 163 t f f;
-#X obj 96 253 t f f;
-#X obj 96 314 print;
-#X obj 183 249 ==;
-#X obj 183 274 sel 1;
-#X obj 183 299 print ERROR;
-#X obj 96 81 metro 1;
-#X obj 261 235 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 526 56 546 402 12;
+#X obj 98 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 96 201 t f f;
+#X obj 96 291 t f f;
+#X obj 96 342 print;
+#X obj 183 287 ==;
+#X obj 183 312 sel 1;
+#X obj 183 337 print ERROR;
+#X obj 98 135 metro 1;
+#X obj 261 273 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 96 197 fd_salvo 200;
-#X msg 132 120 10;
-#X text 208 35 get a random number from 0 to N (\$1) except the number
-sent to the first inlet, f 36;
-#X text 358 203 send a resize message with a new N, f 14;
-#X msg 344 177 resize 132;
-#X msg 205 121 143;
+#X obj 96 235 fd_salvo 200;
+#X msg 98 168 10;
+#X text 358 241 send a resize message with a new N, f 14;
+#X msg 344 215 resize 132;
+#X msg 205 159 143;
+#X text 214 19 "fd_salvo";
+#X text 45 57 Get a random number from 0 to N (\$1) except the number
+sent to the first inlet, f 55;
 #X connect 0 0 7 0;
 #X connect 1 0 9 0;
 #X connect 1 1 4 1;
@@ -28,5 +29,5 @@ sent to the first inlet, f 36;
 #X connect 7 0 10 0;
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
-#X connect 13 0 9 0;
-#X connect 14 0 1 0;
+#X connect 12 0 9 0;
+#X connect 13 0 1 0;

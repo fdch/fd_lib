@@ -1,4 +1,4 @@
-#N canvas 538 49 539 567 12;
+#N canvas 532 49 539 567 12;
 #X obj 238 214 print float-arg;
 #X obj 269 192 print symbol-arg;
 #X obj 247 352 print float-arg;

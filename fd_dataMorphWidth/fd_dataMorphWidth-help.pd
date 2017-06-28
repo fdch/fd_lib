@@ -1,1 +1,4 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataMorphWidth; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataMorphWidth; #X text 400 300 fd_lib;
+#N canvas 527 55 450 350 12;
+#X text 17 68 Placeholder for help file:;
+#X text 134 19 "fd_dataMorphWidth";
+#X obj 131 120 fd_dataMorphWidth;

@@ -1,1 +1,5 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataVis; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataVis; #X text 400 300 fd_lib;
+#N canvas 523 51 458 332 12;
+#X obj 79 107 ./fd_dataVis;
+#X text 164 18 "fd_dataVis";
+#X text 26 55 Gui to raise the data structure arrays in [fd_env];
+#X text 176 189 see fd_data.pd;

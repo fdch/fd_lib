@@ -9,7 +9,6 @@
 ./clifford/clifford-test.pd
 ./connect/connect-help.pd
 ./counter/counter-help.pd
-./counter/counter-test.pd
 ./crand/crand-help.pd
 ./cuadratic/cuadratic-help.pd
 ./cuadratic/cuadratic-test.pd
@@ -40,8 +39,6 @@
 ./fd_2bit/fd_2bit.pd
 ./fd_6x6/fd_6x6-help.pd
 ./fd_6x6/fd_6x6.pd
-./fd_ain/fd_ain-help.pd
-./fd_ain/fd_ain.pd
 ./fd_arcsin/fd_arcsin-help.pd
 ./fd_arcsin/fd_arcsin.pd
 ./fd_arcsin~/fd_arcsin~-help.pd
@@ -91,7 +88,7 @@
 ./fd_ceil/fd_ceil.pd
 ./fd_circle/fd_circle-help.pd
 ./fd_circle/fd_circle.pd
-./fd_clarg/_clarg-dummy.pd
+./fd_clarg/_dummy.pd
 ./fd_clarg/fd_clarg-help.pd
 ./fd_clarg/fd_clarg.pd
 ./fd_clicktrack/fd_clicktrack-help.pd
@@ -382,8 +379,6 @@
 ./fd_rgbcol/fd_rgbcol.pd
 ./fd_round/fd_round-help.pd
 ./fd_round/fd_round.pd
-./fd_s-grain-envelope/fd_s-grain-envelope-help.pd
-./fd_s-grain-envelope/fd_s-grain-envelope.pd
 ./fd_s-prob/fd_s-prob-help.pd
 ./fd_s-prob/fd_s-prob.pd
 ./fd_s-prob-5/fd_s-prob-5-help.pd

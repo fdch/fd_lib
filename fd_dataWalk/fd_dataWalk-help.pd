@@ -1,1 +1,5 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_dataWalk; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_dataWalk; #X text 400 300 fd_lib;
+#N canvas 526 49 450 350 12;
+#X text 151 20 "fd_dataWalk";
+#X obj 151 103 fd_dataWalk;
+#X text 41 57 Random walk into a data structure array;
+#X text 176 189 see fd_data.pd;

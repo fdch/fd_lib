@@ -16,11 +16,11 @@
 #X text 292 112 inlet 2: 1-0 on/off switch;
 #X text 112 162 on/off;
 #X obj 52 256 fd_cosline~ 2000;
-#X text 52 48 Performs a cosine amplitude ramp \, to smooth amplude
-changes;
 #X text 257 205 (reset phase);
 #X text 51 101 inlet 1: signal;
 #X text 292 150 inlet 4: signal (overrides inlets 2-3);
+#X text 51 48 Performs a cosine amplitude ramp \, to smooth amplitude
+changes, f 61;
 #X connect 1 0 14 0;
 #X connect 3 0 14 1;
 #X connect 4 0 14 2;
