@@ -169,10 +169,6 @@
 ./fd_exp/fd_exp.pd
 ./fd_expo~/fd_expo~-help.pd
 ./fd_expo~/fd_expo~.pd
-./fd_fftbark~/fd_fftbark~-help.pd
-./fd_fftbark~/fd_fftbark~.pd
-./fd_fftbark~-graph/fd_fftbark~-graph-help.pd
-./fd_fftbark~-graph/fd_fftbark~-graph.pd
 ./fd_fftfilt/fd_fftfilt-help.pd
 ./fd_fftfilt/fd_fftfilt.pd
 ./fd_filt/_A.pd
@@ -435,8 +431,6 @@
 ./fd_switch/fd_switch.pd
 ./fd_t-read/fd_t-read-help.pd
 ./fd_t-read/fd_t-read.pd
-./fd_tab/fd_tab-help.pd
-./fd_tab/fd_tab.pd
 ./fd_tabswitch/fd_tabswitch-help.pd
 ./fd_tabswitch/fd_tabswitch.pd
 ./fd_tempo-msec/fd_tempo-msec-help.pd

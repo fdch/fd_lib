@@ -140,17 +140,16 @@
 -1 -1;
 #X obj 113 177 nbx 4 14 1 5000 0 0 metro-speed metro-speed-set speed
 0 -8 0 10 -262144 -1 -1 100 256;
-#N canvas 0 22 198 179 loadbang 0;
+#N canvas 251 30 228 195 loadbang 1;
 #X msg 7 101 \; reload bang \; order-set 2 \; metro-onoff-set 0 \;
 metro-speed-set 100 \;;
 #X obj 7 11 loadbang;
 #X obj 7 33 t b b;
 #X obj 7 55 del 500;
-#X msg 77 50 \; initlorenz bang \;;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
-#X connect 2 1 4 0;
 #X connect 3 0 0 0;
+#X coords 0 195 1 194 85 60 0;
 #X restore 341 15 pd loadbang;
 #N canvas 0 22 176 126 fd_t-reads 0;
 #X obj 9 32 fd_t-read 1 untitled-text;

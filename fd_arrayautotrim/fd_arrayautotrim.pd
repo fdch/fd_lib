@@ -4856,11 +4856,6 @@
 #X msg 369 262 thres 100;
 #X msg 45 217 2;
 #X obj 26 160 tabplay~ word-trimmed;
-#N canvas 680 236 450 300 dictate 0;
-#X obj 53 42 dictate word-test-0.wav;
-#X obj 72 89 dictate;
-#X obj 116 159 dictate whatever;
-#X restore 498 279 pd dictate;
 #X connect 0 0 3 0;
 #X connect 3 0 5 0;
 #X connect 3 1 8 0;
