@@ -1,5 +1,4 @@
 #N canvas 538 49 539 567 12;
-#X obj 208 165 fd_dummy;
 #X obj 238 214 print float-arg;
 #X obj 269 192 print symbol-arg;
 #X obj 247 352 print float-arg;
@@ -11,8 +10,6 @@
 #X msg 208 138 bang;
 #X msg 209 279 bang;
 #X msg 209 416 bang;
-#X obj 209 305 fd_dummy 2;
-#X obj 209 440 fd_dummy myname;
 #X text 71 440 Symbol argument:;
 #X floatatom 179 373 5 0 0 0 - - -, f 5;
 #X floatatom 173 511 5 0 0 0 - - -, f 5;
@@ -28,16 +25,19 @@ case [fd_dummy] \, and put a \$1 to get the first argument. When banged
 \, it will check the parent's first argument type and give the result
 through its 2nd or 3rd outlet. It outputs a one or zero on the first
 outlet when done:;
-#X connect 0 0 17 0;
-#X connect 0 1 1 0;
-#X connect 0 2 2 0;
-#X connect 9 0 0 0;
-#X connect 10 0 12 0;
-#X connect 11 0 13 0;
-#X connect 12 0 15 0;
-#X connect 12 1 3 0;
-#X connect 12 2 4 0;
-#X connect 13 0 16 0;
-#X connect 13 1 5 0;
-#X connect 13 2 6 0;
-#X connect 17 0 18 0;
+#X obj 208 165 _dummy;
+#X obj 209 305 _dummy 2;
+#X obj 209 440 _dummy myname;
+#X connect 8 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 14 0 15 0;
+#X connect 21 0 14 0;
+#X connect 21 1 0 0;
+#X connect 21 2 1 0;
+#X connect 22 0 12 0;
+#X connect 22 1 2 0;
+#X connect 22 2 3 0;
+#X connect 23 0 13 0;
+#X connect 23 1 4 0;
+#X connect 23 2 5 0;

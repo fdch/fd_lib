@@ -1,4 +1,4 @@
-#N canvas 522 50 549 362 10;
+#N canvas 522 50 549 362 12;
 #X obj 74 187 * 2.71828;
 #X obj 47 84 f;
 #X obj 59 116 *;
@@ -13,15 +13,6 @@
 #X obj 47 27 inlet;
 #X obj 135 25 inlet;
 #X obj 164 54 loadbang;
-#X text 161 136 Exponential function taken from Xenakis p246;
-#X text 161 225 Lambda is the number of events per unit time. The graph
-of the exponential distribution \, called the probability density function
-(PDF) \, shows the distribution of time (or distance) between events.
-The PDF is specified in terms of lambda (events per unit time) and
-x (time).;
-#X text 163 320 density=f(x)= lambda e^-lambda x;
-#X text 160 207 https://en.wikipedia.org/wiki/Exponential_distribution
-;
 #X connect 0 0 5 1;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;

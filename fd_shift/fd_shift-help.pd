@@ -1,1 +1,19 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_shift; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_shift; #X text 400 300 fd_lib;
+#N canvas 638 87 539 343 12;
+#X text 215 23 "fd_shift";
+#X obj 185 249 print~;
+#X msg 44 120 bang;
+#X obj 343 248 print~;
+#X text 28 60 Shifts samples by given number inverting [lrshift]'s
+output.;
+#X obj 185 161 fd_shift -32 64;
+#X obj 343 161 lrshift~ -32;
+#X obj 44 145 t b b;
+#X obj 186 109 osc~ 440;
+#X text 311 293 see fd_impulse-help.pd;
+#X connect 2 0 7 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X connect 7 1 3 0;
+#X connect 8 0 5 0;
+#X connect 8 0 6 0;

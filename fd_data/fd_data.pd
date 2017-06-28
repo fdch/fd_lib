@@ -22,7 +22,7 @@ array-7 template-7-element;
 #N struct template-8 float x float y float z float s float id array
 array-8 template-8-element;
 #N struct template-8-element float y float s float w;
-#N canvas 525 49 556 458 12;
+#N canvas 525 49 715 475 12;
 #N canvas 0 22 165 185 envelopes 0;
 #X obj 10 35 fd_env 1 30 0;
 #X obj 10 60 fd_env 2 30 0;
@@ -312,11 +312,11 @@ f 25;
 #X connect 18 0 22 0;
 #X connect 19 0 21 0;
 #X restore 357 266 pd generate ______;
-#X text 241 12 "fd_data";
-#X text 20 38 A utility for the creation of data-structure arrays.
+#X text 299 14 "fd_data";
+#X text 94 45 A utility for the creation of data-structure arrays.
 Designed to control granular synthesis during the live performance
 of "a.le.a"., f 63;
-#X text 18 98 It is built upon 4.data.strucures/05.array.pd (see fd_env.pd)
+#X text 92 105 It is built upon 4.data.strucures/05.array.pd (see fd_env.pd)
 , f 61;
 #X text 65 140 Gui for [pd dataModifiers];
 #X text 356 298 gerated here:;

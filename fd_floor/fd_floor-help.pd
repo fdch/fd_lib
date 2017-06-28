@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_floor; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_floor; #X text 400 300 fd_lib;
+#N canvas 527 52 450 350 12;
+#X text 29 45 Floor function;
+#X text 164 18 "fd_floor";
+#X obj 160 210 fd_floor;
+#X obj 160 88 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 160 133 counter;
+#X obj 160 158 / 1000;
+#X floatatom 160 235 5 0 0 0 - - -, f 5;
+#X floatatom 160 183 5 0 0 0 - - -, f 5;
+#X obj 160 108 metro 10;
+#X connect 2 0 6 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 8 0 4 0;

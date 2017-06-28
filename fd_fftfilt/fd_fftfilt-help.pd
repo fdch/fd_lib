@@ -1,1 +1,16 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_fftfilt; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_fftfilt; #X text 400 300 fd_lib;
+#N canvas 541 53 489 359 12;
+#X text 180 22 "fd_fftfilt";
+#X obj 38 269 dac~;
+#X obj 38 113 noise~;
+#X obj 38 157 fd_fftfilt 512 4;
+#X text 29 52 An fft filter. Inlet is signal to filter. Argument is
+blocksize and overlap (will default to pd's default);
+#X obj 255 269 dac~;
+#X obj 255 113 noise~;
+#X obj 255 157 fd_fftfilt 512 4;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 7 0 5 1;

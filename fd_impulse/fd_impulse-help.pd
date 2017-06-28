@@ -1,7 +1,6 @@
 #N canvas 528 57 523 385 12;
 #X floatatom 159 107 5 0 0 0 - - -, f 5;
 #X floatatom 82 126 5 0 0 0 - - -, f 5;
-#X obj 82 154 fd_impulse;
 #X obj 159 129 / 100;
 #X text 209 17 "fd_impulse";
 #N canvas 517 66 535 562 test 0;
@@ -25,7 +24,7 @@
 #X msg 410 137 set \$1;
 #X msg 410 162 0;
 #X msg 84 255 set \$1;
-#X msg 84 280 39;
+#X msg 84 280 38;
 #X msg 156 14 0;
 #X obj 156 84 t f f f f f f, f 29;
 #X obj 209 504 *~;
@@ -82,11 +81,12 @@
 #X text 175 217 blocksize (0 || default: pd's default);
 #X text 32 47 A pulsetrain using lrshifting. Right inlet is phase (0-1)
 ;
-#X connect 0 0 3 0;
-#X connect 1 0 2 0;
-#X connect 2 0 7 0;
-#X connect 3 0 2 1;
+#X obj 82 154 fd_impulse;
+#X connect 0 0 2 0;
+#X connect 1 0 14 0;
+#X connect 2 0 14 1;
+#X connect 6 0 7 0;
 #X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 10 0 1 0;
-#X connect 11 0 10 0;
+#X connect 9 0 1 0;
+#X connect 10 0 9 0;
+#X connect 14 0 6 0;

@@ -1,1 +1,11 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_etareti; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_etareti; #X text 400 300 fd_lib;
+#N canvas 526 50 507 374 12;
+#X obj 199 256 print;
+#X msg 209 166 10;
+#X text 182 30 "fd_etareti";
+#X obj 199 203 fd_etareti;
+#X msg 199 139 100;
+#X text 19 61 Iteratative reverse counter. Inlet == number of iterations.
+Send in a float to start iteration.;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;

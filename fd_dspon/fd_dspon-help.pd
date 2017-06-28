@@ -1,16 +1,17 @@
-#N canvas 523 50 477 312 12;
-#X obj 60 182 fd_dspon;
-#X obj 60 204 switch~;
-#X obj 59 104 tgl 15 0 empty empty dsp 17 7 0 10 -262144 -1 -1 0 1
+#N canvas 523 50 477 349 12;
+#X obj 60 202 fd_dspon;
+#X obj 60 224 switch~;
+#X obj 59 124 tgl 15 0 empty empty dsp 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X obj 140 139 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 140 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 161 136 bang only turns dsp on;
-#X text 101 102 toggle dsp on or off;
-#X text 40 239 use 1st inlet to switch;
-#X text 39 256 use 2nd inlet to reflect state on the gui;
-#X text 54 39 Bang to turn on DSP. It will do so only if it's off in
+#X text 161 156 bang only turns dsp on;
+#X text 101 122 toggle dsp on or off;
+#X text 40 259 use 1st inlet to switch;
+#X text 39 276 use 2nd inlet to reflect state on the gui;
+#X text 54 59 Bang to turn on DSP. It will do so only if it's off in
 the first place \, otherwise it will do nothing, f 47;
+#X text 181 23 "fd_dspon";
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 2 0 0 0;
