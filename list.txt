@@ -1,3 +1,4 @@
+./!an_overview/an_overview-help.pd
 ./!msg/!msg-help.pd
 ./!msg/!msg.pd
 ./back/_type.pd
