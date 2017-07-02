@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 
-extern t_pd *newest;
+//extern t_pd *pd_newest;
 /* Dont know where to put this */
 static t_symbol *x_fname, *x_toname=NULL, *x_prevname=NULL;
 static int backcount = 0;
@@ -100,8 +100,8 @@ static void *back_define_new(t_symbol *s, int argc, t_atom *argv)
   putscalar(x, templatesym);
   canvas_rename(x, x_fname, 0);
   
-  newest = &x->gl_pd;
-  pd_bind(newest, x_fname);
+  pd_this->pd_newest = &x->gl_pd;
+  pd_bind(pd_this->pd_newest, x_fname);
   pd_popsym(&x->gl_pd);
   
   
@@ -246,8 +246,8 @@ static void *scalarobj_new(t_symbol *s, int argc, t_atom *argv) {
   t_symbol *t = gensym("back");
   sprintf(backname, "%s-%d", t->s_name, backcount++);
   s = gensym(backname); argc = 1; SETSYMBOL(argv, s);
-  newest = back_define_new(s, argc, argv);
-  if (newest || backcount == 254) 
+  pd_this->pd_newest = back_define_new(s, argc, argv);
+  if (pd_this->pd_newest || backcount == 254) 
   post("New back object created with id: %s",s->s_name);
   else bug("scalarobj_new");
   }
@@ -256,16 +256,16 @@ static void *scalarobj_new(t_symbol *s, int argc, t_atom *argv) {
     char *str = argv[0].a_w.w_symbol->s_name;
     if (!strcmp(str, "d") || !strcmp(str, "define"))
     {
-      newest = back_define_new(s, argc-1, argv+1);
+      pd_this->pd_newest = back_define_new(s, argc-1, argv+1);
     }
     else
     {
       error("back %s: unknown function", str);
-      newest = 0;
+      pd_this->pd_newest = 0;
     }
   }
 
-  return (newest);
+  return (pd_this->pd_newest);
 }
 
 static void scroll_xaxis(t_glist *x, t_float f)
@@ -350,11 +350,12 @@ if (x_toname && x_toname->s_thing) {
 if(!s->s_thing) {
   post("Couln't find %s", s->s_name);
 } else {
-  t_atom motion[3];
-  SETFLOAT(&motion[0], (int)xpos);
-  SETFLOAT(&motion[1], (int)ypos);
-  SETFLOAT(&motion[2], (int)which);
-  pd_list(x_toname->s_thing, gensym("list"), 3, motion);
+  t_atom motion[4];
+  SETFLOAT(&motion[0], (int)eh);  /*Depending on tk version X-pos falls here*/
+  SETFLOAT(&motion[1], (int)xpos);
+  SETFLOAT(&motion[2], (int)ypos);
+  SETFLOAT(&motion[3], (int)which);
+  pd_list(x_toname->s_thing, gensym("list"), 4, motion);
 }
 }
 
@@ -415,7 +416,7 @@ void back_setup(void ) {
   class_addmethod(back_define_class, (t_method)back_define_send, gensym("send"), A_SYMBOL, 0);
   class_addmethod(back_define_class, (t_method)back_define_flush, gensym("flush"), A_SYMBOL, 0);
   //class_addmethod(back_define_class, (t_method)back_define_set, gensym("set"), A_GIMME, 0);
-  class_sethelpsymbol(back_define_class, gensym("back-object"));
+  //class_sethelpsymbol(back_define_class, gensym("back-object"));
   //class_setsavefn(back_define_class, back_define_save);
   class_addcreator((t_newmethod)scalarobj_new, gensym("back"), A_GIMME, 0);
   class_addmethod(back_define_class, (t_method)back_define_write, gensym("write"), A_SYMBOL, A_DEFSYM, 0);

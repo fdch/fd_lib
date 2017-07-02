@@ -1,4 +1,4 @@
-#N struct 8723-grey1-tmp float x float y float w float l;
+#N struct 1086-grey1-tmp float x float y float w float l;
 #N struct color-tester float x float y float color;
 #N struct template-1 float x float y float z float s float id array
 array-1 template-1-element;
@@ -408,7 +408,7 @@ array-8 template-8-element;
 #X restore 53 481 pd Probs _____;
 #N canvas 529 60 504 516 Structs 0;
 #X obj 69 411 fd_colorpicker;
-#N canvas 0 22 450 300 plot-999 0;
+#N canvas 0 23 450 300 plot-999 0;
 #X obj 50 50 fd_plot 999 pd-plot-999;
 #X coords 0 0 450 350 450 350 2 0 0;
 #X restore 15 34 pd plot-999;
@@ -545,7 +545,7 @@ array-8 template-8-element;
 #X obj 254 106 root;
 #X obj 123 218 scroll;
 #X obj 257 172 siginfo;
-#X obj 38 101 sradio 15 1 8 empty empty empty 0 -8 0 10 -262144 -1
+#X obj 38 101 sradio 15 1 8 empty empty empty 0 -8 0 10 -228856 -1
 -1;
 #X obj 350 465 txt2pd;
 #X text 298 434 Text Stuff;
@@ -560,7 +560,7 @@ array-8 template-8-element;
 #X text 253 76 Canvas information:;
 #X text 35 144 [back] object;
 #X restore 53 143 pd Externs ___;
-#N canvas 0 22 450 300 loadbang 0;
+#N canvas 0 23 450 300 loadbang 0;
 #X obj 35 16 loadbang;
 #X msg 35 41 \; pd-fd_colorpicker.pd vis 0 \; pd-color-picker vis 0
 \; 99-files-template vis 0 \;;

@@ -4,7 +4,7 @@
 ./!msg/!msg.pd
 ./back/_type.pd
 ./back/back-help.pd
-./back/back-object-help.pd
+./back/back-test.pd
 ./cantor/cantor-help.pd
 ./clifford/clifford-help.pd
 ./clifford/clifford-test-2.pd
@@ -495,6 +495,7 @@
 ./fd_z12/fd_z12.pd
 ./fd_zero-crossing~/fd_zero-crossing~-help.pd
 ./fd_zero-crossing~/fd_zero-crossing~.pd
+./fdm/fdm-help.pd
 ./gausstwister/gausstwister-help.pd
 ./gemvertexbuffer/gemvertexbuffer-help.pd
 ./glistinfo/_dummy.pd

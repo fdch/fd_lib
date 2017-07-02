@@ -1,4 +1,5 @@
 #N canvas 139 433 1084 672 10;
+#X declare -lib Gem;
 #N canvas 1 84 450 300 fps 0;
 #X obj 46 -61 gemhead;
 #X obj 46 -21 realtime;
@@ -136,7 +137,7 @@ as soon as they are updated;
 -1 -1;
 #X obj 841 56 cnv 15 120 160 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 614 149 657 666 lorenz 1;
+#N canvas 614 149 657 666 lorenz 0;
 #X floatatom 82 248 5 0 0 0 - - -, f 5;
 #X floatatom 124 248 5 0 0 0 - - -, f 5;
 #X floatatom 83 201 5 0 0 0 - - -, f 5;
@@ -861,6 +862,7 @@ draw lot's of points very efficiently.;
 #X restore 797 222 pd load_tables;
 #X obj 609 49 t a a;
 #X obj 579 575 gemvertexbuffer;
+#X obj 799 19 declare -lib Gem;
 #X connect 0 0 1 0;
 #X connect 9 0 10 0;
 #X connect 10 0 9 0;
