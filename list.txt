@@ -260,6 +260,7 @@
 ./fd_logistic~/fd_logistic~.pd
 ./fd_logo/fd_logo-help.pd
 ./fd_logo/fd_logo.pd
+./fd_loop/fd_loop-help.pd
 ./fd_loop/fd_loop.pd
 ./fd_lorenz/fd_lorenz-help.pd
 ./fd_lorenz/fd_lorenz.pd
