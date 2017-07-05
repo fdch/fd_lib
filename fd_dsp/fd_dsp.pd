@@ -1,6 +1,6 @@
 #N canvas 524 51 450 300 12;
 #X obj 100 100 tgl 15 0 fd_dsp fd_dsp-set dsp 17 7 0 10 -262144 -1
--1 0 1;
+-1 1 1;
 #X obj 100 134 sel 0 1;
 #X obj 245 19 r pd;
 #X obj 245 41 route audio-dialog;
@@ -9,6 +9,11 @@
 #X obj 137 227 s pd;
 #X msg 156 168 audio-properties;
 #X msg 101 182 dsp 0;
+#X obj 25 22 bang~;
+#X obj 25 47 spigot 1;
+#X obj 25 72 t b b;
+#X msg 72 73 0;
+#X msg 25 97 set 1;
 #X connect 0 0 1 0;
 #X connect 1 0 8 0;
 #X connect 1 1 7 0;
@@ -18,4 +23,10 @@
 #X connect 5 0 6 0;
 #X connect 7 0 6 0;
 #X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 13 0;
+#X connect 11 1 12 0;
+#X connect 12 0 10 1;
+#X connect 13 0 0 0;
 #X coords 0 -1 1 1 40 15 2 100 100;

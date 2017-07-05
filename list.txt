@@ -19,6 +19,7 @@
 ./fd/__.pd
 ./fd/_bass-help.pd
 ./fd/_bass.pd
+./fd/_dels.pd
 ./fd/_distor-help.pd
 ./fd/_distor.pd
 ./fd/_fk.pd
@@ -31,6 +32,8 @@
 ./fd/_note.pd
 ./fd/_overview-help.pd
 ./fd/_overview.pd
+./fd/_snote-help.pd
+./fd/_snote.pd
 ./fd/_stick-help.pd
 ./fd/_stick.pd
 ./fd/_tom-help.pd
@@ -207,6 +210,8 @@
 ./fd_gr/fd_gr.pd
 ./fd_grain/fd_grain-help.pd
 ./fd_grain/fd_grain.pd
+./fd_gscore/fd_gscore-help.pd
+./fd_gscore/fd_gscore.pd
 ./fd_gt/fd_gt-help.pd
 ./fd_gt/fd_gt.pd
 ./fd_guiDelta/fd_guiDelta-help.pd
@@ -255,6 +260,7 @@
 ./fd_logistic~/fd_logistic~.pd
 ./fd_logo/fd_logo-help.pd
 ./fd_logo/fd_logo.pd
+./fd_loop/fd_loop.pd
 ./fd_lorenz/fd_lorenz-help.pd
 ./fd_lorenz/fd_lorenz.pd
 ./fd_lorenz-expr/fd_lorenz-expr-help.pd
