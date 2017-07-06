@@ -464,6 +464,8 @@
 ./fd_trapezoid~/fd_trapezoid~.pd
 ./fd_triangle~/fd_triangle~-help.pd
 ./fd_triangle~/fd_triangle~.pd
+./fd_trunc2n/fd_trunc2n-help.pd
+./fd_trunc2n/fd_trunc2n.pd
 ./fd_untext/fd_untext-help.pd
 ./fd_untext/fd_untext.pd
 ./fd_updown/fd_updown-help.pd
