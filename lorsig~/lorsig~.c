@@ -15,15 +15,23 @@ typedef struct _lorsig {
   t_outlet *x_outlet1;
   double x, y, z, inita, initb, initc, inith;
   double dist;
+  double xmin, ymin, zmin, xmax, ymax, zmax, xnr, ynr, znr;
 } t_lorsig;
 
-static double lorsig_lorenz(t_lorsig *x, double signal) {
+static double lorsig_lorenz(t_lorsig *x) {
   double x0, y0, z0, x1, y1, z1;
   double h = x->inith; //step-size
-  double a = x->inita*signal;
-  double b = x->initb*signal;
+  double a = x->inita;
+  double b = x->initb;
   double c = x->initc;
   double t_dist;
+  double xmin = x->xmin;
+  double ymin = x->ymin;
+  double zmin = x->zmin;
+  double xmax = x->xmax;
+  double ymax = x->ymax;
+  double zmax = x->zmax;
+  double nxmin, nymin, nzmin, nxmax, nymax, nzmax;
 
   x0 = x->x;
   y0 = x->y;
@@ -32,27 +40,41 @@ static double lorsig_lorenz(t_lorsig *x, double signal) {
   y1 = y0 + h * (x0 * (b - z0) - y0);
   z1 = z0 + h * (x0 * y0 - c * z0);
 
-  t_dist = sqrt((x1 * x1) + (y1 * y1)  + (z1 * z1));
-
+  
+  nxmax = (x1 > xmax) ? x1 : xmax;
+  nymax = (y1 > ymax) ? y1 : ymax;
+  nzmax = (z1 > zmax) ? z1 : zmax;
+  nxmin = (x1 < xmin) ? x1 : xmin;
+  nymin = (y1 < ymin) ? y1 : ymin;
+  nzmin = (z1 < zmin) ? z1 : zmin;
+  x->xmin = nxmin;
+  x->ymin = nymin;
+  x->zmin = nzmin;
+  x->xmax = nxmax;
+  x->ymax = nymax;
+  x->zmax = nzmax;
   x->x = x1;
   x->y = y1;
   x->z = z1;
+  x->xnr = x1/(fabs(nxmin)+nxmax);
+  x->ynr = y1/(fabs(nymin)+nymax);
+  x->znr = z1/(fabs(nzmin)+nzmax);
+  t_dist = sqrt((x->xnr * x->xnr) + (x->ynr * x->ynr)  + (x->znr * x->znr));
   x->dist = t_dist;
 
-  return(sqrt((t_dist*t_dist)+(signal*signal))*0.1);
+  return t_dist;
 }
 static t_int *lorsig_perform(t_int *w) {
-  t_sample *in = (t_sample *)(w[1]);
+  t_lorsig *x = (t_lorsig *)(w[1]);
   t_sample *out = (t_sample *)(w[2]);
   int n = (int)(w[3]);
-  t_lorsig *x = (t_lorsig *)(w[4]); 
   while (n--) {
-    *out++ = lorsig_lorenz(x, *in++);
+    *out++ = lorsig_lorenz(x);
    }
-   return (w+5);
+   return (w+4);
 }
 static void lorsig_dsp(t_lorsig *x, t_signal **sp) {
-  dsp_add(lorsig_perform, 4, sp[0]->s_vec, sp[1]->s_vec, sp[0]->s_n, x);
+  dsp_add(lorsig_perform, 3, x, sp[1]->s_vec, sp[0]->s_n);
 }
 static void lorsig_reset(t_lorsig *x) {
   x->x = 0.1;
@@ -79,9 +101,9 @@ static void lorsig_debug(t_lorsig *x) {
   SETFLOAT(&raw[1], (float) x->initb);
   SETFLOAT(&raw[2], (float) x->initc);
   SETFLOAT(&raw[3], (float) x->inith);
-  SETFLOAT(&raw[4], (float) x->x);
-  SETFLOAT(&raw[5], (float) x->y);
-  SETFLOAT(&raw[6], (float) x->z);
+  SETFLOAT(&raw[4], (float) x->xnr);
+  SETFLOAT(&raw[5], (float) x->ynr);
+  SETFLOAT(&raw[6], (float) x->znr);
   SETFLOAT(&raw[7], (float) x->dist);
   outlet_list(x->x_outlet1, 0, 8, raw);
 }
@@ -97,6 +119,8 @@ static void *lorsig_new(void) {
   x->initb = 28.0;
   x->initc = 8.0 / 3.0;
   x->inith = 0.01;
+  x->xmin = x->ymin = x->zmin = 0.0;
+  x->xmax = x->ymax = x->zmax = 1000000.0;
   return (x);
 }
 void lorsig_tilde_setup(void) {

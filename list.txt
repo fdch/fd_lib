@@ -40,6 +40,7 @@
 ./fd/_tom.pd
 ./fd/_wood-help.pd
 ./fd/_wood.pd
+./fd/_xnote.pd
 ./fd_2bit/fd_2bit-help.pd
 ./fd_2bit/fd_2bit.pd
 ./fd_6x6/fd_6x6-help.pd
@@ -57,6 +58,8 @@
 ./fd_argv/fd_argv.pd
 ./fd_arrayautotrim/fd_arrayautotrim-help.pd
 ./fd_arrayautotrim/fd_arrayautotrim.pd
+./fd_arraycopy/fd_arraycopy-help.pd
+./fd_arraycopy/fd_arraycopy.pd
 ./fd_arraymorph/fd_arraymorph-help.pd
 ./fd_arraymorph/fd_arraymorph.pd
 ./fd_arraysort1/fd_arraysort1-help.pd
@@ -248,6 +251,8 @@
 ./fd_keycomb/fd_keycomb.pd
 ./fd_kinetica/fd_kinetica-help.pd
 ./fd_kinetica/fd_kinetica.pd
+./fd_kp/fd_kp-help.pd
+./fd_kp/fd_kp.pd
 ./fd_list-pointer/fd_list-pointer-help.pd
 ./fd_list-pointer/fd_list-pointer.pd
 ./fd_listout/fd_listout-help.pd
@@ -345,6 +350,8 @@
 ./fd_parsenum/fd_parsenum.pd
 ./fd_phatty/fd_phatty-help.pd
 ./fd_phatty/fd_phatty.pd
+./fd_pix2list/fd_pix2list-help.pd
+./fd_pix2list/fd_pix2list.pd
 ./fd_pixrecord/fd_pixrecord-help.pd
 ./fd_pixrecord/fd_pixrecord.pd
 ./fd_plot/fd_plot-help.pd
@@ -517,6 +524,9 @@
 ./lorenz/_lorgem.pd
 ./lorenz/lorenz-help.pd
 ./lorenz/lorenz-test.pd
+./lornorm/_lorgem.pd
+./lornorm/lorenz-test.pd
+./lornorm/lornorm-help.pd
 ./lorsig~/lorsig~-help.pd
 ./lorsig~/ls~.pd
 ./lor~/lor~-help.pd

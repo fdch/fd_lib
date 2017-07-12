@@ -262,7 +262,7 @@ void mainscore_write(t_mainscore *x, t_symbol *s)								{
 		strcat( command, "/temp.pdf");
 		if((system( command)==0)) {
 		  outlet_bang(x->x_outlet0);
-		  x->x_n++l
+		  x->x_n++;
 		}
 	} else {
 	post("render is %d", render);
