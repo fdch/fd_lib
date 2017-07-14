@@ -1,0 +1,26 @@
+#N canvas 634 56 565 406 12;
+#X text 328 191 Arguments : a b c d;
+#X text 305 215 2nd Inlet (list) : a b c d;
+#X text 346 98 a: range min \; b: range max \; c: range2 min \; d:
+range2 max;
+#X obj 261 134 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X floatatom 261 295 5 0 0 0 - - -, f 5;
+#X obj 50 127 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 47 172 5 0 0 0 - - -, f 5;
+#X text 230 25 "fd_map2";
+#X floatatom 53 325 5 0 0 0 - - -, f 5;
+#X obj 56 280 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 261 270 fd_map2 0 127 -1 1;
+#X text 39 58 Makes linear mapping an incoming range (a..b) to a new
+range (b..c);
+#X obj 53 300 fd_map2 0 127 -50 50;
+#X obj 47 147 fd_map2 0 127 0 8;
+#X connect 3 0 10 0;
+#X connect 5 0 13 0;
+#X connect 9 0 12 0;
+#X connect 10 0 4 0;
+#X connect 12 0 8 0;
+#X connect 13 0 6 0;

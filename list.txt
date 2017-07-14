@@ -166,6 +166,8 @@
 ./fd_dsp-bang/fd_dsp-bang.pd
 ./fd_dspon/fd_dspon-help.pd
 ./fd_dspon/fd_dspon.pd
+./fd_emap2/fd_emap2-help.pd
+./fd_emap2/fd_emap2.pd
 ./fd_env/fd_env-help.pd
 ./fd_env/fd_env-test.pd
 ./fd_env/fd_env.pd
@@ -281,6 +283,8 @@
 ./fd_ma/fd_ma.pd
 ./fd_map/fd_map-help.pd
 ./fd_map/fd_map.pd
+./fd_map2/fd_map2-help.pd
+./fd_map2/fd_map2.pd
 ./fd_markfour/fd_markfour-help.pd
 ./fd_markfour/fd_markfour-test.pd
 ./fd_markfour/fd_markfour.pd
