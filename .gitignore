@@ -1,5 +1,7 @@
 #All the following will be ignored when pushing
 
+.DS_Store
+
 # build
 *.o
 
