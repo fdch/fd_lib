@@ -56,6 +56,8 @@
 ./fd_argc/fd_argc.pd
 ./fd_argv/fd_argv-help.pd
 ./fd_argv/fd_argv.pd
+./fd_array2pix/fd_array2pix-help.pd
+./fd_array2pix/fd_array2pix.pd
 ./fd_arrayautotrim/fd_arrayautotrim-help.pd
 ./fd_arrayautotrim/fd_arrayautotrim.pd
 ./fd_arraycopy/fd_arraycopy-help.pd
@@ -197,8 +199,12 @@
 ./fd_gauss~/fd_gauss-test.pd
 ./fd_gauss~/fd_gauss~-help.pd
 ./fd_gauss~/fd_gauss~.pd
+./fd_gem2feat/fd_gem2feat-help.pd
+./fd_gem2feat/fd_gem2feat.pd
 ./fd_GEMbuffsize/fd_GEMbuffsize-help.pd
 ./fd_GEMbuffsize/fd_GEMbuffsize.pd
+./fd_gemloop/fd_gemloop-help.pd
+./fd_gemloop/fd_gemloop.pd
 ./fd_gemsphere/fd_gemsphere-help.pd
 ./fd_gemsphere/fd_gemsphere.pd
 ./fd_geomean/fd_geomean-help.pd
@@ -234,6 +240,8 @@
 ./fd_hradio/fd_hradio-status.pd
 ./fd_hradio/fd_hradio-test.pd
 ./fd_hradio/fd_hradio.pd
+./fd_img2feat/fd_img2feat-help.pd
+./fd_img2feat/fd_img2feat.pd
 ./fd_impulse/fd_impulse-help.pd
 ./fd_impulse/fd_impulse.pd
 ./fd_input/fd_input-help.pd
@@ -483,6 +491,8 @@
 ./fd_updown/fd_updown.pd
 ./fd_vibrato/fd_vibrato-help.pd
 ./fd_vibrato/fd_vibrato.pd
+./fd_vid2feat/fd_vid2feat-help.pd
+./fd_vid2feat/fd_vid2feat.pd
 ./fd_vidfft/fd_vidfft-help.pd
 ./fd_vidfft/fd_vidfft.pd
 ./fd_visera/fd_visera-help.pd

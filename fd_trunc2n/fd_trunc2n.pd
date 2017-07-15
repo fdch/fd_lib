@@ -1,5 +1,5 @@
 #N canvas 533 54 531 487 12;
-#X obj 115 42 inlet;
+#X obj 115 22 inlet;
 #X obj 147 138 - 1;
 #X obj 115 245 f;
 #X obj 148 245 + 1;
@@ -17,9 +17,10 @@
 #X obj 115 170 t b f b;
 #X obj 194 317 t b b b;
 #X msg 115 195 128;
-#X obj 115 67 t f f;
+#X obj 115 47 t f f;
 #X obj 162 397 outlet;
 #X text 319 398 see fd_trunc2n-help.pd;
+#X obj 115 72 change;
 #X connect 0 0 18 0;
 #X connect 1 0 9 1;
 #X connect 2 0 3 0;
@@ -45,5 +46,6 @@
 #X connect 16 1 13 1;
 #X connect 16 2 14 1;
 #X connect 17 0 13 0;
-#X connect 18 0 14 0;
+#X connect 18 0 21 0;
 #X connect 18 1 9 1;
+#X connect 21 0 14 0;
