@@ -2,6 +2,8 @@
 ./!an_overview/externals-overview.pd
 ./!msg/!msg-help.pd
 ./!msg/!msg.pd
+./_fdblobvid/_fdblobvid-help.pd
+./_fdblobvid/_fdblobvid.pd
 ./back/_type.pd
 ./back/back-help.pd
 ./back/back-test.pd
@@ -90,6 +92,12 @@
 ./fd_blackman/fd_blackman.pd
 ./fd_blackman~/fd_blackman~-help.pd
 ./fd_blackman~/fd_blackman~.pd
+./fd_blob/fd_blob-help.pd
+./fd_blob/fd_blob.pd
+./fd_blobtracks/fd_blobtracks-help.pd
+./fd_blobtracks/fd_blobtracks.pd
+./fd_blobvid/fd_blobvid-help.pd
+./fd_blobvid/fd_blobvid.pd
 ./fd_bufvid/fd_bufvid-help.pd
 ./fd_bufvid/fd_bufvid.pd
 ./fd_calm/fd_calm-help.pd
@@ -579,7 +587,7 @@
 ./sradio/sradio-cellular.pd
 ./sradio/sradio-help.pd
 ./sradio/sradio-test.pd
-./tracks/tracks-help.pd
+./tracks2/tracks2-help.pd
 ./tutorials/create-canvas.pd
 ./tutorials/create-hradio.pd
 ./tutorials/create-hslider.pd
