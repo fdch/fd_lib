@@ -78,6 +78,8 @@
 ./fd_autopatch/fd_autopatch.pd
 ./fd_autopoly/fd_autopoly-help.pd
 ./fd_autopoly/fd_autopoly.pd
+./fd_background/fd_background-help.pd
+./fd_background/fd_background.pd
 ./fd_bang/fd_bang-help.pd
 ./fd_bang/fd_bang.pd
 ./fd_bangem/fd_bangem-help.pd

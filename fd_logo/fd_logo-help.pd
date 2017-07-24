@@ -1,4 +1,4 @@
-#N canvas 526 52 527 377 12;
+#N canvas 720 57 527 377 12;
 #X text 215 15 "fd_logo";
 #X text 25 43 A bang-toggle based logo :);
 #X obj 21 78 fd_logo 0 1 2 3;
