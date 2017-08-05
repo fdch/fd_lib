@@ -1,6 +1,7 @@
 #N canvas 531 53 558 371 12;
 #X text 248 232 see fd_data.pd;
 #X text 196 34 "fd_dataRead";
-#X obj 188 155 fd_dataRead 1 2;
 #X text 28 70 Read from 2 different data structure arrays. Arguments
 are indices of the data structures;
+#X obj 188 155 fd_dataRead 1 2 10;
+#X text 33 114 3rd argument is the time in msec between points;

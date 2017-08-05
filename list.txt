@@ -40,6 +40,7 @@
 ./fd/_stick.pd
 ./fd/_tom-help.pd
 ./fd/_tom.pd
+./fd/_tom2.pd
 ./fd/_wood-help.pd
 ./fd/_wood.pd
 ./fd/_xnote.pd
@@ -572,6 +573,7 @@
 ./minimax/minimax-help.pd
 ./minimax/minimax-test.pd
 ./mtwister/mtwister-help.pd
+./multipan~/multipan~-help.pd
 ./parabola/parabola-help.pd
 ./PdCon16~/PdCon16~-help.pd
 ./pmtwister/pmtwister-help.pd

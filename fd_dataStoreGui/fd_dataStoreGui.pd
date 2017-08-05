@@ -1,41 +1,48 @@
-#N canvas 522 51 450 300 12;
+#N canvas 522 51 554 321 12;
 #X obj 12 12 cnv 21 308 21 empty empty fd_dataStoreGui 2 6 0 10 -233017
 -1 0;
-#X obj 12 34 cnv 14 308 14 empty empty <---------------recall 175 8
-0 10 -1 -262144 0;
-#X msg 32 133 open 1;
-#X msg 265 103 reset;
-#X msg 114 103 store;
-#X obj 108 14 bng 15 250 50 0 empty empty store 17 7 0 10 -262144 -1
--1;
-#X obj 205 14 bng 15 250 50 0 empty empty restore 17 7 0 10 -262144
--1 -1;
-#X obj 301 14 bng 15 250 50 0 empty empty reset -32 7 0 10 -262144
--1 -1;
-#X obj 156 14 nbx 2 14 0 30 0 0 empty empty --> 30 8 0 10 -262144 -1
--1 0 256;
-#X obj 13 35 hradio 12 1 0 9 empty stored-presets 9-presets 4 -5 0
-10 -262144 -1 -1 4;
-#X obj 169 76 f;
-#X msg 169 103 restore \$1;
-#X msg 251 168 set \$1;
-#X obj 251 143 r stored-presets;
-#X obj 30 244 s dataRead;
-#X obj 139 244 s dataWrite;
-#X obj 119 198 list trim;
-#X obj 10 200 list trim;
-#X connect 2 0 17 0;
-#X connect 3 0 16 0;
-#X connect 4 0 16 0;
-#X connect 5 0 4 0;
-#X connect 6 0 10 0;
-#X connect 7 0 3 0;
-#X connect 8 0 10 1;
-#X connect 9 0 17 0;
-#X connect 10 0 11 0;
-#X connect 11 0 16 0;
-#X connect 12 0 8 0;
-#X connect 13 0 12 0;
-#X connect 16 0 15 0;
-#X connect 17 0 14 0;
+#X obj 12 34 cnv 14 308 14 \$0-recalled \$0-recalled-set <---------------recall
+175 8 0 10 -1 -262144 0;
+#X msg 49 104 reset;
+#X msg 141 104 store;
+#X obj 108 14 bng 15 250 50 0 \$0-store \$0-store-set store 17 7 0
+10 -262144 -1 -1;
+#X obj 205 14 bng 15 250 50 0 \$0-restore \$0-restore-set restore 17
+7 0 10 -262144 -1 -1;
+#X obj 301 14 bng 15 250 50 0 \$0-reset \$0-reset-set reset -32 7 0
+10 -262144 -1 -1;
+#X obj 156 14 nbx 2 14 0 30 0 0 \$0-index \$0-index-set --> 30 8 0
+10 -262144 -1 -1 9 256;
+#X obj 236 130 f;
+#X msg 236 157 restore \$1;
+#X msg 350 123 set \$1;
+#X obj 360 250 r stored-presets;
+#X obj 120 249 s dataRead;
+#X obj 236 249 s dataWrite;
+#X obj 236 210 list trim;
+#X obj 350 98 route number;
+#X obj 257 99 r \$0-index;
+#X obj 350 148 s \$0-index-set;
+#X obj 141 72 r \$0-store;
+#X obj 236 72 r \$0-restore;
+#X obj 49 72 r \$0-reset;
+#X obj 75 208 r \$0-recalled;
+#X obj 13 35 hradio 12 1 0 9 \$0-recalled stored-presets 9-presets
+4 -5 0 10 -262144 -1 -1 2;
+#X obj 360 284 s \$0-recalled-set;
+#X obj 350 73 r \$0-recalled-set;
+#X connect 2 0 14 0;
+#X connect 3 0 14 0;
+#X connect 8 0 9 0;
+#X connect 9 0 14 0;
+#X connect 10 0 17 0;
+#X connect 11 0 23 0;
+#X connect 14 0 13 0;
+#X connect 15 0 10 0;
+#X connect 16 0 8 1;
+#X connect 18 0 3 0;
+#X connect 19 0 8 0;
+#X connect 20 0 2 0;
+#X connect 21 0 12 0;
+#X connect 24 0 15 0;
 #X coords 0 -1 1 1 312 40 1 10 10;

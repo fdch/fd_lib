@@ -1,14 +1,18 @@
-#N canvas 20 475 500 215 14;
+#N canvas 20 475 500 215 12;
 #X declare -path ~/Documents/fd_lib -path ./_lib;
 #N canvas 70 100 450 250 sub 0;
-#X obj 45 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X coords 0 0 100 100 200 200 2 20 20;
+#X obj 25 25 osc~ 440;
+#X msg 24 50 set 1;
+#X floatatom 40 80 0 0 0 0 - - -;
+#X symbolatom 25 110 0 0 0 0 - - -;
+#X text 25 135 some text;
+#X connect 1 0 2 0;
+#X coords 0 0 1 1 200 200 0;
 #X restore 8 8 pd sub;
 #X obj 280 175 bng 15 250 50 0 start-here empty start-here 17 7 0 10
 -24198 -262144 -1;
-#N canvas 320 400 200 290 menu 0;
-#X obj 10 111 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
+#N canvas 320 400 200 290 menu 1;
+#X obj 10 10 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
 -66577 0;
 #N canvas 525 50 725 640 data-structures 0;
 #X floatatom 36 190 5 0 0 0 - - -, f 5;
@@ -413,7 +417,7 @@ vis 0 \; pd-pd-messages vis 0 \; pd-goodbye vis 0 \; pd-menu vis 0
 #X obj 43 39 t b b;
 #X obj 109 59 s close;
 #X obj 43 64 del 100;
-#X obj 43 112 s pd-helpfiles.pd;
+#X obj 43 112 s pd-main.pd;
 #X connect 0 0 2 0;
 #X connect 1 0 5 0;
 #X connect 2 0 4 0;
@@ -465,7 +469,7 @@ bang \;;
 #X obj 27 595 bng 15 250 50 0 close empty close 17 7 0 10 -258699 -1
 -1;
 #X obj 318 596 hradio 15 1 0 3 gop empty gop 0 -8 0 10 -262144 -1 -1
-2;
+0;
 #X text 37 489 So \, to change the size of the graph:;
 #X msg 346 74 whatever example;
 #X msg 341 50 example whatever;
@@ -527,7 +531,7 @@ xmargin \; ymargin \;;
 #X text 27 51 Subcanvases (i.e. \, subpatches) are called either by
 typing "pd" in a box or by typing "page"., f 30;
 #X obj 30 383 vradio 15 1 0 3 empty gop gop 0 -8 0 10 -262144 -1 -1
-2;
+0;
 #X text 22 292 DONECANVASDIALOG (all canvases);
 #X text 444 391 See here:;
 #X text 25 335 Graph-on-Parent (GOP) has 3 modes: (check the main patch)
@@ -604,6 +608,7 @@ the main patch (even if you save)., f 43;
 #X connect 29 0 27 0;
 #X connect 30 0 27 0;
 #X restore 447 467 pd more mouse-interaction;
+#X msg 273 379 3;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
 #X connect 8 0 10 0;
@@ -616,6 +621,7 @@ the main patch (even if you save)., f 43;
 #X connect 26 0 21 0;
 #X connect 27 0 0 0;
 #X connect 29 0 1 0;
+#X connect 41 0 1 0;
 #X restore 23 35 pd subcanvases ___;
 #N canvas 525 50 725 640 visibility 0;
 #X obj 20 522 s pd-sub;
@@ -2359,38 +2365,22 @@ to pd:;
 #X connect 18 0 19 0;
 #X restore 23 190 pd pd-messages ___;
 #N canvas 525 50 725 640 more-graphing 0;
-#X obj 644 571 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
+#X obj 644 551 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
 -262144 -1;
 #N canvas 0 22 527 188 next 0;
 #X obj 25 13 inlet;
 #X msg 25 38 \; killflies 0 \; pd-more-graphing vis 0 \; pd-creator
 vis 0 \, setbounds 525 50 1250 690 \, vis 1 \; pd-next vis 0 \;;
 #X connect 0 0 1 0;
-#X restore 644 591 pd next;
-#X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
+#X restore 644 581 pd next;
+#X obj 27 544 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
 -262144 -1;
 #N canvas 0 22 527 188 prev 0;
 #X obj 25 13 inlet;
 #X msg 25 38 \; pd-more-graphing vis 0 \; pd-pd-messages vis 0 \, setbounds
 525 50 1250 690 \, vis 1 \; pd-prev vis 0 \;;
 #X connect 0 0 1 0;
-#X restore 27 592 pd prev;
-#X obj 644 571 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
--262144 -1;
-#N canvas 0 22 527 188 next 0;
-#X obj 25 13 inlet;
-#X msg 25 38 \; pd-data-structures vis 0 \; pd-menu-messages vis 0
-\, setbounds 512 50 1250 1050 \, vis 1 \; pd-next vis 0 \;;
-#X connect 0 0 1 0;
-#X restore 644 591 pd next;
-#X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
--262144 -1;
-#N canvas 0 22 527 188 prev 0;
-#X obj 25 13 inlet;
-#X msg 25 38 \; pd-data-structures vis 0 \; pd-arrays vis 0 \, setbounds
-512 50 1250 1050 \, vis 1 \; pd-next vis 0 \;;
-#X connect 0 0 1 0;
-#X restore 27 592 pd prev;
+#X restore 27 574 pd prev;
 #X obj 296 71 hradio 15 1 0 3 gop empty gop 0 -8 0 10 -262144 -1 -1
 2;
 #X text 27 18 A BUNCH OF FLIES;
@@ -2489,31 +2479,29 @@ orientation and scale, f 80;
 #X text 423 271 half a pixel...;
 #X connect 0 0 1 0;
 #X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 6 0 7 0;
-#X connect 11 0 14 0;
-#X connect 12 0 13 0;
-#X connect 13 0 11 0;
-#X connect 13 1 11 1;
-#X connect 15 0 16 0;
-#X connect 19 0 33 0;
-#X connect 20 0 33 0;
-#X connect 21 0 33 0;
-#X connect 22 0 33 0;
-#X connect 23 0 34 0;
-#X connect 24 0 34 0;
-#X connect 25 0 34 0;
-#X connect 26 0 34 0;
-#X connect 27 0 32 0;
-#X connect 28 0 32 0;
-#X connect 29 0 32 0;
-#X connect 30 0 32 0;
-#X connect 32 0 31 0;
-#X connect 33 0 31 0;
-#X connect 34 0 31 0;
-#X connect 36 0 34 0;
-#X connect 37 0 34 0;
-#X connect 39 0 32 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 9 1 7 1;
+#X connect 11 0 12 0;
+#X connect 15 0 29 0;
+#X connect 16 0 29 0;
+#X connect 17 0 29 0;
+#X connect 18 0 29 0;
+#X connect 19 0 30 0;
+#X connect 20 0 30 0;
+#X connect 21 0 30 0;
+#X connect 22 0 30 0;
+#X connect 23 0 28 0;
+#X connect 24 0 28 0;
+#X connect 25 0 28 0;
+#X connect 26 0 28 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 0;
+#X connect 30 0 27 0;
+#X connect 32 0 30 0;
+#X connect 33 0 30 0;
+#X connect 35 0 28 0;
 #X restore 23 215 pd more-graphing _;
 #N canvas 525 50 725 640 creator 0;
 #X obj 27 572 bng 15 250 50 0 empty empty <<-prev 17 7 0 10 -24198
@@ -2526,26 +2514,17 @@ orientation and scale, f 80;
 #X restore 27 592 pd prev;
 #X obj 318 596 hradio 15 1 0 3 gop empty gop 0 -8 0 10 -262144 -1 -1
 2;
-#X obj 644 571 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
+#X obj 644 564 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
 -262144 -1;
 #N canvas 0 22 527 188 next 0;
 #X obj 25 13 inlet;
 #X msg 25 38 \; pd-creator vis 0 \; pd-goodbye vis 0 \, setbounds 525
 50 1250 690 \, vis 1 \; pd-sub menuclose \; pd-next vis 0 \;;
 #X connect 0 0 1 0;
-#X restore 644 591 pd next;
-#X obj 644 571 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
--262144 -1;
-#N canvas 0 22 527 188 next 0;
-#X obj 25 13 inlet;
-#X msg 25 38 \; pd-data-structures vis 0 \; pd-menu-messages vis 0
-\, setbounds 512 50 1250 1050 \, vis 1 \; pd-next vis 0 \;;
-#X connect 0 0 1 0;
-#X restore 644 591 pd next;
+#X restore 644 601 pd next;
 #X text 224 218 This is still on the workings...;
 #X connect 0 0 1 0;
 #X connect 3 0 4 0;
-#X connect 5 0 6 0;
 #X restore 23 240 pd creator _______;
 #N canvas 525 50 725 640 goodbye 0;
 #X text 111 113 And a nice data-structure tutorial by Frank Barknecht

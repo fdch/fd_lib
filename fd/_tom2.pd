@@ -1,0 +1,30 @@
+#N canvas 0 22 450 300 10;
+#X obj 238 107 vline~;
+#X msg 292 139 clear;
+#X obj 356 30 hsl 128 17 20 20000 1 1 empty empty frequency 5 9 0 10
+-203904 -1 -1 4100 0;
+#X obj 417 53 hsl 128 17 0 100 0 1 empty empty gain 5 9 0 10 -204786
+-1 -1 6100 0;
+#X obj 449 81 hsl 128 17 0 100 0 1 empty empty bandwidth 5 9 0 10 -261682
+-1 -1 12100 1;
+#X obj 351 94 fd_filt;
+#X obj 339 152 list prepend set;
+#X obj 339 177 list trim;
+#X msg 339 202 1.99823 -0.998933 1.13397 -1.99823 0.864964;
+#X obj 260 228 biquad~ 1.966 -0.997509 2.33815 -1.966 -0.340646;
+#X msg 238 82 1 5 \, 0 0 10;
+#X obj 261 295 dac~;
+#X obj 254 253 bp~ 300 10;
+#X connect 0 0 9 0;
+#X connect 1 0 9 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 2;
+#X connect 5 0 6 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 12 0;
+#X connect 10 0 0 0;
+#X connect 12 0 11 0;
+#X connect 12 0 11 1;
