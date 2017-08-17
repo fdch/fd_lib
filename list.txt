@@ -385,6 +385,8 @@
 ./fd_phatty/fd_phatty.pd
 ./fd_pix2list/fd_pix2list-help.pd
 ./fd_pix2list/fd_pix2list.pd
+./fd_pix_shift/fd_pix_shift-help.pd
+./fd_pix_shift/fd_pix_shift.pd
 ./fd_pixcrop/fd_pixcrop-help.pd
 ./fd_pixcrop/fd_pixcrop.pd
 ./fd_pixrecord/fd_pixrecord-help.pd
@@ -558,6 +560,12 @@
 ./halton/halton-test.pd
 ./henon/henon-help.pd
 ./ipa/ipa-help.pd
+./irlog/irlog-help.pd
+./irpow/irpow-help.pd
+./irsqrt/irsqrt-help.pd
+./irsum/irsum-help.pd
+./list_fft/dump.pd
+./list_fft/list_fft-help.pd
 ./lorenz/_lorgem.pd
 ./lorenz/lorenz-help.pd
 ./lorenz/lorenz-test.pd
@@ -576,6 +584,15 @@
 ./multipan~/multipan~-help.pd
 ./parabola/parabola-help.pd
 ./PdCon16~/PdCon16~-help.pd
+./pix_fft/pix_fft-help.pd
+./pix_fft/pix_ifft-help.pd
+./pix_fft/pix_mag-help.pd
+./pix_fft/pix_phase-help.pd
+./pix_fft/pix_shift-help.pd
+./pix_fft2/pix_fft2-help.pd
+./pix_fft2/test-.pd
+./pix_ifft2/pix_ifft2-help.pd
+./pix_shift/pix_shift-help.pd
 ./pmtwister/pmtwister-help.pd
 ./pointerlist/pointerlist-help.pd
 ./prandom/prandom-help.pd

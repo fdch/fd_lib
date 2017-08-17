@@ -4,7 +4,6 @@
 #X msg 25 40 \; mydata shape oval 100 100 200 200;
 #X msg 25 200 \; mydata shape line 100 100 200 200;
 #X text 49 10 This creates temporary and uneditable shapes;
-#X msg 27 400 mydata vis 1 \, text 10 10 sometext;
 #X msg 25 120 \; mydata shape rectangle 200 200 300 300 200;
 #X msg 25 292 \; mydata shape polygon 100 100 200 200;
 #X text 51 260 not working;
@@ -13,6 +12,7 @@
 #X text 357 207 re-vising the canvas erases it;
 #X msg 366 321 \; mydata delete;
 #X text 363 290 also this will delete temp shapes;
+#X msg 27 400 mydata vis 1 \, text 100 10 sometext;
 #X restore 318 177 pd s temporary shapes;
 #N canvas 525 52 640 702 s 0;
 #X obj 65 547 r itpoint;
@@ -123,18 +123,14 @@ tested), f 35;
 #X text 267 18 "append";
 #X text 176 44 Just like in the scalar object:;
 #X obj 244 329 r head-pointer;
-#X msg 81 100 \; mydata send head-pointer;
 #X text 370 329 <-- <target> is this;
 #X obj 78 204 bng 15 250 50 0 empty append-some-stuff [2]_append-some-stuff
 17 7 0 10 -262144 -1 -1;
 #X obj 81 80 bng 15 250 50 0 empty empty [1]_send_pointer_to_<target>
 17 7 0 10 -262144 -1 -1;
-#X text 126 154 if you get an error \, try:;
-#X msg 338 153 clear;
-#X obj 338 178 s mydata;
-#X text 391 153 and resend pointer;
 #X text 291 240 NOTE: clearing also clears the <head-pointer>, f 25
 ;
+#X msg 81 100 \; mydata clear \, send head-pointer;
 #X connect 0 0 4 0;
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;
@@ -144,9 +140,8 @@ tested), f 35;
 #X connect 5 1 1 1;
 #X connect 5 2 1 2;
 #X connect 8 0 1 3;
-#X connect 11 0 2 0;
-#X connect 12 0 9 0;
-#X connect 14 0 15 0;
+#X connect 10 0 2 0;
+#X connect 11 0 13 0;
 #X restore 318 207 pd s append example;
 #X text 28 42 A hack to the [scalar] object \, with some useful methods:
 ;
@@ -243,9 +238,9 @@ sort \; delete \; xaxis float \; yaxis float \;;
 #X text 297 137 re-vising the canvas erases it;
 #X restore 318 117 pd s temporary background;
 #X text 234 16 "back define";
-#N canvas 525 48 641 635 s 0;
+#N canvas 525 48 641 635 s 1;
 #X obj 56 211 tgl 15 0 empty editmode empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #N canvas 0 22 491 504 s 0;
 #X obj 159 264 sel;
 #X obj 159 361 symbol;
@@ -300,7 +295,7 @@ it: ******, f 67;
 #X msg 56 292 unbind;
 #X obj 56 317 s mydata;
 #X obj 66 404 list split 2;
-#X obj 188 466 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 188 466 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 127 497 spigot;
 #X obj 232 386 r editmode;
@@ -312,7 +307,6 @@ it: ******, f 67;
 #X obj 130 449 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 118 427 sel 1;
-#X obj 66 381 list split 1;
 #X connect 0 0 1 0;
 #X connect 1 0 15 0;
 #X connect 2 0 3 0;
@@ -323,7 +317,7 @@ it: ******, f 67;
 #X connect 15 0 18 0;
 #X connect 15 1 16 0;
 #X connect 16 0 19 0;
-#X connect 17 0 30 0;
+#X connect 17 0 20 0;
 #X connect 18 0 19 0;
 #X connect 20 0 22 0;
 #X connect 20 1 29 0;
@@ -333,7 +327,6 @@ it: ******, f 67;
 #X connect 24 0 25 0;
 #X connect 25 0 21 0;
 #X connect 29 0 28 0;
-#X connect 30 1 20 0;
 #X restore 318 267 pd s setting example;
 #X text 10 327 Storing/Recalling data with textfiles:;
 #N canvas 521 38 620 489 s 0;

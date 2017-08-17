@@ -3,19 +3,18 @@
 #X text 287 22 "fd_pix2list";
 #X text 41 54 Dumps an incoming gemlist as a list of 2^n size \, where
 'n' is min(w \, h), f 71;
-#X obj 482 175 declare -lib Gem;
-#X obj 482 150 gemwin;
-#X msg 482 95 0 \, destroy \, reset \, dimen 400 400 \, create \, 1
+#X obj 497 179 declare -lib Gem;
+#X obj 497 154 gemwin;
+#X msg 497 99 0 \, destroy \, reset \, dimen 400 400 \, create \, 1
 , f 21;
 #X obj 45 97 gemhead;
-#X obj 45 147 pix_image 88.jpg;
 #X obj 178 308 pix_texture;
 #X obj 178 333 square 4;
 #X obj 150 268 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 316 236 5 0 0 0 - - -, f 5;
 #X obj 150 216 fd_pix2list;
-#X msg 237 103 bang;
+#X msg 235 103 bang;
 #X obj 177 412 list;
 #X text 223 413 <-- (list) actual list;
 #X text 69 307 gemlist -->;
@@ -37,15 +36,23 @@ dimensions != 2^n \, by cropping and truncating to the minimum value
 from left to right \, as if it were a waveform.;
 #X restore 536 371 pd more;
 #X text 529 333 See here:;
+#X obj 45 147 pix_video;
+#X obj 245 132 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 257 181 reset;
+#X msg 251 155 xpos 150 \, ypos 100 \, size 0.5;
 #X connect 4 0 3 0;
-#X connect 5 0 6 0;
-#X connect 6 0 11 0;
-#X connect 7 0 8 0;
-#X connect 11 0 9 0;
-#X connect 11 1 7 0;
-#X connect 11 2 13 1;
-#X connect 11 3 10 0;
-#X connect 12 0 11 1;
-#X connect 13 0 21 0;
-#X connect 20 0 13 0;
-#X connect 21 0 22 0;
+#X connect 5 0 25 0;
+#X connect 6 0 7 0;
+#X connect 10 0 8 0;
+#X connect 10 1 6 0;
+#X connect 10 2 12 1;
+#X connect 10 3 9 0;
+#X connect 11 0 10 1;
+#X connect 12 0 20 0;
+#X connect 19 0 12 0;
+#X connect 20 0 21 0;
+#X connect 25 0 10 0;
+#X connect 26 0 10 1;
+#X connect 27 0 10 1;
+#X connect 28 0 10 1;

@@ -1,0 +1,90 @@
+#N canvas 529 58 706 426 10;
+#X declare -lib Gem;
+#X text 465 58 GEM object;
+#X obj 31 283 cnv 15 430 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 62 286 Inlets:;
+#X text 61 333 Outlets:;
+#X obj 31 244 cnv 15 430 30 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X text 40 243 Arguments:;
+#X obj 30 39 cnv 15 430 200 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 472 115 cnv 15 170 250 empty empty empty 20 12 0 14 -228992
+-66577 0;
+#X text 476 98 Example:;
+#X obj 542 53 cnv 15 100 60 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#N canvas 0 23 450 300 gemwin 0;
+#X obj 132 136 gemwin;
+#X obj 67 89 outlet;
+#X obj 67 10 inlet;
+#X obj 67 41 route create;
+#X msg 67 70 set destroy;
+#X msg 142 68 set create;
+#X msg 198 112 destroy;
+#X msg 147 91 create \, 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 3 1 5 0;
+#X connect 3 1 6 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X restore 547 92 pd gemwin;
+#X msg 547 73 destroy;
+#X text 543 52 Create window:;
+#X obj 473 200 cnv 15 160 100 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X text 75 63 Class: pix object;
+#X text 79 346 Outlet 1: gemlist;
+#X text 86 300 Inlet 1: gemlist;
+#X obj 477 117 gemhead;
+#X obj 477 137 pix_video;
+#X obj 477 158 pix_grey;
+#X obj 479 319 pix_texture;
+#X text 544 147 change input size, f 10;
+#X text 42 90 Description: Calculates the Forward Fourier Transform
+using FFTW, f 64;
+#X text 54 44 Synopsis: [pix_ifft2];
+#X text 43 197 Input is restricted to GREY colorspace images.;
+#X text 86 254 Optional size of a square image.;
+#X text 41 142 Input image can be of any sizes \, including non-powers
+of 2 You can provide an argument (n) to determine the size of a square
+image. Size will be interpreted as n*n. This is overriden if the input
+image has different dimensions.;
+#X text 493 382 Fede Camara Halac 2017;
+#X text 492 397 fdch.github.io/tv;
+#X text 45 217 Output is not shifted \, but you can use crop for that
+;
+#X obj 471 20 declare -lib Gem;
+#X text 42 112 A 2-dimentional FFT is calculated whenever a bang is
+received. After the first calculation it is supposed to work much faster.
+, f 63;
+#X text 86 313 Inlet 1: Bang to execute 2D fft;
+#X obj 482 178 pix_crop 0 0 128 128;
+#X obj 479 340 square 4;
+#X obj 539 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 479 208 t a b;
+#X obj 506 228 spigot;
+#X obj 585 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 479 256 pix_fft2;
+#X obj 510 278 pix_ifft2;
+#X connect 10 0 11 0;
+#X connect 11 0 10 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 33 0;
+#X connect 20 0 34 0;
+#X connect 33 0 36 0;
+#X connect 35 0 37 1;
+#X connect 36 0 39 0;
+#X connect 36 1 37 0;
+#X connect 37 0 39 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 40 0 20 0;

@@ -1,0 +1,8 @@
+rm list_fft.o
+rm list_fft.pd_darwin
+\
+cc -DPD -I "/usr/local/include/pd" -DUNIX -DMACOSX -I /sw/include -Wall -Wextra -Wshadow -Winline -Wstrict-aliasing -O3 -ffast-math -funroll-loops -fomit-frame-pointer -fPIC -arch i386 -o list_fft.o -c list_fft.c && \
+\
+cc -undefined suppress -flat_namespace -bundle -fPIC -arch i386 -o list_fft.pd_darwin list_fft.o /usr/local/lib/libfftw3f.a && \
+\
+pd -open list_fft-help.pd

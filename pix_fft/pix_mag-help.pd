@@ -1,0 +1,38 @@
+#N canvas 720 102 450 300 12;
+#X declare -lib Gem;
+#X obj 198 25 declare -lib Gem;
+#X obj 65 59 pix_grey;
+#X obj 65 235 pix_texture;
+#X obj 65 260 square 4;
+#X msg 303 52 create \, 1;
+#X obj 303 77 gemwin;
+#X obj 65 122 t a a;
+#X msg 336 13 0 \, destroy;
+#X obj 65 34 pix_video;
+#X obj 65 9 gemhead;
+#X obj 175 175 pix_invert;
+#X obj 65 147 pix_separator;
+#X obj 175 150 pix_separator;
+#X obj 209 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 65 84 pix_crop 100 0 128 128;
+#X obj 65 184 pix_mag 4;
+#X obj 262 179 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 175 200 spigot;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 11 0;
+#X connect 6 1 12 0;
+#X connect 7 0 5 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 10 0 17 0;
+#X connect 11 0 15 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;
+#X connect 14 0 6 0;
+#X connect 15 0 2 0;
+#X connect 16 0 17 1;
+#X connect 17 0 15 1;

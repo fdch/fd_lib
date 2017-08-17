@@ -1,0 +1,6 @@
+#N canvas 560 99 450 300 12;
+#X obj 65 220 print;
+#X obj 68 146 irsqrt;
+#X msg 58 49 4 16 64 256;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
