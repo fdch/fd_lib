@@ -3,7 +3,7 @@
 // pix_fft2
 //
 // Calculates the Forward Fourier Transform using FFTW
-// The output is not shifted
+// 
 //
 // fdch.github.io/tv
 // camarafede@gmail.com
