@@ -18,7 +18,7 @@ endif
 
 .SUFFIXES = $(EXTENSION)
 
-SOURCES = pix_phase
+SOURCES = pix_fft
 
 all:
 	g++ $(LDFLAGS) $(INCLUDES) $(CPPFLAGS) -o $(SOURCES).o -c $(SOURCES).cpp
