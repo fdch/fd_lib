@@ -28,6 +28,7 @@
 #include "Utils/Functions.h"//for CLAMP
 #include <cmath>
 #define FFTWPLANNERFLAG FFTW_ESTIMATE
+#define DEF 64
 
 CPPEXTERN_NEW_WITH_ONE_ARG(pix_fft2, t_floatarg, A_DEFFLOAT);
 /////////////////////////////////////////////////////////
@@ -39,9 +40,13 @@ CPPEXTERN_NEW_WITH_ONE_ARG(pix_fft2, t_floatarg, A_DEFFLOAT);
 //
 /////////////////////////////////////////////////////////
 pix_fft2 :: pix_fft2(t_floatarg n):
-  m_xsize(n),m_ysize(n), m_insize(n*n), m_size(n*(n/2+1)),
-  m_enable(false)
+  m_xsize(0),m_ysize(0), m_insize(0), m_size(0),m_enable(false)
 {
+  n=n<=0?DEF:n;
+  m_xsize=n;
+  m_ysize=n;
+  m_insize=n*n;
+  m_size=n*(n/2+1);
   reallocAll(n,n);
 }
 /////////////////////////////////////////////////////////
@@ -50,27 +55,24 @@ pix_fft2 :: pix_fft2(t_floatarg n):
 /////////////////////////////////////////////////////////
 pix_fft2 :: ~pix_fft2()
 {
-  deallocAll();
+  if(!m_size)return;
+  else{
+    delete [] fftwIn;
+    delete [] q1;
+    delete [] q2;
+    delete [] q3;
+    delete [] q4;
+    fftwf_free(fftwOut);
+    fftwf_destroy_plan(fftwPlan);
+  }
 }
 /////////////////////////////////////////////////////////
 // Utility functions
 //
 /////////////////////////////////////////////////////////
-void pix_fft2 :: deallocAll()
-{
-  if(!m_size||!fftwPlan)return;
-  else{
-    delete [] fftwIn;
-    delete [] q1;delete [] q2;delete [] q3;delete [] q4;
-    fftwf_free(fftwOut);
-    fftwf_destroy_plan(fftwPlan);
-  }
-}
 void pix_fft2 :: reallocAll(int n, int m)
 {
   m_enable=false;
-// Destroy previous arrays
-  deallocAll();
 // Get new sizes
   m_xsize = n;
   m_ysize = m;
@@ -78,8 +80,10 @@ void pix_fft2 :: reallocAll(int n, int m)
   m_size = n*(m/2+1); //FFTW output size
 // Allocate arrays
   fftwIn = new float [m_insize];
-  q1 = new unsigned char [m_insize/4];q2 = new unsigned char [m_insize/4];
-  q4 = new unsigned char [m_insize/4];q3 = new unsigned char [m_insize/4];
+  q1 = new unsigned char [m_insize/4];
+  q2 = new unsigned char [m_insize/4];
+  q3 = new unsigned char [m_insize/4];
+  q4 = new unsigned char [m_insize/4];
   fftwOut = (fftwf_complex *)fftwf_alloc_complex(m_size);
   fftwPlan = fftwf_plan_dft_r2c_2d(n, m, fftwIn, fftwOut, FFTWPLANNERFLAG);
 // Notify and enable computing
@@ -104,19 +108,18 @@ void pix_fft2 :: copyRect(unsigned char*s,unsigned char *t,bool dir,bool Yoff, b
       else *src++ = tar[step];
     }
 }
-void pix_fft2 :: shiftFFT()
+void pix_fft2 :: shiftFFT(unsigned char*data)
 {
   //original
-  copyRect(q1,pixels, 0, 0, 0);
-  copyRect(q2,pixels, 0, 0, 1);
-  copyRect(q3,pixels, 0, 1, 1);
-  copyRect(q4,pixels, 0, 1, 0);
-
+  copyRect(q1,data, 0, 0, 0);
+  copyRect(q2,data, 0, 0, 1);
+  copyRect(q3,data, 0, 1, 1);
+  copyRect(q4,data, 0, 1, 0);
   //swapped
-  copyRect(q1,pixels, 1, 1, 1);
-  copyRect(q2,pixels, 1, 1, 0);
-  copyRect(q3,pixels, 1, 0, 0);
-  copyRect(q4,pixels, 1, 0, 1);
+  copyRect(q1,data, 1, 1, 1);
+  copyRect(q2,data, 1, 1, 0);
+  copyRect(q3,data, 1, 0, 0);
+  copyRect(q4,data, 1, 0, 1);
 }
 
 void pix_fft2 :: magSpec(unsigned char *data, fftwf_complex *fft)
@@ -148,34 +151,31 @@ void pix_fft2 :: magSpec(unsigned char *data, fftwf_complex *fft)
 void pix_fft2 :: processGrayImage(imageStruct &image)
 {
 // Pointer to the pixels (unsigned char 0-255)
-  pixels = image.data;
+  unsigned char *pixels = image.data;
   int rows = image.ysize;
   int cols = image.xsize;
-  long i;
+  long i,j,step;
   if(!m_enable)return;
 // Check if sizes match and reallocate.
-  if(m_insize!=rows*cols) reallocAll(cols, rows);
-  else {
+  if(m_insize!=rows*cols) {
+    reallocAll(cols, rows);
+  } else {
     //input to FFTW
     for (i=0; i<m_insize; i++)
       fftwIn[i] = (float)pixels[i]/255.;
+
+    fftwf_execute(fftwPlan);
+
     //calculate magnitude
     magSpec(pixels, fftwOut);
     //shift zero-th frequency to center
-    shiftFFT();
-  }
-}
+    shiftFFT(pixels);
 
-void pix_fft2 :: BANGMess(void)
-{
-  if (!m_enable) return;
-  else fftwf_execute(fftwPlan);
+  }
 }
 
 /////////////////////////////////////////////////////////
 // static member function
 //
 /////////////////////////////////////////////////////////
-void pix_fft2 :: obj_setupCallback(t_class *classPtr) {
-  CPPEXTERN_MSG0(classPtr, "bang", BANGMess);
-}
+void pix_fft2 :: obj_setupCallback(t_class *classPtr) {}

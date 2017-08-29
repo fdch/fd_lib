@@ -1,13 +1,8 @@
-#ifndef _INCLUDE__GEM_PIXES_pix_fft_H_
-#define _INCLUDE__GEM_PIXES_pix_fft_H_
-
-#include "Base/GemPixObj.h"
-#include "Gem/State.h"
 #include "fftw3.h"
-
-class GemCache;
+#include "Base/GemPixObj.h"
 
 class GEM_EXTERN pix_fft : public GemPixObj
+
 {
   CPPEXTERN_HEADER(pix_fft, GemPixObj);
 
@@ -15,7 +10,7 @@ class GEM_EXTERN pix_fft : public GemPixObj
 
   //////////
   // Constructor
-  pix_fft(t_floatarg n);
+  pix_fft(t_floatarg n, t_floatarg t);
 
   protected:
 
@@ -23,39 +18,17 @@ class GEM_EXTERN pix_fft : public GemPixObj
   // Destructor
   virtual ~pix_fft(void);
 
-  //virtual void  processGrayImage(imageStruct &image);
-  virtual void render(GemState *state);
-  virtual void startRendering(void);
-  virtual void postrender(GemState *state);
-  
-  void sendCacheState(GemCache*cacheImag, GemState*stateImag);
+  void processGrayImage(imageStruct &image);
 
-  float  *fftwIn;
-  t_atom *imagOut;
-  
+
   fftwf_complex  *fftwOut;
   fftwf_plan  fftwPlan;
+
+  float  *fftwIn;
   int m_size, m_insize;
-  bool m_enable;
+  bool m_enable, m_type;
   
   void  reallocAll(int n, int m);
-  void  deallocAll(void);
   void  processFFT(void);
-  
-  GemCache *m_cacheImag;
-  
-  GemState *m_state;
-  GemState *m_stateImag;
-  pixBlock *m_pixBlockReal;
-  pixBlock *m_pixBlockImag;
-  
-  bool		m_validState;
-  
-  
-  
-  
-  
-  t_outlet    	*m_imag;
 
 };
-#endif

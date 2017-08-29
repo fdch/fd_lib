@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////
 //
-// pix_mag
+// pix_morph
 //
-// Calculates the magnitude of incoming real and imaginary parts
+// morphing between two grey images
 // 
 //
 // fdch.github.io/tv
@@ -24,58 +24,70 @@
 //    WARRANTIES, see the file, "GEM.LICENSE.TERMS" in this distribution.
 //
 /////////////////////////////////////////////////////////
-#include "pix_mag.h"
+#include "pix_morph.h"
 #include "Utils/Functions.h"//for CLAMP
+#include <cmath>
 
-#define FFTWPLANNERFLAG FFTW_ESTIMATE
-
-CPPEXTERN_NEW_WITH_ONE_ARG(pix_mag, t_floatarg, A_DEFFLOAT);
+CPPEXTERN_NEW_WITH_ONE_ARG(pix_morph, t_floatarg, A_DEFFLOAT);
 /////////////////////////////////////////////////////////
 //
-// pix_mag
+// pix_morph
 //
 /////////////////////////////////////////////////////////
 // Constructor
 //
 /////////////////////////////////////////////////////////
-pix_mag :: pix_mag(t_floatarg n):
-m_norm(n?n:4)
-{}
+pix_morph :: pix_morph(t_floatarg n):
+  m_size(0)
+{
+}
 /////////////////////////////////////////////////////////
 // Destructor
 //
 /////////////////////////////////////////////////////////
-pix_mag :: ~pix_mag()
-{}
-
+pix_morph :: ~pix_morph()
+{
+}
 /////////////////////////////////////////////////////////
-// processDualImage
+// Process image (grey space only)
 //
 /////////////////////////////////////////////////////////
-void pix_mag :: processGray_Gray(imageStruct &image, imageStruct &right)
+void pix_morph :: processGray_Gray(imageStruct &image,imageStruct &right)
 {
+  unsigned char *pixels = image.data;
+  unsigned char *pixRight = right.data;
+  int rows = image.ysize;
+  int cols = image.xsize;
+  int datasize = rows*cols;
+  long i,j,step;
+  unsigned char *min,*max;
+  if (m_size!=datasize) {
+    min = new unsigned char [datasize];
+    max = new unsigned char [datasize];
+  }
+  for(i=0;i<datasize;i++) {
+    min[i]=MIN(pixels[i],pixRight[i]);
+    max[i]=MAX(pixels[i],pixRight[i]);
+  }
+  for(i=0;i<datasize;i++) {
+    INT_MULT(pixels[i], min[i]);
+    INT_MULT(pixRight[i], max[i]);
+  }
 
-  unsigned char *leftPix = image.data;
-  unsigned char *rightPix = right.data;
-  float re, im, mag;
-  long i,j, k=0,step;
-//calculate magnitude and normalize
-  for(i=0;i<image.ysize;i++)
-    for(j=0;j<image.xsize;j++) {
-      step=i*image.ysize+j;
-      re = leftPix[step];
-      im = rightPix[step];
-      mag = sqrt(re*re+im*im);
-      leftPix[step] = CLAMP(logf(1.+mag)*image.xsize/m_norm);
-      //k++;
+  datasize>>=5;
+  int restsize = image.xsize * image.ysize * image.csize - datasize;
+
+  while(datasize--) {
+    ADD8(pixels,pixRight);
+    pixels+=8;pixRight+=8;
+  }
+  while(restsize--){
+    *pixels = CLAMP_HIGH(static_cast<int>(*pixels + *pixRight));
+    pixels++; pixRight++;
   }
 }
-
-
 /////////////////////////////////////////////////////////
 // static member function
 //
 /////////////////////////////////////////////////////////
-void pix_mag :: obj_setupCallback(t_class *classPtr) {
-
-}
+void pix_morph :: obj_setupCallback(t_class *classPtr) {}

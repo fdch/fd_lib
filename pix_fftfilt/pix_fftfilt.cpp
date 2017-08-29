@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////
 //
-// pix_ifft2
+// pix_fftfilt
 //
 // Calculates the Forward Fourier Transform using FFTW
 // The output is not shifted
@@ -24,21 +24,21 @@
 //    WARRANTIES, see the file, "GEM.LICENSE.TERMS" in this distribution.
 //
 /////////////////////////////////////////////////////////
-#include "pix_ifft2.h"
+#include "pix_fftfilt.h"
 #include "Utils/Functions.h"//for CLAMP
 #include <cmath>
 #define FFTWPLANNERFLAG FFTW_ESTIMATE
 
-CPPEXTERN_NEW_WITH_ONE_ARG(pix_ifft2, t_floatarg, A_DEFFLOAT);
+CPPEXTERN_NEW_WITH_ONE_ARG(pix_fftfilt, t_floatarg, A_DEFFLOAT);
 /////////////////////////////////////////////////////////
 //
-// pix_ifft2
+// pix_fftfilt
 //
 /////////////////////////////////////////////////////////
 // Constructor
 //
 /////////////////////////////////////////////////////////
-pix_ifft2 :: pix_ifft2(t_floatarg n):
+pix_fftfilt :: pix_fftfilt(t_floatarg n):
   m_xsize(n),m_ysize(n), m_insize(n*n), m_size(n*(n/2+1)),
   m_enable(false)
 {
@@ -48,47 +48,52 @@ pix_ifft2 :: pix_ifft2(t_floatarg n):
 // Destructor
 //
 /////////////////////////////////////////////////////////
-pix_ifft2 :: ~pix_ifft2()
+pix_fftfilt :: ~pix_fftfilt()
 {
-  deallocAll();
-}
-/////////////////////////////////////////////////////////
-// Utility functions
-//
-/////////////////////////////////////////////////////////
-void pix_ifft2 :: deallocAll()
-{
-  if(!m_size||!fftwPlan)return;
+  if(!m_size)return;
   else{
-    delete [] fftwOut;
-    delete [] q1;delete [] q2;delete [] q3;delete [] q4;
-    fftwf_free(fftwIn);
-    fftwf_destroy_plan(fftwPlan);
+    delete [] fftwInR;
+    delete [] fftwOutR;
+    fftwf_free(fftwOutOrig);
+    fftwf_free(fftwOutFilt);
+    fftwf_destroy_plan(fftwOrig);
+    fftwf_destroy_plan(fftwFilt);
+    fftwf_destroy_plan(ifftwPlan);
   }
 }
-void pix_ifft2 :: reallocAll(int n, int m)
+void pix_fftfilt :: reallocAll(int n, int m)
 {
   m_enable=false;
-// Destroy previous arrays
-  deallocAll();
 // Get new sizes
   m_xsize = n;
   m_ysize = m;
   m_insize = n*m; //actual size of image
   m_size = n*(m/2+1); //FFTW output size
 // Allocate arrays
-  fftwOut = new float [m_insize];
+
   q1 = new unsigned char [m_insize/4];q2 = new unsigned char [m_insize/4];
   q4 = new unsigned char [m_insize/4];q3 = new unsigned char [m_insize/4];
-  fftwIn = (fftwf_complex *)fftwf_alloc_complex(m_insize);
-  fftwPlan = fftwf_plan_dft_c2r_2d(n, m, fftwIn, fftwOut, FFTWPLANNERFLAG);
-  
+
+  //ifft arrays
+  fftwOutR = new float [m_insize];
+
+  //fft arrays
+  fftwInR = new float [m_insize]; //USed by left and right images
+  fftwOutOrig = (fftwf_complex *)fftwf_alloc_complex(m_size);//original fft
+  fftwOutFilt = (fftwf_complex *)fftwf_alloc_complex(m_size);//filter image fft
+
+//Planners 2: fft plans, one for each input
+  fftwOrig = fftwf_plan_dft_r2c_2d(n, m, fftwInR, fftwOutOrig, FFTWPLANNERFLAG);
+  fftwFilt = fftwf_plan_dft_r2c_2d(n, m, fftwInR, fftwOutFilt, FFTWPLANNERFLAG);
+//One plan for the output
+  ifftwPlan = fftwf_plan_dft_c2r_2d(n, m, fftwOutOrig, fftwOutR, FFTWPLANNERFLAG);
+
 // Notify and enable computing
   post("m_insize=%d, m_size=%d", m_insize,m_size);
   m_enable=true;
 }
 
-void pix_ifft2 :: copyRect(unsigned char*s,unsigned char *t,bool dir,bool Yoff, bool Xoff)
+void pix_fftfilt :: copyRect(unsigned char*s,unsigned char *t,bool dir,bool Yoff, bool Xoff)
 {
 // copyRect: 
 // *s  *t  direction(1=s->t, 0=t->s) Y  X (offsets)
@@ -105,7 +110,7 @@ void pix_ifft2 :: copyRect(unsigned char*s,unsigned char *t,bool dir,bool Yoff, 
       else *src++ = tar[step];
     }
 }
-void pix_ifft2 :: shiftFFT(unsigned char *data)
+void pix_fftfilt :: shiftFFT(unsigned char *data)
 {
   //original
   copyRect(q1,data, 0, 0, 0);
@@ -124,58 +129,69 @@ void pix_ifft2 :: shiftFFT(unsigned char *data)
 // Process image (grey space only)
 //
 /////////////////////////////////////////////////////////
-void pix_ifft2 :: processGrayImage(imageStruct &image)
+void pix_fftfilt :: processGray_Gray(imageStruct &image,imageStruct &right)
 {
 // Pointer to the pixels (unsigned char 0-255)
   unsigned char *pixels = image.data;
+      unsigned char *pixRight = right.data;
   int rows = image.ysize;
   int cols = image.xsize;
   long i,j, k=0,step;
-  
+  float re, im, mag, norm;
   if(!m_enable)return;
 // Check if sizes match and reallocate.
   if(m_insize!=rows*cols) reallocAll(cols, rows);
   else {
 
     for(i=0;i<m_ysize;i++)
-      for(j=0;j<m_xsize;j++) {
+      for(j=0;j<m_xsize;j++)
+        fftwInR[step] = pixels[i*m_ysize+j]/255.;
+    
+
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++)
+        fftwInR[step] = pixRight[i*m_ysize+j]/255.;
+        
+        
+    fftwf_execute(fftwFilt);//////the filter image
+    fftwf_execute(fftwOrig);//////the original image
+
+  //calculate magnitude 
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize/2+1;j++) {
         step=i*m_ysize+j;
-        fftwIn[step][0] = pixels[step]/255.;
-        fftwIn[step][1] = 0.;
-        //k++;
+        re = fftwOutFilt[step][0];
+        im = fftwOutFilt[step][1];
+        mag = sqrt(re*re+im*im);
+        norm = CLAMP(mag*m_xsize/255);
+        //multiply original complex by filter magnitude
+        fftwOutOrig[step][0] *= norm;
+        fftwOutOrig[step][1] *= norm;
       }
 
-    fftwf_execute(fftwPlan);
-    //k=0;
-    
+    fftwf_execute(ifftwPlan);//////////////the inverse fft
+
     for(i=0;i<m_ysize;i++)
-      for(j=0;j<m_xsize;j++) {///2+1
+      for(j=0;j<m_xsize;j++) {
         step=i*m_ysize+j;
-        //if(step%3==0||step%10==0)pixels[step]=0;
-        //else 
-        pixels[step] = CLAMP(logf(1.+fftwOut[step])*m_xsize/8);
+        //pixels[step] = fftwOutR[step];
+        pixels[step] = CLAMP(logf(1.+fftwOutR[step])*m_xsize/4);
       }
-/*
+
+      //copy the non-computed symmetry back to the data
     for(i=0;i<m_ysize;i++)
       for(j=m_xsize/2+1;j<m_xsize;j++) {
         step=i*m_ysize+j;
         pixels[step] = pixels[m_insize-step];
       }
-*/
-  shiftFFT(pixels);
+      
+          //shift zero-th frequency to center
+    shiftFFT(pixels);
+    
   }
 }
-
-void pix_ifft2 :: BANGMess(void)
-{
-  if (!m_enable) return;
-  else fftwf_execute(fftwPlan);
-}
-
 /////////////////////////////////////////////////////////
 // static member function
 //
 /////////////////////////////////////////////////////////
-void pix_ifft2 :: obj_setupCallback(t_class *classPtr) {
-  CPPEXTERN_MSG0(classPtr, "bang", BANGMess);
-}
+void pix_fftfilt :: obj_setupCallback(t_class *classPtr) {}

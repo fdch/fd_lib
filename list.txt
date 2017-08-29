@@ -581,7 +581,6 @@
 ./minimax/minimax-help.pd
 ./minimax/minimax-test.pd
 ./mtwister/mtwister-help.pd
-./multipan~/multipan~-help.pd
 ./parabola/parabola-help.pd
 ./PdCon16~/PdCon16~-help.pd
 ./pix_fft/pix_fft-help.pd
@@ -591,8 +590,11 @@
 ./pix_fft/pix_shift-help.pd
 ./pix_fft2/pix_fft2-help.pd
 ./pix_fft2/test-.pd
+./pix_fftfilt/pix_fftfilt-help.pd
 ./pix_ifft2/pix_ifft2-help.pd
+./pix_morph/pix_morph-help.pd
 ./pix_shift/pix_shift-help.pd
+./pix_turb/pix_turb-help.pd
 ./pmtwister/pmtwister-help.pd
 ./pointerlist/pointerlist-help.pd
 ./prandom/prandom-help.pd

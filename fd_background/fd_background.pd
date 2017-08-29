@@ -12,7 +12,7 @@
 #X obj 250 267 t f f;
 #X obj 250 291 sel;
 #X obj 34 334 pix_buffer_read \$0-buf;
-#X obj 207 295 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 207 295 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 34 516 fd_shader background;
 #X obj 34 479 fd_bufvid \$0-buf;
@@ -30,13 +30,12 @@
 #X text 213 514 <-- receives to 'background';
 #X msg 50 549 texunit 3 \, rectangle 0;
 #X obj 34 632 outlet totexture;
-#X obj 34 220 rectangle 4 3;
 #X connect 0 0 6 0;
 #X connect 1 0 0 0;
 #X connect 2 0 5 0;
 #X connect 3 0 23 0;
 #X connect 4 0 3 1;
-#X connect 5 0 30 0;
+#X connect 5 0 20 0;
 #X connect 6 0 22 0;
 #X connect 7 0 16 0;
 #X connect 8 0 13 0;
@@ -67,4 +66,3 @@
 #X connect 26 1 19 0;
 #X connect 26 2 14 1;
 #X connect 28 0 29 0;
-#X connect 30 0 20 0;

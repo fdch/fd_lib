@@ -23,7 +23,6 @@ class GEM_EXTERN pix_fft2 : public GemPixObj
 
   virtual void  processGrayImage(imageStruct &image);
 
-  unsigned char  *pixels;
   float  *fftwIn;
   unsigned char  *q1,*q2,*q3,*q4;
   
@@ -32,12 +31,10 @@ class GEM_EXTERN pix_fft2 : public GemPixObj
   int m_size, m_xsize, m_ysize, m_insize;
   bool m_enable;
   
-  void  BANGMess(void);
   void  reallocAll(int n, int m);
-  void  deallocAll(void);
   void  copyRect(unsigned char*s,unsigned char*t, bool dir, bool Yoff, bool Xoff);
   void  magSpec(unsigned char*data, fftwf_complex *fft);
-  void  shiftFFT(void);
+  void  shiftFFT(unsigned char*data);
 
 };
 #endif

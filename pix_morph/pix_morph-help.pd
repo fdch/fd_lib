@@ -13,7 +13,7 @@
 #X obj 472 115 cnv 15 170 250 empty empty empty 20 12 0 14 -228992
 -66577 0;
 #X text 476 98 Example:;
-#X obj 542 53 cnv 15 100 60 empty empty empty 20 12 0 14 -195568 -66577
+#X obj 542 51 cnv 15 100 60 empty empty empty 20 12 0 14 -195568 -66577
 0;
 #N canvas 0 23 450 300 gemwin 0;
 #X obj 132 136 gemwin;
@@ -33,47 +33,54 @@
 #X connect 5 0 1 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
-#X restore 547 92 pd gemwin;
-#X msg 547 73 create;
-#X text 543 52 Create window:;
-#X obj 473 200 cnv 15 160 100 empty empty empty 20 12 0 14 -24198 -66577
+#X restore 547 90 pd gemwin;
+#X msg 547 71 create;
+#X text 543 50 Create window:;
+#X obj 473 240 cnv 15 160 60 empty empty empty 20 12 0 14 -24198 -66577
 0;
 #X text 75 63 Class: pix object;
 #X text 79 346 Outlet 1: gemlist;
 #X text 86 300 Inlet 1: gemlist;
-#X obj 477 117 gemhead;
-#X obj 477 137 pix_video;
-#X obj 477 158 pix_grey;
-#X obj 479 319 pix_texture;
-#X text 544 147 change input size, f 10;
+#X obj 477 137 gemhead;
+#X obj 477 157 pix_video;
+#X obj 477 178 pix_grey;
 #X text 42 90 Description: Calculates the Forward Fourier Transform
 using FFTW, f 64;
-#X text 54 44 Synopsis: [pix_ifft2];
-#X text 43 197 Input is restricted to GREY colorspace images.;
+#X text 54 44 Synopsis: [pix_morph];
 #X text 86 254 Optional size of a square image.;
-#X text 41 142 Input image can be of any sizes \, including non-powers
-of 2 You can provide an argument (n) to determine the size of a square
-image. Size will be interpreted as n*n. This is overriden if the input
-image has different dimensions.;
 #X text 493 382 Fede Camara Halac 2017;
 #X text 492 397 fdch.github.io/tv;
-#X text 45 217 Output is not shifted \, but you can use crop for that
-;
 #X obj 471 20 declare -lib Gem;
 #X text 42 112 A 2-dimentional FFT is calculated whenever a bang is
 received. After the first calculation it is supposed to work much faster.
 , f 63;
 #X text 86 313 Inlet 1: Bang to execute 2D fft;
-#X obj 479 340 square 4;
-#X obj 491 229 pix_fft2;
-#X obj 479 270 pix_ifft2;
-#X obj 479 178 pix_crop 0 0 240 240;
+#X text 46 181 You can provide an argument (n) to determine the size
+of a square image. Size will be interpreted as n*n. This is overriden
+if the input image has different dimensions.;
+#X text 45 151 Input is restricted to GREY-colorspace \, EVEN sized
+square images.;
+#X obj 477 318 pix_texture;
+#X obj 477 339 square 4;
+#X obj 477 116 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 477 199 t a a;
+#X obj 555 161 pix_separator;
+#X obj 477 220 pix_separator;
+#X obj 481 251 pix_crop 0 100 100 100;
+#X obj 531 198 pix_crop 140 100 100 100;
+#X obj 476 277 pix_morph;
 #X connect 10 0 11 0;
 #X connect 11 0 10 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 19 0 36 0;
-#X connect 20 0 33 0;
-#X connect 34 0 35 0;
-#X connect 35 0 20 0;
-#X connect 36 0 34 0;
+#X connect 19 0 33 0;
+#X connect 30 0 31 0;
+#X connect 32 0 17 0;
+#X connect 33 0 35 0;
+#X connect 33 1 34 0;
+#X connect 34 0 37 0;
+#X connect 35 0 36 0;
+#X connect 36 0 38 0;
+#X connect 37 0 38 1;
+#X connect 38 0 30 0;

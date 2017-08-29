@@ -1,4 +1,4 @@
-#N canvas 468 22 812 726 12;
+#N canvas 468 23 812 726 12;
 #X obj 244 401 list;
 #X obj 231 344 list;
 #X msg 338 435 0;
@@ -44,7 +44,7 @@
 #X obj 60 202 pix_multiblob \$1;
 #X obj 60 126 pix_snap 0 0 500 500;
 #X obj 372 551 tracks2;
-#X obj 409 642 clone fd_blobb \$1 \$4 \$5 \$6;
+#X obj 409 642 clone fd_blob \$1 \$4 \$5 \$6;
 #X connect 0 0 12 0;
 #X connect 1 0 6 0;
 #X connect 2 0 4 1;

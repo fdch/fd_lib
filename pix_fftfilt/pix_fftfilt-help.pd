@@ -1,4 +1,4 @@
-#N canvas 529 58 706 426 10;
+#N canvas 528 58 706 426 10;
 #X declare -lib Gem;
 #X text 465 58 GEM object;
 #X obj 31 283 cnv 15 430 80 empty empty empty 20 12 0 14 -233017 -66577
@@ -34,7 +34,7 @@
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
 #X restore 547 92 pd gemwin;
-#X msg 547 73 create;
+#X msg 546 72 destroy;
 #X text 543 52 Create window:;
 #X obj 473 200 cnv 15 160 100 empty empty empty 20 12 0 14 -24198 -66577
 0;
@@ -44,11 +44,11 @@
 #X obj 477 117 gemhead;
 #X obj 477 137 pix_video;
 #X obj 477 158 pix_grey;
-#X obj 479 319 pix_texture;
+#X obj 479 329 pix_texture;
 #X text 544 147 change input size, f 10;
 #X text 42 90 Description: Calculates the Forward Fourier Transform
 using FFTW, f 64;
-#X text 54 44 Synopsis: [pix_ifft2];
+#X text 54 44 Synopsis: [pix_fftfilt];
 #X text 43 197 Input is restricted to GREY colorspace images.;
 #X text 86 254 Optional size of a square image.;
 #X text 41 142 Input image can be of any sizes \, including non-powers
@@ -64,16 +64,22 @@ image has different dimensions.;
 received. After the first calculation it is supposed to work much faster.
 , f 63;
 #X text 86 313 Inlet 1: Bang to execute 2D fft;
-#X obj 479 340 square 4;
-#X obj 491 229 pix_fft2;
-#X obj 479 270 pix_ifft2;
+#X obj 479 350 square 4;
+#X obj 479 280 pix_fftfilt;
 #X obj 479 178 pix_crop 0 0 240 240;
+#X obj 491 203 gemhead;
+#X obj 491 224 pix_multiimage filters/filter-*.jpg 3, f 22;
+#X floatatom 587 202 5 0 0 0 - - -, f 5;
+#X obj 491 257 pix_grey;
 #X connect 10 0 11 0;
 #X connect 11 0 10 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 19 0 36 0;
+#X connect 19 0 35 0;
 #X connect 20 0 33 0;
-#X connect 34 0 35 0;
-#X connect 35 0 20 0;
-#X connect 36 0 34 0;
+#X connect 34 0 20 0;
+#X connect 35 0 34 0;
+#X connect 36 0 37 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 1;
+#X connect 39 0 34 1;

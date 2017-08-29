@@ -1,9 +1,0 @@
-#N canvas 623 153 450 300 12;
-#X declare -path ~/Documents/fd_lib;
-#X obj 117 31 declare -path ~/Documents/fd_lib;
-#X msg 108 72 bang;
-#X obj 41 138 print~;
-#X obj 38 53 sig~ 12;
-#X obj 41 113 multipan~ 1 2 3 4 5;
-#X connect 1 0 2 0;
-#X connect 3 0 4 0;
