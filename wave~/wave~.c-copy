@@ -1,0 +1,215 @@
+#include "m_pd.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+static t_class *wave_class;
+
+typedef struct _wave
+{
+  t_object x_obj;
+  t_float x_f;
+  t_outlet *out;
+  t_float p[64][64], c[64][64], f[64][64];
+  t_float x, y, z;
+  t_float speed, dt, dx, r, stopTime, n;
+  int size, grab_size;
+  int *grab_array;
+} t_wave;
+
+
+static void wave_bang(t_wave *x)
+{
+  int i=0, j=0;
+  int len=8;
+  int size = pow(x->size, 2);
+  int start=size/2-len/2;
+  float pi = M_PI/size/len;
+
+  for(i=0;i<len;i++)
+    for(j=0;j<len;j++)
+      x->c[start+i][start+j] = -2 * cos(pi * start+i) * cos(pi * i);
+
+  for(i=0;i<size;i++)
+    for(j=0;j<size;j++)
+      x->p[i][j] = x->c[i][j];
+      
+  
+}
+
+static void wave_list(t_wave *x, t_symbol *s, int argc, t_atom *argv)
+{
+  int i=0;
+  if (!argc || 1==argc) {
+    x->grab_size = 0;
+    return;
+  } else if (argc != x->grab_size) {
+    x->grab_array = (int *)t_getbytes(argc*sizeof(int));
+    x->grab_size = argc;
+  }
+  for(i=0; i<argc; i++)
+    x->grab_array[i] = (int)argv[i].a_w.w_float;
+  post("%f",x->f[(int)argv[i].a_w.w_float][(int)argv[i+1].a_w.w_float]);
+}
+
+static t_int *wave_perform(t_int *w)
+{
+  t_wave   *x   = (t_wave   *)(w[1]);  
+  t_sample *in  = (t_sample *)(w[2]);
+  t_sample *out = (t_sample *)(w[3]);
+  int n = (int)(w[4]);
+  int i = 0;
+  int j = 0;
+  int g = 0;
+
+  while (n--)
+  {
+  // main loop
+   if(i==0) 
+   {}
+   else if (i==1)
+   {
+     for(j=0;j<=1;j++)
+       x->f[i][j] = 0;
+   }
+   else if (i>=x->size-1)
+   {}
+   else if 
+   (
+   x->size/2+x->size/4-1==i || i==x->size/2+x->size/4+1 ||
+   x->size/2-x->size/4-1==i || i==x->size/2-x->size/4-1
+   )
+   {
+   // body force (dynamic boundary)
+     for(j=0;j<=1;j++)
+       x->f[i][j] = 1.5 * sin(i*x->n);
+   }
+   else {
+   // wave equation
+     for(j=0;j<=x->size-1;j++)
+       x->f[i][j] = 2 * 
+         x->c[i+1>x->size-1?x->size-1:i+1][j+1>x->size-1?x->size-1:j+1] -
+         x->p[i+1>x->size-1?x->size-1:i+1][j+1>x->size-1?x->size-1:j+1] +
+       pow(x->r, 2 * (
+         x->c[i+0>x->size-2?x->size-2:i+0][j+1>x->size-1?x->size-1:j+1] +
+         x->c[i+2>x->size  ?x->size  :i+2][j+1>x->size-1?x->size-1:j+1] + 
+         x->c[i+1>x->size-1?x->size-1:i+1][j+0>x->size-2?x->size-2:j+0] +
+         x->c[i+1>x->size-1?x->size-1:i+1][j+2>x->size  ?x->size  :j+2] - 
+         4 * 
+         x->c[i+1>x->size-1?x->size-1:i+1][j+1>x->size-1?x->size-1:j+1]
+       ));
+    for(j=0;j<=1;j++)
+      x->f[i][j] = 0;
+   }	
+   /*
+	//grab values
+    if(2>=x->grab_size       && 
+       g<=x->grab_size-2     &&
+       i==x->grab_array[g])
+    {
+	  *out++ = (*in++) * x->f[i][x->grab_array[g+1]];
+	  g+=2;
+	}
+	*/
+	
+	*out++ = x->f[x->size/2-4][x->size/2-4];
+	
+	//update values
+    for(j=0;j<x->size;j++)
+      x->p[i][j] = x->c[i][j];
+    for(j=0;j<x->size;j++)
+      x->c[i][j] = x->f[i][j];
+	
+    i++;
+  }
+  
+  return (w+5);
+}
+
+void wave_tilde_free(t_wave *x)
+{
+ outlet_free(x->out);
+}
+
+static void wave_dsp(t_wave *x, t_signal **sp)
+{
+  dsp_add(wave_perform, 4,  x, 
+  sp[0]->s_vec, 
+  sp[1]->s_vec,
+  sp[0]->s_n);
+}
+
+void wave_speed(t_wave *x,  t_floatarg f)
+{
+	x->speed = f;
+}
+void wave_dt(t_wave *x,  t_floatarg f)
+{
+	x->dt = f;
+}
+void wave_dx(t_wave *x,  t_floatarg f)
+{
+	x->dx = f;
+}
+
+int* allocate_mem(int*** arr, int n, int m)
+{
+  *arr = (int**)malloc(n * sizeof(int*));
+  int *arr_data = malloc( n * m * sizeof(int));
+  for(int i=0; i<n; i++)
+     (*arr)[i] = arr_data + i * m ;
+  return arr_data; //free point
+} 
+
+void deallocate_mem(int*** arr, int* arr_data)
+{
+  free(arr_data);
+  free(*arr);
+}
+
+static void *wave_new(t_floatarg *f)
+{
+  t_wave *x = (t_wave *)pd_new(wave_class);
+  x->out = outlet_new(&x->x_obj, &s_signal);
+
+  
+  x->size = (f>1?(int)f:64);
+  //int size = x->size; 
+  /*
+  if((x->p = (t_float *)t_getbytes(size*sizeof(t_float)))   &&
+     (x->c = (t_float *)t_getbytes(size*sizeof(t_float)))   &&
+     (x->f = (t_float *)t_getbytes(size*sizeof(t_float)))     )
+    x->size = size;
+  else
+    pd_error(x,"Something went wrong.");
+  */
+  //allocate_mem(*x->p,size,size);
+  //allocate_mem(*x->c,size,size);
+  //allocate_mem(*x->f,size,size);
+  
+  x->speed = 10;  //%propagation speed
+  x->dt = 0.001; //%timestep (small!!) (time resolution of the simulation)
+  x->dx = 0.1; 	//%distance between elements
+  x->r = x->speed * x->dt / x->dx; 
+  x->stopTime = 10; //%stop time
+  //%for dynamic boundary
+  x->n = 300;
+  wave_bang(x);
+  return (x);
+}
+
+void wave_tilde_setup(void)
+{
+  wave_class = class_new(gensym("wave~"),
+  (t_newmethod)wave_new, 0,
+    sizeof(t_wave), 0, A_DEFFLOAT, 0);
+
+  CLASS_MAINSIGNALIN(wave_class, t_wave, x_f);
+
+  class_addmethod(wave_class,(t_method)wave_dsp, gensym("dsp"), 0);
+  class_addbang(wave_class,(t_method)wave_bang);
+  class_addlist(wave_class,(t_method)wave_list);
+  class_addmethod(wave_class,(t_method)wave_speed, gensym("speed"), A_FLOAT, 0);
+  class_addmethod(wave_class,(t_method)wave_dx, gensym("dx"), A_FLOAT, 0);
+  class_addmethod(wave_class,(t_method)wave_dt, gensym("dt"), A_FLOAT, 0);
+}

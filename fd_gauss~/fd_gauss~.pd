@@ -1,4 +1,4 @@
-#N canvas 523 49 483 461 12;
+#N canvas 608 68 483 461 12;
 #X obj 34 198 samplerate~;
 #X msg 75 220 0;
 #X obj 34 242 phasor~;
@@ -31,6 +31,12 @@
 #X obj 34 264 -~ 0.5;
 #X text 250 399 see fd_windows.pd;
 #X obj 211 44 route bang float q w;
+#X floatatom 371 6 5 0 0 0 - - -, f 5;
+#X msg 371 28 w \$1 \, bang;
+#X floatatom 272 4 5 0 0 0 - - -, f 5;
+#X text 50 375 this needs to be normalized \, in the area below the
+curve;
+#X msg 272 26 q \$1 \, bang;
 #X connect 0 0 7 0;
 #X connect 1 0 2 1;
 #X connect 2 0 29 0;
@@ -72,3 +78,7 @@
 #X connect 31 2 29 1;
 #X connect 31 3 21 0;
 #X connect 31 4 6 0;
+#X connect 32 0 33 0;
+#X connect 33 0 31 0;
+#X connect 34 0 36 0;
+#X connect 36 0 31 0;

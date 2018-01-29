@@ -1,7 +1,6 @@
 #N canvas 528 42 711 566 12;
 #X text 388 89 Inlet/argument \$1:;
 #X msg 43 121 ..;
-#X obj 33 347 fd_getfiles;
 #X msg 33 94 bang;
 #X symbolatom 119 393 0 0 0 0 found_file - -;
 #X msg 57 153 ../..;
@@ -31,12 +30,13 @@
 #X text 49 494 BUG: paths get stacked when entering dir or opening
 files. It works \, but if path is too long \, it might end up breaking.
 You can use "reset" to temporarily get away with this., f 70;
-#X connect 1 0 2 0;
-#X connect 2 0 4 0;
-#X connect 3 0 2 0;
-#X connect 5 0 2 0;
-#X connect 6 0 2 0;
-#X connect 15 0 2 0;
-#X connect 16 0 15 0;
-#X connect 18 0 2 0;
+#X obj 33 347 fd_getfiles 0;
+#X connect 1 0 27 0;
+#X connect 2 0 27 0;
+#X connect 4 0 27 0;
+#X connect 5 0 27 0;
+#X connect 14 0 27 0;
+#X connect 15 0 14 0;
+#X connect 17 0 27 0;
+#X connect 27 0 3 0;
 #X coords 0 0 1 1 85 60 0;

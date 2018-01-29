@@ -11,11 +11,13 @@
 ./clifford/clifford-help.pd
 ./clifford/clifford-test-2.pd
 ./clifford/clifford-test.pd
+./colormap/colormap-help.pd
 ./connect/connect-help.pd
 ./counter/counter-help.pd
 ./crand/crand-help.pd
 ./cuadratic/cuadratic-help.pd
 ./cuadratic/cuadratic-test.pd
+./define_loudspeakers/define_loudspeakers-help.pd
 ./factor/factor-help.pd
 ./fd/__-help.pd
 ./fd/__.pd
@@ -103,6 +105,10 @@
 ./fd_blobvid/fd_blobvid.pd
 ./fd_bufvid/fd_bufvid-help.pd
 ./fd_bufvid/fd_bufvid.pd
+./fd_butterworth/_butter.pd
+./fd_butterworth/buttercoef.pd
+./fd_butterworth/fd_butterworth-help.pd
+./fd_butterworth/fd_butterworth.pd
 ./fd_calm/fd_calm-help.pd
 ./fd_calm/fd_calm.pd
 ./fd_camara/fd_camara-help.pd
@@ -138,6 +144,8 @@
 ./fd_cubic/fd_cubic.pd
 ./fd_dacout/fd_dacout-help.pd
 ./fd_dacout/fd_dacout.pd
+./fd_dactest/fd_dactest-help.pd
+./fd_dactest/fd_dactest.pd
 ./fd_data/fd_data.pd
 ./fd_dataDroplet/fd_dataDroplet-help.pd
 ./fd_dataDroplet/fd_dataDroplet.pd
@@ -213,6 +221,8 @@
 ./fd_fmosc/fd_fmosc.pd
 ./fd_fromsig/fd_fromsig-help.pd
 ./fd_fromsig/fd_fromsig.pd
+./fd_gate/fd_gate-help.pd
+./fd_gate/fd_gate.pd
 ./fd_gauss/fd_gauss-help.pd
 ./fd_gauss/fd_gauss.pd
 ./fd_gauss~/fd_gauss-test.pd
@@ -275,6 +285,9 @@
 ./fd_itpoint/fd_itpoint.pd
 ./fd_jumpv/fd_jumpv-help.pd
 ./fd_jumpv/fd_jumpv.pd
+./fd_karplus/fd_gemkarplus.pd
+./fd_karplus/fd_karplus-help.pd
+./fd_karplus/fd_karplus.pd
 ./fd_key/_route.pd
 ./fd_key/fd_key-help.pd
 ./fd_key/fd_key.pd
@@ -302,6 +315,8 @@
 ./fd_lorenz/fd_lorenz.pd
 ./fd_lorenz-expr/fd_lorenz-expr-help.pd
 ./fd_lorenz-expr/fd_lorenz-expr.pd
+./fd_lorosc/fd_lorosc-help.pd
+./fd_lorosc/fd_lorosc.pd
 ./fd_lorsig/fd_lorsig-help.pd
 ./fd_lorsig/fd_lorsig.pd
 ./fd_lspace/fd_lspace-help.pd
@@ -414,6 +429,8 @@
 ./fd_range/fd_range.pd
 ./fd_rbd/fd_rbd-help.pd
 ./fd_rbd/fd_rbd.pd
+./fd_read-resize/fd_read-resize-help.pd
+./fd_read-resize/fd_read-resize.pd
 ./fd_rec/fd_rec-help.pd
 ./fd_rec/fd_rec.pd
 ./fd_receive/fd_receive-help.pd
@@ -593,6 +610,7 @@
 ./pix_fftfilt/pix_fftfilt-help.pd
 ./pix_ifft2/pix_ifft2-help.pd
 ./pix_morph/pix_morph-help.pd
+./pix_phase2/pix_phase2-help.pd
 ./pix_shift/pix_shift-help.pd
 ./pix_turb/pix_turb-help.pd
 ./pmtwister/pmtwister-help.pd
@@ -634,3 +652,15 @@
 ./txt2pd/test2.pd
 ./txt2pd/test3.pd
 ./txt2pd/txt2pd-help.pd
+./vbap/examples/graph-to-aziele.pd
+./vbap/examples/high.pd
+./vbap/examples/playsample~.pd
+./vbap/examples/recent.pd
+./vbap/examples/rvbap-demo.pd
+./vbap/examples/vbap-demo.pd
+./vbap/examples/vbap-level-config.pd
+./vbap/examples/vbap.main.pd
+./vbap/examples/vbapmodule.pd
+./vbap/examples/vbapsnd.pd
+./vbap/vbap-help.pd
+./wave~/wave~-help.pd

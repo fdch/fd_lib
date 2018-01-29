@@ -55,7 +55,7 @@ the creation arguments for [switch~];
 in [switch~] or [block~];
 #X restore 466 268 pd arguments;
 #X text 348 267 see here -->;
-#N canvas 547 146 627 314 other-use 0;
+#N canvas 547 146 627 314 other-use 1;
 #X obj 20 11 osc~ 220;
 #X obj 505 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -66,7 +66,7 @@ in [switch~] or [block~];
 #X obj 60 130 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 62 245 *~;
-#X obj 74 222 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 74 222 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 88 221 <-this second;
 #X text 524 32 <-this first;
@@ -78,7 +78,7 @@ in [switch~] or [block~];
 #X obj 62 185 r~ sig-0;
 #X obj 359 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 266 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 266 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 265 35 t f b;
 #X obj 296 189 *~;
@@ -87,7 +87,6 @@ in [switch~] or [block~];
 #X obj 282 140 r~;
 #X obj 359 116 vline~;
 #X msg 360 91 0 25 \, 1 25 25;
-#X obj 248 73 f;
 #X connect 0 0 13 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 1;
@@ -102,14 +101,13 @@ in [switch~] or [block~];
 #X connect 16 0 7 0;
 #X connect 17 0 25 0;
 #X connect 18 0 19 0;
-#X connect 19 0 26 1;
+#X connect 19 0 22 0;
 #X connect 19 1 17 0;
 #X connect 20 0 4 0;
 #X connect 22 0 23 0;
 #X connect 23 0 20 0;
 #X connect 24 0 20 1;
 #X connect 25 0 24 0;
-#X connect 26 0 22 0;
 #X restore 201 233 pd other-use;
 #X connect 3 0 2 0;
 #X connect 3 0 2 1;

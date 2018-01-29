@@ -1,6 +1,5 @@
 #N canvas 494 51 691 708 12;
 #X declare -lib iemmatrix;
-#X declare -lib Gem;
 #N canvas 661 77 482 616 subprocessing 0;
 #X msg 32 5 pd~ start dump.pd;
 #X msg 158 120 dump bang;
@@ -49,16 +48,16 @@
 #X restore 435 189 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array imaginary 16 float 3;
-#A 0 0 6.91506e+31 4.27374e+31 4.94439e+33 4.91798e+33 4.8325e+33 3.0558e+33
-2.97033e+33 2.94391e+33 -3.0558e+33 -3.08222e+33 -3.01306e+33 -4.94439e+33
--4.87524e+33 -4.80609e+33 1.4013e-45;
+#A 0 0 -1.50701e+29 -9.31383e+28 3.01402e+29 1.50701e+29 -2.36118e+21
+1.86277e+29 2.43839e+29 9.31383e+28 -1.86277e+29 9.44473e+21 5.75626e+28
+-3.01402e+29 -2.43839e+29 -5.75626e+28 0;
 #X coords 0 1 16 -1 200 140 1 0 0;
 #X restore 435 365 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array real 16 float 3;
-#A 0 5.19884e+33 5.1486e+33 5.06731e+33 1.60653e+33 1.52524e+33 1.52524e+33
--4.20595e+33 -4.20595e+33 -4.12466e+33 -4.20595e+33 -4.12466e+33 -4.07442e+33
-1.60653e+33 1.65677e+33 1.60653e+33 1.03233e-38;
+#A 0 3.16913e+29 2.07422e+29 3.02625e+28 9.79314e+28 2.07422e+29 9.79314e+28
+-2.56388e+29 -7.92282e+28 3.02625e+28 -2.56388e+29 -2.56388e+29 -7.92282e+28
+9.79314e+28 -7.92282e+28 -7.92282e+28 0;
 #X coords 0 1 16 -1 200 140 1 0 0;
 #X restore 435 542 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -76,18 +75,14 @@ normalize \;;
 #X msg 26 69 \; source sinesum 16 1 \, normalize;
 #X msg 26 109 \; source cosinesum 16 2 -1 \, normalize;
 #X msg 25 150 \; source cosinesum 16 1 2 3 4 5 6 \, normalize;
-#X obj 70 382 list_fft 19;
 #X obj 90 446 array set imaginary;
 #X obj 70 486 array set real;
 #X msg 26 9 \; source 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 19 \, normalize, f 33;
-#X obj 204 365 print real;
-#X obj 214 395 print imag;
-#X obj 176 231 declare -lib Gem;
-#X connect 5 0 12 0;
+#X obj 172 411 print;
+#X obj 70 382 list_fft 19;
+#X connect 5 0 16 0;
 #X connect 7 0 8 0;
 #X connect 8 1 5 0;
-#X connect 12 0 14 0;
-#X connect 12 0 16 0;
-#X connect 12 1 13 0;
-#X connect 12 1 17 0;
+#X connect 16 0 13 0;
+#X connect 16 1 12 0;

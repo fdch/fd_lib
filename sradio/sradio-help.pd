@@ -41,7 +41,7 @@
 #X floatatom 457 373 5 0 0 0 - - -, f 5;
 #X text 454 350 receives :;
 #X obj 457 395 s sradio-r-help;
-#N canvas 115 22 1075 676 storage 0;
+#N canvas 115 23 1075 676 storage 0;
 #X msg 43 286 set 1 1 0 1 0 0 1 0;
 #X msg 53 306 set 0 0 0 1 0 0 0 1;
 #X msg 63 326 set 0 1 0 1 0 1 1 0;

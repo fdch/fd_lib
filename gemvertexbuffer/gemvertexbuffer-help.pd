@@ -105,7 +105,7 @@ the use of this data;
 #X msg 748 424 normal_enable \$1;
 #X text 612 444 default : all VBO are disabled \, but they are enable
 as soon as they are updated;
-#X obj 579 215 pix_image;
+#X obj 579 215 --pix_image;
 #X obj 579 234 pix_texture;
 #X obj 593 153 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;

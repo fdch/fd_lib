@@ -1,0 +1,8 @@
+#N canvas 525 52 604 330 12;
+#X floatatom 216 136 5 0 0 0 - - -, f 5;
+#X obj 226 183 colormap 256;
+#X obj 226 208 print;
+#X text 194 20 colormap;
+#X text 183 45 map linear value to an rgb output;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

@@ -1,0 +1,14 @@
+#N canvas 479 151 450 300 12;
+#X text 148 19 "fd_read-resize";
+#X text 21 55 Read a text file into an array resizing it first.;
+#X msg 164 106 read test.txt;
+#X obj 164 131 fd_read-resize;
+#X obj 164 156 array define tester;
+#X msg 62 200 bang;
+#X obj 62 225 array size tester;
+#X obj 62 250 print;
+#X text 98 200 <-- check size before and after 'reading';
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;

@@ -53,7 +53,7 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X text 128 131 <-- outputs N iterations as list (y \, n);
 #X text 154 213 <-- reset internal state to default;
 #X text 100 96 <-- advances one step and outputs float (y);
-#N canvas 0 22 450 300 s 0;
+#N canvas 0 23 450 300 s 1;
 #X obj 17 83 cuadratic;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array cuadratic-help 100 float 5;
@@ -84,7 +84,7 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X connect 6 0 7 0;
 #X restore 252 281 pd s graph;
 #X msg 58 132 print 5;
-#N canvas 0 22 450 300 s 0;
+#N canvas 0 23 450 300 s 0;
 #X text 108 25 just this help file's init;
 #X obj 225 78 loadbang;
 #X msg 225 103 \; pd-s vis 0 \;;

@@ -133,28 +133,34 @@ void pix_fftfilt :: processGray_Gray(imageStruct &image,imageStruct &right)
 {
 // Pointer to the pixels (unsigned char 0-255)
   unsigned char *pixels = image.data;
-      unsigned char *pixRight = right.data;
+  unsigned char *pixRight = right.data;
+  
   int rows = image.ysize;
   int cols = image.xsize;
   long i,j, k=0,step;
-  float re, im, mag, norm;
+  float re, im, mag, norm, phase;
   if(!m_enable)return;
+
 // Check if sizes match and reallocate.
   if(m_insize!=rows*cols) reallocAll(cols, rows);
   else {
 
+////////////////////// 
     for(i=0;i<m_ysize;i++)
-      for(j=0;j<m_xsize;j++)
-        fftwInR[step] = pixels[i*m_ysize+j]/255.;
+      for(j=0;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+        fftwInR[step] = pixels[step];
+      }
     
+    fftwf_execute(fftwOrig);//////the original image
 
     for(i=0;i<m_ysize;i++)
       for(j=0;j<m_xsize;j++)
-        fftwInR[step] = pixRight[i*m_ysize+j]/255.;
+        fftwInR[step] = pixRight[i*m_ysize+j];
         
         
     fftwf_execute(fftwFilt);//////the filter image
-    fftwf_execute(fftwOrig);//////the original image
+    
 
   //calculate magnitude 
     for(i=0;i<m_ysize;i++)
@@ -163,19 +169,117 @@ void pix_fftfilt :: processGray_Gray(imageStruct &image,imageStruct &right)
         re = fftwOutFilt[step][0];
         im = fftwOutFilt[step][1];
         mag = sqrt(re*re+im*im);
-        norm = CLAMP(mag*m_xsize/255);
+        phase = atan2(re, im);
+        //norm = CLAMP(logf(1.+mag)*255);
         //multiply original complex by filter magnitude
-        fftwOutOrig[step][0] *= norm;
-        fftwOutOrig[step][1] *= norm;
+        fftwOutOrig[step][0] = mag*exp(phase);
+        fftwOutOrig[step][1] = mag*exp(phase);
       }
-
+   
     fftwf_execute(ifftwPlan);//////////////the inverse fft
 
     for(i=0;i<m_ysize;i++)
       for(j=0;j<m_xsize;j++) {
         step=i*m_ysize+j;
-        //pixels[step] = fftwOutR[step];
-        pixels[step] = CLAMP(logf(1.+fftwOutR[step])*m_xsize/4);
+       // pixels[step] = fftwOutR[step];
+        pixels[step] = CLAMP(logf(1.+fftwOutR[step])*8);
+      }
+
+      //copy the non-computed symmetry back to the data
+    for(i=0;i<m_ysize;i++)
+      for(j=m_xsize/2+1;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+        pixels[step] = pixels[m_insize-step];
+      }
+      
+          //shift zero-th frequency to center
+    //shiftFFT(pixels);
+
+
+
+
+
+
+
+/*
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+        fftwInR[step] = pixels[i*m_ysize+j]/255.;
+      }
+    
+    fftwf_execute(fftwFilt);//////the original image
+
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize/2+1;j++) {
+        step=i*m_ysize+j;
+        re = fftwOutFilt[step][0];
+        im = fftwOutFilt[step][1];
+        mag = sqrt(re*re+im*im);
+        norm = CLAMP(mag*m_xsize/255);
+        fftwOutOrig[step][0] = norm*pixRight[step];
+        fftwOutOrig[step][1] = norm*pixRight[step];
+      }
+      
+      fftwf_execute(ifftwPlan);//////////////the inverse fft
+
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+       // pixels[step] = fftwOutR[step];
+       pixels[step] = CLAMP(logf(1.+fftwOutR[step])*m_xsize/4);
+      }
+
+      //copy the non-computed symmetry back to the data
+    for(i=0;i<m_ysize;i++)
+      for(j=m_xsize/2+1;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+        pixels[step] = pixels[m_insize-step];
+      }
+          //shift zero-th frequency to center
+    shiftFFT(pixels);
+    
+*/ 
+/*
+  //pd style image filter... not working as it should...
+
+////////////////////// 
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+        fftwInR[step] = pixels[step];
+      }
+    
+    fftwf_execute(fftwOrig);//////the original image
+
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++)
+        fftwInR[step] = pixRight[i*m_ysize+j];
+        
+        
+    fftwf_execute(fftwFilt);//////the filter image
+    
+
+  //calculate magnitude 
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize/2+1;j++) {
+        step=i*m_ysize+j;
+        re = fftwOutFilt[step][0];
+        im = fftwOutFilt[step][1];
+        mag = sqrt(re*re+im*im);
+        norm = CLAMP(logf(1.+mag)*255);
+        //multiply original complex by filter magnitude
+        fftwOutOrig[step][0] *= norm;
+        fftwOutOrig[step][1] *= norm;
+      }
+   
+    fftwf_execute(ifftwPlan);//////////////the inverse fft
+
+    for(i=0;i<m_ysize;i++)
+      for(j=0;j<m_xsize;j++) {
+        step=i*m_ysize+j;
+       // pixels[step] = fftwOutR[step];
+        pixels[step] = CLAMP(logf(1.+fftwOutR[step])*8);
       }
 
       //copy the non-computed symmetry back to the data
@@ -187,7 +291,7 @@ void pix_fftfilt :: processGray_Gray(imageStruct &image,imageStruct &right)
       
           //shift zero-th frequency to center
     shiftFFT(pixels);
-    
+*/
   }
 }
 /////////////////////////////////////////////////////////
