@@ -12,6 +12,7 @@
 ./clifford/clifford-test-2.pd
 ./clifford/clifford-test.pd
 ./colormap/colormap-help.pd
+./combi/combi-help.pd
 ./connect/connect-help.pd
 ./counter/counter-help.pd
 ./crand/crand-help.pd
@@ -607,6 +608,7 @@
 ./pix_fft/pix_shift-help.pd
 ./pix_fft2/pix_fft2-help.pd
 ./pix_fft2/test-.pd
+./pix_fft2/tests.pd
 ./pix_fftfilt/pix_fftfilt-help.pd
 ./pix_ifft2/pix_ifft2-help.pd
 ./pix_morph/pix_morph-help.pd
