@@ -13,11 +13,11 @@
 #X obj 96 235 fd_salvo 200;
 #X msg 98 168 10;
 #X text 358 241 send a resize message with a new N, f 14;
-#X msg 344 215 resize 132;
 #X msg 205 159 143;
 #X text 214 19 "fd_salvo";
 #X text 45 57 Get a random number from 0 to N (\$1) except the number
 sent to the first inlet, f 55;
+#X msg 344 215 resize 25;
 #X connect 0 0 7 0;
 #X connect 1 0 9 0;
 #X connect 1 1 4 1;
@@ -29,5 +29,5 @@ sent to the first inlet, f 55;
 #X connect 7 0 10 0;
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
-#X connect 12 0 9 0;
-#X connect 13 0 1 0;
+#X connect 12 0 1 0;
+#X connect 15 0 9 0;
