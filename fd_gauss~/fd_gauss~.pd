@@ -1,4 +1,4 @@
-#N canvas 608 68 483 461 12;
+#N canvas 115 201 483 461 12;
 #X obj 34 198 samplerate~;
 #X msg 75 220 0;
 #X obj 34 242 phasor~;
@@ -37,6 +37,8 @@
 #X text 50 375 this needs to be normalized \, in the area below the
 curve;
 #X msg 272 26 q \$1 \, bang;
+#X floatatom 393 55 5 0 0 0 - - -, f 5;
+#X obj 393 78 / 100;
 #X connect 0 0 7 0;
 #X connect 1 0 2 1;
 #X connect 2 0 29 0;
@@ -82,3 +84,5 @@ curve;
 #X connect 33 0 31 0;
 #X connect 34 0 36 0;
 #X connect 36 0 31 0;
+#X connect 37 0 38 0;
+#X connect 38 0 32 0;
