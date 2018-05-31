@@ -243,6 +243,8 @@
 ./fd_geomean/fd_geomean.pd
 ./fd_get-element/fd_get-element-help.pd
 ./fd_get-element/fd_get-element.pd
+./fd_getcomb/fd_getcomb-help.pd
+./fd_getcomb/fd_getcomb.pd
 ./fd_getfiles/fd_getfiles-help.pd
 ./fd_getfiles/fd_getfiles.pd
 ./fd_getid/fd_getid-help.pd
@@ -383,6 +385,7 @@
 ./fd_nouns/fd_nouns.pd
 ./fd_numkey/fd_numkey-help.pd
 ./fd_numkey/fd_numkey.pd
+./fd_numword/fd_numword.pd
 ./fd_objcreator/fd_objcreator-help.pd
 ./fd_objcreator/fd_objcreator.pd
 ./fd_octaver/fd_octaver-help.pd
