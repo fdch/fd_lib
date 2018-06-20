@@ -373,6 +373,7 @@
 ./fd_next/_dummy.pd
 ./fd_next/fd_next-help.pd
 ./fd_next/fd_next.pd
+./fd_noise~/fd_noise~.pd
 ./fd_nonpulmonic/fd_nonpulmonic-help.pd
 ./fd_nonpulmonic/fd_nonpulmonic.pd
 ./fd_norep/fd_norep-help.pd
