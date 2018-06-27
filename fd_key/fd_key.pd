@@ -1,10 +1,94 @@
 #N canvas 524 51 257 182 12;
 #X obj 11 10 cnv 15 234 96 empty empty empty 20 12 0 14 -99865 -66577
 0;
-#N canvas 0 22 475 335 guts 0;
+#X obj 168 144 outlet;
+#N canvas 0 22 450 300 \$0-keys 0;
+#X obj 12 12 cnv 15 226 88 fd_keyboard fd_keyboard-canvas empty 20
+12 0 14 -225271 -262144 0;
+#X obj 18 39 bng 15 99 50 0 q-bng 113-set q 4 7 0 8 -191407 -128992
+-1;
+#X obj 40 60 bng 15 99 50 0 a-bng 97-set a 4 7 0 8 -191407 -128992
+-1;
+#X obj 62 81 bng 15 99 50 0 z-bng 122-set z 4 7 0 8 -191407 -128992
+-1;
+#X obj 40 39 bng 15 99 50 0 w-bng 119-set w 4 7 0 8 -191407 -128992
+-1;
+#X obj 62 60 bng 15 99 50 0 s-bng 115-set s 4 7 0 8 -191407 -128992
+-1;
+#X obj 84 81 bng 15 99 50 0 x-bng 120-set x 4 7 0 8 -191407 -128992
+-1;
+#X obj 62 39 bng 15 99 50 0 e-bng 101-set e 4 7 0 8 -191407 -128992
+-1;
+#X obj 84 60 bng 15 99 50 0 d-bng 100-set d 4 7 0 8 -191407 -128992
+-1;
+#X obj 106 81 bng 15 99 50 0 c-bng 99-set c 4 7 0 8 -191407 -128992
+-1;
+#X obj 84 39 bng 15 99 50 0 r-bng 114-set r 4 7 0 8 -191407 -128992
+-1;
+#X obj 106 60 bng 15 99 50 0 f-bng 102-set f 4 7 0 8 -191407 -128992
+-1;
+#X obj 128 81 bng 15 99 50 0 v-bng 118-set v 4 7 0 8 -191407 -128992
+-1;
+#X obj 106 39 bng 15 99 50 0 t-bng 116-set t 4 7 0 8 -191407 -128992
+-1;
+#X obj 128 60 bng 15 99 50 0 g-bng 103-set g 4 7 0 8 -191407 -128992
+-1;
+#X obj 150 81 bng 15 99 50 0 b-bng 98-set b 4 7 0 8 -191407 -128992
+-1;
+#X obj 128 39 bng 15 99 50 0 y-bng 121-set y 4 7 0 8 -191407 -128992
+-1;
+#X obj 150 60 bng 15 99 50 0 h-bng 104-set h 4 7 0 8 -191407 -128992
+-1;
+#X obj 172 81 bng 15 99 50 0 n-bng 110-set n 4 7 0 8 -191407 -128992
+-1;
+#X obj 150 39 bng 15 99 50 0 u-bng 117-set u 4 7 0 8 -191407 -128992
+-1;
+#X obj 172 60 bng 15 99 50 0 j-bng 106-set j 4 7 0 8 -191407 -128992
+-1;
+#X obj 194 81 bng 15 99 50 0 m-bng 109-set m 4 7 0 8 -191407 -128992
+-1;
+#X obj 172 39 bng 15 99 50 0 i-bng 105-set i 4 7 0 8 -191407 -128992
+-1;
+#X obj 194 60 bng 15 99 50 0 k-bng 107-set k 4 7 0 8 -191407 -128992
+-1;
+#X obj 194 39 bng 15 99 50 0 o-bng 111-set o 4 7 0 8 -191407 -128992
+-1;
+#X obj 216 60 bng 15 99 50 0 l-bng 108-set l 4 7 0 8 -191407 -128992
+-1;
+#X obj 216 39 bng 15 99 50 0 p-bng 112-set p 4 7 0 8 -191407 -128992
+-1;
+#X obj 18 81 tgl 15 0 allow allow-set allow 17 8 0 8 -191407 -1 -1
+1 1;
+#X obj 18 60 bng 15 99 50 0 ~-bng 96-set ~ 5 7 0 8 -191407 -128992
+-1;
+#X obj 18 18 bng 15 99 50 0 1-bng 49-set 1 5 7 0 8 -191407 -128992
+-1;
+#X obj 40 18 bng 15 99 50 0 2-bng 50-set 2 5 7 0 8 -191407 -128992
+-1;
+#X obj 62 18 bng 15 99 50 0 3-bng 51-set 3 5 7 0 8 -191407 -128992
+-1;
+#X obj 84 18 bng 15 99 50 0 4-bng 52-set 4 5 7 0 8 -191407 -128992
+-1;
+#X obj 106 18 bng 15 99 50 0 5-bng 53-set 5 5 7 0 8 -191407 -128992
+-1;
+#X obj 128 18 bng 15 99 50 0 6-bng 54-set 6 5 7 0 8 -191407 -128992
+-1;
+#X obj 150 18 bng 15 99 50 0 7-bng 55-set 7 5 7 0 8 -191407 -128992
+-1;
+#X obj 172 18 bng 15 99 50 0 8-bng 56-set 8 5 7 0 8 -191407 -128992
+-1;
+#X obj 194 18 bng 15 99 50 0 9-bng 57-set 9 5 7 0 8 -191407 -128992
+-1;
+#X obj 216 18 bng 15 99 50 0 0-bng 48-set 0 5 7 0 8 -191407 -128992
+-1;
+#X obj 216 81 bng 15 99 50 0 bar-bng 32-set bar 4 8 0 5 -191407 -128992
+-1;
+#X coords 0 -1 1 1 230 92 2 10 10;
+#X restore 12 12 pd \$0-keys;
+#N canvas 603 219 475 335 \$0-guts 0;
 #X obj 41 93 spigot;
 #X obj 41 29 key;
-#X obj 86 59 r allow;
+#X obj 80 18 r allow;
 #X obj 175 220 moses 48;
 #X floatatom 41 118 5 0 0 0 - - -, f 5;
 #X obj 236 246 clone -s 48 _route 10, f 11;
@@ -17,9 +101,15 @@
 #X obj 366 255 outlet;
 #X obj 236 126 moses 97;
 #X obj 297 187 clone -s 97 _route 26, f 11;
+#X obj 80 42 t f f;
+#X obj 246 19 sel;
+#X obj 267 95 s fd_keyboard-canvas;
+#X msg 267 71 color \$1 0 0;
+#X msg 246 43 10;
+#X msg 282 42 6;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
-#X connect 2 0 0 1;
+#X connect 2 0 15 0;
 #X connect 3 1 5 0;
 #X connect 4 0 8 0;
 #X connect 6 0 3 0;
@@ -33,68 +123,13 @@
 #X connect 11 0 10 0;
 #X connect 13 0 12 0;
 #X connect 13 1 7 0;
-#X restore 182 119 pd guts;
-#X obj 182 144 outlet;
-#N canvas 0 22 450 300 \$0-keys 0;
-#X obj 12 12 cnv 15 226 88 empty empty empty 20 12 0 14 -228856 -66577
-0;
-#X obj 18 39 bng 15 99 50 0 q-bng 113-set q 4 7 0 8 -191407 -128992 -1;
-#X obj 40 60 bng 15 99 50 0 a-bng 97-set a 4 7 0 8 -191407 -128992 -1;
-#X obj 62 81 bng 15 99 50 0 z-bng 122-set z 4 7 0 8 -191407 -128992 -1;
-#X obj 40 39 bng 15 99 50 0 w-bng 119-set w 4 7 0 8 -191407 -128992 -1;
-#X obj 62 60 bng 15 99 50 0 s-bng 115-set s 4 7 0 8 -191407 -128992 -1;
-#X obj 84 81 bng 15 99 50 0 x-bng 120-set x 4 7 0 8 -191407 -128992 -1;
-#X obj 62 39 bng 15 99 50 0 e-bng 101-set e 4 7 0 8 -191407 -128992 -1;
-#X obj 84 60 bng 15 99 50 0 d-bng 100-set d 4 7 0 8 -191407 -128992 -1;
-#X obj 106 81 bng 15 99 50 0 c-bng 99-set c 4 7 0 8 -191407 -128992 -1;
-#X obj 84 39 bng 15 99 50 0 r-bng 114-set r 4 7 0 8 -191407 -128992 -1;
-#X obj 106 60 bng 15 99 50 0 f-bng 102-set f 4 7 0 8 -191407 -128992 -1
-;
-#X obj 128 81 bng 15 99 50 0 v-bng 118-set v 4 7 0 8 -191407 -128992 -1
-;
-#X obj 106 39 bng 15 99 50 0 t-bng 116-set t 4 7 0 8 -191407 -128992 -1
-;
-#X obj 128 60 bng 15 99 50 0 g-bng 103-set g 4 7 0 8 -191407 -128992 -1
-;
-#X obj 150 81 bng 15 99 50 0 b-bng 98-set b 4 7 0 8 -191407 -128992 -1;
-#X obj 128 39 bng 15 99 50 0 y-bng 121-set y 4 7 0 8 -191407 -128992 -1
-;
-#X obj 150 60 bng 15 99 50 0 h-bng 104-set h 4 7 0 8 -191407 -128992 -1
-;
-#X obj 172 81 bng 15 99 50 0 n-bng 110-set n 4 7 0 8 -191407 -128992 -1
-;
-#X obj 150 39 bng 15 99 50 0 u-bng 117-set u 4 7 0 8 -191407 -128992 -1
-;
-#X obj 172 60 bng 15 99 50 0 j-bng 106-set j 4 7 0 8 -191407 -128992 -1
-;
-#X obj 194 81 bng 15 99 50 0 m-bng 109-set m 4 7 0 8 -191407 -128992 -1
-;
-#X obj 172 39 bng 15 99 50 0 i-bng 105-set i 4 7 0 8 -191407 -128992 -1
-;
-#X obj 194 60 bng 15 99 50 0 k-bng 107-set k 4 7 0 8 -191407 -128992 -1
-;
-#X obj 194 39 bng 15 99 50 0 o-bng 111-set o 4 7 0 8 -191407 -128992 -1
-;
-#X obj 216 60 bng 15 99 50 0 l-bng 108-set l 4 7 0 8 -191407 -128992 -1
-;
-#X obj 216 39 bng 15 99 50 0 p-bng 112-set p 4 7 0 8 -191407 -128992 -1
-;
-#X obj 18 81 tgl 15 0 allow allow-set allow 17 8 0 8 -191407 -128992 -1
-1 1;
-#X obj 18 60 bng 15 99 50 0 ~-bng 96-set ~ 5 7 0 8 -191407 -128992 -1;
-#X obj 18 18 bng 15 99 50 0 1-bng 49-set 1 5 7 0 8 -191407 -128992 -1;
-#X obj 40 18 bng 15 99 50 0 2-bng 50-set 2 5 7 0 8 -191407 -128992 -1;
-#X obj 62 18 bng 15 99 50 0 3-bng 51-set 3 5 7 0 8 -191407 -128992 -1;
-#X obj 84 18 bng 15 99 50 0 4-bng 52-set 4 5 7 0 8 -191407 -128992 -1;
-#X obj 106 18 bng 15 99 50 0 5-bng 53-set 5 5 7 0 8 -191407 -128992 -1;
-#X obj 128 18 bng 15 99 50 0 6-bng 54-set 6 5 7 0 8 -191407 -128992 -1;
-#X obj 150 18 bng 15 99 50 0 7-bng 55-set 7 5 7 0 8 -191407 -128992 -1;
-#X obj 172 18 bng 15 99 50 0 8-bng 56-set 8 5 7 0 8 -191407 -128992 -1;
-#X obj 194 18 bng 15 99 50 0 9-bng 57-set 9 5 7 0 8 -191407 -128992 -1;
-#X obj 216 18 bng 15 99 50 0 0-bng 48-set 0 5 7 0 8 -191407 -128992 -1;
-#X obj 216 81 bng 15 99 50 0 bar-bng 32-set bar 4 8 0 5 -191407 -128992
--1;
-#X coords 0 -1 1 1 230 92 2 10 10;
-#X restore 12 12 pd \$0-keys;
-#X connect 1 0 2 0;
+#X connect 15 0 0 1;
+#X connect 15 1 16 0;
+#X connect 16 0 19 0;
+#X connect 16 1 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X restore 168 119 pd \$0-guts;
+#X connect 3 0 1 0;
 #X coords 0 -1 1 1 234 96 2 10 10;
