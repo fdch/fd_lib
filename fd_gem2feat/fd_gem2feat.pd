@@ -1,4 +1,4 @@
-#N canvas 0 22 450 300 12;
+#N canvas 323 293 450 300 12;
 #X obj 65 138 fd_pix2list;
 #X obj 65 61 t a b;
 #X obj 150 81 spigot;

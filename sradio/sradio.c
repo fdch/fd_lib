@@ -5,7 +5,13 @@
 /* g_7_guis.c written by Thomas Musil (c) IEM KUG Graz Austria 2000-2001 */
 /* thanks to Miller Puckette, Guenther Geiger and Krzystof Czaja */
 
-/* hradio hacked to behave like a small array and store/recall t_atoms by Fede Camara Halac 2017*/
+/* hradio hacked to behave like a small array 
+ and store/recall t_atoms by Fede Camara Halac 2017*/
+
+/* Updated July 2018 for printing and corrected click action:
+the moral is to: NEVER USE VALUES DIRECTLY FROM FUNCTION ARGUMENTS...
+
+Used define for some default settings.*/
 
 #include <stdlib.h>
 #include <string.h>
@@ -50,6 +56,12 @@ static t_class *sradio_class;
 #define ATOMS_FREEA(x, n) (freebytes((x), (n) * sizeof(t_atom)))
 #endif
 
+/* Default settings */
+
+#define DEF_KEEP 1
+#define DEF_NUMBER 8
+#define DEF_FONTSIZE 10
+
 
 typedef struct _textbuf
 {
@@ -67,8 +79,9 @@ typedef struct _sradio {
   t_int    *x_onlist;
   t_int    *x_drawnlist;
   t_atom   *x_listout;
+  t_symbol *x_bindsym;
   int    x_number, x_drawn, x_pos, x_val, x_foc, x_old, x_focflag;
-  unsigned char x_keep;//not using this for now
+  unsigned char x_keep;
 } t_sradio;
 
 /*--------Shamelessly Taken from x_text--------*/
@@ -96,7 +109,8 @@ static void textbuf_senditup(t_textbuf *x)
         if (!j) j = txt + ntxt;
         sys_vgui("pdtk_textwindow_append .x%lx {%.*s\n}\n",
             x, j-txt-i, txt+i);
-        i = (j-txt)+1;
+        // post("%.*s",j-txt-i, txt+i);
+        i = (int)((j-txt)+1);
     }
     sys_vgui("pdtk_textwindow_setdirty .x%lx 0\n", x);
     t_freebytes(txt, ntxt);
@@ -228,8 +242,8 @@ static void textbuf_open(t_sradio *z) {
     else
     {
         char buf[40];
-        sys_vgui("pdtk_textwindow_open .x%lx %dx%d {%s: %s} %d\n",
-            x, 200, 340, "sradio-storage", "text",
+        sys_vgui("pdtk_textwindow_open .x%lx %dx%d {%s} %d\n",
+            x, 200, 340,"text",
                  sys_hostfontsize(glist_getfont(x->b_canvas),
                     glist_getzoom(x->b_canvas)));
         sprintf(buf, ".x%lx", (unsigned long)x);
@@ -252,18 +266,18 @@ static void textbuf_close(t_sradio *z) {
 }
 
 void sradio_resizer(t_sradio *x, int nsize) {
-  int i=0;
-  int d=0;
+  int i,j;
+  int size = (int)nsize;//fd:NEVER USE VALUES DIRECTLY FROM FUNCTION ARGS!
   freebytes(x->x_onlist, sizeof(&x->x_onlist));
   freebytes(x->x_drawnlist, sizeof(&x->x_drawnlist));
   freebytes(x->x_listout, sizeof(&x->x_listout));
-  x->x_onlist = (t_int *)malloc(nsize * sizeof(int));
-  x->x_drawnlist = (t_int *)malloc(nsize * sizeof(int));
-  x->x_listout = (t_atom *)malloc(nsize * sizeof(t_atom));
-  while (nsize--) {
-  x->x_onlist[i] = x->x_drawnlist[i]= d;
-  SETFLOAT(&x->x_listout[i], d);
-  i++;
+  x->x_onlist = (t_int *)malloc(size * sizeof(t_int));
+  x->x_drawnlist = (t_int *)malloc(size * sizeof(t_int));
+  x->x_listout = (t_atom *)malloc(size * sizeof(t_atom));
+  for (i=0,j=0;i<=size-1;i++,j++) {
+    x->x_onlist[i] = 0;
+    x->x_drawnlist[j] = 0;
+    SETFLOAT(&x->x_listout[i], 0);
   }
 }
 
@@ -274,26 +288,26 @@ t_widgetbehavior sradio_widgetbehavior;
 /* widget helper functions */
 void sradio_draw_update(t_gobj *client, t_glist *glist) {
   t_sradio *x = (t_sradio *)client;
-  int n=x->x_number, i=0;
+  int n=x->x_number,i=0,j=0;
   int val = x->x_foc;
-  //post("before update");
+  // post("before update");
   if(glist_isvisible(glist))
   { 
     t_canvas *canvas=glist_getcanvas(glist);
     while (n--) {
-    if (x->x_focflag) {
-      sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n",
-         canvas, x, i, (i==val)?x->x_gui.x_fcol:x->x_gui.x_bcol);
-    }
-    if (x->x_onlist[i]==1)
-    sys_vgui(".x%lx.c itemconfigure %lxBUT%d -fill #%06x -outline #%06x\n",
-         canvas, x, i, x->x_gui.x_fcol, x->x_gui.x_fcol);
-    else
-    sys_vgui(".x%lx.c itemconfigure %lxBUT%d -fill #%06x -outline #%06x\n",
-         canvas, x, i, x->x_gui.x_bcol, x->x_gui.x_bcol);
-
-    x->x_drawnlist[i] = x->x_onlist[i];
-    i++;
+      if (x->x_focflag) {
+        sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n",
+           canvas, x, i, (i==val)?x->x_gui.x_fcol:x->x_gui.x_bcol);
+      }
+      // post("onlist %d : %d",i,x->x_onlist[i]);
+      if (x->x_onlist[i]){
+        sys_vgui(".x%lx.c itemconfigure %lxBUT%d -fill #%06x -outline #%06x\n",
+          canvas, x, i, x->x_gui.x_fcol, x->x_gui.x_fcol);
+      }else{
+        sys_vgui(".x%lx.c itemconfigure %lxBUT%d -fill #%06x -outline #%06x\n",
+          canvas, x, i, x->x_gui.x_bcol, x->x_gui.x_bcol);
+      }
+      x->x_drawnlist[i++] = x->x_onlist[j++];
     }
     
   }
@@ -310,18 +324,21 @@ void sradio_draw_new(t_sradio *x, t_glist *glist) {
   int yy31 = yy11+s6;
   int xx32 = xx11b+dx-s6;
   int yy32 = yy12-s6;
-  int zoomlabel =
+  int zoomlabel = 
     1 + (IEMGUI_ZOOM(x)-1) * (x->x_gui.x_ldx >= 0 && x->x_gui.x_ldy >= 0);
   for(i=0; i<n; i++)
   {
-    sys_vgui(".x%lx.c create rectangle %d %d %d %d -width %d -fill #%06x -tags %lxBASE%d\n",
+    sys_vgui(".x%lx.c create rectangle %d %d %d %d \
+      -width %d -fill #%06x -tags %lxBASE%d\n",
          canvas, xx11, yy11, xx11+dx, yy12, IEMGUI_ZOOM(x),
          x->x_gui.x_bcol, x, i);
-    sys_vgui(".x%lx.c create oval %d %d %d %d -fill #%06x -outline #%06x -tags %lxBUT%d\n",
+    sys_vgui(".x%lx.c create oval %d %d %d %d \
+      -fill #%06x -outline #%06x -tags %lxBUT%d\n",
          canvas, xx21, yy21, xx22, yy22,
          (x->x_onlist[i]==1)?x->x_gui.x_fcol:x->x_gui.x_bcol,
          (x->x_onlist[i]==1)?x->x_gui.x_fcol:x->x_gui.x_bcol, x, i);
-    sys_vgui(".x%lx.c create rectangle %d %d %d %d -outline #%06x -tags %lxFOC%d\n",
+    sys_vgui(".x%lx.c create rectangle %d %d %d %d \
+      -outline #%06x -tags %lxFOC%d\n",
          canvas, xx31, yy31, xx32, yy32,
          (x->x_foc==i)?x->x_gui.x_fcol:x->x_gui.x_bcol, x, i);
     xx11 += dx;
@@ -339,10 +356,12 @@ void sradio_draw_new(t_sradio *x, t_glist *glist) {
        x->x_gui.x_font, x->x_gui.x_fontsize, sys_fontweight,
        x->x_gui.x_lcol, x);
   if(!x->x_gui.x_fsf.x_snd_able)
-    sys_vgui(".x%lx.c create rectangle %d %d %d %d -fill black -tags [list %lxOUT%d outlet]\n",
+    sys_vgui(".x%lx.c create rectangle %d %d %d %d \
+      -fill black -tags [list %lxOUT%d outlet]\n",
        canvas, xx11b, yy12+1-2*IEMGUI_ZOOM(x), xx11b + IOWIDTH, yy12, x, 0);
   if(!x->x_gui.x_fsf.x_rcv_able)
-    sys_vgui(".x%lx.c create rectangle %d %d %d %d -fill black -tags [list %lxIN%d inlet]\n",
+    sys_vgui(".x%lx.c create rectangle %d %d %d %d \
+      -fill black -tags [list %lxIN%d inlet]\n",
        canvas, xx11b, yy11, xx11b + IOWIDTH, yy11-1+2*IEMGUI_ZOOM(x), x, 0);
 }
 
@@ -413,7 +432,8 @@ void sradio_draw_config(t_sradio* x, t_glist* glist) {
   t_canvas *canvas=glist_getcanvas(glist);
   int n=x->x_number, i;
 
-  sys_vgui(".x%lx.c itemconfigure %lxLABEL -font {{%s} -%d %s} -fill #%06x -text {%s} \n",
+  sys_vgui(".x%lx.c itemconfigure %lxLABEL -font {{%s} -%d %s} \
+    -fill #%06x -text {%s} \n",
        canvas, x, x->x_gui.x_font, x->x_gui.x_fontsize, sys_fontweight,
        x->x_gui.x_fsf.x_selected?IEM_GUI_COLOR_SELECTED:x->x_gui.x_lcol,
        strcmp(x->x_gui.x_lab->s_name, "empty")?x->x_gui.x_lab->s_name:"");
@@ -421,7 +441,8 @@ void sradio_draw_config(t_sradio* x, t_glist* glist) {
   {
     sys_vgui(".x%lx.c itemconfigure %lxBASE%d -fill #%06x\n", canvas, x, i,
          x->x_gui.x_bcol);
-    sys_vgui(".x%lx.c itemconfigure %lxBUT%d -fill #%06x -outline #%06x\n", canvas, x, i,
+    sys_vgui(".x%lx.c itemconfigure %lxBUT%d \
+      -fill #%06x -outline #%06x\n", canvas, x, i,
          (x->x_onlist[i]==1)?x->x_gui.x_fcol:x->x_gui.x_bcol,
          (x->x_onlist[i]==1)?x->x_gui.x_fcol:x->x_gui.x_bcol);
     sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n", canvas, x, i,
@@ -458,20 +479,22 @@ void sradio_draw_select(t_sradio* x, t_glist* glist) {
   {
     for(i=0; i<n; i++)
     {
-      sys_vgui(".x%lx.c itemconfigure %lxBASE%d -outline #%06x\n", canvas, x, i,
+      sys_vgui(".x%lx.c itemconfigure %lxBASE%d \
+        -outline #%06x\n", canvas, x, i,
            IEM_GUI_COLOR_SELECTED);
     }
-    sys_vgui(".x%lx.c itemconfigure %lxLABEL -fill #%06x\n", canvas, x, IEM_GUI_COLOR_SELECTED);
+    sys_vgui(".x%lx.c itemconfigure %lxLABEL \
+      -fill #%06x\n", canvas, x, IEM_GUI_COLOR_SELECTED);
   }
   else
   {
     for(i=0; i<n; i++)
     {
-      sys_vgui(".x%lx.c itemconfigure %lxBASE%d -outline #%06x\n", canvas, x, i,
-           IEM_GUI_COLOR_NORMAL);
+      sys_vgui(".x%lx.c itemconfigure %lxBASE%d \
+        -outline #%06x\n", canvas, x, i, IEM_GUI_COLOR_NORMAL);
     }
-    sys_vgui(".x%lx.c itemconfigure %lxLABEL -fill #%06x\n", canvas, x,
-         x->x_gui.x_lcol);
+    sys_vgui(".x%lx.c itemconfigure %lxLABEL \
+      -fill #%06x\n", canvas, x, x->x_gui.x_lcol);
   }
 }
 
@@ -494,7 +517,9 @@ void sradio_draw(t_sradio *x, t_glist *glist, int mode) {
 
 /* ------------------------ hdl widgetbehaviour----------------------------- */
 
-static void sradio_getrect(t_gobj *z, t_glist *glist, int *xp1, int *yp1, int *xp2, int *yp2) {
+static void sradio_getrect(t_gobj *z, t_glist *glist, 
+                            int *xp1, int *yp1, int *xp2, int *yp2)
+{
   t_sradio *x = (t_sradio *)z;
   *xp1 = text_xpix(&x->x_gui.x_obj, glist);
   *yp1 = text_ypix(&x->x_gui.x_obj, glist);
@@ -502,7 +527,8 @@ static void sradio_getrect(t_gobj *z, t_glist *glist, int *xp1, int *yp1, int *x
   *yp2 = *yp1 + x->x_gui.x_h;
 }
 
-static void sradio_save(t_gobj *z, t_binbuf *b) {
+static void sradio_save(t_gobj *z, t_binbuf *b)
+{
   t_sradio *x = (t_sradio *)z;
   t_binbuf *bb = (t_binbuf *) x->x_textbuf.b_binbuf;
   int start, end, n;
@@ -535,17 +561,23 @@ static void sradio_properties(t_gobj *z, t_glist *owner) {
   char buf[800];
   t_symbol *srl[3];
   iemgui_properties(&x->x_gui, srl);
-  sprintf(buf, "pdtk_iemgui_dialog %%s |sradio| ----------dimensions(pix):----------- %d %d size: 0 0 empty empty 0.0 empty 0.0 empty 0 %d dont keep -1 -1 number: %d %s %s %s %d %d %d %d #%06x #%06x #%06x\n",
+  sprintf(buf, "pdtk_iemgui_dialog %%s |sradio| \
+    ----------dimensions(pix):----------- %d %d \
+    size: 0 0 empty empty 0.0 empty 0.0 empty 0 %d \
+    dont keep -1 -1 number: %d %s %s %s %d %d %d %d #%06x #%06x #%06x\n",
       x->x_gui.x_w, IEM_GUI_MINSIZE,
       (int)x->x_keep, x->x_number,
       srl[0]->s_name, srl[1]->s_name,
       srl[2]->s_name, x->x_gui.x_ldx, x->x_gui.x_ldy,
       x->x_gui.x_fsf.x_font_style, x->x_gui.x_fontsize,
-      0xffffff & x->x_gui.x_bcol, 0xffffff & x->x_gui.x_fcol, 0xffffff & x->x_gui.x_lcol);
+      0xffffff & x->x_gui.x_bcol, 
+      0xffffff & x->x_gui.x_fcol, 
+      0xffffff & x->x_gui.x_lcol);
   gfxstub_new(&x->x_gui.x_obj.ob_pd, x, buf);
 }
 
-static void sradio_dialog(t_sradio *x, t_symbol *s, int argc, t_atom *argv) {
+static void sradio_dialog(t_sradio *x, t_symbol *s, int argc, t_atom *argv) 
+{
   t_symbol *srl[3];
   int a = (int)atom_getintarg(0, argc, argv);
   int keep = (int)atom_getintarg(4, argc, argv);
@@ -580,7 +612,8 @@ static void sradio_keep(t_sradio *x, t_floatarg f) {
   x->x_keep = (unsigned char) (f>0?1:0);
 }
 
-static void sradio_preset(t_sradio *x, t_symbol *s, int argc, t_atom *argv) {
+static void sradio_preset(t_sradio *x, t_symbol *s, int argc, t_atom *argv) 
+{
  if (argc) {
     int n;
     if (argc > x->x_number && argc < IEM_RADIO_MAX) {
@@ -605,7 +638,8 @@ static void sradio_preset(t_sradio *x, t_symbol *s, int argc, t_atom *argv) {
   }
 }
 //'addline' is needed because pdtk_textwindow uses that method
-static void textbuf_addline(t_sradio *x, t_symbol *s, int argc, t_atom *argv) {
+static void textbuf_addline(t_sradio *x, t_symbol *s, int argc, t_atom *argv) 
+{
     sradio_preset(x,gensym("preset"),argc,argv);
 }
 
@@ -637,31 +671,36 @@ static void sradio_set(t_sradio *x, t_symbol *s, int argc, t_atom *argv) {
   
 }
 
-static void sradio_store(t_sradio *x, t_floatarg f) {
+static void sradio_store(t_sradio *x, t_floatarg ff) {
     t_binbuf *b = (t_binbuf *) x->x_textbuf.b_binbuf;
     int start, end, n, i, lineno;
+    int f = (int)ff;
     t_atom *vec;
     if (!b)
        return;
     vec = binbuf_getvec(b);
     n = binbuf_getnatom(b);
-    if (f && ((lineno = f<0?0:(int)f)>=0) && text_nthline(n, vec, lineno, &start, &end))
-     {
-                int oldn = n;
-                n = n + (x->x_number - (end-start));
-                if (n > oldn)
-                    (void)binbuf_resize(b, n);
-                vec = binbuf_getvec(b);
-                memmove(&vec[start + x->x_number], &vec[end],
-                    sizeof(*vec) * (oldn - end));
-                if (n < oldn)
-                {
-                    (void)binbuf_resize(b, n);
-                    vec = binbuf_getvec(b);
-                }
-                for (i=0; i<n; i++) {
-                  vec[start+i] = x->x_listout[i];
-                }
+    if (f && ((lineno = f<0?0:f)>=0) && text_nthline(n, vec, lineno, &start, &end))
+    {
+       post("n:%d, lineno:%d,start:%d,end:%d",n,lineno,start,end);
+      int oldn = n;
+      n = n + (x->x_number - (end-start));
+      if (n > oldn)
+          (void)binbuf_resize(b, n);
+      vec = binbuf_getvec(b);
+      memmove(&vec[start + x->x_number], &vec[end],
+          sizeof(*vec) * (oldn - end));
+      // post("after memmove");
+      if (n < oldn)
+      {
+          (void)binbuf_resize(b, n);
+          vec = binbuf_getvec(b);
+      }
+      // post("before loop");
+      for (i=0; i<x->x_number; i++) {
+        vec[start+i] = x->x_listout[i];
+        // post("loop:%d",n);
+      }
     } else {
      binbuf_restore(x->x_textbuf.b_binbuf, x->x_number, x->x_listout);
      binbuf_addsemi(x->x_textbuf.b_binbuf);
@@ -718,12 +757,11 @@ static void sradio_flush(t_sradio *x, t_symbol *s) {
 
 static void sradio_clear(t_sradio *x) {
   int n = x->x_number;
-  int i=0;
-  int d=0;
+  int i=0, d=0;
   while (n--) {
-  x->x_onlist[i] = x->x_drawnlist[i]= d;
-  SETFLOAT(&x->x_listout[i], d);
-  i++;
+    x->x_onlist[i] = x->x_drawnlist[i]= d;
+    SETFLOAT(&x->x_listout[i], d);
+    i++;
   }
   (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
   binbuf_clear(x->x_textbuf.b_binbuf);
@@ -736,7 +774,8 @@ static void sradio_bang(t_sradio *x) {
     pd_list(x->x_gui.x_snd->s_thing, 0,x->x_number, x->x_listout);
 }
 
-static void sradio_fout(t_sradio *x, t_floatarg f) {
+static void sradio_fout(t_sradio *x, t_floatarg f)
+{
   int i=(int)f;
   if(i < 0)
     i = 0;
@@ -761,6 +800,23 @@ static void sradio_float(t_sradio *x, t_floatarg f) {
       (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
     x->x_old = x->x_foc;
   }
+}
+
+static void sradio_print(t_sradio *x) {
+  post("------------------------[sradio info]------------------------");
+  post("x_number: %d \n x_drawn: %d \n x_pos: %d \n x_val: %d \n \
+   x_foc: %d \n x_old: %d \n x_focflag: %d \n x->keep: %d",
+   x->x_number, x->x_drawn, x->x_pos, x->x_val, 
+   x->x_foc, x->x_old, x->x_focflag, x->x_keep);
+  // int i;
+  // for(i=0; i<=x->x_number; i++) {
+  //   post("onlist[%d]:%d", i,x->x_onlist[i]);
+  // }
+  // for(i=0; i<=x->x_number; i++) {
+  //   post("drawnlist[%d]:%d", i,x->x_drawnlist[i]);
+  // }
+  post("x_listout: ");
+  postatom(x->x_number, x->x_listout); endpost();
 }
 
 /*
@@ -793,20 +849,32 @@ static void sradio_motion(t_sradio *x, t_floatarg dx, t_floatarg f) {
   }
 }
 */
-static void sradio_click(t_sradio *x, t_floatarg xpos, t_floatarg ypos, t_floatarg shift, t_floatarg ctrl, t_floatarg alt) {
-  
+static void sradio_click(t_sradio *x, 
+  t_floatarg xpos, t_floatarg ypos, 
+  t_floatarg shift, t_floatarg ctrl, t_floatarg alt)
+{  
   int xx = (int)xpos - (int)text_xpix(&x->x_gui.x_obj, x->x_gui.x_glist);
   float f = (t_float)(xx / x->x_gui.x_w);
   if (!shift)
     sradio_fout(x, f);
   else
     textbuf_open(x);
-  //glist_grab(x->x_gui.x_glist, &x->x_gui.x_obj.te_g, (t_glistmotionfn)sradio_motion, 0, xpos, f);
+  // post("f:%f",f);
+  // post("xpos: %d, ypos: %d,  shift: %d, \
+   ctrl: %d,  alt: %d", xpos,  ypos,  shift,  ctrl,  alt);
+  //glist_grab(x->x_gui.x_glist,
+  // &x->x_gui.x_obj.te_g, (t_glistmotionfn)sradio_motion, 0, xpos, f);
 }
 
-static int sradio_newclick(t_gobj *z, struct _glist *glist, int xpix, int ypix, int shift, int alt, int dbl, int doit) {
+static int sradio_newclick(t_gobj *z, struct _glist *glist,
+ int xpix, int ypix, int shift, int alt, int dbl, int doit) 
+{
+  // post("xpix: %d, ypix: %d, shift: %d, alt: %d, dbl: %d, doit: %d",
+  //   xpix, ypix, shift, alt, dbl, doit);
   if(doit)
-    sradio_click((t_sradio *)z, (t_floatarg)xpix, (t_floatarg)ypix, (t_floatarg)shift, 0, (t_floatarg)alt);
+    sradio_click((t_sradio *)z, 
+      (t_floatarg)xpix, (t_floatarg)ypix, 
+      (t_floatarg)shift, 0, (t_floatarg)alt);
   return (1);
 }
 
@@ -818,7 +886,8 @@ static void sradio_focus(t_sradio *x, t_floatarg foc) {
   } else {
   x->x_focflag = 0;
   for (i=0;i<n;i++)
-  sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n", canvas, x, i, x->x_gui.x_bcol);
+  sys_vgui(".x%lx.c itemconfigure %lxFOC%d \
+    -outline #%06x\n", canvas, x, i, x->x_gui.x_bcol);
   }
 }
 
@@ -887,9 +956,10 @@ iemgui_label_font((void *)x, &x->x_gui, s, ac, av);}
 static void *sradio_donew(t_symbol *s, int argc, t_atom *argv, int old) {
   t_sradio *x = (t_sradio *)pd_new(sradio_class);
   int a=IEM_GUI_DEFAULTSIZE, f=0;
-  int ldx=0, ldy=-8, keep=1, num=8;
-  int fs=10;
-  int ftbreak=IEM_BNG_DEFAULTBREAKFLASHTIME, fthold=IEM_BNG_DEFAULTHOLDFLASHTIME;
+  int ldx=0, ldy=-8, keep=DEF_KEEP, num=DEF_NUMBER;
+  int fs=DEF_FONTSIZE;
+  int ftbreak=IEM_BNG_DEFAULTBREAKFLASHTIME;
+  int fthold=IEM_BNG_DEFAULTHOLDFLASHTIME;
   char str[144];
   t_symbol *asym = gensym("#A");
 
@@ -939,7 +1009,6 @@ static void *sradio_donew(t_symbol *s, int argc, t_atom *argv, int old) {
     num = IEM_RADIO_MAX;
   x->x_number = num;
   sradio_resizer(x,num);
-  
   textbuf_init(&x->x_textbuf);
   /* bashily unbind #A -- this would create garbage if #A were
   multiply bound but we believe in this context it's at most
@@ -984,18 +1053,19 @@ static void sradio_ff(t_sradio *x) {
 void g_sradio_setup(void) {
   sradio_class = class_new(gensym("sradio"), (t_newmethod)sradio_new,
     (t_method)sradio_ff, sizeof(t_sradio), 0, A_GIMME, 0);
+
   class_addbang(sradio_class, sradio_bang);
   class_addfloat(sradio_class, sradio_float);
-  class_addmethod(sradio_class, (t_method)sradio_click, gensym("click"),
-          A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, 0);
+  class_addmethod(sradio_class, (t_method)sradio_click,
+    gensym("click"), A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, 0);
   //class_addmethod(sradio_class, (t_method)sradio_motion, gensym("motion"),
           //A_FLOAT, A_FLOAT, 0);
-  class_addmethod(sradio_class, (t_method)sradio_dialog, gensym("dialog"),
-          A_GIMME, 0);
-  class_addmethod(sradio_class, (t_method)sradio_clear, gensym("clear"),
-          A_NULL);
-  class_addmethod(sradio_class, (t_method)sradio_focus, gensym("focus"),
-          A_FLOAT, 0);
+  class_addmethod(sradio_class, (t_method)sradio_dialog, 
+    gensym("dialog"), A_GIMME, 0);
+  class_addmethod(sradio_class, (t_method)sradio_clear,
+    gensym("clear"), A_NULL);
+  class_addmethod(sradio_class, (t_method)sradio_focus, 
+    gensym("focus"), A_FLOAT, 0);
   class_addmethod(sradio_class, (t_method)sradio_preset,
     gensym("preset"), A_GIMME, 0);
   class_addmethod(sradio_class, (t_method)sradio_set,
@@ -1007,7 +1077,7 @@ void g_sradio_setup(void) {
   class_addmethod(sradio_class, (t_method)textbuf_close,
     gensym("close"), 0);
   class_addmethod(sradio_class, (t_method)textbuf_addline,
-        gensym("addline"), A_GIMME, 0);
+    gensym("addline"), A_GIMME, 0);
   class_addmethod(sradio_class, (t_method)sradio_next,
     gensym("next"), A_NULL);
   class_addmethod(sradio_class, (t_method)sradio_store,
@@ -1017,9 +1087,9 @@ void g_sradio_setup(void) {
   class_addmethod(sradio_class, (t_method)sradio_flush,
     gensym("flush"), A_SYMBOL, A_NULL);
   class_addmethod(sradio_class, (t_method)textbuf_write,
-        gensym("write"), A_GIMME, 0);
+    gensym("write"), A_GIMME, 0);
   class_addmethod(sradio_class, (t_method)textbuf_read,
-        gensym("read"), A_GIMME, 0);
+    gensym("read"), A_GIMME, 0);
   class_addmethod(sradio_class, (t_method)sradio_prev,
     gensym("prev"), A_NULL);
   class_addmethod(sradio_class, (t_method)sradio_size,
@@ -1042,8 +1112,11 @@ void g_sradio_setup(void) {
     gensym("label_font"), A_GIMME, 0);
   class_addmethod(sradio_class, (t_method)sradio_number,
     gensym("number"), A_FLOAT, 0);
-  class_addmethod(sradio_class, (t_method)iemgui_zoom, gensym("zoom"),
-    A_CANT, 0);
+  class_addmethod(sradio_class, (t_method)iemgui_zoom,
+    gensym("zoom"), A_CANT, 0);
+  class_addmethod(sradio_class, (t_method)sradio_print,
+    gensym("print"), A_NULL);
+
   sradio_widgetbehavior.w_getrectfn = sradio_getrect;
   sradio_widgetbehavior.w_displacefn = iemgui_displace;
   sradio_widgetbehavior.w_selectfn = iemgui_select;

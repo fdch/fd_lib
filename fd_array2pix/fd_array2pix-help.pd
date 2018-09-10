@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_array2pix; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_array2pix; #X text 400 300 fd_lib;
+#N canvas 594 69 450 350 12;
+#X declare -lib Gem -lib iemmatrix;
+#X obj 10 130 ./fd_array2pix;
+#X text 400 300 fd_lib;
+#X obj 206 11 declare -lib Gem -lib iemmatrix;
+#X text 10 10 fd_array2pix;
+#X msg 10 80 gemlist;
+#X msg 10 204 gemlist;
+#X msg 105 80 symbol <arrayname>;
+#X text 10 40 Input an arrayname to display it as pixel values (greyspace)
+;
+#X text 274 130 Dependencies:;
+#X text 274 153 -- Gem;
+#X text 274 173 -- iemmatrix;
+#X connect 0 0 5 0;
+#X connect 4 0 0 0;
+#X connect 6 0 0 1;

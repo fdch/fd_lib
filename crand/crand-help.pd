@@ -64,7 +64,7 @@ A 'reset' message resets to default.;
 #X connect 15 0 16 0;
 #X connect 16 0 14 0;
 #X restore 321 226 pd graphing crand;
-#N canvas 447 133 632 381 crand 1;
+#N canvas 447 133 632 381 crand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand-gauss-array 100 float 3;
 #A 0 0.00182086 9.18899e-06 2.61497e-14 0.032761 0.00804646 7.32143e-06
@@ -122,6 +122,115 @@ A 'reset' message resets to default.;
 #X connect 18 0 12 0;
 #X connect 19 0 12 0;
 #X restore 320 251 pd crand with gauss;
+#N canvas 163 75 986 598 crand 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array crand1 30 float 1;
+#A 0 -0.898795 -0.0443914 -0.0856762 0.039977 -0.107021 -0.699377 -0.428115
+0.667364 0.391275 0.155552 0.362329 -0.33765 -0.885049 0.973766 0.0847863
+-0.996685 0.712385 -0.941289 -0.244899 -0.0206966 0.152346 0.477917
+0.358664 0.0725335 -0.928825 -0.754986 0.946711 -0.623448 -0.297363
+0.228251;
+#X coords 0 1 29 -1 352 38 1;
+#X restore 257 96 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array crand2 30 float 0;
+#X coords 0 1 29 -1 354 36 1 0 0;
+#X restore 257 152 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array random1 30 float 1;
+#A 0 1 5 8 4 2 7 5 9 9 7 1 8 1 2 0 6 8 5 0 5 0 4 6 5 4 2 5 2 2 9;
+#X coords 0 10 29 0 354 36 1 0 0;
+#X restore 257 205 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array random2 30 float 1;
+#A 0 4 9 6 9 3 0 6 6 0 0 7 6 0 4 6 9 7 6 3 7 6 9 4 9 3 1 8 9 2 4;
+#X coords 0 10 29 0 355 36 1 0 0;
+#X restore 257 258 graph;
+#X obj 135 399 fd_iterate;
+#X obj 135 423 t b f;
+#X obj 135 471 array set crand1;
+#X msg 191 373 seed 1;
+#X obj 211 313 bng 15 250 50 0 empty empty generate 17 7 0 10 -262144
+-1 -1;
+#X obj 270 400 fd_iterate;
+#X obj 270 424 t b f;
+#X obj 270 472 array set crand2;
+#X msg 135 375 30;
+#X msg 270 376 30;
+#X obj 135 447 crand -1 1;
+#X obj 270 448 crand -1 1;
+#X obj 528 401 fd_iterate;
+#X obj 528 425 t b f;
+#X msg 641 336 seed 1;
+#X obj 568 313 bng 15 250 50 0 empty empty generate 17 7 0 10 -262144
+-1 -1;
+#X obj 663 402 fd_iterate;
+#X obj 663 426 t b f;
+#X msg 528 377 30;
+#X msg 663 378 30;
+#X obj 528 449 random 10;
+#X obj 663 450 random 10;
+#X obj 528 473 array set random1;
+#X obj 663 474 array set random2;
+#X text 624 219 <-- these will be the same;
+#X text 624 258 <-- these will be the same;
+#X obj 641 242 bng 15 250 50 0 empty empty seed 17 7 0 10 -262144 -1
+-1;
+#X text 32 106 these will be different -->;
+#X text 35 157 these will be different -->;
+#X obj 191 135 bng 15 250 50 0 empty empty seed 17 7 0 10 -262144 -1
+-1;
+#X text 91 192 but the same every iteration, f 10;
+#X text 833 220 but different every iteration, f 12;
+#X obj 100 322 bng 15 250 50 0 empty empty no_change 17 7 0 10 -262144
+-1 -1;
+#X obj 135 345 t b b;
+#X msg 751 311 seed 4;
+#X msg 676 309 seed 3;
+#X text 671 291 (unless diff seeds);
+#X text 181 503 [crand];
+#X text 608 505 [random];
+#X text 128 523 [crand] uses <time.h> to make the seed for the C function
+'srand()', f 27;
+#X text 163 27 like [random] \, send a "seed \$1" message to change
+seed. But \, the behavior is different:, f 87;
+#X connect 4 0 5 0;
+#X connect 5 0 14 0;
+#X connect 5 1 6 1;
+#X connect 7 0 14 0;
+#X connect 7 0 15 0;
+#X connect 8 0 12 0;
+#X connect 8 0 13 0;
+#X connect 9 0 10 0;
+#X connect 10 0 15 0;
+#X connect 10 1 11 1;
+#X connect 12 0 4 0;
+#X connect 13 0 9 0;
+#X connect 14 0 6 0;
+#X connect 15 0 11 0;
+#X connect 16 0 17 0;
+#X connect 17 0 24 0;
+#X connect 17 1 26 1;
+#X connect 18 0 24 0;
+#X connect 18 0 25 0;
+#X connect 19 0 22 0;
+#X connect 19 0 23 0;
+#X connect 20 0 21 0;
+#X connect 21 0 25 0;
+#X connect 21 1 27 1;
+#X connect 22 0 16 0;
+#X connect 23 0 20 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 30 0 18 0;
+#X connect 33 0 7 0;
+#X connect 36 0 37 0;
+#X connect 37 0 12 0;
+#X connect 37 0 13 0;
+#X connect 37 1 7 0;
+#X connect 38 0 25 0;
+#X connect 39 0 24 0;
+#X restore 321 275 pd crand seed test;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X connect 2 0 6 0;

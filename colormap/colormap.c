@@ -5,7 +5,7 @@
 typedef struct _colormap {
   t_object  x_obj;
   int x_size;
-  float *x_r, *x_g, *x_b;
+  double *x_r, *x_g, *x_b;
 } t_colormap;
 
 static void make_curves(t_colormap *x)
@@ -13,29 +13,33 @@ static void make_curves(t_colormap *x)
   int i, size;
   double r,b,g;
   size = x->x_size;
-  x->x_r = (float *)t_getbytes(size*sizeof(float));
-  x->x_g = (float *)t_getbytes(size*sizeof(float));
-  x->x_b = (float *)t_getbytes(size*sizeof(float));
+  x->x_r = (double *)t_getbytes(size*sizeof(double));
+  x->x_g = (double *)t_getbytes(size*sizeof(double));
+  x->x_b = (double *)t_getbytes(size*sizeof(double));
   
-  for(i=0;i<size;i++){
-    b=(float)i/(float)size;
+  for(i=0;size--;i++){
+    b=(double)i/(double)x->x_size;
     r=sqrt(b);
-    g=-r+1;
-    x->x_b[i]=(float)b;
-    x->x_r[i]=(float)r;
-    x->x_g[x->x_size-i]=(float)g;
+    g=(-1.0*r)+1.0;
+    x->x_b[i]=(double)b;
+    x->x_r[i]=(double)r;
+    x->x_g[size]=(double)g;
   }
 
+  x->x_b[0]=0.0;
+  x->x_r[0]=0.0;
+  x->x_g[0]=0.0;
+  x->x_b[x->x_size-1]=1.0;
+  x->x_r[x->x_size-1]=1.0;
+  x->x_g[x->x_size-1]=1.0;
   //post("size=%d",size);
 }
 
 static void colormap_float(t_colormap *x, t_floatarg f)
 {
-  int i;
-  if (f<1)
-   i=0;
-  if (f>x->x_size)
-   i=x->x_size;
+  int i = (int) f;
+  if (f<1) i=0;
+  if (f>x->x_size-1) i=x->x_size-1;
 
   t_atom out[3];
   SETFLOAT(out,  x->x_r[i]);
@@ -49,7 +53,7 @@ static t_class *colormap_class;
 void *colormap_new(t_floatarg f) {
   t_colormap *x = (t_colormap *)pd_new(colormap_class);
   outlet_new(&x->x_obj, &s_list);
-  x->x_size = f<128?128:f;
+  x->x_size = f<128?128:(int)f;
   make_curves(x);
   return (void *)x;
 }

@@ -1,1 +1,17 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_guiFont; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_guiFont; #X text 400 300 fd_lib;
+#N canvas 526 50 450 350 12;
+#X text 400 300 fd_lib;
+#X obj 150 114 vsl 16 128 0 127 0 0 vol vol-set vol 21 8 0 21 -262144
+-1 -1 0 1;
+#X obj 246 124 hradio 16 1 0 8 whatnot whatnot-set whatnot 21 8 0 21
+-262144 -1 -1 0;
+#X floatatom 15 60 5 0 0 0 - - -, f 5;
+#X obj 82 266 tgl 16 0 onoff onoff-set onoff 21 8 0 21 -262144 -1 -1
+0 1;
+#X obj 246 169 hsl 16 15 0 127 0 0 pan pan-set pan 21 8 0 21 -262144
+-1 -1 0 1;
+#X obj 178 148 vradio 16 1 0 8 vcho vcho-set vcho 21 8 0 21 -262144
+-1 -1 0;
+#X obj 10 100 fd_guiFont vol onoff whatnot pan vcho, f 11;
+#X text 10 40 Changes sizes and text position in gui;
+#X text 10 10 fd_guiFont;
+#X connect 3 0 7 0;

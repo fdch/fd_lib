@@ -1,0 +1,25 @@
+#N canvas 563 57 471 332 12;
+#X obj 61 39 inlet;
+#X obj 63 273 outlet;
+#X obj 103 169 fd_seltab 0;
+#X obj 103 119 hradio 15 1 0 14 empty empty 0-arc 0 -8 0 10 -262144
+-1 -1 11;
+#X obj 103 193 t a a;
+#X msg 203 169 label \$1;
+#X msg 103 217 set \$1;
+#X obj 103 241 t a a;
+#X obj 197 272 outlet;
+#X obj 61 63 min 14;
+#X obj 61 87 max;
+#X connect 0 0 9 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 7 1 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X coords 0 -1 1 1 220 41 2 100 100;

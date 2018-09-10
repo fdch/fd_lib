@@ -12,8 +12,10 @@
 #X obj 216 153 sel 0;
 #X msg 161 156 1;
 #X obj 37 189 del \$1;
+#X obj 331 242 outlet;
 #X connect 0 0 5 0;
 #X connect 0 1 1 1;
+#X connect 0 2 13 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 1;

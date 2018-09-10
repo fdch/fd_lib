@@ -1,9 +1,8 @@
+./!an_overview/all_gui.pd
 ./!an_overview/an_overview-help.pd
 ./!an_overview/externals-overview.pd
 ./!msg/!msg-help.pd
 ./!msg/!msg.pd
-./_fdblobvid/_fdblobvid-help.pd
-./_fdblobvid/_fdblobvid.pd
 ./back/_type.pd
 ./back/back-help.pd
 ./back/back-test.pd
@@ -76,8 +75,6 @@
 ./fd_arraysort1/fd_arraysort1.pd
 ./fd_arraysort2/fd_arraysort2-help.pd
 ./fd_arraysort2/fd_arraysort2.pd
-./fd_arraytrim/fd_arraytrim-help.pd
-./fd_arraytrim/fd_arraytrim.pd
 ./fd_autopatch/fd_autopatch-help.pd
 ./fd_autopatch/fd_autopatch.pd
 ./fd_autopoly/fd_autopoly-help.pd
@@ -145,6 +142,8 @@
 ./fd_cubic/fd_cubic.pd
 ./fd_dacout/fd_dacout-help.pd
 ./fd_dacout/fd_dacout.pd
+./fd_dactest/_test-tone.pd
+./fd_dactest/_test8.pd
 ./fd_dactest/fd_dactest-help.pd
 ./fd_dactest/fd_dactest.pd
 ./fd_data/fd_data.pd
@@ -207,8 +206,6 @@
 ./fd_expo~/fd_expo~.pd
 ./fd_fftfilt/fd_fftfilt-help.pd
 ./fd_fftfilt/fd_fftfilt.pd
-./fd_film2img/fd_film2img-help.pd
-./fd_film2img/fd_film2img.pd
 ./fd_filt/_A.pd
 ./fd_filt/_alpha.pd
 ./fd_filt/_omega.pd
@@ -504,16 +501,8 @@
 ./fd_swap/fd_swap.pd
 ./fd_switch/fd_switch-help.pd
 ./fd_switch/fd_switch.pd
-./fd_t-read/fd_t-read-help.pd
-./fd_t-read/fd_t-read.pd
-./fd_tabswitch/fd_tabswitch-help.pd
-./fd_tabswitch/fd_tabswitch.pd
 ./fd_tempo-msec/fd_tempo-msec-help.pd
 ./fd_tempo-msec/fd_tempo-msec.pd
-./fd_test-tone/fd_test-tone-help.pd
-./fd_test-tone/fd_test-tone.pd
-./fd_test8/fd_test8-help.pd
-./fd_test8/fd_test8.pd
 ./fd_textsort2/fd_textsort2-help.pd
 ./fd_textsort2/fd_textsort2.pd
 ./fd_tglvis/fd_tglvis-help.pd
@@ -532,6 +521,7 @@
 ./fd_triangle~/fd_triangle~.pd
 ./fd_trunc2n/fd_trunc2n-help.pd
 ./fd_trunc2n/fd_trunc2n.pd
+./fd_untext/_t-read.pd
 ./fd_untext/fd_untext-help.pd
 ./fd_untext/fd_untext.pd
 ./fd_updown/fd_updown-help.pd
@@ -554,8 +544,6 @@
 ./fd_wielevy/fd_wielevy.pd
 ./fd_wielevy2/fd_wielevy2-help.pd
 ./fd_wielevy2/fd_wielevy2.pd
-./fd_wind/fd_wind-help.pd
-./fd_wind/fd_wind.pd
 ./fd_windows/fd_windows-help.pd
 ./fd_windows/fd_windows.pd
 ./fd_winreceive~/fd_winreceive~-help.pd
@@ -573,8 +561,11 @@
 ./fd_zero-crossing~/fd_zero-crossing~-help.pd
 ./fd_zero-crossing~/fd_zero-crossing~.pd
 ./fdm/fdm-help.pd
+./frand/frand-help.pd
+./g_seltab/g_seltab.pd
 ./gausstwister/gausstwister-help.pd
 ./gemvertexbuffer/gemvertexbuffer-help.pd
+./gemvertexbuffer/new/gemvertexbuffer-help.pd
 ./glistinfo/_dummy.pd
 ./glistinfo/_pdump.pd
 ./glistinfo/glistinfo-help.pd
@@ -605,6 +596,9 @@
 ./mtwister/mtwister-help.pd
 ./parabola/parabola-help.pd
 ./PdCon16~/PdCon16~-help.pd
+./pix_dump2/pix_dump2-help.pd
+./pix_dump2/test-.pd
+./pix_dump2/tests.pd
 ./pix_fft/pix_fft-help.pd
 ./pix_fft/pix_ifft-help.pd
 ./pix_fft/pix_mag-help.pd

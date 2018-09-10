@@ -1,1 +1,9 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_tovowel; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_tovowel; #X text 400 300 fd_lib;
+#N canvas 530 55 450 350 12;
+#X text 400 300 fd_lib;
+#X text 10 10 fd_tovowel;
+#X text 10 40 Turn numbers into vowels;
+#X obj 146 149 fd_tovowel;
+#X msg 135 91 0 \, 1 \, 2 \, 3 \, 4 \, 5;
+#X obj 133 215 print vowel;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;

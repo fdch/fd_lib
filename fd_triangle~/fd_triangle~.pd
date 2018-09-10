@@ -1,4 +1,4 @@
-#N canvas 1 452 514 329 12;
+#N canvas 1 445 514 329 12;
 #X obj 73 109 samplerate~;
 #X msg 114 131 0;
 #X obj 108 12 inlet;
@@ -57,6 +57,7 @@
 #X connect 22 1 12 1;
 #X connect 22 2 13 1;
 #X connect 22 3 20 0;
+#X connect 22 4 5 0;
 #X connect 23 0 24 0;
 #X connect 24 0 26 0;
 #X connect 24 0 27 0;

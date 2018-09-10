@@ -1,5 +1,5 @@
 #N canvas 492 38 539 466 10;
-#X obj 323 17 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 323 17 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 323 37 switch~;
 #X obj 279 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -14,7 +14,7 @@
 #X obj 86 307 *~;
 #X obj 142 307 *~;
 #X obj 193 304 *~;
-#X obj 387 14 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 387 14 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 383 104 metro 10;
 #X obj 383 126 list prepend print 1;

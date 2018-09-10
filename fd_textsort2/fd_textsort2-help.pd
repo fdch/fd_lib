@@ -1,1 +1,69 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_textsort2; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_textsort2; #X text 400 300 fd_lib;
+#N canvas 532 53 450 350 12;
+#X text 400 300 fd_lib;
+#X text 10 10 fd_textsort2;
+#X text 10 40 BUBBLE SORT A 2 COLUMN LIST BASED ON ITS FIRST COLUMN
+;
+#X text 212 101 \$1 == text to read from;
+#X text 213 122 \$2 == incr/decr \; increment (0 \, default) \; decreasing
+(not 0)., f 24;
+#X text 213 78 ARGUMENTS;
+#X text 218 201 NOTE: you need to place a [text define \$1] object
+before creating this abstraction, f 26;
+#X obj 24 276 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 13 132 fd_textsort2 mytext 0;
+#X obj 104 79 bng 15 250 50 0 empty empty first 17 7 0 10 -262144 -1
+-1;
+#X obj 33 98 bng 15 250 50 0 empty empty second 17 7 0 10 -262144 -1
+-1;
+#X obj 14 177 bng 15 250 50 0 empty empty third 17 7 0 10 -262144 -1
+-1;
+#X obj 14 197 array get index-mytext;
+#X obj 14 221 print;
+#X obj 222 281 text define -k mytext;
+#A set 929 0 \; 663 1 \; 107 2 \; 736 3 \; 387 4 \; 441 5 \; 583 6
+\; 853 7 \; 255 8 \; 773 9 \; 195 10 \; 710 11 \; 800 12 \; 523 13
+\; 838 14 \; 187 15 \; 104 16 \; 209 17 \; 466 18 \; 185 19 \; 799
+20 \; 989 21 \; 320 22 \; 112 23 \; 799 24 \; 641 25 \; 172 26 \; 367
+27 \; 37 28 \; 553 29 \; 550 30 \; 823 31 \; 198 32 \; 706 33 \; 978
+34 \; 313 35 \; 453 36 \; 656 37 \; 209 38 \; 112 39 \; 195 40 \; 520
+41 \; 459 42 \; 424 43 \; 771 44 \; 959 45 \; 640 46 \; 867 47 \; 218
+48 \; 166 49 \; 597 50 \; 952 51 \; 998 52 \; 846 53 \; 343 54 \; 575
+55 \; 731 56 \; 203 57 \; 289 58 \; 494 59 \; 929 60 \; 923 61 \; 482
+62 \; 820 63 \; 733 64 \; 161 65 \; 839 66 \; 497 67 \; 644 68 \; 522
+69 \; 379 70 \; 786 71 \; 259 72 \; 45 73 \; 461 74 \; 753 75 \; 5
+76 \; 193 77 \; 16 78 \; 751 79 \; 877 80 \; 830 81 \; 781 82 \; 904
+83 \; 164 84 \; 211 85 \; 535 86 \; 592 87 \; 192 88 \; 964 89 \; 333
+90 \; 938 91 \; 53 92 \; 75 93 \; 739 94 \; 286 95 \; 344 96 \; 870
+97 \; 63 98 \; 692 99 \;;
+#N canvas 0 23 450 300 regenerate 0;
+#X obj 55 23 inlet;
+#X obj 55 220 text set mytext;
+#X msg 43 78 100;
+#X obj 43 102 until;
+#X obj 43 126 counter;
+#X obj 43 174 random 1000;
+#X obj 43 198 pack;
+#X obj 43 150 t b f f;
+#X obj 55 47 t b b b;
+#X msg 96 97 0;
+#X msg 161 94 \; mytext clear;
+#X connect 0 0 8 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 5 0;
+#X connect 7 1 6 1;
+#X connect 7 2 1 1;
+#X connect 8 0 2 0;
+#X connect 8 1 9 0;
+#X connect 8 2 10 0;
+#X connect 9 0 4 0;
+#X restore 24 296 pd regenerate data;
+#X connect 7 0 15 0;
+#X connect 9 0 8 1;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;

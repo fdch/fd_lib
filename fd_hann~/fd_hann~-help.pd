@@ -1,1 +1,22 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_hann~; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_hann~; #X text 400 300 fd_lib;
+#N canvas 525 53 472 411 12;
+#X obj 39 332 array define;
+#X text 18 134 Arguments: array-name(symbol) array-size(float), f
+48;
+#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 148 86 \; pd dsp 1;
+#X text 221 104 <-- must be on;
+#X text 247 340 used in [fd_windows];
+#X msg 188 184 click 0 0 0 0 0;
+#X text 191 164 hack to see array:;
+#X text 30 292 following naming conventions as, f 16;
+#X text 45 156 load table ->;
+#X msg 333 192 q \$1 \, bang;
+#X floatatom 344 168 5 0 0 0 - - -, f 5;
+#X text 170 13 "fd_hann~";
+#X text 24 36 Calculate a raised cosine and put it on an array;
+#X obj 157 232 fd_hann~ 0-han 512;
+#X connect 2 0 14 0;
+#X connect 6 0 14 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;

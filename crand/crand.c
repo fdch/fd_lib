@@ -1,6 +1,7 @@
 #include "m_pd.h"
 #include "math.h"
 #include "stdlib.h"
+#include <time.h>
 
 typedef struct crand	{
   t_object x_ob;
@@ -32,11 +33,19 @@ void crand_bang(t_crand *x) {
 	outlet_float(x->x_outlet0, x->result);
 }
 
+void crand_seed(t_crand *x, t_floatarg f) {
+	unsigned int seed = (unsigned int) f;
+	srand(seed);
+}
+
+
 t_class *crand_class;
 
 void *crand_new(t_floatarg f, t_floatarg g)	{
     t_crand *x = (t_crand *)pd_new(crand_class);
     x->x_outlet0 = outlet_new(&x->x_ob, &s_float);
+    time_t t;
+    srand((unsigned) time(&t));
    	x->a = (f != 0) ? f : 0;
 	x->b = (g != 0) ? g : 1;
 	x->result = 0.0;
@@ -49,4 +58,5 @@ void crand_setup(void)	{
     class_addbang(crand_class, crand_bang);
     class_addmethod(crand_class, (t_method)crand_set, gensym("set"), A_GIMME, 0);
     class_addmethod(crand_class, (t_method)crand_reset, gensym("reset"), A_GIMME, 0);
+    class_addmethod(crand_class, (t_method)crand_seed, gensym("seed"), A_FLOAT, 0);
 }

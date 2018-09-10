@@ -1,5 +1,4 @@
-#N canvas 486 135 550 550 12;
-#X declare -stdlib iemmatrix;
+#N canvas 20 76 550 550 12;
 #X obj 190 103 sqrt;
 #X msg 118 299 GREY \, set \$1 \$1;
 #X obj 265 12 inlet;
@@ -15,9 +14,7 @@
 #X msg 384 149 \$1 \$1;
 #X obj 265 37 t b a a;
 #X obj 189 163 t b f f;
-#X obj 388 10 declare -stdlib iemmatrix, f 9;
 #X obj 261 333 mtx_transpose;
-#X obj 309 302 mtx_reverse;
 #X connect 0 0 14 0;
 #X connect 1 0 3 0;
 #X connect 2 0 13 0;
@@ -26,7 +23,7 @@
 #X connect 6 0 0 0;
 #X connect 7 0 8 0;
 #X connect 8 0 9 0;
-#X connect 9 0 16 0;
+#X connect 9 0 15 0;
 #X connect 10 1 3 1;
 #X connect 11 0 8 1;
 #X connect 12 0 11 0;
@@ -36,4 +33,4 @@
 #X connect 14 0 7 0;
 #X connect 14 1 1 0;
 #X connect 14 2 12 0;
-#X connect 16 0 10 0;
+#X connect 15 0 10 0;

@@ -32,7 +32,7 @@
 #X obj 300 320 r sradio-help;
 #X obj 300 345 list prepend set;
 #X obj 300 370 list trim;
-#X msg 300 395 0;
+#X msg 300 395 0 1 0 0 0 0 0 0;
 #X obj 119 449 t a b;
 #X obj 119 474 print;
 #X obj 173 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -131,8 +131,6 @@ arrays / t_textbuf hack, f 77;
 #X restore 396 456 pd storage;
 #X obj 57 285 sradio 15 1 8 sradio-help sradio-r-help sradio 0 -8 0
 10 -261234 -33289 -86277;
-#A preset 0 0 0 0 0 1 0 0 \; 0 1 0 0 0 0 0 0 \; 1 0 0 1 1 1 1 0 \;
-;
 #X text 64 314 Right-click + properties is just like hradio, f 25
 ;
 #X text 65 364 Shift+click to open (see pd-storage), f 19;
@@ -143,6 +141,7 @@ toggles with internal storage (see pd-storage)., f 62;
 #X text 115 151 <-- get value at index;
 #X text 289 428 __________________________________;
 #X text 289 478 __________________________________;
+#X msg 143 251 print;
 #X connect 0 0 25 0;
 #X connect 3 0 7 0;
 #X connect 3 1 30 0;
@@ -167,3 +166,4 @@ toggles with internal storage (see pd-storage)., f 62;
 #X connect 30 1 32 0;
 #X connect 34 0 36 0;
 #X connect 38 0 3 0;
+#X connect 47 0 25 0;

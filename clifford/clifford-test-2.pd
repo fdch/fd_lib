@@ -1,6 +1,5 @@
 #N canvas 563 40 371 255 12;
-#X declare -stdlib Gem;
-#X obj 185 23 declare -stdlib Gem;
+#X declare -lib Gem;
 #X obj 29 118 gemwin;
 #N canvas 0 22 450 300 controls 0;
 #X msg 105 215 reset;
@@ -219,5 +218,6 @@
 #X msg 40 88 0 \, destroy \,;
 #X text 20 19 Clifford in Gem;
 #X text 41 147 comment;
-#X connect 5 0 1 0;
-#X connect 6 0 1 0;
+#X obj 185 24 declare -lib Gem;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;

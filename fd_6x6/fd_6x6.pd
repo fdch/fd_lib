@@ -1,12 +1,13 @@
-#N canvas 0 22 429 438 12;
+#N canvas 0 23 429 438 12;
+#N canvas 521 61 450 300 (subpatch) 0;
 #X obj 10 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
 -1 0;
 #X obj 25 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
--1 1;
+-1 3;
 #X obj 40 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 2;
 #X obj 55 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 3;
 #X obj 70 212 + 1;
 #X obj 101 212 + 1;
 #X obj 126 212 + 1;
@@ -15,7 +16,7 @@
 #X obj 122 257 t b f;
 #X obj 77 257 t b f;
 #X obj 70 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 2;
 #X obj 85 11 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
 -1 0;
 #X obj 116 344 pack 1 1 1 1 1 1, f 29;
@@ -56,4 +57,10 @@
 #X connect 20 3 3 0;
 #X connect 20 4 11 0;
 #X connect 20 5 12 0;
-#X coords 0 -1 1 1 90 92 1 10 10;
+#X coords 0 -1 1 1 90 92 2 10 10;
+#X restore 8 38 pd;
+#X obj 8 14 inlet;
+#X obj 8 135 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X coords 0 -1 1 1 94 96 1 6 36;

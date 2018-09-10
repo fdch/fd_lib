@@ -1,1 +1,37 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_vidbuf; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_vidbuf; #X text 400 300 fd_lib;
+#N canvas 534 50 450 350 12;
+#X declare -lib Gem;
+#X text 400 300 fd_lib;
+#X obj 209 10 declare -lib Gem;
+#X text 10 10 fd_vidbuf;
+#X text 10 40 A buffer already linked to a video-feed;
+#X obj 31 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 26 278 0 \, destroy \, reset \, dimen 200 200 \, offset 50 50
+\, create \, 1;
+#X obj 26 302 gemwin;
+#X msg 76 305 0 \, destroy;
+#X obj 31 92 fd_vidbuf mybuf;
+#X text 49 141 useful for multiple video feeds;
+#N canvas 0 23 450 300 example 0;
+#X obj 59 81 fd_bufvid mybuf;
+#X obj 59 135 pix_texture;
+#X obj 59 57 gemhead 1;
+#X obj 229 81 fd_bufvid mybuf;
+#X obj 229 135 pix_texture;
+#X obj 229 57 gemhead 1;
+#X obj 59 159 circle 1;
+#X obj 229 159 square 1;
+#X obj 59 105 translateXYZ -2 0 0;
+#X obj 229 105 translateXYZ 2 0 0;
+#X connect 0 0 8 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 4 0;
+#X restore 128 171 pd example;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 7 0 6 0;
