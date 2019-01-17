@@ -11,9 +11,9 @@
 #X msg 392 245 focus \$1;
 #X obj 57 448 sel;
 #X obj 314 265 t a;
-#X floatatom 314 95 5 0 0 0 - - -, f 5;
+#X floatatom 314 95 5 0 0 0 - - -;
 #X msg 314 121 number \$1;
-#X floatatom 71 152 5 0 0 0 - - -, f 5;
+#X floatatom 71 152 5 0 0 0 - - -;
 #X msg 92 186 next;
 #X text 137 185 <-- next index;
 #X msg 100 214 prev;
@@ -38,7 +38,7 @@
 #X obj 173 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 419 321 <-- send like hradio;
-#X floatatom 457 373 5 0 0 0 - - -, f 5;
+#X floatatom 457 373 5 0 0 0 - - -;
 #X text 454 350 receives :;
 #X obj 457 395 s sradio-r-help;
 #N canvas 115 23 1075 676 storage 0;
@@ -67,7 +67,7 @@
 #X obj 266 307 hradio 15 1 0 4 empty empty store 0 -8 0 10 -262144
 -1 -1 3;
 #X obj 341 510 hradio 15 1 0 4 empty empty recall 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 3;
 #X text 732 371 [7.2] read;
 #X obj 59 584 s store-receive;
 #X obj 266 388 s store-receive;
@@ -96,7 +96,7 @@ arrays / t_textbuf hack, f 77;
 #X obj 41 80 sradio 20 1 8 store-send store-receive store-receive 0
 -15 0 20 -262144 -1 -1;
 #A preset 1 1 0 1 0 0 1 0 \; 0 0 0 1 0 0 0 1 \; 0 1 0 1 0 1 1 0 \;
-1 0 0 0 1 1 0 1 \;;
+;
 #X obj 43 365 s store-receive;
 #X text 211 80 <--= Shift + click to open text;
 #X text 720 523 Alternatively: Right-click + properties: click on 'keep/dont'

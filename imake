@@ -1,6 +1,9 @@
 #!/bin/bash
 
-PD=/Applications/Pd-0.48-1.app/Contents/Resources/bin/pd
+PDMINVERSION=49-1
+
+
+PD=/Applications/Pd-0.${PDMINVERSION}.app/Contents/Resources/bin/pd
 
 if [[ $1 ]] 
 then

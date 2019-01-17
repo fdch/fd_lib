@@ -7,7 +7,7 @@
 #X obj 61 216 fd_iterate 3;
 #X msg 71 179 10;
 #X obj 286 215 fd_iterate;
-#X text 283 183 (default 100);
+#X text 296 182 (default 100);
 #X text 18 61 Iteratative counter. \$1 or inlet == iterations (default:
 100). Bang or float to start iteration. Argument is forgotten if you
 send in a float.;
