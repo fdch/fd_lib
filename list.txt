@@ -485,6 +485,7 @@
 ./fd_write/fd_write.pd
 ./fd_poisson/fd_poisson.pd
 ./fd_poisson/fd_poisson-help.pd
+./delit/delit-help.pd
 ./tracks2/tracks2-help.pd
 ./sradio/sradio-test.pd
 ./sradio/sradio-cellular-gem.pd
@@ -530,6 +531,7 @@
 ./fd_rgbcol/fd_rgbcol-help.pd
 ./fd_rgbcol/fd_rgbcol.pd
 ./fd_arrayclone/fd_arrayclone.pd
+./fd_arrayclone/fd_arrayclone-help.pd
 ./fd_metro/fd_metro-help.pd
 ./fd_metro/fd_metro.pd
 ./fd_argc/fd_argc.pd

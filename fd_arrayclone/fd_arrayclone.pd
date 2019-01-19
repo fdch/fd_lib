@@ -1,4 +1,4 @@
-#N canvas 0 22 450 300 10;
+#N canvas 0 22 450 300 12;
 #X obj 21 12 inlet;
 #X obj 21 54 outlet;
 #X obj 21 33 array \$2 \$3-\$1;

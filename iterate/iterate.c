@@ -20,7 +20,7 @@ static void iterate_bang(t_iterate *x) {
 
 
 	t_int i;
-	for (i=0;i<=x->x_n;i++) outlet_float(x->x_outlet0, (t_int)i);
+	for (i=0;i<x->x_n;i++) outlet_float(x->x_outlet0, (t_int)i);
 
 	outlet_bang(x->x_outlet1);
 }

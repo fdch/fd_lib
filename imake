@@ -23,7 +23,7 @@ fi
 
 EXT=pd_darwin
 
-make $FILE.$EXT && mv $FILE.$EXT $FILE && $PD -stderr $FILE/$FILE-help.pd
+make $FILE.$EXT && mv $FILE.$EXT $FILE && $PD $FILE/$FILE-help.pd
 
 exit 0
 
