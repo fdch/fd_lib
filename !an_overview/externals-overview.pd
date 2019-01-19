@@ -1,10 +1,5 @@
-#N canvas 0 22 450 300 12;
-#X obj 10 25 back;
-#X obj 10 50 cantor;
-#X obj 10 75 clifford;
-#X obj 10 100 connect;
-#X obj 10 125 counter;
-#X obj 10 150 crand;
+#N canvas 526 49 616 531 12;
+#X obj 10 25 - back;
 #X obj 10 175 cuadratic;
 #X obj 10 200 factor;
 #X obj 10 225 gausstwister;
@@ -36,3 +31,8 @@
 #X obj 10 875 siginfo;
 #X obj 10 900 sradio;
 #X obj 10 925 txt2pd;
+#X obj 10 50 cantor;
+#X obj 10 75 clifford;
+#X obj 10 100 connect;
+#X obj 10 125 counter;
+#X obj 10 150 crand;

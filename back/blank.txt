@@ -1,8 +1,0 @@
-data;
-template this;
-float x;
-float y;
-;
-;
-this 0 0;
-this 0 0;
