@@ -8,6 +8,7 @@
 #X obj 18 79 line~;
 #X obj 18 57 pack f 20;
 #X obj 18 13 inlet;
+#X obj 104 11 inlet;
 #X connect 0 0 1 0;
 #X connect 0 0 4 0;
 #X connect 3 0 7 0;
@@ -16,3 +17,4 @@
 #X connect 6 0 0 0;
 #X connect 7 0 6 0;
 #X connect 8 0 3 0;
+#X connect 9 0 7 1;

@@ -105,6 +105,7 @@
 ./fd_arraysort2/fd_arraysort2-help.pd
 ./fd_exp/fd_exp-help.pd
 ./fd_exp/fd_exp.pd
+./mtwister/mtwister-test.pd
 ./mtwister/mtwister-help.pd
 ./fd_fm/fd_fm-help.pd
 ./fd_fm/fd_fm.pd
@@ -293,6 +294,7 @@
 ./fd_arcsin/fd_arcsin-help.pd
 ./fd_arcsin/fd_arcsin.pd
 ./mandelbrot/mandelbrot-help.pd
+./mark/mark-help.pd
 ./define_loudspeakers/define_loudspeakers-help.pd
 ./pix_fft2/test-.pd
 ./pix_fft2/pix_fft2-help.pd
@@ -400,6 +402,7 @@
 ./fd_sinc~/fd_sinc~-help.pd
 ./fd_blobvid/fd_blobvid-help.pd
 ./fd_blobvid/fd_blobvid.pd
+./fd_prob/fd_prob.pd
 ./fd_logistic~/fd_logistic~-help.pd
 ./fd_logistic~/fd_logistic~.pd
 ./fd_dacout/fd_dacout-help.pd
@@ -633,6 +636,7 @@
 ./fd_step/fd_step.pd
 ./fd_pix_shift/fd_pix_shift-help.pd
 ./fd_pix_shift/fd_pix_shift.pd
+./fd_mark/fd_mark.pd
 ./fd_impulse/fd_impulse-help.pd
 ./fd_impulse/fd_impulse.pd
 ./fd_shift/fd_shift.pd

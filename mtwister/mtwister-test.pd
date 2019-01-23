@@ -1,0 +1,10 @@
+#N canvas 523 50 450 300 12;
+#X obj 53 87 mtwister;
+#X obj 53 58 loadbang;
+#X obj 53 116 t b a;
+#X msg 53 140 \; pd quit;
+#X obj 163 150 print;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
