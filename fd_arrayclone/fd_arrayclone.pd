@@ -2,5 +2,7 @@
 #X obj 21 12 inlet;
 #X obj 21 54 outlet;
 #X obj 21 33 array \$2 \$3-\$1;
+#X obj 63 12 r array_receive-\$3-\$1;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
+#X connect 3 0 2 0;
