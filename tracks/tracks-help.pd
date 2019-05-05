@@ -36,7 +36,7 @@ Jaime Oliver \, joliverl \, 2010;
 #X connect 0 0 1 0;
 #X connect 3 0 2 0;
 #X restore 386 292 pd init;
-#N canvas 354 22 958 690 messages 0;
+#N canvas 322 22 958 690 messages 0;
 #X text 347 379 The "max_distance" message tells the [tracks] object
 what is the limit for a good continuity. If [tracks] finds that the
 closest distance between to points is bigger than "max_distance" it
@@ -175,7 +175,7 @@ object outputs:;
 #X connect 29 0 30 0;
 #X connect 31 0 5 0;
 #X restore 386 223 pd example;
-#X obj 128 247 tracks2;
+#X obj 128 247 tracks;
 #X connect 1 0 13 0;
 #X connect 13 0 9 0;
 #X connect 13 1 10 0;

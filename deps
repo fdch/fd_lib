@@ -4,8 +4,10 @@
 # directory specified with argument 2
 #
 
-WHICHPD="Pd-0.48-1"
-MYPD="/Applications/$WHICHPD.app/Contents/Resources/bin/pd"
+# WHICHPD="Pd-0.48-1"
+# MYPD="/Applications/$WHICHPD.app/Contents/Resources/bin/pd"
+
+MYPD=/usr/local/bin/pd
 
 #get pdfile name from argument 1
 if [ "$1" ]

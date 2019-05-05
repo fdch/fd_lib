@@ -1,21 +1,15 @@
 #N canvas 20 475 500 215 12;
 #X declare -path ~/Documents/fd_lib -path ./_lib;
 #N canvas 70 100 450 250 sub 0;
-#X obj 25 25 osc~ 440;
-#X msg 24 50 set 1;
-#X floatatom 40 80 0 0 0 0 - - -;
-#X symbolatom 25 110 0 0 0 0 - - -;
-#X text 25 135 some text;
-#X connect 1 0 2 0;
-#X coords 0 0 1 1 200 200 0;
+#X coords 0 0 10 10 0 0 0;
 #X restore 8 8 pd sub;
 #X obj 280 175 bng 15 250 50 0 start-here empty start-here 17 7 0 10
 -24198 -262144 -1;
-#N canvas 320 400 200 290 menu 1;
+#N canvas 320 400 200 290 menu 0;
 #X obj 10 10 cnv 20 162 20 empty menu-info empty 20 12 0 14 -204786
 -66577 0;
 #N canvas 525 50 725 640 data-structures 0;
-#X floatatom 36 190 5 0 0 0 - - -, f 5;
+#X floatatom 36 190 5 0 0 0 - - -;
 #X msg 36 218 scalar templ-0 \$1;
 #X msg 36 157 240;
 #X msg 72 157 300;
@@ -531,7 +525,7 @@ xmargin \; ymargin \;;
 #X text 27 51 Subcanvases (i.e. \, subpatches) are called either by
 typing "pd" in a box or by typing "page"., f 30;
 #X obj 30 383 vradio 15 1 0 3 empty gop gop 0 -8 0 10 -262144 -1 -1
-0;
+2;
 #X text 22 292 DONECANVASDIALOG (all canvases);
 #X text 444 391 See here:;
 #X text 25 335 Graph-on-Parent (GOP) has 3 modes: (check the main patch)
@@ -626,7 +620,7 @@ the main patch (even if you save)., f 43;
 #N canvas 525 50 725 640 visibility 0;
 #X obj 20 522 s pd-sub;
 #X msg 391 32 menuclose;
-#X obj 22 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 22 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 22 120 vis \$1;
 #X msg 429 102 1;
@@ -698,7 +692,7 @@ It only works when the patch visibility is disabled, f 36;
 #X text 130 331 CANVAS (PATCH) COORDINATES AND DIMENSIONS ON THE SCREEN
 ;
 #N canvas 526 50 481 384 more 0;
-#X obj 83 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 84 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 83 129 vis \$1;
 #X obj 83 154 s pd-sub;
@@ -711,7 +705,7 @@ are better in GOP., f 44;
 #X text 309 309 <-- bang to close;
 #X text 157 107 <-- To reproduce this \, put some GOP gui and toggle
 visibility, f 24;
-#X msg 69 227 \; pd-helpfiles.pd map 0 \, map 1;
+#X msg 69 227 \; pd-main.pd map 0 \, map 1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 5 0 6 0;
@@ -788,7 +782,7 @@ vis 0 \, setbounds 525 50 1250 690 \, vis 1 \; pd-next vis 0 \;;
 #X msg 20 46 \; pd-sub menu-open;
 #X msg 162 46 \; pd-sub menuclose;
 #X obj 318 596 hradio 15 1 0 3 gop empty gop 0 -8 0 10 -262144 -1 -1
-0;
+2;
 #X obj 242 218 s pd-sub;
 #X text 19 121 NON-GOP STUFF;
 #X text 120 369 GOP-FRIENDLY IEMGUI;
@@ -916,7 +910,7 @@ numbers:;
 #X obj 139 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 571 420 key;
-#X floatatom 571 445 5 0 0 0 - - -, f 5;
+#X floatatom 571 445 5 0 0 0 - - -;
 #X text 513 395 see helpfile for:;
 #X text 549 471 and also:;
 #X text 266 15 FUN WITH FAKE KEYS;
@@ -989,7 +983,6 @@ Backspace key:, f 65;
 >, f 35;
 #X obj 48 287 outlet;
 #X msg 261 287 vis 0;
-#X obj 261 312 s pd-more;
 #X text 312 286 <-- bang to close;
 #X msg 122 59 \; pd-sub menu-open;
 #X msg 272 223 print \$1;
@@ -1001,20 +994,21 @@ Backspace key:, f 65;
 #X obj 48 233 list trim;
 #X obj 141 287 print -n;
 #X msg 48 139 add \$1;
-#X connect 0 0 13 0;
+#X obj 261 312 s pd-info;
+#X connect 0 0 12 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
-#X connect 3 0 10 0;
-#X connect 6 0 7 0;
-#X connect 10 0 5 0;
-#X connect 12 0 15 0;
-#X connect 13 0 14 0;
-#X connect 13 1 9 0;
-#X connect 14 0 18 0;
+#X connect 3 0 9 0;
+#X connect 6 0 18 0;
+#X connect 9 0 5 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 12 1 8 0;
+#X connect 13 0 17 0;
+#X connect 14 0 15 0;
+#X connect 15 0 5 0;
 #X connect 15 0 16 0;
-#X connect 16 0 5 0;
-#X connect 16 0 17 0;
-#X connect 18 0 12 0;
+#X connect 17 0 11 0;
 #X restore 446 104 pd info printing;
 #N canvas 526 52 474 293 info 0;
 #N canvas 529 52 527 371 more 0;
@@ -1310,11 +1304,6 @@ rather complicated., f 31;
 #X obj 100 150 pack 0 1 2 3 4 5 6 7 8;
 #X obj 100 200 print -n;
 #X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 1 1 2 1;
-#X connect 1 2 2 2;
-#X connect 1 3 2 3;
-#X connect 1 7 2 7;
 #X connect 2 0 3 0;
 #X restore 282 19 pd info-0 connections;
 #X text 118 60 All obj creation happens in this message:;
@@ -1523,7 +1512,7 @@ map 1;
 #X msg 61 225 arrayviewclose;
 #X text 197 224 <-- [3] closes the list-view;
 #X text 175 117 <-- [1] open array as a list-view;
-#X floatatom 49 172 5 0 0 0 - - -, f 5;
+#X floatatom 49 172 5 0 0 0 - - -;
 #X text 96 170 <-- index;
 #X obj 31 327 s;
 #X obj 75 262 loadbang;
@@ -1811,7 +1800,7 @@ f 34;
 #X msg 89 357 \; \$1 menu-open;
 #X text 39 428 "print" takes a symbol like this: <full/path/to/filename.ps
 >, f 33;
-#X floatatom 279 110 5 1 999 0 - - -, f 5;
+#X floatatom 279 110 5 1 999 0 - - -;
 #X obj 258 177 f;
 #X obj 258 202 t f f;
 #X msg 373 236 bang;
@@ -1927,7 +1916,7 @@ new graph;
 #X obj 180 68 tgl 15 0 empty menuopener empty 17 7 0 10 -262144 -1
 -1 0 1;
 #X obj 180 93 metro 1000;
-#X obj 180 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 180 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 180 143 sel;
 #X text 24 131 "click" opens it;
@@ -1944,33 +1933,38 @@ new graph;
 #X connect 6 0 1 0;
 #X connect 6 1 2 0;
 #X restore 426 533 pd more array clicking;
-#N canvas 527 48 699 442 more 0;
-#X obj 31 116 array define dog;
-#X obj 32 142 array define cat;
-#X msg 276 272 \; pd-graph2 vis 1;
+#N canvas 527 48 701 483 more 0;
+#X obj 32 169 array define dog;
+#X obj 33 195 array define cat;
+#X msg 277 331 \; pd-graph2 vis 1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array array-somename 100 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0285693 -1.78814e-06
+0.299995 0.357137 0.371423 0.371423 0.371423 0.371423 0.371423 0.371423
+0.371423 0.369382 0.367341 0.3653 0.36326 0.361219 0.359178 0.357137
+0.352375 0.347614 0.342852 0.33809 0.333328 0.328566 0.323804 0.319043
+0.314281 0.309519 0.304757 0.299995 0.297138 0.294281 0.291424 0.288567
+0.285709 0.282852 0.279995 0.277138 0.274281 0.271424 0.266662 0.2619
+0.257138 0.252377 0.247615 0.242853 0.237139 0.231424 0.22571 0.219996
+0.214282 0.214282 0.199996 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0;
 #X coords 0 1 100 -1 200 140 1 0 0;
-#X restore 31 195 graph;
-#X msg 266 117 \; pd-graph1 rename thedog;
-#X msg 267 164 \; pd-thedog vis 1;
-#X msg 404 163 \; pd-thedog vis 0;
-#X msg 270 210 \; pd-thedog vis 0 \, setbounds 0 22 400 400 \, vis
+#X restore 32 239 graph;
+#X msg 267 176 \; pd-graph1 rename thedog;
+#X msg 268 223 \; pd-thedog vis 1;
+#X msg 405 222 \; pd-thedog vis 0;
+#X msg 271 269 \; pd-thedog vis 0 \, setbounds 0 22 400 400 \, vis
 1;
-#X text 410 284 <-- the cat;
-#X msg 522 276 \; pd-graph2 vis 0;
-#X text 237 130 1;
-#X text 239 176 2;
-#X text 246 220 3;
-#X text 248 281 4;
-#X text 64 340 ^^ No way to open this unless right-click > open, f
+#X text 411 343 <-- the cat;
+#X msg 523 335 \; pd-graph2 vis 0;
+#X text 243 186 1;
+#X text 245 230 2;
+#X text 244 281 3;
+#X text 250 338 4;
+#X text 65 384 ^^ No way to open this unless right-click > open, f
 21;
-#X msg 532 378 \; pd-more vis 0 \;;
-#X text 529 350 Close this;
+#X msg 533 437 \; pd-more vis 0 \;;
+#X text 530 409 Close this;
 #X text 35 13 Every time you create an [array define myname] object
 there is a canvas named pd-graphX (created by array_define_new). If
 you know the order of creation of the array \, you can send [ \; pd-graph1
@@ -2011,7 +2005,7 @@ so you can move it:, f 27;
 #X text 524 386 <-- bang to close;
 #X msg 41 112 \; pd-sub menu-open \, map 0 \, map 1;
 #X msg 300 111 \; pd-sub clear;
-#X floatatom 634 116 5 0 0 0 - - -, f 5;
+#X floatatom 634 116 5 0 0 0 - - -;
 #X msg 31 177 menuarray;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
@@ -2044,7 +2038,6 @@ so you can move it:, f 27;
 #X msg 32 76 menufont;
 #X msg 73 230 menusave;
 #X msg 92 263 menusaveas;
-#X obj 35 426 s pd-helpfiles.pd;
 #X msg 113 343 menuclose;
 #X msg 45 123 10;
 #X msg 124 124 12;
@@ -2088,18 +2081,19 @@ f 28;
 messages so far. The next section includes pd-related messages.;
 #X text 81 25 Menu-messages act more globally than messages to subpatches:
 ;
-#X connect 0 0 3 0;
-#X connect 1 0 3 0;
-#X connect 2 0 3 0;
-#X connect 4 0 22 0;
-#X connect 5 0 7 0;
-#X connect 6 0 7 0;
-#X connect 7 0 3 0;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 11 0 12 0;
-#X connect 22 0 3 0;
-#X connect 23 0 22 1;
+#X obj 35 426 s pd-main.pd;
+#X connect 0 0 25 0;
+#X connect 1 0 25 0;
+#X connect 2 0 25 0;
+#X connect 3 0 21 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 25 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 1;
 #X restore 23 165 pd menu-messages _;
 #N canvas 525 50 725 640 pd-messages 0;
 #X obj 644 571 bng 15 250 50 0 empty empty next->> 17 7 0 10 -24198
