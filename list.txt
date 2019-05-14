@@ -457,6 +457,7 @@
 ./fd_gem2feat/fd_gem2feat-help.pd
 ./fd_geomean/fd_geomean-help.pd
 ./fd_geomean/fd_geomean.pd
+./timid2json/timid2json-help.pd
 ./fd_GEMbuffsize/fd_GEMbuffsize.pd
 ./fd_GEMbuffsize/fd_GEMbuffsize-help.pd
 ./fd_cuacua/fd_cuacua-help.pd
