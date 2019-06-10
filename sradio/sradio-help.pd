@@ -32,7 +32,7 @@
 #X obj 300 320 r sradio-help;
 #X obj 300 345 list prepend set;
 #X obj 300 370 list trim;
-#X msg 300 395 0 1 0 0 0 0 0 0;
+#X msg 300 395 0;
 #X obj 119 449 t a b;
 #X obj 119 474 print;
 #X obj 173 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -108,6 +108,7 @@ arrays / t_textbuf hack, f 77;
 #X text 571 484 [8] Keep it: '-k'-type flag to keep text on next load
 ;
 #X text 787 587 (defaults to 1 == keep);
+#X msg 813 618 \; store-receive print;
 #X connect 0 0 42 0;
 #X connect 1 0 42 0;
 #X connect 2 0 42 0;
