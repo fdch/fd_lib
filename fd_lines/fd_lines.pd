@@ -1,0 +1,7 @@
+#N canvas 0 22 450 300 12;
+#X obj 49 48 inlet;
+#X obj 49 97 outlet;
+#X obj 49 72 clone _line \$1 \$2 \$3;
+#X text 234 208 See fd_lines-help;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;

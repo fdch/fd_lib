@@ -13,7 +13,7 @@
 -1;
 #X obj 311 296 fd_smooth_brute \$1;
 #X obj 306 152 t b b;
-#X obj 60 241 lop~ 2048;
+#X obj 60 220 lop~ 2048;
 #X obj 60 186 cos~;
 #X msg 337 203 normalize;
 #X connect 0 0 8 0;

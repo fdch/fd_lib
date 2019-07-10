@@ -1,1 +1,14 @@
-#N canvas 0 22 450 350 14; #X text 10 10 ./fd_winconcat; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_winconcat; #X text 400 300 fd_lib;
+#N canvas 644 140 450 350 12;
+#X text 326 288 fd_lib;
+#X text 9 11 fd_winconcat;
+#X obj 245 185 array define winconcat;
+#X obj 282 107 fd_windows \$0 2048;
+#X obj 291 85 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 15 94 0 3 2 3 12;
+#X obj 19 129 fd_winconcat winconcat 2048 \$0;
+#X text 10 40 A simple fd_wincat with equal size window concatenation
+;
+#X text 237 249 See also [fd_wincat];
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;

@@ -285,6 +285,9 @@
 ./fd_guiTemplate/fd_guiTemplate-test.pd
 ./fd_guiTemplate/fd_guiTemplate.pd
 ./fd_guiTemplate/fd_guiTemplate-help.pd
+./fd_lines/fd_lines-help.pd
+./fd_lines/fd_lines.pd
+./fd_lines/_line.pd
 ./fd_cauchy~/fd_cauchy~-help.pd
 ./fd_cauchy~/fd_cauchy~.pd
 ./fd_gemloop/fd_gemloop.pd
@@ -409,6 +412,8 @@
 ./fd_ceil/fd_ceil.pd
 ./fd_sinc~/fd_sinc~.pd
 ./fd_sinc~/fd_sinc~-help.pd
+./fd_wincat/fd_wincat.pd
+./fd_wincat/fd_wincat-help.pd
 ./fd_blobvid/fd_blobvid-help.pd
 ./fd_blobvid/fd_blobvid.pd
 ./fd_prob/fd_prob.pd
@@ -504,6 +509,7 @@
 ./sradio/sradio-help.pd
 ./sradio/sradio-cellular.pd
 ./sradio/_sradii.pd
+./fd_vline_stack/fd_vline_stack.pd
 ./tutorials/create-canvas.pd
 ./tutorials/create-numbox.pd
 ./tutorials/create-sradio.pd
