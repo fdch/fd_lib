@@ -1,9 +1,0 @@
-#N canvas 523 50 450 300 12;
-#X obj 136 171 ipa;
-#X obj 136 233 print;
-#X floatatom 153 124 5 0 0 0 - - -, f 5;
-#X msg 136 91 bang;
-#X text 86 36 still on the workings...;
-#X connect 0 0 1 0;
-#X connect 2 0 0 0;
-#X connect 3 0 0 0;
