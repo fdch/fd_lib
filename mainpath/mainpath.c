@@ -54,17 +54,23 @@ static void *filename(t_mainpath *x, t_symbol *s, int f)
 	return 0;
 }
 
-void mainpath_prepend(t_mainpath *x, t_symbol *s)
-{
-	if(flag(x, x->x_subdir)) pathname(x);
-	filename(x, s, 1);
-}
+// void mainpath_prepend(t_mainpath *x, t_symbol *s)
+// {
+// 	if(flag(x, x->x_subdir)) 
+// 	{
+// 		pathname(x);
+// 		filename(x, s, 1);
+// 	}
+// }
 
-void mainpath_append(t_mainpath *x, t_symbol *s)
-{
-	if(flag(x, x->x_subdir)) pathname(x);
-	filename(x, s, 0);
-}
+// void mainpath_append(t_mainpath *x, t_symbol *s)
+// {
+// 	if(flag(x, x->x_subdir))
+// 	{
+// 		pathname(x);
+// 		filename(x, s, 0);
+// 	}
+// }
 
 void mainpath_add(t_mainpath *x, t_symbol *s)
 {
@@ -162,8 +168,8 @@ void mainpath_setup()
 {
 	mainpath_class = class_new(gensym("mainpath"), (t_newmethod)mainpath_new, 0, sizeof(t_mainpath), CLASS_DEFAULT, A_DEFSYM, 0);
 	class_addbang(mainpath_class, mainpath_bang);
-	class_addmethod(mainpath_class, (t_method)mainpath_prepend, gensym("prepend"), A_SYMBOL, 0);
-	class_addmethod(mainpath_class, (t_method)mainpath_append, gensym("append"), A_SYMBOL, 0);
+	// class_addmethod(mainpath_class, (t_method)mainpath_prepend, gensym("prepend"), A_SYMBOL, 0);
+	// class_addmethod(mainpath_class, (t_method)mainpath_append, gensym("append"), A_SYMBOL, 0);
 	class_addmethod(mainpath_class, (t_method)mainpath_add, gensym("add"), A_SYMBOL, 0);
 	class_addmethod(mainpath_class, (t_method)mainpath_getfiles, gensym("getfiles"), 0);
 	class_addmethod(mainpath_class, (t_method)mainpath_getpdfiles, gensym("getpdfiles"), 0);
