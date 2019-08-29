@@ -1,6 +1,6 @@
 #!/bin/bash
 #Iterate through all non-help or -test files
-DIRLIST=$(find . ! -name "*-help.pd" ! -name "*-test.pd" -name "*.pd" -maxdepth 1 | sed -e 's/.pd//g')
+DIRLIST=$(find . ! -name "*-help.pd" ! -name "*-test.pd" ! -name "_*.pd" -name "*.pd" -maxdepth 1 | sed -e 's/.pd//g')
 for i in $DIRLIST; do
 PATCHFILE="$i.pd"
 HELPFILE="$i-help.pd"

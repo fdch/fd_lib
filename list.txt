@@ -14,20 +14,8 @@
 ./fd_objcreator/fd_objcreator-help.pd
 ./fd_colorpicker/fd_colorpicker.pd
 ./fd_colorpicker/fd_colorpicker-help.pd
-./vbap/vbap-help.pd
-./vbap/examples/high.pd
-./vbap/examples/vbapmodule.pd
-./vbap/examples/vbap-demo.pd
-./vbap/examples/playsample~.pd
-./vbap/examples/rvbap-demo.pd
-./vbap/examples/graph-to-aziele.pd
-./vbap/examples/vbapsnd.pd
-./vbap/examples/vbap.main.pd
-./vbap/examples/recent.pd
-./vbap/examples/vbap-level-config.pd
 ./fd_getcomb/fd_getcomb.pd
 ./fd_getcomb/fd_getcomb-help.pd
-./pix_morph/pix_morph-help.pd
 ./fd_keycomb/fd_keycomb-help.pd
 ./fd_keycomb/fd_keycomb.pd
 ./fd_calm/fd_calm-help.pd
@@ -98,8 +86,6 @@
 ./freesound_pd/fs_query-help.pd
 ./fd_iterate/fd_iterate.pd
 ./fd_iterate/fd_iterate-help.pd
-./wave~/wave~-help.pd
-./ipa/ipa-help.pd
 ./fd_dataGui/fd_dataGui.pd
 ./fd_dataGui/fd_dataGui-help.pd
 ./clifford/clifford-help.pd
@@ -116,9 +102,6 @@
 ./scroll/scroll-help.pd
 ./fd_updown/fd_updown-help.pd
 ./fd_updown/fd_updown.pd
-./back/back-test.pd
-./back/_type.pd
-./back/back-help.pd
 ./iterate/iterate-help.pd
 ./fd_gate/fd_gate-help.pd
 ./fd_gate/fd_gate.pd
@@ -187,7 +170,9 @@
 ./lor~/lor~-help.pd
 ./fd_dataWalk/fd_dataWalk.pd
 ./fd_dataWalk/fd_dataWalk-help.pd
+./fd_seltab/v.pd
 ./fd_seltab/fd_seltab-help.pd
+./fd_seltab/g.pd
 ./fd_seltab/fd_seltab.pd
 ./txt2pd/test.pd
 ./txt2pd/test1.pd
@@ -277,7 +262,6 @@
 ./reflect/reflect.pd
 ./fd_gr/fd_gr-help.pd
 ./fd_gr/fd_gr.pd
-./pix_turb/pix_turb-help.pd
 ./fd_lorosc/fd_lorosc.pd
 ./fd_lorosc/fd_lorosc-help.pd
 ./fd_kp/fd_kp-help.pd
@@ -297,14 +281,10 @@
 ./cantor/cantor-help.pd
 ./fd_clicktrack/fd_clicktrack-help.pd
 ./fd_clicktrack/fd_clicktrack.pd
-./!an_overview/externals-overview.pd
-./!an_overview/an_overview-help.pd
-./!an_overview/all_gui.pd
 ./fd_arcsin/fd_arcsin-help.pd
 ./fd_arcsin/fd_arcsin.pd
 ./mandelbrot/mandelbrot-help.pd
 ./mark/mark-help.pd
-./define_loudspeakers/define_loudspeakers-help.pd
 ./pix_fft2/test-.pd
 ./pix_fft2/pix_fft2-help.pd
 ./pix_fft2/tests.pd
@@ -340,7 +320,6 @@
 ./fd_m-comb/fd_m-comb.pd
 ./fd_listout/fd_listout-help.pd
 ./fd_listout/fd_listout.pd
-./v_seltab/v_seltab.pd
 ./fd_range/fd_range-help.pd
 ./fd_range/fd_range.pd
 ./minimax/minimax-test.pd
@@ -368,7 +347,6 @@
 ./factor/factor-help.pd
 ./!msg/!msg-help.pd
 ./!msg/!msg.pd
-./pix_phase2/pix_phase2-help.pd
 ./fd_butterworth/fd_butterworth-help.pd
 ./fd_butterworth/fd_butterworth.pd
 ./fd_butterworth/_butter.pd
@@ -385,8 +363,6 @@
 ./fd_msecparse/fd_msecparse.pd
 ./fd_msecparse/fd_msecparse-help.pd
 ./irsum/irsum-help.pd
-./gemvertexbuffer/gemvertexbuffer-help.pd
-./gemvertexbuffer/new/gemvertexbuffer-help.pd
 ./fd_emap2/fd_emap2.pd
 ./fd_emap2/fd_emap2-help.pd
 ./fd_bark/fd_bark-help.pd
@@ -427,7 +403,6 @@
 ./fd_dataRead3/fd_dataRead3-help.pd
 ./fd_receive/fd_receive-help.pd
 ./fd_receive/fd_receive.pd
-./g_seltab/g_seltab.pd
 ./fd_bigmyvu/fd_bigmyvu.pd
 ./fd_bigmyvu/fd_bigmyvu-help.pd
 ./fd_dataRand/fd_dataRand-help.pd
@@ -440,7 +415,6 @@
 ./fd_2bit/fd_2bit-help.pd
 ./fd_2bit/fd_2bit.pd
 ./parabola/parabola-help.pd
-./pointerlist/pointerlist-help.pd
 ./fd_dactest/_test-tone.pd
 ./fd_dactest/fd_dactest-help.pd
 ./fd_dactest/_test8.pd
@@ -486,6 +460,7 @@
 ./fd_arraysort1/fd_arraysort1.pd
 ./fd_getid/fd_getid.pd
 ./fd_getid/fd_getid-help.pd
+./_overview.pd
 ./fd_any2list/fd_any2list.pd
 ./fd_any2list/fd_any2list-help.pd
 ./fd_getsize/fd_getsize.pd
@@ -532,20 +507,6 @@
 ./cuadratic/cuadratic-test.pd
 ./fd_pshift/fd_pshift-help.pd
 ./fd_pshift/fd_pshift.pd
-./multidistance/bin/lib/_tt.pd
-./multidistance/bin/lib/_iter.pd
-./multidistance/bin/main.pd
-./multidistance/bin_3/lib/_tt.pd
-./multidistance/bin_3/lib/_iter.pd
-./multidistance/bin_3/main.pd
-./multidistance/bin_2/lib/_tt.pd
-./multidistance/bin_2/lib/_iter.pd
-./multidistance/bin_2/main.pd
-./multidistance/bin_1/lib/_tt.pd
-./multidistance/bin_1/lib/_iter.pd
-./multidistance/bin_1/main.pd
-./multidistance/src/multidistance-help.pd
-./multidistance/src/tt_test.pd
 ./fd_rgbcol/fd_rgbcol-help.pd
 ./fd_rgbcol/fd_rgbcol.pd
 ./fd_arrayclone/fd_arrayclone.pd
@@ -579,6 +540,7 @@
 ./fd_visera/fd_visera.pd
 ./fd_dataMorph/fd_dataMorph.pd
 ./fd_dataMorph/fd_dataMorph-help.pd
+./_all_gui.pd
 ./fd_bufvid/fd_bufvid.pd
 ./fd_bufvid/fd_bufvid-help.pd
 ./fd_itpoint/fd_itpoint-help.pd
@@ -589,6 +551,7 @@
 ./fd_osc/fd_osc.pd
 ./fdm/fdm-help.pd
 ./counter/counter-help.pd
+./randy/randy-help.pd
 ./fd_argv/fd_argv-help.pd
 ./fd_argv/fd_argv.pd
 ./fd_wielevy2/fd_wielevy2.pd
@@ -611,6 +574,7 @@
 ./fd_6x6/fd_6x6-help.pd
 ./fd_octaver/fd_octaver-help.pd
 ./fd_octaver/fd_octaver.pd
+./_all_ext.pd
 ./pix_ifft2/pix_ifft2-help.pd
 ./fd_markfour/fd_markfour.pd
 ./fd_markfour/fd_markfour-test.pd
@@ -632,9 +596,6 @@
 ./connect/connect-help.pd
 ./fd_numkey/fd_numkey.pd
 ./fd_numkey/fd_numkey-help.pd
-./pddb/pddb-help.pd
-./freeverb~/freeverb~-meta.pd
-./freeverb~/freeverb~-help.pd
 ./fd_markov/fd_markov-test.pd
 ./fd_markov/fd_markov.pd
 ./fd_markov/fd_markov-help.pd
@@ -660,9 +621,6 @@
 ./fd_impulse/fd_impulse.pd
 ./fd_shift/fd_shift.pd
 ./fd_shift/fd_shift-help.pd
-./pix_dump2/pix_dump2-help.pd
-./pix_dump2/test-.pd
-./pix_dump2/tests.pd
 ./fd_clarg/fd_clarg-help.pd
 ./fd_clarg/fd_clarg.pd
 ./fd_clarg/_dummy.pd
@@ -677,7 +635,6 @@
 ./fd_hradio/fd_hradio-test.pd
 ./fd_jumpv/fd_jumpv-help.pd
 ./fd_jumpv/fd_jumpv.pd
-./gausstwister/gausstwister-help.pd
 ./fd_fromsig/fd_fromsig-help.pd
 ./fd_fromsig/fd_fromsig.pd
 ./fd_blackman~/fd_blackman~-help.pd
