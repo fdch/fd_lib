@@ -38,12 +38,12 @@ You will be able to load abstractions, but to use the external objects you'll ne
 
 
 ### dirlist
-Then run the following script to obtain the object list:
+Run the following script to obtain the object list:
 
 	$ sh dirlist
 
 ### fdlib
-Then you need generate the make file for pd-lib-builder. You can specify the pd-lib-builder path here, if you have your own. Otherwise it will simply use the pd-lib-builder submodule:
+Generate the make file for pd-lib-builder. You can specify the pd-lib-builder path here, if you have your own. Otherwise it will simply use the pd-lib-builder submodule:
 
 	$ sh fdlib [/path/to/your/pd-lib-builder]
 
