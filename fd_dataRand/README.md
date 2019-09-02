@@ -1,3 +1,13 @@
 # fd_dataRand 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see fd_data.pd
+Random numbers into a data structure array
+
+
+ 

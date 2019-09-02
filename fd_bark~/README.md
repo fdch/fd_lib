@@ -1,3 +1,14 @@
 # fd_bark~ 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Computes the bark scale using signals
+check the helpfile <fd_bark-help.pd>
+https/en.wikipedia.orwikBark_scale
+
+
+ 

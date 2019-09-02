@@ -1,3 +1,12 @@
 # fd_miller-gauss 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+adapted from Kerry Hagan's patches...
+
+
+ 

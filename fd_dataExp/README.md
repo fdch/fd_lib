@@ -1,3 +1,13 @@
 # fd_dataExp 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see fd_data.pd
+Exponential graph into a data structure array
+
+
+ 

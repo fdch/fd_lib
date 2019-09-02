@@ -1,3 +1,13 @@
 # fd_shift 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Shifts samples by given number inverting [lrshift]'s
+see fd_impulse-help.pd
+
+
+ 

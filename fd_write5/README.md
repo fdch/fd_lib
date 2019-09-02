@@ -1,3 +1,19 @@
 # fd_write5 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+reset: all counters back to 0
+stop: stop recording
+start: start file recording
+MESSAGES:
+OPEN FILE TO WRITE FIRST!
+***********************************************************
+***********************************************************
+FIVE-TRACK FILE RECORDER
+
+
+ 

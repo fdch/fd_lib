@@ -1,3 +1,12 @@
 # fd_dsp 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A gop for turning dsp ooff that raises the 'audio properties'
+
+
+ 

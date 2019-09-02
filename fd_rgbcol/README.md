@@ -1,3 +1,12 @@
 # fd_rgbcol 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Incoming floats are 0-9 integers corresponding to RGB
+
+
+ 

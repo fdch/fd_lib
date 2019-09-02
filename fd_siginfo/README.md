@@ -1,3 +1,13 @@
 # fd_siginfo 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Simplified abstraction of the [siginfo] object
+see siginfo-help.pd
+
+
+ 

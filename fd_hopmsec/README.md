@@ -1,3 +1,12 @@
 # fd_hopmsec 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Input milliseconds to obtain necessary hop size for sigmund
+
+
+ 

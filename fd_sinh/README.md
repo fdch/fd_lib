@@ -1,3 +1,12 @@
 # fd_sinh 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+https/en.wikipedia.orwikHyperbolic_function
+
+
+ 

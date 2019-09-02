@@ -1,3 +1,14 @@
 # fd_minimax 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+clean slate
+Abstraction to [minimax]. Input a stream of floats of
+see also:
+
+
+ 

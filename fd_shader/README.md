@@ -1,3 +1,13 @@
 # fd_shader 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Tool for loading shaders. Need Gem.
+pix_texture
+
+
+ 

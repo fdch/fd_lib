@@ -1,3 +1,12 @@
 # fd_etareti 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Iteratative reverse counter. Inlet == number of iterations.
+
+
+ 

@@ -1,3 +1,14 @@
 # fd_s-prob 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+inlet 2: new probs
+Used in markov chains. Define probabilities for state
+see help for fd_markov.pd
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_env 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Generates a data structure envelope array.
+
+
+ 

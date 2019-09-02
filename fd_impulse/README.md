@@ -1,3 +1,14 @@
 # fd_impulse 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Argument (optional):
+blocksize (0 || default: pd's default)
+A pulsetrain using lrshifting. Right inlet is phase (0-1)
+
+
+ 

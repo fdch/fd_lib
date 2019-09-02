@@ -1,3 +1,12 @@
 # fd_lorsig 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Compute the distance of the lorenz as a signal.
+
+
+ 

@@ -1,3 +1,6 @@
 # fd_gauss~ 
-part of fd_lib
 
+
+see fd_gauss-help.pd
+
+ 

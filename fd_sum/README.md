@@ -1,3 +1,13 @@
 # fd_sum 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Output the accumulated sum of incoming values
+Inlet 2 resets sum
+
+
+ 

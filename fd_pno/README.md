@@ -1,3 +1,12 @@
 # fd_pno-12 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Click on the keys to get note index via outlet.
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_bigmyvu 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A gui abstraction for volume control and monitoring
+
+
+ 

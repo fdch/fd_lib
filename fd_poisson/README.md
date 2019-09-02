@@ -1,3 +1,13 @@
 # fd_poisson 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Pk = lambda^k K! * e^-lambda
+xenakis formalized music , page 29 Pendragon
+
+
+ 

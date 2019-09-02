@@ -1,3 +1,12 @@
 # fd_pshift 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Pitch shifter based on a lecture by Jaime Oliver La Rosa
+
+
+ 

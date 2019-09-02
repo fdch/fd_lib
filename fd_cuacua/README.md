@@ -1,3 +1,13 @@
 # fd_cuacua 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Quarter-tone quantification of midi-note values
+similar to:
+
+
+ 

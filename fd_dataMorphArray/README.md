@@ -1,3 +1,13 @@
 # fd_dataMorphArray 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Used in fd_dataMorph.pd
+see fd_data.pd
+
+
+ 

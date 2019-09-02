@@ -1,3 +1,12 @@
 # fd_dataDroplet 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Morphs a single element form a data-array.
+
+
+ 

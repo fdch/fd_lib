@@ -1,3 +1,12 @@
 # fd_get-element 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Get element of an array in a data structure
+
+
+ 

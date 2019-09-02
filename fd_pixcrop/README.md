@@ -1,1 +1,13 @@
-# ./fd_pixcrop part of fd_lib .
+# fd_pixcrop  .
+
+ 
+
+ 
+
+Dependencies:
+-- Gem
+pix_texture
+Utility for friendlier cropping of a gemlist
+
+
+ 

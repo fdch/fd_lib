@@ -1,3 +1,12 @@
 # fd_phatty 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A phatty synth based on a lecture by Jaime Oliver La
+
+
+ 

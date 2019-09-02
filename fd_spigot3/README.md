@@ -1,3 +1,13 @@
 # fd_spigot3 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Spigot betwen three inlets. 4th inlet selects 1st ,
+select which one goes through
+
+
+ 

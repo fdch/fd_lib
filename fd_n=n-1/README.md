@@ -1,3 +1,12 @@
 # fd_n=n-1 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Outputs a bang if previous number is equal to current
+
+
+ 

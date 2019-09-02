@@ -1,3 +1,15 @@
 # fd_stopwatch 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A simple stopwatch.
+start -->
+min:sec
+Also receives these:
+
+
+ 

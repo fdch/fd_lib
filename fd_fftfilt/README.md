@@ -1,3 +1,6 @@
 # fd_fftfilt 
-part of fd_lib
 
+
+An fft filter. Inlet is signal to filter.
+
+ 

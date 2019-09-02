@@ -1,3 +1,13 @@
 # fd_markov 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+new probs
+An implementation of a 3 valued markov chain.
+
+
+ 

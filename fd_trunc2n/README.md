@@ -1,1 +1,10 @@
-# ./fd_trunc2n part of fd_lib .
+# fd_trunc2n  .
+
+ 
+
+ 
+
+Truncate a number to 2^n size
+
+
+ 

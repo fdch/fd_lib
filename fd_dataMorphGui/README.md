@@ -1,3 +1,13 @@
 # fd_dataMorphGui 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Gui for dataMorph-ing
+see fd_data.pd
+
+
+ 

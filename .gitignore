@@ -13,3 +13,5 @@
 *.dll
 
 *-e
+.pyc
+.wav

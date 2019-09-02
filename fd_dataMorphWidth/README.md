@@ -1,3 +1,13 @@
 # fd_dataMorphWidth 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Used with other fd_data* objects.
+see:
+
+
+ 

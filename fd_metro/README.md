@@ -1,3 +1,12 @@
 # fd_metro 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A simple musical metronome that outlets its tempo at
+
+
+ 

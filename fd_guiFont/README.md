@@ -1,1 +1,10 @@
-# ./fd_guiFont part of fd_lib .
+# fd_guiFont  .
+
+ 
+
+ 
+
+Changes sizes and text position in gui
+
+
+ 

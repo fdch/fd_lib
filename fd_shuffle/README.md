@@ -1,3 +1,13 @@
 # fd_shuffle 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Shuffle pseudorandomly through an array. $1 (or inlet1)
+abstraction from William Brent's [tabletool] 'scaramble'
+
+
+ 

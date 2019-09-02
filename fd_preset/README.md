@@ -1,3 +1,12 @@
 # fd_preset 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A set of controls to handle preset selection (non-storing)
+
+
+ 

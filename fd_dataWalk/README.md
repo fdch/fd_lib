@@ -1,3 +1,13 @@
 # fd_dataWalk 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Random walk into a data structure array
+see fd_data.pd
+
+
+ 

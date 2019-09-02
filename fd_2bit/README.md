@@ -1,3 +1,6 @@
 # fd_2bit 
-part of fd_lib
 
+
+Converts incoming (float) to binary (list)
+
+ 

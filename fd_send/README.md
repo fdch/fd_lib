@@ -1,3 +1,14 @@
 # fd_send 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+intended to be used with fd_printer.pd
+see fd_printer-help.pd
+Message dispatcher
+
+
+ 

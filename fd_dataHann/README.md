@@ -1,3 +1,13 @@
 # fd_dataHann 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see fd_data.pd
+Hann window into a data structure array
+
+
+ 

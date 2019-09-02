@@ -1,3 +1,12 @@
 # fd_tracktopol 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Maps sigmund~'s "tracks" output to triangle points
+
+
+ 

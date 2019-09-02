@@ -1,3 +1,12 @@
 # fd_midiread 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Load and play a midi file... still on the workings.
+
+
+ 

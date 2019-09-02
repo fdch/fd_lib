@@ -1,3 +1,14 @@
 # fd_n! 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Computes the factorial of an incoming number
+upper limit is 34
+see also:
+
+
+ 

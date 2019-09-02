@@ -1,3 +1,13 @@
 # fd_kinetica 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Note a jump of -90 when the counter goes back to 0
+Input is a stream of floats (n). Output is a pair of
+
+
+ 

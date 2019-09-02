@@ -1,3 +1,12 @@
 # fd_getsize 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Get size of an array in a data structure
+
+
+ 

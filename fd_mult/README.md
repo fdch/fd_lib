@@ -1,3 +1,12 @@
 # fd_mult 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Multiply incoming values. Inlet 2 resets mult
+
+
+ 

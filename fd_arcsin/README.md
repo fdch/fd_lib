@@ -1,3 +1,6 @@
 # fd_arcsin 
-part of fd_lib
 
+
+Xenakis' arc sin (Formalized Music, p.246)
+
+ 

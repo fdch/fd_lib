@@ -1,3 +1,12 @@
 # fd_geometric-mean 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Get the geometric mean of a list of floats.
+
+
+ 

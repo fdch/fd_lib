@@ -1,3 +1,12 @@
 # fd_once 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Outputs the first bang out of 1st outlet and the rest
+
+
+ 

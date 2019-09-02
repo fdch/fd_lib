@@ -1,1 +1,11 @@
-# ./fd_background part of fd_lib .
+# fd_background  .
+
+ 
+
+ 
+
+Loads a background-extraction shader.
+pix_texture
+
+
+ 

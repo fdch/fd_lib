@@ -1,3 +1,14 @@
 # fd_colorpicker 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Prompts a data structures color picker. Click color
+Used in conjunction with the [back] object
+see back-help.pd
+
+
+ 

@@ -1,3 +1,13 @@
 # fd_dataRead1 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see fd_data.pd
+Read from one data structure arrays. Arguments is index
+
+
+ 

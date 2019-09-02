@@ -1,3 +1,15 @@
 # fd_grain 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A signal
+Ramp time
+Window type
+Inlets are 'signal' , 'ramp time' and 'window type'
+
+
+ 

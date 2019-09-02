@@ -1,1 +1,10 @@
-# ./fd_lorosc part of fd_lib .
+# fd_lorosc  .
+
+ 
+
+ 
+
+Lorenz oscillator
+
+
+ 

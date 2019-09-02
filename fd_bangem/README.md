@@ -1,1 +1,12 @@
-# ./fd_bangem part of fd_lib .
+# fd_bangem  .
+
+ 
+
+ 
+
+Dependencies:
+-- Gem
+Sends out a bang when rendering is ON , then shuts off.
+
+
+ 

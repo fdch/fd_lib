@@ -1,3 +1,12 @@
 # fd_r 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Choose randomly from 6 float arguments , or an array
+
+
+ 

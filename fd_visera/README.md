@@ -1,3 +1,12 @@
 # fd_visera 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Utility to open or close canvases
+
+
+ 

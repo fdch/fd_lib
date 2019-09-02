@@ -1,3 +1,14 @@
 # fd_key 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A bang keyboard. Click on 'allow' to enable keys. Keys
+For example , here's how you get messages:
+(alt) an allow msg:
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_cputime 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Small gui that queries cputime as in load-meter.pd
+
+
+ 

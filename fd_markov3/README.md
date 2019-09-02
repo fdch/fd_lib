@@ -1,3 +1,14 @@
 # fd_markov3 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+sum
+states 0 , 1 , 2 %
+Implementation of a markov chain.
+
+
+ 

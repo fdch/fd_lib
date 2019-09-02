@@ -1,3 +1,12 @@
 # fd_vu 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A vumeter with mute and volume control
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_getid 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Get id of an array in a data structure
+
+
+ 

@@ -1,3 +1,13 @@
 # fd_dataRead3 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see fd_data.pd
+Read from 3 different data structure arrays. Arguments
+
+
+ 

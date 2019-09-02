@@ -1,3 +1,13 @@
 # fd_spline~ 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Creation argument == type
+Envelope generator based on [fd_windows]
+
+
+ 

@@ -1,4 +1,9 @@
 # fd_write
 Run from terminal
-	$ ./run full/path filename length-in-minutes
+	$ run fulpath filename length-in-minutes
 
+or simply:
+
+pd -nogui -send "full-path FILPATTFILE"
+
+ 

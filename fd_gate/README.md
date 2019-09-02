@@ -1,1 +1,10 @@
-# ./fd_gate part of fd_lib .
+# fd_gate  .
+
+ 
+
+ 
+
+A gate to stop input from coming after a delay time
+
+
+ 

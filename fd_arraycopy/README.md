@@ -1,1 +1,5 @@
-# ./fd_arraycopy part of fd_lib .
+# fd_arraycopy  .
+
+Copy one array to the next
+
+ 

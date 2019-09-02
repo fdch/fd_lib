@@ -1,3 +1,12 @@
 # fd_ceil 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+An abstraction for a c-type ceil function
+
+
+ 

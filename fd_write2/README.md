@@ -1,3 +1,19 @@
 # fd_write2 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+reset: all counters back to 0
+stop: stop recording
+start: start file recording
+MESSAGES:
+OPEN FILE TO WRITE FIRST!
+***********************************************************
+STEREO FILE RECORDER
+***********************************************************
+
+
+ 

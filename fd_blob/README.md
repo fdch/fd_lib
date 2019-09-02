@@ -1,1 +1,14 @@
-# ./fd_blob part of fd_lib .
+# fd_blob  .
+
+ 
+
+ 
+
+Renders an information blob on screen
+information blob
+dimensions
+Dependencies:
+-- Gem
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_cauchy 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+t(PI(t^2+x^2)^-1
+
+
+ 

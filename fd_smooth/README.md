@@ -1,1 +1,10 @@
-# ./fd_smooth part of fd_lib .
+# fd_smooth  .
+
+ 
+
+ 
+
+450 350 14 #X text 10 10 fd_smooth #X text 10 40 Placeholder for help file: #X obj 10 70 fd_smooth #X text 400 300 fd_lib
+
+
+ 

@@ -1,3 +1,13 @@
 # fd_dataVis 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Gui to raise the data structure arrays in [fd_env]
+see fd_data.pd
+
+
+ 

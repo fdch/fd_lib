@@ -1,3 +1,13 @@
 # fd_gr 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+see also fd_env-help.pd
+An utility to work as the last piece in the granular
+
+
+ 

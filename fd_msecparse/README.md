@@ -1,3 +1,12 @@
 # fd_msecparse 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Turn millisecond input into MM:SS:MSEC notation.
+
+
+ 

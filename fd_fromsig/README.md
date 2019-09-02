@@ -1,1 +1,10 @@
-# ./fd_fromsig part of fd_lib .
+# fd_fromsig  .
+
+ 
+
+ 
+
+Takes [sigmund~ peaks] type outputs
+
+
+ 

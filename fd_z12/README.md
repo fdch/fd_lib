@@ -1,3 +1,12 @@
 # fd_z12 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Miller Pucket's z12 algorith presented in an ICMC paper.
+
+
+ 

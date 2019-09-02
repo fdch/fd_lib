@@ -1,3 +1,12 @@
 # fd_out 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+An gui for a dac output. Inlet takes a signal , and
+
+
+ 

@@ -1,3 +1,12 @@
 # fd_logo 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A bang-toggle based logo :)
+
+
+ 

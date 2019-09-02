@@ -1,3 +1,12 @@
 # fd_sin 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+sin function: $1 (or inlet 1) == radians
+
+
+ 

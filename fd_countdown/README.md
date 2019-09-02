@@ -1,3 +1,14 @@
 # fd_countdown 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A simple gui abstraction for a countdown
+toggle: ooff
+nbox: time (msec)
+
+
+ 

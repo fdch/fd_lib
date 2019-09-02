@@ -1,3 +1,14 @@
 # fd_numkey 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Turns the number keys into their respective float values.
+Outlet key down
+Outlet key up
+
+
+ 

@@ -1,3 +1,6 @@
 # fd_6x6 
-part of fd_lib
 
+
+A 6x6 matrix of vradios
+
+ 

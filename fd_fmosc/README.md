@@ -1,3 +1,12 @@
 # fd_fmosc 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A very very simple fm oscillator
+
+
+ 

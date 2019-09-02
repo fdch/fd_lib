@@ -1,3 +1,13 @@
 # fd_reflect 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Abstraction of the [reflect] object.
+see help for:
+
+
+ 

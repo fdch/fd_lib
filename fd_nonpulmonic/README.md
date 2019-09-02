@@ -1,3 +1,12 @@
 # fd_nonpulmonic 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Some symbols from the IPA (International Phonetic Alphabet)
+
+
+ 

@@ -1,1 +1,10 @@
-# ./fd_fm part of fd_lib .
+# fd_fm  .
+
+ 
+
+ 
+
+Another FM oscillator
+
+
+ 

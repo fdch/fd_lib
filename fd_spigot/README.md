@@ -1,3 +1,12 @@
 # fd_spigot 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Gate to allow only first output. Inlet1 resets.
+
+
+ 

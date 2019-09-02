@@ -1,3 +1,12 @@
 # fd_markfour 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A fourth-order markov chain
+
+
+ 

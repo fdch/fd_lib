@@ -1,3 +1,12 @@
 # fd_milliseconds-tempo 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Input tempo (bpm) and get milliseconds corresponding
+
+
+ 

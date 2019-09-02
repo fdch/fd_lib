@@ -1,3 +1,12 @@
 # fd_rgb 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Taken from the help of iemguis
+
+
+ 

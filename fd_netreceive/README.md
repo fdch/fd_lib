@@ -1,3 +1,13 @@
 # fd_netreceive 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Colors will change to GREEN when connected to fd_netsend
+A 'connected 1' message is received once the connection
+
+
+ 

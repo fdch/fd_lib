@@ -1,3 +1,13 @@
 # fd_camara 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+A gui abstraction that handles the Gem [camera] object
+[declare -stdlib Gem] for this one
+
+
+ 

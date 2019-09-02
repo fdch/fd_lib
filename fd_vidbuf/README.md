@@ -1,1 +1,13 @@
-# ./fd_vidbuf part of fd_lib .
+# fd_vidbuf  .
+
+ 
+
+ 
+
+A buffer already linked to a video-feed
+useful for multiple video feeds
+pix_texture
+pix_texture
+
+
+ 

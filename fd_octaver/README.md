@@ -1,3 +1,12 @@
 # fd_octaver 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Octaves down whatever is on the delay line (argument
+
+
+ 

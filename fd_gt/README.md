@@ -1,3 +1,12 @@
 # fd_gt 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+If signal is >= value let through , else 0
+
+
+ 

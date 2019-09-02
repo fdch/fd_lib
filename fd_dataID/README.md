@@ -1,3 +1,13 @@
 # fd_dataID 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Get Id
+see fd_data.pd
+
+
+ 

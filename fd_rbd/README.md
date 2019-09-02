@@ -1,3 +1,13 @@
 # fd_random-bar-distribution 
-part of fd_lib
 
+
+
+ 
+
+ 
+
+Input number of bars you want to have random time signature
+output: (list) barsleft - barcount - timesignature
+
+
+ 
