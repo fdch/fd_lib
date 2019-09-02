@@ -27,3 +27,5 @@ array-8 template-8-element;
 #X text 29 60 Generates a data structure envelope array.;
 #X obj 180 128 fd_data;
 #X text 175 103 See here:;
+#X obj -164 15 declare -path fd_lib;
+#X text -100 -30 fd_lib v0.1;

@@ -4,3 +4,5 @@
 #X text 248 232 see fd_data.pd;
 #X text 28 70 Read from 3 different data structure arrays. Arguments
 are indices of the data structures;
+#X obj 367 15 declare -path fd_lib;
+#X text 431 342 fd_lib v0.1;

@@ -1,0 +1,12 @@
+#N canvas 526 49 450 350 12;
+#X text 162 44 "fd_mult";
+#X text 26 76 Multiply incoming values. Inlet 2 resets mult;
+#X obj 124 201 fd_mult;
+#X floatatom 124 254 5 0 0 0 - - -, f 5;
+#X msg 298 155 bang;
+#X msg 124 138 2 \, 2 \, 2 \, 2 \, 3;
+#X connect 2 0 3 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

@@ -1,11 +1,12 @@
 #N canvas 519 22 518 452 12;
+#X declare -path fd_lib;
 #X text 200 16 "fd_shuffle";
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array shuffle-array 10 float 3;
 #A 0 0.371427 -0.842857 -0.685714 0.371427 0.32857 0.371427 0.32857
 0.371427 0.371427 0.357142;
 #X coords 0 1 10 -1 200 140 1 0 0;
-#X restore 290 121 graph;
+#X restore 286 100 graph;
 #X msg 31 140 bang;
 #X obj 31 300 fd_shuffle shuffle-array, f 13;
 #X msg 71 221 symbol shuffle-array;
@@ -15,12 +16,14 @@
 -0.814286 -0.814286 -0.814286 -0.814286 -0.814286 0.842857 -0.814286
 -0.807143 -0.814286 -0.814286 -0.728575 -0.814286 -0.814286;
 #X coords 0 1 20 -1 200 140 1 0 0;
-#X restore 289 283 graph;
+#X restore 285 262 graph;
 #X msg 71 241 symbol shuffle-array-2;
 #X text 24 54 Shuffle pseudorandomly through an array. \$1 (or inlet1)
 == array to shuffle.;
 #X text 23 385 abstraction from William Brent's [tabletool] 'scaramble'
 method, f 32;
+#X obj 354 15 declare -path fd_lib;
+#X text 363 413 fd_lib v0.1;
 #X connect 2 0 3 0;
 #X connect 4 0 3 1;
 #X connect 6 0 3 1;

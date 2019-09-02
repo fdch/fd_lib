@@ -31,3 +31,5 @@ to recreate you interaction. Also \, it might be useful to use in conjunction
 with [fd_send] and [fd_receive];
 #X obj 256 224 fd_send;
 #X obj 326 224 fd_receive;
+#X obj 378 15 declare -path fd_lib;
+#X text 442 624 fd_lib v0.1;

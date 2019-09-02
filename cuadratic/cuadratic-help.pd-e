@@ -1,0 +1,127 @@
+#N canvas 526 52 566 397 12;
+#X text 216 18 "cuadratic";
+#X obj 384 327 dac~;
+#N canvas 0 23 540 319 s 0;
+#X obj 43 104 cuadratic;
+#X obj 43 158 vline~;
+#X obj 43 79 metro 0.022;
+#X obj 43 130 fd_norm;
+#X obj 43 221 *~ 0.1;
+#X obj 112 226 fd_switch;
+#X obj 181 253 switch~;
+#X obj 43 246 *~;
+#X obj 43 26 inlet;
+#X obj 43 52 t f f;
+#X floatatom 128 23 5 0 0 0 - - -;
+#X text 159 60 This is simply: banging [cuadratic] very fast \; normalizing
+between 0-1 \; and turing its output into signal \; using [vline~]
+;
+#X obj 43 274 outlet~;
+#X text 176 20 <-- try different speeds (shift + scroll);
+#X floatatom 57 191 5 0 10 0 - - -;
+#X msg 354 208 -1.3;
+#X msg 399 208 -2;
+#X msg 438 281 reset;
+#X msg 353 238 c \$1;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 1;
+#X connect 5 1 6 0;
+#X connect 7 0 12 0;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;
+#X connect 9 1 5 0;
+#X connect 10 0 2 1;
+#X connect 14 0 4 1;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
+#X restore 384 292 pd s noise;
+#X obj 384 262 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 404 259 <-- try this;
+#X text 252 256 See here:;
+#X msg 45 97 bang;
+#X obj 45 283 cuadratic;
+#X obj 45 342 print -n;
+#X msg 76 177 x 1.97 \, c -2;
+#X msg 96 213 reset;
+#X text 128 131 <-- outputs N iterations as list (y \, n);
+#X text 154 213 <-- reset internal state to default;
+#X text 100 96 <-- advances one step and outputs float (y);
+#N canvas 0 23 450 300 s 0;
+#X obj 17 83 cuadratic;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array cuadratic-help 100 float 5;
+#A 0 0.992134 0.968553 0.876086 0.534961 -0.427691 -0.634211 -0.195619
+-0.923505 0.705625 -0.0042585 -1 0.999891 0.999456 0.997716 0.990766
+0.963127 0.855122 0.462378 -0.572464 -0.34463 -0.762506 0.162752 -0.947062
+0.793751 0.260001 -0.86484 0.495807 -0.508404 -0.483105 -0.533272 -0.431299
+-0.628013 -0.211265 -0.910774 0.65892 -0.131715 -0.96534 0.863657 0.491717
+-0.516482 -0.466548 -0.564718 -0.362246 -0.737602 0.0880371 -0.984536
+0.938515 0.76152 0.159747 -0.949 0.801099 0.283438 -0.839368 0.40899
+-0.665502 -0.114282 -0.973916 0.896921 0.608839 -0.258694 -0.866196
+0.500499 -0.499055 -0.501943 -0.496162 -0.507701 -0.484533 -0.530508
+-0.437179 -0.617799 -0.236712 -0.887975 0.576905 -0.334421 -0.776369
+0.205419 -0.915645 0.676716 -0.0841801 -0.985864 0.94375 0.781226 0.220548
+-0.902757 0.629846 -0.206654 -0.914628 0.672992 -0.0942332 -0.982277
+0.92963 0.728326 0.0608434 -0.992633 0.970532 0.883758 0.561965 -0.36845
+-0.728536 0.0614539;
+#X coords 0 1 99 -1 200 140 1 0 0;
+#X restore 220 104 graph;
+#X obj 17 132 array set cuadratic-help, f 14;
+#X text 39 182 NOTE: the output is not normalized, f 17;
+#X text 104 23 <-- outputs N iterations as list (y \, n);
+#X msg 26 227 normalize;
+#X obj 26 252 s cuadratic-help;
+#X msg 17 25 100;
+#X connect 0 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 0 0;
+#X restore 252 281 pd s graph;
+#N canvas 0 23 450 300 s 0;
+#X text 108 25 just this help file's init;
+#X obj 225 78 loadbang;
+#X msg 225 103 \; pd-s vis 0 \;;
+#X connect 1 0 2 0;
+#X restore 252 331 pd s init;
+#N canvas 525 51 450 300 s 0;
+#X text 58 55 possible ranges (not very well tested):;
+#X text 234 102 c: -2 ... -0.97;
+#X floatatom 61 130 5 0 0 0 - - -;
+#X msg 61 152 x \$1 \, bang;
+#X obj 61 225 cuadratic;
+#X obj 61 250 print -n;
+#X text 149 17 x1 = x^2 + c;
+#X floatatom 221 125 5 0 0 0 - - -;
+#X msg 221 147 c \$1 \, bang;
+#X text 58 94 x: (actual x);
+#X msg 73 178 reset;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 10 0 4 0;
+#X restore 252 306 pd s variable;
+#X text 189 176 <-- X and coefficient C;
+#X text 104 49 Computes this equation: x1 = x^2 + c;
+#X text 253 365 see also cuadratic-test.pd;
+#X msg 58 132 5;
+#X msg 103 242 print;
+#X text 158 242 <-- info;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 20 0 7 0;
+#X connect 21 0 7 0;
+#X obj 402 15 declare -path fd_lib;
+#X text 466 367 fd_lib version 0.1;

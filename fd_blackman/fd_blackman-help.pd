@@ -53,3 +53,5 @@ adding more shifted sinc functions \, meant to minimize side-lobe levels
 #X connect 15 1 6 5;
 #X connect 17 0 6 0;
 #X connect 17 1 4 1;
+#X obj 355 15 declare -path fd_lib;
+#X text 419 391 fd_lib v0.1;

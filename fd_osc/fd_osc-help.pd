@@ -20,3 +20,5 @@ is the time for the [line~] inside.;
 #X connect 7 0 2 1;
 #X connect 8 0 9 0;
 #X connect 9 0 2 0;
+#X obj 328 15 declare -path fd_lib;
+#X text 392 362 fd_lib v0.1;

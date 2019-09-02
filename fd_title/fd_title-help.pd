@@ -69,3 +69,5 @@ arguments like this one (dont use commas or zeros), f 30;
 #X connect 16 0 17 0;
 #X connect 17 0 34 0;
 #X connect 43 0 33 0;
+#X obj 569 15 declare -path fd_lib;
+#X text 633 600 fd_lib v0.1;

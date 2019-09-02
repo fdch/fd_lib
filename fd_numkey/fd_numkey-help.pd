@@ -9,3 +9,5 @@
 #X text 267 199 Outlet key up;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
+#X obj 353 15 declare -path fd_lib;
+#X text 417 325 fd_lib v0.1;

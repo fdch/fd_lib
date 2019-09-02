@@ -22,3 +22,5 @@ or pd-abstraction.pd;
 #X connect 10 0 3 2;
 #X connect 11 0 3 3;
 #X connect 12 0 3 0;
+#X obj 369 15 declare -path fd_lib;
+#X text 433 370 fd_lib v0.1;

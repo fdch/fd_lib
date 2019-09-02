@@ -58,3 +58,5 @@ An offset is a value added to the Y-axis., f 81;
 #X connect 27 0 28 0;
 #X connect 28 0 26 0;
 #X connect 29 0 2 0;
+#X obj 540 15 declare -path fd_lib;
+#X text 604 523 fd_lib v0.1;

@@ -31,3 +31,5 @@ must have an appended "-set" string to the end of their name. Up to
 #X connect 12 0 13 0;
 #X connect 12 1 14 0;
 #X connect 12 2 15 0;
+#X obj 441 15 declare -path fd_lib;
+#X text 505 320 fd_lib v0.1;

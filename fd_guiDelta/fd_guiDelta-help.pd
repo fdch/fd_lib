@@ -10,3 +10,5 @@
 #X text 299 148 <-- jump on click;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 270 fd_lib v0.1;

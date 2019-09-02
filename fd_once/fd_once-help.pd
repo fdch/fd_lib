@@ -17,3 +17,5 @@ a bang. 2nd inlet takes a bang to reset the internal state.;
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;
 #X connect 6 0 0 1;
+#X obj 372 15 declare -path fd_lib;
+#X text 436 322 fd_lib v0.1;

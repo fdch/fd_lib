@@ -1,0 +1,45 @@
+#N canvas 532 49 539 567 12;
+#X obj 238 214 print float-arg;
+#X obj 269 192 print symbol-arg;
+#X obj 247 352 print float-arg;
+#X obj 286 330 print symbol-arg;
+#X obj 267 488 print float-arg;
+#X obj 326 466 print symbol-arg;
+#X text 96 166 No argument:;
+#X text 76 306 Non-zero float:;
+#X msg 208 138 bang;
+#X msg 209 279 bang;
+#X msg 209 416 bang;
+#X text 71 440 Symbol argument:;
+#X floatatom 179 373 5 0 0 0 - - -, f 5;
+#X floatatom 173 511 5 0 0 0 - - -, f 5;
+#X floatatom 177 219 5 0 0 0 - - -, f 5;
+#X obj 177 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 229 236 <-- 0 when no args;
+#X text 229 374 <-- 1 when done parsing args;
+#X text 222 512 <-- 1 when done parsing args;
+#X text 119 15 GET AN ARGUMENT OF AN ABSTRACTION;
+#X text 38 42 Just place [fd_arg1] inside your abstraction \, in this
+case [fd_dummy] \, and put a \$1 to get the first argument. When banged
+\, it will check the parent's first argument type and give the result
+through its 2nd or 3rd outlet. It outputs a one or zero on the first
+outlet when done:;
+#X obj 208 165 _dummy;
+#X obj 209 305 _dummy 2;
+#X obj 209 440 _dummy myname;
+#X connect 8 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 14 0 15 0;
+#X connect 21 0 14 0;
+#X connect 21 1 0 0;
+#X connect 21 2 1 0;
+#X connect 22 0 12 0;
+#X connect 22 1 2 0;
+#X connect 22 2 3 0;
+#X connect 23 0 13 0;
+#X connect 23 1 4 0;
+#X connect 23 2 5 0;
+#X obj 375 15 declare -path fd_lib;
+#X text 439 537 fd_lib version 0.1;

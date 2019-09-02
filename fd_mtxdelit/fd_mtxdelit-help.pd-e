@@ -1,0 +1,26 @@
+#N canvas 530 52 494 425 12;
+#X text 162 20 "fd_mtxdelit";
+#X text 216 339 see also:;
+#X obj 216 362 fd_delit;
+#X obj 296 362 fd_mtxout;
+#X msg 105 121 bang;
+#X msg 123 158 3 3 3;
+#X obj 105 236 fd_mtxdelit 3 4 5 300;
+#X text 176 157 (list) 3 arguments only;
+#X text 148 122 <-- to start iteration;
+#X msg 270 191 rand 500;
+#X text 25 54 Del-iterate randomly a 3x1 matrix. Arguments or list
+(3) (\$4 == random range). Bang (or list) begins the iteration., f
+55;
+#X msg 286 216 reset;
+#X obj 105 269 print;
+#X obj 270 268 bng 15 250 50 0 empty empty bang_when_done 17 7 0 10
+-262144 -1 -1;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 9 0 6 1;
+#X connect 11 0 6 1;
+#X obj 330 15 declare -path fd_lib;
+#X text 394 395 fd_lib version 0.1;

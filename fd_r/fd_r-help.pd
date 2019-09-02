@@ -34,3 +34,5 @@ is value and index respectively., f 74;
 #X connect 9 0 10 1;
 #X connect 10 0 7 0;
 #X connect 10 1 8 0;
+#X obj 502 15 declare -path fd_lib;
+#X text 566 366 fd_lib v0.1;

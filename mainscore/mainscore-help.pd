@@ -125,3 +125,5 @@ and to turnrendering on/off, f 36;
 #X connect 5 0 6 0;
 #X connect 5 1 3 1;
 #X connect 6 0 3 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 270 fd_lib v0.1;

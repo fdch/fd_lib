@@ -1,0 +1,7 @@
+#N canvas 526 49 450 350 12;
+#X text 151 20 "fd_dataWalk";
+#X obj 151 103 fd_dataWalk;
+#X text 41 57 Random walk into a data structure array;
+#X text 176 189 see fd_data.pd;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

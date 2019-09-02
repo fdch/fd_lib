@@ -1,0 +1,20 @@
+#N canvas 520 52 474 372 12;
+#X obj 269 152 fd_octaver myvoice;
+#X obj 30 129 osc~ 440;
+#X obj 52 165 delwrite~ myvoice 100;
+#X obj 30 201 fd_out;
+#X obj 193 267 catch~ dacout;
+#X obj 193 292 dac~;
+#X obj 269 199 fd_out;
+#X text 180 21 "fd_octaver";
+#X text 10 50 Octaves down whatever is on the delay line (argument
+1);
+#X floatatom 269 125 5 0 0 0 - - -, f 5;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 9 0 0 0;
+#X obj 310 15 declare -path fd_lib;
+#X text 374 342 fd_lib version 0.1;

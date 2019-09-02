@@ -11,3 +11,5 @@
 #X text 54 46 ***********************************************************
 ;
 #X text 179 58 FIVE-TRACK FILE RECORDER;
+#X obj 403 15 declare -path fd_lib;
+#X text 467 252 fd_lib v0.1;

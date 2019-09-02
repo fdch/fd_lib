@@ -249,3 +249,5 @@ a random float between 0..1 is returned.;
 #X connect 2 0 6 0;
 #X connect 4 0 6 0;
 #X connect 6 0 3 0;
+#X obj 433 15 declare -path fd_lib;
+#X text 497 322 fd_lib v0.1;

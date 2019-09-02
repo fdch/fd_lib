@@ -1,0 +1,19 @@
+#N canvas 526 51 562 380 12;
+#X floatatom 204 270 5 0 0 0 - - -, f 5;
+#X floatatom 204 170 5 0 0 0 tempo_(bpm) - -, f 5;
+#X text 203 20 "fd_tempo-msec";
+#X obj 204 235 fd_tempo-msec 2;
+#X obj 284 169 hradio 15 1 0 9 empty empty subdivision 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 284 194 t b f;
+#X text 43 55 Input tempo (bpm) and get milliseconds corresponding
+to each beat of that tempo. Argument == 2nd Inlet == subdivision value:
+(1 is 1/1 \, 2 is 1/2 \, 3 is 1/4 \, 4 is 1/8 \, 5 is 1/16 \, 6 is
+1/32 \, 7 is 1/64 \, etc);
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 3 1;
+#X obj 398 15 declare -path fd_lib;
+#X text 462 350 fd_lib version 0.1;

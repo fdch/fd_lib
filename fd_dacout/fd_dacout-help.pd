@@ -49,3 +49,5 @@ to receive the volume (in dB). Here is a simple 2 channel example:
 #X connect 18 0 23 0;
 #X connect 19 0 18 0;
 #X connect 20 0 18 0;
+#X obj 437 15 declare -path fd_lib;
+#X text 501 557 fd_lib v0.1;

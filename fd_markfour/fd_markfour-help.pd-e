@@ -1,0 +1,13 @@
+#N canvas 526 50 492 373 12;
+#X text 179 25 "fd_markfour";
+#X text 110 59 A fourth-order markov chain;
+#X msg 166 111 bang;
+#X obj 166 145 fd_markfour 0;
+#X obj 166 191 route 0;
+#X obj 166 216 print;
+#X obj 279 276 fd_markfour-test;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X obj 328 15 declare -path fd_lib;
+#X text 392 343 fd_lib version 0.1;

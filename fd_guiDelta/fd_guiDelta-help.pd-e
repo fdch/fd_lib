@@ -1,0 +1,14 @@
+#N canvas 0 22 450 300 12;
+#X obj 123 151 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8500 0;
+#X obj 273 70 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 0;
+#X text 115 9 handle delta for iemgui;
+#X obj 150 89 bng 15 250 50 0 mybang mybang-set mybang 17 7 0 10 -24198
+-1 -1;
+#X obj 117 227 fd_guiDelta mybang-set;
+#X text 299 148 <-- jump on click;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 270 fd_lib version 0.1;

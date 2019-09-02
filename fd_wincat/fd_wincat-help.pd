@@ -690,3 +690,5 @@ This abstraction needs an array outside \, and a [fd_windows] object
 #X connect 5 0 7 0;
 #X connect 8 0 7 0;
 #X connect 9 0 7 0;
+#X obj 702 15 declare -path fd_lib;
+#X text 766 491 fd_lib v0.1;

@@ -1,4 +1,5 @@
 #N canvas 720 57 527 377 12;
+#X declare -path fd_lib;
 #X text 215 15 "fd_logo";
 #X text 25 43 A bang-toggle based logo :);
 #X obj 21 78 fd_logo 0 1 2 3;
@@ -9,3 +10,5 @@
 #X obj 263 78 fd_logo 8 9 10 11;
 #X obj 263 198 fd_logo 8 9 10 11;
 #X obj 384 198 fd_logo 12 13 14 15;
+#X obj 363 15 declare -path fd_lib;
+#X text 427 347 fd_lib v0.1;

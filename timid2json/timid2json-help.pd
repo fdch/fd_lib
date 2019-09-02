@@ -11,3 +11,5 @@
 #X connect 0 0 1 0;
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
+#X obj 372 15 declare -path fd_lib;
+#X text 436 365 fd_lib v0.1;

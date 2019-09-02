@@ -41,3 +41,5 @@ outlet when done:;
 #X connect 23 0 13 0;
 #X connect 23 1 4 0;
 #X connect 23 2 5 0;
+#X obj 375 15 declare -path fd_lib;
+#X text 439 537 fd_lib v0.1;

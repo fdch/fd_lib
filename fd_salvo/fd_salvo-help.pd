@@ -31,3 +31,5 @@ sent to the first inlet, f 55;
 #X connect 9 0 1 0;
 #X connect 11 0 1 0;
 #X connect 14 0 8 0;
+#X obj 382 15 declare -path fd_lib;
+#X text 446 372 fd_lib v0.1;

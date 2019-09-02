@@ -2592,3 +2592,5 @@ each parameter. Outlets are X \, Y \, Z of the current state., f 46
 #X connect 25 2 1 2;
 #X connect 25 2 3 3;
 #X connect 26 0 22 0;
+#X obj 506 15 declare -path fd_lib;
+#X text 570 499 fd_lib v0.1;

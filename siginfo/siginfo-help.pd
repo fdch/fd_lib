@@ -261,3 +261,5 @@ previous numbers., f 82;
 #X connect 34 0 3 0;
 #X connect 34 1 23 0;
 #X connect 35 0 2 0;
+#X obj 552 15 declare -path fd_lib;
+#X text 616 566 fd_lib v0.1;

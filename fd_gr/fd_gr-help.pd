@@ -5,3 +5,5 @@
 #X text 13 65 An utility to work as the last piece in the granular
 synthesis chain started with [fd_env]. It is intended to be cloned.
 More to follow.;
+#X obj 349 15 declare -path fd_lib;
+#X text 413 341 fd_lib v0.1;

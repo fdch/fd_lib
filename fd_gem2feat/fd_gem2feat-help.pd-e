@@ -1,0 +1,35 @@
+#N canvas 524 51 450 350 12;
+#X declare -lib Gem -lib iemmatrix -lib timbreIDLib;
+#X text 378 305 fd_lib;
+#X text 10 10 fd_gem2feat;
+#X text 263 126 Dependencies:;
+#X text 266 150 -- Gem;
+#X text 267 165 -- iemmatrix;
+#X text 266 184 -- timbreID (possibly);
+#X obj 270 74 declare -lib Gem -lib iemmatrix -lib timbreIDLib, f
+16;
+#X obj 16 154 fd_gem2feat specBrightness;
+#X floatatom 157 226 5 0 0 1 spectral_Brightness - -, f 5;
+#X obj 16 63 gemhead;
+#X obj 16 87 pix_video;
+#X obj 16 198 pix_texture;
+#X msg 74 314 0 \, destroy;
+#X obj 20 318 gemwin;
+#X obj 16 131 pix_contrast;
+#X floatatom 104 94 5 0 0 1 Adjust_Contrast - -, f 5;
+#X obj 16 222 circle 4;
+#X msg 20 272 0 \, destroy \, reset \, dimen 200 200 \, offset 10 50
+\, create \, 1, f 35;
+#X text 10 40 Takes gemlist and applies feature defined in argument
+1;
+#X connect 7 0 11 0;
+#X connect 7 1 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 14 0;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 14 0 7 0;
+#X connect 15 0 14 1;
+#X connect 17 0 13 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

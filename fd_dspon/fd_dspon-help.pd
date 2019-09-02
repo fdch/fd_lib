@@ -16,3 +16,5 @@ the first place \, otherwise it will do nothing, f 47;
 #X connect 0 1 2 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
+#X obj 313 15 declare -path fd_lib;
+#X text 377 319 fd_lib v0.1;

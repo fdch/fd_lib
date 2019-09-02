@@ -1,0 +1,15 @@
+#N canvas 525 51 545 388 12;
+#X obj 167 185 fd_mtxout 4 2 5;
+#X obj 167 235 print;
+#X msg 167 116 bang;
+#X text 20 58 Iterate a 3x1 matrix. Arguments or list (3). Bang (or
+list) begins the iteration.;
+#X text 162 27 "fd_mtxout" | matrix (3x1) out;
+#X obj 340 315 fd_mtxdelit;
+#X msg 179 143 3 3 3;
+#X text 248 311 see also:;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 6 0 0 0;
+#X obj 381 15 declare -path fd_lib;
+#X text 445 358 fd_lib version 0.1;

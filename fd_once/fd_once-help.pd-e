@@ -1,0 +1,21 @@
+#N canvas 523 51 536 352 12;
+#X obj 204 211 fd_once;
+#X text 217 23 "fd_once";
+#X obj 204 122 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 204 155 metro 100;
+#X obj 204 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 257 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 317 174 bang;
+#X text 20 50 Outputs the first bang out of 1st outlet and the rest
+out of the 2nd outlet. 1st inlet take anything and converts it into
+a bang. 2nd inlet takes a bang to reset the internal state.;
+#X connect 0 0 4 0;
+#X connect 0 1 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 6 0 0 1;
+#X obj 372 15 declare -path fd_lib;
+#X text 436 322 fd_lib version 0.1;

@@ -1,0 +1,38 @@
+#N canvas 526 53 666 396 12;
+#X msg 55 143 bang;
+#X floatatom 55 303 5 0 0 0 - - -, f 5;
+#X floatatom 132 303 5 0 0 0 - - -, f 5;
+#X msg 132 207 10 22 31 231 2 23 12 22, f 13;
+#X text 251 210 <-- new list (of any size), f 13;
+#X obj 55 262 fd_r 2 300 72 2 100 6, f 10;
+#X msg 396 153 bang;
+#X floatatom 396 290 5 0 0 0 - - -, f 5;
+#X floatatom 497 290 5 0 0 0 - - -, f 5;
+#X msg 497 206 symbol other-array, f 11;
+#X obj 396 264 fd_r \$0-array;
+#X obj 496 142 array define -k \$0-array 120;
+#A 0 -5.08365 0 5.08365 8.94472 10.7493 10.303 8.07895 5.01904 2.18866
+0.414221 0.0327894 0.834802 2.20503 3.39375 3.80775 3.21312 1.78461
+2.38823e-05 -1.56381 -2.44668 -2.45149 -1.67733 -0.443644 0.849586
+1.86382 2.41421 2.48895 2.2054 1.73477 1.23193 0.794525 0.456511 0.204506
+5.30718e-06 -0.204494 -0.456495 -0.794504 -1.2319 -1.73474 -2.20538
+-2.48895 -2.41422 -1.86386 -0.84965 0.443572 1.67727 2.45147 2.4467
+1.56388 7.16467e-05 -1.78452 -3.21307 -3.80774 -3.39379 -2.2051 -0.834867
+-0.0328049 -0.414162 -2.18853 -5.01887 -8.0788 -10.3029 -10.7493 -8.94488
+-5.0839 -0.000286588 5.08339;
+#X f 15;
+#X text 195 20 "fd_r" | random choice of floats;
+#X text 30 58 Choose randomly from 6 float arguments \, or an array
+(if you give it an arrayname as first argument) \, or a list (if you
+send in a list of floats via 2nd inlet. Bang to output choice. Output
+is value and index respectively., f 74;
+#X connect 0 0 5 0;
+#X connect 3 0 5 1;
+#X connect 5 0 1 0;
+#X connect 5 1 2 0;
+#X connect 6 0 10 0;
+#X connect 9 0 10 1;
+#X connect 10 0 7 0;
+#X connect 10 1 8 0;
+#X obj 502 15 declare -path fd_lib;
+#X text 566 366 fd_lib version 0.1;

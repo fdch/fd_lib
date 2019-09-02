@@ -1,5 +1,6 @@
 #N struct fd_list-point-tmpl1 float x float y float color;
 #N canvas 532 46 612 561 12;
+#X declare -path fd_lib;
 #X msg 188 196 bang;
 #N canvas 0 22 514 425 stuff 0;
 #X obj 310 271 pointer;
@@ -27,15 +28,15 @@
 #X obj 337 357 fd_list-pointer;
 #N canvas 31 386 450 300 this3 1;
 #X scalar fd_list-point-tmpl1 100 10 0 \;;
-#X scalar fd_list-point-tmpl1 100 50 9 \;;
-#X scalar fd_list-point-tmpl1 100 80 9 \;;
+#X scalar fd_list-point-tmpl1 100 50 0 \;;
+#X scalar fd_list-point-tmpl1 100 80 0 \;;
 #X scalar fd_list-point-tmpl1 100 100 9 \;;
 #X scalar fd_list-point-tmpl1 130 20 9 \;;
-#X scalar fd_list-point-tmpl1 130 240 0 \;;
+#X scalar fd_list-point-tmpl1 130 240 9 \;;
 #X scalar fd_list-point-tmpl1 200 100 9 \;;
 #X restore 513 239 pd this3;
 #X obj 188 275 fd_itpoint pd-this3;
-#X floatatom 275 384 5 0 0 0 change_color - -, f 5;
+#X floatatom 275 384 5 0 0 0 change_color - -;
 #X obj 156 454 set fd_list-point-tmpl1 color, f 23;
 #X text 217 17 "fd_list-pointer";
 #X text 49 77 Inlet: (pointer) appends a pointer to the pointer list
@@ -49,17 +50,19 @@
 #X text 228 196 <-- Then store the list;
 #X msg 366 302 clear;
 #X obj 56 309 mod;
-#X floatatom 56 257 5 0 0 0 index - -, f 5;
+#X floatatom 56 257 5 0 0 0 index - -;
 #X text 467 356 <-- here;
 #X text 159 254 see fd_itpoint-help.pd;
 #X msg 401 415 \; pd-this3 sort;
 #X obj 57 333 t b f f;
 #X obj 107 359 sel;
 #X obj 60 399 f;
-#X obj 107 382 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 107 382 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 95 399 * 9;
 #X obj 217 307 i;
+#X obj 442 23 declare -path fd_lib;
+#X text 497 514 fd_lib v0.1;
 #X connect 0 0 5 0;
 #X connect 3 0 7 1;
 #X connect 5 0 18 1;

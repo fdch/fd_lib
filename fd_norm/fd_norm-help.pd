@@ -1,10 +1,11 @@
 #N canvas 524 52 549 395 12;
+#X declare -path fd_lib;
 #X text 78 236 -1...1;
 #X text 33 291 0...1;
 #X text 232 21 "fd_norm";
 #X obj 51 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X floatatom 51 313 5 0 0 0 - - -, f 5;
+#X floatatom 51 313 5 0 0 0 - - -;
 #X obj 51 100 random 2000;
 #X obj 51 125 - 1000;
 #X obj 51 213 fd_norm;
@@ -22,6 +23,8 @@ working., f 34;
 #X text 186 129 If this is == 1 \, then it's convergent.;
 #X text 251 268 see also help for;
 #X obj 280 293 fd_norm-abs;
+#X obj 385 15 declare -path fd_lib;
+#X text 394 347 fd_lib v0.1;
 #X connect 3 0 14 0;
 #X connect 5 0 6 0;
 #X connect 6 0 9 0;

@@ -3,3 +3,5 @@
 #X text 164 18 "fd_dataVis";
 #X text 26 55 Gui to raise the data structure arrays in [fd_env];
 #X text 176 189 see fd_data.pd;
+#X obj 294 15 declare -path fd_lib;
+#X text 358 302 fd_lib v0.1;

@@ -15,3 +15,5 @@
 abstractions for handling data structure arrays:;
 #X text 292 402 see fd_data.pd;
 #X text 209 19 "fd_dataGui";
+#X obj 417 15 declare -path fd_lib;
+#X text 481 433 fd_lib v0.1;

@@ -1,0 +1,9 @@
+#N canvas 527 62 513 371 12;
+#X obj 219 153 fd_gr;
+#X text 216 26 "fd_gr";
+#X text 238 300 see also fd_env-help.pd;
+#X text 13 65 An utility to work as the last piece in the granular
+synthesis chain started with [fd_env]. It is intended to be cloned.
+More to follow.;
+#X obj 349 15 declare -path fd_lib;
+#X text 413 341 fd_lib version 0.1;

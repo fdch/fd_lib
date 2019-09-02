@@ -1,0 +1,15 @@
+#N canvas 523 52 523 308 12;
+#X obj 46 129 ./fd_write2;
+#X text 233 193 reset: all counters back to 0;
+#X text 235 216 stop: stop recording;
+#X text 233 172 start: start file recording;
+#X text 236 151 MESSAGES:;
+#X text 237 113 OPEN FILE TO WRITE FIRST!;
+#X text 14 81 ***********************************************************
+;
+#X text 139 63 STEREO FILE RECORDER;
+#X text 14 51 ***********************************************************
+;
+#X text 192 18 "fd_write2";
+#X obj 359 15 declare -path fd_lib;
+#X text 423 278 fd_lib version 0.1;

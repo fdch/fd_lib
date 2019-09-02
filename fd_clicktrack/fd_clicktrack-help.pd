@@ -319,3 +319,5 @@ it only works for n/4 time signatures., f 14;
 #X connect 39 0 0 0;
 #X connect 39 0 0 1;
 #X connect 40 0 39 1;
+#X obj 481 15 declare -path fd_lib;
+#X text 545 528 fd_lib v0.1;

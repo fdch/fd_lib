@@ -33,3 +33,5 @@ range (b..c);
 #X connect 13 0 8 0;
 #X connect 14 0 15 0;
 #X connect 16 0 14 0;
+#X obj 401 15 declare -path fd_lib;
+#X text 465 376 fd_lib v0.1;

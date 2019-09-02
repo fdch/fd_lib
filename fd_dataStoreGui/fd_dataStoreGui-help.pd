@@ -3,3 +3,5 @@
 #X text 176 189 see fd_data.pd;
 #X text 132 15 "fd_dataStoreGui";
 #X text 24 58 Gui to store data structure arrays into texts.;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

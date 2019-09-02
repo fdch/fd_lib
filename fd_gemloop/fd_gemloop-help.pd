@@ -54,3 +54,5 @@ and a bang to report loop start.;
 #X connect 14 0 4 1;
 #X connect 16 0 4 1;
 #X connect 18 0 4 1;
+#X obj 431 15 declare -path fd_lib;
+#X text 495 464 fd_lib v0.1;

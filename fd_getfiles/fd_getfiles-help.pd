@@ -40,3 +40,5 @@ You can use "reset" to temporarily get away with this., f 70;
 #X connect 17 0 27 0;
 #X connect 27 0 3 0;
 #X coords 0 0 1 1 85 60 0;
+#X obj 547 15 declare -path fd_lib;
+#X text 611 536 fd_lib v0.1;

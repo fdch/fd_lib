@@ -59,3 +59,5 @@ Remaining inlets are pulse width \, delay amount and amplitude.;
 #X connect 17 0 14 0;
 #X connect 17 0 14 1;
 #X connect 22 0 16 0;
+#X obj 440 15 declare -path fd_lib;
+#X text 504 523 fd_lib v0.1;

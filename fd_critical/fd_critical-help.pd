@@ -7,3 +7,5 @@
 #X text 133 40 Critical bandwidth;
 #X text 129 141 OR f = 600*sinh(z/6)[5];
 #X text 23 73 This abstraction is used in connection with fd_bark;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

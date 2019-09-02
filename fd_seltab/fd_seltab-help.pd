@@ -7,3 +7,5 @@ output is the symbol to a table.;
 #X obj 183 139 fd_seltab 0;
 #X connect 2 0 4 0;
 #X connect 4 0 3 0;
+#X obj 383 15 declare -path fd_lib;
+#X text 447 314 fd_lib v0.1;

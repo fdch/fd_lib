@@ -31,3 +31,5 @@ is where the 'guts' of your patch can live., f 62;
 #X connect 7 0 1 0;
 #X connect 15 0 1 0;
 #X connect 17 0 4 0;
+#X obj 430 15 declare -path fd_lib;
+#X text 494 524 fd_lib v0.1;

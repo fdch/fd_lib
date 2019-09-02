@@ -1,0 +1,7 @@
+#N canvas 527 49 450 350 12;
+#X text 315 292 fd_lib;
+#X text 155 14 "fd_dataDroplet";
+#X obj 147 139 fd_dataDroplet;
+#X text 49 45 Morphs a single element form a data-array.;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

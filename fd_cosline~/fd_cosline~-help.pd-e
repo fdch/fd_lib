@@ -1,0 +1,36 @@
+#N canvas 527 51 625 395 12;
+#X text 235 19 "fd_cosline~";
+#X obj 52 131 noise~;
+#X obj 52 320 dac~;
+#X obj 93 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 135 195 5 0 0 0 - - -, f 5;
+#X obj 210 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 189 223 *~;
+#X text 292 131 inlet 3: ramptime (default 10);
+#X text 190 256 Argument: ramptime (default 10);
+#X obj 229 180 sel 1;
+#X msg 229 205 0;
+#X obj 189 157 phasor~ 12;
+#X text 292 112 inlet 2: 1-0 on/off switch;
+#X text 112 162 on/off;
+#X obj 52 256 fd_cosline~ 2000;
+#X text 257 205 (reset phase);
+#X text 51 101 inlet 1: signal;
+#X text 292 150 inlet 4: signal (overrides inlets 2-3);
+#X text 51 48 Performs a cosine amplitude ramp \, to smooth amplitude
+changes, f 61;
+#X connect 1 0 14 0;
+#X connect 3 0 14 1;
+#X connect 4 0 14 2;
+#X connect 5 0 6 1;
+#X connect 5 0 9 0;
+#X connect 6 0 14 3;
+#X connect 9 0 10 0;
+#X connect 10 0 11 1;
+#X connect 11 0 6 0;
+#X connect 14 0 2 0;
+#X connect 14 0 2 1;
+#X obj 461 15 declare -path fd_lib;
+#X text 525 365 fd_lib version 0.1;

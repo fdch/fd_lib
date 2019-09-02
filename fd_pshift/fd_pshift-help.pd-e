@@ -1,0 +1,24 @@
+#N canvas 532 55 450 350 12;
+#X text 400 300 fd_lib;
+#X text 10 10 fd_pshift;
+#X obj 195 206 sigmund~ pitch;
+#X floatatom 195 230 5 0 0 0 - - -, f 5;
+#X msg 305 96 \; pd dsp 1;
+#X obj 195 182 fd_pshift mydel;
+#X obj 17 143 delwrite~ mydel 100;
+#X obj 17 89 sig~ 69;
+#X obj 17 119 mtof~;
+#X floatatom 17 65 5 0 128 0 - - -, f 5;
+#X obj 195 147 sig~ 1;
+#X floatatom 195 119 5 0 0 0 - - -, f 5;
+#X text 10 40 Pitch shifter based on a lecture by Jaime Oliver La Rosa
+;
+#X connect 2 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 5 0;
+#X connect 11 0 10 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

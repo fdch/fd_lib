@@ -1,0 +1,63 @@
+#N canvas 525 52 604 553 12;
+#X obj 40 485 dac~;
+#X obj 40 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 78 313 hsl 128 15 1 300 0 0 empty empty attack_(msec) -2 -8
+0 10 -262144 -1 -1 800 1;
+#X obj 88 343 hsl 128 15 0.01 300 1 0 empty empty pulse_(Hz) -2 -8
+0 10 -262144 -1 -1 5600 1;
+#X obj 98 373 hsl 128 15 0 100 0 0 empty empty delay_amount_(%) -2
+-8 0 10 -262144 -1 -1 10000 1;
+#X obj 108 403 hsl 128 15 0 100 0 0 empty empty delay_amplitude_(%)
+-2 -8 0 10 -262144 -1 -1 12700 1;
+#X floatatom 257 418 5 0 0 0 - - -, f 5;
+#X floatatom 258 388 5 0 0 0 - - -, f 5;
+#X floatatom 255 358 5 0 0 0 - - -, f 5;
+#X floatatom 245 328 5 0 0 0 - - -, f 5;
+#X msg 68 178 resize 64;
+#X msg 81 218 48 0.6 70 100;
+#X obj 391 329 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 426 326 resize 64;
+#X obj 391 395 dac~;
+#X text 273 15 "fd_kp";
+#X obj 40 445 fd_kp;
+#X obj 391 370 fd_kp 48 0.6 70 100;
+#X text 160 176 <-- change pluck size | compute new pluck;
+#X text 63 109 Changing the pluck affects the next pluck significantly.
+Since the current pluck is already resounding in the delay loop \,
+you can do this after a pluck \, affecting only the next one:;
+#X text 62 78 <-- bang to pluck;
+#X text 105 270 Inlets / Arguments: Individual parameters;
+#X obj 40 254 t a;
+#N canvas 0 22 450 300 inlets 0;
+#X text 23 68 First inlet takes a 'bang' \, 'resize \$1' and 'list'
+of 4 parameters., f 48;
+#X text 15 124 It also takes a cold float \, as the attack parameter.
+Remaining inlets are pulse width \, delay amount and amplitude.;
+#X text 174 18 inlets;
+#X restore 450 466 pd inlets;
+#X text 195 219 <-- list of parameters | arguments, f 35;
+#X text 441 435 See here:;
+#X text 56 48 Pluck sound generator based on the Karplus Strong Algorithm
+;
+#X connect 1 0 22 0;
+#X connect 2 0 9 0;
+#X connect 2 0 16 0;
+#X connect 3 0 8 0;
+#X connect 3 0 16 1;
+#X connect 4 0 7 0;
+#X connect 4 0 16 2;
+#X connect 5 0 6 0;
+#X connect 5 0 16 3;
+#X connect 10 0 22 0;
+#X connect 11 0 22 0;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 16 0 0 0;
+#X connect 16 0 0 1;
+#X connect 17 0 14 0;
+#X connect 17 0 14 1;
+#X connect 22 0 16 0;
+#X obj 440 15 declare -path fd_lib;
+#X text 504 523 fd_lib version 0.1;

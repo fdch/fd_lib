@@ -16,3 +16,5 @@ f 29;
 #X text 54 42 AUTOMATICALLY CONNECT CORDS BETWEEN OUTLETS AND INLETS
 ;
 #X connect 8 0 7 0;
+#X obj 365 15 declare -path fd_lib;
+#X text 429 417 fd_lib v0.1;

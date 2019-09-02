@@ -81,3 +81,5 @@ minima) triggers iterations.;
 #X connect 12 0 8 0;
 #X connect 13 0 8 0;
 #X connect 14 0 8 0;
+#X obj 452 15 declare -path fd_lib;
+#X text 516 406 fd_lib v0.1;

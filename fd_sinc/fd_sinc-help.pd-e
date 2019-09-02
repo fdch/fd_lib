@@ -1,0 +1,18 @@
+#N canvas 526 54 450 350 12;
+#X text 400 300 fd_lib;
+#X text 10 10 fd_sinc;
+#X obj 100 184 fd_sinc 0-sinc 515;
+#X msg 101 76 bang;
+#X msg 343 57 \; pd dsp 1;
+#X msg 111 102 click 0 0 0 0 0;
+#X floatatom 240 109 5 0 0 0 - - -, f 5;
+#X msg 240 132 q \$1 \, bang;
+#X msg 133 132 67;
+#X text 10 40 Computes a sinusoidal pulse;
+#X connect 3 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

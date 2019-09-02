@@ -3,3 +3,5 @@
 #X text 162 20 "fd_nouns";
 #X obj 10 151 fd_nouns;
 #X obj 10 241 fd_nouns;
+#X obj 259 15 declare -path fd_lib;
+#X text 323 313 fd_lib v0.1;

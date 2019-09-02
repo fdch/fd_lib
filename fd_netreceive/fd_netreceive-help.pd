@@ -8,3 +8,5 @@ is established.;
 #X text 28 47 "netreceive" side to connect from another instance of
 pd. Use only one of these per patch. Use in conjunction with [fd_netsend]
 in another pd-instance.;
+#X obj 359 15 declare -path fd_lib;
+#X text 423 364 fd_lib v0.1;

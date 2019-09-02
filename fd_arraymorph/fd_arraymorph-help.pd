@@ -1,28 +1,29 @@
-#N canvas 526 49 609 668 12;
-#X msg 181 210 all array1 array2 1000;
-#X text 67 59 NOTE: NEEDS TO BE CLONED OTHERWISE WONT MAKE SENSE...
+#N canvas 526 49 608 723 12;
+#X declare -path fd_lib;
+#X msg 181 250 all array1 array2 1000;
+#X text 67 99 NOTE: NEEDS TO BE CLONED OTHERWISE WONT MAKE SENSE...
 ;
-#X text 181 232 1) the 'all' is a must (see clone-help.pd);
-#X text 181 291 4) 1000 == time in milliseconds;
-#X text 139 85 [clone fd_arraymorph SIZE TARGET];
-#X text 144 128 \$1 == SIZE: of arrays (float);
-#X text 29 14 MORPH between two arrays (array1 \, array2) in a recipient
+#X text 181 272 1) the 'all' is a must (see clone-help.pd);
+#X text 181 331 4) 1000 == time in milliseconds;
+#X text 139 125 [clone fd_arraymorph SIZE TARGET];
+#X text 144 168 \$1 == SIZE: of arrays (float);
+#X text 29 64 MORPH between two arrays (array1 \, array2) in a recipient
 (array3), f 65;
-#X text 145 148 \$2 == RECIPIENT: arrayname (symbol);
-#X text 181 272 3) array2 == target curve;
-#X text 181 252 2) array1 == source curve;
-#X text 62 45 ********************************************************
+#X text 145 188 \$2 == RECIPIENT: arrayname (symbol);
+#X text 181 312 3) array2 == target curve;
+#X text 181 292 2) array1 == source curve;
+#X text 62 85 ********************************************************
 ;
-#X text 62 107 ********************************************************
+#X text 62 147 ********************************************************
 ;
-#X text 324 329 source \, target;
-#X text 324 408 recipient;
-#X obj 325 353 array define array1 67;
-#X obj 325 377 array define array2 67;
-#X obj 325 430 array define array3 67;
-#X msg 20 569 all array1 array2 1000;
-#X text 20 331 draw some curve;
-#X text 133 382 draw another curve;
+#X text 324 369 source \, target;
+#X text 324 448 recipient;
+#X obj 325 393 array define array1 67;
+#X obj 325 417 array define array2 67;
+#X obj 325 470 array define array3 67;
+#X msg 20 609 all array1 array2 1000;
+#X text 20 371 draw some curve;
+#X text 133 422 draw another curve;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array array4 67 float 3;
 #A 0 -0.248842 0 0.248842 0.48175 0.684008 0.843231 0.950296 0.999999
@@ -35,22 +36,24 @@
 -0.312363 -0.49528 -0.668067 -0.816548 -0.927834 -0.991402 -1 -0.9503
 -0.843238 -0.684018 -0.481762 -0.248855 -1.35978e-05 0.248829;
 #X coords 0 1 67 -1 200 140 1;
-#X restore 325 478 graph;
-#X msg 21 489 all array2 array1 2000;
-#X text 19 465 click on array3 to see morphing;
-#X text 17 544 morphing to another recipient;
-#X obj 20 594 clone fd_arraymorph 67 array4;
-#X obj 20 514 clone fd_arraymorph 67 array3;
-#X obj 52 289 loadbang;
-#X text 546 631 fdch;
-#X text 51 184 to make it work \, you need tosend a message like this
+#X restore 325 518 graph;
+#X msg 21 529 all array2 array1 2000;
+#X text 19 505 click on array3 to see morphing;
+#X text 17 584 morphing to another recipient;
+#X obj 20 634 clone fd_arraymorph 67 array4;
+#X obj 20 554 clone fd_arraymorph 67 array3;
+#X obj 52 329 loadbang;
+#X text 51 224 to make it work \, you need tosend a message like this
 to the clone inlet:;
-#X msg 19 354 cosinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
-#X msg 138 400 sinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
-#X text 22 631 NOTE: all arrays have size = 67;
+#X msg 19 394 cosinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
+#X msg 138 440 sinesum 64 0.2 0.3 0.4 \, normalize 1, f 12;
+#X text 22 671 NOTE: all arrays have size = 67;
+#X obj 443 25 declare -path fd_lib;
+#X text 508 684 fd_lib v0.1;
+#X text 242 23 "fd_arraymorph";
 #X connect 17 0 24 0;
 #X connect 21 0 25 0;
+#X connect 26 0 28 0;
 #X connect 26 0 29 0;
-#X connect 26 0 30 0;
-#X connect 29 0 14 0;
-#X connect 30 0 15 0;
+#X connect 28 0 14 0;
+#X connect 29 0 15 0;

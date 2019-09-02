@@ -66,3 +66,5 @@ before creating this abstraction, f 26;
 #X connect 9 0 8 0;
 #X connect 10 0 11 0;
 #X connect 15 0 10 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

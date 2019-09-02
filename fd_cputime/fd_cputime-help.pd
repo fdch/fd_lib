@@ -2,3 +2,5 @@
 #X obj 184 102 ./fd_cputime;
 #X text 166 21 "fd_cputime";
 #X text 19 53 Small gui that queries cputime as in load-meter.pd;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

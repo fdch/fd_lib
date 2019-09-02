@@ -123,3 +123,5 @@ between 0-1 \; and turing its output into signal \; using [vline~]
 #X connect 10 0 7 0;
 #X connect 20 0 7 0;
 #X connect 21 0 7 0;
+#X obj 402 15 declare -path fd_lib;
+#X text 466 367 fd_lib v0.1;

@@ -11,3 +11,5 @@
 #X text 19 47 place this on a GOP (Graph-On-Parent) SUBPATCH to toggle
 visibility. This is only to avoid right-clicking \, or ctrl+click >
 OPEN..., f 63;
+#X obj 382 15 declare -path fd_lib;
+#X text 446 252 fd_lib v0.1;

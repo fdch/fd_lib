@@ -5,3 +5,5 @@
 ;
 #X obj 172 125 fd_camara;
 #X text 68 77 [declare -stdlib Gem] for this one;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

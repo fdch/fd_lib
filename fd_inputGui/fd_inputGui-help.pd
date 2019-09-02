@@ -6,3 +6,5 @@
 #X text 39 137 created as [fd_inputGui 1]:;
 #X text 226 236 see also fd_input-help.pd;
 #X coords 0 311 1 310 104 104 0;
+#X obj 311 15 declare -path fd_lib;
+#X text 375 281 fd_lib v0.1;

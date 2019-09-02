@@ -77,3 +77,5 @@ received. After the first calculation it is supposed to work much faster.
 #X connect 34 0 35 0;
 #X connect 35 0 20 0;
 #X connect 36 0 34 0;
+#X obj 542 15 declare -path fd_lib;
+#X text 606 396 fd_lib v0.1;

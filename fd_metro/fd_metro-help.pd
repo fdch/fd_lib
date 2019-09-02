@@ -43,3 +43,5 @@ its tempo rate., f 36;
 #X connect 2 0 1 1;
 #X connect 3 0 1 1;
 #X connect 4 0 1 1;
+#X obj 271 15 declare -path fd_lib;
+#X text 335 335 fd_lib v0.1;

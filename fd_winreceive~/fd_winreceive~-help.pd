@@ -31,3 +31,5 @@ arcsin \, blackman \, expo \, gauss \, logistic \, poisson \, rexpo
 #X connect 4 0 2 0;
 #X connect 5 0 10 0;
 #X connect 10 0 3 0;
+#X obj 406 15 declare -path fd_lib;
+#X text 470 404 fd_lib v0.1;

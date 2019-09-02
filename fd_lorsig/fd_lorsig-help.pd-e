@@ -1,0 +1,18 @@
+#N canvas 527 52 450 350 12;
+#X obj 133 185 fd_lorsig;
+#X text 168 15 "fd_lorsig";
+#X obj 305 295 lorsig~;
+#X text 284 261 See help for:;
+#X obj 133 240 dac~;
+#X text 18 63 Compute the distance of the lorenz as a signal.;
+#X floatatom 133 115 5 0 0 0 - - -, f 5;
+#X obj 133 137 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 133 158 5 0 0 0 - - -, f 5;
+#X connect 0 0 4 0;
+#X connect 0 0 4 1;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

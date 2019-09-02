@@ -51,3 +51,5 @@ clear the root \, and possibly crash pd!!, f 51;
 \, which is pd's inner way to refer to canvases. You can use it as
 a target to a [send <target>] object.;
 #X text 218 158 For example:;
+#X obj 398 15 declare -path fd_lib;
+#X text 462 243 fd_lib v0.1;

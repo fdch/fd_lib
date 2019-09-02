@@ -1,0 +1,11 @@
+#N canvas 526 51 450 350 12;
+#X text 158 13 "fd_critical";
+#X obj 27 142 fd_critical;
+#X obj 232 226 fd_bark;
+#X text 111 226 See help for:;
+#X text 25 109 (Hz)=52548/(z^2-52.56z+690.39) \, with z in bark.;
+#X text 133 40 Critical bandwidth;
+#X text 129 141 OR f = 600*sinh(z/6)[5];
+#X text 23 73 This abstraction is used in connection with fd_bark;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

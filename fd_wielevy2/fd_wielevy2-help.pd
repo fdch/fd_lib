@@ -41,3 +41,5 @@ instants 0 and t \, respectively \, and k = 0 \, +/- 1 \, +/- 2 \,
 #X connect 16 0 18 4;
 #X connect 17 0 18 0;
 #X connect 18 0 15 0;
+#X obj 502 15 declare -path fd_lib;
+#X text 566 374 fd_lib v0.1;

@@ -27,3 +27,5 @@ array-8 template-8-element;
 #X obj 168 124 fd_data;
 #X text 168 94 See :;
 #X text 10 10 fd_set-element;
+#X obj -164 15 declare -path fd_lib;
+#X text -100 -30 fd_lib v0.1;

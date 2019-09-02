@@ -20,3 +20,5 @@ of a [route]., f 21;
 #X connect 3 2 6 0;
 #X connect 3 3 8 0;
 #X connect 7 0 3 0;
+#X obj 364 15 declare -path fd_lib;
+#X text 428 334 fd_lib v0.1;

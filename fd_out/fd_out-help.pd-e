@@ -1,0 +1,16 @@
+#N canvas 523 49 546 383 12;
+#X obj 110 161 ./fd_out;
+#X text 230 26 "fd_out";
+#X obj 110 122 noise~;
+#X obj 177 237 catch~ dacout;
+#X obj 177 262 dac~;
+#X text 35 55 An gui for a dac output. Inlet takes a signal \, and
+throws it to a [catch~ dacout] object outside the abstraction.;
+#X obj 283 163 ./fd_out;
+#X obj 283 124 osc~ 440;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 7 0 6 0;
+#X obj 382 15 declare -path fd_lib;
+#X text 446 353 fd_lib version 0.1;

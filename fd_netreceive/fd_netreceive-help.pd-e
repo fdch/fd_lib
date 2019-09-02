@@ -1,0 +1,12 @@
+#N canvas 523 49 523 394 12;
+#X text 196 15 "fd_netreceive";
+#X obj 84 124 fd_netreceive;
+#X text 24 183 Colors will change to GREEN when connected to fd_netsend
+;
+#X text 24 211 A 'connected 1' message is received once the connection
+is established.;
+#X text 28 47 "netreceive" side to connect from another instance of
+pd. Use only one of these per patch. Use in conjunction with [fd_netsend]
+in another pd-instance.;
+#X obj 359 15 declare -path fd_lib;
+#X text 423 364 fd_lib version 0.1;

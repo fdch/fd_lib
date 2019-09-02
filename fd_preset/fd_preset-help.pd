@@ -5,3 +5,5 @@
 #X text 10 58 A set of controls to handle preset selection (non-storing)
 ;
 #X connect 0 0 1 0;
+#X obj 339 15 declare -path fd_lib;
+#X text 403 355 fd_lib v0.1;

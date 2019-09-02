@@ -48,3 +48,5 @@ plug in any midi faders/knobs with [ctlin n], f 50;
 #X connect 11 0 0 0;
 #X restore 42 245 pd gemwin;
 #X connect 13 0 14 0;
+#X obj 352 15 declare -path fd_lib;
+#X text 416 496 fd_lib v0.1;

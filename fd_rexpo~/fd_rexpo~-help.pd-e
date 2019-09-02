@@ -1,0 +1,26 @@
+#N canvas 524 50 450 350 12;
+#X obj 39 312 array define;
+#X text 21 129 Arguments: array-name(symbol) array-size(float), f
+48;
+#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 148 75 \; pd dsp 1;
+#X text 228 86 <-- must be on;
+#X text 247 320 used in [fd_windows];
+#X msg 178 184 click 0 0 0 0 0;
+#X text 181 164 hack to see array:;
+#X text 30 272 following naming conventions as, f 16;
+#X text 45 156 load table ->;
+#X text 170 13 "fd_rexpo~";
+#X text 20 45 Same as [fd_rexpo] \, but stored via dsp into array;
+#X obj 157 219 fd_rexpo~ rexpo-tilde 128, f 16;
+#X text 253 270 see fd_rexpo-help.pd;
+#X floatatom 339 177 5 0 0 0 - - -, f 5;
+#X msg 339 199 q \$1 \, bang;
+#X obj 297 292 fd_rexpo~;
+#X connect 2 0 12 0;
+#X connect 6 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

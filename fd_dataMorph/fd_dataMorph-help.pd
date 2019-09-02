@@ -9,3 +9,5 @@
 #X text 27 64 Cloning indexes and making a line for each value pair
 ;
 #X obj 68 161 fd_dataMorph;
+#X obj 366 15 declare -path fd_lib;
+#X text 430 348 fd_lib v0.1;

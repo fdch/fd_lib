@@ -25,3 +25,5 @@ the firstmost outlet.;
 #X connect 10 1 6 0;
 #X connect 10 2 7 0;
 #X connect 11 0 10 0;
+#X obj 405 15 declare -path fd_lib;
+#X text 469 364 fd_lib v0.1;

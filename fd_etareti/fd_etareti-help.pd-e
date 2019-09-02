@@ -1,0 +1,13 @@
+#N canvas 526 50 507 374 12;
+#X obj 199 256 print;
+#X msg 209 166 10;
+#X text 182 30 "fd_etareti";
+#X obj 199 203 fd_etareti;
+#X msg 199 139 100;
+#X text 19 61 Iteratative reverse counter. Inlet == number of iterations.
+Send in a float to start iteration.;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X obj 343 15 declare -path fd_lib;
+#X text 407 344 fd_lib version 0.1;

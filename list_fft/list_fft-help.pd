@@ -86,3 +86,5 @@ normalize \;;
 #X connect 8 1 5 0;
 #X connect 16 0 13 0;
 #X connect 16 1 12 0;
+#X obj 527 15 declare -path fd_lib;
+#X text 591 678 fd_lib v0.1;

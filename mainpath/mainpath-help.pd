@@ -78,3 +78,5 @@ twists. It also uses <dirent.h>, f 40;
 #X connect 7 0 2 0;
 #X connect 8 0 2 0;
 #X connect 23 0 2 0;
+#X obj 387 15 declare -path fd_lib;
+#X text 451 527 fd_lib v0.1;

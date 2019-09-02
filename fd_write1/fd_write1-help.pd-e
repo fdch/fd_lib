@@ -1,0 +1,16 @@
+#N canvas 524 52 526 348 12;
+#X declare -path fd_lib;
+#X obj 75 131 ./fd_write1;
+#X text 243 189 reset: all counters back to 0;
+#X text 245 212 stop: stop recording;
+#X text 243 168 start: start file recording;
+#X text 246 147 MESSAGES:;
+#X text 245 113 OPEN FILE TO WRITE FIRST!;
+#X text 22 81 ***********************************************************
+;
+#X text 22 51 ***********************************************************
+;
+#X text 211 23 "fd_write1";
+#X text 189 63 MONO FILE RECORDER;
+#X obj 362 15 declare -path fd_lib;
+#X text 375 303 fd_lib version 0.1;

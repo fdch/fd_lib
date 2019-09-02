@@ -128,3 +128,5 @@ Look inside. Outles are fixed...;
 #X connect 52 7 32 0;
 #X connect 52 8 33 0;
 #X connect 53 0 52 0;
+#X obj 356 15 declare -path fd_lib;
+#X text 420 429 fd_lib v0.1;

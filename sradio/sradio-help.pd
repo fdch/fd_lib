@@ -168,3 +168,5 @@ toggles with internal storage (see pd-storage)., f 62;
 #X connect 34 0 36 0;
 #X connect 38 0 3 0;
 #X connect 47 0 25 0;
+#X obj 462 15 declare -path fd_lib;
+#X text 526 517 fd_lib v0.1;

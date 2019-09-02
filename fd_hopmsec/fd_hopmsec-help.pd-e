@@ -1,0 +1,25 @@
+#N canvas 528 93 525 355 12;
+#X obj 234 241 t b b;
+#X obj 234 273 timer;
+#X floatatom 234 297 5 0 0 0 - - -, f 5;
+#X obj 234 198 sigmund~ -npts 1024 -hop 2048 -npeak 1 peaks, f 24
+;
+#X floatatom 76 91 5 0 0 0 - - -, f 5;
+#X floatatom 76 153 5 0 0 0 - - -, f 5;
+#X msg 76 178 hop \$1;
+#X obj 76 120 fd_hopmsec;
+#X text 189 23 "fd_hompsec";
+#X text 22 45 Input milliseconds to obtain necessary hop size for sigmund
+;
+#X obj 234 154 osc~ 320;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 5 0;
+#X connect 10 0 3 0;
+#X obj 361 15 declare -path fd_lib;
+#X text 425 325 fd_lib version 0.1;

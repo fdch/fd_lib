@@ -1,1 +1,3 @@
 #N canvas 0 22 450 350 14; #X text 10 10 ./fd_smooth_brute; #X text 10 40 Placeholder for help file:; #X obj 10 70 ./fd_smooth_brute; #X text 400 300 fd_lib;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

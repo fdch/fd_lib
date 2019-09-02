@@ -1,0 +1,58 @@
+#N canvas 523 35 447 423 12;
+#X text 82 280 outlet 1: float;
+#X text 84 316 outlet 2: decreases = 1;
+#X text 85 346 outlet 3: increases = 1;
+#X obj 49 177 fd_updown;
+#X obj 285 237 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 345 238 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 49 23 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 49 68 counter;
+#X obj 49 118 / 360;
+#X obj 49 93 reflect 360;
+#X obj 49 143 cos;
+#X obj 33 207 * 127;
+#X obj 64 256 vsl 15 128 0 127 0 0 empty empty up 0 -9 0 15 -262144
+-1 -1 12200 1;
+#X obj 285 263 change;
+#X obj 285 288 sel 1;
+#X obj 345 298 change;
+#X obj 345 323 sel 1;
+#X msg 345 349 up;
+#X msg 285 314 down;
+#X msg 64 389 label \$1;
+#X obj 285 369 symbol;
+#X obj 49 43 metro 1;
+#X obj 198 104 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12200 1;
+#X obj 195 124 / 127;
+#X text 73 21 <-- try this;
+#X text 193 76 or this;
+#X text 252 9 "fd_updown";
+#X text 179 32 Query incr/decr state of stream;
+#X connect 3 0 11 0;
+#X connect 3 1 4 0;
+#X connect 3 2 5 0;
+#X connect 4 0 13 0;
+#X connect 5 0 15 0;
+#X connect 6 0 21 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 3 0;
+#X connect 11 0 12 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 19 0 12 0;
+#X connect 20 0 19 0;
+#X connect 21 0 7 0;
+#X connect 22 0 23 0;
+#X connect 23 0 3 0;
+#X obj 283 15 declare -path fd_lib;
+#X text 347 393 fd_lib version 0.1;

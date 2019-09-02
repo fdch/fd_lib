@@ -11,3 +11,5 @@ list provided via 2nd inlet. eg: 1 1 1 becomes 0 \, 1 1 0 becomes 1
 #X text 335 225 See help for:;
 #X connect 0 0 1 0;
 #X connect 6 0 0 0;
+#X obj 393 15 declare -path fd_lib;
+#X text 457 319 fd_lib v0.1;

@@ -3,3 +3,5 @@
 #X text 53 71 Used in fd_dataMorph.pd;
 #X text 130 27 "fd_dataMorphArray";
 #X text 199 213 see fd_data.pd;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

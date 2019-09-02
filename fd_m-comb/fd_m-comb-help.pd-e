@@ -1,0 +1,15 @@
+#N canvas 549 60 557 349 12;
+#X obj 196 172 fd_m-comb 8;
+#X obj 196 221 print;
+#X text 29 68 Outputs indices of matrix combinations according to a
+list provided via 2nd inlet. eg: 1 1 1 becomes 0 \, 1 1 0 becomes 1
+\, etc.;
+#X text 204 20 "fd_m-comb";
+#X text 33 42 A utility to make [fd_matrix-comb] eassier to grab.;
+#X obj 342 259 fd_matrix-comb;
+#X msg 196 129 0 1 1;
+#X text 335 225 See help for:;
+#X connect 0 0 1 0;
+#X connect 6 0 0 0;
+#X obj 393 15 declare -path fd_lib;
+#X text 457 319 fd_lib version 0.1;

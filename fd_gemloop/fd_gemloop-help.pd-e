@@ -1,0 +1,58 @@
+#N canvas 568 141 595 494 12;
+#X declare -lib Gem;
+#X obj 414 418 declare -lib Gem;
+#X msg 416 312 create \, 1;
+#X obj 416 388 gemwin;
+#X msg 445 350 0;
+#X obj 120 251 fd_gemloop;
+#X obj 120 169 gemhead;
+#X obj 120 194 pix_video;
+#X obj 120 316 pix_texture;
+#X obj 120 359 square 4;
+#X msg 241 206 bang;
+#X obj 197 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 239 179 5 0 0 0 - - -, f 5;
+#X text 225 20 "fd_gemloop";
+#X text 51 43 Stores an incoming gemlist into a buffer. Default value
+is 300 frames \, but can be changed via 2nd inlet. Send a 'bang' to
+start recording. Floats other than 0 are index to the buffer. Default
+float in 2nd inlet is '0' \, which starts looping. Outlets are "gemlist"
+and a bang to report loop start.;
+#N canvas 0 22 450 300 save 0;
+#X msg 90 65 300;
+#X obj 90 90 fd_iterate;
+#X obj 90 170 mainpath;
+#X obj 90 115 t f f;
+#X obj 90 195 list;
+#X msg 90 222 save \$1 \$2;
+#X msg 90 145 add loop-\$1.jpg;
+#X obj 90 247 outlet;
+#X text 75 16 Save all stored images into jpg files;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 3 1 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X restore 329 201 pd save;
+#X text 317 171 See here:;
+#X msg 321 235 resize 2;
+#X text 396 236 <-- 'clear';
+#X msg 322 259 resize 300;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 4 1 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 9 0 4 1;
+#X connect 11 0 4 1;
+#X connect 14 0 4 1;
+#X connect 16 0 4 1;
+#X connect 18 0 4 1;
+#X obj 431 15 declare -path fd_lib;
+#X text 495 464 fd_lib version 0.1;

@@ -1,0 +1,33 @@
+#N canvas 527 49 481 328 12;
+#X msg 126 148 reset;
+#X obj 140 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 78 244 print;
+#X text 163 217 bang when done;
+#X obj 371 289 fd_delit;
+#X msg 123 96 10;
+#X obj 78 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 140 242 print done;
+#X text 203 19 'delit';
+#X text 154 292 This is an object version of:;
+#X obj 78 181 delit 3 1000;
+#X text 183 179 Optional args:;
+#X text 295 200 delay time (def: 0);
+#X text 196 125 set iterations delaytime;
+#X msg 125 124 set 5 500;
+#X obj 371 259 iterate;
+#X text 161 97 iterate at 0 time like [iterate] object;
+#X text 364 237 see also:;
+#X text 155 46 A delayed iterator;
+#X text 172 149 reset to default arguments;
+#X text 294 185 iterations (def: 1);
+#X connect 0 0 10 0;
+#X connect 1 0 7 0;
+#X connect 5 0 10 0;
+#X connect 6 0 10 0;
+#X connect 10 0 2 0;
+#X connect 10 1 1 0;
+#X connect 14 0 10 0;
+#X obj 317 15 declare -path fd_lib;
+#X text 381 298 fd_lib version 0.1;

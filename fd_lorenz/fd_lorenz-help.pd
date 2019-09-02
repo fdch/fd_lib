@@ -28,3 +28,5 @@ the lorenz system and accepts initial conditions.;
 #X connect 8 2 11 0;
 #X connect 12 0 4 0;
 #X connect 13 0 4 0;
+#X obj 406 15 declare -path fd_lib;
+#X text 470 363 fd_lib v0.1;

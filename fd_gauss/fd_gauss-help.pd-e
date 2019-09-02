@@ -1,0 +1,69 @@
+#N canvas 523 49 558 580 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array gauss 100 float 3;
+#A 0 0.00673795 0.0082133 0.00997174 0.0120583 0.0145233 0.0174224
+0.0208167 0.024773 0.0293636 0.0346659 0.0407622 0.0477393 0.0556875
+0.0646996 0.0748701 0.0862936 0.0990629 0.113268 0.128993 0.146314
+0.165299 0.186002 0.208462 0.232701 0.258722 0.286505 0.316004 0.347149
+0.379842 0.413954 0.449329 0.48578 0.523091 0.561019 0.599296 0.637628
+0.675704 0.713195 0.749762 0.785056 0.818731 0.850441 0.879853 0.906649
+0.930531 0.951229 0.968507 0.982161 0.992032 0.998002 1 0.998002 0.992032
+0.982161 0.968507 0.951229 0.930531 0.906649 0.879853 0.850441 0.818731
+0.785056 0.749762 0.713195 0.675704 0.637628 0.599296 0.561019 0.523091
+0.48578 0.449329 0.413954 0.379842 0.347149 0.316004 0.286505 0.258722
+0.232701 0.208462 0.186002 0.165299 0.146314 0.128993 0.113268 0.099063
+0.0862936 0.0748701 0.0646996 0.0556875 0.0477393 0.0407622 0.0346658
+0.0293636 0.024773 0.0208167 0.0174224 0.0145233 0.0120583 0.00997174
+0.0082133;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 291 229 graph;
+#X obj 186 234 t b f;
+#X obj 186 263 pack;
+#X floatatom 131 188 5 0 0 2 mean - -, f 5;
+#X obj 61 277 t f f;
+#X obj 61 302 / 100;
+#X obj 61 327 - 0.5;
+#X obj 61 352 * 2;
+#X msg 139 353 list \$1 \$2;
+#X obj 186 288 t b a;
+#X floatatom 187 189 5 0 0 2 stdev - -, f 5;
+#X obj 187 211 / 1000;
+#X obj 39 488 s gauss;
+#X msg 39 453 normalize 1;
+#X msg 39 129 bang to graph;
+#X obj 131 210 / 100;
+#X text 356 431 see fd_gauss~.pd;
+#X text 134 486 <-- NOTE: [fd_gauss] is NOT normalized \, so we are
+normalizing the array after graphing (cpu-expensive), f 46;
+#X text 276 130 inlet 1: float (x);
+#X obj 61 384 fd_gauss 0 0.1;
+#X text 276 147 inlet 1: list (mean \, stdev);
+#X text 212 21 "fd_gauss";
+#X obj 61 412 array set gauss;
+#X obj 61 249 fd_iterate;
+#X obj 39 219 t b b;
+#X text 112 45 Calculates a Gaussian Distribution:;
+#X text 76 72 1/sqrt(2*stdev^2*PI) EXP -((x-mean)^2/2*stdv));
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 9 0;
+#X connect 3 0 15 0;
+#X connect 4 0 5 0;
+#X connect 4 1 22 1;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 24 0;
+#X connect 9 1 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 1 0;
+#X connect 13 0 12 0;
+#X connect 14 0 24 0;
+#X connect 15 0 2 0;
+#X connect 19 0 22 0;
+#X connect 23 0 4 0;
+#X connect 24 0 13 0;
+#X connect 24 1 23 0;
+#X obj 394 15 declare -path fd_lib;
+#X text 458 550 fd_lib version 0.1;

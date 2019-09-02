@@ -1,4 +1,5 @@
 #N canvas 524 50 542 505 12;
+#X declare -path fd_lib;
 #X text 229 22 "lorenz";
 #X msg 120 262 bang;
 #X obj 120 422 unpack f f f;
@@ -151,6 +152,8 @@ of a 'bang' is sent to the first outlet as a list of 3 floats (x \,
 y \, z).;
 #X text 270 286 NOTE: The first 100 iterations are ignored, f 22;
 #X obj 120 387 lornorm;
+#X obj 378 15 declare -path fd_lib;
+#X text 379 468 fd_lib v0.1;
 #X connect 1 0 18 0;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;

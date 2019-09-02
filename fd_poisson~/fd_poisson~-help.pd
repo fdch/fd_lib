@@ -19,3 +19,5 @@
 #X text 253 270 see fd_poisson-help.pd;
 #X connect 2 0 12 0;
 #X connect 6 0 12 0;
+#X obj 304 15 declare -path fd_lib;
+#X text 368 362 fd_lib v0.1;

@@ -1,6 +1,9 @@
 #N canvas 560 99 450 300 12;
+#X declare -path fd_lib;
 #X obj 65 220 print;
 #X obj 68 146 irpow;
 #X msg 58 49 1 2 3 4 5;
+#X obj 249 15 declare -path fd_lib;
+#X text 280 250 fd_lib v0.1;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;

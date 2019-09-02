@@ -238,3 +238,5 @@ seed. But \, the behavior is different:, f 87;
 #X connect 2 0 6 0;
 #X connect 3 0 2 0;
 #X connect 7 0 2 0;
+#X obj 433 15 declare -path fd_lib;
+#X text 497 322 fd_lib v0.1;

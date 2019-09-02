@@ -4,3 +4,5 @@
 #X text 18 80 ./pd -nogui -send " \; full-path FILL/PATH/TO/FILE \;
 length LENGTH_IN_MINUTES \; filename FILENAME \; " fd_write.pd;
 #X coords 0 156 1 155 150 100 0;
+#X obj 215 15 declare -path fd_lib;
+#X text 279 126 fd_lib v0.1;

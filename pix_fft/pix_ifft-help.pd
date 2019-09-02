@@ -1,18 +1,19 @@
 #N canvas 676 88 510 503 12;
 #X declare -lib Gem;
-#X obj 273 37 declare -lib Gem;
-#X obj 300 102 gemwin;
+#X declare -path fd_lib;
+#X obj 346 41 declare -lib Gem;
+#X obj 348 153 gemwin;
 #X obj 37 183 pix_fft;
 #X obj 37 67 gemhead;
 #X obj 37 92 pix_video;
 #X obj 37 117 pix_grey;
 #X obj 37 142 pix_crop 100 0 128 128, f 12;
 #X obj 37 366 pix_texture;
-#X msg 349 70 create \, 1;
+#X msg 365 118 create \, 1;
 #X obj 180 104 gemhead;
 #X obj 168 175 loadbang;
 #X obj 90 269 pix_grey;
-#X msg 264 71 0 \, destroy;
+#X msg 348 91 0 \, destroy;
 #X obj 114 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 37 391 square 4;
@@ -20,6 +21,8 @@
 #X obj 37 331 pix_shift;
 #X msg 170 198 GREY;
 #X obj 90 240 pix_set 128 128;
+#X obj 346 15 declare -path fd_lib;
+#X text 410 473 fd_lib v0.1;
 #X connect 2 0 15 0;
 #X connect 2 1 18 1;
 #X connect 3 0 4 0;

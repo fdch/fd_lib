@@ -3,3 +3,5 @@
 #X text 152 20 "fd_dataExp";
 #X obj 151 103 fd_dataExp;
 #X text 41 57 Exponential graph into a data structure array;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

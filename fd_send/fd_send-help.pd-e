@@ -1,0 +1,16 @@
+#N canvas 528 47 450 350 12;
+#X text 101 281 intended to be used with fd_printer.pd;
+#X text 227 300 see fd_printer-help.pd;
+#X floatatom 38 135 5 0 0 0 - - -, f 5;
+#X floatatom 227 165 5 0 0 0 - - -, f 5;
+#X obj 227 140 r 0-send-selector;
+#X msg 38 157 0-send-selector \$1;
+#X obj 38 180 s receiver;
+#X text 20 42 Message dispatcher;
+#X text 160 15 "fd_send";
+#X obj 39 74 fd_send send-selector receiver 0;
+#X connect 2 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

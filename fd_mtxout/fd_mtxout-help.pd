@@ -11,3 +11,5 @@ list) begins the iteration.;
 #X connect 0 0 1 0;
 #X connect 2 0 0 0;
 #X connect 6 0 0 0;
+#X obj 381 15 declare -path fd_lib;
+#X text 445 358 fd_lib v0.1;

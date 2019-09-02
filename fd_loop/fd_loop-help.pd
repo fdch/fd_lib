@@ -38,3 +38,5 @@ argument or second inlet). Default time is 1000 msec., f 58;
 #X connect 18 0 15 0;
 #X connect 18 1 15 1;
 #X connect 20 0 13 0;
+#X obj 392 15 declare -path fd_lib;
+#X text 456 386 fd_lib v0.1;

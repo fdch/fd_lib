@@ -76,3 +76,5 @@ square images.;
 #X connect 32 0 33 0;
 #X connect 33 0 34 0;
 #X connect 35 0 17 0;
+#X obj 542 15 declare -path fd_lib;
+#X text 606 396 fd_lib v0.1;

@@ -74,3 +74,5 @@ vis 0 \; pd-noscroll vis 0 \;;
 #X connect 17 0 7 0;
 #X connect 18 0 8 0;
 #X connect 22 0 2 0;
+#X obj 465 15 declare -path fd_lib;
+#X text 529 291 fd_lib v0.1;

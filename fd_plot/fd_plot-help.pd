@@ -37,3 +37,5 @@ loadbang;
 #X text 126 242 That's it! Now the fun begins:;
 #X connect 3 0 4 0;
 #X connect 7 0 6 0;
+#X obj 345 15 declare -path fd_lib;
+#X text 409 546 fd_lib v0.1;

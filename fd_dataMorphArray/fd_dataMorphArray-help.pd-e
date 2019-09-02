@@ -1,0 +1,7 @@
+#N canvas 525 48 450 350 12;
+#X obj 127 117 fd_dataMorphArray;
+#X text 53 71 Used in fd_dataMorph.pd;
+#X text 130 27 "fd_dataMorphArray";
+#X text 199 213 see fd_data.pd;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

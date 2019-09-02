@@ -250,3 +250,5 @@ position -100 in the rendering order. This means that everything above
 #X connect 37 0 38 0;
 #X connect 41 0 42 0;
 #X connect 42 0 6 0;
+#X obj 490 15 declare -path fd_lib;
+#X text 554 392 fd_lib v0.1;

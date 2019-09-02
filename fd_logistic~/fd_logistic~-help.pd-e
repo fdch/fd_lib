@@ -1,0 +1,31 @@
+#N canvas 524 50 501 401 12;
+#X obj 41 336 array define;
+#X text 21 129 Arguments: array-name(symbol) array-size(float), f
+48;
+#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 148 75 \; pd dsp 1;
+#X text 228 86 <-- must be on;
+#X text 272 346 used in [fd_windows];
+#X msg 188 184 click 0 0 0 0 0;
+#X text 191 164 hack to see array:;
+#X text 32 296 following naming conventions as, f 16;
+#X text 45 156 load table ->;
+#X msg 333 192 q \$1 \, bang;
+#X msg 362 220 w \$1 \, bang;
+#X floatatom 344 168 5 0 0 0 - - -, f 5;
+#X floatatom 392 167 5 0 0 0 - - -, f 5;
+#X text 170 13 "fd_logistic~";
+#X text 20 45 Same as [fd_logistic] \, but stored via dsp into array
+;
+#X obj 157 251 fd_logistic~ logistic-tilde 128, f 18;
+#X obj 322 318 fd_logistic;
+#X text 278 296 see fd_logistic-help.pd;
+#X connect 2 0 16 0;
+#X connect 6 0 16 0;
+#X connect 10 0 16 0;
+#X connect 11 0 16 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X obj 337 15 declare -path fd_lib;
+#X text 401 371 fd_lib version 0.1;

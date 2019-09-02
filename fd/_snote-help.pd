@@ -28,3 +28,5 @@ onsets offset every dsp tick (sr/1000/64) \, switching at every tick.
 #X connect 14 0 15 2;
 #X connect 16 0 17 0;
 #X connect 17 0 15 0;
+#X obj 438 15 declare -path fd_lib;
+#X text 502 340 fd_lib v0.1;

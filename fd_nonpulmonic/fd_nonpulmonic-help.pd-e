@@ -1,0 +1,12 @@
+#N canvas 521 53 528 369 12;
+#X declare -path fd_lib;
+#X text 170 14 "fd_nonpulmonic";
+#X obj 148 163 fd_nonpulmonic;
+#X text 15 58 Some symbols from the IPA (International Phonetic Alphabet)
+;
+#X symbolatom 148 188 10 0 0 0 - - -;
+#X floatatom 148 129 5 0 0 0 - - -;
+#X obj 364 15 declare -path fd_lib;
+#X text 384 324 fd_lib version 0.1;
+#X connect 1 0 3 0;
+#X connect 4 0 1 0;

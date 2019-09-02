@@ -181,3 +181,5 @@ the speed of the loop can be adjusted., f 56;
 #X connect 2 0 17 0;
 #X connect 6 0 17 0;
 #X connect 9 0 18 0;
+#X obj -164 15 declare -path fd_lib;
+#X text -100 -30 fd_lib v0.1;

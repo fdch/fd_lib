@@ -1,8 +1,11 @@
 #N canvas 623 153 450 300 12;
+#X declare -path fd_lib;
 #X msg 169 82 bang;
 #X obj 171 125 pmtwister;
 #X obj 278 174 print nonprme;
 #X obj 162 176 print prime;
+#X obj 286 15 declare -path fd_lib;
+#X text 299 255 fd_lib v0.1;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;

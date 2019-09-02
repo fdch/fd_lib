@@ -100,3 +100,5 @@ continuous-set bang \;;
 #X connect 6 0 9 1;
 #X connect 7 0 8 0;
 #X connect 9 0 7 0;
+#X obj 435 15 declare -path fd_lib;
+#X text 499 336 fd_lib v0.1;

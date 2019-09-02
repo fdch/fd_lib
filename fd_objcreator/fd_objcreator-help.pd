@@ -1,4 +1,5 @@
 #N canvas 523 53 468 383 12;
+#X declare -path fd_lib;
 #X text 310 228 \$1 = canvas name;
 #X text 247 199 ARGUMENTS;
 #X text 249 228 must:;
@@ -15,5 +16,7 @@
 #X msg 157 179 bang;
 #X msg 56 179 bang;
 #X obj 56 220 fd_objcreator thecanvas osc~ 440, f 13;
+#X obj 304 15 declare -path fd_lib;
+#X text 315 338 fd_lib v0.1;
 #X connect 12 0 14 1;
 #X connect 13 0 14 0;

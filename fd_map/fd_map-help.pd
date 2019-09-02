@@ -58,3 +58,5 @@ where 'this' = incoming 'max' value and 'that' = is the new max value
 #X connect 10 0 8 0;
 #X connect 11 0 3 0;
 #X connect 13 0 2 0;
+#X obj 362 15 declare -path fd_lib;
+#X text 426 417 fd_lib v0.1;

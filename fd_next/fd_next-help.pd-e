@@ -1,0 +1,29 @@
+#N canvas 524 54 525 365 12;
+#X text 210 20 "fd_next";
+#X obj 39 138 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 6;
+#X obj 39 270 unpack;
+#X obj 188 270 unpack;
+#X floatatom 188 295 5 0 0 0 - - -, f 5;
+#X floatatom 233 295 5 0 0 0 - - -, f 5;
+#X floatatom 39 295 5 0 0 0 - - -, f 5;
+#X floatatom 84 295 5 0 0 0 - - -, f 5;
+#X text 208 215 <-- see here;
+#X text 18 47 [fd_next <name> \$1] sends a bang to the adjacent (+1)
+instance of [r name-\$1]. It is inteded to use within [clone] and it
+requires a [r name-\$1] in the cloned abstraction., f 61;
+#X obj 39 215 clone _dummy 8 name;
+#X obj 317 152 fd_next <name> \$1;
+#X text 40 313 current;
+#X text 189 311 next;
+#X msg 39 166 \$1 123;
+#X connect 1 0 14 0;
+#X connect 2 0 6 0;
+#X connect 2 1 7 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 10 0 2 0;
+#X connect 10 1 3 0;
+#X connect 14 0 10 0;
+#X obj 361 15 declare -path fd_lib;
+#X text 425 335 fd_lib version 0.1;

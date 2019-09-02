@@ -1,0 +1,35 @@
+#N canvas 582 55 594 554 12;
+#X floatatom 346 314 5 0 0 0 - - -, f 5;
+#X obj 121 346 fd_guiTemplate;
+#X msg 120 316 parent child 300 200;
+#X obj 347 339 fd_colortheme BG;
+#X obj 348 390 s BG0-set;
+#X msg 347 364 color \$2 \$1;
+#X text 235 13 "fd_guiTemplate";
+#X msg 106 288 guts controls 230 174;
+#X text 340 274 Use this to change background color:, f 19;
+#X text 51 39 A template for faster creation of functional/nice gui
+boxes;
+#X text 50 68 It creates a new patch with a child subpatch at point
+10 \, 10, f 62;
+#X text 48 151 When clicking the bang provided by the template you
+bypass the guts and go straight to the routing part of the controls.
+, f 62;
+#X text 49 95 The <parent> abstraction is GOP and contains the <child>.
+The child is where you'd want to put the 'controls'. In the parent
+is where the 'guts' of your patch can live., f 62;
+#X obj 131 394 fd_guiTemplate-test;
+#X text 238 439 <-- this is a very simple example;
+#X msg 87 257 newtest newctrl 100 130;
+#X text 51 198 NOTE: always use diff names. No dollar 0;
+#X msg 456 371 color 21 0;
+#X text 55 226 Inlet 1: (list) <filename> <control-name> <x> <y>;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 7 0 1 0;
+#X connect 15 0 1 0;
+#X connect 17 0 4 0;
+#X obj 430 15 declare -path fd_lib;
+#X text 494 524 fd_lib version 0.1;

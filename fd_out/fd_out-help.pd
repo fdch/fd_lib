@@ -12,3 +12,5 @@ throws it to a [catch~ dacout] object outside the abstraction.;
 #X connect 3 0 4 0;
 #X connect 3 0 4 1;
 #X connect 7 0 6 0;
+#X obj 382 15 declare -path fd_lib;
+#X text 446 353 fd_lib v0.1;

@@ -18,3 +18,5 @@
 #X text 247 295 see fd_blackman-help.pd;
 #X connect 2 0 12 0;
 #X connect 6 0 12 0;
+#X obj 287 15 declare -path fd_lib;
+#X text 351 328 fd_lib v0.1;

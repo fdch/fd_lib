@@ -1,0 +1,23 @@
+#N canvas 0 22 450 350 12;
+#X text 400 300 fd_lib;
+#X text 10 10 "fd_gate";
+#X text 10 40 A gate to stop input from coming after a delay time;
+#X obj 149 195 fd_gate 100;
+#X obj 129 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 149 220 t b b;
+#X obj 149 245 timer;
+#X floatatom 149 270 5 0 0 0 - - -, f 5;
+#X obj 129 115 metro 20;
+#X floatatom 203 86 5 0 0 0 - - -, f 5;
+#X floatatom 258 144 5 0 0 0 - - -, f 5;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 6 0 7 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 1;
+#X connect 10 0 3 1;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

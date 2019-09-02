@@ -15,3 +15,5 @@
 #X text 10 40 Changes sizes and text position in gui;
 #X text 10 10 fd_guiFont;
 #X connect 3 0 7 0;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib v0.1;

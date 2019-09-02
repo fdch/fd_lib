@@ -115,3 +115,5 @@ in [switch~] or [block~];
 #X connect 4 0 2 1;
 #X connect 5 0 3 0;
 #X connect 6 0 4 0;
+#X obj 437 15 declare -path fd_lib;
+#X text 501 277 fd_lib v0.1;

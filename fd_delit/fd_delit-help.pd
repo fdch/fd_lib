@@ -1,4 +1,5 @@
 #N canvas 523 50 599 444 12;
+#X declare -path fd_lib;
 #X obj 180 328 timer;
 #X obj 143 379 print;
 #X obj 143 276 t f f;
@@ -11,14 +12,16 @@
 #X text 272 238 output \$1 bangs delayed by \$2, f 30;
 #X msg 189 147 5 10 \, bang;
 #X msg 190 174 1000 0.4 \, bang;
-#X text 330 316 inlet 1: bang;
+#X text 335 285 inlet 1: bang;
 #X text 260 107 arguments: iterations time(msec);
-#X text 331 360 inlet 1: list;
-#X text 302 378 (iterations time(msec));
-#X text 327 338 (needs arguments);
+#X text 336 329 inlet 1: list;
+#X text 307 347 (iterations time(msec));
+#X text 332 307 (needs arguments);
 #X msg 187 73 4 500;
 #X text 326 69 DELAYED ITERATIONS;
 #X text 217 24 "fd_delit";
+#X obj 435 15 declare -path fd_lib;
+#X text 439 407 fd_lib v0.1;
 #X connect 0 0 4 1;
 #X connect 2 0 4 0;
 #X connect 2 1 5 0;

@@ -1,0 +1,62 @@
+#N canvas 522 52 704 553 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
+0.3 0.2 0.1 0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1 -0.9
+-0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7
+0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0 -0.1 -0.2 -0.3 -0.4
+-0.5 -0.6 -0.7 -0.8 -0.9 -1 -0.9 -0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2
+-0.1 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
+0.3 0.2 0.1;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 337 385 graph;
+#X obj 148 435 t f f, f 10;
+#X obj 148 513 tabwrite array1;
+#X floatatom 55 134 5 0 0 0 - - -, f 5;
+#X obj 111 238 print;
+#X text 274 15 "reflect";
+#X text 140 34 Reflect an incoming float from -value to +value;
+#X floatatom 185 130 5 0 0 0 - - -, f 5;
+#X obj 185 169 reflect;
+#X msg 238 128 5;
+#X text 149 169 ==;
+#X obj 55 171 reflect 5;
+#X obj 453 231 print;
+#X obj 148 462 reflect 10;
+#X floatatom 549 86 5 0 0 0 - - -, f 5;
+#X text 162 241 output: -5 \, 5;
+#X text 214 89 Arg 2: (optional) offset;
+#X text 214 70 Arg 1: range (also via 2nd inlet);
+#X text 25 289 Reflection is performed on the X-axis and the axis of
+symmetry is the Y-axis. The "value" is the range of the reflection.
+An offset is a value added to the Y-axis., f 81;
+#X text 505 232 output: 8 \, 12;
+#X obj 549 183 reflect;
+#X floatatom 388 148 5 0 0 0 - - -, f 5;
+#X text 503 183 ==;
+#X text 556 106 set message:;
+#X obj 388 183 reflect 2 10;
+#X msg 571 131 set 2 10;
+#X obj 148 411 counter -m 100;
+#X msg 148 360 100;
+#X obj 148 385 until;
+#X obj 148 487 / 10;
+#X connect 1 0 13 0;
+#X connect 1 1 2 1;
+#X connect 3 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 1;
+#X connect 11 0 4 0;
+#X connect 13 0 29 0;
+#X connect 14 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 24 0;
+#X connect 24 0 12 0;
+#X connect 25 0 20 0;
+#X connect 26 0 1 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 29 0 2 0;
+#X obj 540 15 declare -path fd_lib;
+#X text 604 523 fd_lib version 0.1;

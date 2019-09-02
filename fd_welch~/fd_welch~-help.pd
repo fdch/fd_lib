@@ -18,3 +18,5 @@
 #X text 20 45 Same as [fd_welch] \, but stored via dsp into array;
 #X connect 2 0 13 0;
 #X connect 6 0 13 0;
+#X obj 305 15 declare -path fd_lib;
+#X text 369 340 fd_lib v0.1;

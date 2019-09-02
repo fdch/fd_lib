@@ -64,3 +64,5 @@ once (which duplicates flowing messages), f 43;
 #X connect 14 0 16 0;
 #X connect 15 0 16 0;
 #X connect 16 0 1 0;
+#X obj 457 15 declare -path fd_lib;
+#X text 521 313 fd_lib v0.1;

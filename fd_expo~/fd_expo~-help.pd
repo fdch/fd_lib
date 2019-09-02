@@ -1,4 +1,5 @@
 #N canvas 526 53 474 380 12;
+#X declare -path fd_lib;
 #X obj 39 312 array define;
 #X text 21 129 Arguments: array-name(symbol) array-size(float), f
 48;
@@ -17,7 +18,9 @@
 #X obj 157 232 fd_expo~ expo-tilde 128, f 16;
 #X text 253 270 see fd_expo-help.pd;
 #X obj 297 292 fd_exp;
-#X floatatom 342 167 5 0 0 0 - - -, f 5;
+#X floatatom 342 167 5 0 0 0 - - -;
+#X obj 310 15 declare -path fd_lib;
+#X text 322 343 fd_lib v0.1;
 #X connect 2 0 13 0;
 #X connect 6 0 13 0;
 #X connect 10 0 13 0;

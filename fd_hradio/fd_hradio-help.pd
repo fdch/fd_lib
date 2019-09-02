@@ -49,3 +49,5 @@ stored in an array. When created \, out comes a pointer to the array.
 #X connect 13 0 15 0;
 #X connect 14 0 15 0;
 #X connect 25 0 15 0;
+#X obj 626 15 declare -path fd_lib;
+#X text 690 619 fd_lib v0.1;

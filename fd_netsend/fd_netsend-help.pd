@@ -8,3 +8,5 @@ pd;
 #X text 18 211 A 'connected 1' message is sent to the connected intance
 once the connection is established.;
 #X obj 88 120 fd_netsend;
+#X obj 353 15 declare -path fd_lib;
+#X text 417 266 fd_lib v0.1;

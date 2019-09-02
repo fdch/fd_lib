@@ -20,3 +20,5 @@ and the value of (n) over time: n - (n-1)/t \, n/t.;
 #X connect 4 0 0 0;
 #X connect 5 0 6 0;
 #X connect 5 1 7 0;
+#X obj 390 15 declare -path fd_lib;
+#X text 454 339 fd_lib v0.1;

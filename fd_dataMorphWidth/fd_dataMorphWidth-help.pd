@@ -27,3 +27,5 @@ array-8 template-8-element;
 #X text 17 68 Used with other fd_data* objects.;
 #X obj 150 149 fd_data;
 #X text 157 120 see:;
+#X obj -164 15 declare -path fd_lib;
+#X text -100 -30 fd_lib v0.1;

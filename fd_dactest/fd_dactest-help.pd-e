@@ -1,0 +1,18 @@
+#N canvas 526 52 450 350 12;
+#X text 400 300 fd_lib;
+#X obj 14 160 fd_dactest 2;
+#X text 10 40 Performs a crawl on all speakers.;
+#X text 10 10 fd_dactest;
+#X obj 14 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 54 72 5 0 0 0 - - -, f 5;
+#X floatatom 95 101 5 0 0 0 - - -, f 5;
+#X obj 95 124 / 100;
+#X text 268 144 Dependencies:;
+#X text 278 176 -- counter;
+#X connect 4 0 1 0;
+#X connect 5 0 1 1;
+#X connect 6 0 7 0;
+#X connect 7 0 1 2;
+#X obj 286 15 declare -path fd_lib;
+#X text 350 320 fd_lib version 0.1;

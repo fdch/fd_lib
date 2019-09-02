@@ -141,3 +141,5 @@ positioning (default 128 128 \, or sqrt(newblocksize));
 #X connect 60 0 50 0;
 #X connect 61 0 50 0;
 #X connect 64 0 30 0;
+#X obj 630 15 declare -path fd_lib;
+#X text 694 431 fd_lib v0.1;

@@ -16,3 +16,5 @@ send in a float.;
 #X connect 5 0 2 0;
 #X connect 6 0 5 0;
 #X connect 7 0 3 0;
+#X obj 330 15 declare -path fd_lib;
+#X text 394 347 fd_lib v0.1;
