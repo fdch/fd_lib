@@ -4,7 +4,7 @@ A full list of `.pd` files shipped with the library is in [list.txt](list.txt)
 
 ## Navigating
 
-Once you add ``fd_lib`` to Pure Data paths, the usual way would be to open the ``Help Browser`` and go to the ``fd_lib`` entry. All objects and abstractions have their corresponding help file which can be accessed by right-clicking on any object box. Abstractions are preceded by ``fd_`` (e.g., [fd_norm](fd_norm))
+Once you add `fd_lib` to Pure Data paths, the usual way would be to open the ``Help Browser`` and go to the ``fd_lib`` entry. All objects and abstractions have their corresponding help file which can be accessed by right-clicking on any object box. Abstractions are preceded by ``fd_`` (e.g., [fd_norm](fd_norm))
 
 ## Scripts
 

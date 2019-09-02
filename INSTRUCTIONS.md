@@ -6,29 +6,30 @@
 
 ## Compile
 
-To use the objects, you'll need to compile them (only tested on macOS). For this you'll first need to initialize the [pd-lib-builder](https://github.com/pure-data/pd-lib-builder) submodule:
+To use the objects, you'll need to compile them, I have only tested on `macos`. For this you'll first need to initialize the [pd-lib-builder](https://github.com/pure-data/pd-lib-builder) submodule (skip this step if you have pd-lib-builder already):
 
 	$ cd fd_lib
-	$ git submodule init (skip this step if you have pd-lib-builder already)
+	$ git submodule init
 
-Then run these scripts:
+Then run the following script to obtain the object list:
 
-	$ ./dirlist.sh
-	$ ./fd_lib.sh [optional: /path/to/your/pd-lib-builder]
+	$ sh dirlist
+
+	$ sh fdlib [/path/to/your/pd-lib-builder]
 
 Read the output message. The usage is pretty much what pd-lib-builder suggests.
 
-To compile all objects:
+To compile all object simply run:
 
 	$ make
 
-To make individual objects:
+To make individual objects run `imake` and specify object name:
 
-	$ ./imake "sradio"
+	$ sh imake "sradio"
 
-## Download
+To package `fd_lib` as a Pure Data library specify a target directory:
 
-Alternatively, the zipfile [binaries.zip](binaries.zip) includes helpfiles and binaries (compiled for OSX). Abstractions are *not* included in the zip file.
+	$ sh make PDLIBDIR=/path/to/output/
 
 ## Declare
 
@@ -36,11 +37,15 @@ Alternatively, the zipfile [binaries.zip](binaries.zip) includes helpfiles and b
 
 	[declare -path fd_lib]
 
-* Alternatively: set the path from PREFERENCES>PATH dialog
+* Alternatively: set the path from PREFERENCES>PATH dialog.
 
 ## Deken
 
-`fd_lib` is not yet on deken, but some of its abstractions have dependencies you can find on deken: *Help/Find Externals*:
+`fd_lib` is now available on `deken`. Go to `Help > Find Externals` and type `fd_lib` or any of the object/abstraction names. 
 
+## Dependencies
+
+Find these on `deken`:
+ 
 * [Gem](https://gem.iem.at/)
 * [ggee](https://github.com/pure-data/ggee)
