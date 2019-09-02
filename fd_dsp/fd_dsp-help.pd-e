@@ -1,8 +1,0 @@
-#N canvas 526 50 407 268 12;
-#X obj 170 157 ./fd_dsp;
-#X text 154 27 "fd_dsp";
-#X text 28 65 A gop for turning dsp on/off that raises the 'audio properties'
-dialog when the toggle is 1 \, and turns dsp ON after the 'OK' button
-is pressed., f 42;
-#X obj 243 15 declare -path fd_lib;
-#X text 307 238 fd_lib version 0.1;

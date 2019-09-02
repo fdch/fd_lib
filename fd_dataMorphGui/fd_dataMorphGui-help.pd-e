@@ -1,7 +1,0 @@
-#N canvas 527 51 450 350 12;
-#X obj 156 93 ./fd_dataMorphGui;
-#X text 135 20 "fd_dataMorphGui";
-#X text 47 51 Gui for dataMorph-ing;
-#X text 202 245 see fd_data.pd;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib version 0.1;

@@ -1,4 +1,0 @@
-#N canvas 0 22 450 300 12;
-#X text 61 33 see fd/_overview.pd;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 270 fd_lib version 0.1;

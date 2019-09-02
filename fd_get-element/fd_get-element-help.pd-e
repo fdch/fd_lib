@@ -1,7 +1,0 @@
-#N canvas 522 68 450 350 12;
-#X declare -path fd_lib;
-#X text 159 31 "fd_get-element";
-#X text 34 70 Get element of an array in a data structure;
-#X obj 139 137 fd_get-element 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 285 297 fd_lib version 0.1;

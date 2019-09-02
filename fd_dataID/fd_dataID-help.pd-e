@@ -1,7 +1,0 @@
-#N canvas 0 22 450 350 12;
-#X text 158 17 "fd_dataID";
-#X obj 171 104 fd_dataID;
-#X text 118 55 Get Id;
-#X text 216 195 see fd_data.pd;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib version 0.1;

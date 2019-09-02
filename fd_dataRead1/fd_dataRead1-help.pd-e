@@ -1,9 +1,0 @@
-#N canvas 529 49 538 367 12;
-#X declare -path fd_lib;
-#X text 248 232 see fd_data.pd;
-#X obj 188 154 fd_dataRead1 0;
-#X text 27 70 Read from one data structure arrays. Arguments is index
-of the data structure;
-#X text 196 33 "fd_dataRead1";
-#X obj 374 15 declare -path fd_lib;
-#X text 388 326 fd_lib version 0.1;

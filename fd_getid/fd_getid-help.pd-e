@@ -1,6 +1,0 @@
-#N canvas 528 53 450 350 12;
-#X obj 162 128 fd_getid;
-#X text 159 31 "fd_getid";
-#X text 34 70 Get id of an array in a data structure;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib version 0.1;

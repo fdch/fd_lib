@@ -1,9 +1,0 @@
-#N canvas 524 52 450 350 12;
-#X text 337 286 fd_lib;
-#X text 160 12 "fd_camara";
-#X text 10 40 A gui abstraction that handles the Gem [camera] object
-;
-#X obj 172 125 fd_camara;
-#X text 68 77 [declare -stdlib Gem] for this one;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib version 0.1;
