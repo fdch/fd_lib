@@ -1,51 +1,66 @@
 # INSTRUCTIONS
 
-## Clone
+## quick install
 
-	$ git clone https://github.com/fdch/fd_lib
-
-## Compile
-
-To use the objects, you'll need to compile them, I have only tested on `macos`. For this you'll first need to initialize the [pd-lib-builder](https://github.com/pure-data/pd-lib-builder) submodule (skip this step if you have pd-lib-builder already):
-
-	$ cd fd_lib
-	$ git submodule init
-
-Then run the following script to obtain the object list:
-
-	$ sh dirlist
-
-	$ sh fdlib [/path/to/your/pd-lib-builder]
-
-Read the output message. The usage is pretty much what pd-lib-builder suggests.
-
-To compile all object simply run:
-
-	$ make
-
-To make individual objects run `imake` and specify object name:
-
-	$ sh imake "sradio"
-
-To package `fd_lib` as a Pure Data library specify a target directory:
-
-	$ sh make PDLIBDIR=/path/to/output/
-
-## Declare
-
-* Put a [declare] object on a Pd patch with the following arguments:
-
-	[declare -path fd_lib]
-
-* Alternatively: set the path from PREFERENCES>PATH dialog.
-
-## Deken
+### deken
 
 `fd_lib` is now available on `deken`. Go to `Help > Find Externals` and type `fd_lib` or any of the object/abstraction names. 
 
-## Dependencies
+### declare
+
+To load the library in Pure Data you need to specify the path for the library. This is done by placing a `[declare]` object on a patch with the following arguments:
+
+	[declare -path fd_lib]
+
+Needless to say, your library needs to be found by Pure Data, so it is best if you place your entire `fd_lib` directory within `~/Documents/Pd/externals` or some other path visible to Pure Data. Alternatively, you can set the full path from the `Preferences > Path ` dialog.
+
+### dependencies
 
 Find these on `deken`:
  
 * [Gem](https://gem.iem.at/)
 * [ggee](https://github.com/pure-data/ggee)
+
+---
+
+## compilation instructions
+
+First, you need to clone the library:
+
+	$ git clone https://github.com/fdch/fd_lib
+
+You will be able to load abstractions, but to use the external objects you'll need to compile them. I have only tested these on `macos`. For this you'll first need to initialize the [pd-lib-builder](https://github.com/pure-data/pd-lib-builder) submodule. Skip this step if you have pd-lib-builder already:
+
+### pd-lib-builder
+
+	$ cd fd_lib
+	$ git submodule init
+
+
+### dirlist
+Then run the following script to obtain the object list:
+
+	$ sh dirlist
+
+### fdlib
+Then you need generate the make file for pd-lib-builder. You can specify the pd-lib-builder path here, if you have your own. Otherwise it will simply use the pd-lib-builder submodule:
+
+	$ sh fdlib [/path/to/your/pd-lib-builder]
+
+### make
+Finally, you need to run `make`. Be sure to read the output message from the previous step `fdlib`. The usage is pretty much what pd-lib-builder suggests.
+
+To compile all objects simply run:
+
+	$ make
+
+To package `fd_lib` as a Pure Data library specify a target directory:
+
+	$ make PDLIBDIR=/path/to/output/
+
+### imake
+
+To make individual objects run `imake` and specify object name. This is a script that is used here to quickly compile and test externals. It is meant to ease the programming workflow when you are editing or making externals:
+
+	$ sh imake "sradio"
+
