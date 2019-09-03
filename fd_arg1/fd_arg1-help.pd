@@ -1,45 +1,62 @@
-#N canvas 532 49 539 567 12;
-#X obj 238 214 print float-arg;
-#X obj 269 192 print symbol-arg;
-#X obj 247 352 print float-arg;
-#X obj 286 330 print symbol-arg;
-#X obj 267 488 print float-arg;
-#X obj 326 466 print symbol-arg;
-#X text 96 166 No argument:;
-#X text 76 306 Non-zero float:;
-#X msg 208 138 bang;
-#X msg 209 279 bang;
-#X msg 209 416 bang;
-#X text 71 440 Symbol argument:;
-#X floatatom 179 373 5 0 0 0 - - -, f 5;
-#X floatatom 173 511 5 0 0 0 - - -, f 5;
-#X floatatom 177 219 5 0 0 0 - - -, f 5;
-#X obj 177 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_arg1" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#N canvas 125 28 668 575 examples 0;
+#X obj 223 310 print float-arg;
+#X obj 262 288 print symbol-arg;
+#X obj 243 446 print float-arg;
+#X obj 302 424 print symbol-arg;
+#X text 52 264 Non-zero float:;
+#X msg 185 237 bang;
+#X msg 185 374 bang;
+#X text 47 398 Symbol argument:;
+#X floatatom 155 331 5 0 0 0 - - -;
+#X floatatom 149 469 5 0 0 0 - - -;
+#X text 205 332 <-- 1 when done parsing args;
+#X text 198 470 <-- 1 when done parsing args;
+#X obj 185 263 _dummy 2;
+#X obj 185 398 _dummy myname;
+#X obj 229 120 print float-arg;
+#X obj 260 98 print symbol-arg;
+#X text 87 72 No argument:;
+#X msg 199 44 bang;
+#X floatatom 168 125 5 0 0 0 - - -;
+#X obj 168 147 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 229 236 <-- 0 when no args;
-#X text 229 374 <-- 1 when done parsing args;
-#X text 222 512 <-- 1 when done parsing args;
-#X text 119 15 GET AN ARGUMENT OF AN ABSTRACTION;
-#X text 38 42 Just place [fd_arg1] inside your abstraction \, in this
-case [fd_dummy] \, and put a \$1 to get the first argument. When banged
-\, it will check the parent's first argument type and give the result
-through its 2nd or 3rd outlet. It outputs a one or zero on the first
-outlet when done:;
-#X obj 208 165 _dummy;
-#X obj 209 305 _dummy 2;
-#X obj 209 440 _dummy myname;
-#X connect 8 0 21 0;
-#X connect 9 0 22 0;
-#X connect 10 0 23 0;
-#X connect 14 0 15 0;
-#X connect 21 0 14 0;
-#X connect 21 1 0 0;
-#X connect 21 2 1 0;
-#X connect 22 0 12 0;
-#X connect 22 1 2 0;
-#X connect 22 2 3 0;
-#X connect 23 0 13 0;
-#X connect 23 1 4 0;
-#X connect 23 2 5 0;
-#X obj 375 15 declare -path fd_lib;
-#X text 439 537 fd_lib v0.1;
+#X obj 199 71 _dummy;
+#X connect 5 0 12 0;
+#X connect 6 0 13 0;
+#X connect 12 0 8 0;
+#X connect 12 1 0 0;
+#X connect 12 2 1 0;
+#X connect 13 0 9 0;
+#X connect 13 1 2 0;
+#X connect 13 2 3 0;
+#X connect 17 0 21 0;
+#X connect 18 0 19 0;
+#X connect 21 0 18 0;
+#X connect 21 1 14 0;
+#X connect 21 2 15 0;
+#X restore 180 190 pd examples;
+#X text 60 284 one argument: \$1 (the dollar one symbol);
+#X text 60 340 bang;
+#X text 12 53 Get an argument of an abstraction;
+#X text 14 75 Place [fd_arg1] inside your abstraction \, in this case
+[fd_dummy] \, and put a \$1 to get the first argument., f 59;
+#X text 14 113 When banged \, it will check the parent's first argument
+type and give the result through its 2nd or 3rd outlet. It outputs
+a one or zero on the first outlet when done:;
+#X text 59 395 float : number of arguments (argc) \; float : output
+value if float \; symbol : output value if symbol;

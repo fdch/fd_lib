@@ -1,44 +1,45 @@
-#N canvas 530 51 642 606 12;
+#N canvas 500 50 530 480 12;
 #X declare -path fd_lib;
 #X declare -lib Gem;
-#X obj 483 184 gemwin;
-#X obj 48 122 gemhead;
-#X obj 486 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 4 4 cnv 15 522 30 empty empty "fd_autopoly" 20 15 0 15 -228856
+-1 0;
+#X obj 4 194 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 294 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 42 412 no outlets;
+#N canvas 511 86 606 458 example 0;
+#X obj 366 95 gemwin;
+#X obj 16 23 gemhead;
+#X obj 496 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 486 250 \; pd dsp \$1 \;;
-#X msg 71 279 draw point;
-#X msg 503 148 0 \, destroy;
-#X text 37 409 CREATION ARGUMENTS:;
-#X text 257 19 "fd_autopoly";
-#X obj 477 411 s fd_tracktopol;
-#X msg 541 362 z \$1;
-#X floatatom 541 311 5 0 0 0 - - -;
-#X obj 541 333 / 100;
-#X obj 221 244 dac~;
-#X floatatom 205 134 5 0 0 0 - - -;
-#X msg 223 167 0;
-#X msg 483 107 reset \, FSAA 8 \, create \, 1, f 12;
-#X msg 72 304 draw line;
-#X obj 48 234 scale 1 1 1 1;
-#X obj 48 176 translate -8 0 1 0, f 9;
-#X obj 82 151 * -8;
-#X obj 205 279 sigmund~ -npeak 10 tracks, f 10;
-#X text 252 134 <-- shift scroll;
-#X msg 477 313 reload;
-#X text 253 452 NOTE: your_abs_name needs to output X Y Z coordinates
-to be routed just like [sigmund~] \, and it takes a sigmund-dependant
-input, f 45;
-#X obj 48 345 fd_autopoly curve 10 fd_tracktopol 10 1 1, f 20;
-#X text 293 295 <-- -npeaks = 10;
-#X text 218 343 <-- N = npeaks = 10;
-#X text 38 437 1: polygon||curve \; 2: N = npeaks \; 3: your_abs_name
-\; 4: if N<2 \, N \, else arg1 5-6: arg2 \, arg3;
-#X text 146 38 Variable point [polygon||curve] creator.;
-#X text 49 57 Accepts an abstraction [your_abs_name] to parse [sigmund~]
-output., f 66;
-#X obj 460 547 fd_tracktopol;
-#X text 414 526 see:;
-#X obj 460 521 fd_fromsig;
+#X msg 496 33 \; pd dsp \$1 \;;
+#X msg 39 180 draw point;
+#X msg 386 59 0 \, destroy;
+#X obj 420 246 s fd_tracktopol;
+#X msg 484 197 z \$1;
+#X floatatom 484 146 5 0 0 0 - - -;
+#X obj 484 168 / 100;
+#X obj 189 145 dac~;
+#X floatatom 173 35 5 0 0 0 - - -;
+#X msg 191 68 0;
+#X msg 366 18 reset \, FSAA 8 \, create \, 1, f 12;
+#X msg 40 205 draw line;
+#X obj 16 135 scale 1 1 1 1;
+#X obj 16 77 translate -8 0 1 0, f 9;
+#X obj 50 52 * -8;
+#X obj 173 180 sigmund~ -npeak 10 tracks, f 10;
+#X text 220 35 <-- shift scroll;
+#X msg 420 148 reload;
+#X obj 16 246 fd_autopoly curve 10 fd_tracktopol 10 1 1, f 20;
+#X text 261 196 <-- -npeaks = 10;
+#X text 186 244 <-- N = npeaks = 10;
 #N canvas 0 22 450 300 impulse-test 0;
 #X obj 173 424 fd_fm;
 #X obj 156 324 mtof;
@@ -56,7 +57,7 @@ output., f 66;
 #X obj 156 119 != 0;
 #X obj 156 145 change;
 #X msg 84 255 set \$1;
-#X msg 84 280 42;
+#X msg 84 280 45;
 #X obj 156 84 t f f f f f f, f 29;
 #X obj 291 382 fd_impulse 64;
 #X obj 157 49 inlet;
@@ -88,28 +89,40 @@ output., f 66;
 #X connect 17 4 11 0;
 #X connect 18 0 10 1;
 #X connect 19 0 17 0;
-#X restore 205 191 pd impulse-test;
-#X obj 470 34 declare -path fd_lib;
-#X text 542 576 fd_lib v0.1;
-#X obj 471 9 declare -lib Gem;
-#X connect 1 0 18 0;
+#X restore 173 92 pd impulse-test;
+#X text 16 320 NOTE: your_abs_name needs to output X Y Z coordinates
+to be routed just like [sigmund~] \, and it takes a sigmund-dependant
+input, f 74;
+#X obj 229 404 fd_tracktopol;
+#X text 183 383 see:;
+#X obj 229 378 fd_fromsig;
+#X connect 1 0 16 0;
 #X connect 2 0 3 0;
-#X connect 4 0 24 0;
+#X connect 4 0 21 0;
 #X connect 5 0 0 0;
-#X connect 9 0 8 0;
-#X connect 10 0 11 0;
-#X connect 11 0 9 0;
-#X connect 13 0 19 0;
-#X connect 13 0 17 1;
-#X connect 13 0 33 0;
-#X connect 14 0 33 0;
-#X connect 15 0 0 0;
-#X connect 16 0 24 0;
-#X connect 17 0 24 0;
-#X connect 18 0 17 0;
-#X connect 19 0 18 1;
-#X connect 20 0 24 1;
-#X connect 22 0 8 0;
-#X connect 33 0 12 0;
-#X connect 33 0 12 1;
-#X connect 33 0 20 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 11 0 17 0;
+#X connect 11 0 15 1;
+#X connect 11 0 24 0;
+#X connect 12 0 24 0;
+#X connect 13 0 0 0;
+#X connect 14 0 21 0;
+#X connect 15 0 21 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 1;
+#X connect 18 0 21 1;
+#X connect 20 0 6 0;
+#X connect 24 0 10 0;
+#X connect 24 0 10 1;
+#X connect 24 0 18 0;
+#X restore 90 129 pd example;
+#X text 38 217 1: polygon||curve \; 2: N = npeaks \; 3: your_abs_name
+\; 4: if N<2 \, N \, else arg1 5-6: arg2 \, arg3;
+#X text 25 51 Variable point [polygon||curve] creator.;
+#X text 21 74 Accepts an abstraction [your_abs_name] to parse [sigmund~]
+output., f 66;
+#X obj 364 150 declare -lib Gem;
+#X text 39 323 1: gemlist \; 2: sigmund output;
+#X text 371 125 Dependencies:;

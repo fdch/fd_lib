@@ -1,32 +1,51 @@
-#N canvas 526 54 450 350 12;
-#X text 400 300 fd_lib;
-#X text 10 10 fd_arraysort2;
-#X text 10 40 Sort an array in ascending or descending order;
-#X msg 274 116 \; data sinesum 512 1 0;
-#X text 274 90 Put some data first:;
-#X obj 20 171 fd_arraysort2 data;
-#X msg 20 65 bang;
-#X msg 144 112 symbol data;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_arraysort2" 20 15 0 15 -228856
+-1 0;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 294 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 394 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 14 45 Sort an array in ascending or descending order;
+#X text 60 267 (symbol) array name;
+#X text 60 420 (list) array sorted values;
+#X text 49 317 1:;
+#X text 49 354 2:;
+#X text 49 369 3:;
+#X text 92 352 symbol : new array name;
+#X text 93 370 float : values (0) or indices (1);
+#X text 93 316 bang : sort array \; float : descending (0) or ascending
+(1);
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array data 16 float 3;
-#A 0 0.44913 0 -0.461762 -0.501728 -0.254503 -0.422028 -0.674168 -0.776242
--0.563246 -1 -0.384211 0.132469 0.231145 0.0117488 0.45696 -0.121549
-;
-#X coords 0 1 16 -1 102 76 1;
-#X restore 275 215 graph;
-#X obj 143 152 tgl 15 0 empty empty choose_output 17 7 0 10 -262144
--1 -1 0 1;
-#X msg 34 92 0;
-#X msg 40 123 1;
+#A 0 0.724241 0 0.102295 0.355191 0.759759 1 0.65566 0.956059 0.851273
+0.606924 0.811467 0.526785 0.524063 0.125635 0.163894 0.407911;
+#X coords 0 1 16 -1 84 59 1;
+#X restore 413 82 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array output 16 float 3;
-#A 0 -0.0799096 -0.0592279 0 0.250006 0.310341 0.47919 0.559188 0.565249
-0.57849 0.642749 0.655349 0.713334 0.822628 0.934597 0.993991 1;
-#X coords 0 1 16 -1 111 79 1;
-#X restore 21 256 graph;
-#X msg 137 256 \; output normalize;
-#X obj 278 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#A 0 0 0.102295 0.125635 0.163894 0.355191 0.407911 0.524063 0.526785
+0.606924 0.65566 0.724241 0.759759 0.811467 0.851273 0.956059 1;
+#X coords 0 1 16 -1 84 63 1;
+#X restore 411 165 graph;
+#X obj 17 155 fd_arraysort2 data;
+#X msg 78 101 symbol data;
+#X obj 140 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 41 75 <-- asc/desc;
+#X obj 17 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X msg 269 191 \; output normalize;
+#N canvas 0 22 450 300 data 0;
+#X msg 48 91 \; data sinesum 512 1 0;
+#X obj 54 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #N canvas 0 22 450 300 or 0;
 #X obj 49 17 inlet;
 #X obj 191 81 array size data;
@@ -67,11 +86,12 @@
 #X connect 15 2 1 0;
 #X connect 15 3 16 0;
 #X connect 16 0 12 1;
-#X restore 278 178 pd or this;
-#X text 140 90 new arrayname;
-#X text 62 92 <-- des;
-#X text 68 121 <-- asc;
-#N canvas 0 22 450 300 display 0;
+#X restore 54 172 pd or this;
+#X text 61 38 Put some data first:;
+#X connect 1 0 2 0;
+#X restore 444 41 pd data;
+#X text 164 128 <-- values/indices;
+#N canvas 0 22 450 300 graph 0;
 #X obj 35 101 t a a;
 #X obj 35 235 s output;
 #X obj 67 156 list length;
@@ -84,14 +104,8 @@
 #X connect 3 0 1 0;
 #X connect 4 0 0 0;
 #X connect 5 0 1 0;
-#X restore 20 205 pd display output;
-#X text 56 66 <-- bang or 1/0 to compute;
-#X connect 5 0 19 0;
-#X connect 6 0 5 0;
-#X connect 7 0 5 1;
-#X connect 9 0 5 2;
-#X connect 10 0 5 0;
-#X connect 11 0 5 0;
-#X connect 14 0 15 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X restore 17 198 pd graph;
+#X connect 18 0 26 0;
+#X connect 19 0 18 1;
+#X connect 20 0 18 2;
+#X connect 22 0 18 0;

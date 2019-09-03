@@ -1,28 +1,32 @@
-#N canvas 524 53 450 350 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib Gem;
-#X text 400 300 fd_lib;
-#X text 10 10 fd_bufvid;
-#X obj 210 8 declare -lib Gem;
-#X text 10 40 Read from pix buffer defined in argument 1;
-#X obj 11 127 fd_bufvid mybuffer 2;
-#X obj 196 205 fd_vidbuf mybuffer 2;
-#X obj 196 175 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 4 4 cnv 15 522 30 empty empty "fd_bufvid" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 369 410 declare -lib Gem;
+#X obj 29 140 fd_bufvid mybuffer 2;
+#X obj 258 183 fd_vidbuf mybuffer 2;
+#X obj 258 163 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 92 68 Argument 2: number of frames to loop, f 18;
-#X text 191 148 A buffer with video feed:;
-#X text 222 174 (only 2 alterating frames);
-#X text 272 249 Dependencies:;
-#X text 287 270 -- Gem;
-#X text 191 125 Example:;
-#X text 12 225 Buffer can be used multiple times:, f 14;
-#X obj 11 104 gemhead 2;
-#X obj 11 151 pix_texture;
-#X obj 11 175 circle;
-#X obj 11 81 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X text 139 111 (only 2 alterating frames);
+#X obj 29 97 gemhead 2;
+#X obj 29 184 pix_texture;
+#X obj 29 208 circle;
+#X obj 29 74 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
-#X msg 293 70 create \, 1;
-#X obj 293 122 gemwin;
-#X msg 304 96 0 \, destroy;
+#X msg 398 72 create \, 1;
+#X obj 398 124 gemwin;
+#X msg 409 98 0 \, destroy;
 #N canvas 529 191 450 300 multiple 0;
 #X obj 36 81 fd_bufvid mybuffer 2;
 #X obj 36 105 pix_texture;
@@ -67,16 +71,22 @@
 #X connect 19 0 17 0;
 #X connect 20 0 11 0;
 #X connect 21 0 15 0;
-#X restore 78 293 pd multiple times;
-#X obj 78 273 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 259 230 pd multiple times;
+#X obj 259 210 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X connect 4 0 15 0;
-#X connect 6 0 5 0;
-#X connect 14 0 4 0;
-#X connect 15 0 16 0;
-#X connect 17 0 14 0;
-#X connect 18 0 19 0;
+#X text 60 284 (float) buffer_name (float) number of frames to loop
+;
+#X text 60 340 1: list : gemlist;
+#X text 60 410 1: list : gemlist;
+#X text 380 373 Dependencies:;
+#X text 275 159 <-- freeze in 2 frames;
+#X text 25 45 Read from pix buffer. Buffer can be used multiple times.
+;
+#X connect 8 0 13 0;
+#X connect 10 0 9 0;
+#X connect 12 0 8 0;
+#X connect 13 0 14 0;
+#X connect 15 0 12 0;
+#X connect 16 0 17 0;
+#X connect 18 0 17 0;
 #X connect 20 0 19 0;
-#X connect 22 0 21 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;

@@ -1,19 +1,30 @@
-#N canvas 594 69 450 350 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib Gem -lib iemmatrix;
-#X obj 10 130 ./fd_array2pix;
-#X text 400 300 fd_lib;
-#X obj 206 11 declare -lib Gem -lib iemmatrix;
-#X text 10 10 fd_array2pix;
-#X msg 10 80 gemlist;
-#X msg 10 204 gemlist;
-#X msg 105 80 symbol <arrayname>;
-#X text 10 40 Input an arrayname to display it as pixel values (greyspace)
+#X obj 4 4 cnv 15 522 30 empty empty "fd_array2pix" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 280 206 declare -lib Gem -lib iemmatrix;
+#X msg 27 95 gemlist;
+#X msg 27 218 gemlist;
+#X msg 130 106 symbol <arrayname>;
+#X text 13 54 Input an arrayname to display it as pixel values (greyspace)
 ;
-#X text 274 130 Dependencies:;
-#X text 274 153 -- Gem;
-#X text 274 173 -- iemmatrix;
-#X connect 0 0 5 0;
-#X connect 4 0 0 0;
-#X connect 6 0 0 1;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X text 328 176 Dependencies:;
+#X obj 27 159 fd_array2pix;
+#X text 64 283 Optional source array name;
+#X text 60 410 gemlist;
+#X text 62 336 1: gemlist;
+#X text 62 354 2: symbol : source array name;
+#X connect 8 0 13 0;
+#X connect 10 0 13 1;
+#X connect 13 0 9 0;

@@ -1,0 +1,139 @@
+#N canvas 29 240 530 481 12;
+#X obj 4 4 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1 0
+;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#N canvas 14 139 1059 639 makeit 0;
+#X obj 124 441 pack f f 500 50;
+#X obj 124 415 + 500;
+#X obj 192 415 + 50;
+#X msg 192 389 480;
+#X msg 124 387 530;
+#X msg 124 465 vis 0 \, setbounds \$3 \$4 \$1 \$2 \, vis 1;
+#X obj 126 353 t b b;
+#X obj 74 116 makefilename "%s";
+#X msg 293 360 selectall \, cut;
+#X msg 39 338 paste;
+#X obj 102 585 s;
+#X obj 76 84 t a a;
+#X obj 79 56 symbol;
+#X obj 73 176 t b a b b;
+#X obj 73 146 list append 0.1;
+#X text 191 148 <-- version number;
+#X obj 139 30 inlet;
+#X obj 77 29 inlet;
+#X obj 130 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 22 569 349 open 0;
+#X obj 43 244 makefilename pd-%s;
+#X obj 70 217 s pd;
+#X obj 41 91 makefilename %s-help.pd;
+#X obj 71 165 list;
+#X msg 70 191 open \$1 \$2;
+#X obj 102 136 makefilename /Users/federicocamarahalac/Documents/fd_lib/%s
+;
+#X obj 40 57 t a a;
+#X obj 44 130 t a a;
+#X obj 40 32 inlet;
+#X obj 43 270 outlet;
+#X connect 0 0 9 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 1;
+#X connect 6 0 2 0;
+#X connect 6 1 5 0;
+#X connect 7 0 0 0;
+#X connect 7 1 3 0;
+#X connect 8 0 6 0;
+#X restore 580 107 pd open patch;
+#X obj 576 550 symbol;
+#X msg 542 255 obj 4 4 cnv 15 522 30 empty empty \$1 20 15 0 15 -228856
+-1 0 \, obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0 \, obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856
+-1 0 \, obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0 \, obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856
+-1 0;
+#X msg 89 270 text 440 452 fd_lib v\$2 \, text 60 284 no arguments
+\, text 60 340 anything \, text 60 410 no outlets;
+#X msg 506 401 obj 380 8 declare -path fd_lib;
+#X obj 88 232 t a b a, f 65;
+#X obj 736 39 inlet;
+#X obj 736 65 symbol;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 6 0 4 0;
+#X connect 6 1 3 0;
+#X connect 7 0 14 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 11 0 7 0;
+#X connect 11 1 19 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 13 1 24 0;
+#X connect 13 2 6 0;
+#X connect 13 3 8 0;
+#X connect 14 0 13 0;
+#X connect 16 0 12 1;
+#X connect 17 0 12 0;
+#X connect 18 0 6 0;
+#X connect 19 0 20 0;
+#X connect 20 0 10 1;
+#X connect 21 0 10 0;
+#X connect 22 0 10 0;
+#X connect 23 0 10 0;
+#X connect 24 0 22 0;
+#X connect 24 1 23 0;
+#X connect 24 2 21 0;
+#X connect 25 0 26 0;
+#X connect 26 0 19 0;
+#X restore 54 202 pd makeit;
+#X obj 328 207 text define object_list;
+#X floatatom 112 113 5 0 0 0 - - -;
+#X obj 127 178 text get object_list;
+#X symbolatom 127 204 0 0 0 0 - - -;
+#X obj 52 159 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 123 56 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 123 88 counter;
+#X msg 197 106 set \$1;
+#X msg 196 135 39;
+#X obj 197 81 + 1;
+#X msg 328 143 read pdfiles.txt;
+#X obj 127 146 t a a;
+#X obj 296 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 296 73 t b b;
+#X obj 209 225 symbol;
+#X obj 209 204 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 7 0 17 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 1;
+#X connect 9 0 20 1;
+#X connect 10 0 5 0;
+#X connect 11 0 12 0;
+#X connect 12 0 7 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 6 0;
+#X connect 17 0 15 0;
+#X connect 17 1 8 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 19 1 16 0;
+#X connect 20 0 5 2;
+#X connect 21 0 20 0;

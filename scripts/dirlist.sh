@@ -3,8 +3,10 @@ DIRLIST=""
 TARGET=list.txt
 #	Iterate through all non-help or -test files
 DIRLIST=$(find . ! -name "*-help.pd" ! -name "*-test.pd" ! -name "_*.pd" -name "*.pd" -maxdepth 1 | sed -e 's/.pd//g')
-for i in $DIRLIST
+for f in $DIRLIST
 do
+	i="${f/.\//}"
+	echo $i
 	PATCHFILE="$i.pd"
 	HELPFILE="$i-help.pd"
 	TESTFILE="$i-test.pd"
@@ -53,7 +55,7 @@ done
 #	Update $TARGET with all Pd files in this directory and any subdirectory.
 find . -name "*.pd" > $TARGET
 cat $TARGET | sort > /tmp/sorted
-cat /tmp/sorted > $TARGET
+cat /tmp/sorted | cut -f2- -d'/' > $TARGET
 COUNT=`sed -n '$=' $TARGET`
 echo "Wrote $COUNT files in $TARGET"
 echo "Now run sh fdlib ..."

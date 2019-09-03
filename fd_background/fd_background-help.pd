@@ -1,42 +1,62 @@
-#N canvas 540 69 599 366 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib Gem;
-#N canvas 301 66 785 628 gui-glue 0;
-#X msg 237 63 \; background type \$1 \;;
-#X msg 41 64 \; background showback \$1;
-#X msg 325 235 \; snapshot continuous;
-#X obj 42 197 r single;
-#X obj 325 210 r continuous;
-#X obj 43 37 r show;
-#X obj 235 34 r type;
-#X msg 507 243 threshold \$1;
-#X msg 615 242 contrast \$1;
-#X obj 509 284 s background;
-#X obj 505 202 r back-t;
-#X obj 605 202 r back-c;
-#X obj 467 34 r gem;
-#X obj 467 59 sel 0 1;
-#X obj 467 159 s gemwin;
-#X msg 467 134 0 \, destroy;
-#X msg 42 222 \; background background 1 \, layer 0 \; snapshot single
+#X obj 4 4 cnv 15 522 30 empty empty "fd_background" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
+#N canvas 205 60 785 628 gui-glue 0;
+#X msg 235 143 \; background type \$1 \;;
+#X msg 39 144 \; background showback \$1;
+#X msg 323 261 \; snapshot continuous;
+#X obj 40 223 r single;
+#X obj 323 236 r continuous;
+#X obj 41 117 r show;
+#X obj 233 114 r type;
+#X msg 505 269 threshold \$1;
+#X msg 613 268 contrast \$1;
+#X obj 507 310 s background;
+#X obj 503 228 r back-t;
+#X obj 603 228 r back-c;
+#X obj 465 60 r gem;
+#X obj 465 85 sel 0 1;
+#X obj 465 185 s gemwin;
+#X msg 465 160 0 \, destroy;
+#X msg 40 248 \; background background 1 \, layer 0 \; snapshot single
 ;
-#X msg 493 88 0 \, destroy \, reset \, dimen 500 500 \, create \, 1
-, f 24;
-#X obj 520 340 r preset;
-#X obj 520 365 t b f;
-#X obj 520 390 s;
-#X msg 554 390 symbol preset-\$1;
-#X obj 42 319 r preset-0;
-#X obj 221 316 r preset-1;
-#X obj 41 471 r preset-2;
-#X obj 231 471 r preset-3;
-#X msg 230 499 \; back-t-set -13 \; back-c-set -204 \; type-set 3 \;
+#X msg 491 114 0 \, destroy \, reset \, dimen 500 500 \, create \,
+1, f 24;
+#X obj 518 366 r preset;
+#X obj 518 391 t b f;
+#X obj 518 416 s;
+#X msg 552 416 symbol preset-\$1;
+#X obj 40 345 r preset-0;
+#X obj 219 342 r preset-1;
+#X obj 39 497 r preset-2;
+#X obj 229 497 r preset-3;
+#X msg 228 525 \; back-t-set -13 \; back-c-set -204 \; type-set 3 \;
 single-set bang \;;
-#X msg 40 499 \; back-t-set 18 \; back-c-set 128 \; type-set 4 \; continuous-set
+#X msg 38 525 \; back-t-set 18 \; back-c-set 128 \; type-set 4 \; continuous-set
 bang \;;
-#X msg 222 341 \; back-t-set 22 \; back-c-set 155 \; type-set 5 \;
+#X msg 220 367 \; back-t-set 22 \; back-c-set 155 \; type-set 5 \;
 continuous-set bang \;;
-#X msg 40 343 \; back-t-set 0.26 \; back-c-set -0.82 \; type-set 0
+#X msg 38 369 \; back-t-set 0.26 \; back-c-set -0.82 \; type-set 0
 \; continuous-set bang \;;
+#X obj 42 53 gemwin;
+#X obj 43 28 r gemwin;
+#X obj 108 28 loadbang;
+#X msg 106 52 \; gem-set 1 \;;
 #X connect 3 0 16 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
@@ -58,10 +78,12 @@ continuous-set bang \;;
 #X connect 23 0 28 0;
 #X connect 24 0 27 0;
 #X connect 25 0 26 0;
-#X restore 89 288 pd gui-glue;
+#X connect 31 0 30 0;
+#X connect 32 0 33 0;
+#X restore 169 208 pd gui-glue;
 #N canvas 559 33 421 350 controls 0;
 #X obj 111 188 hradio 15 1 0 8 type type-set type 0 -8 0 10 -262144
--1 -1 5;
+-1 -1 0;
 #X obj 111 150 tgl 15 1 show empty show_background 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 171 122 bng 15 250 50 0 continuous continuous-set continuous
@@ -69,36 +91,25 @@ continuous-set bang \;;
 #X obj 111 122 bng 15 250 50 0 single single-set single 17 7 0 10 -262144
 -1 -1;
 #X obj 110 229 nbx 4 20 -255 255 0 1 back-t back-t-set back_thres 0
--8 0 14 -262144 -1 -1 22 256;
+-8 0 14 -262144 -1 -1 13 256;
 #X obj 210 229 nbx 4 20 -255 255 0 1 back-c back-c-set back_ctrst 0
--8 0 14 -262144 -1 -1 155 256;
-#X obj 259 122 tgl 15 0 gem gem-set gem 17 7 0 10 -262144 -1 -1 1 1
+-8 0 14 -262144 -1 -1 153 256;
+#X obj 259 122 tgl 15 0 gem gem-set gem 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 259 150 vradio 15 1 0 4 preset empty preset 0 -8 0 10 -262144
 -1 -1 1;
 #X coords 0 -1 1 1 200 160 1 100 100;
-#X restore 89 128 pd controls;
-#X obj 352 143 gemhead 0;
-#X obj 352 165 pix_video;
-#X text 215 22 "fd_background";
-#X text 35 71 Loads a background-extraction shader.;
-#X obj 451 171 r snapshot;
-#X obj 352 230 pix_texture;
-#X obj 352 255 square 4;
-#X obj 352 205 fd_background;
-#N canvas 0 22 450 300 init 0;
-#X obj 95 88 gemwin;
-#X obj 96 63 r gemwin;
-#X obj 105 35 declare -lib Gem;
-#X obj 176 62 loadbang;
-#X msg 174 86 \; gem-set 1 \;;
-#X connect 1 0 0 0;
-#X connect 3 0 4 0;
-#X restore 474 26 pd init;
-#X connect 2 0 3 0;
-#X connect 3 0 9 0;
-#X connect 6 0 9 1;
-#X connect 7 0 8 0;
-#X connect 9 0 7 0;
-#X obj 435 15 declare -path fd_lib;
-#X text 499 336 fd_lib v0.1;
+#X restore 294 76 pd controls;
+#X obj 32 84 gemhead 0;
+#X obj 32 115 pix_video;
+#X text 24 52 Loads a background-extraction shader.;
+#X obj 120 123 r snapshot;
+#X obj 32 191 pix_texture;
+#X obj 32 216 square 4;
+#X obj 32 154 fd_background;
+#X obj 381 37 declare -lib Gem;
+#X connect 12 0 13 0;
+#X connect 13 0 18 0;
+#X connect 15 0 18 1;
+#X connect 16 0 17 0;
+#X connect 18 0 16 0;

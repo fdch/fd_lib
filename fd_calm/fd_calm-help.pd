@@ -1,22 +1,33 @@
-#N canvas 530 47 450 350 12;
+#N canvas 500 50 530 480 12;
 #X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_calm" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
 #X obj 59 167 fd_calm;
-#X text 223 297 see I07.phase.vocoder.pd;
-#X text 171 11 "fd_calm";
-#X obj 62 109 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 59 232 print -n;
-#X obj 257 109 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 254 232 print -n;
+#X text 346 428 see I07.phase.vocoder.pd;
+#X obj 62 129 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10900 1;
+#X obj 59 212 print -n;
+#X obj 257 129 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2400 1;
+#X obj 254 212 print -n;
 #X obj 254 167 fd_calm 12;
-#X text 342 144 argument sets new reduction rate, f 9;
-#X text 27 37 Reduce frequency of updates of an incoming float \, by
+#X text 25 49 Reduce frequency of updates of an incoming float \, by
 a rate of 300 msec (or specified via argument), f 49;
-#X text 32 271 This is good for slowing down controller data;
-#X obj 286 15 declare -path fd_lib;
-#X text 299 318 fd_lib v0.1;
-#X connect 0 0 4 0;
-#X connect 3 0 0 0;
-#X connect 5 0 7 0;
-#X connect 7 0 6 0;
+#X text 23 89 This is good for slowing down controller data;
+#X text 60 284 (float) set new reduction rate in milliseconds;
+#X text 58 400 1: float: same as inlet at reduced rate;
+#X text 60 340 1: float;
+#X connect 7 0 10 0;
+#X connect 9 0 7 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;

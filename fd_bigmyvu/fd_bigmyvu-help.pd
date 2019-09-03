@@ -1,17 +1,29 @@
-#N canvas 524 53 450 350 12;
-#X obj 87 134 ./fd_bigmyvu;
-#X text 298 305 fd_lib;
-#X text 165 16 "fd_bigmyvu";
-#X obj 87 92 noise~;
-#X obj 87 276 dac~;
-#X floatatom 158 276 5 0 0 0 dB - -, f 5;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_bigmyvu" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 132 97 ./fd_bigmyvu;
+#X obj 138 73 noise~;
+#X obj 137 226 dac~;
+#X floatatom 204 224 5 0 0 0 dB - -;
 #X text 23 47 A gui abstraction for volume control and monitoring;
-#X msg 281 87 \; pd dsp 1;
-#X msg 281 131 \; pd dsp 0;
-#X connect 0 0 4 0;
-#X connect 0 1 4 1;
-#X connect 0 2 5 0;
-#X connect 3 0 0 0;
-#X connect 3 0 0 1;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X msg 420 59 \; pd dsp 1;
+#X msg 420 103 \; pd dsp 0;
+#X text 60 340 2 inlets take signals;
+#X text 60 410 1 \, 2: signals \; 3: decibels;
+#X connect 8 0 10 0;
+#X connect 8 1 10 1;
+#X connect 8 2 11 0;
+#X connect 9 0 8 0;
+#X connect 9 0 8 1;

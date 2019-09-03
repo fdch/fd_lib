@@ -1,23 +1,33 @@
-#N canvas 526 54 450 350 12;
-#X text 170 13 "fd_arcsin~";
-#X text 253 270 see fd_arcsin-help.pd;
-#X obj 297 292 fd_arcsin;
-#X obj 157 219 fd_arcsin~ arcsin-tilde 128, f 16;
-#X obj 39 312 array define;
-#X text 21 129 Arguments: array-name(symbol) array-size(float), f
-48;
-#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 148 75 \; pd dsp 1;
-#X text 228 86 <-- must be on;
-#X text 247 320 used in [fd_windows];
-#X msg 188 184 click 0 0 0 0 0;
-#X text 191 164 hack to see array:;
-#X text 30 272 following naming conventions as, f 16;
-#X text 45 156 load table ->;
-#X text 20 45 Same as [fd_arcsin] \, but stored via dsp into array
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_arcsin~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 61 424 no outlets;
+#X obj 122 192 fd_arcsin~ arcsin-tilde 128;
+#X obj 37 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 424 60 \; pd dsp 1;
+#X msg 185 151 click 0 0 0 0 0;
+#X text 18 50 Same as [fd_arcsin] \, but stored via dsp into array
 ;
-#X connect 6 0 3 0;
-#X connect 10 0 3 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X floatatom 102 89 5 0 0 0 - - -;
+#X msg 102 112 q \$1 \, bang;
+#X text 347 188 see [fd_windows];
+#X text 60 327 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: q : power coefficient for arcsin anything \; 1:
+all other messages are routed to [array];
+#X text 59 264 1: symbol : array-name \; 2: float : array-size;
+#X connect 9 0 8 0;
+#X connect 11 0 8 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
