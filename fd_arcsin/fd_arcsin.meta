@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:17:28 EDT 2019
+patch_name   : fd_arcsin
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_arcsin
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 9
+total objects: 13
+connections  : 16
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0t:pow:inlet:\*:sel:outlet:loadbang:f:-]

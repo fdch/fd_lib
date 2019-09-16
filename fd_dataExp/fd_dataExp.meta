@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:53 EDT 2019
+patch_name   : fd_dataExp
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataExp
+inlet        : 2
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 4
+classes used : 22
+total objects: 36
+connections  : 55
+dependencies : 0 [0]
+externals    : 1 [0fd_getsize]
+internals    : 21/233 [0t:f:spigot:inlet:\*:/:until:sel:s:route:r:pack:outlet:mod:min:max:int:exp:==:-:+]

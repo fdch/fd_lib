@@ -22,7 +22,7 @@
 #X floatatom 300 168 5 0 1000 0 - - -;
 #X obj 263 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 57 43 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 57 43 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 57 69 metro 100;
 #X obj 57 143 vline~;
@@ -77,6 +77,23 @@ is about HP/LP cubed (so HP=2LP should give about 18 dB \, for example.)
 #X connect 8 0 3 0;
 #X connect 9 0 2 0;
 #X restore 262 208 pd dac;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:24 EDT 2019
+;
+#X text 10 25 patch_name : fd_butterworth;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 18;
+#X text 10 130 total objects: 26;
+#X text 10 145 connections : 52;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0_butter];
+#X text 10 190 internals : 17/233 [0/~:t:inlet:czero~:cpole~:*~:unpack:tgl:samplerate~:rzero~:rpole~:outlet~:loadbang:line~:inlet~:f:*]
+;
+#X restore 438 423 pd meta;
 #X connect 10 0 11 0;
 #X connect 12 0 13 0;
 #X connect 14 0 31 1;

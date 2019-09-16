@@ -25,6 +25,23 @@
 #X text 60 410 gemlist;
 #X text 62 336 1: gemlist;
 #X text 62 354 2: symbol : source array name;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:22:56 EDT 2019
+;
+#X text 10 25 patch_name : fd_array2pix;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 15;
+#X text 10 145 connections : 19;
+#X text 10 160 dependencies : 2 [Gem:iemmatrix];
+#X text 10 175 externals : 2 [0pix_set:mtx_transpose];
+#X text 10 190 internals : 7/233 [0list:t:inlet:array:sqrt:outlet:declare]
+;
+#X restore 438 423 pd meta;
 #X connect 8 0 13 0;
 #X connect 10 0 13 1;
 #X connect 13 0 9 0;

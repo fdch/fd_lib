@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:20:02 EDT 2019
+patch_name   : fd_metro
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_metro
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 12
+total objects: 17
+connections  : 21
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 12/233 [0t:sel:inlet:f:change:spigot:outlet:loadbang:delay:abs:>:/]

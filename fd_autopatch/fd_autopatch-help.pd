@@ -28,4 +28,21 @@ f 49;
 2 1;
 #X text 21 56 AUTOMATICALLY CONNECT CORDS BETWEEN OUTLETS AND INLETS
 ;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:11 EDT 2019
+;
+#X text 10 25 patch_name : fd_autopatch;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 4;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 43;
+#X text 10 145 connections : 60;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 19/233 [0t:sel:s:r:f:+:inlet:spigot:print:max:loadbang:unpack:route:pack:outlet:metro:list:>:<=]
+;
+#X restore 438 423 pd meta;
 #X connect 15 0 14 0;

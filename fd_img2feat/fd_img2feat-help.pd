@@ -1,33 +1,67 @@
-#N canvas 526 52 450 350 12;
-#X declare -lib Gem -lib iemmatrix -lib timbreIDLib;
+#N canvas 500 50 530 480 12;
 #X declare -path fd_lib;
-#X text 263 126 Dependencies:;
-#X text 266 150 -- Gem;
-#X text 267 165 -- iemmatrix;
-#X text 266 184 -- timbreID (possibly);
-#X obj 270 74 declare -lib Gem -lib iemmatrix -lib timbreIDLib, f
-16;
-#X floatatom 157 226 5 0 0 1 spectral_Brightness - -;
-#X obj 16 63 gemhead;
+#X declare -lib Gem -lib timbreIDLib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_img2feat" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 323 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 378 163 Dependencies:;
+#X floatatom 176 202 5 0 0 1 spectral_Brightness - -;
+#X obj 16 68 gemhead;
 #X obj 16 198 pix_texture;
-#X msg 74 314 0 \, destroy;
-#X obj 20 318 gemwin;
-#X obj 16 131 pix_contrast;
-#X floatatom 104 94 5 0 0 1 Adjust_Contrast - -;
+#X msg 406 85 0 \, destroy;
+#X obj 396 108 gemwin;
+#X floatatom 186 66 5 1 100 0 contrast - -;
 #X obj 16 222 circle 4;
-#X msg 20 272 0 \, destroy \, reset \, dimen 200 200 \, offset 10 50
-\, create \, 1, f 35;
 #X text 10 40 Takes gemlist and applies feature defined in argument
 1;
-#X text 10 10 fd_img2feat;
-#X obj 16 154 fd_img2feat specBrightness;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
-#X connect 6 0 10 0;
-#X connect 7 0 12 0;
-#X connect 8 0 9 0;
-#X connect 10 0 16 0;
-#X connect 11 0 10 1;
-#X connect 13 0 9 0;
-#X connect 16 0 7 0;
-#X connect 16 1 5 0;
+#X msg 396 62 create \, 1;
+#X obj 16 156 fd_img2feat ../img/subway-*.jpg 10 specBrightness;
+#X text 60 275 1: symbol: 'path/to/image-*.jpg' (see [pix_multiimage]
+\; 2: float: max number of images (see [pix_multiimage] \; 3: symbol:
+timbreID feature (see [timbreID]) \;;
+#X text 59 347 1: list: gemlist;
+#X text 56 406 1: list: gemlist \; 2: float: image index to show (see
+[pix_multiimage]);
+#X floatatom 301 127 5 0 9 0 index - -;
+#X floatatom 191 109 5 0 100 0 saturation - -;
+#X msg 186 86 c \$1;
+#X msg 191 132 s \$1;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:36 EDT 2019
+;
+#X text 10 25 patch_name : fd_img2feat;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 26;
+#X text 10 130 total objects: 55;
+#X text 10 145 connections : 80;
+#X text 10 160 dependencies : 2 [Gem:timbreIDLib];
+#X text 10 175 externals : 4 [0pix_multiimage:pix_contrast:fd_pix2list:\$3]
+;
+#X text 10 190 internals : 22/233 [0t:spigot:sel:outlet:list:inlet:array:route:pdcontrol:change:==:unpack:print:pack:moses:loadbang:f:declare:clip:bng:-:+]
+;
+#X restore 438 423 pd meta;
+#X obj 373 195 declare -lib Gem -lib timbreIDLib, f 16;
+#X connect 9 0 17 0;
+#X connect 10 0 14 0;
+#X connect 11 0 12 0;
+#X connect 13 0 23 0;
+#X connect 16 0 12 0;
+#X connect 17 0 10 0;
+#X connect 17 1 8 0;
+#X connect 21 0 17 2;
+#X connect 22 0 24 0;
+#X connect 23 0 17 1;
+#X connect 24 0 17 1;

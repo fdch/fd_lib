@@ -22,7 +22,7 @@ array-7 template-7-element;
 #N struct template-8 float x float y float z float s float id array
 array-8 template-8-element;
 #N struct template-8-element float y float s float w;
-#N canvas 525 49 715 475 12;
+#N canvas 525 49 431 534 12;
 #N canvas 0 22 165 185 envelopes 0;
 #X obj 10 35 fd_env 1 30 0;
 #X obj 10 60 fd_env 2 30 0;
@@ -32,7 +32,7 @@ array-8 template-8-element;
 #X obj 10 160 fd_env 6 30 0;
 #X obj 10 185 fd_env 7 30 0;
 #X obj 10 210 fd_env 8 30 0;
-#X restore 357 323 pd envelopes _____;
+#X restore 29 100 pd envelopes _____;
 #N canvas 47 86 872 284 dataModifiers 0;
 #X obj 741 95 clone -s 1 fd_dataRand 7 fd_env, f 11;
 #X obj 637 95 clone -s 1 fd_dataWalk 7 fd_env 0, f 11;
@@ -83,8 +83,8 @@ array-8 template-8-element;
 #X connect 17 0 14 1;
 #X connect 17 1 14 0;
 #X coords 0 -1 1 1 319 264 2 10 10;
-#X restore 18 175 pd dataModifiers _;
-#X text 377 145 DATA ARRAYS;
+#X restore 28 228 pd dataModifiers _;
+#X text 27 138 DATA ARRAYS;
 #N canvas 166 215 585 382 generate 0;
 #N canvas 0 22 450 300 protect 0;
 #X obj 49 18 inlet;
@@ -237,7 +237,7 @@ array-8 template-8-element;
 #X msg 201 260 9;
 #X obj 35 12 inlet;
 #X obj 175 289 outlet;
-#X floatatom 288 241 5 0 0 1 stored_presets - -, f 5;
+#X floatatom 288 241 5 0 0 1 stored_presets - -;
 #X msg 199 141 0;
 #X obj 199 166 t b f;
 #X msg 288 263 \; stored-presets number \$1 \, label \$1-presets,
@@ -246,7 +246,7 @@ f 25;
 #X obj 30 198 until;
 #X obj 30 223 f;
 #X obj 62 223 + 1;
-#X floatatom 65 177 5 0 0 0 - - -, f 5;
+#X floatatom 65 177 5 0 0 0 - - -;
 #X obj 65 152 r envelopes-max;
 #X msg 78 198 1;
 #X msg 30 342 \; pd-data-\$2 write /Users/federicocamarahalac/Documents/fd_work/a.le.a/presets/preset-\$1-id-\$2.txt
@@ -311,14 +311,8 @@ f 25;
 #X connect 15 0 16 0;
 #X connect 18 0 22 0;
 #X connect 19 0 21 0;
-#X restore 357 266 pd generate ______;
-#X text 299 14 "fd_data";
-#X text 94 45 A utility for the creation of data-structure arrays.
-Designed to control granular synthesis during the live performance
-of "a.le.a"., f 63;
-#X text 92 105 It is built upon 4.data.strucures/05.array.pd (see fd_env.pd)
-, f 61;
-#X text 65 140 Gui for [pd dataModifiers];
-#X text 356 298 gerated here:;
-#X text 356 242 generator:;
-#X obj 376 177 fd_dataVis;
+#X restore 29 43 pd generate ______;
+#X text 75 193 Gui for [pd dataModifiers];
+#X text 28 75 gerated here:;
+#X text 28 19 generator:;
+#X obj 26 170 fd_dataVis;

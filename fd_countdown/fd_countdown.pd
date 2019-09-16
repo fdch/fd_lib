@@ -4,7 +4,7 @@
 #X obj 131 56 vsl 18 50 0 127 0 0 \$0-cdl-s \$0-cdl empty 0 -9 0 10
 -228856 -1 -1 0 1;
 #X obj 59 481 outlet;
-#X obj 55 88 cnv 20 70 20 empty \$0-lbl [0] 23 9 0 14 -233017 -1 0
+#X obj 55 88 cnv 20 70 20 empty \$0-lbl [3] 23 9 0 14 -233017 -1 0
 ;
 #X obj 215 466 s \$0-lbl;
 #X obj 55 132 loadbang;
@@ -37,7 +37,7 @@
 #X obj 56 69 tgl 15 0 \$0-onoff \$0-onoff-set empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 76 69 nbx 4 15 100 1e+37 0 0 \$0-tmp \$0-tmp-set empty 0 -8
-0 11 -262144 -1 -1 100 256;
+0 11 -262144 -1 -1 500 256;
 #X obj 178 310 t f f;
 #X obj 59 432 ==;
 #X obj 59 457 sel 1;

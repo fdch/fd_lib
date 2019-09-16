@@ -20,3 +20,20 @@
 ;
 #X obj 172 125 fd_camara;
 #X obj 378 39 declare -lib Gem;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:42:55 EDT 2019
+;
+#X text 10 25 patch_name : fd_camara;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 19;
+#X text 10 145 connections : 52;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 2 [0gemhead:camera];
+#X text 10 190 internals : 7/233 [0tgl:hsl:del:t:loadbang:declare:bng]
+;
+#X restore 438 423 pd meta;

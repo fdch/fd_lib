@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:31:12 EDT 2019
+patch_name   : fd_vline_stack
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_vline_stack
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 9
+total objects: 171
+connections  : 33
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0t:list:route:inlet:f:unpack:pack:outlet:+]

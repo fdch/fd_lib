@@ -1,10 +1,39 @@
-#N canvas 531 53 558 371 12;
+#N canvas 500 50 530 480 12;
 #X declare -path fd_lib;
-#X text 248 232 see fd_data.pd;
-#X text 196 34 "fd_dataRead";
+#X obj 4 4 cnv 15 522 30 empty empty "fd_dataRead" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 417 451 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
+#X text 385 218 see fd_data.pd;
 #X text 28 70 Read from 2 different data structure arrays. Arguments
 are indices of the data structures;
 #X obj 188 155 fd_dataRead 1 2 10;
 #X text 33 114 3rd argument is the time in msec between points;
-#X obj 406 15 declare -path fd_lib;
-#X text 406 319 fd_lib v0.1;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:00 EDT 2019
+;
+#X text 10 25 patch_name : fd_dataRead;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 20;
+#X text 10 130 total objects: 40;
+#X text 10 145 connections : 53;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0fd_getsize:fd_get-element];
+#X text 10 190 internals : 18/233 [0t:+:spigot:r:outlet:moses:inlet:f:/:unpack:sel:s:pack:max:delay:del:bng:*]
+;
+#X restore 438 423 pd meta;

@@ -21,5 +21,22 @@
 #X text 61 285 \$1 == SIZE of the gembvertexbuffer. Sizes 2^n work
 better;
 #X text 440 452 fd_lib v0.1;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:17:27 EDT 2019
+;
+#X text 10 25 patch_name : fd_GEMbuffsize;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 6;
+#X text 10 130 total objects: 8;
+#X text 10 145 connections : 11;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 6/233 [0t:inlet:spigot:outlet:f:change]
+;
+#X restore 438 423 pd meta;
 #X connect 7 0 8 0;
 #X connect 9 0 7 0;

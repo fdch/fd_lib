@@ -1,21 +1,52 @@
-#N canvas 529 53 446 293 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_lorenz-expr" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:53 EDT 2019
+;
+#X text 10 25 patch_name : fd_lorenz-expr;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 19;
+#X text 10 145 connections : 35;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 8/233 [0f:t:pack:inlet:unpack:outlet:loadbang:expr]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
 #X obj 59 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 59 113 metro 1;
 #X obj 59 148 fd_lorenz-expr;
 #X obj 59 183 unpack f f f;
-#X floatatom 59 208 5 0 0 0 - - -, f 5;
-#X floatatom 105 208 5 0 0 0 - - -, f 5;
-#X floatatom 152 208 5 0 0 0 - - -, f 5;
+#X floatatom 59 208 5 0 0 0 - - -;
+#X floatatom 105 208 5 0 0 0 - - -;
+#X floatatom 152 208 5 0 0 0 - - -;
 #X msg 168 115 0.1 0.01 10 0 24 0 2.6667;
-#X text 134 22 "fd_lorenz-expr";
 #X text 33 49 Compute the Lorenz equations using [expr];
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 3 2 6 0;
-#X connect 7 0 2 1;
-#X obj 282 15 declare -path fd_lib;
-#X text 346 263 fd_lib v0.1;
+#X text 60 410 1: list: (3 floats) x y z;
+#X text 60 340 1: bang: to compute \; 2: list: (7 floats) x0 step sigma
+y0 rho z0 beta;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 12 2 15 0;
+#X connect 16 0 11 1;

@@ -4,7 +4,7 @@
 #X obj 168 144 outlet;
 #N canvas 0 22 450 300 \$0-keys 0;
 #X obj 12 12 cnv 15 226 88 fd_keyboard fd_keyboard-canvas empty 20
-12 0 14 -225271 -262144 0;
+12 0 14 -233017 -262144 0;
 #X obj 18 39 bng 15 99 50 0 q-bng 113-set q 4 7 0 8 -191407 -128992
 -1;
 #X obj 40 60 bng 15 99 50 0 a-bng 97-set a 4 7 0 8 -191407 -128992
@@ -58,7 +58,7 @@
 #X obj 216 39 bng 15 99 50 0 p-bng 112-set p 4 7 0 8 -191407 -128992
 -1;
 #X obj 18 81 tgl 15 0 allow allow-set allow 17 8 0 8 -191407 -1 -1
-1 1;
+0 1;
 #X obj 18 60 bng 15 99 50 0 ~-bng 96-set ~ 5 7 0 8 -191407 -128992
 -1;
 #X obj 18 18 bng 15 99 50 0 1-bng 49-set 1 5 7 0 8 -191407 -128992
@@ -90,7 +90,7 @@
 #X obj 41 29 key;
 #X obj 80 18 r allow;
 #X obj 175 220 moses 48;
-#X floatatom 41 118 5 0 0 0 - - -, f 5;
+#X floatatom 41 118 5 0 0 0 - - -;
 #X obj 236 246 clone -s 48 _route 10, f 11;
 #X obj 175 96 moses 58;
 #X obj 297 156 moses 123;

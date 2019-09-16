@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:50 EDT 2019
+patch_name   : fd_data
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_data
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 26
+total objects: 107
+connections  : 132
+dependencies : 0 [0]
+externals    : 5 [0fd_env:fd_dataGui:fd_dataVis:fd_dataStoreGui:fd_dataMorphGui]
+internals    : 21/233 [0t:r:f:route:clone:list:+:s:inlet:until:outlet:random:loadbang:send:print:pack:openpanel:min:max:cnv:\*]

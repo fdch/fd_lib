@@ -1,10 +1,12 @@
 #N canvas 0 23 450 300 12;
+#X declare -lib Gem;
 #X obj 121 183 outlet;
 #X obj 121 127 t b b;
 #X msg 191 112 0;
 #X obj 121 23 inlet;
 #X msg 121 68 1;
 #X obj 121 100 gemhead;
+#X obj 261 22 declare -lib Gem;
 #X connect 1 0 0 0;
 #X connect 1 1 2 0;
 #X connect 2 0 5 0;

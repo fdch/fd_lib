@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:53 EDT 2019
+patch_name   : fd_lorenz-expr
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_lorenz-expr
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 8
+total objects: 19
+connections  : 35
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0f:t:pack:inlet:unpack:outlet:loadbang:expr]

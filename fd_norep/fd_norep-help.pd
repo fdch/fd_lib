@@ -1,32 +1,75 @@
-#N canvas 531 51 506 371 12;
-#X msg 37 92 bang;
-#X text 186 22 "fd_norep";
-#X text 36 53 Output a list of size N random non-repeated numbers.
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_norep" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 11:30:10 EDT 2019
 ;
-#X obj 74 181 fd_norep 100;
+#X text 10 25 patch_name : fd_norep;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 720;
+#X text 10 145 connections : 75;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 15/233 [0t:f:spigot:sel:array:until:loadbang:list:inlet:==:+:random:outlet:del:-]
+;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 450 300 example 0;
+#X msg 31 33 bang;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array norep-help-array 100 float 3;
-#A 0 0.89899 0.282828 0.10101 0.646465 0.959596 0.989899 0.40404 0.444444
-0.565657 0.363636 0.747475 0.767677 0.292929 0.252525 0.434343 0.828283
-0.818182 0.212121 0.868687 0.858586 0.626263 0.20202 0.171717 0.353535
-0.111111 0.717172 0.888889 0.313131 0.333333 0.848485 0.919192 0.191919
-0.969697 0.727273 0.616162 0.383838 0.878788 0.343434 0.606061 1 0.010101
-0.69697 0.575758 0.535354 0.242424 0.040404 0.777778 0.737374 0.020202
-0 0.464646 0.424242 0.181818 0.555556 0.515152 0.0808081 0.50505 0.323232
-0.141414 0.585859 0.808081 0.494949 0.393939 0.222222 0.909091 0.656566
-0.161616 0.484848 0.232323 0.0909091 0.838384 0.454545 0.59596 0.121212
-0.757576 0.272727 0.0707071 0.636364 0.0606061 0.414141 0.79798 0.929293
-0.545455 0.676768 0.686869 0.979798 0.939394 0.707071 0.030303 0.525253
-0.949495 0.30303 0.666667 0.050505 0.131313 0.474747 0.262626 0.151515
-0.787879 0;
+#A 0 0.019802 0.930693 0.138614 0.277228 0.970297 0.465347 0.247525
+0.792079 0.821782 0.524752 0.851485 0.0693069 0.653465 0.306931 0.693069
+0.445545 0.60396 0.049505 0.643564 0.415842 0.90099 0.485149 0.871287
+0.455446 0.168317 0.742574 0.683168 0.623762 0.178218 0 0.39604 0.940594
+0.841584 0.772277 0.356436 0.574257 0.475248 0.316832 0.920792 1 0.861386
+0.0792079 0.425743 0.762376 0.910891 0.0990099 0.722772 0.148515 0.504951
+0.534653 0.70297 0.00990099 0.80198 0.891089 0.990099 0.366337 0.287129
+0.0594059 0.752475 0.564356 0.584158 0.227723 0.673267 0.435644 0.158416
+0.217822 0.039604 0.207921 0.554455 0.960396 0.118812 0.663366 0.029703
+0.376238 0.732673 0.108911 0.128713 0.257426 0.336634 0.0891089 0.881188
+0.386139 0.29703 0.613861 0.712871 0.811881 0.188119 0.405941 0.544554
+0.831683 0.237624 0.980198 0.782178 0.950495 0.49505 0.633663 0.267327
+0.19802 0.326733 0.346535;
 #X coords 0 1 100 -1 200 140 1;
-#X restore 258 117 graph;
-#X obj 74 214 array set norep-help-array, f 16;
-#X msg 37 276 \; norep-help-array normalize;
-#X obj 37 117 t b b;
-#X connect 0 0 7 0;
-#X connect 3 0 5 0;
-#X connect 7 0 6 0;
-#X connect 7 1 3 0;
-#X obj 342 15 declare -path fd_lib;
-#X text 406 341 fd_lib v0.1;
+#X restore 213 44 graph;
+#X obj 63 174 array set norep-help-array, f 16;
+#X msg 30 223 \; norep-help-array normalize;
+#X obj 31 72 t b b;
+#X obj 63 119 fd_norep 102;
+#X connect 0 0 4 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 2 0;
+#X restore 374 183 pd example;
+#X msg 111 140 bang;
+#X obj 111 169 fd_norep 5;
+#X text 27 52 Output a list of non-repeated random numbers. This patch
+was adapted from Alexandros Drymonitis vanilla urn abstraction. Argument
+is the size of the list.;
+#X obj 111 193 print;
+#X text 60 284 1: float: size of the list;
+#X text 60 410 1: list: of non-repeated random numbers;
+#X msg 212 143 10;
+#X text 253 147 new size;
+#X text 60 340 1: bang: to calculate \; 2: float: new size of list
+;
+#X text 25 104 NOTE: set size to N+2 so as to output size N...;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 15 0 10 1;

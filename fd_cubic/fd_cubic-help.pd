@@ -1,8 +1,25 @@
-#N canvas 522 51 507 317 12;
-#X text 208 260 f(x) = (x3 + 3x2 − 6x − 8)/4.;
-#X obj 53 141 fd_iterate;
-#X obj 53 163 t f f;
-#X obj 53 204 fd_cubic;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_cubic" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 40 79 f(x) = (x3 + 3x2 − 6x − 8)/4.;
+#X text 29 48 An attempt to a pseudo cubic curve \, from 0-99 only
+;
+#N canvas 0 22 450 300 example 0;
+#X obj 47 100 fd_iterate;
+#X obj 47 122 t f f;
+#X obj 47 163 fd_cubic;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-cubic 100 float 3;
 #A 0 0.0025 0.00124987 0.000249 -0.000503375 -0.001008 -0.00126563
@@ -20,19 +37,38 @@
 0.836664 0.855205 0.873927 0.892828 0.911908 0.931166 0.950601 0.970213
 ;
 #X coords 0 1 100 -1 200 140 1;
-#X restore 224 102 graph;
-#X obj 53 236 array set \$0-cubic, f 9;
-#X text 205 19 "fd_cubic";
-#X floatatom 53 91 5 0 0 0 - - -, f 5;
-#X obj 53 113 t b f;
-#X text 45 37 An attempt to a pseudo cubic curve \, from 0-99 only
-;
+#X restore 190 72 graph;
+#X obj 47 195 array set \$0-cubic, f 9;
+#X floatatom 47 50 5 0 0 0 - - -;
+#X obj 47 72 t b f;
+#X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 2 1 5 1;
-#X connect 3 0 5 0;
-#X connect 7 0 8 0;
-#X connect 8 0 1 0;
-#X connect 8 1 3 1;
-#X obj 343 15 declare -path fd_lib;
-#X text 407 287 fd_lib v0.1;
+#X connect 1 1 4 1;
+#X connect 2 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 1 2 1;
+#X restore 395 198 pd example;
+#X obj 47 168 fd_cubic;
+#X floatatom 47 126 5 0 0 0 - - -;
+#X floatatom 47 208 5 0 0 0 - - -;
+#X text 60 340 1: float;
+#X text 60 410 1: float;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:47 EDT 2019
+;
+#X text 10 25 patch_name : fd_cubic;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 15;
+#X text 10 145 connections : 18;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 8/233 [0*:t:inlet:-:outlet:mod:/:+];
+#X restore 438 423 pd meta;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;

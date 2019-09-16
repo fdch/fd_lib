@@ -1,4 +1,4 @@
-#N canvas 500 50 530 480 12;
+#N canvas 521 50 530 480 12;
 #X declare -path fd_lib;
 #X obj 4 4 cnv 15 522 30 empty empty "fd_arraysort2" 20 15 0 15 -228856
 -1 0;
@@ -39,7 +39,7 @@
 #X obj 140 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 41 75 <-- asc/desc;
-#X obj 17 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 17 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 269 191 \; output normalize;
 #N canvas 0 22 450 300 data 0;
@@ -105,6 +105,23 @@
 #X connect 4 0 0 0;
 #X connect 5 0 1 0;
 #X restore 17 198 pd graph;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:10 EDT 2019
+;
+#X text 10 25 patch_name : fd_arraysort2;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 18;
+#X text 10 130 total objects: 71;
+#X text 10 145 connections : 101;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 18/233 [0t:f:array:inlet:tabwrite:until:tabread:sel:pack:+:unpack:symbol:print:outlet:route:mod:>:!=]
+;
+#X restore 438 423 pd meta;
 #X connect 18 0 26 0;
 #X connect 19 0 18 1;
 #X connect 20 0 18 2;

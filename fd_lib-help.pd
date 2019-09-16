@@ -1,139 +1,507 @@
-#N canvas 29 240 530 481 12;
-#X obj 4 4 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1 0
-;
-#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
--1 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
-0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
--1 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
-0;
-#N canvas 14 139 1059 639 makeit 0;
-#X obj 124 441 pack f f 500 50;
-#X obj 124 415 + 500;
-#X obj 192 415 + 50;
-#X msg 192 389 480;
-#X msg 124 387 530;
-#X msg 124 465 vis 0 \, setbounds \$3 \$4 \$1 \$2 \, vis 1;
-#X obj 126 353 t b b;
-#X obj 74 116 makefilename "%s";
-#X msg 293 360 selectall \, cut;
-#X msg 39 338 paste;
-#X obj 102 585 s;
-#X obj 76 84 t a a;
-#X obj 79 56 symbol;
-#X obj 73 176 t b a b b;
-#X obj 73 146 list append 0.1;
-#X text 191 148 <-- version number;
-#X obj 139 30 inlet;
-#X obj 77 29 inlet;
-#X obj 130 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#N canvas 0 22 569 349 open 0;
-#X obj 43 244 makefilename pd-%s;
-#X obj 70 217 s pd;
-#X obj 41 91 makefilename %s-help.pd;
-#X obj 71 165 list;
-#X msg 70 191 open \$1 \$2;
-#X obj 102 136 makefilename /Users/federicocamarahalac/Documents/fd_lib/%s
-;
-#X obj 40 57 t a a;
-#X obj 44 130 t a a;
-#X obj 40 32 inlet;
-#X obj 43 270 outlet;
-#X connect 0 0 9 0;
-#X connect 2 0 7 0;
+#N canvas 1034 49 235 142 12;
+#X declare -path /Users/federicocamarahalac/Documents/fd_lib/;
+#N canvas 0 22 694 370 helpfile 0;
+#N canvas 0 22 407 457 \$0-texts 0;
+#X obj 27 376 text;
+#X obj 27 191 r pd-meta-filename;
+#X msg 27 349 read -c \$1 \, send meta-pointer;
+#X msg 43 114 write pdfiles.txt;
+#X obj 28 20 loadbang;
+#X obj 28 154 text;
+#X msg 28 70 read pdfiles.txt \, send pdfile-pointer \; init-counter
+bang;
+#X obj 36 47 r initialize;
+#X obj 47 224 r pd-file-path;
+#X obj 47 248 makefilename %s/%%s;
+#X msg 47 272 set \$1;
+#X obj 27 315 makefilename;
+#X connect 1 0 11 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 2 0;
+#X restore 27 16 pd \$0-texts;
+#N canvas 0 22 450 300 \$0-version 0;
+#X obj 139 88 loadbang;
+#X obj 131 41 r version;
+#X msg 131 65 set \$1;
+#X msg 131 112 0.1;
+#X msg 131 138 \; version-set \$1;
+#X text 164 111 <-- edit version here;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
 #X connect 3 0 4 0;
-#X connect 4 0 1 0;
-#X connect 5 0 3 1;
-#X connect 6 0 2 0;
-#X connect 6 1 5 0;
-#X connect 7 0 0 0;
-#X connect 7 1 3 0;
-#X connect 8 0 6 0;
-#X restore 580 107 pd open patch;
-#X obj 576 550 symbol;
-#X msg 542 255 obj 4 4 cnv 15 522 30 empty empty \$1 20 15 0 15 -228856
+#X restore 27 38 pd \$0-version;
+#N canvas 0 22 450 300 \$0-format 0;
+#X obj 52 36 r format;
+#X obj 52 103 symbol;
+#X msg 52 127 \; \$1 selectall \, cut \; relocate-set bang \; template-set
+bang \; \$1 paste \;;
+#X obj 91 71 r pd-helpfile-selector;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X restore 27 192 pd \$0-format;
+#N canvas 0 22 449 300 \$0-relocate 0;
+#X obj 52 19 r relocate;
+#X obj 52 209 s;
+#X obj 70 187 r pd-helpfile-selector;
+#X msg 52 74 530 480 500 50;
+#X text 167 74 <-- width height screenX screenY;
+#N canvas 0 22 450 300 setbounds 0;
+#X msg 58 220 vis 0 \, setbounds \$3 \$4 \$1 \$2 \, vis 1;
+#X obj 58 47 list split 2;
+#X obj 58 92 unpack;
+#X obj 112 92 t a a, f 11;
+#X obj 112 116 unpack;
+#X obj 58 145 +;
+#X obj 97 145 +;
+#X obj 58 169 pack;
+#X obj 58 193 list append;
+#X obj 58 18 inlet;
+#X obj 58 264 outlet;
+#X connect 0 0 10 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 2 0 5 0;
+#X connect 2 1 6 0;
+#X connect 3 0 4 0;
+#X connect 3 1 8 1;
+#X connect 4 0 5 1;
+#X connect 4 1 6 1;
+#X connect 5 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 9 0 1 0;
+#X restore 52 127 pd setbounds;
+#X connect 0 0 3 0;
+#X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 5 0 1 0;
+#X restore 27 214 pd \$0-relocate;
+#N canvas 237 63 617 562 \$0-template 0;
+#X obj 72 508 s;
+#X obj 72 33 r template;
+#X obj 90 472 r pd-helpfile-selector;
+#X msg 72 250 obj 4 4 cnv 15 522 30 empty empty \$1 20 15 0 15 -228856
 -1 0 \, obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
 -1 0 \, obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856
 -1 0 \, obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
 -1 0 \, obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856
--1 0;
-#X msg 89 270 text 440 452 fd_lib v\$2 \, text 60 284 no arguments
-\, text 60 340 anything \, text 60 410 no outlets;
-#X msg 506 401 obj 380 8 declare -path fd_lib;
-#X obj 88 232 t a b a, f 65;
-#X obj 736 39 inlet;
-#X obj 736 65 symbol;
-#X connect 0 0 5 0;
+-1 0 \, font 12 0 0 \, obj 380 8 declare -path fd_lib \, obj 438 423
+pd meta \, text 440 452 fd_lib v\$2 \, text 60 284 \$7 arguments \,
+text 60 340 \$3 inlets \, text 60 410 \$4 outlets, f 68;
+#N canvas 0 22 450 300 \$1 0;
+#X obj 72 136 makefilename "%s";
+#X obj 72 107 symbol;
+#X obj 111 57 r file-name;
+#X obj 72 19 inlet;
+#X obj 72 220 outlet;
+#X obj 111 83 symbol;
+#X connect 0 0 4 0;
 #X connect 1 0 0 0;
-#X connect 2 0 0 1;
-#X connect 3 0 2 0;
-#X connect 4 0 1 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 0;
+#X connect 5 0 1 1;
+#X restore 72 94 pd \$1 (abstraction name);
+#N canvas 0 22 450 300 \$2 0;
+#X obj 91 107 r version;
+#X obj 66 132 list;
+#X obj 66 36 inlet;
+#X obj 66 214 outlet;
+#X connect 0 0 1 1;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X restore 72 122 pd \$2 (library version);
+#N canvas 0 22 450 300 \$3..\$7 0;
+#X obj 228 34 r meta-pointer;
+#X obj 228 59 t b p;
+#X obj 228 155 text get -s text t;
+#X obj 228 109 t f f;
+#X msg 228 133 \$1 2;
+#X obj 94 92 list;
+#X obj 228 180 list prepend;
+#X obj 228 204 route 3 4 5 6 7;
+#X obj 228 227 pack f f f f f;
+#X obj 94 24 inlet;
+#X obj 94 232 outlet;
+#X msg 228 85 7 \, 6 \, 5 \, 4 \, 3;
+#X connect 0 0 1 0;
+#X connect 1 0 11 0;
+#X connect 1 1 2 3;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 1 6 1;
+#X connect 4 0 2 0;
 #X connect 5 0 10 0;
-#X connect 6 0 4 0;
-#X connect 6 1 3 0;
-#X connect 7 0 14 0;
-#X connect 8 0 10 0;
-#X connect 9 0 10 0;
-#X connect 11 0 7 0;
-#X connect 11 1 19 0;
-#X connect 12 0 11 0;
-#X connect 13 0 9 0;
-#X connect 13 1 24 0;
-#X connect 13 2 6 0;
-#X connect 13 3 8 0;
-#X connect 14 0 13 0;
-#X connect 16 0 12 1;
-#X connect 17 0 12 0;
-#X connect 18 0 6 0;
-#X connect 19 0 20 0;
-#X connect 20 0 10 1;
-#X connect 21 0 10 0;
-#X connect 22 0 10 0;
-#X connect 23 0 10 0;
-#X connect 24 0 22 0;
-#X connect 24 1 23 0;
-#X connect 24 2 21 0;
-#X connect 25 0 26 0;
-#X connect 26 0 19 0;
-#X restore 54 202 pd makeit;
-#X obj 328 207 text define object_list;
-#X floatatom 112 113 5 0 0 0 - - -;
-#X obj 127 178 text get object_list;
-#X symbolatom 127 204 0 0 0 0 - - -;
-#X obj 52 159 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 123 56 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 123 88 counter;
-#X msg 197 106 set \$1;
-#X msg 196 135 39;
-#X obj 197 81 + 1;
-#X msg 328 143 read pdfiles.txt;
-#X obj 127 146 t a a;
-#X obj 296 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 296 73 t b b;
-#X obj 209 225 symbol;
-#X obj 209 204 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X connect 7 0 17 0;
-#X connect 8 0 9 0;
-#X connect 9 0 5 1;
-#X connect 9 0 20 1;
-#X connect 10 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 7 2 8 2;
+#X connect 7 3 8 3;
+#X connect 7 4 8 4;
+#X connect 8 0 5 1;
+#X connect 9 0 5 0;
+#X connect 11 0 3 0;
+#X restore 72 149 pd \$3..\$7 (inlets outlets inlets~ outlets~ arguments)
+;
+#X text 93 207 edit this message to your favorite helpfile template:
+;
+#X connect 1 0 4 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X restore 27 236 pd \$0-template;
+#N canvas 288 30 879 283 \$0-open-pd-files 0;
+#X obj 37 78 symbol;
+#X obj 76 50 r pd-file-filename;
+#X obj 37 202 symbol;
+#X obj 76 174 r pd-file-helpfile;
+#X obj 37 26 r open-file;
+#X obj 37 152 r open-help;
+#X obj 483 41 r pd-file-path;
+#X obj 245 24 r close-file;
+#X obj 263 76 r pd-file-selector;
+#X obj 243 152 r close-help;
+#X obj 261 203 r pd-helpfile-selector;
+#X msg 245 48 menuclose;
+#X obj 245 100 s;
+#X obj 243 229 s;
+#X msg 243 179 menuclose;
+#X msg 669 65 vis 1;
+#X obj 669 146 s;
+#X obj 669 36 r vis-just-opened;
+#X obj 687 119 makefilename pd-%s;
+#X obj 469 12 r open-this;
+#X obj 37 108 s open-this;
+#X obj 37 226 s open-this;
+#X obj 687 93 r open-this;
+#X obj 469 236 pdcontrol;
+#X obj 483 65 makefilename %s/%%s;
+#X obj 469 127 makefilename;
+#X msg 483 89 set \$1;
+#X msg 469 202 browse \$1;
+#X obj 501 176 print opening;
+#X obj 469 151 t a a;
+#X connect 0 0 20 0;
+#X connect 1 0 0 1;
+#X connect 2 0 21 0;
+#X connect 3 0 2 1;
+#X connect 4 0 0 0;
+#X connect 5 0 2 0;
+#X connect 6 0 24 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 1;
+#X connect 9 0 14 0;
+#X connect 10 0 13 1;
 #X connect 11 0 12 0;
-#X connect 12 0 7 0;
-#X connect 13 0 14 0;
-#X connect 14 0 12 0;
-#X connect 15 0 13 0;
-#X connect 16 0 6 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
 #X connect 17 0 15 0;
-#X connect 17 1 8 0;
-#X connect 18 0 19 0;
-#X connect 19 0 14 0;
-#X connect 19 1 16 0;
-#X connect 20 0 5 2;
-#X connect 21 0 20 0;
+#X connect 18 0 16 1;
+#X connect 19 0 25 0;
+#X connect 22 0 18 0;
+#X connect 24 0 26 0;
+#X connect 25 0 29 0;
+#X connect 26 0 25 0;
+#X connect 27 0 23 0;
+#X connect 29 0 27 0;
+#X connect 29 1 28 0;
+#X restore 27 170 pd \$0-open-pd-files;
+#N canvas 512 224 539 293 \$0-dump-meta-text 0;
+#X obj 148 237 s pd-meta;
+#X obj 39 84 text sequence -s text t;
+#X msg 39 54 line 0 \, auto;
+#X obj 148 212 list trim;
+#X obj 148 165 t a b;
+#X msg 229 163 text 10 \$1;
+#X obj 229 136 f;
+#X msg 247 111 10;
+#X obj 148 188 list prepend;
+#X obj 39 109 list trim;
+#X obj 39 134 route patch_path;
+#X obj 259 136 + 15;
+#X obj 197 55 r meta-pointer;
+#X obj 39 27 r dump-meta-text;
+#X obj 343 23 r replace-meta-text;
+#X msg 343 47 \; pd-meta clear \; dump-meta-text bang;
+#X connect 1 0 9 0;
+#X connect 1 1 7 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 8 0;
+#X connect 4 1 6 0;
+#X connect 5 0 8 1;
+#X connect 6 0 5 0;
+#X connect 6 0 11 0;
+#X connect 7 0 6 1;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 10 1 4 0;
+#X connect 11 0 6 1;
+#X connect 12 0 1 1;
+#X connect 13 0 2 0;
+#X connect 14 0 15 0;
+#X restore 27 258 pd \$0-dump-meta-text;
+#N canvas 893 217 378 377 \$0-controls 1;
+#X obj 286 49 nbx 5 14 0.1 1 0 0 version version-set version 0 -8 0
+10 -262144 -1 -1 0.1 256;
+#X obj 208 16 bng 15 250 50 0 next-index next-index-set next-->> 17
+7 0 10 -262144 -1 -1;
+#X obj 120 15 bng 15 250 50 0 prev-index prev-index-set <<-prev -45
+7 0 10 -262144 -1 -1;
+#X obj 145 16 nbx 5 14 0 261 0 0 current-index current-index-set current-index
+0 -8 0 10 -262144 -1 -1 173 256;
+#X symbolatom 4 194 30 0 0 1 file-name file-name-set file-name;
+#X symbolatom 4 216 30 0 0 1 pd-file-path pd-file-path-set pd-file-path
+;
+#X symbolatom 4 238 30 0 0 1 pd-meta-filename pd-meta-filename-set
+pd-meta-filename;
+#X symbolatom 4 261 30 0 0 1 pd-file-helpfile pd-file-helpfile-set
+pd-file-helpfile;
+#X symbolatom 4 305 30 0 0 1 pd-file-selector pd-file-selector-set
+pd-file-selector;
+#X symbolatom 4 283 30 0 0 1 pd-helpfile-selector pd-helpfile-selector-set
+pd-helpfile-selector;
+#X symbolatom 4 327 30 0 0 1 pd-file-filename pd-file-filename-set
+pd-file-filename;
+#X obj 5 117 bng 15 250 50 0 open-file open-file-set open-file 17 7
+0 10 -262144 -1 -1;
+#X obj 110 117 bng 15 250 50 0 close-file close-file-set close-file
+17 7 0 10 -262144 -1 -1;
+#X obj 5 98 bng 15 250 50 0 open-help open-help-set open-help 17 7
+0 10 -262144 -1 -1;
+#X obj 110 98 bng 15 250 50 0 close-help close-help-set close-help
+17 7 0 10 -262144 -1 -1;
+#X obj 5 136 bng 15 250 50 0 format format-set format 17 7 0 10 -262144
+-1 -1;
+#X obj 110 136 bng 15 250 50 0 relocate relocate-set relocate 17 7
+0 10 -262144 -1 -1;
+#X obj 237 136 bng 15 250 50 0 template template-set template 17 7
+0 10 -262144 -1 -1;
+#X obj 237 108 bng 15 250 50 0 vis-just-opened vis-just-opened-set
+vis-just-opened 17 7 0 10 -262144 -1 -1;
+#X obj 5 155 bng 15 250 50 0 dump-meta-text dump-meta-text-set dump-meta-text
+17 7 0 10 -262144 -1 -1;
+#X obj 110 155 bng 15 250 50 0 replace-meta-text replace-meta-text-set
+replace-meta-text 17 7 0 10 -262144 -1 -1;
+#N canvas 0 22 450 300 \$0-shortcuts 0;
+#X obj 75 20 r next;
+#X msg 78 226 vis 1;
+#X obj 78 202 r gui;
+#X obj 78 250 s pd-\$0-controls;
+#X msg 234 225 vis 1;
+#X obj 234 249 s \$0-guts;
+#X obj 233 200 r guts;
+#X msg 75 129 \; format-set bang \; dump-meta-text bang \;;
+#X msg 75 42 bang \; close-help-set bang \; next-index-set bang \;
+open-help-set bang \;;
+#X obj 75 108 del 2000;
+#X connect 0 0 8 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X restore 4 350 pd \$0-shortcuts;
+#X obj 73 39 cnv 15 200 30 empty current-index-canvas 173/261_:"fd_pix_shift"
+20 12 0 10 -228856 -1 0;
+#X obj 75 73 bng 15 250 50 0 initialize initialize-set initialize 17
+7 0 10 -262130 -1 -1;
+#X obj 155 73 bng 15 250 50 0 next next-set next 17 7 0 10 -204786
+-1 -1;
+#X obj 199 73 bng 15 250 50 0 gui gui-set gui 17 7 0 10 -204800 -1
+-1;
+#X obj 239 73 bng 15 250 50 0 guts guts-set guts 17 7 0 10 -203904
+-1 -1;
+#X obj 237 155 bng 15 250 50 0 remake-meta-file remake-meta-file-set
+remake-meta-file 17 7 0 10 -262144 -1 -1;
+#X restore 27 302 pd \$0-controls;
+#X obj 206 13 declare -path /Users/federicocamarahalac/Documents/fd_lib/
+;
+#N canvas 0 22 450 300 \$0-next-index 0;
+#X obj 151 148 counter;
+#X obj 151 225 s get-file;
+#X obj 97 22 r next-index;
+#X obj 219 22 r prev-index;
+#X obj 97 46 route bang float;
+#X msg 97 70 i 1 \, bang;
+#X msg 219 64 i -1 \, bang;
+#X connect 0 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 4 1 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X restore 27 60 pd \$0-next-index;
+#N canvas 464 123 450 300 \$0-init-counter 0;
+#X msg 155 95 174;
+#X obj 155 72 r init-counter;
+#X msg 155 119 \; get-file \$1 \; next-index \$1 \;;
+#X text 151 42 store last index;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X restore 27 82 pd \$0-init-counter;
+#N canvas 0 22 450 300 \$0-get-file 0;
+#X obj 147 74 + 1;
+#X msg 147 99 \; init-counter set \$1;
+#X obj 115 16 r get-file;
+#X obj 115 244 s file-name-set;
+#X obj 115 50 t f f;
+#X obj 115 210 text get -s text t;
+#X obj 238 183 r pdfile-pointer;
+#X msg 115 142 \$1 \; current-index-set set \$1;
+#X connect 0 0 1 0;
+#X connect 2 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 0 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 3;
+#X connect 7 0 5 0;
+#X restore 27 104 pd \$0-get-file;
+#N canvas 0 22 612 307 \$0-current-index 0;
+#X obj 57 80 s next-index;
+#X obj 57 27 r current-index;
+#X obj 56 186 text size -s text t;
+#X obj 56 162 t b p;
+#X msg 56 230 \; current-index-set range 0 \$1;
+#X obj 56 135 r pdfile-pointer;
+#X text 54 113 set range of number box;
+#X obj 57 51 t b f;
+#X obj 241 25 r current-index-set;
+#X obj 299 76 unpack;
+#X obj 313 133 pack;
+#X obj 241 48 route set range;
+#X obj 313 158 list;
+#X obj 375 109 r file-name;
+#X msg 313 183 \; current-index-canvas label \$1/\$2_:"\$3";
+#X connect 1 0 7 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 5 0 3 0;
+#X connect 7 0 0 0;
+#X connect 7 1 0 0;
+#X connect 8 0 11 0;
+#X connect 9 1 10 1;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 1;
+#X restore 27 126 pd \$0-current-index;
+#N canvas 0 22 450 624 \$0-file-name 0;
+#X obj 55 275 makefilename %s-help.pd;
+#X obj 35 420 makefilename %s.pd;
+#X obj 35 30 r file-name;
+#X obj 35 537 s pd-file-filename-set;
+#X obj 55 379 s pd-file-helpfile-set;
+#X obj 95 165 s pd-file-path-set;
+#X obj 75 232 s pd-meta-filename-set;
+#X obj 67 472 makefilename pd-%s;
+#X obj 67 498 s pd-file-selector-set;
+#X obj 35 87 t a a a a;
+#X obj 55 299 t a a;
+#X obj 87 328 makefilename pd-%s;
+#X obj 87 354 s pd-helpfile-selector-set;
+#X obj 35 448 t a a;
+#X obj 95 137 pdcontrol;
+#X msg 95 113 dir 0 \$1;
+#X obj 75 209 makefilename %s.meta;
+#X obj 35 58 symbol;
+#X connect 0 0 10 0;
+#X connect 1 0 13 0;
+#X connect 2 0 17 0;
+#X connect 7 0 8 0;
+#X connect 9 0 1 0;
+#X connect 9 1 0 0;
+#X connect 9 2 16 0;
+#X connect 9 3 15 0;
+#X connect 10 0 4 0;
+#X connect 10 1 11 0;
+#X connect 11 0 12 0;
+#X connect 13 0 3 0;
+#X connect 13 1 7 0;
+#X connect 14 0 5 0;
+#X connect 15 0 14 0;
+#X connect 16 0 6 0;
+#X connect 17 0 9 0;
+#X restore 27 148 pd \$0-file-name;
+#X text 204 53 This abstraction helps re-format helpfiles \, or make
+new ones. It acts in correlation with the output from scripts such
+as 'absmap' or 'meta' which generate a .meta file next to its respective
+.pd file.;
+#X text 205 122 Click the 'next' green button to open the existing
+-help.pd file of the specified .pd file. Click on 'gui' to see more
+controls that can allow you to fine-tune or re-do any part of the helpfile
+tinkering. Remember to 'initialize' first.;
+#X text 204 189 Helpfiles could have been generated by another script
+called 'dirlist'. For convenience \, the 'meta' script calls 'dirlist'
+and then 'absmap'. 'dirlist' packs any isolated .pd file in its own
+directory with its own helpfile \, and generates a minimal helpfile
+if there is not any.;
+#X text 208 275 See pd-\$0-relocate and pd-\$0-template to edit the
+template however you wish;
+#X obj 26 325 namecanvas \$0-guts;
+#N canvas 0 22 444 378 \$0-remake-meta-text 0;
+#X obj 247 47 r pd-file-path;
+#X obj 247 74 makefilename %s/%%s;
+#X obj 237 128 makefilename;
+#X msg 247 98 set \$1;
+#X obj 237 21 r pd-file-filename;
+#X obj 45 103 pdcontrol;
+#X msg 45 79 dir 0 absmap;
+#X obj 45 147 list;
+#X obj 45 171 list prepend sh;
+#X obj 45 195 list append 1;
+#X obj 45 33 r remake-meta-file;
+#X obj 45 219 list trim;
+#X obj 45 243 ggee/shell;
+#X obj 170 262 sel;
+#X msg 170 286 \; file-name bang \; replace-meta-text-set bang \;;
+#X obj 45 267 print stdout;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 7 1;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 10 0 6 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 12 1 13 0;
+#X connect 13 0 14 0;
+#X restore 27 280 pd \$0-remake-meta-text;
+#X restore 9 10 pd helpfile template editor;
+#X f 28;
+#X obj 139 50 bng 15 250 50 0 next-index next-index-set next-->> 17
+7 0 10 -262144 -1 -1;
+#X obj 51 49 bng 15 250 50 0 prev-index prev-index-set <<-prev -45
+7 0 10 -262144 -1 -1;
+#X obj 76 50 nbx 5 14 0 261 0 0 current-index current-index-set current-index
+0 -8 0 10 -262144 -1 -1 173 256;
+#X obj 16 72 cnv 15 200 30 empty current-index-canvas 173/261_:"fd_pix_shift"
+20 12 0 10 -228856 -1 0;
+#X obj 18 107 bng 15 250 50 0 initialize initialize-set initialize
+17 7 0 10 -262130 -1 -1;
+#X obj 98 107 bng 15 250 50 0 next next-set next 17 7 0 10 -204786
+-1 -1;
+#X obj 142 107 bng 15 250 50 0 gui gui-set gui 17 7 0 10 -204800 -1
+-1;
+#X obj 182 107 bng 15 250 50 0 guts guts-set guts 17 7 0 10 -203904
+-1 -1;

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:07 EDT 2019
+patch_name   : fd_dsp
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dsp
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 9
+total objects: 9
+connections  : 15
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0tgl:t:spigot:sel:s:route:r:bang\~:bang]

@@ -1,47 +1,89 @@
-#N canvas 530 41 435 365 12;
-#X obj 113 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 113 200 fd_metro;
-#X msg 192 155 120;
-#X msg 174 128 60;
-#X floatatom 243 164 5 0 0 0 - - -, f 5;
-#X text 162 23 "fd_metro";
-#X text 52 58 A simple musical metronome that outlets its tempo at
-its tempo rate., f 36;
-#N canvas 0 22 450 300 some 0;
-#X obj 143 128 pack;
-#X obj 143 178 line~;
-#X obj 143 53 t b f f;
-#X msg 248 145 1 3 \, 0 \$1 3;
-#X obj 248 170 vline~;
-#X obj 143 225 osc~;
-#X obj 143 248 *~;
-#X obj 143 273 dac~;
-#X obj 143 203 mtof~;
-#X obj 143 103 + 50;
-#X msg 143 153 \$1 \, 44 \$2;
-#X obj 143 78 random 20;
-#X obj 143 22 inlet;
-#X connect 0 0 10 0;
-#X connect 1 0 8 0;
-#X connect 2 0 11 0;
-#X connect 2 1 0 1;
-#X connect 2 2 3 0;
-#X connect 3 0 4 0;
-#X connect 4 0 6 1;
-#X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 6 0 7 1;
-#X connect 8 0 5 0;
-#X connect 9 0 0 0;
-#X connect 10 0 1 0;
-#X connect 11 0 9 0;
-#X connect 12 0 2 0;
-#X restore 113 273 pd some audio to test;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_metro" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 0 fd_lib - metadata file - Fri Sep 13 18:20:02 EDT 2019
+;
+#X text 10 15 patch_name : fd_metro;
+#X text 10 30 inlet : 2;
+#X text 10 45 outlet : 1;
+#X text 10 60 inlet~ : 0;
+#X text 10 75 outlet~ : 0;
+#X text 10 90 arguments : 1;
+#X text 10 105 classes used : 12;
+#X text 10 120 total objects: 17;
+#X text 10 135 connections : 21;
+#X text 10 150 dependencies : 0 [0];
+#X text 10 165 externals : 0 [0];
+#X text 10 180 internals : 12/233 [0t:sel:inlet:f:change:spigot:outlet:loadbang:delay:abs:>:/]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 513 36 450 407 example 0;
+#X obj 51 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 51 84 fd_metro;
+#X msg 169 31 120;
+#X msg 130 31 60;
+#X floatatom 226 53 5 0 0 0 - - -;
+#X obj 51 229 pack;
+#X obj 51 279 line~;
+#X obj 51 134 t b f f;
+#X msg 156 246 1 3 \, 0 \$1 3;
+#X obj 156 271 vline~;
+#X obj 51 300 osc~;
+#X obj 51 339 *~;
+#X obj 51 364 dac~;
+#X obj 51 184 + 50;
+#X msg 51 254 \$1 \, 44 \$2;
+#X obj 51 159 random 20;
+#X msg 318 30 \; pd dsp 1;
+#X obj 51 206 mtof;
 #X connect 0 0 1 0;
 #X connect 1 0 7 0;
 #X connect 2 0 1 1;
 #X connect 3 0 1 1;
 #X connect 4 0 1 1;
-#X obj 271 15 declare -path fd_lib;
-#X text 335 335 fd_lib v0.1;
+#X connect 5 0 14 0;
+#X connect 6 0 10 0;
+#X connect 7 0 15 0;
+#X connect 7 1 5 1;
+#X connect 7 2 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 12 1;
+#X connect 13 0 17 0;
+#X connect 14 0 6 0;
+#X connect 15 0 13 0;
+#X connect 17 0 5 0;
+#X restore 395 186 pd example;
+#X obj 70 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 144 135 5 0 0 0 bpm - -;
+#X obj 70 188 t f b;
+#X floatatom 70 212 5 0 0 0 - - -;
+#X obj 125 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 70 164 fd_metro 60;
+#X text 60 284 1: float: beats per minute;
+#X text 60 340 1: float: 1|0 on/off \; 2: float: beats per minute;
+#X text 60 410 1: float: msec at each beat;
+#X text 32 57 A simple musical metronome that outlets its tempo at
+its tempo rate.;
+#X connect 9 0 14 0;
+#X connect 10 0 14 1;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 14 0 11 0;

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:16 EDT 2019
+patch_name   : fd_bigmyvu
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_bigmyvu
+inlet        : 2
+outlet       : 3
+inlet~       : 2
+outlet~      : 2
+arguments    : 0
+classes used : 19
+total objects: 27
+connections  : 28
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 19/233 [0throw\~:sel:r\~:r:outlet\~:inlet\~:hip\~:\*\~:vu:vsl:tgl:s\~:s:outlet:line\~:env\~:cnv:catch\~:-]

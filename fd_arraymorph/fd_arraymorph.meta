@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:08 EDT 2019
+patch_name   : fd_arraymorph
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_arraymorph
+inlet        : 2
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 8
+total objects: 15
+connections  : 19
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0list:array:t:symbol:pack:line:inlet:f]

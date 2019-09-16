@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 19:01:59 EDT 2019
+patch_name   : fd_gemsphere
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_gemsphere
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 41
+total objects: 152
+connections  : 148
+dependencies : 1 [Gem]
+externals    : 10 [0fd_step:rotateXYZ:gemhead:world_light:translateXYZ:separator:scale:gemmouse:gemkeyboard:fd_tglvis]
+internals    : 31/233 [0r:s:bng:spigot:t:\*:/:pack:+:line:tgl:min:-:vsl:sel:mod:max:hsl:f:==:swap:route:print:outlet:moses:metro:loadbang:declare:cnv:change:abs]

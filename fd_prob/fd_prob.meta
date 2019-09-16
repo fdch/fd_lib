@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:28 EDT 2019
+patch_name   : fd_prob
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_prob
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 5
+total objects: 25
+connections  : 5
+dependencies : 0 [0]
+externals    : 1 [0mtwister]
+internals    : 4/233 [0outlet:loadbang:inlet:array]

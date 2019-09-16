@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:03 EDT 2019
+patch_name   : fd_dataVis
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataVis
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 16
+total objects: 34
+connections  : 43
+dependencies : 0 [0]
+externals    : 2 [0sradio:fd_listout]
+internals    : 14/233 [0t:pack:r:+:bng:list:\*:tgl:sel:s:loadbang:f:cnv:-]

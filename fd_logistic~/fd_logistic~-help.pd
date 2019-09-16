@@ -1,31 +1,50 @@
-#N canvas 524 50 501 401 12;
-#X obj 41 336 array define;
-#X text 21 129 Arguments: array-name(symbol) array-size(float), f
-48;
-#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 148 75 \; pd dsp 1;
-#X text 228 86 <-- must be on;
-#X text 272 346 used in [fd_windows];
-#X msg 188 184 click 0 0 0 0 0;
-#X text 191 164 hack to see array:;
-#X text 32 296 following naming conventions as, f 16;
-#X text 45 156 load table ->;
-#X msg 333 192 q \$1 \, bang;
-#X msg 362 220 w \$1 \, bang;
-#X floatatom 344 168 5 0 0 0 - - -, f 5;
-#X floatatom 392 167 5 0 0 0 - - -, f 5;
-#X text 170 13 "fd_logistic~";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_logistic~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:50 EDT 2019
+;
+#X text 10 25 patch_name : fd_logistic~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 18;
+#X text 10 130 total objects: 23;
+#X text 10 145 connections : 37;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 16/233 [0*~:t:exp~:tabsend~:samplerate~:route:pow~:phasor~:inlet:del:bng:array:abs~:/:-~:+~]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 430 1 outlets;
+#X obj 35 93 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 431 50 \; pd dsp 1;
+#X text 217 12 used in [fd_windows];
+#X msg 150 143 q \$1 \, bang;
+#X floatatom 150 120 5 0 0 0 - - -;
 #X text 20 45 Same as [fd_logistic] \, but stored via dsp into array
 ;
-#X obj 157 251 fd_logistic~ logistic-tilde 128, f 18;
-#X obj 322 318 fd_logistic;
-#X text 278 296 see fd_logistic-help.pd;
-#X connect 2 0 16 0;
-#X connect 6 0 16 0;
-#X connect 10 0 16 0;
-#X connect 11 0 16 0;
-#X connect 12 0 10 0;
-#X connect 13 0 11 0;
-#X obj 337 15 declare -path fd_lib;
-#X text 401 371 fd_lib v0.1;
+#X obj 101 193 fd_logistic~ logistic-tilde 128;
+#X msg 101 98 open;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X text 61 264 1: symbol : array-name \; 2: float : array-size;
+#X text 60 332 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: q : (float) cycles \; 1: all other messages are
+routed to [array];
+#X connect 7 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 14 0 13 0;

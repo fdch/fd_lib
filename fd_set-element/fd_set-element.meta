@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:40 EDT 2019
+patch_name   : fd_set-element
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_set-element
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 7
+total objects: 84
+connections  : 19
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 7/233 [0inlet:t:pointer:f:set:list:element]

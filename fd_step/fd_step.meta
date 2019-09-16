@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:50 EDT 2019
+patch_name   : fd_step
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_step
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 8
+total objects: 120
+connections  : 30
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0t:+:inlet:sel:route:outlet:f:change]

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:20:07 EDT 2019
+patch_name   : fd_mtxout
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_mtxout
+inlet        : 1
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 17
+total objects: 41
+connections  : 69
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 17/233 [0t:pack:sel:until:mod:f:+:route:list:inlet:i:bang:unpack:spigot:print:outlet:loadbang]

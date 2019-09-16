@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:52 EDT 2019
+patch_name   : fd_dataDroplet
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataDroplet
+inlet        : 1
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 21
+total objects: 48
+connections  : 78
+dependencies : 0 [0]
+externals    : 2 [0fd_get-element:fd_getsize]
+internals    : 19/233 [0t:list:inlet:spigot:outlet:random:f:+:until:s:route:r:pack:metro:line:del:b:>:==]

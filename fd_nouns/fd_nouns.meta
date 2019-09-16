@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:11 EDT 2019
+patch_name   : fd_nouns
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_nouns
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 19
+total objects: 570
+connections  : 36
+dependencies : 0 [0]
+externals    : 1 [0crand]
+internals    : 18/233 [0t:list:s:text:int:tgl:symbol:route:random:r:metro:max:loadbang:line:hsl:del:cnv:bng]

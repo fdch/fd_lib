@@ -126,3 +126,20 @@ output., f 66;
 #X obj 364 150 declare -lib Gem;
 #X text 39 323 1: gemlist \; 2: sigmund output;
 #X text 371 125 Dependencies:;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:30:49 EDT 2019
+;
+#X text 10 25 patch_name : fd_autopoly;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 6;
+#X text 10 115 classes used : 22;
+#X text 10 130 total objects: 49;
+#X text 10 145 connections : 75;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_autopatch];
+#X text 10 190 internals : 21/233 [0pack:t:list:inlet:f:spigot:s:route:r:until:sel:polygon:outlet:max:loadbang:del:curve:clone:>=:==:+]
+;
+#X restore 438 423 pd meta;

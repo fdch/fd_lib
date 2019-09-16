@@ -14,8 +14,6 @@
 #X text 60 284 no arguments;
 #X obj 174 99 fd_6x6;
 #X text 21 54 A 6x6 matrix of vradios;
-#X text 59 412 Outlet as list;
-#X text 63 341 Inlet list (x y);
 #X obj 378 8 declare -path fd_lib;
 #X obj 174 215 print;
 #N canvas 265 127 470 423 more 0;
@@ -43,4 +41,22 @@
 #X connect 10 0 5 0;
 #X connect 10 1 6 0;
 #X restore 375 155 pd more examples;
-#X connect 7 0 12 0;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:17:27 EDT 2019
+;
+#X text 10 25 patch_name : fd_6x6;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 23;
+#X text 10 145 connections : 32;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0vradio];
+#X text 10 190 internals : 6/233 [0+:t:outlet:inlet:route:pack];
+#X restore 438 423 pd meta;
+#X text 63 341 1: list: (float) x (float) y;
+#X text 59 412 1: list: 6 floats;
+#X connect 7 0 10 0;

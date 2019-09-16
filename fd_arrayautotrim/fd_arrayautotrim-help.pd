@@ -3346,3 +3346,20 @@
 #X connect 93 0 92 0;
 #X restore 369 195 pd more examples;
 #X text 33 59 This is still in the workings...;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_arrayautotrim;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 38;
+#X text 10 130 total objects: 98;
+#X text 10 145 connections : 150;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0mainpath];
+#X text 10 190 internals : 37/233 [0t:f:s:array:sel:inlet:outlet:makefilename:symbol:route:del:*:-:+:change:/:until:tgl:tabwrite~:tabplay~:spigot:soundfiler:samplerate~:r:print:min:loadbang:list:int:inlet~:dac~:bng:block~:adc~:abs:>=:<=]
+;
+#X restore 438 423 pd meta;

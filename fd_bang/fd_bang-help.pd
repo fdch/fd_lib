@@ -24,6 +24,22 @@
 #X text 43 51 Just an inlet connected to an outlet:;
 #X text 32 90 Anything:;
 #X text 60 410 anything;
+#N canvas 0 22 450 300 meta 1;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:13 EDT 2019
+;
+#X text 10 25 patch_name : fd_bang;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 2;
+#X text 10 130 total objects: 2;
+#X text 10 145 connections : 1;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 2/233 [0outlet:inlet];
+#X restore 438 423 pd meta;
 #X connect 9 0 10 0;
 #X connect 11 0 12 0;
 #X connect 14 0 11 0;

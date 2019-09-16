@@ -29,6 +29,24 @@
 #X text 60 284 index gem_order x y;
 #X text 60 333 1: list : information blob \; 2: float \; max number
 of blobs \; 2: list : dimensions;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:37:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_blob;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 4;
+#X text 10 115 classes used : 23;
+#X text 10 130 total objects: 64;
+#X text 10 145 connections : 94;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 8 [0rectangle:translateXYZ:separator:color:translate:text2d:gemhead:circle]
+;
+#X text 10 220 internals : 15/233 [0t:pack:unpack:expr:list:inlet:spigot:*:/:-:+:loadbang:declare:b:>]
+;
+#X restore 438 423 pd meta;
 #X connect 12 0 17 1;
 #X connect 13 0 17 2;
 #X connect 14 0 17 0;

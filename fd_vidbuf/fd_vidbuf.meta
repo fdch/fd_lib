@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:31:04 EDT 2019
+patch_name   : fd_vidbuf
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_vidbuf
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 12
+total objects: 168
+connections  : 16
+dependencies : 0 [0]
+externals    : 5 [0pix_video:pix_rgba:pix_buffer_write:pix_buffer:gemhead]
+internals    : 7/233 [0t:f:sel:mod:loadbang:inlet:+]

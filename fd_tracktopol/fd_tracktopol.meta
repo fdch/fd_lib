@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:31:01 EDT 2019
+patch_name   : fd_tracktopol
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_tracktopol
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 0
+total objects: 0
+connections  : 38
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 0/233 [0]

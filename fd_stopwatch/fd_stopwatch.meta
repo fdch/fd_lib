@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:51 EDT 2019
+patch_name   : fd_stopwatch
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_stopwatch
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 14
+total objects: 378
+connections  : 43
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 14/233 [0sel:mod:f:+:tgl:t:nbx:s:route:r:pack:outlet:metro:bng]

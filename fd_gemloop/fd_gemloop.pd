@@ -1,4 +1,5 @@
 #N canvas 601 160 511 579 12;
+#X declare -lib Gem;
 #X obj 52 274 t a b;
 #X obj 313 138 pix_buffer \$0-buf 300;
 #X obj 52 299 pix_buffer_write \$0-buf;
@@ -40,6 +41,7 @@
 #X obj 371 446 == 0;
 #X obj 174 394 spigot 1;
 #X obj 153 118 t b b b;
+#X obj 342 29 declare -lib Gem;
 #X connect 0 0 2 0;
 #X connect 0 1 3 0;
 #X connect 1 0 25 0;

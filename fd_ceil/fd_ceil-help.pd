@@ -24,6 +24,23 @@
 #X text 163 109 <-- will go 1 to 101;
 #X text 60 340 1: float;
 #X text 60 410 1: float;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:27 EDT 2019
+;
+#X text 10 25 patch_name : fd_ceil;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 11;
+#X text 10 145 connections : 14;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 10/233 [0sel:wrap:t:outlet:moses:int:inlet:f:<:+]
+;
+#X restore 438 423 pd meta;
 #X connect 8 0 11 0;
 #X connect 9 0 8 0;
 #X connect 11 0 10 0;

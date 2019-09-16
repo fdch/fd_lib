@@ -128,6 +128,7 @@ fd_clicktrack/fd_clicktrack-help.pd
 fd_clicktrack/fd_clicktrack.pd
 fd_colorpicker/fd_colorpicker-help.pd
 fd_colorpicker/fd_colorpicker.pd
+fd_colorpicker/fd_colorpicker1.pd
 fd_colortheme/fd_colortheme-help.pd
 fd_colortheme/fd_colortheme.pd
 fd_corr/fd_corr-help.pd
@@ -146,6 +147,7 @@ fd_cubic/fd_cubic-help.pd
 fd_cubic/fd_cubic.pd
 fd_dacout/fd_dacout-help.pd
 fd_dacout/fd_dacout.pd
+fd_dacout_rec/fd_dacout_rec-help.pd
 fd_dacout_rec/fd_dacout_rec.pd
 fd_dactest/_test-tone.pd
 fd_dactest/_test8.pd
@@ -245,8 +247,6 @@ fd_get-element/fd_get-element-help.pd
 fd_get-element/fd_get-element.pd
 fd_getcomb/fd_getcomb-help.pd
 fd_getcomb/fd_getcomb.pd
-fd_getfiles/fd_getfiles-help.pd
-fd_getfiles/fd_getfiles.pd
 fd_getid/fd_getid-help.pd
 fd_getid/fd_getid.pd
 fd_getsize/fd_getsize-help.pd
@@ -255,10 +255,6 @@ fd_gr/fd_gr-help.pd
 fd_gr/fd_gr.pd
 fd_grain/fd_grain-help.pd
 fd_grain/fd_grain.pd
-fd_gscore/fd_gscore-help.pd
-fd_gscore/fd_gscore.pd
-fd_gt/fd_gt-help.pd
-fd_gt/fd_gt.pd
 fd_guiDelta/fd_guiDelta-help.pd
 fd_guiDelta/fd_guiDelta.pd
 fd_guiFont/fd_guiFont-help.pd
@@ -300,6 +296,7 @@ fd_kinetica/fd_kinetica-help.pd
 fd_kinetica/fd_kinetica.pd
 fd_kp/fd_kp-help.pd
 fd_kp/fd_kp.pd
+fd_lib-help.pd
 fd_lines/_line.pd
 fd_lines/fd_lines-help.pd
 fd_lines/fd_lines.pd

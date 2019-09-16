@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:05 EDT 2019
+patch_name   : fd_delit
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_delit
+inlet        : 1
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 11
+total objects: 17
+connections  : 31
+dependencies : 0 [0]
+externals    : 1 [0!msg]
+internals    : 10/233 [0t:sel:outlet:f:unpack:spigot:route:inlet:del:+]

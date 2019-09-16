@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:22:56 EDT 2019
+patch_name   : fd_array2pix
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_array2pix
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 9
+total objects: 15
+connections  : 19
+dependencies : 2 [Gem:iemmatrix]
+externals    : 2 [0pix_set:mtx_transpose]
+internals    : 7/233 [0list:t:inlet:array:sqrt:outlet:declare]

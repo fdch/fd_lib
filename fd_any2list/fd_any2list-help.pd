@@ -25,6 +25,23 @@
 #X text 65 412 2: gemlist;
 #X text 65 432 3: pixel list;
 #X text 61 337 gemlist;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:43 EDT 2019
+;
+#X text 10 25 patch_name : fd_any2list;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 3;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 15;
+#X text 10 145 connections : 23;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 1 [0pix_dump];
+#X text 10 190 internals : 6/233 [0t:outlet:spigot:inlet:declare:b]
+;
+#X restore 438 423 pd meta;
 #X connect 10 0 14 0;
 #X connect 10 1 13 0;
 #X connect 10 2 12 0;

@@ -1,4 +1,5 @@
 #N canvas 0 22 450 300 12;
+#X declare -lib Gem;
 #X obj 62 149 t a b;
 #X obj 99 176 f;
 #X obj 133 176 + 1;
@@ -12,6 +13,7 @@
 #X msg 248 122 resize \$1;
 #X obj 210 91 t f f;
 #X obj 62 238 outlet;
+#X obj 279 13 declare -lib Gem;
 #X connect 0 0 5 0;
 #X connect 0 1 1 0;
 #X connect 1 0 2 0;

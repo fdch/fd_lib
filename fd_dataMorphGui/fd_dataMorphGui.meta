@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:58 EDT 2019
+patch_name   : fd_dataMorphGui
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataMorphGui
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 22
+total objects: 76
+connections  : 90
+dependencies : 0 [0]
+externals    : 3 [0sradio:hradio:counter]
+internals    : 19/233 [0r:s:list:t:sel:bng:tgl:route:del:+:until:symbol:random:nbx:makefilename:loadbang:f:cnv:\*]

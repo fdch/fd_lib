@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:55 EDT 2019
+patch_name   : fd_dataLine
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataLine
+inlet        : 2
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 19
+total objects: 36
+connections  : 57
+dependencies : 0 [0]
+externals    : 2 [0fd_getsize:swap,]
+internals    : 17/233 [0t:f:spigot:inlet:until:pack:+:s:route:r:outlet:mod:int:\*:==:/:-]

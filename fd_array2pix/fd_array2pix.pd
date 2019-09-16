@@ -1,4 +1,5 @@
-#N canvas 20 76 550 550 12;
+#N canvas 20 76 605 550 12;
+#X declare -lib Gem -lib iemmatrix;
 #X obj 190 103 sqrt;
 #X msg 118 299 GREY \, set \$1 \$1;
 #X obj 265 12 inlet;
@@ -10,11 +11,12 @@
 #X obj 260 250 list prepend;
 #X obj 260 275 list trim;
 #X obj 256 359 list split 3;
-#X obj 384 178 list prepend matrix, f 7;
-#X msg 384 149 \$1 \$1;
+#X obj 340 210 list prepend matrix;
+#X msg 340 181 \$1 \$1;
 #X obj 265 37 t b a a;
 #X obj 189 163 t b f f;
 #X obj 261 333 mtx_transpose;
+#X obj 356 16 declare -lib Gem -lib iemmatrix;
 #X connect 0 0 14 0;
 #X connect 1 0 3 0;
 #X connect 2 0 13 0;

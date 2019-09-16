@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:39:23 EDT 2019
+patch_name   : fd_blobvid
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_blobvid
+inlet        : 8
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 16
+total objects: 46
+connections  : 72
+dependencies : 2 [Gem:tracks]
+externals    : 7 [0translateXYZ:rectangle:pix_texture:pix_crop:gemhead:fd_bufvid:fd_blobtracks]
+internals    : 9/233 [0t:inlet:\*:pack:-:list:abs:unpack:declare]

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:44 EDT 2019
+patch_name   : fd_cosline~
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_cosline~
+inlet        : 4
+outlet       : 1
+inlet~       : 2
+outlet~      : 1
+arguments    : 1
+classes used : 11
+total objects: 17
+connections  : 19
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 11/233 [0\*\~:sel:inlet\~:inlet:pack:outlet\~:loadbang:line\~:f:cos\~:+\~]

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:29 EDT 2019
+patch_name   : fd_guiFont
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_guiFont
+inlet        : 2
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 9
+classes used : 12
+total objects: 20
+connections  : 28
+dependencies : 0 [0]
+externals    : 1 [0fd_argv]
+internals    : 11/233 [0t:\*:makefilename:inlet:+:s:route:pack:max:list:f]

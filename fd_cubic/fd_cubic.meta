@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:47 EDT 2019
+patch_name   : fd_cubic
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_cubic
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 8
+total objects: 15
+connections  : 18
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0\*:t:inlet:-:outlet:mod:/:+]

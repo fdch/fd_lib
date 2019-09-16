@@ -1,23 +1,54 @@
-#N canvas 523 50 540 393 12;
-#X msg 268 195 0 1 1 1 \, 1 1 1 0 \, 2 1 0 0 \, 3 0 0 0 \, 4 0 0 1
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_matrix-comb" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:20:02 EDT 2019
+;
+#X text 10 25 patch_name : fd_matrix-comb;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 12;
+#X text 10 145 connections : 18;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 7/233 [0==:unpack:inlet:&&:t:sel:outlet]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X msg 259 132 0 1 1 1 \, 1 1 1 0 \, 2 1 0 0 \, 3 0 0 0 \, 4 0 0 1
 \, 5 0 1 1 \, 6 1 0 1 \, 7 0 1 0 \,, f 24;
-#X obj 268 172 loadbang;
-#X obj 95 257 clone fd_matrix-comb 8;
-#X msg 95 172 all 1 1 1;
-#X msg 110 201 all 1 0 1;
+#X obj 259 109 loadbang;
+#X obj 86 179 clone fd_matrix-comb 8;
+#X msg 86 133 all 1 1 1;
+#X msg 101 156 all 1 0 1;
 #X text 27 52 An abstraction of a simplified [choice] object.;
-#X text 194 19 "fd_matrix-comb";
-#X obj 95 298 list split 1;
-#X obj 95 323 print;
-#X text 25 79 It needs to be cloned. You feed the list via 2nd inlet.
+#X obj 86 203 list split 1;
+#X obj 86 228 print;
+#X text 25 74 It needs to be cloned. You feed the list via 2nd inlet.
 Send a list prepended with 'all' \, and the outptu is the index of
 the stored lists.;
-#X text 300 316 see fd_m-comb.pd;
-#X connect 0 0 2 1;
-#X connect 1 0 0 0;
-#X connect 2 0 7 0;
-#X connect 3 0 2 0;
-#X connect 4 0 2 0;
-#X connect 7 0 8 0;
-#X obj 376 15 declare -path fd_lib;
-#X text 440 363 fd_lib v0.1;
+#X text 378 217 see fd_m-comb.pd;
+#X text 60 340 1: list: input tuples to get its index \; 2: list: input
+a new list of tuples;
+#X text 60 410 1: list: (float) index (list) tuple;
+#X connect 9 0 11 1;
+#X connect 10 0 9 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 15 0 16 0;

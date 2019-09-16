@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:16:43 EDT 2019
+patch_name   : !msg
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/!msg
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 3
+total objects: 4
+connections  : 3
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 3/233 [0list:print:inlet]

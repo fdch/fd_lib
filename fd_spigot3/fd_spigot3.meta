@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:49 EDT 2019
+patch_name   : fd_spigot3
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_spigot3
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 7
+total objects: 98
+connections  : 27
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 7/233 [0inlet:t:spigot:sel:outlet:loadbang:f]

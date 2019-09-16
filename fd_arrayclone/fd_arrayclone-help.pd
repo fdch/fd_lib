@@ -72,3 +72,19 @@
 #X text 18 78 Utility to clone array objects \, and all their object
 family;
 #X text 28 42 Clone wrapper for [array];
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_arrayclone;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 4;
+#X text 10 130 total objects: 4;
+#X text 10 145 connections : 3;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 4/233 [0r:outlet:inlet:array];
+#X restore 438 423 pd meta;

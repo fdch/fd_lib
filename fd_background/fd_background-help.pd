@@ -55,8 +55,6 @@ continuous-set bang \;;
 \; continuous-set bang \;;
 #X obj 42 53 gemwin;
 #X obj 43 28 r gemwin;
-#X obj 108 28 loadbang;
-#X msg 106 52 \; gem-set 1 \;;
 #X connect 3 0 16 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
@@ -79,7 +77,6 @@ continuous-set bang \;;
 #X connect 24 0 27 0;
 #X connect 25 0 26 0;
 #X connect 31 0 30 0;
-#X connect 32 0 33 0;
 #X restore 169 208 pd gui-glue;
 #N canvas 559 33 421 350 controls 0;
 #X obj 111 188 hradio 15 1 0 8 type type-set type 0 -8 0 10 -262144
@@ -108,6 +105,24 @@ continuous-set bang \;;
 #X obj 32 216 square 4;
 #X obj 32 154 fd_background;
 #X obj 381 37 declare -lib Gem;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:32:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_background;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 24;
+#X text 10 145 connections : 36;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 7 [0separator:pix_texture:pix_separator:fd_bufvid:pix_buffer_read:fd_shader:fd_gembuf]
+;
+#X text 10 220 internals : 8/233 [0t:spigot:inlet:tgl:sel:route:outlet:declare]
+;
+#X restore 438 423 pd meta;
 #X connect 12 0 13 0;
 #X connect 13 0 18 0;
 #X connect 15 0 18 1;

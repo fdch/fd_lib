@@ -26,5 +26,21 @@
 ;
 #X text 60 340 bang;
 #X text 60 410 bang;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:33:31 EDT 2019
+;
+#X text 10 25 patch_name : fd_bangem;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 5;
+#X text 10 130 total objects: 5;
+#X text 10 145 connections : 6;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 1 [0gemhead];
+#X text 10 190 internals : 4/233 [0t:outlet:inlet:declare];
+#X restore 438 423 pd meta;
 #X connect 11 0 13 0;
 #X connect 12 0 11 0;

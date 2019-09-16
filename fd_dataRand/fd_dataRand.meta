@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:59 EDT 2019
+patch_name   : fd_dataRand
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataRand
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 14
+total objects: 20
+connections  : 31
+dependencies : 0 [0]
+externals    : 1 [0fd_getsize]
+internals    : 13/233 [0t:random:mod:inlet:until:swap:spigot:s:r:outlet:list:f:+]

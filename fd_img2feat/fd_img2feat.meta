@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:36 EDT 2019
+patch_name   : fd_img2feat
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_img2feat
+inlet        : 3
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 26
+total objects: 55
+connections  : 80
+dependencies : 2 [Gem:timbreIDLib]
+externals    : 4 [0pix_multiimage:pix_contrast:fd_pix2list:\$3]
+internals    : 22/233 [0t:spigot:sel:outlet:list:inlet:array:route:pdcontrol:change:==:unpack:print:pack:moses:loadbang:f:declare:clip:bng:-:+]

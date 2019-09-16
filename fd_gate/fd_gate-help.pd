@@ -1,23 +1,51 @@
-#N canvas 0 22 450 350 12;
-#X text 400 300 fd_lib;
-#X text 10 10 "fd_gate";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_gate" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
 #X text 10 40 A gate to stop input from coming after a delay time;
-#X obj 149 195 fd_gate 100;
-#X obj 129 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 149 220 t b b;
-#X obj 149 245 timer;
-#X floatatom 149 270 5 0 0 0 - - -, f 5;
-#X obj 129 115 metro 20;
-#X floatatom 203 86 5 0 0 0 - - -, f 5;
-#X floatatom 258 144 5 0 0 0 - - -, f 5;
-#X connect 3 0 5 0;
-#X connect 4 0 8 0;
-#X connect 5 0 6 0;
-#X connect 5 1 6 1;
-#X connect 6 0 7 0;
-#X connect 8 0 3 0;
-#X connect 9 0 8 1;
-#X connect 10 0 3 1;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X obj 70 139 fd_gate 100;
+#X obj 70 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 70 164 t b b;
+#X obj 70 189 timer;
+#X floatatom 70 214 5 0 0 0 - - -;
+#X obj 70 102 metro 20;
+#X floatatom 123 79 5 0 0 0 - - -;
+#X floatatom 143 117 5 0 0 0 - - -;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:18 EDT 2019
+;
+#X text 10 25 patch_name : fd_gate;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 6;
+#X text 10 130 total objects: 7;
+#X text 10 145 connections : 10;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 6/233 [0inlet:t:spigot:outlet:f:del];
+#X restore 438 423 pd meta;
+#X connect 11 0 13 0;
+#X connect 12 0 16 0;
+#X connect 13 0 14 0;
+#X connect 13 1 14 1;
+#X connect 14 0 15 0;
+#X connect 16 0 11 0;
+#X connect 17 0 16 1;
+#X connect 18 0 11 1;

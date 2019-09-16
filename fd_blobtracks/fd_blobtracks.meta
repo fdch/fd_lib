@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:38:09 EDT 2019
+patch_name   : fd_blobtracks
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_blobtracks
+inlet        : 2
+outlet       : 3
+inlet~       : 0
+outlet~      : 0
+arguments    : 6
+classes used : 19
+total objects: 42
+connections  : 68
+dependencies : 1 [Gem]
+externals    : 4 [0translateXYZ:tracks:pix_snap:pix_multiblob]
+internals    : 15/233 [0list:t:outlet:unpack:spigot:sel:route:pack:loadbang:inlet:f:declare:clone:change:+]

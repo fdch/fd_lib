@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:00 EDT 2019
+patch_name   : fd_dataRead
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataRead
+inlet        : 2
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 20
+total objects: 40
+connections  : 53
+dependencies : 0 [0]
+externals    : 2 [0fd_getsize:fd_get-element]
+internals    : 18/233 [0t:+:spigot:r:outlet:moses:inlet:f:/:unpack:sel:s:pack:max:delay:del:bng:\*]

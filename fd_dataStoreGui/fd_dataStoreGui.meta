@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:02 EDT 2019
+patch_name   : fd_dataStoreGui
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataStoreGui
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 9
+total objects: 21
+connections  : 14
+dependencies : 0 [0]
+externals    : 1 [0hradio]
+internals    : 8/233 [0r:s:bng:cnv:route:nbx:list:f]

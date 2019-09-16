@@ -1,0 +1,14 @@
+fd_lib - metadata file - Sun Sep 15 12:40:42 EDT 2019
+patch_name   : fd_next
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_next
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 6
+total objects: 6
+connections  : 7
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 6/233 [0t:send:list:inlet:f:+]

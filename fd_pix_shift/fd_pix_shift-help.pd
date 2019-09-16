@@ -1,15 +1,69 @@
-#N canvas 522 53 740 406 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib Gem;
-#X obj 341 16 declare -lib Gem;
-#X obj 23 16 gemhead;
-#X msg 403 52 0 \, destroy \, dimen 300 300 \, create \, 1;
-#X obj 403 77 gemwin;
-#X obj 42 209 fd_pix_shift;
-#X obj 26 100 pix_video;
-#X obj 37 144 pix_grey;
-#X connect 1 0 5 0;
-#X connect 2 0 3 0;
-#X connect 5 0 6 0;
-#X connect 6 0 4 0;
-#X obj 576 15 declare -path fd_lib;
-#X text 640 376 fd_lib v0.1;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_pix_shift" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 16 00:43:02 EDT 2019
+;
+#X text 10 25 patch_name : fd_pix_shift;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 4;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 11;
+#X text 10 130 total objects: 29;
+#X text 10 145 connections : 49;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 4 [0separator:translate:pix_crop:pix_info
+;
+#X text 10 190 externals ];
+#X text 10 205 internals : 7/233 [0unpack:outlet:t:/:pack:inlet:change]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X obj 383 39 declare -lib Gem;
+#X obj 26 72 gemhead;
+#X obj 385 139 gemwin;
+#X obj 26 153 fd_pix_shift;
+#X obj 26 98 pix_video;
+#X obj 26 126 pix_grey;
+#X obj 577 32 declare -path fd_lib;
+#X text 641 393 fd_lib v0.1;
+#X msg 385 76 create \, 1;
+#X msg 404 104 0 \, destroy;
+#X obj 26 191 pix_texture;
+#X obj 113 191 pix_texture;
+#X obj 201 191 pix_texture;
+#X obj 302 191 pix_texture;
+#X obj 26 215 square 2;
+#X obj 113 215 square 2;
+#X obj 201 215 square 2;
+#X obj 302 215 square 2;
+#X text 60 340 1: list: gemlist;
+#X text 60 410 4: list \; shifted separated gemlists;
+#X connect 10 0 13 0;
+#X connect 12 0 19 0;
+#X connect 12 1 20 0;
+#X connect 12 2 21 0;
+#X connect 12 3 22 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
+#X connect 19 0 23 0;
+#X connect 20 0 24 0;
+#X connect 21 0 25 0;
+#X connect 22 0 26 0;

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:49 EDT 2019
+patch_name   : fd_logistic
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_logistic
+inlet        : 3
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 13
+total objects: 22
+connections  : 28
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 13/233 [0\*:t:inlet:pack:f:unpack:route:pow:outlet:loadbang:exp:-:+]

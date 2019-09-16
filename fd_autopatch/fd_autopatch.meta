@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:11 EDT 2019
+patch_name   : fd_autopatch
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_autopatch
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 4
+classes used : 19
+total objects: 43
+connections  : 60
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 19/233 [0t:sel:s:r:f:+:inlet:spigot:print:max:loadbang:unpack:route:pack:outlet:metro:list:>:<=]

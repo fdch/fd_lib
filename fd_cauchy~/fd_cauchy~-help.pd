@@ -16,19 +16,36 @@
 -1;
 #X msg 403 50 \; pd dsp 1;
 #X text 212 7 used in [fd_windows];
-#X msg 87 100 click 0 0 0 0 0;
-#X text 357 228 see fd_cauchy-help.pd;
-#X obj 71 182 fd_cauchy~ cauchy-tilde 128, f 16;
+#X obj 87 184 fd_cauchy~ cauchy-tilde 128, f 28;
 #X text 20 45 Same as [fd_cauchy] \, but stored via dsp into array
 ;
-#X msg 202 137 q \$1 \, bang;
-#X floatatom 213 113 5 0 0 0 - - -;
+#X msg 114 150 q \$1 \, bang;
+#X floatatom 114 126 5 0 0 0 - - -;
+#X text 60 423 no outlets;
 #X text 61 272 1: symbol : array-name \; 2: float : array-size;
 #X text 62 328 1: bang : load table (DSP must be on) \; 1: float :
 new array size \; 1: q : power coefficient for arcsin anything \; 1:
 all other messages are routed to [array];
-#X text 60 423 no outlets;
-#X connect 7 0 12 0;
-#X connect 10 0 12 0;
-#X connect 14 0 12 0;
-#X connect 15 0 14 0;
+#X msg 87 100 open;
+#X text 194 79 t(PI(t^2+x^2)^-1;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:27 EDT 2019
+;
+#X text 10 25 patch_name : fd_cauchy~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 20;
+#X text 10 130 total objects: 29;
+#X text 10 145 connections : 43;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 18/233 [0t:*~:route:inlet:array:tabsend~:samplerate~:pow~:phasor~:outlet:lop~:f:del:abs~:*:/:-:+~]
+;
+#X restore 438 423 pd meta;
+#X connect 7 0 10 0;
+#X connect 12 0 10 0;
+#X connect 13 0 12 0;
+#X connect 17 0 10 0;

@@ -1,20 +1,49 @@
-#N canvas 523 50 477 349 12;
-#X obj 60 202 fd_dspon;
-#X obj 60 224 switch~;
-#X obj 59 124 tgl 15 0 empty empty dsp 17 7 0 10 -262144 -1 -1 0 1
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_dspon" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 40 192 fd_dspon;
+#X obj 40 214 switch~;
+#X obj 39 114 tgl 15 0 empty empty dsp 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X obj 140 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 120 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 161 156 bang only turns dsp on;
-#X text 101 122 toggle dsp on or off;
-#X text 40 259 use 1st inlet to switch;
-#X text 39 276 use 2nd inlet to reflect state on the gui;
-#X text 54 59 Bang to turn on DSP. It will do so only if it's off in
+#X text 141 146 bang only turns dsp on;
+#X text 81 112 toggle dsp on or off;
+#X text 34 49 Bang to turn on DSP. It will do so only if it's off in
 the first place \, otherwise it will do nothing, f 47;
-#X text 181 23 "fd_dspon";
-#X connect 0 0 1 0;
-#X connect 0 1 2 0;
-#X connect 2 0 0 0;
-#X connect 3 0 0 0;
-#X obj 313 15 declare -path fd_lib;
-#X text 377 319 fd_lib v0.1;
+#X text 60 340 1: float : 1|0 toggle DSP on/off \;;
+#X text 60 405 1: float : 1|0 DSP state \; 2: "set 1" message to reflect
+state on parent patch;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_dspon;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 13;
+#X text 10 130 total objects: 14;
+#X text 10 145 connections : 25;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_spigot];
+#X text 10 190 internals : 12/233 [0outlet:t:spigot:sel:s:route:r:print:loadbang:inlet:block~:bang~]
+;
+#X restore 438 423 pd meta;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;

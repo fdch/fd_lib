@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:40 EDT 2019
+patch_name   : fd_karplus
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_karplus
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 33
+total objects: 66
+connections  : 86
+dependencies : 0 [0]
+externals    : 1 [0fd_gate]
+internals    : 32/233 [0\*\~:+\~:t:-:sig\~:pack:list:line\~:inlet:array:throw\~:sqrt\~:outlet:-\~:wrap:vline\~:vcf\~:until:unpack:tabread4\~:spigot:sel:random:phasor\~:loadbang:hip\~:f:delwrite\~:delread4\~:abs\~:/\~:/]

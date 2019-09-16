@@ -1,16 +1,45 @@
-#N canvas 523 49 546 383 12;
-#X obj 110 161 ./fd_out;
-#X text 230 26 "fd_out";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_out" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 16 00:32:02 EDT 2019
+;
+#X text 10 25 patch_name : fd_out;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 14;
+#X text 10 130 total objects: 20;
+#X text 10 145 connections : 34;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0switch~];
+#X text 10 190 internals : 13/233 [0t:sel:r:line~:del:*~:throw~:tgl:outlet~:nbx:inlet~:hip~:dbtorms]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X obj 110 152 ./fd_out;
 #X obj 110 122 noise~;
-#X obj 177 237 catch~ dacout;
-#X obj 177 262 dac~;
+#X obj 207 219 dac~;
 #X text 35 55 An gui for a dac output. Inlet takes a signal \, and
 throws it to a [catch~ dacout] object outside the abstraction.;
-#X obj 283 163 ./fd_out;
+#X obj 283 154 ./fd_out;
 #X obj 283 124 osc~ 440;
-#X connect 2 0 0 0;
-#X connect 3 0 4 0;
-#X connect 3 0 4 1;
-#X connect 7 0 6 0;
-#X obj 382 15 declare -path fd_lib;
-#X text 446 353 fd_lib v0.1;
+#X text 60 340 1: signal;
+#X text 60 410 1: signal;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 13 0 11 1;
+#X connect 14 0 13 0;

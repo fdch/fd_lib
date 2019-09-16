@@ -35,6 +35,24 @@ screen;
 float \, view 1|2 \, dimen x y xd yd \, translate x y \, and all other
 messages go to [tracks];
 #X text 60 277 maxblobs xsize ysize gem_order;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:38:09 EDT 2019
+;
+#X text 10 25 patch_name : fd_blobtracks;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 3;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 6;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 42;
+#X text 10 145 connections : 68;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 4 [0translateXYZ:tracks:pix_snap:pix_multiblob]
+;
+#X text 10 190 internals : 15/233 [0list:t:outlet:unpack:spigot:sel:route:pack:loadbang:inlet:f:declare:clone:change:+]
+;
+#X restore 438 423 pd meta;
 #X connect 12 0 19 0;
 #X connect 13 0 19 1;
 #X connect 14 0 19 1;

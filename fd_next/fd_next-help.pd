@@ -1,29 +1,59 @@
-#N canvas 524 54 525 365 12;
-#X text 210 20 "fd_next";
-#X obj 39 138 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 6;
-#X obj 39 270 unpack;
-#X obj 188 270 unpack;
-#X floatatom 188 295 5 0 0 0 - - -, f 5;
-#X floatatom 233 295 5 0 0 0 - - -, f 5;
-#X floatatom 39 295 5 0 0 0 - - -, f 5;
-#X floatatom 84 295 5 0 0 0 - - -, f 5;
-#X text 208 215 <-- see here;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_next" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 11:30:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_netsend;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 11;
+#X text 10 130 total objects: 220;
+#X text 10 145 connections : 22;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 11/233 [0r:s:list:cnv:symbol:sel:print:outlet:netsend:nbx:bng]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 0 outlets;
+#X obj 39 108 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 39 180 unpack;
+#X obj 169 174 unpack;
+#X floatatom 169 199 5 0 0 0 - - -;
+#X floatatom 214 199 5 0 0 0 - - -;
+#X floatatom 39 205 5 0 0 0 - - -;
+#X floatatom 84 205 5 0 0 0 - - -;
+#X text 183 151 <-- see here;
 #X text 18 47 [fd_next <name> \$1] sends a bang to the adjacent (+1)
 instance of [r name-\$1]. It is inteded to use within [clone] and it
 requires a [r name-\$1] in the cloned abstraction., f 61;
-#X obj 39 215 clone _dummy 8 name;
-#X obj 317 152 fd_next <name> \$1;
-#X text 40 313 current;
-#X text 189 311 next;
-#X msg 39 166 \$1 123;
-#X connect 1 0 14 0;
-#X connect 2 0 6 0;
-#X connect 2 1 7 0;
-#X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 10 0 2 0;
-#X connect 10 1 3 0;
-#X connect 14 0 10 0;
-#X obj 361 15 declare -path fd_lib;
-#X text 425 335 fd_lib v0.1;
+#X obj 39 151 clone _dummy 8 name;
+#X obj 315 151 fd_next <name> \$1;
+#X text 46 226 current;
+#X text 190 224 next;
+#X msg 39 128 \$1 123;
+#X text 60 276 1: symbol: selector \; 2: float: instance number;
+#X text 60 340 1: anything: value to pass to next selector;
+#X connect 9 0 22 0;
+#X connect 10 0 14 0;
+#X connect 10 1 15 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 18 0 10 0;
+#X connect 18 1 11 0;
+#X connect 22 0 18 0;

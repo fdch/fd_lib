@@ -1,4 +1,5 @@
 #N canvas 585 65 491 676 12;
+#X declare -lib Gem;
 #X obj 34 63 fd_gembuf \$0-buf;
 #X obj 34 34 inlet;
 #X msg 47 170 texunit 0 \, rectangle 0;
@@ -30,6 +31,7 @@
 #X text 213 514 <-- receives to 'background';
 #X msg 50 549 texunit 3 \, rectangle 0;
 #X obj 34 632 outlet totexture;
+#X obj 309 34 declare -lib Gem;
 #X connect 0 0 6 0;
 #X connect 1 0 0 0;
 #X connect 2 0 5 0;

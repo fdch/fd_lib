@@ -1,48 +1,89 @@
-#N canvas 527 54 530 385 12;
+#N canvas 499 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_logistic" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:49 EDT 2019
+;
+#X text 10 25 patch_name : fd_logistic;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 13;
+#X text 10 130 total objects: 22;
+#X text 10 145 connections : 28;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 13/233 [0*:t:inlet:pack:f:unpack:route:pow:outlet:loadbang:exp:-:+]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 491 323 more 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array logistic-help-array 100 float 3;
-#A 0 -0.00923008 -0.00999891 -0.0108286 -0.0117234 -0.0126883 -0.0137281
--0.0148482 -0.0160543 -0.0173523 -0.0187486 -0.0202499 -0.0218632 -0.0235961
--0.0254565 -0.0274527 -0.0295936 -0.0318883 -0.0343467 -0.0369789 -0.0397957
--0.0428084 -0.0460287 -0.0494692 -0.0531427 -0.0570628 -0.0612437 -0.0657002
--0.0704478 -0.0755026 -0.0808815 -0.086602 -0.0926823 -0.0991415 -0.105999
--0.113277 -0.120995 -0.129176 -0.137843 -0.147021 -0.156734 -0.167009
--0.177872 -0.189352 -0.201478 -0.21428 -0.22779 -0.242041 -0.257066
--0.272902 -0.289585 -0.307154 -0.325649 -0.345111 -0.365584 -0.387112
--0.409743 -0.433526 -0.458511 -0.484752 -0.512305 -0.541226 -0.571576
--0.603419 -0.636819 -0.671845 -0.708568 -0.747064 -0.78741 -0.829687
--0.87398 -0.920378 -0.968973 -1.01986 -1.07315 -1.12893 -1.18733 -1.24846
--1.31243 -1.37937 -1.44942 -1.52271 -1.59939 -1.67961 -1.76352 -1.85128
--1.94308 -2.03909 -2.13949 -2.24449 -2.35428 -2.46909 -2.58913 -2.71465
--2.84587 -2.98307 -3.12651 -3.27646 -3.43323 -3.5971 -3.76842;
-#X coords 0 -4 100 4 200 140 1 0 0;
-#X restore 261 159 graph;
-#X obj 51 232 fd_logistic 3.3 1.3;
-#X obj 51 179 t f f;
-#X text 234 325 see fd_distributions-help.pd;
-#X text 221 96 PI^-1 * ( x * (1 - x) ) ) ^-1/2;
-#X text 211 20 "fd_logistic";
-#X text 37 47 Xenakis' logistic distribution (Formalized Music \, p.246)
+#A 0 -0.0262907 -0.0277104 -0.0292018 -0.0307682 -0.032413 -0.0341398
+-0.0359521 -0.0378537 -0.0398486 -0.0419409 -0.0441347 -0.0464345 -0.0488447
+-0.0513699 -0.0540151 -0.0567852 -0.0596854 -0.062721 -0.0658975 -0.0692205
+-0.072696 -0.07633 -0.0801287 -0.0840985 -0.088246 -0.0925782 -0.0971019
+-0.101824 -0.106753 -0.111896 -0.11726 -0.122855 -0.128688 -0.134767
+-0.141102 -0.147702 -0.154576 -0.161733 -0.169183 -0.176937 -0.185005
+-0.193397 -0.202125 -0.211199 -0.220631 -0.230432 -0.240616 -0.251195
+-0.26218 -0.273586 -0.285425 -0.297712 -0.310461 -0.323687 -0.337403
+-0.351627 -0.366373 -0.381657 -0.397497 -0.413909 -0.430911 -0.448522
+-0.466758 -0.485641 -0.505188 -0.525421 -0.54636 -0.568026 -0.590441
+-0.613627 -0.637608 -0.662408 -0.68805 -0.71456 -0.741964 -0.770288
+-0.799561 -0.829809 -0.861062 -0.89335 -0.926703 -0.961154 -0.996734
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+#X coords 0 -1 100 1 200 140 1 0 0;
+#X restore 237 85 graph;
+#X obj 27 158 fd_logistic 3.3 1.3;
+#X obj 27 105 t f f;
+#X text 249 234 see fd_distributions-help.pd;
+#X obj 27 239 array set logistic-help-array, f 19;
+#X obj 27 130 / 100;
+#X floatatom 27 34 5 0 0 0 - - -;
+#X obj 27 56 t b f;
+#X floatatom 77 34 5 0 0 0 - - -;
+#X obj 77 56 t b f;
+#X obj 27 184 * -1;
+#X obj 27 82 iterate;
+#X obj 27 211 clip -1 1;
+#X connect 1 0 10 0;
+#X connect 2 0 5 0;
+#X connect 2 1 4 1;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 11 0;
+#X connect 7 1 1 1;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 9 1 1 2;
+#X connect 10 0 12 0;
+#X connect 11 0 2 0;
+#X connect 12 0 4 0;
+#X restore 417 216 pd more;
+#X text 115 89 PI^-1 * ( x * (1 - x) ) ) ^-1/2;
+#X text 29 58 Xenakis' logistic distribution (Formalized Music \, p.246)
 ;
-#X obj 51 293 array set logistic-help-array, f 19;
-#X obj 51 204 / 100;
-#X obj 51 156 fd_iterate;
-#X floatatom 51 108 5 0 0 0 - - -, f 5;
-#X obj 51 130 t b f;
-#X floatatom 101 108 5 0 0 0 - - -, f 5;
-#X obj 101 130 t b f;
-#X obj 51 258 * -1;
-#X connect 1 0 14 0;
-#X connect 2 0 8 0;
-#X connect 2 1 7 1;
-#X connect 8 0 1 0;
-#X connect 9 0 2 0;
-#X connect 10 0 11 0;
-#X connect 11 0 9 0;
-#X connect 11 1 1 1;
-#X connect 12 0 13 0;
-#X connect 13 0 9 0;
-#X connect 13 1 1 2;
-#X connect 14 0 7 0;
-#X obj 366 15 declare -path fd_lib;
-#X text 430 355 fd_lib v0.1;
+#X obj 135 178 fd_logistic 3.3 1.3;
+#X floatatom 135 128 5 0 0 0 - - -;
+#X floatatom 135 202 0 0 0 0 - - -;
+#X obj 135 153 / 100;
+#X text 60 278 1: float: slope \; 2: float: bias;
+#X text 60 334 1: float: x value \; 2: float: slope \; 3: float: bias
+;
+#X text 60 410 1: float: logistic distribution;
+#X connect 11 0 13 0;
+#X connect 12 0 14 0;
+#X connect 14 0 11 0;

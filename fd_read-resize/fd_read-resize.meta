@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:32 EDT 2019
+patch_name   : fd_read-resize
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_read-resize
+inlet        : 0
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 7
+total objects: 98
+connections  : 22
+dependencies : 0 [0]
+externals    : 1 [0ggee/getdir]
+internals    : 6/233 [0t:text:outlet:list:inlet:route]

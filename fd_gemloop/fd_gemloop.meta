@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 19:01:08 EDT 2019
+patch_name   : fd_gemloop
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_gemloop
+inlet        : 2
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 20
+total objects: 38
+connections  : 57
+dependencies : 1 [Gem]
+externals    : 4 [0pix_buffer_write:pix_buffer_read:pix_buffer:gemhead]
+internals    : 16/233 [0t:sel:spigot:outlet:inlet:f:+:route:mod:min:max:loadbang:declare:change:==:-]

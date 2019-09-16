@@ -1,13 +1,39 @@
-#N canvas 526 52 530 378 12;
-#X text 86 276 instance N of clone depends on size of data array;
-#X text 260 139 \$1 == data id;
-#X text 261 158 \$2 == size of data array;
-#X text 222 122 arguments:;
-#X text 221 213 inlet 1 : list source (id) \, target (id) \, time (msec)
-, f 34;
-#X text 172 28 "fd_dataMorph";
-#X text 27 64 Cloning indexes and making a line for each value pair
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_dataMorph" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 no outlets;
+#X text 41 71 instance N of clone depends on size of data array;
+#X text 26 45 Cloning indexes and making a line for each value pair
 ;
-#X obj 68 161 fd_dataMorph;
-#X obj 366 15 declare -path fd_lib;
-#X text 430 348 fd_lib v0.1;
+#X obj 58 128 fd_dataMorph;
+#X text 60 276 1: float : data ID \; 2: float : size of data array
+;
+#X text 60 340 1: list: source (id) \, target (id) \, time (msec);
+#X text 358 209 see fd_data.pd;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:56 EDT 2019
+;
+#X text 10 25 patch_name : fd_dataMorph;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 8;
+#X text 10 145 connections : 11;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_delit];
+#X text 10 190 internals : 6/233 [0list:t:route:inlet:clone:bang];
+#X restore 438 423 pd meta;

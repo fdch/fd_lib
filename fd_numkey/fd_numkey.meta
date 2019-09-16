@@ -1,0 +1,14 @@
+fd_lib - metadata file - Sun Sep 15 14:45:22 EDT 2019
+patch_name   : fd_numkey
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_numkey
+inlet        : 0
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 14
+total objects: 25
+connections  : 40
+dependencies : 0 [0]
+externals    : 5 [09:7:6:5:0]
+internals    : 9/233 [0sel:outlet:8:4:3:2:1:keyup:key]

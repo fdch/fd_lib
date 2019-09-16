@@ -1,7 +1,7 @@
 #N canvas 531 58 453 297 12;
 #X obj 69 30 inlet;
 #N canvas 0 22 450 300 \$0-get 0;
-#X obj 10 10 clone fd_hradio-status 16 hihat 1442;
+#X obj 10 10 clone fd_hradio-status 10 bass 1084;
 #X restore 262 127 pd \$0-get;
 #N canvas 0 22 450 300 \$0-set 0;
 #X obj 120 136 t b f;

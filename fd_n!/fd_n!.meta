@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:20:08 EDT 2019
+patch_name   : fd_n!
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_n!
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 14
+total objects: 24
+connections  : 38
+dependencies : 0 [0]
+externals    : 1 [0b,]
+internals    : 13/233 [0f:t:sel:+:inlet:until:outlet:moses:loadbang:int:b:\*:-]

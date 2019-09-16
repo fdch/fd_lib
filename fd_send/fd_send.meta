@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:39 EDT 2019
+patch_name   : fd_send
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_send
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 3
+total objects: 9
+connections  : 2
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 3/233 [0s:route:r]

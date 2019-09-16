@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:20 EDT 2019
+patch_name   : fd_gem2feat
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_gem2feat
+inlet        : 1
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 10
+total objects: 14
+connections  : 14
+dependencies : 0 [0]
+externals    : 2 [0fd_pix2list:\$1]
+internals    : 8/233 [0array:t:outlet:spigot:inlet:change:b:==]

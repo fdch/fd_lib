@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:45 EDT 2019
+patch_name   : fd_cputime
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_cputime
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 8
+total objects: 8
+connections  : 8
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0tgl:t:nbx:metro:loadbang:int:cputime:\*]

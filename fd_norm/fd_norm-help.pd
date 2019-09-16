@@ -1,38 +1,56 @@
-#N canvas 524 52 549 395 12;
+#N canvas 500 50 530 480 12;
 #X declare -path fd_lib;
-#X text 78 236 -1...1;
-#X text 33 291 0...1;
-#X text 232 21 "fd_norm";
-#X obj 51 50 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 4 4 cnv 15 522 30 empty empty "fd_norm" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 15 14:34:53 EDT 2019
 ;
-#X floatatom 51 313 5 0 0 0 - - -;
-#X obj 51 100 random 2000;
-#X obj 51 125 - 1000;
-#X obj 51 213 fd_norm;
-#X obj 104 253 * 1000;
-#X obj 51 180 t f f, f 13;
-#X obj 104 278 int;
-#X obj 156 214 ==;
-#X obj 186 172 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X text 206 172 <-- It might take time until this is completely convergent
-, f 39;
-#X obj 51 70 metro 1;
-#X text 163 53 Normalize a range over time. See below to see if its
-working., f 34;
-#X text 186 129 If this is == 1 \, then it's convergent.;
-#X text 251 268 see also help for;
-#X obj 280 293 fd_norm-abs;
-#X obj 385 15 declare -path fd_lib;
-#X text 394 347 fd_lib v0.1;
-#X connect 3 0 14 0;
-#X connect 5 0 6 0;
-#X connect 6 0 9 0;
-#X connect 7 0 4 0;
-#X connect 7 1 8 0;
-#X connect 8 0 10 0;
-#X connect 9 0 7 0;
-#X connect 9 1 11 1;
-#X connect 10 0 11 0;
+#X text 10 25 patch_name : fd_norm;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 11;
+#X text 10 145 connections : 12;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0minimax];
+#X text 10 190 internals : 7/233 [0outlet:*:+:t:inlet:abs:/];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X text 374 197 see also help for;
+#X obj 403 222 fd_norm-abs;
+#X obj 59 169 fd_norm;
+#X floatatom 59 201 5 0 0 0 - - -;
+#X floatatom 147 199 5 0 0 0 - - -;
+#X floatatom 59 106 5 0 0 0 - - -;
+#X obj 62 84 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 54 56 Normalize a range over time.;
+#X text 202 83 <-- 127 should be normalized to 1;
+#X text 108 106 <-- scroll above/below 127 to get new normalized range
+;
+#X msg 73 133 flush;
+#X text 119 131 <-- flush internal memory (reset);
+#X text 142 223 -1...1;
+#X text 51 221 0...1;
+#X text 60 340 1: float: stream to normalize \; 1: 'reset': flush internal
+memory;
+#X text 60 410 1: float: normalized range 0..1 \; 2: float: normalized
+range -1..1 \;;
 #X connect 11 0 12 0;
-#X connect 14 0 5 0;
+#X connect 11 1 13 0;
+#X connect 14 0 11 0;
+#X connect 15 0 14 0;
+#X connect 19 0 11 0;

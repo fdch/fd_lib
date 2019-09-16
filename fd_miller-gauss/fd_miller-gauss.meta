@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:20:03 EDT 2019
+patch_name   : fd_miller-gauss
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_miller-gauss
+inlet        : 5
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 4
+classes used : 9
+total objects: 21
+connections  : 22
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0\*:inlet:t:outlet:+:sqrt:sin:log:cos]

@@ -12,7 +12,6 @@
 #X text 440 452 fd_lib v0.1;
 #X text 60 420 no outlets;
 #X text 126 243 [clone fd_arraymorph SIZE TARGET];
-#X text 508 684 fd_lib v0.1;
 #N canvas 0 22 698 546 example 0;
 #X obj 400 306 array define array3 67;
 #X msg 361 133 all array1 array2 1000;
@@ -66,3 +65,20 @@ to the clone inlet:, f 57;
 #X text 73 275 1: (float) size of all arrays (float) \; 2: (symbol)
 <recipient>;
 #X text 60 350 list: all <source> <target> <duration>;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_arraymorph;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 15;
+#X text 10 145 connections : 19;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 8/233 [0list:array:t:symbol:pack:line:inlet:f]
+;
+#X restore 438 423 pd meta;

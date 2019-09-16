@@ -1,4 +1,4 @@
-#N canvas 580 131 450 296 10;
+#N canvas 580 131 450 296 12;
 #X obj 292 73 array define \$0-val;
 #X obj 292 94 array define \$0-ind;
 #X obj 39 18 inlet;

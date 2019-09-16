@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:43 EDT 2019
+patch_name   : fd_any2list
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_any2list
+inlet        : 2
+outlet       : 3
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 7
+total objects: 15
+connections  : 23
+dependencies : 1 [Gem]
+externals    : 1 [0pix_dump]
+internals    : 6/233 [0t:outlet:spigot:inlet:declare:b]

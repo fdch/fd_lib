@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:56 EDT 2019
+patch_name   : fd_dataMorph
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_dataMorph
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 7
+total objects: 8
+connections  : 11
+dependencies : 0 [0]
+externals    : 1 [0fd_delit]
+internals    : 6/233 [0list:t:route:inlet:clone:bang]

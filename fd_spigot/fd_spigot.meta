@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:49 EDT 2019
+patch_name   : fd_spigot
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_spigot
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 5
+total objects: 30
+connections  : 8
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 5/233 [0inlet:t:spigot:outlet:bang]

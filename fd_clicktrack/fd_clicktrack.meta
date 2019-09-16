@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:32 EDT 2019
+patch_name   : fd_clicktrack
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_clicktrack
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 36
+total objects: 142
+connections  : 195
+dependencies : 0 [0]
+externals    : 3 [0switch\~:fd_switch:!msg]
+internals    : 33/233 [0t:s:r:sel:nbx:inlet:f:\*\~:tgl:mod:/:+:outlet\~:outlet:int:cnv:bng:\*:timer:spigot:route:metro:del:vsl:print:pack:osc\~:namecanvas:min:loadbang:line\~:key:change]

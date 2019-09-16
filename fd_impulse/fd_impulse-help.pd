@@ -1,8 +1,22 @@
-#N canvas 528 57 523 385 12;
-#X floatatom 159 107 5 0 0 0 - - -, f 5;
-#X floatatom 82 126 5 0 0 0 - - -, f 5;
-#X obj 159 129 / 100;
-#X text 209 17 "fd_impulse";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_impulse" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
+#X floatatom 117 97 5 0 0 0 - - -;
+#X floatatom 40 116 5 0 0 0 - - -;
+#X obj 117 119 / 100;
 #N canvas 517 66 535 562 test 0;
 #X obj 173 424 fd_fm;
 #X obj 156 324 mtof;
@@ -20,7 +34,7 @@
 #X obj 156 119 != 0;
 #X obj 156 145 change;
 #X obj 159 54 hsl 128 15 -20 20 0 0 empty empty empty -2 -8 0 10 -24198
--1 -1 6350 1;
+-1 -1 0 1;
 #X msg 410 137 set \$1;
 #X msg 410 162 0;
 #X msg 84 255 set \$1;
@@ -30,7 +44,7 @@
 #X obj 209 504 *~;
 #X obj 211 528 dac~;
 #X obj 427 425 fd_switch;
-#X floatatom 455 477 5 0 0 0 - - -, f 5;
+#X floatatom 455 477 5 0 0 0 - - -;
 #X obj 434 379 != 0;
 #X obj 291 382 fd_impulse 64;
 #X connect 0 0 10 0;
@@ -69,26 +83,40 @@
 #X connect 24 1 25 0;
 #X connect 26 0 24 0;
 #X connect 27 0 10 1;
-#X restore 261 316 pd test;
-#X text 258 292 See here;
-#X obj 82 179 env~;
-#X obj 82 204 - 100;
-#X obj 83 239 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 82 106 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X floatatom 82 85 5 0 0 0 - - -, f 5;
-#X text 175 196 Argument (optional):;
-#X text 175 217 blocksize (0 || default: pd's default);
+#X restore 394 202 pd test;
+#X text 391 178 See here;
+#X obj 40 169 env~;
+#X obj 40 194 - 100;
+#X obj 223 107 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 40 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 40 75 5 0 0 0 - - -;
 #X text 32 47 A pulsetrain using lrshifting. Right inlet is phase (0-1)
 ;
-#X obj 82 154 fd_impulse;
-#X connect 0 0 2 0;
-#X connect 1 0 14 0;
-#X connect 2 0 14 1;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 9 0 1 0;
-#X connect 10 0 9 0;
-#X connect 14 0 6 0;
-#X obj 359 15 declare -path fd_lib;
-#X text 423 355 fd_lib v0.1;
+#X obj 40 144 fd_impulse;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:36 EDT 2019
+;
+#X text 10 25 patch_name : fd_impulse;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 12;
+#X text 10 130 total objects: 22;
+#X text 10 145 connections : 26;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_shift];
+#X text 10 190 internals : 11/233 [0*~:cos~:+~:phasor~:outlet~:inlet~:inlet:clip~:biquad~:abs~:-~]
+;
+#X restore 438 423 pd meta;
+#X text 61 284 1: float: (optional) blocksize;
+#X connect 9 0 11 0;
+#X connect 10 0 20 0;
+#X connect 11 0 20 1;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 17 0 10 0;
+#X connect 18 0 17 0;
+#X connect 20 0 14 0;

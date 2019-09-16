@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:05 EDT 2019
+patch_name   : fd_navigator
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_navigator
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 26
+total objects: 3172
+connections  : 150
+dependencies : 0 [0]
+externals    : 3 [0ggee/stripdir:mainpath:counter]
+internals    : 23/233 [0r:t:s:sel:bng:symbol:cnv:loadbang:text:route:pack:list:f:tgl:spigot:nbx:inlet:-:+:print:keyname:del:&&]

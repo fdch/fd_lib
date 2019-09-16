@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:20:05 EDT 2019
+patch_name   : fd_msecparse
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_msecparse
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 9
+total objects: 14
+connections  : 18
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0t:mod:inlet:change:/:pack:outlet:loadbang:int]

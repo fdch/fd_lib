@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:34 EDT 2019
+patch_name   : fd_relocate
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_relocate
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 13
+total objects: 234
+connections  : 26
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 13/233 [0inlet:list:>:unpack:t:spigot:sel:s:route:pack:int:del:&&]

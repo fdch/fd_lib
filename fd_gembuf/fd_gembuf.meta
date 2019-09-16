@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 19:00:39 EDT 2019
+patch_name   : fd_gembuf
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_gembuf
+inlet        : 1
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 2
+classes used : 11
+total objects: 13
+connections  : 14
+dependencies : 1 [Gem]
+externals    : 2 [0pix_buffer_write:pix_buffer]
+internals    : 9/233 [0t:f:sel:outlet:mod:loadbang:inlet:declare:+]

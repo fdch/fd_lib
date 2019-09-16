@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:40 EDT 2019
+patch_name   : fd_shader
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_shader
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 14
+total objects: 308
+connections  : 34
+dependencies : 0 [0]
+externals    : 4 [0glsl_vertex:glsl_program:glsl_fragment:ggee/getdir]
+internals    : 10/233 [0t:symbol:makefilename:inlet:spigot:route:r:pack:outlet:loadbang]

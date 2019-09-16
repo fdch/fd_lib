@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:44 EDT 2019
+patch_name   : fd_keycomb
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_keycomb
+inlet        : 7
+outlet       : 7
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 20
+total objects: 107
+connections  : 215
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 20/233 [0sel:t:route:list:outlet:inlet:+:unpack:tgl:symbol:spigot:f:print:pack:del:s:loadbang:keyname:choice:b]

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:31 EDT 2019
+patch_name   : fd_hopmsec
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_hopmsec
+inlet        : 1
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 9
+total objects: 32
+connections  : 56
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 9/233 [0bng:moses:samplerate\~:outlet:loadbang:inlet:change:\*:/]

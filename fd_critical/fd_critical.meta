@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:46 EDT 2019
+patch_name   : fd_critical
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_critical
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 21
+total objects: 52
+connections  : 71
+dependencies : 0 [0]
+externals    : 1 [0fd_sinh]
+internals    : 20/233 [0t:f:+:until:tabwrite:tabread:symbol:spigot:sel:r:print:list:inlet:array:\*:==:/:s:loadbang:-]

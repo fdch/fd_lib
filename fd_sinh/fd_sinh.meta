@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 11:30:45 EDT 2019
+patch_name   : fd_sinh
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_sinh
+inlet        : 0
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 0
+total objects: 0
+connections  : 9
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 0/233 [0]

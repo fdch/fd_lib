@@ -71,3 +71,20 @@ adding more shifted sinc functions \, meant to minimize side-lobe levels
 #X text 60 269 optional size;
 #X text 63 316 1: x value \; 2: size \; 3 \, 6: coefficients;
 #X text 60 410 y value;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:17 EDT 2019
+;
+#X text 10 25 patch_name : fd_blackman;
+#X text 10 40 inlet : 6;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 39;
+#X text 10 145 connections : 42;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 10/233 [0*:inlet:cos:/:-:+:t:outlet:loadbang:f]
+;
+#X restore 438 423 pd meta;

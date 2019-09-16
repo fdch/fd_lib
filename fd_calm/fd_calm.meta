@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:18:25 EDT 2019
+patch_name   : fd_calm
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_calm
+inlet        : 2
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 1
+classes used : 8
+total objects: 11
+connections  : 15
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 8/233 [0sel:inlet:f:t:outlet:loadbang:int:del]

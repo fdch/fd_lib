@@ -1,14 +1,44 @@
-#N canvas 525 51 546 407 12;
-#X text 153 22 "fd_lspace" | lorenz-space;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_lspace" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:56 EDT 2019
+;
+#X text 10 25 patch_name : fd_lspace;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 25;
+#X text 10 145 connections : 33;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 3 [0siginfo:lorenz:fd_norm];
+#X text 10 190 internals : 16/233 [0t:s:r:pack:/:-:until:random:outlet:metro:loadbang:list:int:inlet:f:+]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 0 outlets;
 #X text 28 58 This abstraction normalizes the distance of a lorenz
 system and outputs it as 'sig' and as 1-sig \, i.e. 'ph-sig';
 #N canvas 0 22 459 297 clone-example 0;
 #X obj 160 85 s \$0-ntmp;
 #X obj 33 64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X floatatom 160 63 5 0 0 0 msec - -, f 5;
-#X floatatom 155 190 5 0 0 0 - - -, f 5;
-#X floatatom 261 190 5 0 0 0 - - -, f 5;
+#X floatatom 160 63 5 0 0 0 msec - -;
+#X floatatom 155 190 5 0 0 0 - - -;
+#X floatatom 261 190 5 0 0 0 - - -;
 #X text 205 60 <-- for the [metro] inside.;
 #X obj 33 146 clone -s 1 fd_lspace 10 \$0, f 10;
 #X msg 33 94 1 \$1;
@@ -20,26 +50,26 @@ system and outputs it as 'sig' and as 1-sig \, i.e. 'ph-sig';
 #X connect 7 0 6 0;
 #X connect 8 0 3 0;
 #X connect 9 0 4 0;
-#X restore 54 350 pd clone-example;
-#X obj 52 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 394 187 pd clone-example;
+#X obj 33 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 197 184 5 0 0 0 msec - -, f 5;
-#X floatatom 199 292 5 0 0 0 - - -, f 5;
-#X floatatom 305 292 5 0 0 0 - - -, f 5;
-#X text 242 181 <-- for the [metro] inside.;
-#X text 197 244 receiving only instance '1';
-#X obj 199 267 r 0-sig-0;
-#X obj 305 267 r 0-ph-sig-0;
-#X obj 197 206 s 0-ntmp;
-#X obj 52 267 fd_lspace 0 0;
-#X text 59 327 See here:;
-#X text 28 108 Intended to be cloned. \$1 == instance number and \$2
+#X floatatom 61 200 5 0 0 0 msec - -;
+#X floatatom 162 203 5 0 0 0 - - -;
+#X floatatom 268 203 5 0 0 0 - - -;
+#X obj 162 178 r 0-sig-0;
+#X obj 268 178 r 0-ph-sig-0;
+#X obj 61 222 s 0-ntmp;
+#X obj 33 170 fd_lspace 0 0;
+#X text 411 159 See here:;
+#X text 27 94 Intended to be cloned. \$1 == instance number and \$2
 == \$0 from parent. Output are 'sig' and 'ph-sig' \, and they are sent
 to the receivers below.;
-#X text 328 350 See also fd_spat.pd;
-#X connect 3 0 12 0;
-#X connect 4 0 11 0;
-#X connect 9 0 5 0;
-#X connect 10 0 6 0;
-#X obj 382 15 declare -path fd_lib;
-#X text 446 377 fd_lib v0.1;
+#X text 374 220 See also fd_spat.pd;
+#X text 160 155 receiving only instance '0';
+#X text 60 276 1: float: instance index \; 2: float: 'sig' selector
+index;
+#X text 60 340 1: float: 1|0 to start or stop lorenz computation;
+#X connect 11 0 18 0;
+#X connect 12 0 17 0;
+#X connect 15 0 13 0;
+#X connect 16 0 14 0;

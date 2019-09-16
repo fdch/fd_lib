@@ -1,0 +1,14 @@
+fd_lib - metadata file - Fri Sep 13 18:19:25 EDT 2019
+patch_name   : fd_geomean
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_geomean
+inlet        : 1
+outlet       : 1
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 10
+total objects: 12
+connections  : 17
+dependencies : 0 [0]
+externals    : 2 [0fd_mult:fd_listout]
+internals    : 8/233 [0t:pow:outlet:list:inlet:f:del:/]

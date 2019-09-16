@@ -1,0 +1,14 @@
+fd_lib - metadata file - Mon Sep 16 00:35:10 EDT 2019
+patch_name   : fd_parsenum
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_parsenum
+inlet        : 1
+outlet       : 2
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 6
+total objects: 8
+connections  : 13
+dependencies : 0 [0]
+externals    : 1 [0fd_iterate]
+internals    : 5/233 [0sel:outlet:t:inlet:-]
