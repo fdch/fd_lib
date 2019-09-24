@@ -1,0 +1,24 @@
+#N canvas 0 22 450 350 12;
+#X text 10 10 fd_pshift~;
+#X text 350 300 fd_lib v0.1;
+#X text 10 40 comment;
+#X obj 14 278 pdcontrol;
+#X text 12 227 See Chapter 7: Delay Networks;
+#X msg 14 254 browse http://msp.ucsd.edu/techniques.htm;
+#X text 14 189 "So we have a tool now for raising the pitch of an incoming
+sound by an octave without changing its spectral envelope";
+#X obj 93 170 dac~;
+#X obj 93 117 *~ 0.1;
+#X msg 355 32 \; pd dsp 1;
+#X floatatom 94 47 5 0 0 0 - - -;
+#X obj 94 70 t f f;
+#X obj 93 93 osc~;
+#X obj 118 147 fd_pshift~;
+#X connect 5 0 3 0;
+#X connect 8 0 7 0;
+#X connect 8 0 13 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 1;
+#X connect 12 0 8 0;
+#X connect 13 0 7 1;

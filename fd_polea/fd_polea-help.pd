@@ -1,24 +1,91 @@
-#N canvas 524 46 482 398 12;
-#X obj 103 332 dac~;
-#X obj 103 236 *~;
-#X obj 220 213 *~ 100;
-#X obj 103 149 noise~;
-#X msg 220 125 1 2000;
-#X obj 220 238 osc~;
-#X obj 220 173 fd_spline~ 10;
-#X text 183 27 "fd_polea";
-#X text 33 62 Do some filtering to the 1st inlet with the 2nd inlet
+#N canvas 547 52 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_polea" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Tue Sep 17 10:15:20 EDT 2019
 ;
-#X obj 103 273 fd_polea 0.25;
-#X text 233 275 Argument 1 = phase;
-#X connect 1 0 9 0;
-#X connect 2 0 5 0;
-#X connect 3 0 1 0;
-#X connect 4 0 6 0;
-#X connect 5 0 9 1;
-#X connect 6 0 1 1;
+#X text 10 25 patch_name : fd_polea;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 2;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 6;
+#X text 10 130 total objects: 8;
+#X text 10 145 connections : 15;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 6/233 [0inlet~:cpole~:rzero_rev~:outlet~:czero_rev~:-~]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X obj 93 173 *~;
+#X obj 210 150 *~ 100;
+#X obj 93 86 noise~;
+#X msg 210 85 1 2000;
+#X obj 210 175 osc~;
+#X obj 210 110 fd_spline~ 10;
+#X text 24 51 Do some filtering to the 1st inlet with the 2nd inlet
+;
+#X obj 93 200 fd_polea 0.25;
+#X text 60 284 1: float: phase;
+#X msg 407 84 \; pd dsp 1;
+#N canvas 1037 504 602 435 example 1;
+#X msg 268 236 \; fd_polea-array-help normalize;
+#X obj 108 363 tabwrite~ fd_polea-array-help;
+#X obj 122 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 144 29 5 0 0 0 - - -;
+#X obj 191 103 t b b;
+#X obj 215 144 del 64 1 samp;
+#X obj 143 52 t b f b;
+#X msg 189 77 0;
+#X floatatom 240 18 5 0 0 0 - - -;
+#X obj 240 41 / 100;
+#X obj 87 299 clip~ -1 1;
+#X obj 63 229 cpole~;
+#X obj 57 136 noise~;
+#X obj 404 108 block~ 4;
+#X obj 138 157 sig~ 1;
+#X obj 138 181 rfft~;
+#X obj 43 173 rfft~;
+#X obj 63 253 rifft~;
+#X obj 329 24 array define fd_polea-array-help 4;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 4 1 1 0;
 #X connect 6 0 2 0;
-#X connect 9 0 0 0;
-#X connect 9 0 0 1;
-#X obj 318 15 declare -path fd_lib;
-#X text 382 368 fd_lib v0.1;
+#X connect 6 2 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X connect 10 0 1 0;
+#X connect 11 0 17 0;
+#X connect 11 1 17 1;
+#X connect 12 0 16 0;
+#X connect 14 0 15 0;
+#X connect 15 0 11 2;
+#X connect 15 1 11 3;
+#X connect 16 0 11 0;
+#X connect 16 1 11 1;
+#X connect 17 0 10 0;
+#X restore 349 201 pd example;
+#X connect 10 0 17 0;
+#X connect 11 0 14 0;
+#X connect 12 0 10 0;
+#X connect 13 0 15 0;
+#X connect 14 0 17 1;
+#X connect 15 0 10 1;
+#X connect 15 0 11 0;

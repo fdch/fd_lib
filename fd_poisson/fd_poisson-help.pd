@@ -1,7 +1,37 @@
-#N canvas 527 52 505 386 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_poisson" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Tue Sep 17 00:27:37 EDT 2019
+;
+#X text 10 25 patch_name : fd_poisson;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 11;
+#X text 10 130 total objects: 18;
+#X text 10 145 connections : 25;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_n!];
+#X text 10 190 internals : 10/233 [0f:t:inlet:*:sel:pow:outlet:loadbang:exp:/]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
 #X text 107 49 Pk = lambda^k / K! * e^-lambda;
 #X text 72 77 xenakis formalized music \, page 29 Pendragon;
-#X text 184 11 "fd_poisson";
+#N canvas 0 22 450 300 example 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array poisson-help-array 100 float 3;
 #A 0 0.999 0.932321 0.870093 0.812018 0.757819 0.707238 0.660033 0.615979
@@ -19,21 +49,30 @@
 0.00228858 0.00213583 0.00199327 0.00186023 0.00173606 0.00162019 0.00151205
 0.00141113 0.00131694 0.00122904 0.00114701 0.00107045;
 #X coords 0 1 100 -1 200 140 1;
-#X restore 252 169 graph;
-#X obj 59 284 array set poisson-help-array, f 18;
-#X floatatom 59 131 5 0 0 0 - - -, f 5;
-#X obj 59 153 t b f;
-#X obj 59 178 fd_iterate;
-#X obj 59 203 t f f;
-#X obj 59 228 / 100;
-#X obj 59 259 fd_poisson 0.001;
+#X restore 219 81 graph;
+#X obj 26 196 array set poisson-help-array, f 18;
+#X floatatom 26 43 5 0 0 0 - - -;
+#X obj 26 65 t b f;
+#X obj 26 90 fd_iterate;
+#X obj 26 115 t f f;
+#X obj 26 140 / 100;
+#X obj 26 171 fd_poisson 0.001;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 7 1;
+#X connect 4 0 5 0;
 #X connect 5 0 6 0;
+#X connect 5 1 1 1;
 #X connect 6 0 7 0;
-#X connect 6 1 10 1;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 8 1 4 1;
-#X connect 9 0 10 0;
-#X connect 10 0 4 0;
-#X obj 341 15 declare -path fd_lib;
-#X text 405 356 fd_lib v0.1;
+#X connect 7 0 1 0;
+#X restore 403 189 pd example;
+#X obj 129 145 / 100;
+#X obj 129 176 fd_poisson 0.001;
+#X floatatom 129 119 5 0 0 0 - - -;
+#X floatatom 129 200 0 0 0 0 - - -;
+#X text 60 284 1: float: coefficient;
+#X text 58 337 1: float: x value \; 2: float: new coefficient;
+#X text 61 410 1: float: y value;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;

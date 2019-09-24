@@ -1,80 +1,112 @@
-#N canvas 522 50 654 422 10;
-#X declare -stdlib Gem;
-#X obj 12 248 cnv 15 430 160 empty empty empty 20 12 0 14 -233017 -66577
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X declare -lib Gem;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_pixrecord" 20 15 0 15 -228856
+-1 0;
+#X obj 4 204 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 16 23:11:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_pixrecord;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 29;
+#X text 10 130 total objects: 110;
+#X text 10 145 connections : 152;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 4 [0pix_texture:pix_snap:pix_record:gemhead]
+;
+#X text 10 190 internals : 25/233 [0t:inlet:list:s:outlet:symbol:sel:r:route:spigot:makefilename:f:+:unpack:pipe:pdcontrol:loadbang:print:pack:namecanvas:mod:metro:del:declare:*]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X obj 381 38 declare -lib Gem;
+#X text 29 40 Makes pix_record easier to handle.;
+#X text 51 227 1: symbol: filename without extension;
+#X text 51 274 1: float: 1|0: start/stop recording \; 1: bang: to render
+frames on single-buffer mode \; 1: 'length': (float) set new length
+to auto stop (minutes) \; 1: 'fullpath': (symbol) set path to filename's
+directory \; 1: 'filename': (symbol) set new filename without extension
+\; 1: 'dimen': (float) (float) x-y dimensions (default 500x500) \;
+2: symbol: set full path to file with extension (overwrites) \;, f
+63;
+#N canvas 584 96 688 569 example 0;
+#X obj 12 248 cnv 15 430 260 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 12 215 cnv 15 430 30 empty empty empty 20 12 0 14 -195568 -66577
 0;
 #X obj 11 87 cnv 15 430 125 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X obj 453 87 cnv 15 170 320 empty empty empty 20 12 0 14 -228992 -66577
+#X obj 446 88 cnv 15 210 420 empty empty empty 20 12 0 14 -228992 -66577
 0;
-#X text 457 71 Example:;
-#X obj 454 169 cnv 15 160 160 empty empty empty 20 12 0 14 -24198 -66577
+#X obj 449 332 cnv 15 160 160 empty empty empty 20 12 0 14 -24198 -66577
 0;
-#X obj 460 239 tgl 15 1 empty empty start/stop 0 -6 0 8 -262144 -1
+#X obj 456 372 tgl 15 1 empty empty start/stop 0 -6 0 8 -262144 -1
 -1 0 1;
-#X obj 457 41 declare -stdlib Gem;
-#X obj 529 212 mainpath;
-#X obj 460 306 tgl 15 0 empty empty status 17 7 0 10 -262144 -1 -1
+#X obj 456 439 tgl 15 0 empty empty status 17 7 0 10 -262144 -1 -1
 0 1;
-#X text 54 23 Synopsis: [fd_pixrecord];
-#X text 75 42 Class: pix abstraction;
-#X obj 518 344 cnv 15 100 60 empty empty empty 20 12 0 14 -195568 -66577
-0;
-#N canvas 0 22 450 300 gemwin 0;
-#X obj 132 136 gemwin;
-#X obj 67 89 outlet;
-#X obj 67 10 inlet;
-#X obj 67 41 route create;
-#X msg 67 70 set destroy;
-#X msg 142 68 set create;
-#X msg 198 112 destroy;
-#X msg 211 40 reset;
-#X msg 139 89 lighting 1 \, FSAA 4 \, create \, 1;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 3 0 8 0;
-#X connect 3 1 5 0;
-#X connect 3 1 6 0;
-#X connect 4 0 1 0;
-#X connect 5 0 1 0;
-#X connect 6 0 0 0;
-#X connect 7 0 0 0;
-#X connect 8 0 0 0;
-#X restore 523 383 pd gemwin;
-#X msg 523 364 destroy;
-#X text 519 343 Create window:;
+#X text 11 23 Synopsis: [fd_pixrecord];
+#X text 32 42 Class: pix abstraction;
 #X text 18 88 Description: makes pix_record easier to handle.;
-#X text 42 390 Outlet 1: 1|0: status;
-#X text 43 249 Inlet 1:;
-#X text 67 265 (float) 1|0: start/stop recording;
-#X text 67 309 fullpath: (symbol) to directory to file;
-#X text 67 323 filename: (symbol) filename (NO EXTENSION);
+#X text 47 438 Outlet 1: 1|0: status;
+#X text 38 257 Inlet 1:;
+#X text 67 275 (float) 1|0: start/stop recording;
+#X text 67 319 fullpath: (symbol) to directory to file;
+#X text 67 333 filename: (symbol) filename (NO EXTENSION);
 #X text 158 226 (symbol) <filename> NOTE: NO EXTENSION;
-#X text 43 353 Inlet 2:;
-#X text 67 293 length: (float) in minutes (default: 30);
-#X text 67 337 dimen: (x y) gemwin dimensions. (default: 500 500);
-#X text 67 278 bang: to render frames when on single buffer mode;
+#X text 40 380 Inlet 2:;
+#X text 67 303 length: (float) in minutes (default: 30);
+#X text 67 347 dimen: (x y) gemwin dimensions. (default: 500 500);
+#X text 67 288 bang: to render frames when on single buffer mode;
 #X text 22 168 The default dimension is 500x500 \, which can be changed
 by sending in a 'dimen x y' message (see below).;
-#X text 67 367 (symbol) full/path/to/file.mov [overwrites];
-#X text 483 98 [1] do something;
-#X obj 460 269 fd_pixrecord;
+#X text 64 394 (symbol) full/path/to/file.mov [overwrites];
+#X text 448 171 [1] do something;
 #X text 21 216 Arguments (optional):;
-#X msg 529 190 add test.mov;
-#X text 456 19 GEM abstraction;
-#X text 516 172 [2] choose file;
-#X text 456 211 [3] rec;
+#X text 478 33 GEM abstraction;
+#X text 449 247 [2] choose file;
+#X text 452 344 [3] rec;
 #X text 21 110 This abstraction maintains and 'snaps' a gemhead at
 position -100 in the rendering order. This means that everything above
 -100 of the rendering order chain will be included in the recording.
 ;
-#X obj 461 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#N canvas 1 22 448 300 s 0;
-#X obj 50 68 gemhead;
-#X obj 50 100 spigot;
-#X obj 125 32 inlet;
+#X msg 514 448 0;
+#X obj 456 402 fd_pixrecord test;
+#X msg 455 270 dir 0 test.mov;
+#X obj 455 294 pdcontrol;
+#X msg 572 95 create \, 1;
+#X msg 580 117 0 \, destroy;
+#X obj 572 163 gemwin;
+#X text 449 95 [0] start gem;
+#X text 47 465 Outlet 2: (float) elapsed seconds;
+#N canvas 494 392 450 300 more 0;
+#X msg 34 20 codeclist;
+#X obj 34 148 outlet;
+#X msg 272 88 set framerate 30;
+#X text 125 199 see pix_record-help.pd for more information;
+#X msg 238 63 set jpeg_quality 1000;
+#X text 201 11 set properties of codec:;
+#X msg 231 34 codec 12;
+#X text 23 228 codec 12 is 'jpeg JPEG photo' \, which seems to work
+fine on macos 10.14.5. Colors are not rendered correctly \, though.
+;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 4 0 1 0;
+#X connect 6 0 1 0;
+#X restore 553 336 pd more;
+#N canvas 396 101 450 300 stuff 0;
 #N canvas 0 22 448 300 s 0;
 #X obj 37 249 translate 0 0 1 0;
 #X obj 296 217 line;
@@ -130,7 +162,7 @@ position -100 in the rendering order. This means that everything above
 #X connect 21 1 20 0;
 #X connect 22 0 12 0;
 #X connect 23 0 2 0;
-#X restore 50 153 pd s motion;
+#X restore 85 135 pd s motion;
 #N canvas 0 22 450 300 s 0;
 #X obj 60 190 color 0.4 0.1 0.4;
 #X msg 203 244 \$1 0.1 \$2;
@@ -170,15 +202,8 @@ position -100 in the rendering order. This means that everything above
 #X connect 14 1 2 0;
 #X connect 15 0 0 0;
 #X connect 17 0 11 0;
-#X restore 50 126 pd s color;
-#X obj 243 68 gemhead;
-#X obj 243 90 world_light;
-#X obj 125 102 t f f f f;
-#X obj 211 156 gemwin;
-#X msg 211 134 lighting \$1;
-#X obj 50 227 pix_texture;
-#X obj 50 249 cube 0.25;
-#N canvas 0 22 450 300 s 0;
+#X restore 85 108 pd s color;
+#N canvas 500 223 450 300 s 0;
 #X obj 40 175 gemlist;
 #X obj 40 88 t b a;
 #X obj 40 132 until;
@@ -189,9 +214,9 @@ position -100 in the rendering order. This means that everything above
 #X obj 244 135 gemlist;
 #X obj 244 42 t b a;
 #X obj 244 86 until;
-#X obj 293 110 gemlist;
+#X obj 297 73 gemlist;
 #X obj 244 108 t b b;
-#X obj 293 133 translate 1 0 1 0;
+#X obj 297 96 translate 1 0 1 0;
 #X obj 244 64 f 10;
 #X obj 40 66 translate -6 1 1 0;
 #X obj 40 110 f 10;
@@ -218,37 +243,96 @@ position -100 in the rendering order. This means that everything above
 #X connect 14 0 1 0;
 #X connect 15 0 2 0;
 #X connect 16 0 14 0;
-#X restore 50 179 pd s grid;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 2 0 7 0;
-#X connect 3 0 12 0;
-#X connect 4 0 3 0;
-#X connect 5 0 6 0;
-#X connect 7 0 1 1;
-#X connect 7 1 4 1;
-#X connect 7 2 3 1;
-#X connect 7 3 5 0;
-#X connect 7 3 9 0;
-#X connect 9 0 8 0;
-#X connect 10 0 11 0;
-#X connect 12 0 10 0;
-#X restore 461 121 pd s do something;
-#X obj 537 308 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 60 256;
-#X text 192 390 Outlet 2: (float) elapsed seconds;
-#X obj 558 252 sel 60;
-#X msg 558 274 0;
-#X connect 6 0 30 0;
-#X connect 8 0 30 1;
+#X restore 85 161 pd s grid;
+#X obj 244 34 inlet;
+#X obj 304 64 gemhead;
+#X obj 304 88 world_light;
+#X msg 240 129 lighting \$1;
+#X obj 240 153 s \$0-gw;
+#X obj 85 185 pix_texture;
+#X obj 86 43 gemhead;
+#X obj 85 210 cube 0.25;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 1 1;
+#X connect 3 0 0 1;
+#X connect 3 0 6 0;
+#X connect 3 0 9 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 10 0;
+#X connect 9 0 1 0;
+#X restore 452 212 pd stuff;
+#X obj 453 190 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 584 141 r \$0-gw;
+#X obj 514 426 sel 5;
+#X text 475 471 (ends in 5 secs);
+#X floatatom 572 436 5 0 0 0 - - -;
+#X text 49 485 Outlet 3: (float) elapsed frames;
+#X connect 5 0 29 0;
+#X connect 28 0 5 0;
+#X connect 29 0 6 0;
+#X connect 29 1 41 0;
+#X connect 29 2 43 0;
+#X connect 30 0 31 0;
+#X connect 31 0 29 1;
+#X connect 32 0 34 0;
+#X connect 33 0 34 0;
+#X connect 37 0 29 0;
+#X connect 39 0 38 0;
+#X connect 40 0 34 0;
+#X connect 41 0 28 0;
+#X restore 338 140 pd example (gem-style);
+#X msg 77 61 gemlist;
+#X obj 77 115 fd_pixrecord;
+#X floatatom 117 163 5 0 0 0 time - -;
+#X floatatom 158 184 5 0 0 0 frames - -;
+#X floatatom 77 143 5 0 0 0 status - -;
+#X text 344 111 See here:;
+#X text 50 407 1: float: 1|0 status \; 2: float: elapsed time in seconds
+\; 3: float: total number of frames written to disk;
+#N canvas 0 22 766 553 messages 0;
+#X msg 41 46 bang;
+#X msg 64 105 1;
+#X msg 97 105 0;
+#X msg 120 160 length 10;
+#X msg 195 298 fullpath /path/to/dir/;
+#X msg 197 326 filename myfile3;
+#X msg 143 199 dimen 1080 720;
+#X text 96 40 <-- write current gemwin screen to next movie frame (useful
+in single-buffer mode;
+#X text 131 104 <-- turn recording on or off;
+#X text 197 159 <-- length of recording in minutes;
+#X text 360 299 <-- path to directory where 'filename' is;
+#X text 332 326 <-- 'filename' to record pixels in (defaults to .mov)
+;
+#X text 259 198 <-- the dimensions of the recorded frames. NOTE: make
+sure gemwin has equal or larger dimensions;
+#X text 189 245 If you specify file path and name via first inlet \,
+then every time you start a new recording these will be used with an
+appended index so as to never overwrite your recording.;
+#X text 194 364 HOWEVER \, if you specify full file path via 2nd inlet
+\, the appended index is overriden and you can overwrite the file;
+#X msg 300 410 symbol full/path/to/file.mov;
+#X text 512 410 <-- extension is needed here;
+#X obj 301 484 s \$0-msg-2;
+#X obj 41 488 s \$0-msg-1;
+#X connect 0 0 18 0;
+#X connect 1 0 18 0;
+#X connect 2 0 18 0;
+#X connect 3 0 18 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 18 0;
+#X connect 15 0 17 0;
+#X restore 338 173 pd messages;
+#X obj 169 89 r \$0-msg-2;
+#X obj 89 89 r \$0-msg-1;
 #X connect 13 0 14 0;
-#X connect 14 0 13 0;
-#X connect 30 0 9 0;
-#X connect 30 1 39 0;
-#X connect 30 1 41 0;
-#X connect 32 0 8 0;
-#X connect 37 0 38 0;
-#X connect 41 0 42 0;
-#X connect 42 0 6 0;
-#X obj 490 15 declare -path fd_lib;
-#X text 554 392 fd_lib v0.1;
+#X connect 14 0 17 0;
+#X connect 14 1 15 0;
+#X connect 14 2 16 0;
+#X connect 22 0 14 0;

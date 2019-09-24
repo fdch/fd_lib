@@ -1,0 +1,84 @@
+#N canvas 830 215 450 300 12;
+#X obj 34 29 inlet;
+#X obj 34 115 tabread4 \$0-norm;
+#N canvas 0 22 450 300 input 0;
+#X obj 33 173 ftom;
+#X msg 85 107 0;
+#X msg 116 107 1;
+#X obj 34 128 list prepend 0;
+#X obj 33 150 route 0 1;
+#X obj 34 28 inlet;
+#X obj 33 197 outlet;
+#X obj 220 193 outlet;
+#X obj 85 86 route ftom mtof;
+#X obj 34 62 route float set open;
+#X msg 238 108 click 0 0 0 0 0;
+#X obj 328 187 outlet;
+#X connect 0 0 6 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 6 0;
+#X connect 5 0 9 0;
+#X connect 8 0 1 0;
+#X connect 8 1 2 0;
+#X connect 8 2 7 0;
+#X connect 9 0 3 0;
+#X connect 9 1 8 0;
+#X connect 9 2 10 0;
+#X connect 10 0 11 0;
+#X restore 34 81 pd input;
+#N canvas 0 22 450 300 output 0;
+#X obj 188 31 inlet;
+#X obj 42 37 inlet;
+#X obj 42 61 list prepend 0;
+#X obj 188 55 route dbtorms rmstodb;
+#X msg 188 79 0;
+#X msg 225 79 1;
+#X obj 42 85 route 0 1;
+#X obj 42 136 dbtorms;
+#X obj 42 208 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 1;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 8 0;
+#X restore 34 147 pd output;
+#X obj 34 221 outlet;
+#X obj 200 100 array define -k \$0-norm 136;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.30339 6.47193 19.2835 39.4875
+62.9487 81.7845 92.2906 94.7905 93.4871 91.1139 88.9716 86.9673 85.0051
+83.012 80.9654 78.8653 76.7258 74.5609 72.3933 70.2454 68.1565 66.1661
+64.3278 62.6642 61.1693 59.7983 58.5063 57.2817 56.1359 55.083 54.0977
+53.1407 52.1863 51.2405 50.3396 49.5119 48.7744 48.0902 47.4033 46.6518
+45.8439 45.0416 44.3434 43.8001 43.406 43.0964 42.8008 42.4714 42.1139
+41.776 41.5199 41.382 41.3679 41.4664 41.6635 41.9421 42.28 42.6629
+43.0991 43.6143 44.2252 44.9037 45.5849 46.1902 46.6744 47.0376 47.3134
+47.5414 47.7243 47.8342 47.8145 47.6314 47.2683 46.725 45.9902 45.0556
+43.9381 42.6937 41.3988 40.1122 38.8596 37.6462 36.4865 35.4082 34.4342
+33.5559 32.7564 32.0583 31.5543 31.3658 31.5658 32.1822 33.2267 34.7609
+36.8074 39.3327 42.1985 45.2471 48.3213 51.263 53.898 55.9869 57.2734
+57.5408 56.7385 55.0241 52.6931 50.016 46.697 41.9422 34.6483 25.1529
+15.0805 7.09686 2.31683 0.45323 0 0;
+#N canvas 1107 403 527 304 pretty-print-table 0;
+#X obj 25 44 loadbang;
+#X obj 25 68 f \$0;
+#X msg 25 94 \; \$1-norm ylabel -1 10 20 30 40 50 60 70 80 90 100 dB
+\, xticks 0 1 1 \, yticks 0 10 10 \, xlabel -1 17 24 37 48 59 72 84
+96 108 120 132 freq(midi) \, bounds 0 100 136 0;
+#X text 140 36 pretty print table;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 206 38 pd pretty-print-table;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 1 3 1;
+#X connect 2 2 5 0;
+#X connect 3 0 4 0;

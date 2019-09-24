@@ -15,6 +15,7 @@
 *-e
 .pyc
 .wav
-*.json
+.json
+.mov
 
 .tmp/

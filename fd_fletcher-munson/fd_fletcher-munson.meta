@@ -1,0 +1,14 @@
+fd_lib - metadata file - Tue Sep 17 20:50:58 EDT 2019
+patch_name   : fd_fletcher-munson
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_fletcher-munson
+inlet        : 1
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 0
+classes used : 10
+total objects: 21
+connections  : 29
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 10/233 [0route:outlet:inlet:list:tabread4:loadbang:ftom:f:dbtorms:array]

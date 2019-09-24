@@ -3363,3 +3363,4 @@
 #X text 10 190 internals : 37/233 [0t:f:s:array:sel:inlet:outlet:makefilename:symbol:route:del:*:-:+:change:/:until:tgl:tabwrite~:tabplay~:spigot:soundfiler:samplerate~:r:print:min:loadbang:list:int:inlet~:dac~:bng:block~:adc~:abs:>=:<=]
 ;
 #X restore 438 423 pd meta;
+#X obj 108 149 fd_arrayautotrim;

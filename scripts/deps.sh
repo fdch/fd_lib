@@ -3,11 +3,19 @@
 # This script loads a pd patch (argument 1) and puts all dependencies in the 
 # directory specified with argument 2
 #
-
-# WHICHPD="Pd-0.48-1"
-# MYPD="/Applications/$WHICHPD.app/Contents/Resources/bin/pd"
-
-MYPD=/usr/local/bin/pd
+if [[ -f /usr/local/bin/pd ]]
+then 
+	MYPD=/usr/local/bin/pd
+elif [[ -f /usr/bin/pd ]]
+then
+	MYPD=/usr/bin/pd
+elif [[ -f /Applications/Pd-0.50-0.app/Contents/Resources/bin/pd ]]
+then
+	MYPD=/Applications/Pd-0.50-0.app/Contents/Resources/bin/pd
+else
+	echo "Could not find Pd. Please provide full/path/to/bin/pd"
+	exit 1
+fi
 
 #get pdfile name from argument 1
 if [ "$1" ]

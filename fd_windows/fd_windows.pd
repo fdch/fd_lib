@@ -27,7 +27,7 @@ you just want to specify partial strengths.;
 #X obj 45 62 fd_dspon;
 #X obj 23 131 switch~;
 #X obj 35 23 inlet, f 11;
-#X obj 126 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 126 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X connect 0 0 1 0;
 #X connect 0 1 3 0;

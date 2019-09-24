@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:30:20 EDT 2019
+fd_lib - metadata file - Mon Sep 16 23:11:08 EDT 2019
 patch_name   : fd_pixrecord
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_pixrecord
-inlet        : 0
+inlet        : 2
 outlet       : 1
 inlet~       : 0
 outlet~      : 0
-arguments    : 2
-classes used : 0
-total objects: 0
-connections  : 105
-dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+arguments    : 3
+classes used : 29
+total objects: 110
+connections  : 152
+dependencies : 1 [Gem]
+externals    : 4 [0pix_texture:pix_snap:pix_record:gemhead]
+internals    : 25/233 [0t:inlet:list:s:outlet:symbol:sel:r:route:spigot:makefilename:f:+:unpack:pipe:pdcontrol:loadbang:print:pack:namecanvas:mod:metro:del:declare:\*]

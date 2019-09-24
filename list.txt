@@ -153,6 +153,7 @@ fd_dactest/_test-tone.pd
 fd_dactest/_test8.pd
 fd_dactest/fd_dactest-help.pd
 fd_dactest/fd_dactest.pd
+fd_data/fd_data-help.pd
 fd_data/fd_data.pd
 fd_dataDroplet/fd_dataDroplet-help.pd
 fd_dataDroplet/fd_dataDroplet.pd
@@ -218,6 +219,8 @@ fd_filt/_alpha.pd
 fd_filt/_omega.pd
 fd_filt/fd_filt-help.pd
 fd_filt/fd_filt.pd
+fd_fletcher-munson/fd_fletcher-munson-help.pd
+fd_fletcher-munson/fd_fletcher-munson.pd
 fd_floor/fd_floor-help.pd
 fd_floor/fd_floor.pd
 fd_fm/fd_fm-help.pd
@@ -332,17 +335,15 @@ fd_map/fd_map-help.pd
 fd_map/fd_map.pd
 fd_map2/fd_map2-help.pd
 fd_map2/fd_map2.pd
+fd_mark/fd_mark-help.pd
 fd_mark/fd_mark.pd
 fd_markfour/fd_markfour-help.pd
-fd_markfour/fd_markfour-test.pd
 fd_markfour/fd_markfour.pd
 fd_markov/fd_markov-help.pd
-fd_markov/fd_markov-test.pd
 fd_markov/fd_markov.pd
 fd_markov3/fd_markov3-help.pd
 fd_markov3/fd_markov3.pd
 fd_markov5/fd_markov5-help.pd
-fd_markov5/fd_markov5-test.pd
 fd_markov5/fd_markov5.pd
 fd_matrix-comb/fd_matrix-comb-help.pd
 fd_matrix-comb/fd_matrix-comb.pd
@@ -366,6 +367,7 @@ fd_n!/fd_n!-help.pd
 fd_n!/fd_n!.pd
 fd_n=n-1/fd_n=n-1-help.pd
 fd_n=n-1/fd_n=n-1.pd
+fd_navigator/fd_navigator-help.pd
 fd_navigator/fd_navigator.pd
 fd_netreceive/fd_netreceive-help.pd
 fd_netreceive/fd_netreceive.pd
@@ -374,6 +376,7 @@ fd_netsend/fd_netsend.pd
 fd_next/_dummy.pd
 fd_next/fd_next-help.pd
 fd_next/fd_next.pd
+fd_noise~/fd_noise~-help.pd
 fd_noise~/fd_noise~.pd
 fd_nonpulmonic/fd_nonpulmonic-help.pd
 fd_nonpulmonic/fd_nonpulmonic.pd
@@ -396,6 +399,8 @@ fd_once/fd_once-help.pd
 fd_once/fd_once.pd
 fd_osc/fd_osc-help.pd
 fd_osc/fd_osc.pd
+fd_oshift~/fd_oshift~-help.pd
+fd_oshift~/fd_oshift~.pd
 fd_out/fd_out-help.pd
 fd_out/fd_out.pd
 fd_pan/fd_pan-help.pd
@@ -415,6 +420,7 @@ fd_pixrecord/fd_pixrecord.pd
 fd_plot/fd_plot-help.pd
 fd_plot/fd_plot-test.pd
 fd_plot/fd_plot.pd
+fd_pno/_poly.pd
 fd_pno/fd_pno-help.pd
 fd_pno/fd_pno.pd
 fd_poisson/fd_poisson-help.pd
@@ -430,6 +436,8 @@ fd_printer/fd_printer.pd
 fd_prob/fd_prob.pd
 fd_pshift/fd_pshift-help.pd
 fd_pshift/fd_pshift.pd
+fd_pshift~/fd_pshift~-help.pd
+fd_pshift~/fd_pshift~.pd
 fd_r/fd_r-help.pd
 fd_r/fd_r.pd
 fd_range/fd_range-help.pd
@@ -454,6 +462,8 @@ fd_rgbcol/fd_rgbcol-help.pd
 fd_rgbcol/fd_rgbcol.pd
 fd_round/fd_round-help.pd
 fd_round/fd_round.pd
+fd_rsdel~/fd_rsdel~-help.pd
+fd_rsdel~/fd_rsdel~.pd
 fd_s-prob-5/fd_s-prob-5-help.pd
 fd_s-prob-5/fd_s-prob-5.pd
 fd_s-prob/fd_s-prob-help.pd
@@ -462,6 +472,8 @@ fd_salvo/fd_salvo-help.pd
 fd_salvo/fd_salvo.pd
 fd_scales/fd_scales-help.pd
 fd_scales/fd_scales.pd
+fd_sdel~/fd_sdel~-help.pd
+fd_sdel~/fd_sdel~.pd
 fd_seltab/fd_seltab-help.pd
 fd_seltab/fd_seltab.pd
 fd_seltab/g.pd

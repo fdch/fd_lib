@@ -1,4 +1,5 @@
 #N canvas 405 23 554 690 12;
+#X declare -lib Gem;
 #X obj 93 212 min;
 #X obj 78 45 inlet;
 #X obj 78 576 outlet;
@@ -36,6 +37,7 @@
 #X obj 300 48 loadbang;
 #X msg 300 71 size 1 \, xpos 0 \, ypos 0;
 #X obj 286 98 route size xpos ypos reset float;
+#X obj 350 11 declare -lib Gem;
 #X connect 0 0 14 0;
 #X connect 1 0 4 0;
 #X connect 3 0 36 0;

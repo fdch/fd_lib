@@ -32,18 +32,18 @@
 #X text 60 284 0 arguments;
 #X text 60 340 0 inlets;
 #X text 60 410 1 outlets;
-#N canvas 0 22 523 473 messages 0;
+#N canvas 164 113 523 473 messages 1;
 #X obj 43 427 dac~;
 #X obj 43 24 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 81 255 hsl 128 15 1 300 0 0 empty empty attack_(msec) -2 -8
-0 10 -262144 -1 -1 100 1;
+0 10 -262144 -1 -1 1000 1;
 #X obj 91 285 hsl 128 15 0.01 300 1 0 empty empty pulse_(Hz) -2 -8
-0 10 -262144 -1 -1 11200 1;
+0 10 -262144 -1 -1 8300 1;
 #X obj 101 315 hsl 128 15 0 100 0 0 empty empty delay_amount_(%) -2
--8 0 10 -262144 -1 -1 9000 1;
+-8 0 10 -262144 -1 -1 10000 1;
 #X obj 111 345 hsl 128 15 0 100 0 0 empty empty delay_amplitude_(%)
--2 -8 0 10 -262144 -1 -1 11200 1;
+-2 -8 0 10 -262144 -1 -1 11800 1;
 #X floatatom 260 360 5 0 0 0 - - -;
 #X floatatom 261 330 5 0 0 0 - - -;
 #X floatatom 258 300 5 0 0 0 - - -;
