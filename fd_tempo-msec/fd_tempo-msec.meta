@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:53 EDT 2019
+fd_lib - metadata file - Sun Sep 29 15:42:03 EDT 2019
 patch_name   : fd_tempo-msec
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_tempo-msec
-inlet        : 0
-outlet       : 0
+inlet        : 2
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 7
-total objects: 70
+total objects: 10
 connections  : 13
 dependencies : 0 [0]
 externals    : 0 [0]

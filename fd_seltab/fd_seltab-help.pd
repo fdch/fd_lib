@@ -1,11 +1,45 @@
-#N canvas 581 36 547 344 12;
-#X text 215 23 "fd_seltab";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_seltab" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 01:06:37 EDT 2019
+;
+#X text 10 25 patch_name : fd_seltab;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 12;
+#X text 10 145 connections : 14;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0mtwister];
+#X text 10 190 internals : 7/233 [0text:t:outlet:symbol:route:list:inlet]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
 #X text 37 54 Select tables from [fd_windows]. Input is a float \,
 output is the symbol to a table.;
-#X floatatom 183 111 5 0 0 0 - - -, f 5;
-#X symbolatom 183 164 10 0 0 0 - - -, f 10;
+#X floatatom 183 111 5 0 0 0 - - -;
+#X symbolatom 183 175 10 0 0 0 - - -;
 #X obj 183 139 fd_seltab 0;
-#X connect 2 0 4 0;
-#X connect 4 0 3 0;
-#X obj 383 15 declare -path fd_lib;
-#X text 447 314 fd_lib v0.1;
+#X text 206 10 used with [fd_windows];
+#X symbolatom 276 175 10 0 0 0 - - -;
+#X text 60 284 1: float: instance number (default 0);
+#X text 60 340 1: float: table index;
+#X text 60 410 1: symbol: table name with index \; 2: symbol: table
+name without index \;;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;

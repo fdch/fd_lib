@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:56 EDT 2019
+fd_lib - metadata file - Sun Sep 29 15:44:56 EDT 2019
 patch_name   : fd_textsort2
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_textsort2
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
 classes used : 25
-total objects: 2500
+total objects: 100
 connections  : 129
 dependencies : 0 [0]
 externals    : 0 [0]

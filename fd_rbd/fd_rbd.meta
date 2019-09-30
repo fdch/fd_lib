@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:31 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:31:47 EDT 2019
 patch_name   : fd_rbd
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_rbd
-inlet        : 0
-outlet       : 0
+inlet        : 1
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 0
 classes used : 14
-total objects: 350
+total objects: 25
 connections  : 50
 dependencies : 0 [0]
 externals    : 0 [0]

@@ -1,10 +1,20 @@
 #N canvas 490 37 450 300 12;
-#X obj 71 75 inlet;
-#X obj 71 153 outlet;
+#X obj 71 15 inlet;
+#X obj 71 232 outlet;
 #X obj 217 48 text define -k \$0-vowels;
-#A set /a/ \; /e/ \; /i/ \; /o/ \; /u/ \;;
-#X obj 71 97 text get \$0-vowels;
-#X obj 71 131 symbol;
-#X connect 0 0 3 0;
+#A set /a/ \; /e/ \; /i/ \; /o/ \; /u/ \; /ə/ \; /ɪ/ \; /ʊ/ \; /e/
+\; /æ/ \; /ʌ/ \; /ɒ/ \; /i:/ \; /u:/ \; /ɜ:/ \; /ɔ:/ \; /ɑ:/
+\; /ɪə/ \; /eɪ/ \; /ʊə/ \; /ɔɪ/ \; /əʊ/ \; /eə/ \; /aɪ/
+\; /aʊ/ \;;
+#X obj 71 122 text get \$0-vowels;
+#X obj 71 210 symbol;
+#X obj 71 56 route float all;
+#X msg 235 106 line 0 \, auto;
+#X obj 235 130 text sequence \$0-vowels;
+#X connect 0 0 5 0;
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;

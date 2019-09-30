@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:17 EDT 2019
+fd_lib - metadata file - Mon Sep 30 00:42:56 EDT 2019
 patch_name   : fd_winreceive~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_winreceive~
-inlet        : 0
-outlet       : 0
+inlet        : 1
+outlet       : 1
 inlet~       : 0
-outlet~      : 0
+outlet~      : 1
 arguments    : 2
 classes used : 5
-total objects: 25
+total objects: 5
 connections  : 3
 dependencies : 0 [0]
-externals    : 2 [0fd_dsp-bang:fd_\$1~]
-internals    : 3/233 [0tabreceive~:outlet~:inlet]
+externals    : 2 [0fd_dsp-bang:fd_\$1\~]
+internals    : 3/233 [0tabreceive\~:outlet\~:inlet]

@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:30:35 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:49:38 EDT 2019
 patch_name   : fd_rexpo~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_rexpo~
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
-classes used : 0
-total objects: 0
+classes used : 19
+total objects: 24
 connections  : 34
 dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+externals    : 2 [0switch\~:fd_smooth_brute]
+internals    : 17/233 [0t:array:tabsend\~:sig\~:samplerate\~:route:phasor\~:lop\~:inlet:exp\~:del:bng:abs\~:\*\~:/\~:/:-\~]

@@ -1,4 +1,4 @@
-#N canvas 363 22 493 406 12;
+#N canvas 363 22 493 406 16;
 #X obj 18 125 route bang;
 #X obj 18 74 r \$1-fd_title-i1;
 #X obj 160 73 r \$1-fd_title-i2;
@@ -295,10 +295,10 @@ f 14;
 #X restore 18 306 pd \$1-canvas _____;
 #X obj 203 305 namecanvas \$1-title-cont;
 #N canvas 0 22 742 272 \$1-title 0;
-#X obj 20 20 cnv 22 17 22 1-mycnv 1-mycnvrcv empty 20 12 2 4 -228992
+#X obj 20 20 cnv 64 136 64 1-mycnv 1-mycnvrcv empty 20 12 2 4 -233017
 -262144 0;
 #X text 40 22 comment;
-#X coords 0 0 100 100 17 22 2 20 20;
+#X coords 0 0 100 100 136 64 2 20 20;
 #X restore 20 20 pd \$1-title;
 #X connect 0 0 5 0;
 #X connect 0 1 3 0;
@@ -308,4 +308,4 @@ f 14;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 6 0 7 0;
-#X coords 0 0 100 100 17 22 2 20 20;
+#X coords 0 0 100 100 136 64 2 20 20;

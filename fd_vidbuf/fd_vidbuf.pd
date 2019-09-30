@@ -1,4 +1,5 @@
 #N canvas 574 191 450 300 12;
+#X declare -lib Gem;
 #X obj 62 98 pix_video;
 #X obj 62 123 pix_rgba;
 #X obj 62 148 t a b;
@@ -14,6 +15,7 @@
 #X msg 248 121 resize \$1;
 #X obj 210 90 t f f;
 #X obj 62 73 gemhead 1;
+#X obj 274 21 declare -lib Gem;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 7 0;

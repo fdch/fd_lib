@@ -1,23 +1,52 @@
-#N canvas 527 48 468 392 12;
-#X obj 39 312 array define;
-#X text 21 129 Arguments: array-name(symbol) array-size(float), f
-48;
-#X obj 157 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 148 75 \; pd dsp 1;
-#X text 228 86 <-- must be on;
-#X text 247 320 used in [fd_windows];
-#X msg 188 184 click 0 0 0 0 0;
-#X text 191 164 hack to see array:;
-#X text 30 272 following naming conventions as, f 16;
-#X text 45 156 load table ->;
-#X text 170 13 "fd_poisson~";
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_poisson~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 0 fd_lib - metadata file - Sat Sep 28 14:43:30 EDT 2019
+;
+#X text 10 15 patch_name : fd_poisson~;
+#X text 10 30 inlet : 1;
+#X text 10 45 outlet : 0;
+#X text 10 60 inlet~ : 0;
+#X text 10 75 outlet~ : 0;
+#X text 10 90 arguments : 2;
+#X text 10 105 classes used : 11;
+#X text 10 120 total objects: 15;
+#X text 10 135 connections : 19;
+#X text 10 150 dependencies : 0 [0];
+#X text 10 165 externals : 3 [0iterate:fd_smooth_brute:fd_poisson]
+;
+#X text 10 180 internals : 8/233 [0t:array:route:inlet:f:bng:/:-];
+#X restore 445 427 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X obj 73 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 427 54 \; pd dsp 1;
+#X text 212 7 used in [fd_windows];
 #X text 20 45 Same as [fd_poisson] \, but stored via dsp into array
 ;
-#X obj 157 219 fd_poisson~ poisson-tilde 128, f 16;
-#X obj 297 292 fd_poisson;
-#X text 253 270 see fd_poisson-help.pd;
-#X connect 2 0 12 0;
-#X connect 6 0 12 0;
-#X obj 304 15 declare -path fd_lib;
-#X text 368 362 fd_lib v0.1;
+#X obj 73 179 fd_poisson~ poisson-tilde 128;
+#X msg 104 124 open;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X text 60 430 1 outlets;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X text 61 264 1: symbol : array-name \; 2: float : array-size;
+#X text 60 332 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: q : (float) coefficient \; 1: all other messages
+are routed to [array];
+#X floatatom 170 93 5 0 0 0 - - -;
+#X msg 170 144 q \$1 \, bang;
+#X obj 170 118 / 1000;
+#X connect 5 0 9 0;
+#X connect 10 0 9 0;
+#X connect 17 0 19 0;
+#X connect 18 0 9 0;
+#X connect 19 0 18 0;

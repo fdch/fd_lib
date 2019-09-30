@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:31:12 EDT 2019
+fd_lib - metadata file - Sun Sep 29 23:48:10 EDT 2019
 patch_name   : fd_visera
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_visera
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 5
-total objects: 25
+total objects: 5
 connections  : 7
 dependencies : 0 [0]
 externals    : 0 [0]

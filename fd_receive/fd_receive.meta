@@ -1,4 +1,4 @@
-fd_lib - metadata file - Fri Sep 13 11:30:33 EDT 2019
+fd_lib - metadata file - Sat Sep 28 23:09:30 EDT 2019
 patch_name   : fd_receive
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_receive
 inlet        : 0
@@ -7,7 +7,7 @@ inlet~       : 0
 outlet~      : 0
 arguments    : 3
 classes used : 3
-total objects: 9
+total objects: 3
 connections  : 2
 dependencies : 0 [0]
 externals    : 0 [0]

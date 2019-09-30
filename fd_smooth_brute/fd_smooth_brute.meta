@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:46 EDT 2019
+fd_lib - metadata file - Sun Sep 29 12:33:46 EDT 2019
 patch_name   : fd_smooth_brute
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_smooth_brute
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 5
-total objects: 80
+total objects: 16
 connections  : 25
 dependencies : 0 [0]
 externals    : 0 [0]

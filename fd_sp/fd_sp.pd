@@ -4,13 +4,11 @@
 #X obj 54 157 sqrt~;
 #X obj 39 78 r~ \$2-sig;
 #X obj 39 206 throw~ \$2-\$4-\$1;
-#X text 229 82 \$1 == instsance;
-#X text 229 102 \$2 == \$0- from parent;
-#X text 229 122 \$3 == signal;
-#X text 229 142 \$4 == speaker;
 #X obj 54 113 r \$2-\$3;
+#X text 182 94 1: float: instance number \; 2: float: \$0 from parent
+\; 3: float: signal id \; 4: float: speaker id \;;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 1;
 #X connect 3 0 0 0;
-#X connect 9 0 1 0;
+#X connect 5 0 1 0;

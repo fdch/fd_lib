@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:14 EDT 2019
+fd_lib - metadata file - Mon Sep 30 00:01:49 EDT 2019
 patch_name   : fd_welch~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_welch~
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
-classes used : 0
-total objects: 0
-connections  : 34
+classes used : 18
+total objects: 28
+connections  : 41
 dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+externals    : 2 [0switch\~:fd_smooth_brute]
+internals    : 16/233 [0t:route:inlet:array:\*\~:/:-\~:tabsend\~:sig\~:samplerate\~:phasor\~:outlet:f:del:/\~:-]

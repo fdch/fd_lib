@@ -1,28 +1,53 @@
-#N canvas 533 53 450 350 12;
-#X obj 42 284 array define;
-#X text 18 104 Arguments: array-name(symbol) array-size(float), f
-48;
-#X obj 157 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 148 58 \; pd dsp 1;
-#X text 221 76 <-- must be on;
-#X text 249 269 used in [fd_windows];
-#X msg 188 154 click 0 0 0 0 0;
-#X text 191 134 hack to see array:;
-#X text 33 244 following naming conventions as, f 16;
-#X text 45 126 load table ->;
-#X msg 333 162 q \$1 \, bang;
-#X msg 343 182 w \$1 \, bang;
-#X floatatom 344 138 5 0 0 0 - - -, f 5;
-#X floatatom 391 138 5 0 0 0 - - -, f 5;
-#X text 157 12 "fd_trapezoid~";
-#X text 20 33 Compute a trapezoid curve;
-#X obj 157 202 fd_trapezoid~ 0-tra 515, f 15;
-#X connect 2 0 16 0;
-#X connect 6 0 16 0;
-#X connect 10 0 16 0;
-#X connect 11 0 16 0;
-#X connect 12 0 10 0;
-#X connect 13 0 11 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_trapezoid~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 41 88 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 394 48 \; pd dsp 1;
+#X text 220 7 used in [fd_windows];
+#X msg 139 131 q \$1 \, bang;
+#X msg 237 132 w \$1 \, bang;
+#X floatatom 139 109 5 0 0 0 - - -;
+#X floatatom 237 109 5 0 0 0 - - -;
+#X text 17 50 Compute a trapezoid curve;
+#X obj 87 187 fd_trapezoid~ 0-tra 515;
+#X msg 87 96 open;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 299 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X text 61 264 1: symbol : array-name \; 2: float : array-size;
+#X text 60 430 0 outlets;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 16:32:49 EDT 2019
+;
+#X text 10 25 patch_name : fd_trapezoid~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 26;
+#X text 10 145 connections : 38;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 17/233 [0t:route:inlet:array:*~:/:tabsend~:samplerate~:phasor~:outlet:lop~:del:clip~:abs~:*:-~:+~]
+;
+#X restore 442 430 pd meta;
+#X text 61 323 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: 'q' : (float) width \; 1: 'w' : (float) slope
+\; 1: all other messages are routed to [array];
+#X connect 4 0 12 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 0;
+#X connect 9 0 7 0;
+#X connect 10 0 8 0;
+#X connect 13 0 12 0;

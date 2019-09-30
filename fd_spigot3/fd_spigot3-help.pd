@@ -1,29 +1,61 @@
-#N canvas 523 50 557 401 12;
-#X text 212 32 "fd_spigot3";
-#X text 41 73 Spigot betwen three inlets. 4th inlet selects 1st \,
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_spigot3" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 15:10:47 EDT 2019
+;
+#X text 10 25 patch_name : fd_spigot3;
+#X text 10 40 inlet : 4;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 14;
+#X text 10 145 connections : 27;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 7/233 [0inlet:t:spigot:sel:outlet:loadbang:f]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 25 60 Spigot betwen three inlets. 4th inlet selects 1st \,
 2nd and 3rd inlet to allow through;
-#X obj 104 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 104 292 print;
-#X msg 286 166 0;
-#X msg 331 166 1;
-#X msg 376 166 2;
-#X msg 104 196 1st;
-#X msg 138 196 2nd;
-#X msg 173 196 3rd;
-#X obj 104 154 metro 100;
-#X obj 104 247 fd_spigot3 2;
-#X text 231 141 select which one goes through;
-#X connect 2 0 10 0;
-#X connect 4 0 11 3;
-#X connect 5 0 11 3;
-#X connect 6 0 11 3;
-#X connect 7 0 11 0;
-#X connect 8 0 11 1;
-#X connect 9 0 11 2;
-#X connect 10 0 7 0;
-#X connect 10 0 8 0;
-#X connect 10 0 9 0;
-#X connect 11 0 3 0;
-#X obj 393 15 declare -path fd_lib;
-#X text 457 371 fd_lib v0.1;
+#X obj 96 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 96 213 print;
+#X msg 278 127 0;
+#X msg 323 127 1;
+#X msg 368 127 2;
+#X msg 96 157 1st;
+#X msg 130 157 2nd;
+#X msg 165 157 3rd;
+#X obj 96 115 metro 100;
+#X obj 96 188 fd_spigot3 2;
+#X text 223 102 select which one goes through;
+#X text 60 290 1: float: (0 \, 1 \, 2) which input goes through (default
+0);
+#X text 60 338 1-3: anything: input \; 4: float: (0 \, 1 \, 2) selects
+which input (1-3) goes through;
+#X text 60 410 1: anything: re-routed input;
+#X connect 9 0 17 0;
+#X connect 11 0 18 3;
+#X connect 12 0 18 3;
+#X connect 13 0 18 3;
+#X connect 14 0 18 0;
+#X connect 15 0 18 1;
+#X connect 16 0 18 2;
+#X connect 17 0 14 0;
+#X connect 17 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 10 0;

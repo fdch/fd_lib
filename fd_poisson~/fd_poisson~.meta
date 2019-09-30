@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:25 EDT 2019
+fd_lib - metadata file - Sat Sep 28 14:43:30 EDT 2019
 patch_name   : fd_poisson~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_poisson~
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
 classes used : 11
-total objects: 165
+total objects: 15
 connections  : 19
 dependencies : 0 [0]
 externals    : 3 [0iterate:fd_smooth_brute:fd_poisson]

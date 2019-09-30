@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:23 EDT 2019
+fd_lib - metadata file - Mon Sep 30 00:47:39 EDT 2019
 patch_name   : fd_write5
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_write5
-inlet        : 0
+inlet        : 3
 outlet       : 0
 inlet~       : 3
 outlet~      : 0
 arguments    : 1
-classes used : 0
-total objects: 0
+classes used : 25
+total objects: 80
 connections  : 78
 dependencies : 0 [0]
 externals    : 0 [0]
-internals    : 0/233 [0]
+internals    : 25/233 [0r:s:r\~:s\~:inlet\~:t:bng:nbx:tgl:symbol:outlet\~:outlet:line\~:int:\*\~:/:%:writesf\~:savepanel:route:print:metro:loadbang:f:+]

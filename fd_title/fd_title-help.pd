@@ -1,5 +1,40 @@
-#N canvas 397 43 733 630 12;
-#X floatatom 523 350 5 0 0 0 - - -, f 5;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_title" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 15:53:39 EDT 2019
+;
+#X text 10 25 patch_name : fd_title;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 9;
+#X text 10 115 classes used : 29;
+#X text 10 130 total objects: 101;
+#X text 10 145 connections : 165;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 5 [0fd_calm:fd_sum:fd_spigot:fd_listout:!msg]
+;
+#X text 10 190 internals : 24/233 [0t:list:+:s:inlet:route:r:outlet:bang:text:sel:moses:f:del:*:print:spigot:pack:namecanvas:min:loadbang:cnv:change:>=]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 9 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#N canvas 311 47 822 658 example 0;
+#X floatatom 523 350 5 0 0 0 - - -;
 #X msg 524 373 color \$1;
 #X msg 530 483 redo;
 #X msg 152 498 font \$1;
@@ -14,9 +49,9 @@
 #X msg 32 147 CHANGE ME TO ANOTHER TITLE;
 #X msg 40 172 the maximum number of arguments defaults to eight, f
 30;
-#X floatatom 304 403 5 0 0 0 - - -, f 5;
+#X floatatom 304 403 5 0 0 0 - - -;
 #X msg 304 425 width \$1;
-#X floatatom 411 404 5 0 0 0 - - -, f 5;
+#X floatatom 411 404 5 0 0 0 - - -;
 #X msg 411 426 height \$1;
 #X text 527 456 Get initial args;
 #X text 513 325 change Background color;
@@ -43,13 +78,14 @@ how to solve this?, f 18;
 #X msg 354 257 \; pd-fd_title-help.pd map 0 \, map 1;
 #X text 344 237 If things get redrawn \, click this:;
 #X text 376 122 [fd_title FLOATINDEX your title here ...];
-#X obj 41 59 fd_title 1 THIS IS AN EXAMPLE OF FD_TITLE;
+#X obj 42 55 fd_title 1 THIS IS AN EXAMPLE OF FD_TITLE;
 #X text 207 548 WARNING: only use one object per patch. 2 objects cause
 a rather fun loop. If this happens \, just delete one as fast as you
 can \, check it out...;
 #X text 37 24 [fd_title index arg1...arg8];
 #X msg 46 216 but you can name this title with a message with more
 arguments like this one (dont use commas or zeros), f 30;
+#X text 633 600 fd_lib v0.1;
 #X connect 0 0 1 0;
 #X connect 1 0 35 0;
 #X connect 2 0 36 0;
@@ -69,5 +105,4 @@ arguments like this one (dont use commas or zeros), f 30;
 #X connect 16 0 17 0;
 #X connect 17 0 34 0;
 #X connect 43 0 33 0;
-#X obj 569 15 declare -path fd_lib;
-#X text 633 600 fd_lib v0.1;
+#X restore 188 123 pd example;

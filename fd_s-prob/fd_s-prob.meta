@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:37 EDT 2019
+fd_lib - metadata file - Sat Sep 28 23:31:08 EDT 2019
 patch_name   : fd_s-prob
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_s-prob
-inlet        : 0
-outlet       : 0
+inlet        : 2
+outlet       : 3
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
 classes used : 13
-total objects: 299
+total objects: 23
 connections  : 28
 dependencies : 0 [0]
 externals    : 0 [0]

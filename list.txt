@@ -427,10 +427,6 @@ fd_poisson/fd_poisson-help.pd
 fd_poisson/fd_poisson.pd
 fd_poisson~/fd_poisson~-help.pd
 fd_poisson~/fd_poisson~.pd
-fd_polea/fd_polea-help.pd
-fd_polea/fd_polea.pd
-fd_preset/fd_preset-help.pd
-fd_preset/fd_preset.pd
 fd_printer/fd_printer-help.pd
 fd_printer/fd_printer.pd
 fd_prob/fd_prob.pd

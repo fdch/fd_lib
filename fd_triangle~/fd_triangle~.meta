@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:02 EDT 2019
+fd_lib - metadata file - Sun Sep 29 16:35:35 EDT 2019
 patch_name   : fd_triangle~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_triangle~
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
-classes used : 0
-total objects: 0
-connections  : 31
+classes used : 19
+total objects: 25
+connections  : 36
 dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+externals    : 2 [0switch\~:fd_smooth_brute]
+internals    : 17/233 [0t:route:inlet:array:/:tabsend\~:samplerate\~:phasor\~:outlet:lop\~:del:clip\~:abs\~:\*\~:\*:-\~:+\~]

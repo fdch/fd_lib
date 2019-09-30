@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:30:43 EDT 2019
+fd_lib - metadata file - Sun Sep 29 01:15:08 EDT 2019
 patch_name   : fd_sinc
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_sinc
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 2
-classes used : 0
-total objects: 0
+classes used : 16
+total objects: 19
 connections  : 30
 dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+externals    : 1 [0switch\~]
+internals    : 15/233 [0\*\~:t:tabwrite\~:sel:samplerate\~:route:phasor\~:inlet:f:cos\~:array:/\~:/:-\~:+\~]

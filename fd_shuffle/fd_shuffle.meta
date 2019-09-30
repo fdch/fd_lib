@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:42 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:02:34 EDT 2019
 patch_name   : fd_shuffle
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_shuffle
-inlet        : 0
+inlet        : 2
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 10
-total objects: 380
+total objects: 38
 connections  : 49
 dependencies : 0 [0]
 externals    : 1 [0fd_iterate]

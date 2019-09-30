@@ -8,10 +8,13 @@
 #X obj 158 272 outlet;
 #X obj 43 25 inlet;
 #X obj 110 195 == 0;
-#X obj 43 50 t b f f;
+#X obj 43 90 t b f f;
 #X obj 43 185 spigot;
 #X obj 229 41 t a b;
 #X msg 295 165 0;
+#X obj 43 57 route float args;
+#X msg 132 82 args;
+#X obj 132 106 pdcontrol;
 #X connect 0 0 6 0;
 #X connect 1 0 10 0;
 #X connect 2 0 0 0;
@@ -22,7 +25,7 @@
 #X connect 4 1 1 1;
 #X connect 5 0 2 0;
 #X connect 5 1 2 1;
-#X connect 7 0 9 0;
+#X connect 7 0 13 0;
 #X connect 8 0 10 1;
 #X connect 9 0 2 0;
 #X connect 9 0 1 0;
@@ -33,3 +36,7 @@
 #X connect 11 1 12 0;
 #X connect 12 0 0 1;
 #X connect 12 0 10 1;
+#X connect 13 0 9 0;
+#X connect 13 1 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 11 0;

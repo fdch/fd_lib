@@ -1,76 +1,155 @@
-#N canvas 522 48 655 660 12;
-#X obj 223 477 fd_scales;
-#X obj 220 287 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_scales" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 296 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sat Sep 28 23:49:17 EDT 2019
+;
+#X text 10 25 patch_name : fd_scales;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 40;
+#X text 10 145 connections : 44;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 15/233 [0array:inlet:t:symbol:outlet:change:sel:print:mod:list:int:f:div:*:+]
+;
+#X restore 438 423 pd meta;
+#X text 17 38 A utility to recall and store scales or patterns.;
+#N canvas 74 22 677 600 example 0;
+#X obj 263 356 fd_scales;
+#X obj 260 166 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
-#X obj 220 307 - 1;
-#X text 214 264 Scale type;
-#X obj 62 318 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X text 254 143 Scale type;
+#X obj 35 198 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 62 343 metro 0.5 140 permin, f 10;
-#X obj 207 524 + 60;
-#X obj 207 549 mtof;
-#X obj 207 574 t b f;
-#X obj 207 599 fd/_note;
-#X obj 207 624 dac~;
-#X obj 62 408 counter -m 24, f 7;
-#X text 255 521 <-- adjust fundamental;
-#X text 254 543 <-- convert to freq;
-#X msg 180 419 0;
-#X obj 220 362 t b f;
-#X msg 373 365 0 1 2 3 4 5 6 7 8 9 10 11;
-#X msg 373 405 0 1 4 3 2 5 6 9 8 7 10 11;
-#X floatatom 121 310 5 0 0 0 - - -, f 5;
-#X floatatom 220 332 5 0 0 0 - - -, f 5;
-#X msg 373 305 0 4 3 8;
-#X msg 373 325 0 3 7 8 7 3;
-#X msg 373 345 -1 3 7 8 7 3;
-#X obj 373 431 t a;
-#X text 372 386 A.W. Var. for Orchestra \, Op. 30;
+#X obj 263 418 + 60;
+#X obj 263 443 mtof;
+#X obj 263 468 t b f;
+#X obj 263 493 fd/_note;
+#X obj 263 518 dac~;
+#X text 310 437 <-- convert to freq;
+#X msg 260 263 0;
+#X obj 260 241 t b f;
+#X msg 393 244 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 393 284 0 1 4 3 2 5 6 9 8 7 10 11;
+#X floatatom 172 176 5 0 0 0 - - -;
+#X msg 393 184 0 4 3 8;
+#X obj 393 310 t a;
+#X text 392 265 A.W. Var. for Orchestra \, Op. 30;
 #N canvas 0 22 450 300 types 0;
-#X text 47 40 -1: user defined (N) \; 0: major (7) \; 1: minor (7):
+#X text 143 100 -1: user defined (N) \; 0: major (7) \; 1: minor (7):
 2: augmented (8) \; 3: diminished (10) \;;
-#X restore 256 308 pd types;
-#X text 249 14 "fd_scales";
-#X text 47 147 The first inlet takes a float which is the index of
-the scale (starting with 0). So \, if a 0 comes in \, then the first
-note comes out \, if a 1 comes in \, the 2nd note \, etc. The output
-wraps around the octave according to the length of the scale. So \,
-for the major scale \, every 7 notes you get a new octave. For a scale
-with 4 notes only \, the fifth outputed note will be the octave.,
-f 70;
-#X text 372 276 User defined scale/pattern;
-#X text 49 37 A utility to recall and store scales or patterns., f
-70;
-#X text 70 388 Scale index;
-#X text 47 67 [fd_scales] has 4 predefined scales: (major \, minor
+#X floatatom 103 172 5 0 0 0 - - -;
+#X obj 72 46 inlet;
+#X obj 78 235 outlet;
+#X obj 81 120 f;
+#X connect 2 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 3 0;
+#X restore 260 213 pd types;
+#X text 392 155 User defined scale/pattern;
+#X text 49 259 Scale index;
+#X text 51 542 NOTE: only the most recent user-defined scale will be
+stored internally., f 72;
+#X text 21 29 The first inlet takes a float which is the index of the
+scale (starting with 0). So \, if a 0 comes in \, then the first note
+comes out \, if a 1 comes in \, the 2nd note \, etc. The output wraps
+around the octave according to the length of the scale. So \, for the
+major scale \, every 7 notes you get a new octave. For a scale with
+4 notes only \, the fifth outputed note will be the octave., f 70
+;
+#X obj 260 187 - 1;
+#X msg 550 56 \; pd dsp 1;
+#X obj 172 198 / 100;
+#X obj 35 282 counter -m 12;
+#X msg 466 180 0;
+#X msg 466 213 \$1 3 7 8 7 3;
+#X msg 497 180 -1;
+#X msg 530 180 -2;
+#X msg 562 180 -4;
+#N canvas 0 22 450 300 random 0;
+#X obj 55 19 inlet;
+#X obj 55 43 t b b b;
+#X obj 55 187 list store;
+#X obj 55 211 outlet;
+#X obj 163 82 expr floor(random(10 \, 30));
+#X obj 163 106 until;
+#X msg 163 154 append \$1;
+#X obj 163 130 expr floor(random(-3 \, 18));
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 1 2 2 1;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X restore 532 348 pd random;
+#X obj 532 327 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 35 223 metro 0.3 140 permin;
+#X text 311 415 <-- adjust fundamental (base note);
+#X connect 0 0 4 0;
+#X connect 1 0 23 0;
+#X connect 3 0 34 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 7 1;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 10 0 26 0;
+#X connect 11 0 10 0;
+#X connect 11 1 0 1;
+#X connect 12 0 16 0;
+#X connect 13 0 16 0;
+#X connect 14 0 25 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 2;
+#X connect 18 0 11 0;
+#X connect 23 0 18 0;
+#X connect 25 0 34 1;
+#X connect 26 0 0 0;
+#X connect 27 0 28 0;
+#X connect 28 0 16 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;
+#X connect 31 0 28 0;
+#X connect 32 0 16 0;
+#X connect 33 0 32 0;
+#X connect 34 0 26 0;
+#X restore 352 212 pd example;
+#X obj 156 193 fd_scales;
+#X floatatom 156 230 5 0 0 0 - - -;
+#X floatatom 118 146 5 0 0 0 - - -;
+#X text 15 65 [fd_scales] has 4 predefined scales: (major \, minor
 \, augmented \, diminished) and can take any User Defined scale/pattern
 via 3rd inlet as a list of floats. The second inlet is used to select
 the predefined scales (respectively: 0 \, 1 \, 2 \, 3) \, or to use
-the user-defined one (-1)., f 70;
-#X text 310 598 NOTE: only the most recent user-defined scale will
-be stored internally., f 39;
-#X connect 0 0 6 0;
-#X connect 1 0 2 0;
-#X connect 2 0 19 0;
-#X connect 4 0 5 0;
-#X connect 5 0 11 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 8 1 9 1;
+the user-defined one (-1)., f 65;
+#X obj 186 151 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 280 157 1 1 2 3;
+#X text 60 276 1: float: choice of scale (default 0 == mayor);
+#X text 60 322 1: float: index to scale \; 2: float: choice of scale
+(default 0) \; 3: list: used-defined scale or pattern \;;
+#X text 60 410 1: float: indexed scale (see pd-example);
 #X connect 9 0 10 0;
-#X connect 9 0 10 1;
-#X connect 11 0 0 0;
-#X connect 14 0 11 0;
-#X connect 15 0 14 0;
-#X connect 15 1 0 1;
-#X connect 16 0 23 0;
-#X connect 17 0 23 0;
-#X connect 18 0 5 1;
-#X connect 19 0 15 0;
-#X connect 20 0 23 0;
-#X connect 21 0 23 0;
-#X connect 22 0 23 0;
-#X connect 23 0 0 2;
-#X obj 491 15 declare -path fd_lib;
-#X text 555 630 fd_lib v0.1;
+#X connect 11 0 9 0;
+#X connect 13 0 9 1;
+#X connect 14 0 9 2;

@@ -1,31 +1,36 @@
-#N struct template-1 float x float y float z float s float id array
-array-1 template-1-element;
-#N struct template-1-element float y float s float w;
-#N struct template-2 float x float y float z float s float id array
-array-2 template-2-element;
-#N struct template-2-element float y float s float w;
-#N struct template-3 float x float y float z float s float id array
-array-3 template-3-element;
-#N struct template-3-element float y float s float w;
-#N struct template-4 float x float y float z float s float id array
-array-4 template-4-element;
-#N struct template-4-element float y float s float w;
-#N struct template-5 float x float y float z float s float id array
-array-5 template-5-element;
-#N struct template-5-element float y float s float w;
-#N struct template-6 float x float y float z float s float id array
-array-6 template-6-element;
-#N struct template-6-element float y float s float w;
-#N struct template-7 float x float y float z float s float id array
-array-7 template-7-element;
-#N struct template-7-element float y float s float w;
-#N struct template-8 float x float y float z float s float id array
-array-8 template-8-element;
-#N struct template-8-element float y float s float w;
-#N canvas 530 55 450 350 12;
-#X text 400 300 fd_lib;
-#X obj 168 124 fd_data;
-#X text 168 94 See :;
-#X text 10 10 fd_set-element;
-#X obj -164 15 declare -path fd_lib;
-#X text -100 -30 fd_lib v0.1;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_set-element" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 01:10:29 EDT 2019
+;
+#X text 10 25 patch_name : fd_set-element;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 12;
+#X text 10 145 connections : 19;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 7/233 [0inlet:t:pointer:f:set:list:element]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 3 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X obj 78 127 fd_set-element;
+#X text 226 198 see help for fd_data;

@@ -1,51 +1,81 @@
-#N canvas 523 52 537 399 12;
-#X obj 122 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_z12" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 30 00:48:21 EDT 2019
+;
+#X text 10 25 patch_name : fd_z12;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 9;
+#X text 10 115 classes used : 12;
+#X text 10 130 total objects: 63;
+#X text 10 145 connections : 111;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 12/233 [0t:/:f:array:inlet:unpack:route:outlet:max:loadbang:-:+]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 9 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 1 outlets;
+#X obj 100 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 122 135 metro 1;
-#X obj 122 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 100 98 metro 1;
+#X obj 100 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 132 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 110 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 142 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 120 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 152 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 130 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 162 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 140 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 172 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 150 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 182 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 160 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 192 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 170 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 202 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 180 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 122 261 route 1 2 3 4 5 6 7 8 9 10 11, f 15;
-#X obj 212 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 100 187 route 1 2 3 4 5 6 7 8 9 10 11, f 15;
+#X obj 190 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 222 313 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 200 229 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 122 179 fd_z12 5.64374 5.78253 11.8587 12.2528 4.11797 20.6513
+#X obj 100 122 fd_z12 5.64374 5.78253 11.8587 12.2528 4.11797 20.6513
 4.4365 21.4257 3.07093 6.56591 3.07093, f 23;
-#X msg 303 97 input 10 5.78253 11.8587 0 4.11797 20.6513 4.4365 21.4257
+#X msg 280 121 input 10 5.78253 11.8587 0 4.11797 20.6513 4.4365 21.4257
 0 6.56591 0, f 23;
-#X text 226 18 "fd_z12";
 #X text 41 51 Miller Pucket's z12 algorith presented in an ICMC paper.
 ;
-#X connect 0 0 1 0;
-#X connect 1 0 14 0;
-#X connect 11 0 2 0;
-#X connect 11 1 3 0;
-#X connect 11 2 4 0;
-#X connect 11 3 5 0;
-#X connect 11 4 6 0;
-#X connect 11 5 7 0;
-#X connect 11 6 8 0;
-#X connect 11 7 9 0;
-#X connect 11 8 10 0;
-#X connect 11 9 12 0;
-#X connect 11 10 13 0;
-#X connect 14 0 11 0;
-#X connect 15 0 14 1;
-#X obj 373 15 declare -path fd_lib;
-#X text 437 369 fd_lib v0.1;
+#X connect 11 0 12 0;
+#X connect 12 0 25 0;
+#X connect 22 0 13 0;
+#X connect 22 1 14 0;
+#X connect 22 2 15 0;
+#X connect 22 3 16 0;
+#X connect 22 4 17 0;
+#X connect 22 5 18 0;
+#X connect 22 6 19 0;
+#X connect 22 7 20 0;
+#X connect 22 8 21 0;
+#X connect 22 9 23 0;
+#X connect 22 10 24 0;
+#X connect 25 0 22 0;
+#X connect 26 0 25 1;

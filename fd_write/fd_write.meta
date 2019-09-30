@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:19 EDT 2019
+fd_lib - metadata file - Mon Sep 30 00:45:38 EDT 2019
 patch_name   : fd_write
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_write
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 34
-total objects: 3026
+total objects: 89
 connections  : 123
 dependencies : 0 [0]
-externals    : 2 [0switch~:fd_dspon]
-internals    : 32/233 [0s:t:r:inlet:sel:outlet:makefilename:route:symbol:spigot:mod:metro:loadbang:int:f:change:/:writesf~:timer:tgl:print:pack:list:key:inlet~:del:cnv:bng:>=:==:-:+]
+externals    : 2 [0switch\~:fd_dspon]
+internals    : 32/233 [0s:t:r:inlet:sel:outlet:makefilename:route:symbol:spigot:mod:metro:loadbang:int:f:change:/:writesf\~:timer:tgl:print:pack:list:key:inlet\~:del:cnv:bng:>=:==:-:+]

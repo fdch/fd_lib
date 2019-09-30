@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:30:36 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:53:57 EDT 2019
 patch_name   : fd_rgbcol
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_rgbcol
-inlet        : 0
-outlet       : 0
+inlet        : 3
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 0
-classes used : 0
-total objects: 0
+classes used : 8
+total objects: 19
 connections  : 20
 dependencies : 0 [0]
 externals    : 0 [0]
-internals    : 0/233 [0]
+internals    : 8/233 [0min:max:int:inlet:t:\*:+:outlet]

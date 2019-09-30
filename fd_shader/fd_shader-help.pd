@@ -1,37 +1,75 @@
-#N canvas 526 51 450 350 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib Gem;
-#X text 164 13 "fd_shader";
+#X obj 4 4 cnv 15 522 30 empty empty "fd_shader" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 381 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sat Sep 28 23:52:58 EDT 2019
+;
+#X text 10 25 patch_name : fd_shader;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 23;
+#X text 10 145 connections : 35;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 3 [0glsl_vertex:glsl_program:glsl_fragment]
+;
+#X text 10 190 internals : 12/233 [0t:symbol:makefilename:inlet:spigot:route:r:pdcontrol:pack:outlet:loadbang:declare]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
 #X text 12 48 Tool for loading shaders. Need Gem.;
-#X obj 291 16 declare -lib Gem;
-#X floatatom 193 141 5 0 0 0 - - -, f 5;
-#X msg 193 163 K1 \$1;
-#X floatatom 243 141 5 0 0 0 - - -, f 5;
-#X floatatom 293 141 5 0 0 0 - - -, f 5;
-#X floatatom 343 141 5 0 0 0 - - -, f 5;
-#X msg 243 163 K2 \$1;
-#X msg 293 163 K3 \$1;
-#X msg 343 163 K4 \$1;
-#X obj 80 284 pix_texture;
-#X msg 317 53 create \, 1;
-#X obj 317 78 gemwin;
-#X obj 80 309 circle 3;
-#X obj 80 209 fd_shader rgba;
-#X msg 178 107 open rgba;
-#X obj 80 82 gemhead -1;
-#X obj 80 107 alpha 1;
-#X connect 3 0 4 0;
-#X connect 4 0 15 1;
-#X connect 5 0 8 0;
-#X connect 6 0 9 0;
-#X connect 7 0 10 0;
-#X connect 8 0 15 1;
-#X connect 9 0 15 1;
-#X connect 10 0 15 1;
-#X connect 11 0 14 0;
-#X connect 12 0 13 0;
-#X connect 15 0 11 0;
-#X connect 16 0 15 1;
-#X connect 17 0 18 0;
-#X connect 18 0 15 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X obj 380 30 declare -lib Gem;
+#X floatatom 168 129 5 0 0 0 - - -;
+#X msg 168 151 K1 \$1;
+#X floatatom 218 129 5 0 0 0 - - -;
+#X floatatom 268 129 5 0 0 0 - - -;
+#X floatatom 318 129 5 0 0 0 - - -;
+#X msg 218 151 K2 \$1;
+#X msg 268 151 K3 \$1;
+#X msg 318 151 K4 \$1;
+#X obj 55 195 pix_texture;
+#X msg 410 63 create \, 1;
+#X obj 410 118 gemwin;
+#X obj 55 220 circle 3;
+#X obj 55 170 fd_shader rgba;
+#X msg 150 104 open rgba;
+#X obj 55 74 gemhead -1;
+#X obj 55 99 alpha 1;
+#X text 60 328 1: list: gemlist \; 2: 'open': (symbol) new shader filename
+\; 2: other messages get routed to the shader;
+#X text 60 410 1: list: gemlist;
+#X msg 419 90 0 \, destroy;
+#X msg 386 167 \; rgba print;
+#X msg 247 213 \; rgba K1 0.6 \, K2 0.1 \, K3 0.1 \, K4 1;
+#X text 246 188 try these:;
+#X text 60 281 1: symbol: shader name (also selector to receive messages)
+;
+#X connect 10 0 11 0;
+#X connect 11 0 22 1;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 22 1;
+#X connect 16 0 22 1;
+#X connect 17 0 22 1;
+#X connect 18 0 21 0;
+#X connect 19 0 20 0;
+#X connect 22 0 18 0;
+#X connect 23 0 22 1;
+#X connect 24 0 25 0;
+#X connect 25 0 22 0;
+#X connect 28 0 20 0;

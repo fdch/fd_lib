@@ -1,10 +1,37 @@
-#N canvas 127 64 601 307 12;
-#X text 321 140 When a 1 or a 0 is received \, a 100 msec line runs
-via 1st outlet. If it's a 1 \, it runs after the 'on'-switching. If
-it's a 0 \, it runs before the 'off'-switching. Thus \, it makes switching
-'softer'., f 32;
-#X text 18 22 A soft switch.;
-#X obj 98 250 dac~;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_switch" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 15:26:57 EDT 2019
+;
+#X text 10 25 patch_name : fd_switch;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 24;
+#X text 10 145 connections : 32;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0!msg];
+#X text 10 190 internals : 14/233 [0t:pack:route:outlet:inlet:del:unpack:spigot:sel:outlet~:loadbang:line~:change:>]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 3 arguments;
+#X text 234 8 A soft switch.;
+#X obj 63 219 dac~;
 #N canvas 525 168 450 300 soft-switch 0;
 #X obj 43 209 outlet~;
 #X obj 250 75 fd_switch;
@@ -13,17 +40,17 @@ it's a 0 \, it runs before the 'off'-switching. Thus \, it makes switching
 #X obj 43 43 osc~ 440;
 #X obj 43 68 *~ 0.2;
 #X obj 250 23 inlet;
-#X text 135 138 100 msec envelope to fadeout, f 10;
 #X text 320 139 toggle switching (1|0), f 11;
 #X text 24 19 whatever signal;
 #X text 302 23 1|0;
+#X text 135 138 4 msec envelope to fadeout, f 10;
 #X connect 1 0 3 1;
 #X connect 1 1 2 0;
 #X connect 3 0 0 0;
 #X connect 4 0 5 0;
 #X connect 5 0 3 0;
 #X connect 6 0 1 0;
-#X restore 179 200 pd soft-switch;
+#X restore 155 175 pd soft-switch;
 #N canvas 145 166 450 300 normal-switch 0;
 #X obj 43 209 outlet~;
 #X obj 250 129 switch~;
@@ -35,85 +62,37 @@ it's a 0 \, it runs before the 'off'-switching. Thus \, it makes switching
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;
 #X connect 4 0 1 0;
-#X restore 26 200 pd normal-switch;
-#X obj 184 156 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 24 158 pd normal-switch;
+#X obj 154 136 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 27 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 25 132 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 45 151 < try this;
-#X text 205 153 < or this;
-#X text 17 55 [fd_switch] receives a 1 or a 0 via 1st inlet. It needs
-to be connected to a [switch~] object on the parent patch via 2nd outlet.
-The 1st outlet is meant to be multiplied to the last outgoing signal
-object of the parent patch. It is meant to reduce computation 'softly'
-, f 70;
+#X text 43 129 < try this;
+#X text 175 133 < or this;
 #N canvas 0 22 561 230 arguments 0;
 #X text 16 22 If one or more arguments are provided (max 3) \, these
 will be sent to the 2nd outlet. Arguments therefore behave just like
 the creation arguments for [switch~];
 #X text 15 103 You can also send a 'set' message via 1st inlet \, like
 in [switch~] or [block~];
-#X restore 466 268 pd arguments;
-#X text 348 267 see here -->;
-#N canvas 547 146 627 314 other-use 1;
-#X obj 20 11 osc~ 220;
-#X obj 505 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 505 228 fd_switch;
-#X obj 517 271 switch~;
-#X obj 296 249 *~;
-#X obj 293 276 dac~;
-#X obj 60 130 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 62 245 *~;
-#X obj 74 222 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X text 88 221 <-this second;
-#X text 524 32 <-this first;
-#X text 81 126 <-normal set;
-#X obj 100 13 osc~ 668;
-#X obj 18 43 s~ sig-0;
-#X obj 98 45 s~ sig-1;
-#X msg 61 157 set sig-\$1;
-#X obj 62 185 r~ sig-0;
-#X obj 359 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 266 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 265 35 t f b;
-#X obj 296 189 *~;
-#X text 280 9 <-soft set;
-#X msg 249 98 set sig-\$1;
-#X obj 282 140 r~;
-#X obj 359 116 vline~;
-#X msg 360 91 0 25 \, 1 25 25;
-#X connect 0 0 13 0;
-#X connect 1 0 2 0;
-#X connect 2 0 4 1;
-#X connect 2 1 3 0;
-#X connect 4 0 5 0;
-#X connect 4 0 5 1;
-#X connect 6 0 15 0;
-#X connect 7 0 4 0;
-#X connect 8 0 7 1;
-#X connect 12 0 14 0;
-#X connect 15 0 16 0;
-#X connect 16 0 7 0;
-#X connect 17 0 25 0;
-#X connect 18 0 19 0;
-#X connect 19 0 22 0;
-#X connect 19 1 17 0;
-#X connect 20 0 4 0;
-#X connect 22 0 23 0;
-#X connect 23 0 20 0;
-#X connect 24 0 20 1;
-#X connect 25 0 24 0;
-#X restore 201 233 pd other-use;
-#X connect 3 0 2 0;
-#X connect 3 0 2 1;
-#X connect 4 0 2 0;
-#X connect 4 0 2 1;
-#X connect 5 0 3 0;
-#X connect 6 0 4 0;
-#X obj 437 15 declare -path fd_lib;
-#X text 501 277 fd_lib v0.1;
+#X restore 283 283 pd arguments;
+#X text 178 282 see here -->;
+#X text 21 44 [fd_switch] receives a 1 or a 0 via 1st inlet. It needs
+to be connected to a [switch~] object on the parent patch via 2nd outlet.
+The 1st outlet is meant to be multiplied to the last outgoing signal
+object of the parent patch. It is meant to reduce computation 'softly'
+;
+#X text 60 336 1: float: 1|0 to turn switching on/off \; 1: 'set':
+message like [block~] or [switch~];
+#X text 60 400 1: signal: fade in/out to perform switching \; 2: float:
+0|1 status (connect this to a [switch~]);
+#X text 280 126 When a 1 or a 0 is received \, a 4 msec line runs via
+1st outlet. If it's a 1 \, it runs after the 'on'-switching. If it's
+a 0 \, it runs before the 'off'-switching. Thus \, it makes switching
+'softer'., f 32;
+#X connect 11 0 10 0;
+#X connect 11 0 10 1;
+#X connect 12 0 10 0;
+#X connect 12 0 10 1;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;

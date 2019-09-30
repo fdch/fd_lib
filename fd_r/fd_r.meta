@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:29 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:20:55 EDT 2019
 patch_name   : fd_r
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_r
-inlet        : 0
-outlet       : 0
+inlet        : 2
+outlet       : 2
 inlet~       : 0
 outlet~      : 0
 arguments    : 6
 classes used : 9
-total objects: 198
+total objects: 22
 connections  : 29
 dependencies : 0 [0]
 externals    : 0 [0]

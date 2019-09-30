@@ -1,14 +1,14 @@
-fd_lib - metadata file - Fri Sep 13 11:31:16 EDT 2019
+fd_lib - metadata file - Mon Sep 30 00:15:43 EDT 2019
 patch_name   : fd_winconcat
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_winconcat
-inlet        : 0
+inlet        : 1
 outlet       : 0
 inlet~       : 0
 outlet~      : 0
 arguments    : 3
-classes used : 0
-total objects: 0
+classes used : 13
+total objects: 26
 connections  : 38
 dependencies : 0 [0]
-externals    : 0 [0]
-internals    : 0/233 [0]
+externals    : 3 [0iterate:fd_seltab:fd_listout]
+internals    : 10/233 [0t:f:+:list:array:\*:/:tabread4:inlet:expr]

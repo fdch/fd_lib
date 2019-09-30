@@ -1,4 +1,4 @@
-#N canvas 281 22 497 299 12;
+#N canvas 281 22 497 756 12;
 #X obj 325 17 array define \$0-indices;
 #X f 12;
 #X obj 325 59 array define \$0-tablevals;

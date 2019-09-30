@@ -1,0 +1,14 @@
+fd_lib - metadata file - Sat Sep 28 23:29:05 EDT 2019
+patch_name   : fd_sdel~
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_sdel~
+inlet        : 7
+outlet       : 3
+inlet~       : 5
+outlet~      : 3
+arguments    : 0
+classes used : 12
+total objects: 19
+connections  : 17
+dependencies : 0 [0]
+externals    : 0 [0]
+internals    : 12/233 [0inlet\~:outlet\~:inlet:t:samplerate\~:pack:max:line\~:delwrite\~:delread4\~:\*:/]

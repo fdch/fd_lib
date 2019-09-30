@@ -252,15 +252,15 @@ text 60 340 \$3 inlets \, text 60 410 \$4 outlets, f 68;
 #X connect 13 0 2 0;
 #X connect 14 0 15 0;
 #X restore 27 258 pd \$0-dump-meta-text;
-#N canvas 902 274 378 377 \$0-controls 1;
+#N canvas 110 359 378 377 \$0-controls 0;
 #X obj 286 49 nbx 5 14 0.1 1 0 0 version version-set version 0 -8 0
 10 -262144 -1 -1 0.1 256;
 #X obj 208 16 bng 15 250 50 0 next-index next-index-set next-->> 17
 7 0 10 -262144 -1 -1;
 #X obj 120 15 bng 15 250 50 0 prev-index prev-index-set <<-prev -45
 7 0 10 -262144 -1 -1;
-#X obj 145 16 nbx 5 14 0 261 0 0 current-index current-index-set current-index
-0 -8 0 10 -262144 -1 -1 181 256;
+#X obj 145 16 nbx 5 14 0 256 0 0 current-index current-index-set current-index
+0 -8 0 10 -262144 -1 -1 255 256;
 #X symbolatom 4 194 30 0 0 1 file-name file-name-set file-name;
 #X symbolatom 4 216 30 0 0 1 pd-file-path pd-file-path-set pd-file-path
 ;
@@ -314,7 +314,7 @@ open-help-set bang \;;
 #X connect 8 0 9 0;
 #X connect 9 0 7 0;
 #X restore 4 350 pd \$0-shortcuts;
-#X obj 73 39 cnv 15 200 30 empty current-index-canvas 181/261_:"fd_polea"
+#X obj 73 39 cnv 15 200 30 empty current-index-canvas 255/256_:"fd_zero-crossing~"
 20 12 0 10 -228856 -1 0;
 #X obj 75 73 bng 15 250 50 0 initialize initialize-set initialize 17
 7 0 10 -262130 -1 -1;
@@ -346,7 +346,7 @@ remake-meta-file 17 7 0 10 -262144 -1 -1;
 #X connect 6 0 0 0;
 #X restore 27 60 pd \$0-next-index;
 #N canvas 464 123 450 300 \$0-init-counter 0;
-#X msg 155 95 182;
+#X msg 155 95 256;
 #X obj 155 72 r init-counter;
 #X msg 155 119 \; get-file \$1 \; next-index \$1 \;;
 #X text 151 42 store last index;
@@ -495,9 +495,9 @@ template however you wish;
 7 0 10 -262144 -1 -1;
 #X obj 51 49 bng 15 250 50 0 prev-index prev-index-set <<-prev -45
 7 0 10 -262144 -1 -1;
-#X obj 76 50 nbx 5 14 0 261 0 0 current-index current-index-set current-index
-0 -8 0 10 -262144 -1 -1 181 256;
-#X obj 16 72 cnv 15 200 30 empty current-index-canvas 181/261_:"fd_polea"
+#X obj 76 50 nbx 5 14 0 256 0 0 current-index current-index-set current-index
+0 -8 0 10 -262144 -1 -1 255 256;
+#X obj 16 72 cnv 15 200 30 empty current-index-canvas 255/256_:"fd_zero-crossing~"
 20 12 0 10 -228856 -1 0;
 #X obj 18 107 bng 15 250 50 0 initialize initialize-set initialize
 17 7 0 10 -262130 -1 -1;

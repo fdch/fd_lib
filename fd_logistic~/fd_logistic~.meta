@@ -1,4 +1,4 @@
-fd_lib - metadata file - Fri Sep 13 18:19:50 EDT 2019
+fd_lib - metadata file - Sun Sep 29 00:53:02 EDT 2019
 patch_name   : fd_logistic~
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_logistic~
 inlet        : 1
@@ -7,8 +7,8 @@ inlet~       : 0
 outlet~      : 0
 arguments    : 2
 classes used : 18
-total objects: 23
-connections  : 37
+total objects: 28
+connections  : 40
 dependencies : 0 [0]
 externals    : 2 [0switch\~:fd_smooth_brute]
-internals    : 16/233 [0\*\~:t:exp\~:tabsend\~:samplerate\~:route:pow\~:phasor\~:inlet:del:bng:array:abs\~:/:-\~:+\~]
+internals    : 16/233 [0t:\*\~:route:inlet:exp\~:array:tabsend\~:samplerate\~:pow\~:phasor\~:outlet:del:abs\~:/:-\~:+\~]

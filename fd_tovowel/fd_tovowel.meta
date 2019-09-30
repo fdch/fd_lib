@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:31:00 EDT 2019
+fd_lib - metadata file - Sun Sep 29 16:06:39 EDT 2019
 patch_name   : fd_tovowel
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_tovowel
-inlet        : 0
-outlet       : 0
+inlet        : 1
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 0
 classes used : 4
-total objects: 20
+total objects: 5
 connections  : 3
 dependencies : 0 [0]
 externals    : 0 [0]

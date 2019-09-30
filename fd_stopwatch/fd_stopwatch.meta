@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:51 EDT 2019
+fd_lib - metadata file - Sun Sep 29 15:20:38 EDT 2019
 patch_name   : fd_stopwatch
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_stopwatch
 inlet        : 0
-outlet       : 0
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 0
 classes used : 14
-total objects: 378
+total objects: 27
 connections  : 43
 dependencies : 0 [0]
 externals    : 0 [0]

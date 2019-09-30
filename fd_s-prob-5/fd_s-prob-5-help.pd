@@ -1,6 +1,34 @@
-#N canvas 529 48 450 350 12;
-#X text 224 111 inlet 2: new probs;
-#X text 161 264 see help for fd_markov.pd;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_s-prob-5" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 01:01:25 EDT 2019
+;
+#X text 10 25 patch_name : fd_s-prob-5;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 5;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 4;
+#X text 10 115 classes used : 11;
+#X text 10 130 total objects: 26;
+#X text 10 145 connections : 34;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0crand];
+#X text 10 190 internals : 10/233 [0outlet:b:moses:f:inlet:unpack:t:pack:loadbang:expr]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
 #X msg 84 143 bang;
 #X obj 84 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -8,22 +36,24 @@
 -1 -1;
 #X obj 174 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 155 31 "fd_s-prob-5";
 #X obj 219 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 265 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 208 297 fd_markov5;
 #X msg 264 148 30 10 20 4;
-#X text 35 66 Used in markov chains. Define probabilities for state
-0 \, 1 \, 2 \, 3 and state 4 == remaining prob., f 47;
+#X text 17 52 Used in markov chains. Define probabilities for state
+0 \, 1 \, 2 \, 3 and state 4 == remaining prob., f 61;
 #X obj 84 189 fd_s-prob-5 10 20 30 35;
-#X connect 2 0 12 0;
-#X connect 10 0 12 1;
-#X connect 12 0 3 0;
-#X connect 12 1 4 0;
-#X connect 12 2 5 0;
-#X connect 12 3 7 0;
-#X connect 12 4 8 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 320 fd_lib v0.1;
+#X text 60 284 1: list: (4) probabilities for states 1..4 (5th is inferred)
+;
+#X text 60 338 1: bang: to compute \; 2: list: new list of probabilities
+;
+#X text 60 410 1-5: bang: state;
+#X text 347 144 new probs;
+#X connect 8 0 16 0;
+#X connect 14 0 16 1;
+#X connect 16 0 9 0;
+#X connect 16 1 10 0;
+#X connect 16 2 11 0;
+#X connect 16 3 12 0;
+#X connect 16 4 13 0;

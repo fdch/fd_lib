@@ -1,13 +1,13 @@
-fd_lib - metadata file - Fri Sep 13 11:30:38 EDT 2019
+fd_lib - metadata file - Sun Sep 29 01:02:23 EDT 2019
 patch_name   : fd_salvo
 patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd_salvo
-inlet        : 0
-outlet       : 0
+inlet        : 1
+outlet       : 1
 inlet~       : 0
 outlet~      : 0
 arguments    : 1
 classes used : 9
-total objects: 126
+total objects: 14
 connections  : 19
 dependencies : 0 [0]
 externals    : 1 [0fd_iterate]
