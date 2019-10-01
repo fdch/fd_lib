@@ -107,7 +107,7 @@ void mainpath_dogetfiles(t_mainpath *x, t_int f)
 				SETSYMBOL(&files[i], gensym(buf));
 				outlet_symbol(x->x_obj.ob_outlet, atom_getsymbol(&files[i]));
 			} else 
-				if((strcmp(&dir->d_name[dir->d_namlen-pdlen], ".pd") == 0))
+				if((strcmp(&dir->d_name[strlen(dir->d_name)-pdlen], ".pd") == 0))
 				{
 				sprintf(buf, "%s.pd", dir->d_name);
 				SETSYMBOL(&files[i], gensym(buf));
