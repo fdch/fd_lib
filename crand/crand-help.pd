@@ -1,16 +1,32 @@
-#N canvas 527 49 597 352 12;
-#X msg 85 144 bang;
-#X msg 95 173 set -1000 1000;
-#X obj 85 279 crand -1 1;
-#X msg 113 239 reset;
-#X text 259 24 CRAND;
-#X text 56 59 Outputs random floats in a given range. 2 Creation arguments
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "crand" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 2 inlets;
+#X text 60 410 1 outlets;
+#X msg 30 110 bang;
+#X msg 40 133 set -1000 1000;
+#X obj 30 207 crand -1 1;
+#X msg 58 178 reset;
+#X text 20 45 Outputs random floats in a given range. 2 Creation arguments
 set up this range as minimum and maximum values. Send in a 'bang' to
 output a value. A 'set' message with two arguments resets the range.
 A 'reset' message resets to default.;
-#X floatatom 85 304 0 0 0 0 - - -;
-#X msg 107 204 set 20 30;
-#X text 327 161 see graphing example:;
+#X floatatom 30 229 0 0 0 0 - - -;
+#X msg 52 156 set 20 30;
 #N canvas 378 112 656 387 graphing 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand-help-array 100 float 3;
@@ -63,7 +79,7 @@ A 'reset' message resets to default.;
 #X connect 11 0 16 0;
 #X connect 15 0 16 0;
 #X connect 16 0 14 0;
-#X restore 321 186 pd graphing crand;
+#X restore 280 137 pd graphing crand;
 #N canvas 447 133 632 381 crand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand-gauss-array 100 float 3;
@@ -121,7 +137,7 @@ A 'reset' message resets to default.;
 #X connect 17 0 14 0;
 #X connect 18 0 12 0;
 #X connect 19 0 12 0;
-#X restore 320 211 pd crand with gauss;
+#X restore 279 162 pd crand with gauss;
 #N canvas 163 75 986 598 crand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand1 30 float 1;
@@ -230,13 +246,12 @@ seed. But \, the behavior is different:, f 87;
 #X connect 37 1 7 0;
 #X connect 38 0 25 0;
 #X connect 39 0 24 0;
-#X restore 344 304 pd crand seed test;
-#X text 288 244 [crand] uses <time.h> to make the seed for the C function
-'srand()', f 27;
-#X connect 0 0 2 0;
-#X connect 1 0 2 0;
-#X connect 2 0 6 0;
-#X connect 3 0 2 0;
-#X connect 7 0 2 0;
-#X obj 433 15 declare -path fd_lib;
-#X text 497 322 fd_lib v0.1;
+#X restore 281 225 pd crand seed test;
+#X text 182 190 [crand] uses <time.h> to make the seed for the C function
+'srand()', f 42;
+#X text 268 111 See graphing example:;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 14 0 13 0;
+#X connect 17 0 13 0;

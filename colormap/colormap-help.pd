@@ -1,16 +1,31 @@
-#N canvas 525 52 604 330 12;
-#X floatatom 209 79 5 0 0 0 - - -, f 5;
-#X obj 219 126 colormap 256;
-#X text 194 20 colormap;
-#X text 183 45 map linear value to an rgb output;
-#X obj 219 151 unpack f f f;
-#X floatatom 178 187 5 0 0 0 - - -, f 5;
-#X floatatom 246 190 5 0 0 0 - - -, f 5;
-#X floatatom 326 188 5 0 0 0 - - -, f 5;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 4 0 5 0;
-#X connect 4 1 6 0;
-#X connect 4 2 7 0;
-#X obj 440 15 declare -path fd_lib;
-#X text 504 300 fd_lib v0.1;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "colormap" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 2 inlets;
+#X text 60 410 1 outlets;
+#X floatatom 31 81 5 0 0 0 - - -;
+#X obj 31 111 colormap 256;
+#X text 28 46 map linear value to an rgb output;
+#X obj 31 136 unpack f f f;
+#X floatatom 31 178 5 0 0 0 - - -;
+#X floatatom 99 178 5 0 0 0 - - -;
+#X floatatom 179 178 5 0 0 0 - - -;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 14 2 17 0;

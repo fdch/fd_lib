@@ -1,4 +1,22 @@
-#N canvas 536 51 450 300 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "combi" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 2 inlets;
+#X text 60 410 1 outlets;
 #N canvas 405 167 738 607 more 0;
 #X obj 52 184 zexy/repack;
 #X msg 52 39 1 2 3 4 5 6;
@@ -100,17 +118,16 @@
 #X connect 33 0 16 0;
 #X connect 34 0 23 0;
 #X connect 35 0 25 0;
-#X restore 323 227 pd more tests;
-#X text 192 18 combi;
-#X msg 75 96 1 2 3 4 5;
-#X obj 75 254 print;
-#X msg 105 153 set 2;
-#X msg 85 118 1 2 3 4 5 6 7 8 9;
-#X msg 115 176 set 5;
-#X obj 75 210 combi 3;
-#X text 139 212 otpional arg to set "r";
-#X text 169 159 <-- set "r";
-#X text 46 48 Find all possible combinations from incoming list taking
+#X restore 348 143 pd more tests;
+#X msg 32 86 1 2 3 4 5;
+#X obj 32 225 print;
+#X msg 62 143 set 2;
+#X msg 42 108 1 2 3 4 5 6 7 8 9;
+#X msg 72 166 set 5;
+#X obj 32 200 combi 3;
+#X text 96 202 otpional arg to set "r";
+#X text 126 149 <-- set "r";
+#X text 26 43 Find all possible combinations from incoming list taking
 "r" elements from array of size "n", f 51;
 #N canvas 0 23 450 300 example 0;
 #X obj 88 180 zexy/repack;
@@ -133,8 +150,8 @@
 #X connect 6 1 4 0;
 #X connect 6 2 0 1;
 #X connect 8 0 0 0;
-#X restore 323 206 pd example;
-#N canvas 536 52 450 298 still 0;
+#X restore 348 122 pd example;
+#N canvas 536 52 547 358 still 0;
 #X msg 68 65 1 2 3 4 5 6;
 #X msg 187 65 1 2 3 4 5 6;
 #X msg 309 65 1 2 3 4 5 6;
@@ -843,11 +860,9 @@
 #X connect 21 0 22 0;
 #X connect 23 0 24 0;
 #X connect 26 0 25 0;
-#X restore 320 251 pd still more;
-#X connect 2 0 7 0;
-#X connect 4 0 7 0;
-#X connect 5 0 7 0;
-#X connect 6 0 7 0;
-#X connect 7 0 3 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 270 fd_lib v0.1;
+#X restore 348 164 pd still more;
+#X connect 12 0 17 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 0;
+#X connect 17 0 13 0;
