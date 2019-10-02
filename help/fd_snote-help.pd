@@ -1,0 +1,59 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_snote" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X text 440 452 fd_lib v0.1;
+#X floatatom 88 161 5 0 0 0 - - -;
+#X obj 379 7 declare -lib fd_lib;
+#X text 59 284 no arguments;
+#X text 60 340 1: foat:;
+#X text 60 410 1: list: binary;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Wed Oct 2 19:19:12 EDT 2019
+;
+#X text 10 25 patch_name : fd_snote;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 29;
+#X text 10 145 connections : 41;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0switch~];
+#X text 10 190 internals : 18/233 [0t:inlet:/:biquad~:+:throw~:tabread4~:symbol:spigot:sel:samplerate~:outlet:osc~:f:del:bp~:*~:*]
+;
+#X restore 438 423 pd meta;
+#X obj 386 213 dac~;
+#X obj 88 184 fd_seltab;
+#X floatatom 229 186 5 0 0 0 - - -;
+#X obj 316 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 441 114 \; pd dsp 0;
+#X msg 440 72 \; pd dsp 1;
+#X floatatom 167 184 5 0 0 0 - - -;
+#X obj 316 138 fd_windows 0 67;
+#X obj 387 188 catch~ snote-\$0;
+#X obj 94 217 fd_snote 1 0-exp \$0;
+#X msg 122 100 1000;
+#X msg 198 98 64;
+#X text 20 49 Stuff you just dont do: a note player whose adsr is read
+by changing onsets on to tabread4~;
+#X connect 6 0 13 0;
+#X connect 13 0 21 0;
+#X connect 14 0 21 2;
+#X connect 15 0 19 0;
+#X connect 18 0 21 1;
+#X connect 20 0 12 0;
+#X connect 20 0 12 1;
+#X connect 22 0 18 0;
+#X connect 23 0 18 0;

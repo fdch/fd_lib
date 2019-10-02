@@ -1,0 +1,56 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_dels" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X text 440 452 fd_lib v0.1;
+#X obj 379 7 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Wed Oct 2 19:06:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_dels;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 20;
+#X text 10 145 connections : 26;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 3 [0switch~:fd_switch:fd_log];
+#X text 10 190 internals : 12/233 [0t:vline~:inlet:*~:random:outlet~:loadbang:f:delread4~:del:*:/]
+;
+#X restore 438 423 pd meta;
+#X obj 272 216 dac~;
+#X obj 382 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 26 109 noise~;
+#X text 22 53 A weird delay manager;
+#X obj 24 146 *~;
+#X obj 64 141 phasor~ -13;
+#X obj 324 99 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 277 150 fd_dels 123 mydel;
+#X obj 330 180 fd_dels 321 mydel;
+#X obj 23 183 delwrite~ mydel 321;
+#X text 61 278 1: float: delay time \; 2: symbol: delay name;
+#X text 60 340 1: bang:;
+#X text 60 410 1: signal;
+#X msg 390 55 \; pd dsp 1;
+#X connect 9 0 15 1;
+#X connect 9 0 16 1;
+#X connect 10 0 12 0;
+#X connect 12 0 17 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 8 0;
+#X connect 16 0 8 1;

@@ -1,0 +1,14 @@
+fd_lib - metadata file - Wed Oct  2 19:19:12 EDT 2019
+patch_name   : fd_snote
+patch_path   : /Users/federicocamarahalac/Documents/fd_lib/fd/fd_snote
+inlet        : 3
+outlet       : 0
+inlet~       : 0
+outlet~      : 0
+arguments    : 3
+classes used : 19
+total objects: 29
+connections  : 41
+dependencies : 0 [0]
+externals    : 1 [0switch\~]
+internals    : 18/233 [0t:inlet:/:biquad\~:+:throw\~:tabread4\~:symbol:spigot:sel:samplerate\~:outlet:osc\~:f:del:bp\~:\*\~:\*]

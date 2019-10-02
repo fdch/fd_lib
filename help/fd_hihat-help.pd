@@ -1,0 +1,53 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_hihat" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X text 440 452 fd_lib v0.1;
+#X obj 172 172 fd_hihat;
+#X obj 379 7 declare -lib fd_lib;
+#X text 59 284 no arguments;
+#X text 60 340 1: foat:;
+#X text 60 410 1: list: binary;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:17:26 EDT 2019
+;
+#X text 10 25 patch_name : fd_hihat;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 13;
+#X text 10 145 connections : 17;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 10/233 [0t:list:sel:outlet:mod:inlet:f:b:*:>]
+;
+#X restore 438 423 pd meta;
+#X msg 385 106 \; pd dsp 0;
+#X msg 384 64 \; pd dsp 1;
+#X obj 170 215 dac~;
+#X obj 170 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 216 145 expr random(200 \, 400);
+#X floatatom 232 96 5 0 0 0 - - -;
+#X obj 171 119 metro 166;
+#X obj 172 143 t b b;
+#X text 18 53 A noise-based hihat;
+#X connect 6 0 14 0;
+#X connect 6 0 14 1;
+#X connect 15 0 18 0;
+#X connect 16 0 6 1;
+#X connect 17 0 18 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 0;
+#X connect 19 1 16 0;
