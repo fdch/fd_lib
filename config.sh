@@ -37,7 +37,7 @@ printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
 echo "
 
 define forWindows
-  cflags=-march=x86-64
+  cflags += -march=x86-64
 endef
 
 # build a multi-object library
