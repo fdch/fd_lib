@@ -44,8 +44,8 @@ t_float mod(t_float a, t_float n)
 /* ======== with <time.h> as next seed ======== */
 
 
-unsigned long mt[N]; /* the array for the state vector */
-int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
+unsigned long mt[NN]; /* the array for the state vector */
+int mti=NN+1; /* mti==NN+1 means mt[NN] is not initialized */
 
 /*
 
@@ -56,12 +56,12 @@ int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
 /* initializing the array with a NONZERO seed */
 void sgenrand(unsigned long seed)
 {
-	/* setting initial seeds to mt[N] using			*/
+	/* setting initial seeds to mt[NN] using			*/
 	/* the generator Line 25 of Table 1 in			*/
 	/* [KNUTH 1981, The Art of Computer Programming	*/
 	/* 		Vol. 2 (2nd Ed.), pp102]				*/
 	mt[0]= seed & 0xffffffff;
-	for (mti=1; mti<N; mti++)
+	for (mti=1; mti<NN; mti++)
 		mt[mti] = (69069 * mt[mti-1]) & 0xffffffff;
 }
 
@@ -71,22 +71,22 @@ unsigned long genrand()
 	static unsigned long mag01[2]={0x0, MATRIX_A};
 	/* mag01[x] = x * MATRIX_A for x=0,1 */
 	
-	if (mti >= N) { /* generate N words at one time */
+	if (mti >= NN) { /* generate NN words at one time */
 		int kk;
 		
-		if (mti == N+1)		/* if sgrand() has not been called, */
+		if (mti == NN+1)		/* if sgrand() has not been called, */
 			sgenrand(time(NULL));	/* a default initial seed is used */
 		
-		for (kk=0; kk<N-M;kk++) {
+		for (kk=0; kk<NN-MM;kk++) {
 			y = (mt[kk]&UPPER_MASK)|(mt[kk+1]&LOWER_MASK);
-			mt[kk] = mt[kk+M] ^ (y >> 1) ^ mag01[y & 0x1];
+			mt[kk] = mt[kk+MM] ^ (y >> 1) ^ mag01[y & 0x1];
 		}
-		for (;kk<N-1;kk++) {
+		for (;kk<NN-1;kk++) {
 			y = (mt[kk]&UPPER_MASK)|(mt[kk+1]&LOWER_MASK);
-			mt[kk] = mt[kk+(M-N)] ^ (y >> 1) ^ mag01[y & 0x1];
+			mt[kk] = mt[kk+(MM-NN)] ^ (y >> 1) ^ mag01[y & 0x1];
 		}
-		y = (mt[N-1]&UPPER_MASK)|(mt[0]&LOWER_MASK);
-		mt[N-1] = mt[M-1] ^ (y >> 1) ^ mag01[y & 0x1];
+		y = (mt[NN-1]&UPPER_MASK)|(mt[0]&LOWER_MASK);
+		mt[NN-1] = mt[MM-1] ^ (y >> 1) ^ mag01[y & 0x1];
 		
 		mti = 0;
 	}

@@ -43,8 +43,8 @@ You should have received a copy of the GNU General Public License along with thi
 
 
 /* Period parameters */
-#define N 624
-#define M 397
+#define NN 624
+#define MM 397
 #define MATRIX_A 0x9908b0df /* constant vector a */
 #define UPPER_MASK 0x80000000 /* most significant w-r bits */
 #define LOWER_MASK 0x7fffffff /* least significant r bits */
