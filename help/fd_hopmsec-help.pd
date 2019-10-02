@@ -1,0 +1,69 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_hopmsec" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 61 284 no arguments;
+#X floatatom 147 101 5 0 0 0 - - -;
+#X floatatom 147 156 5 0 0 0 - - -;
+#X obj 147 130 fd_hopmsec;
+#N canvas 0 22 450 300 example 0;
+#X obj 28 212 t b b;
+#X obj 28 244 timer;
+#X floatatom 28 268 5 0 0 0 - - -;
+#X obj 28 169 sigmund~ -npts 1024 -hop 2048 -npeak 1 peaks, f 24;
+#X floatatom 139 22 5 0 0 0 - - -;
+#X floatatom 139 77 5 0 0 0 - - -;
+#X msg 121 133 hop \$1;
+#X obj 139 51 fd_hopmsec;
+#X obj 28 136 osc~ 320;
+#X obj 121 109 f;
+#X obj 121 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 223 25 Input milliseconds to obtain necessary hop size for
+sigmund to analyze, f 26;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 9 1;
+#X connect 6 0 3 0;
+#X connect 7 0 5 0;
+#X connect 8 0 3 0;
+#X connect 9 0 6 0;
+#X connect 10 0 9 0;
+#X restore 359 168 pd example;
+#X text 60 340 1: float: milliseconds;
+#X text 59 409 1: float: block size in samples;
+#X text 22 45 Input milliseconds to obtain necessary block size. This
+is variable to the samplerate of the current patch taken from [samplerate~]
+;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:31 EDT 2019
+;
+#X text 10 25 patch_name : fd_hopmsec;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 32;
+#X text 10 145 connections : 56;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 9/233 [0bng:moses:samplerate~:outlet:loadbang:inlet:change:*:/]
+;
+#X restore 438 423 pd meta;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;

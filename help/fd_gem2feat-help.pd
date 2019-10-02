@@ -1,0 +1,60 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib Gem -lib timbreIDLib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_gem2feat" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 381 154 Dependencies:;
+#X obj 16 154 fd_gem2feat specBrightness;
+#X floatatom 181 184 5 0 0 1 spectral_Brightness - -;
+#X obj 16 63 gemhead;
+#X obj 16 87 pix_video;
+#X obj 16 198 pix_texture;
+#X msg 395 88 0 \, destroy;
+#X obj 383 112 gemwin;
+#X obj 16 131 pix_contrast;
+#X floatatom 100 100 5 0 0 1 Adjust_Contrast - -;
+#X obj 16 222 circle 4;
+#X text 10 40 Takes gemlist and applies feature defined in argument
+1;
+#X text 60 284 1: symbol : timbreID-type feature;
+#X text 60 340 1: list : gemlist;
+#X text 60 410 1: list : gemlist \; 2: float : timbreID feature output
+;
+#X obj 384 178 declare -lib Gem -lib timbreIDLib, f 16;
+#X msg 383 66 create \, 1, f 10;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:20 EDT 2019
+;
+#X text 10 25 patch_name : fd_gem2feat;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 14;
+#X text 10 145 connections : 14;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0fd_pix2list:\$1];
+#X text 10 190 internals : 8/233 [0array:t:outlet:spigot:inlet:change:b:==]
+;
+#X restore 438 423 pd meta;
+#X connect 8 0 12 0;
+#X connect 8 1 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 14 0;
+#X connect 15 0 8 0;
+#X connect 16 0 15 1;
+#X connect 23 0 14 0;

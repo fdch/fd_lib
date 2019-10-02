@@ -1,0 +1,94 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_blackman~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 45 93 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 420 51 \; pd dsp 1;
+#X text 216 5 used in [fd_windows];
+#X obj 92 141 fd_blackman~ blackman-tilde 128;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X text 61 424 no outlets;
+#X text 59 264 1: symbol : array-name \; 2: float : array-size;
+#X text 60 327 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: q : list of 4 floats \; 1: all other messages
+are routed to [array];
+#N canvas 632 200 450 300 more 0;
+#X obj 64 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 0 22 450 363 (subpatch) 0;
+#X floatatom 104 127 0 0 0 0 - - -;
+#X obj 140 233 t b f;
+#X obj 178 267 pack f f f f;
+#X floatatom 104 150 0 0 0 0 - - -;
+#X obj 190 233 t b f;
+#X floatatom 104 172 0 0 0 0 - - -;
+#X obj 240 233 t b f;
+#X floatatom 104 105 0 0 0 0 - - -;
+#X obj 110 14 loadbang;
+#X msg 116 39 -0.48829 0.14128 -0.01168 0.240752;
+#X obj 116 63 unpack f f f f;
+#X obj 178 291 t b a;
+#X obj 177 341 outlet;
+#X obj 227 290 list prepend q;
+#X obj 202 315 list trim;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 1 2 2;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 3;
+#X connect 7 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 10 1 0 0;
+#X connect 10 2 3 0;
+#X connect 10 3 5 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X coords 0 -1 1 1 79 98 2 100 100;
+#X restore 115 78 pd;
+#X text 203 116 <-- shift scroll these;
+#X obj 115 209 fd_blackman~ blackman-more 128;
+#X msg 134 182 open;
+#X connect 0 0 3 0;
+#X connect 1 0 3 0;
+#X connect 4 0 3 0;
+#X restore 406 165 pd more;
+#X text 15 45 Same as [fd_blackman] \, but computed using signals;
+#X msg 92 105 open;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:17 EDT 2019
+;
+#X text 10 25 patch_name : fd_blackman~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 18;
+#X text 10 130 total objects: 27;
+#X text 10 145 connections : 42;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 16/233 [0*~:t:route:inlet:array:unpack:tabsend~:samplerate~:phasor~:outlet:lop~:del:cos~:clip~:/:+~]
+;
+#X restore 438 423 pd meta;
+#X connect 4 0 7 0;
+#X connect 16 0 7 0;

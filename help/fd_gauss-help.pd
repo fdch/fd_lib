@@ -1,0 +1,107 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_gauss" 20 15 0 15 -228856
+-1 0;
+#X obj 4 234 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#N canvas 442 56 564 507 example 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array gauss 100 float 3;
+#A 0 0 1.4013e-45 1.00893e-43 8.23683e-42 6.07027e-40 4.04806e-38 2.44263e-36
+1.33362e-34 6.58836e-33 2.94509e-31 1.1912e-29 4.35964e-28 1.44371e-26
+4.32593e-25 1.17287e-23 2.87736e-22 6.38714e-21 1.2829e-19 2.33155e-18
+3.83414e-17 5.70509e-16 7.68117e-15 9.35762e-14 1.03151e-12 1.02885e-11
+9.28534e-11 7.58255e-10 5.60281e-09 3.74597e-08 2.26618e-07 1.2405e-06
+6.14421e-06 2.75364e-05 0.000111666 0.000409735 0.00136037 0.00408678
+0.011109 0.0273237 0.06081 0.122456 0.22313 0.367879 0.548812 0.740818
+0.904837 1 1 0.904837 0.740818 0.548812 0.36788 0.22313 0.122457 0.06081
+0.0273237 0.011109 0.00408678 0.00136037 0.000409737 0.000111666 2.75364e-05
+6.14421e-06 1.2405e-06 2.26619e-07 3.74599e-08 5.60277e-09 7.58255e-10
+9.28534e-11 1.02885e-11 1.03151e-12 9.35769e-14 7.68117e-15 5.70509e-16
+3.83414e-17 2.33155e-18 1.2829e-19 6.38721e-21 2.87739e-22 1.17287e-23
+4.32593e-25 1.44371e-26 4.35964e-28 1.19122e-29 2.94511e-31 6.58836e-33
+1.33362e-34 2.44263e-36 4.04806e-38 6.07031e-40 8.23683e-42 1.00893e-43
+1.4013e-45 0 0 0 0 0 0 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 283 128 graph;
+#X obj 178 133 t b f;
+#X obj 178 162 pack;
+#X floatatom 123 87 5 0 0 2 mean - -;
+#X obj 53 176 t f f;
+#X obj 53 201 / 100;
+#X obj 53 226 - 0.5;
+#X obj 53 251 * 2;
+#X msg 131 252 list \$1 \$2;
+#X obj 178 187 t b a;
+#X floatatom 179 88 5 0 0 2 stdev - -;
+#X obj 179 110 / 1000;
+#X obj 31 387 s gauss;
+#X msg 31 352 normalize 1;
+#X msg 31 28 bang to graph;
+#X obj 123 109 / 100;
+#X text 126 385 <-- NOTE: [fd_gauss] is NOT normalized \, so we are
+normalizing the array after graphing (cpu-expensive), f 46;
+#X obj 53 283 fd_gauss 0 0.1;
+#X obj 53 283 fd_gauss 0 0.1;
+#X obj 53 311 array set gauss;
+#X obj 53 148 fd_iterate;
+#X obj 31 118 t b b;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 9 0;
+#X connect 3 0 15 0;
+#X connect 4 0 5 0;
+#X connect 4 1 19 1;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 18 0;
+#X connect 8 0 18 0;
+#X connect 9 0 21 0;
+#X connect 9 1 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 1 0;
+#X connect 13 0 12 0;
+#X connect 14 0 21 0;
+#X connect 15 0 2 0;
+#X connect 18 0 19 0;
+#X connect 20 0 4 0;
+#X connect 21 0 13 0;
+#X connect 21 1 20 0;
+#X restore 363 154 pd example;
+#X text 112 45 Calculates a Gaussian Distribution:;
+#X text 76 72 1/sqrt(2*stdev^2*PI) EXP -((x-mean)^2/2*stdv));
+#X text 349 203 see fd_gauss~.pd;
+#X text 60 337 1: float : x value \; 1: list : (float) mean (float)
+standard deviation;
+#X text 60 260 1: float : mean \; 2: float : standard deviation;
+#X text 60 410 1: float : gaussian distribution;
+#X floatatom 59 132 5 0 0 0 - - -;
+#X floatatom 59 185 0 0 0 0 - - -;
+#X obj 59 161 fd_gauss 4 0.5;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:18 EDT 2019
+;
+#X text 10 25 patch_name : fd_gauss;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 13;
+#X text 10 130 total objects: 23;
+#X text 10 145 connections : 29;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 13/233 [0*:t:/:unpack:sqrt:route:pack:outlet:loadbang:inlet:f:exp:-]
+;
+#X restore 438 423 pd meta;
+#X connect 14 0 16 0;
+#X connect 16 0 15 0;

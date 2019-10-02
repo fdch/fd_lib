@@ -1,0 +1,78 @@
+#N canvas 735 51 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_arcsin" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 25 72 PI^-1 * ( x * (1 - x) ) ) ^-1/2;
+#N canvas 0 22 450 300 more 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array arcsin-help 100 float 3;
+#A 0 0 0.878609 0.75603 0.693073 0.652052 0.622247 0.599175 0.58056
+0.565096 0.551967 0.540632 0.530717 0.52195 0.514131 0.507104 0.500752
+0.49498 0.48971 0.484882 0.480444 0.476353 0.472573 0.469074 0.46583
+0.462818 0.460018 0.457415 0.454992 0.452738 0.450641 0.448691 0.446878
+0.445195 0.443635 0.442191 0.440859 0.439632 0.438506 0.437478 0.436544
+0.435701 0.434946 0.434276 0.43369 0.433186 0.432762 0.432416 0.432149
+0.431958 0.431844 0.431806 0.431844 0.431958 0.432149 0.432416 0.432762
+0.433186 0.43369 0.434276 0.434946 0.435701 0.436544 0.437478 0.438506
+0.439632 0.440859 0.442191 0.443635 0.445195 0.446878 0.448691 0.450641
+0.452738 0.454992 0.457415 0.460018 0.462818 0.46583 0.469074 0.472573
+0.476353 0.480444 0.484882 0.48971 0.49498 0.500752 0.507104 0.514131
+0.52195 0.530717 0.540632 0.551967 0.565096 0.580561 0.599175 0.622247
+0.652052 0.693073 0.75603 0.878609;
+#X coords 0 1 100 -1 173 119 1 0 0;
+#X restore 207 52 graph;
+#X obj 29 179 fd_arcsin;
+#X floatatom 29 47 5 0 0 0 - - -;
+#X obj 29 122 t f f;
+#X obj 29 207 array set arcsin-help, f 11;
+#X obj 29 95 fd_iterate;
+#X obj 29 151 / 100;
+#X obj 29 69 t b f;
+#X text 69 48 <-- shift scroll;
+#X connect 1 0 4 0;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 3 1 4 1;
+#X connect 5 0 3 0;
+#X connect 6 0 1 0;
+#X connect 7 0 5 0;
+#X connect 7 1 1 1;
+#X restore 368 182 pd more examples;
+#X text 25 48 Xenakis' arc sin;
+#X text 23 102 Formalized Music \, p.246;
+#X floatatom 185 150 5 0 0 0 - - -;
+#X floatatom 185 201 5 0 0 0 - - -;
+#X text 60 410 float;
+#X obj 185 175 fd_arcsin 1;
+#X text 63 351 2: float. Power coefficient;
+#X text 63 334 1: float.;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:17:28 EDT 2019
+;
+#X text 10 25 patch_name : fd_arcsin;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 13;
+#X text 10 145 connections : 16;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 9/233 [0t:pow:inlet:*:sel:outlet:loadbang:f:-]
+;
+#X restore 438 423 pd meta;
+#X connect 12 0 15 0;
+#X connect 15 0 13 0;

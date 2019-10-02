@@ -1,0 +1,135 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_hradio" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 304 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 31 55 A customizable version of a [hradio] with information
+stored in an array. When created \, out comes a pointer to the array.
+, f 54;
+#X text 350 217 see also [sradio];
+#N canvas 0 22 450 300 \$0-loader 0;
+#X obj -2 -2 cnv 34 94 34 empty 1035-loader-set 1035-loader 0 -10 0
+15 -166441 -10 1.04858e+06;
+#X obj 0 0 tgl 30 0 get-1035-loader-0 1035-loader-0-set empty 0 0 0
+4 -166441 -10 -21 0 1;
+#X obj 30 0 tgl 30 0 get-1035-loader-1 1035-loader-1-set empty 0 0
+0 4 -166441 -10 -21 0 1;
+#X obj 60 0 tgl 30 0 get-1035-loader-2 1035-loader-2-set empty 0 0
+0 4 -166441 -10 -21 0 1;
+#X coords 0 0 94 34 94 34 2 -2 -2;
+#X restore 37 202 pd \$0-loader;
+#X obj 36 156 fd_hradio \$0-loader;
+#X msg 50 128 number 3 \, size 30 \, color 1 \, bang;
+#N canvas 348 237 713 541 messages 0;
+#X msg 196 363 clear;
+#X floatatom 583 102 5 0 0 0 - - -;
+#X floatatom 569 46 5 0 0 0 - - -;
+#X floatatom 591 150 5 0 0 0 - - -;
+#X msg 587 173 color \$1;
+#X msg 569 72 number \$1;
+#X msg 311 89 symbol snare;
+#X msg 319 117 symbol hihat;
+#X msg 304 58 symbol bass;
+#X msg 217 408 reload;
+#X obj 110 202 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 180 328 set 1;
+#X msg 158 282 random 10;
+#X msg 143 256 random;
+#X msg 130 232 random 80;
+#X obj 238 481 fd_hradio;
+#X text 31 13 [1] create subpatch <name>;
+#X text 332 478 [1] create with argument <name> (optional);
+#N canvas 0 22 450 300 snare 0;
+#X restore 68 79 pd snare;
+#N canvas 0 22 450 300 hihat 0;
+#X restore 68 106 pd hihat;
+#X msg 581 124 size \$1;
+#N canvas 0 22 450 300 bass 0;
+#X obj -2 -2 cnv 14 104 14 empty bass-set bass 0 -10 0 15 -261681 -7
+1.04858e+06;
+#X obj 0 0 tgl 10 0 get-bass-0 bass-0-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 10 0 tgl 10 0 get-bass-1 bass-1-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 20 0 tgl 10 0 get-bass-2 bass-2-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 30 0 tgl 10 0 get-bass-3 bass-3-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 40 0 tgl 10 0 get-bass-4 bass-4-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 50 0 tgl 10 0 get-bass-5 bass-5-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 60 0 tgl 10 0 get-bass-6 bass-6-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 70 0 tgl 10 0 get-bass-7 bass-7-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 80 0 tgl 10 0 get-bass-8 bass-8-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X obj 90 0 tgl 10 0 get-bass-9 bass-9-set empty 0 0 0 4 -261681 -7
+-18 0 1;
+#X coords 0 0 104 14 104 14 2 -2 -2;
+#X restore 66 52 pd bass;
+#X text 293 20 [2] set argument <name>;
+#X text 552 20 [3] Set properties;
+#X text 66 175 [4] initialize;
+#X msg 458 342 store;
+#X msg 459 373 store 0;
+#X text 508 342 <-- increases counte;
+#X text 519 373 <-- specifies index;
+#X msg 461 418 recall 0;
+#X text 522 418 <-- recall index;
+#X text 501 311 Presets:;
+#X connect 0 0 15 0;
+#X connect 1 0 20 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 15 0;
+#X connect 5 0 15 0;
+#X connect 6 0 15 1;
+#X connect 7 0 15 1;
+#X connect 8 0 15 1;
+#X connect 9 0 15 0;
+#X connect 10 0 15 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 0;
+#X connect 20 0 15 0;
+#X connect 25 0 15 0;
+#X connect 26 0 15 0;
+#X connect 29 0 15 0;
+#X restore 369 188 pd messages;
+#X text 60 330 1: see pd-messages \; 2: symbol: new target subpatch
+;
+#X text 60 280 1: symbol: unique name of target subpatch for hradio
+;
+#X text 60 410 1: pointer: to text file holding data;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:34 EDT 2019
+;
+#X text 10 25 patch_name : fd_hradio;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 32;
+#X text 10 130 total objects: 143;
+#X text 10 145 connections : 192;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 5 [0fd_iterate:counter:fd_listout:fd_colortheme:fd_arg1]
+;
+#X text 10 210 internals : 27/233 [0r:t:s:list:f:+:pack:route:inlet:text:sel:bang:array:symbol:max:*:until:unpack:send:random:print:outlet:moses:makefilename:loadbang:clone:change]
+;
+#X restore 438 423 pd meta;
+#X connect 11 0 10 0;

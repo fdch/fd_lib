@@ -1,0 +1,74 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "mtwister" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 410 1 outlets;
+#X obj 32 209 mtwister;
+#X obj 32 231 print;
+#X text 26 39 Mersene Twister pseudorandom real number generator.;
+#X obj 32 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 523 373 450 300 test 0;
+#X obj 37 55 fd_iterate;
+#X obj 37 119 t b f;
+#X obj 37 167 array set array1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0.149453 0.067384 0.595834 0.224126 0.282733 0.780709 0.46338
+0.47718 0.979506 0.972841 0.798392 0.336989 0.351597 0.862567 0.34349
+0.970767 0.431171 0.0296579 0.580033 0.242236 0.94507 0.244415 0.24361
+0.929862 0.604121 0.98363 0.0902722 0.528593 0.895404 0.838265 0.179655
+0.497371 0.77125 0.17029 0.751433 0.254928 0.474065 0.040085 0.180506
+0.824133 0.00645048 0.935236 0.782722 0.288747 0.705676 0.191236 0.958452
+0.185059 0.0926424 0.542605 0.981816 0.631322 0.301808 0.295507 0.954184
+0.91282 0.0764693 0.613563 0.831647 0.422792 0.862248 0.402748 0.2516
+0.69936 0.0435595 0.0625851 0.836631 0.669474 0.803963 0.60547 0.897058
+0.0487813 0.160061 0.628329 0.72515 0.406344 0.876401 0.0492711 0.645995
+0.854648 0.0116987 0.112828 0.933539 0.806429 0.58114 0.932727 0.803053
+0.98606 0.288104 0.21566 0.919196 0.839038 0.0196579 0.0127085 0.29393
+0.0793243 0.769081 0.224085 0.308164 0.744479;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 192 41 graph;
+#X obj 37 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 37 144 mtwister;
+#X msg 93 91 set -1 1;
+#X msg 97 116 set 0 1;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 1 2 1;
+#X connect 4 0 0 0;
+#X connect 5 0 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X restore 274 230 pd test with arrays;
+#X msg 89 173 print;
+#X text 57 67 bang to generate;
+#X text 104 211 optional arguments are;
+#X text 133 142 set range and offset;
+#X msg 69 141 set 0 1;
+#X text 111 229 range \, offset \, seed;
+#X floatatom 65 89 5 0 0 0 - - -;
+#X msg 65 109 seed \$1;
+#X text 128 109 set new seed (rand if 0);
+#X text 137 174 print internal data to console;
+#X text 60 340 1 inlets;
+#X connect 10 0 11 0;
+#X connect 13 0 10 0;
+#X connect 15 0 10 0;
+#X connect 19 0 10 0;
+#X connect 21 0 22 0;
+#X connect 22 0 10 0;

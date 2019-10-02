@@ -1,3 +1,0 @@
-# fd_arrayautotrim 
-
- 

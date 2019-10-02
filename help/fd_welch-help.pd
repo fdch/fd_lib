@@ -1,0 +1,72 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_welch" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 23:57:52 EDT 2019
+;
+#X text 10 25 patch_name : fd_welch;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 13;
+#X text 10 145 connections : 16;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 7/233 [0t:-:inlet:/:outlet:f:*];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 48 61 Welch curve: 1-( (n-((N-1)/2)) / ((N-1)/2) )^2;
+#N canvas 0 22 450 300 example 0;
+#X msg 27 48 100;
+#X obj 27 103 fd_iterate;
+#X obj 27 136 t f f;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array-welch-help 100 float 3;
+#A 0 0 0.039996 0.0791755 0.117539 0.155086 0.191817 0.227732 0.26283
+0.297113 0.330579 0.363228 0.395062 0.426079 0.45628 0.485665 0.514233
+0.541986 0.568922 0.595041 0.620345 0.644832 0.668503 0.691358 0.713397
+0.734619 0.755025 0.774615 0.793388 0.811346 0.828487 0.844812 0.86032
+0.875013 0.888889 0.901949 0.914192 0.92562 0.936231 0.946026 0.955005
+0.963167 0.970513 0.977043 0.982757 0.987654 0.991736 0.995 0.997449
+0.999082 0.999898 0.999898 0.999082 0.997449 0.995 0.991736 0.987654
+0.982757 0.977043 0.970513 0.963167 0.955005 0.946026 0.936231 0.92562
+0.914192 0.901949 0.888889 0.875013 0.86032 0.844812 0.828487 0.811346
+0.793388 0.774615 0.755025 0.734619 0.713397 0.691358 0.668503 0.644832
+0.620345 0.595041 0.568922 0.541986 0.514233 0.485665 0.45628 0.426079
+0.395062 0.363228 0.330579 0.297113 0.26283 0.227732 0.191817 0.155086
+0.117539 0.0791755 0.039996 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 210 73 graph;
+#X obj 27 197 array set array-welch-help, f 16;
+#X obj 27 73 t f f;
+#X obj 27 162 fd_welch;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 2 1 4 1;
+#X connect 5 0 1 0;
+#X connect 5 1 6 1;
+#X connect 6 0 4 0;
+#X restore 314 167 pd example;
+#X floatatom 63 124 5 0 0 0 - - -;
+#X obj 63 147 fd_welch;
+#X floatatom 63 171 5 0 0 0 - - -;
+#X text 60 284 1: float: number of steps;
+#X text 60 340 1: float: input stream \; 2: float: number of steps
+;
+#X text 60 410 1: float: welch output;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;

@@ -1,0 +1,52 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_n!" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:20:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_n!;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 14;
+#X text 10 130 total objects: 24;
+#X text 10 145 connections : 38;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0b;
+#X text 10 190 externals ];
+#X text 10 205 internals : 13/233 [0f:t:sel:+:inlet:until:outlet:moses:loadbang:int:b:*:-]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 24 52 Computes the factorial of an incoming number;
+#X floatatom 120 128 5 0 0 0 - - -;
+#X obj 244 194 fd_n! 4;
+#X msg 244 125 bang;
+#X obj 120 219 print -n;
+#X obj 244 219 print -n;
+#X text 318 194 <-- as argument;
+#X obj 120 194 fd_n!;
+#X text 408 118 see also:;
+#X obj 419 147 factor;
+#X text 60 284 1: float: factorial;
+#X text 60 334 1: float: input value \; 1: bang: calculate using argument
+as value \; 2: float: change value of argument (cold inlet);
+#X text 60 410 1: float: factorial of input value;
+#X text 24 76 NOTE: upper limit is 34 \, after that you get an 'inf'
+;
+#X connect 9 0 15 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 15 0 12 0;

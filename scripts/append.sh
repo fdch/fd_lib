@@ -39,8 +39,8 @@ do
 		then
 			echo "Adding declare to <$i>..."
 			DOFF=$((XDIM-$DDIM))
-			echo "#X obj $DOFF 15 declare -path fd_lib;"
-			echo "#X obj $DOFF 15 declare -path fd_lib;" >> $i
+			echo "#X obj $DOFF 15 declare -lib fd_lib;"
+			echo "#X obj $DOFF 15 declare -lib fd_lib;" >> $i
 		else
 			echo $i "has already fd_lib declared:"
 			echo "|--->" $DECLARED

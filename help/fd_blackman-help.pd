@@ -1,0 +1,90 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_blackman" 20 15 0 15 -228856
+-1 0;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 294 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 526 381 example 0;
+#X text 371 205 a_0=0.35875 \; a_1=0.48829 \; a_2=0.14128 \; a_3=0.01168
+\,;
+#X obj 20 197 array set blackman-help-array, f 19;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array blackman-help-array 100 float 3;
+#A 0 5.99623e-05 0.000117481 0.000296831 0.000617981 0.00111452 0.00183326
+0.00283429 0.0041908 0.00598872 0.00832635 0.0113136 0.0150711 0.019729
+0.0254252 0.0323038 0.0405126 0.0502003 0.0615138 0.0745949 0.0895764
+0.106579 0.125705 0.147039 0.17064 0.196538 0.224732 0.255187 0.287831
+0.322551 0.359196 0.397574 0.43745 0.478553 0.520574 0.563171 0.605971
+0.648579 0.690577 0.731538 0.771027 0.808609 0.84386 0.876371 0.905756
+0.931658 0.953761 0.971789 0.985514 0.994762 0.999417 0.999417 0.994763
+0.985515 0.97179 0.953763 0.93166 0.905758 0.876374 0.843863 0.808612
+0.77103 0.731541 0.69058 0.648582 0.605975 0.563174 0.520577 0.478556
+0.437453 0.397577 0.359199 0.322554 0.287834 0.25519 0.224734 0.19654
+0.170642 0.147041 0.125707 0.10658 0.0895777 0.074596 0.0615148 0.0502011
+0.0405133 0.0323045 0.0254257 0.0197294 0.0150715 0.0113139 0.00832656
+0.0059889 0.00419092 0.00283435 0.00183332 0.00111455 0.000618011 0.000296861
+0.000117511 5.99623e-05;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 274 52 graph;
+#X obj 20 172 fd_blackman 100;
+#X floatatom 20 27 5 0 0 0 - - -;
+#X obj 20 49 t b f;
+#X obj 20 90 fd_iterate;
+#X floatatom 70 27 5 0 0 0 - - -;
+#X obj 70 49 t b f;
+#X floatatom 120 27 5 0 0 0 - - -;
+#X obj 120 49 t b f;
+#X floatatom 170 27 5 0 0 0 - - -;
+#X obj 170 49 t b f;
+#X text 246 228 coefficients:;
+#X obj 20 115 t f f;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 3 2;
+#X connect 6 0 14 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 8 1 3 3;
+#X connect 9 0 10 0;
+#X connect 10 0 6 0;
+#X connect 10 1 3 4;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 1 3 5;
+#X connect 14 0 3 0;
+#X connect 14 1 1 1;
+#X restore 403 192 pd example;
+#X text 25 46 https://en.wikipedia.org/wiki/Window_function;
+#X text 24 72 A generalization of the Hamming family \, produced by
+adding more shifted sinc functions \, meant to minimize side-lobe levels
+;
+#X obj 33 179 fd_blackman 100;
+#X text 60 269 optional size;
+#X text 63 316 1: x value \; 2: size \; 3 \, 6: coefficients;
+#X text 60 410 y value;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:17 EDT 2019
+;
+#X text 10 25 patch_name : fd_blackman;
+#X text 10 40 inlet : 6;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 39;
+#X text 10 145 connections : 42;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 10/233 [0*:inlet:cos:/:-:+:t:outlet:loadbang:f]
+;
+#X restore 438 423 pd meta;

@@ -1,0 +1,85 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_wielevy2" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 30 00:09:09 EDT 2019
+;
+#X text 10 25 patch_name : fd_wielevy2;
+#X text 10 40 inlet : 5;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 4;
+#X text 10 115 classes used : 16;
+#X text 10 130 total objects: 41;
+#X text 10 145 connections : 53;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 16/233 [0t:*:inlet:+:f:exp:/:until:unpack:sel:pow:pack:outlet:loadbang:i:-]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X text 24 69 where x and y are the values of the variables at the
+instants 0 and t \, respectively \, and k = 0 \, +/- 1 \, +/- 2 \,
+..., f 67;
+#X text 28 47 XENAKIS' method 4 (Weiner-Levy with 2 reflecting barriers)
+;
+#X text 138 106 Formalized Music page 247;
+#X text 566 374 fd_lib v0.1;
+#N canvas 0 22 594 300 example 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array wielevy2 100 float 2;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 286 105 graph;
+#X floatatom 215 41 5 0 0 0 - - -;
+#X obj 215 60 t b f;
+#X floatatom 168 41 5 0 0 0 - - -;
+#X obj 168 60 t b f;
+#X floatatom 118 41 5 0 0 0 - - -;
+#X obj 118 60 t b f;
+#X msg 29 80 100;
+#X obj 29 131 counter -m 100;
+#X obj 29 105 until;
+#X obj 29 159 t f f;
+#X obj 29 247 array set wielevy2;
+#X msg 269 56 1;
+#X obj 29 184 / 10;
+#X obj 29 222 fd_wielevy2 25 0.5 0 1;
+#X floatatom 213 198 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 2 1 14 3;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 14 2;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 14 1;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 13 0;
+#X connect 10 1 11 1;
+#X connect 12 0 14 4;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 14 4;
+#X restore 327 176 pd example;
+#X obj 30 182 fd_wielevy2 25 0.5 0 1;
+#X floatatom 30 206 5 0 0 0 - - -;
+#X floatatom 30 146 5 0 0 0 - - -;
+#X text 60 284 4 arguments (see fd_wielevy);
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;

@@ -1,0 +1,92 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "iterate" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 302 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 389 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X msg 72 127 reset;
+#X msg 71 103 set 200;
+#X obj 86 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 221 print;
+#X text 109 194 bang when done;
+#X msg 69 75 10;
+#X obj 24 70 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 160 iterate;
+#X obj 86 219 print done;
+#X text 118 128 reset to default limit;
+#X text 107 76 output new limit;
+#X text 130 99 set new limit (no output);
+#X text 86 163 Optional arg: limit (def: 100);
+#N canvas 538 325 533 326 try 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 10 float 3;
+#A 0 9.38579e-06 5.86612e-07 8.79918e-07 2.05314e-06 1.64251e-05 0.000163665
+0.00122397 0.0107813 0.109325 1;
+#X coords 0 1 10 0 181 109 1 0 0;
+#X restore 307 132 graph;
+#X obj 171 165 realtime;
+#X obj 113 128 iterate;
+#X obj 193 125 t a b;
+#X obj 171 217 array set array1;
+#X obj 115 77 pow;
+#X msg 114 51 10 \$1;
+#X obj 28 58 iterate;
+#X obj 118 26 t f f;
+#X obj 23 194 array get array1;
+#X msg 28 34 9;
+#X msg 339 58 \; array1 normalize 1;
+#X obj 21 222 list prepend set;
+#X obj 22 246 list trim;
+#X msg 22 269 0.032 0.002 0.003 0.007 0.056 0.558 4.173 36.758 372.734
+3409.41;
+#X obj 116 105 t f f;
+#X obj 171 191 t f f;
+#X obj 21 153 print it/time;
+#X obj 21 129 list prepend;
+#X connect 1 0 16 0;
+#X connect 2 1 1 1;
+#X connect 3 0 4 1;
+#X connect 3 1 1 0;
+#X connect 5 0 15 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 7 1 9 0;
+#X connect 8 0 6 0;
+#X connect 8 1 3 0;
+#X connect 9 0 12 0;
+#X connect 10 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 15 0 2 0;
+#X connect 15 1 18 1;
+#X connect 16 0 4 0;
+#X connect 16 1 18 0;
+#X connect 18 0 17 0;
+#X restore 350 126 pd try a large num;
+#X text 60 278 1: float: number of iterations (default 100);
+#X text 60 326 1: bang: to iterate \; 1: float: iterate n times \;
+1: 'set': new limit (no output) \; 1: 'reset': to default limit (100)
+;
+#X text 60 411 1: float: indices of iteration \; 2: bang: when done
+;
+#X text 20 43 A glorified 'for' loop. This is an object version of
+[fd_iterate], f 68;
+#X connect 8 0 15 0;
+#X connect 9 0 15 0;
+#X connect 10 0 16 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 0;
+#X connect 15 0 11 0;
+#X connect 15 1 10 0;

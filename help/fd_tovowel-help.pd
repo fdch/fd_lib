@@ -1,0 +1,42 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_tovowel" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 16:06:39 EDT 2019
+;
+#X text 10 25 patch_name : fd_tovowel;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 4;
+#X text 10 130 total objects: 5;
+#X text 10 145 connections : 3;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 4/233 [0text:symbol:outlet:inlet];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X text 10 40 Turn numbers into vowels;
+#X obj 133 151 fd_tovowel;
+#X obj 133 215 print vowel;
+#X floatatom 133 84 5 0 0 0 - - -;
+#X msg 175 107 all;
+#X text 60 340 1: float: index for vowels \; 1: 'all': output all vowels
+;
+#X text 60 410 1: symbol: vowel as phoneme;
+#X connect 10 0 11 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;

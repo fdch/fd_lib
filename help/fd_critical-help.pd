@@ -1,0 +1,42 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_critical" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 334 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 no outlets;
+#X obj 31 184 fd_critical;
+#X obj 238 103 fd_bark;
+#X text 117 103 See help for:;
+#X text 27 140 (Hz)=52548/(z^2-52.56z+690.39) \, with z in bark.;
+#X text 24 48 Critical bandwidth;
+#X text 235 164 OR f = 600*sinh(z/6)[5];
+#X text 23 73 This abstraction is used in connection with fd_bark;
+#X text 60 277 1: symbol : bark_array_name \; 2: symbol : critical_array_name
+\; 3: float : 1|0;
+#X text 60 360 1: bang : to compute;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:46 EDT 2019
+;
+#X text 10 25 patch_name : fd_critical;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 21;
+#X text 10 130 total objects: 52;
+#X text 10 145 connections : 71;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_sinh];
+#X text 10 190 internals : 20/233 [0t:f:+:until:tabwrite:tabread:symbol:spigot:sel:r:print:list:inlet:array:*:==:/:s:loadbang:-]
+;
+#X restore 438 423 pd meta;

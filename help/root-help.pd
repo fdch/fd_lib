@@ -1,0 +1,70 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "root" 20 15 0 15 -228856 -1 0
+;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#N canvas 533 149 450 300 child 0;
+#X msg 31 55 bang;
+#X obj 31 205 t b a;
+#X msg 31 230 vis 1;
+#X obj 31 255 s;
+#X obj 31 89 root;
+#X msg 51 130 bang;
+#X text 279 214 even more:;
+#X text 83 53 <-- inside (this) child subpatch;
+#N canvas 0 22 450 300 granchild 0;
+#X msg 22 27 bang;
+#X obj 22 207 t b a;
+#X msg 22 232 vis 1;
+#X obj 22 257 s;
+#X obj 22 61 root;
+#X msg 42 102 bang;
+#X text 183 137 <-- inside abstraction;
+#X text 74 25 <-- inside (this) grandchild subpatch;
+#X obj 42 137 dummy root;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 1;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 8 0 1 0;
+#X restore 284 240 pd granchild;
+#X obj 51 165 dummy root;
+#X text 90 229 (vising it);
+#X text 140 165 <-- inside an abstraction;
+#X text 29 13 Clicking on the bangs will make the root visible.;
+#N canvas 0 22 450 300 warning 0;
+#X text 14 30 Be careful because you can cause Pd to crash...;
+#X text 14 71 If you send \, for example \, a 'clear' message \, you'll
+clear the root \, and possibly crash pd!!, f 51;
+#X text 17 130 Choose non-destructive messages instead.;
+#X restore 284 264 pd warning;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 1;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 5 0 9 0;
+#X connect 9 0 1 0;
+#X restore 194 186 pd child;
+#X text 20 48 Get the root canvas from inside a subpatch or abstraction.
+;
+#X text 21 77 The outcome is a symbol in tk namespace (i.e. \, '.x60b060')
+\, which is pd's inner way to refer to canvases. You can use it as
+a target to a [send <target>] object.;
+#X text 180 149 For example:;

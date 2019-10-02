@@ -1,0 +1,82 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_r" 20 15 0 15 -228856 -1 0
+;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 303 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 398 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 00:20:55 EDT 2019
+;
+#X text 10 25 patch_name : fd_r;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 6;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 22;
+#X text 10 145 connections : 29;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 9/233 [0list:t:route:random:outlet:inlet:b:array:symbol]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X msg 55 137 bang;
+#X floatatom 54 212 5 0 0 0 - - -;
+#X floatatom 199 218 5 0 0 0 - - -;
+#X msg 199 157 10 22 31 231 2 23 12 22;
+#X obj 55 186 fd_r 2 300 72 2 100 6;
+#X text 26 38 Random choice of floats;
+#X text 23 62 Choose randomly from 6 float arguments \, or an array
+(if you give it an arrayname as first argument) \, or a list (if you
+send in a list of floats via 2nd inlet. Bang to output choice. Output
+is value and index respectively.;
+#N canvas 0 22 450 300 example 0;
+#X msg 63 56 bang;
+#X floatatom 63 187 5 0 0 0 - - -;
+#X floatatom 151 189 5 0 0 0 - - -;
+#X msg 164 109 symbol other-array;
+#X obj 63 146 fd_r \$0-array;
+#X obj 191 35 array define -k \$0-array 120;
+#A 0 -5.08365 0 5.08365 8.94472 10.7493 10.303 8.07895 5.01904 2.18866
+0.414221 0.0327894 0.834802 2.20503 3.39375 3.80775 3.21312 1.78461
+2.38823e-05 -1.56381 -2.44668 -2.45149 -1.67733 -0.443644 0.849586
+1.86382 2.41421 2.48895 2.2054 1.73477 1.23193 0.794525 0.456511 0.204506
+5.30718e-06 -0.204494 -0.456495 -0.794504 -1.2319 -1.73474 -2.20538
+-2.48895 -2.41422 -1.86386 -0.84965 0.443572 1.67727 2.45147 2.4467
+1.56388 7.16467e-05 -1.78452 -3.21307 -3.80774 -3.39379 -2.2051 -0.834867
+-0.0328049 -0.414162 -2.18853 -5.01887 -8.0788 -10.3029 -10.7493 -8.94488
+-5.0839 -0.000286588 5.08339 0.42 0.433334 0.466667 0.486668 0.493335
+0.506668 0.506668 0.506668 0.500001 0.453334 0.173329 0.186663 0.19333
+0.133328 0.106661 0.0399936 0.02666 0.02666 0.02666 0.0333268 0.0599939
+0.0799943 0.0999946 0.146662 0.19333 0.266664 0.299998 0.279998 0.23333
+0.206663 0.186663 0.179996 0.173329 0.179996 0.199996 0.226663 0.219997
+0.173329 0.139995 0.106661 0.0799943 0.0733275 0.0733275 0.086661 0.113328
+0.126662 0.139995 0.179996 0.199996 0.219997 0.206663 0.19333 0.186663
+;
+#X connect 0 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;
+#X connect 4 1 2 0;
+#X restore 389 205 pd example;
+#X text 60 420 1: float: chosen float \; 2: float: index of chosen
+float;
+#X msg 70 161 args;
+#X text 60 269 1: list: of floats to pick from \; 1: symbol: array
+name to pick from \;;
+#X text 60 325 1: bang: to choose random float \; 1: 'args': to revert
+to arguments instead of new list \; 2: list: new list of any size \;
+2: symbol: new array name \;;
+#X connect 8 0 12 0;
+#X connect 11 0 12 1;
+#X connect 12 0 9 0;
+#X connect 12 1 10 0;
+#X connect 17 0 12 0;

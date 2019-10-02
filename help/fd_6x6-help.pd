@@ -1,0 +1,62 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_6x6" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X text 440 452 fd_lib v\$2;
+#X text 60 284 no arguments;
+#X obj 174 99 fd_6x6;
+#X text 21 54 A 6x6 matrix of vradios;
+#X obj 378 8 declare -lib fd_lib;
+#X obj 174 215 print;
+#N canvas 265 127 470 423 more 0;
+#X obj 183 206 fd_6x6;
+#X msg 86 51 bang;
+#X obj 88 105 random 6;
+#X msg 88 130 3 \$1;
+#X obj 183 338 print;
+#X obj 210 113 random 6;
+#X obj 282 112 random 6;
+#X obj 210 139 pack;
+#X obj 211 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 211 51 metro 100;
+#X obj 211 77 t b b;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 0 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 10 1 6 0;
+#X restore 375 155 pd more examples;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:17:27 EDT 2019
+;
+#X text 10 25 patch_name : fd_6x6;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 23;
+#X text 10 145 connections : 32;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0vradio];
+#X text 10 190 internals : 6/233 [0+:t:outlet:inlet:route:pack];
+#X restore 438 423 pd meta;
+#X text 63 341 1: list: (float) x (float) y;
+#X text 59 412 1: list: 6 floats;
+#X connect 7 0 10 0;

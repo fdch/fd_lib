@@ -1,0 +1,47 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_sinc" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 01:15:08 EDT 2019
+;
+#X text 10 25 patch_name : fd_sinc;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 16;
+#X text 10 130 total objects: 19;
+#X text 10 145 connections : 30;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0switch~];
+#X text 10 190 internals : 15/233 [0*~:t:tabwrite~:sel:samplerate~:route:phasor~:inlet:f:cos~:array:/~:/:-~:+~]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 2 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X obj 72 192 fd_sinc 0-sinc 515;
+#X msg 73 84 bang;
+#X msg 403 59 \; pd dsp 1;
+#X msg 83 110 click 0 0 0 0 0;
+#X floatatom 212 117 5 0 0 0 - - -;
+#X msg 212 140 q \$1 \, bang;
+#X msg 105 140 67;
+#X text 10 40 Computes a sinusoidal pulse;
+#X connect 12 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;

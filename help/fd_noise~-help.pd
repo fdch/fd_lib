@@ -1,0 +1,44 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_noise~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 233 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 293 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 394 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 0 fd_lib - metadata file - Fri Sep 13 11:30:08 EDT 2019
+;
+#X text 10 15 patch_name : fd_noise~;
+#X text 10 30 inlet : 0;
+#X text 10 45 outlet : 0;
+#X text 10 60 inlet~ : 0;
+#X text 10 75 outlet~ : 0;
+#X text 10 90 arguments : 2;
+#X text 10 105 classes used : 12;
+#X text 10 120 total objects: 144;
+#X text 10 135 connections : 17;
+#X text 10 150 dependencies : 0 [0];
+#X text 10 165 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 180 internals : 10/233 [0tabsend~:t:route:noise~:lop~:inlet:del:cos~:bng:array]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 417 0 outlets;
+#X obj 72 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 408 50 \; pd dsp 1;
+#X text 214 7 used in [fd_windows];
+#X text 61 254 1: symbol : array-name \; 2: float : array-size;
+#X msg 111 117 open;
+#X text 19 49 Generate noise with a lopass;
+#X obj 111 166 fd_noise~ 0-noi 512;
+#X text 64 322 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: all other messages are routed to [array];
+#X connect 9 0 15 0;
+#X connect 13 0 15 0;

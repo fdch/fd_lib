@@ -1,0 +1,83 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_sin" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 11:30:43 EDT 2019
+;
+#X text 10 25 patch_name : fd_sin;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 0;
+#X text 10 130 total objects: 0;
+#X text 10 145 connections : 9;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 0/233 [0];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 450 300 example 0;
+#X obj 37 160 t f f;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sin-help 100 float 3;
+#A 0 0 0.509041 0.876306 0.999507 0.844329 0.453992 -0.0627878 -0.562081
+-0.904826 -0.995562 -0.809019 -0.397152 0.125328 0.612903 0.929774
+0.987689 0.770518 0.338744 -0.187374 -0.661306 -0.951054 -0.975919
+-0.728975 -0.279 0.248679 0.707099 0.96858 0.960297 0.684556 0.218156
+-0.309005 -0.750103 -0.982285 -0.940885 -0.637434 -0.15645 0.368111
+0.790146 0.992113 0.917762 0.587798 0.094126 -0.425762 -0.827071 -0.998026
+-0.891016 -0.535842 -0.031431 0.481734 0.860732 1 0.860754 0.481774
+-0.0313861 -0.535808 -0.890996 -0.998028 -0.827095 -0.425802 0.0940812
+0.587765 0.917744 0.992118 0.790171 0.368151 -0.156405 -0.637403 -0.940871
+-0.982292 -0.75013 -0.309046 0.218112 0.684525 0.960285 0.968591 0.707129
+0.248722 -0.278958 -0.728944 -0.975909 -0.951066 -0.661337 -0.187416
+0.338703 0.770488 0.987683 0.929789 0.612936 0.125371 -0.397111 -0.808993
+-0.995558 -0.904843 -0.562116 -0.062831 0.453953 0.844304 0.999505
+0.876326 0.509077;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 211 71 graph;
+#X obj 36 236 array set sin-help;
+#X floatatom 37 39 5 0 0 0 - - -;
+#X obj 37 61 t b f;
+#X obj 36 211 fd_sin 2;
+#X text 81 36 cycles;
+#X text 235 225 (array of size 100);
+#X obj 37 87 array size sin-help;
+#X obj 37 111 t f f;
+#X obj 37 135 iterate;
+#X obj 37 186 /;
+#X connect 0 0 11 0;
+#X connect 0 1 2 1;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 4 1 5 1;
+#X connect 5 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 11 1;
+#X connect 10 0 0 0;
+#X connect 11 0 5 0;
+#X restore 327 170 pd example;
+#X obj 67 154 fd_sin 2;
+#X floatatom 67 195 0 0 0 0 - - -;
+#X floatatom 67 104 5 0 0 0 - - -;
+#X text 35 54 A wrapper for sin to take radians as input;
+#X text 60 284 1: float: cycles;
+#X floatatom 137 116 5 0 0 0 - - -;
+#X text 60 340 1: float: input;
+#X text 60 410 1: float: sine of input * PI * cycles;
+#X connect 9 0 10 0;
+#X connect 11 0 9 0;
+#X connect 14 0 9 1;

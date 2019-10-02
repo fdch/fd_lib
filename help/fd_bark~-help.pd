@@ -1,0 +1,97 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib zexy;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_bark~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 20 52 Computes the bark scale using signals;
+#X text 223 199 check the helpfile <fd_bark-help.pd>;
+#X text 218 218 https://en.wikipedia.org/wiki/Bark_scale;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array bark~-help 100 float 3;
+#A 0 -0.921275 -0.920195 -0.916852 -0.910833 -0.901309 -0.886689 -0.863771
+-0.825329 -0.751278 -0.558056 0.503195 -0.34149 -0.70668 -0.813831
+-0.864835 -0.894567 -0.913992 -0.927653 -0.937771 -0.945558 -0.951734
+-0.956746 -0.960899 -0.964393 -0.967375 -0.969948 -0.972194 -0.974169
+-0.975922 -0.977488 -0.978895 -0.980167 -0.981323 -0.982378 -0.983346
+-0.984236 -0.985058 -0.98582 -0.986528 -0.987187 -0.987803 -0.988381
+-0.988922 -0.989432 -0.989912 -0.990366 -0.990795 -0.991201 -0.991587
+-0.991953 -0.992302 -0.992634 -0.992951 -0.993254 -0.993543 -0.99382
+-0.994085 -0.99434 -0.994584 -0.994819 -0.995044 -0.995262 -0.99547
+-0.995672 -0.995866 -0.996054 -0.996235 -0.99641 -0.996579 -0.996743
+-0.996902 -0.997055 -0.997204 -0.997348 -0.997488 -0.997624 -0.997756
+-0.997884 -0.998009 -0.99813 -0.998248 -0.998362 -0.998474 -0.998582
+-0.998688 -0.998791 -0.998891 -0.998989 -0.999085 -0.999178 -0.999269
+-0.999358 -0.999445 -0.999529 -0.999612 -0.999693 -0.999772 -0.99985
+-0.999926 -1;
+#X coords 0 1 100 -1 231 65 1;
+#X restore 244 118 graph;
+#N canvas 0 22 450 300 bark 0;
+#X obj 31 61 rfft~;
+#X obj 31 86 *~;
+#X obj 31 111 sqrt~;
+#X obj 61 86 *~;
+#X obj 31 36 inlet~;
+#X obj 30 242 tabwrite~ bark~-help, f 10;
+#X obj 171 34 inlet;
+#X obj 171 59 t b b;
+#X msg 175 205 normalize 1;
+#X obj 175 230 s bark~-help;
+#X obj 176 151 del 5;
+#X obj 31 136 *~ 1;
+#X obj 31 181 fd_bark~ 1024;
+#X obj 298 32 block~ 1024 4;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 0 1 3 0;
+#X connect 0 1 3 1;
+#X connect 1 0 2 0;
+#X connect 2 0 11 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 7 1 5 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 5 0;
+#X restore 31 186 pd bark;
+#X obj 31 96 osc~ 440;
+#X obj 84 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 84 154 metro 441;
+#X obj 381 38 declare -lib zexy;
+#X msg 387 70 \; pd dsp 1;
+#X text 60 284 block size;
+#X text 60 340 signal: magnitude spectrum;
+#X text 60 410 signal: bark scaled output;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:15 EDT 2019
+;
+#X text 10 25 patch_name : fd_bark~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 12;
+#X text 10 130 total objects: 22;
+#X text 10 145 connections : 27;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0zexy];
+#X text 10 190 internals : 11/233 [0*~:<~:-~:+~:sig~:outlet~:inlet~:block~:>~:/~:&&~]
+;
+#X restore 438 423 pd meta;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 1;

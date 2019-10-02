@@ -1,0 +1,117 @@
+#N struct 1013-grey1-tmp float x float y float w float l;
+#N struct 1014-grey1-tmp float x float y float w float l;
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_range" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sat Sep 28 23:01:04 EDT 2019
+;
+#X text 10 25 patch_name : fd_range;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 22;
+#X text 10 130 total objects: 54;
+#X text 10 145 connections : 85;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 22/233 [0t:pack:*:inlet:outlet:spigot:set:s:pointer:hsl:filledpolygon:swap:struct:route:loadbang:line:change:append:>:<:-:+]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 44 50 GOP GUI that handles range selection;
+#X obj 55 149 fd_range 5000;
+#X obj 55 183 unpack;
+#X floatatom 57 212 5 0 0 0 - - -;
+#X floatatom 102 212 5 0 0 0 - - -;
+#X obj 248 184 unpack;
+#X floatatom 249 209 5 0 0 0 - - -;
+#X floatatom 294 209 5 0 0 0 - - -;
+#X msg 55 85 4000;
+#X msg 67 112 30;
+#X msg 248 92 0 \, 1 1000;
+#X text 258 146 <-- select onset (min);
+#X text 259 161 <-- select duration (max);
+#X text 49 335 1: float: range to map to \; 2: list: target time (optional)
+;
+#X text 47 278 1: float: range to map to;
+#N canvas 494 144 634 503 example 0;
+#X obj 91 320 cnv 15 250 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fd_range-help-array 62079 float 2;
+#X coords 0 1 62079 -1 200 140 1 0 0;
+#X restore 111 171 graph;
+#X obj 57 109 soundfiler;
+#X obj 373 227 / 44.1;
+#X obj 373 333 *~;
+#X obj 373 358 +~ 1;
+#X msg 372 76 bang;
+#X obj 372 126 f;
+#X msg 373 254 0 \, 1 \$1;
+#X obj 496 227 f;
+#X obj 111 336 fd_range;
+#X obj 484 118 unpack;
+#X obj 373 173 t f f b b;
+#X obj 429 199 samplerate~;
+#X obj 429 226 * 0.001;
+#X obj 373 308 vline~;
+#X obj 372 151 max 4;
+#X msg 57 51 read -resize ../doc/sound/voice.wav fd_range-help-array
+, f 22;
+#X obj 373 383 tabread4~ fd_range-help-array, f 19;
+#X obj 373 276 t a a;
+#X obj 373 424 dac~;
+#X text 424 71 Play;
+#X msg 489 21 \; pd dsp 1;
+#X text 42 17 1) Load a file first;
+#X text 126 313 2) Select range;
+#X connect 2 0 10 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 18 0;
+#X connect 6 0 7 0;
+#X connect 7 0 16 0;
+#X connect 8 0 19 0;
+#X connect 9 0 18 1;
+#X connect 10 1 11 0;
+#X connect 11 0 7 1;
+#X connect 11 1 9 1;
+#X connect 12 0 3 0;
+#X connect 12 1 4 1;
+#X connect 12 2 13 0;
+#X connect 12 3 9 0;
+#X connect 13 0 14 0;
+#X connect 14 0 3 1;
+#X connect 15 0 4 0;
+#X connect 16 0 12 0;
+#X connect 17 0 2 0;
+#X connect 18 0 20 0;
+#X connect 18 0 20 1;
+#X connect 19 0 15 0;
+#X connect 19 1 10 1;
+#X restore 405 210 pd example;
+#X text 50 399 1: list: (float) duration (float) onset (normalized)
+\; 2: list: (float) duration (float) onset (mapped);
+#X text 327 92 range 'playback';
+#X connect 9 0 10 0;
+#X connect 9 1 13 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 9 1;

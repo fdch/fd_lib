@@ -1,0 +1,46 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_bigmyvu" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 132 97 ./fd_bigmyvu;
+#X obj 138 73 noise~;
+#X obj 137 226 dac~;
+#X floatatom 204 224 5 0 0 0 dB - -;
+#X text 23 47 A gui abstraction for volume control and monitoring;
+#X msg 420 59 \; pd dsp 1;
+#X msg 420 103 \; pd dsp 0;
+#X text 60 340 2 inlets take signals;
+#X text 60 410 1 \, 2: signals \; 3: decibels;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:16 EDT 2019
+;
+#X text 10 25 patch_name : fd_bigmyvu;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 3;
+#X text 10 70 inlet~ : 2;
+#X text 10 85 outlet~ : 2;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 27;
+#X text 10 145 connections : 28;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 19/233 [0throw~:sel:r~:r:outlet~:inlet~:hip~:*~:vu:vsl:tgl:s~:s:outlet:line~:env~:cnv:catch~:-]
+;
+#X restore 438 423 pd meta;
+#X connect 8 0 10 0;
+#X connect 8 1 10 1;
+#X connect 8 2 11 0;
+#X connect 9 0 8 0;
+#X connect 9 0 8 1;

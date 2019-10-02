@@ -1,0 +1,77 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_fromsig" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 300 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 411 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 41 157 spigot;
+#X obj 41 84 osc~ 440;
+#X obj 94 157 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 32 229 print;
+#X obj 32 205 fd_fromsig 1000;
+#X obj 41 133 sigmund~ -npeak 2 peaks;
+#X text 10 40 Takes [sigmund~ peaks] type outputs;
+#X obj 47 107 osc~ 3;
+#X obj 32 64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#N canvas 0 22 450 300 messages 0;
+#X floatatom 77 28 5 0 0 0 - - -;
+#X msg 77 51 tempo \$1;
+#X floatatom 91 78 5 0 0 0 - - -;
+#X msg 91 101 factor \$1;
+#X floatatom 108 131 5 0 0 0 - - -;
+#X msg 108 154 f-factor \$1;
+#X msg 123 199 remap \$1;
+#X obj 124 180 hradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 77 231 s \$0-msg;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X restore 342 150 pd messages;
+#X text 60 431 1: list : (float) Hz (float) mag (float) phase;
+#X text 60 279 1: float : output speed in msec (10) \;;
+#X text 60 321 1: float : 1|0 output on/off \; 1: list : sigmund 'peaks'
+output 1: 'tempo' float: set tempo in msec \; 1: 'factor' float: multiply
+phase and amplitude \; 1: 'f-factor' float: multiply frequency \; 1:
+'remap' float: (0-5) output order \;;
+#X obj 45 182 r \$0-msg;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:17 EDT 2019
+;
+#X text 10 25 patch_name : fd_fromsig;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 20;
+#X text 10 130 total objects: 35;
+#X text 10 145 connections : 66;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 20/233 [0t:*:f:sel:route:pack:outlet:inlet:unpack:spigot:min:metro:max:loadbang:line:ftom:atan2:/:+:!=]
+;
+#X restore 438 423 pd meta;
+#X connect 7 0 11 0;
+#X connect 8 0 12 0;
+#X connect 9 0 7 1;
+#X connect 11 0 10 0;
+#X connect 12 0 7 0;
+#X connect 14 0 12 0;
+#X connect 15 0 11 0;
+#X connect 20 0 11 0;

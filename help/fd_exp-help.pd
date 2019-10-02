@@ -1,0 +1,83 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_exp" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 19 78 Lambda is the number of events per unit time. The graph
+of the exponential distribution \, called the probability density function
+(PDF) \, shows the distribution of time (or distance) between events.
+The PDF is specified in terms of lambda (events per unit time) and
+x (time).;
+#X text 108 188 density=f(x)= lambda e^-lambda x;
+#X text 25 431 https://en.wikipedia.org/wiki/Exponential_distribution
+;
+#X text 19 51 Exponential function taken from Xenakis p246;
+#N canvas 0 22 450 300 example 0;
+#X floatatom 24 25 5 0 0 0 - - -;
+#X obj 24 47 t b f;
+#X obj 24 72 fd_iterate;
+#X obj 24 99 t f f;
+#X obj 24 135 / 100;
+#X obj 24 163 fd_exp 1;
+#X obj 24 190 array set fd_exp-help-array, f 17;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fd_exp-help-array 100 float 3;
+#A 0 1 0.938983 0.881688 0.82789 0.777374 0.729941 0.685402 0.64358
+0.604311 0.567437 0.532814 0.500303 0.469776 0.441111 0.414196 0.388922
+0.365191 0.342908 0.321985 0.302338 0.28389 0.266568 0.250303 0.23503
+0.220689 0.207223 0.194579 0.182706 0.171558 0.16109 0.151261 0.142031
+0.133365 0.125227 0.117586 0.110411 0.103674 0.0973484 0.0914085 0.085831
+0.0805938 0.0756761 0.0710586 0.0667228 0.0626515 0.0588287 0.0552391
+0.0518686 0.0487037 0.0457319 0.0429415 0.0403213 0.037861 0.0355508
+0.0333816 0.0313447 0.0294321 0.0276363 0.02595 0.0243666 0.0228798
+0.0214837 0.0201728 0.018942 0.0177862 0.0167009 0.0156819 0.014725
+0.0138265 0.0129828 0.0121907 0.0114468 0.0107484 0.0100925 0.00947671
+0.00889847 0.00835551 0.00784567 0.00736695 0.00691744 0.00649535 0.00609902
+0.00572688 0.00537744 0.00504932 0.00474122 0.00445193 0.00418028 0.00392521
+0.00368571 0.00346082 0.00324964 0.00305136 0.00286517 0.00269035 0.00252619
+0.00237205 0.00222731 0.00209141 0.00196379;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 221 67 graph;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 5 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 6 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 395 203 pd example;
+#X obj 36 191 fd_exp 1;
+#X floatatom 36 215 5 0 0 0 - - -;
+#X floatatom 37 170 5 0 0 0 - - -;
+#X text 60 340 1: float;
+#X text 60 400 1: float;
+#X text 60 284 1: float : coefficient;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:11 EDT 2019
+;
+#X text 10 25 patch_name : fd_exp;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 14;
+#X text 10 145 connections : 17;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 7/233 [0f:*:t:inlet:pow:outlet:loadbang]
+;
+#X restore 439 422 pd meta;
+#X connect 12 0 13 0;
+#X connect 14 0 12 0;

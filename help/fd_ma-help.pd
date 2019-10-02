@@ -1,0 +1,165 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_ma" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:57 EDT 2019
+;
+#X text 10 25 patch_name : fd_ma;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 9;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 9;
+#X text 10 115 classes used : 2;
+#X text 10 130 total objects: 18;
+#X text 10 145 connections : 9;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0\$1];
+#X text 10 190 internals : 1/233 [0outlet];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 340 0 inlets;
+#X obj 154 159 fd_ma ctlin 74 71 91 93 73 72 5 84 7, f 18;
+#X text 93 165 Faders;
+#X obj 156 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 176 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 186 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 196 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 206 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 226 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 236 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 246 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 256 202 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 22 58 Assign a bunch of ctlin from incoming midi to the corresponding
+outlets. \$1 is left for "ctlin" \, or any other object \, really.
+Look inside. Outles are fixed...;
+#N canvas 0 22 493 341 more 0;
+#X obj 61 154 bendin;
+#X obj 304 152 notein;
+#X obj 251 55 fd_ma ctlin 113 116 117 118, f 15;
+#X obj 132 154 ctlin 1;
+#X obj 209 154 ctlin 64;
+#X text 97 45 Buttons;
+#X text 246 37 Value buttons;
+#X text 129 132 mod;
+#X text 207 132 pedal;
+#X text 50 132 bend;
+#X text 305 131 pitch/vel;
+#X obj 66 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 76 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 96 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 106 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 116 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 126 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 136 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 146 107 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 251 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 271 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 291 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 311 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 132 176 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 209 176 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 304 174 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 361 174 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 61 176 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 48 65 route 1 2 3 4 5 6 7 8 9, f 15;
+#X obj 48 41 pgmin;
+#X text 76 203 Knobs;
+#X obj 79 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 89 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 99 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 109 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 129 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 139 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 149 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 159 275 vsl 8 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 55 231 fd_ma ctlin 10 2 12 13 75 76 91 95, f 17;
+#X text 18 12 Example setup for a m-audio oxygen 49 keyboard contoller:
+;
+#X connect 0 0 28 0;
+#X connect 1 0 26 0;
+#X connect 1 1 27 0;
+#X connect 2 0 20 0;
+#X connect 2 1 21 0;
+#X connect 2 2 22 0;
+#X connect 2 3 23 0;
+#X connect 3 0 24 0;
+#X connect 4 0 25 0;
+#X connect 29 0 11 0;
+#X connect 29 1 12 0;
+#X connect 29 2 13 0;
+#X connect 29 3 14 0;
+#X connect 29 4 15 0;
+#X connect 29 5 16 0;
+#X connect 29 6 17 0;
+#X connect 29 7 18 0;
+#X connect 29 8 19 0;
+#X connect 30 0 29 0;
+#X connect 40 0 32 0;
+#X connect 40 1 33 0;
+#X connect 40 2 34 0;
+#X connect 40 3 35 0;
+#X connect 40 4 36 0;
+#X connect 40 5 37 0;
+#X connect 40 6 38 0;
+#X connect 40 7 39 0;
+#X restore 424 210 pd more;
+#X text 26 128 Example setup for a m-audio oxygen 49 keyboard contoller:
+;
+#X text 60 410 up to 9 outlets: assigned midi value;
+#X text 60 284 up to 9 arguments: assigned midi numbers;
+#X connect 9 0 11 0;
+#X connect 9 1 12 0;
+#X connect 9 2 13 0;
+#X connect 9 3 14 0;
+#X connect 9 4 15 0;
+#X connect 9 5 16 0;
+#X connect 9 6 17 0;
+#X connect 9 7 18 0;
+#X connect 9 8 19 0;

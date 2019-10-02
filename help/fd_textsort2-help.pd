@@ -1,0 +1,99 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_textsort2" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 15:44:56 EDT 2019
+;
+#X text 10 25 patch_name : fd_textsort2;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 25;
+#X text 10 130 total objects: 100;
+#X text 10 145 connections : 129;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 25/233 [0t:f:array:outlet:inlet:sel:r:tabread:symbol:print:+:until:text:s:list:del:bng:>:unpack:spigot:route:pack:mod:loadbang:==]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 10 40 BUBBLE SORT A 2 COLUMN LIST BASED ON ITS FIRST COLUMN
+;
+#X obj 249 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 13 112 fd_textsort2 mytext 0;
+#X obj 33 77 bng 15 250 50 0 empty empty bang_to_sort 17 7 0 10 -262144
+-1 -1;
+#X obj 15 205 array get index-mytext;
+#X obj 15 229 print;
+#X obj 274 161 text define -k mytext;
+#A set 727 0 \; 654 1 \; 758 2 \; 886 3 \; 614 4 \; 505 5 \; 939 6
+\; 180 7 \; 881 8 \; 808 9 \; 132 10 \; 178 11 \; 107 12 \; 543 13
+\; 763 14 \; 566 15 \; 563 16 \; 163 17 \; 72 18 \; 741 19 \; 701 20
+\; 322 21 \; 91 22 \; 52 23 \; 632 24 \; 616 25 \; 632 26 \; 27 27
+\; 616 28 \; 317 29 \; 273 30 \; 611 31 \; 543 32 \; 101 33 \; 339
+34 \; 400 35 \; 419 36 \; 792 37 \; 888 38 \; 874 39 \; 849 40 \; 86
+41 \; 693 42 \; 632 43 \; 524 44 \; 294 45 \; 232 46 \; 630 47 \; 702
+48 \; 72 49 \; 666 50 \; 408 51 \; 694 52 \; 157 53 \; 827 54 \; 331
+55 \; 349 56 \; 98 57 \; 202 58 \; 821 59 \; 538 60 \; 998 61 \; 916
+62 \; 590 63 \; 637 64 \; 238 65 \; 718 66 \; 875 67 \; 13 68 \; 221
+69 \; 966 70 \; 676 71 \; 509 72 \; 100 73 \; 606 74 \; 984 75 \; 926
+76 \; 514 77 \; 165 78 \; 21 79 \; 508 80 \; 326 81 \; 728 82 \; 472
+83 \; 428 84 \; 352 85 \; 926 86 \; 719 87 \; 272 88 \; 97 89 \; 919
+90 \; 74 91 \; 521 92 \; 491 93 \; 381 94 \; 19 95 \; 38 96 \; 625
+97 \; 487 98 \; 434 99 \;;
+#N canvas 0 23 450 300 regenerate 0;
+#X obj 55 23 inlet;
+#X obj 55 220 text set mytext;
+#X msg 43 78 100;
+#X obj 43 102 until;
+#X obj 43 126 counter;
+#X obj 43 174 random 1000;
+#X obj 43 198 pack;
+#X obj 43 150 t b f f;
+#X obj 55 47 t b b b;
+#X msg 96 97 0;
+#X msg 161 94 \; mytext clear;
+#X connect 0 0 8 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 5 0;
+#X connect 7 1 6 1;
+#X connect 7 2 1 1;
+#X connect 8 0 2 0;
+#X connect 8 1 9 0;
+#X connect 8 2 10 0;
+#X connect 9 0 4 0;
+#X restore 249 87 pd regenerate data;
+#X obj 34 155 bng 15 250 50 0 empty empty done 17 7 0 10 -262144 -1
+-1;
+#X text 207 117 NOTE: you need to place a [text define \$1] object
+before creating this abstraction:, f 43;
+#X text 60 284 1: symbol: text name \; 2: float: 0|1 decrearsing or
+increasing sort (default 0);
+#X text 60 340 1: bang: to sort;
+#X text 60 410 1: bang: when done;
+#X text 207 190 NOTE: Two internal arrays are created: index-mytext
+and value-mytext \, for sorted indices and sorted values respectively.
+You can access these after sorting, f 43;
+#X text 178 205 <--;
+#X connect 9 0 15 0;
+#X connect 10 0 16 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 16 0 12 0;

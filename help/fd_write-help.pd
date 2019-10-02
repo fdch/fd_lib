@@ -1,0 +1,43 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_write" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 30 00:45:38 EDT 2019
+;
+#X text 10 25 patch_name : fd_write;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 34;
+#X text 10 130 total objects: 89;
+#X text 10 145 connections : 123;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_dspon];
+#X text 10 190 internals : 32/233 [0s:t:r:inlet:sel:outlet:makefilename:route:symbol:spigot:mod:metro:loadbang:int:f:change:/:writesf~:timer:tgl:print:pack:list:key:inlet~:del:cnv:bng:>=:==:-:+]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X obj 286 172 fd_write;
+#X text 34 111 run from terminal:;
+#X obj 286 132 adc~ 1;
+#X text 26 137 ./pd -nogui -send " \; full-path FILL/PATH/TO/FILE \;
+length LENGTH_IN_MINUTES \; filename FILENAME \; " fd_write-help.pd
+;
+#X text 33 50 A utility to write a sound file from terminal.;
+#X text 60 284 1: float: instance number (default 0);
+#X connect 12 0 10 0;
+#X coords 0 480 1 479 150 100 0;

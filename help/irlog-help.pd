@@ -1,0 +1,67 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "irlog" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 2 inlets;
+#X text 60 410 1 outlets;
+#X obj 20 172 print;
+#X obj 20 139 irlog;
+#X msg 20 98 1 2 3 4 5;
+#X msg 155 138 bang;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array irlog-array 100 float 3;
+#A 0 0 0 0.150844 0.239082 0.301688 0.350249 0.389927 0.423473 0.452533
+0.478165 0.501094 0.521835 0.540771 0.55819 0.574317 0.589332 0.603377
+0.61657 0.629009 0.640775 0.651938 0.662556 0.672679 0.682353 0.691615
+0.700499 0.709034 0.717247 0.725162 0.732798 0.740176 0.747312 0.754221
+0.760918 0.767414 0.773723 0.779853 0.785816 0.791619 0.797272 0.802782
+0.808156 0.8134 0.818521 0.823524 0.828414 0.833197 0.837877 0.842459
+0.846946 0.851343 0.855652 0.859878 0.864024 0.868091 0.872085 0.876006
+0.879858 0.883642 0.887363 0.89102 0.894617 0.898156 0.901638 0.905065
+0.908439 0.911762 0.915034 0.918258 0.921435 0.924567 0.927654 0.930697
+0.933699 0.93666 0.939581 0.942464 0.945308 0.948116 0.950889 0.953626
+0.95633 0.959 0.961638 0.964244 0.966819 0.969365 0.971881 0.974368
+0.976827 0.979258 0.981663 0.984041 0.986394 0.988722 0.991025 0.993303
+0.995559 0.997791 1;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 296 86 graph;
+#N canvas 0 22 450 300 array-example 0;
+#X obj 47 174 irlog;
+#X obj 47 240 array set irlog-array;
+#X obj 47 59 iterate;
+#X msg 47 83 append \$1;
+#X obj 47 107 list store;
+#X obj 124 81 t b b b;
+#X obj 268 187 s irlog-array;
+#X msg 267 161 normalize;
+#X obj 47 18 inlet;
+#X text 53 132 get indices as list;
+#X text 52 199 compute log on each element;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 2 1 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 7 0;
+#X connect 5 1 4 1;
+#X connect 5 2 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 2 0;
+#X restore 155 172 pd array-example;
+#X text 22 48 Computes log() of each element of an incoming list;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 16 0;

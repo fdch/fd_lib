@@ -1,0 +1,49 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_triangle~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 75 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 424 51 \; pd dsp 1;
+#X text 223 8 used in [fd_windows];
+#X msg 181 118 q \$1 \, bang;
+#X floatatom 181 96 5 0 0 0 - - -;
+#X text 20 44 Compute a triangle curve;
+#X obj 116 175 fd_triangle~ 0-tri 515;
+#X msg 116 101 open;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 303 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X text 61 267 1: symbol : array-name \; 2: float : array-size;
+#X text 60 430 0 outlets;
+#X text 61 326 1: bang : load table (DSP must be on) \; 1: float :
+new array size \; 1: 'q' : (float) width \; 1: all other messages are
+routed to [array];
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 16:35:35 EDT 2019
+;
+#X text 10 25 patch_name : fd_triangle~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 25;
+#X text 10 145 connections : 36;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 17/233 [0t:route:inlet:array:/:tabsend~:samplerate~:phasor~:outlet:lop~:del:clip~:abs~:*~:*:-~:+~]
+;
+#X restore 438 423 pd meta;
+#X connect 4 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 11 0 10 0;

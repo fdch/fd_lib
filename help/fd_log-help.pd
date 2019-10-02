@@ -1,0 +1,80 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_log" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:48 EDT 2019
+;
+#X text 10 25 patch_name : fd_log;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 12;
+#X text 10 130 total objects: 13;
+#X text 10 145 connections : 16;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 12/233 [0inlet:wrap:t:sel:outlet:min:max:log:f:abs:/:-]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X obj 164 165 fd_log 5;
+#X floatatom 164 203 0 0 0 0 - - -;
+#X floatatom 225 142 5 1 100 0 - - -;
+#X obj 167 103 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 164 123 / 127;
+#X text 60 410 1: float: log function output;
+#N canvas 0 22 450 300 more 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fd_log-helpfile 100 float 3;
+#A 0 3.3776e-07 0.00335011 0.00673423 0.0101531 0.0136073 0.0170978
+0.0206251 0.0241902 0.0277939 0.0314369 0.0351202 0.0388446 0.0426111
+0.0464207 0.0502743 0.054173 0.0581178 0.0621099 0.0661503 0.0702403
+0.0743812 0.0785741 0.0828205 0.0871216 0.091479 0.095894 0.100368
+0.104904 0.109501 0.114163 0.118892 0.123688 0.128554 0.133493 0.138505
+0.143594 0.148762 0.154012 0.159345 0.164765 0.170275 0.175878 0.181576
+0.187373 0.193273 0.199279 0.205395 0.211626 0.217975 0.224448 0.231049
+0.237783 0.244656 0.251674 0.258843 0.266169 0.27366 0.281323 0.289167
+0.297199 0.30543 0.31387 0.322528 0.331417 0.34055 0.349941 0.359603
+0.369554 0.379811 0.390394 0.401324 0.412625 0.424322 0.436444 0.449025
+0.462098 0.475705 0.489892 0.504709 0.520216 0.536479 0.553577 0.571599
+0.590652 0.61086 0.632373 0.655371 0.680074 0.706755 0.735758 0.767528
+0.802649 0.84191 0.88642 0.937804 0.998577 1 1 1 1;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 217 73 graph;
+#X obj 27 75 iterate;
+#X obj 27 99 t f f;
+#X obj 27 123 / 100;
+#X obj 27 172 array set fd_log-helpfile;
+#X obj 27 150 fd_log 5;
+#X floatatom 27 26 5 0 0 1 division_factor - -;
+#X obj 27 53 t b f;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 1;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 7 1 5 1;
+#X restore 435 168 pd more;
+#X text 60 284 1: float: division factor != 0;
+#X text 60 340 1: float: 0-1 \; 1: float: new division factor != 0
+;
+#X text 39 56 Normalized log function.;
+#X connect 8 0 9 0;
+#X connect 10 0 8 1;
+#X connect 11 0 12 0;
+#X connect 12 0 8 0;

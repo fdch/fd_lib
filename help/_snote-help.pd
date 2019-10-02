@@ -1,0 +1,32 @@
+#N canvas 525 51 602 370 12;
+#X msg 363 111 bang;
+#X obj 378 309 dac~;
+#X obj 362 153 fd_expo~ \$0-exp 64;
+#X text 239 14 "fd/_snote";
+#X text 52 43 An osc with an envelope performed by a tabread4 with
+onsets offset every dsp tick (sr/1000/64) \, switching at every tick.
+;
+#X text 362 88 needs an outside table;
+#X text 38 223 Inlet0: msec;
+#X text 38 243 Inlet1: Frequency of osc;
+#X obj 387 266 catch~ snote-\$0;
+#X text 383 243 needs a catch snote-\$0;
+#X text 38 105 Arguments are: instance tablename \$0;
+#X msg 159 132 100;
+#X msg 160 161 1000;
+#X msg 197 129 5000;
+#X floatatom 238 163 5 0 0 0 - - -, f 5;
+#X obj 74 193 fd/_snote 0 \$0-exp \$0;
+#X msg 49 140 bang;
+#X obj 49 164 symbol \$0-exp;
+#X connect 0 0 2 0;
+#X connect 8 0 1 0;
+#X connect 8 0 1 1;
+#X connect 11 0 15 1;
+#X connect 12 0 15 1;
+#X connect 13 0 15 1;
+#X connect 14 0 15 2;
+#X connect 16 0 17 0;
+#X connect 17 0 15 0;
+#X obj 438 15 declare -lib fd_lib;
+#X text 502 340 fd_lib v0.1;

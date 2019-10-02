@@ -1,0 +1,61 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib Gem;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_blobtracks" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 300 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 389 96 declare -lib Gem;
+#X obj 393 190 fd_blob;
+#X obj 393 212 fd_blobvid;
+#X text 391 168 See help for:;
+#X text 397 73 Dependencies:;
+#X msg 26 126 gemlist;
+#X msg 118 71 threshold \$1;
+#X msg 118 92 blobSize \$1;
+#X msg 176 145 dimen 0 0 500 500;
+#X msg 176 124 view 1 | 0;
+#X text 212 78 --> pix_multiblob;
+#X msg 176 166 translate x y;
+#X obj 27 179 fd_blobtracks 8 100 100 6, f 13;
+#X text 10 42 Utility to analyze \, track and display pixel blobs on
+screen;
+#X obj 393 123 tracks;
+#X text 60 398 1: list : gemlist \; 2: list : tracks output \; 3: float
+: max blobs \;;
+#X text 60 320 1: list : gemlist \; 2: threshold float \, blobSize
+float \, view 1|2 \, dimen x y xd yd \, translate x y \, and all other
+messages go to [tracks];
+#X text 60 277 maxblobs xsize ysize gem_order;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:38:09 EDT 2019
+;
+#X text 10 25 patch_name : fd_blobtracks;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 3;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 6;
+#X text 10 115 classes used : 19;
+#X text 10 130 total objects: 42;
+#X text 10 145 connections : 68;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 4 [0translateXYZ:tracks:pix_snap:pix_multiblob]
+;
+#X text 10 190 internals : 15/233 [0list:t:outlet:unpack:spigot:sel:route:pack:loadbang:inlet:f:declare:clone:change:+]
+;
+#X restore 438 423 pd meta;
+#X connect 12 0 19 0;
+#X connect 13 0 19 1;
+#X connect 14 0 19 1;
+#X connect 15 0 19 1;
+#X connect 16 0 19 1;
+#X connect 18 0 19 1;

@@ -1,0 +1,67 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_rsdel~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 00:59:41 EDT 2019
+;
+#X text 10 25 patch_name : fd_rsdel~;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 1;
+#X text 10 115 classes used : 15;
+#X text 10 130 total objects: 25;
+#X text 10 145 connections : 24;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 15/233 [0inlet~:outlet~:inlet:pack:line~:t:samplerate~:delwrite~:delread4~:clip~:block~:*~:*:/:+~]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 7 39 A recirculating sample-wise delay abstraction;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 304 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 380 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X text 60 410 1 outlets;
+#X text 60 280 0 arguments;
+#X text 60 326 1: signal: input \; 2: float: delay time (in samples)
+\; 3: signal: delay as signal (overrides 2nd inlet);
+#X obj 14 108 noise~;
+#X obj 14 178 fd_rsdel~;
+#X obj 155 125 / 100;
+#X obj 79 103 / 44.1;
+#X obj 79 127 pack f 4;
+#X obj 79 151 line~;
+#X text 237 62 <-- a low pass filter;
+#X obj 80 82 unpack;
+#X msg 190 63 1 100;
+#X obj 14 202 *~;
+#X obj 14 226 dac~;
+#X obj 261 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 261 159 \$1 10;
+#X obj 261 183 line~;
+#X obj 261 136 / 100;
+#X connect 12 0 13 0;
+#X connect 13 0 21 0;
+#X connect 14 0 13 3;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 13 2;
+#X connect 19 0 15 0;
+#X connect 19 1 14 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 21 0 22 1;
+#X connect 23 0 26 0;
+#X connect 24 0 25 0;
+#X connect 25 0 21 1;
+#X connect 26 0 24 0;

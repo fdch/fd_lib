@@ -1,0 +1,49 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_spigot" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 0 fd_lib - metadata file - Sun Sep 29 15:08:31 EDT 2019
+;
+#X text 10 15 patch_name : fd_spigot;
+#X text 10 30 inlet : 4;
+#X text 10 45 outlet : 2;
+#X text 10 60 inlet~ : 0;
+#X text 10 75 outlet~ : 0;
+#X text 10 90 arguments : 0;
+#X text 10 105 classes used : 5;
+#X text 10 120 total objects: 6;
+#X text 10 135 connections : 8;
+#X text 10 150 dependencies : 0 [0];
+#X text 10 165 externals : 0 [0];
+#X text 10 180 internals : 5/233 [0inlet:t:spigot:outlet:bang];
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X obj 157 177 fd_spigot;
+#X obj 157 86 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 157 106 metro 1;
+#X obj 157 131 counter;
+#X obj 157 215 print;
+#X msg 269 124 bang;
+#X floatatom 169 156 5 0 0 0 - - -;
+#X text 31 48 Gate to allow only first output. Second inlet resets
+;
+#X text 61 411 1: anything: same as input \, only once;
+#X text 60 340 1: anything: as input \; 2: bang: reset;
+#X connect 9 0 13 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 12 0 15 0;
+#X connect 14 0 9 1;

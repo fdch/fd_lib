@@ -1,0 +1,115 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_grain" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 304 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 46 203 dac~;
+#X obj 202 128 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 202 200 f 100;
+#X obj 202 148 metro 100;
+#X floatatom 259 127 5 0 0 0 - - -;
+#X floatatom 234 178 5 0 0 0 - - -;
+#X obj 376 135 fd_windows 0 64;
+#X floatatom 114 149 5 0 0 0 - - -;
+#X obj 48 173 fd_grain;
+#X obj 47 143 osc~ 440;
+#N canvas 0 22 504 414 clone 0;
+#X obj 173 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 173 47 metro;
+#X obj 173 72 random 1000;
+#X obj 173 149 t f f;
+#X obj 173 199 random 100;
+#X obj 140 266 pack;
+#X obj 173 174 t b f;
+#X obj 173 224 t f f b;
+#X obj 272 197 random 13;
+#X obj 211 266 pack;
+#X floatatom 282 55 5 0 0 0 - - -;
+#X floatatom 279 107 5 0 0 0 - - -;
+#X obj 70 347 dac~;
+#X obj 173 124 + 1;
+#X floatatom 370 180 5 0 0 0 - - -;
+#X obj 272 222 +;
+#X floatatom 379 205 5 0 0 0 - - -;
+#X obj 70 307 clone fd_grain 100;
+#X obj 70 67 fd/_hihat;
+#X floatatom 380 270 5 0 0 0 - - -;
+#X msg 315 287 all \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 18 0;
+#X connect 2 0 13 0;
+#X connect 3 0 6 0;
+#X connect 3 1 1 1;
+#X connect 4 0 7 0;
+#X connect 5 0 17 1;
+#X connect 6 0 4 0;
+#X connect 6 1 5 1;
+#X connect 7 0 5 0;
+#X connect 7 1 9 0;
+#X connect 7 2 8 0;
+#X connect 8 0 15 0;
+#X connect 9 0 17 2;
+#X connect 10 0 2 1;
+#X connect 11 0 13 1;
+#X connect 13 0 3 0;
+#X connect 14 0 8 1;
+#X connect 15 0 9 1;
+#X connect 16 0 15 1;
+#X connect 17 0 12 0;
+#X connect 17 0 12 1;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 20 0 17 2;
+#X restore 381 214 pd clone example;
+#X text 403 193 See here:;
+#X text 278 180 Ramp time;
+#X text 111 130 Window type;
+#X text 25 55 Inlets are 'signal' \, 'ramp time' and 'window type'
+\, respectively. It needs [fd_windows] on the root patch.;
+#X obj 377 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 434 51 \; pd dsp 1;
+#X text 399 105 <-- make windows;
+#X text 60 322 1: signal \; 2: ramp time (negative reverses window
+\; 3: window type as in [fd_seltab];
+#X text 60 410 1: signal;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:28 EDT 2019
+;
+#X text 10 25 patch_name : fd_grain;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 10;
+#X text 10 130 total objects: 12;
+#X text 10 145 connections : 15;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_seltab];
+#X text 10 190 internals : 9/233 [0inlet:*~:tabread4~:outlet~:moses:line~:inlet~:abs:+~]
+;
+#X restore 438 423 pd meta;
+#X connect 9 0 11 0;
+#X connect 10 0 16 1;
+#X connect 11 0 10 0;
+#X connect 12 0 11 1;
+#X connect 13 0 10 1;
+#X connect 15 0 16 2;
+#X connect 16 0 8 0;
+#X connect 16 0 8 1;
+#X connect 17 0 16 0;
+#X connect 23 0 14 0;

@@ -1,0 +1,90 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_arrayclone" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 114 154 clone fd_arrayclone 4 define arrname;
+#X text 110 126 clone 4 arrays named "arrname-\$1";
+#X obj 199 345 array;
+#X obj 110 345 clone;
+#N canvas 0 22 450 300 more 0;
+#X obj 23 59 clone fd_arrayclone 4 size arrname;
+#X obj 23 83 print sizes;
+#X msg 23 35 all 10;
+#X text 78 36 resize;
+#X obj 20 221 clone fd_arrayclone 4 get arrname;
+#X msg 62 196 all bang;
+#X obj 20 245 print values;
+#X msg 20 193 0;
+#X text 16 167 get values;
+#X msg 264 119 4;
+#N canvas 0 22 450 300 fill 0;
+#X msg 267 96 10;
+#X msg 267 196 append \$1;
+#X obj 267 220 list store;
+#X obj 304 95 t b b;
+#X obj 349 83 iterate;
+#X obj 349 107 t b f;
+#X msg 303 246 symbol arrname-\$1;
+#X obj 267 244 s;
+#X obj 267 120 until;
+#X obj 267 144 random 10;
+#X obj 280 168 t b b;
+#X obj 342 41 inlet;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 10 0;
+#X connect 3 1 2 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 0 7 1;
+#X connect 8 0 9 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 10 1 0 0;
+#X connect 11 0 4 0;
+#X restore 264 143 pd fill;
+#X text 261 90 fill arrays;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 10 0;
+#X restore 374 205 pd more examples;
+#X text 43 281 Usage: [clone fd_arrayclone N <array_type> <array_name>]
+;
+#X text 48 344 same as;
+#X text 163 344 and;
+#X text 47 410 Depends on <array_type>;
+#X text 252 344 (see their helpfiles for more info);
+#X text 18 78 Utility to clone array objects \, and all their object
+family;
+#X text 28 42 Clone wrapper for [array];
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_arrayclone;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 4;
+#X text 10 130 total objects: 4;
+#X text 10 145 connections : 3;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 4/233 [0r:outlet:inlet:array];
+#X restore 438 423 pd meta;

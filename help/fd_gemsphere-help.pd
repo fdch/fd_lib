@@ -1,0 +1,85 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib Gem;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_gemsphere" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 60 284 no arguments;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
+#X text 222 177 <-- use this [x] to close/open this window, f 22;
+#X text 12 124 It is recommended to use [separator] as a second element
+of the chain. You can put whatever afterwards. The gemhead behind all
+this is at render position 0, f 69;
+#X text 12 58 [fd_gemsphere] plots a sphere onto the screen and sends
+out a gemlist so that you can use this same sphere as a global surface.
+You can map any chain onto this 'gemsphere' by replacing the regular
+[gemhead] with [r gemlist], f 69;
+#X obj 380 33 declare -lib Gem;
+#X obj 130 178 ./fd_gemsphere;
+#X obj 24 187 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 610 335 450 300 gemwin 0;
+#X obj 52 145 gemwin;
+#X msg 63 87 create \, 1;
+#X obj 196 122 pix_image ../88.jpg;
+#X obj 196 152 pix_texture;
+#X obj 196 95 rotate 0 1 1 1;
+#X obj 196 58 t a b;
+#X obj 255 60 counter;
+#X obj 196 33 r gemlist;
+#X obj 196 184 cube 0.5;
+#X obj 45 34 inlet;
+#X obj 45 59 sel;
+#X msg 42 115 0 \, destroy;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 5 1 6 0;
+#X connect 6 0 4 1;
+#X connect 7 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 1 0;
+#X connect 11 0 0 0;
+#X restore 24 215 pd gemwin;
+#X text 436 454 fd_lib v0.1;
+#N canvas 0 22 450 300 keys 0;
+#X text 13 63 You can navigate throught the [fd_gemsphere] with:;
+#X text 97 203 SPACEBAR = Default position;
+#X text 64 97 [1] Controls provided;
+#X text 64 117 [2] The Keyboard: (W \, A \, S \, D + arrows);
+#X text 64 136 [3] Combining Keyboard (WASD) with the Mouse;
+#X text 64 155 [4] All controls work on Midi settings \, so you can
+plug in any midi faders/knobs with [ctlin n], f 50;
+#X text 65 33 INSTRUCTIONS: (click gemwin to toggle navigation);
+#X restore 402 191 pd keys;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 19:01:59 EDT 2019
+;
+#X text 10 25 patch_name : fd_gemsphere;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 41;
+#X text 10 130 total objects: 152;
+#X text 10 145 connections : 148;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 10 [0fd_step:rotateXYZ:gemhead:world_light:translateXYZ:separator:scale:gemmouse:gemkeyboard:fd_tglvis]
+;
+#X text 10 220 internals : 31/233 [0r:s:bng:spigot:t:*:/:pack:+:line:tgl:min:-:vsl:sel:mod:max:hsl:f:==:swap:route:print:outlet:moses:metro:loadbang:declare:cnv:change:abs]
+;
+#X restore 438 423 pd meta;
+#X connect 14 0 15 0;

@@ -1,0 +1,98 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib Gem;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_blobvid" 20 15 0 15 -228856
+-1 0;
+#X obj 4 242 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 283 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 392 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 418 no outlets;
+#X obj 377 32 declare -lib Gem;
+#X text 35 42 Example of a buffer-based blob tracker;
+#X obj 376 214 fd_bufvid;
+#X text 374 187 See help for:;
+#X msg 376 60 create \, 1;
+#X obj 376 114 gemwin;
+#X obj 37 77 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 37 212 fd_blobvid 0-buf 128 128;
+#X floatatom 60 147 5 0 0 0 - - -;
+#X floatatom 84 173 5 0 0 0 - - -;
+#X floatatom 107 104 5 0 0 0 - - -;
+#X floatatom 130 170 5 0 0 0 - - -;
+#X floatatom 154 103 5 0 0 0 - - -;
+#X floatatom 178 171 5 0 0 0 - - -;
+#X msg 389 86 0 \, destroy;
+#X text 240 410 Dependencies:;
+#X msg 60 106 0.5;
+#X msg 154 74 1;
+#X msg 178 140 0;
+#N canvas 776 164 450 300 more 0;
+#X obj 26 221 outlet;
+#X msg 42 116 threshold \$1;
+#X obj 26 11 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 26 31 view \$1;
+#X floatatom 42 64 5 0 100 0 - - -;
+#X obj 42 87 / 100;
+#X floatatom 142 64 5 0 100 0 - - -;
+#X obj 142 87 / 100;
+#X msg 142 116 blobSize \$1;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X restore 257 193 pd more;
+#X obj 380 153 fd_vidbuf 0-buf;
+#X obj 259 432 tracks;
+#X text 60 262 buffer_name width height;
+#X text 290 152 The buffer:;
+#X text 59 303 1: float : on/off \; 2: float : crop x \; 3: float :
+crop y \; 4: float : crop w \; 5: float : crop h \;;
+#X text 222 304 6: float : width \; 7: float : height \; 8: fd_blobtracks-related
+messages \;;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:39:23 EDT 2019
+;
+#X text 10 25 patch_name : fd_blobvid;
+#X text 10 40 inlet : 8;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 16;
+#X text 10 130 total objects: 46;
+#X text 10 145 connections : 72;
+#X text 10 160 dependencies : 2 [Gem:tracks];
+#X text 10 175 externals : 7 [0translateXYZ:rectangle:pix_texture:pix_crop:gemhead:fd_bufvid:fd_blobtracks]
+;
+#X text 10 220 internals : 9/233 [0t:inlet:*:pack:-:list:abs:unpack:declare]
+;
+#X restore 438 423 pd meta;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 2;
+#X connect 18 0 15 3;
+#X connect 19 0 15 4;
+#X connect 20 0 15 5;
+#X connect 21 0 15 6;
+#X connect 22 0 13 0;
+#X connect 24 0 16 0;
+#X connect 24 0 17 0;
+#X connect 25 0 18 0;
+#X connect 25 0 20 0;
+#X connect 26 0 19 0;
+#X connect 26 0 21 0;
+#X connect 27 0 15 7;

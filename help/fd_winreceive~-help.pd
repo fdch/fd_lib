@@ -1,0 +1,65 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_winreceive~" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Mon Sep 30 00:42:56 EDT 2019
+;
+#X text 10 25 patch_name : fd_winreceive~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 5;
+#X text 10 130 total objects: 5;
+#X text 10 145 connections : 3;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0fd_dsp-bang:fd_\$1~];
+#X text 10 190 internals : 3/233 [0tabreceive~:outlet~:inlet];
+#X restore 428 414 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array winreceive-array 64 float 3;
+#A 0 0 0 -0.000180736 -0.000998549 -0.00221614 -0.00287624 -0.00167241
+0.0021489 0.00786177 0.0129475 0.0138361 0.00762958 -0.00587448 -0.0229223
+-0.036267 -0.0376583 -0.0216953 0.0104918 0.0495964 0.0798725 0.0843605
+0.0521615 -0.0149063 -0.0992118 -0.169782 -0.190468 -0.131689 0.0180676
+0.245178 0.511279 0.761829 0.940539 1 0.940539 0.761828 0.511275 0.245172
+0.0180623 -0.131692 -0.190468 -0.169781 -0.0992109 -0.0149061 0.052161
+0.0843596 0.0798712 0.0495948 0.0104907 -0.0216956 -0.0376579 -0.0362661
+-0.0229216 -0.0058743 0.0076293 0.0138356 0.0129469 0.00786123 0.00214864
+-0.00167237 -0.00287599 -0.00221586 -0.000998378 0 0;
+#X coords 0 1 64 -1 200 140 1 0 0;
+#X restore 280 98 graph;
+#X obj 63 169 metro 100;
+#X obj 63 138 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 31 87 bang;
+#X text 18 45 Receives a window table on every block. A bang redraws
+the table., f 65;
+#X obj 31 111 fd_winreceive~ sinc 64;
+#X text 60 277 1: symbol: window name (see fd_windows) \; 2: float:
+blocksize;
+#X obj 31 206 tabwrite~ winreceive-array;
+#N canvas 0 22 450 300 window_names 0;
+#X text 52 39 [WINDOWS]: hann \, cauchy \, triangle \, trapezoid \,
+arcsin \, blackman \, expo \, gauss \, logistic \, poisson \, rexpo
+\, sinc \, sinh \, welch, f 43;
+#X restore 356 281 pd window_names;
+#X text 60 340 1: bang: to plot table;
+#X text 60 410 1: signal: received table in specified block (mind the
+ovelaps), f 45;
+#X connect 9 0 15 0;
+#X connect 10 0 9 0;
+#X connect 11 0 13 0;
+#X connect 13 0 15 0;

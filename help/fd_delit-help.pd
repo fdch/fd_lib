@@ -1,0 +1,55 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_delit" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 384 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X obj 144 180 fd_delit 3 100;
+#X msg 81 115 10 1;
+#X msg 181 133 5 10 \, bang;
+#X msg 211 155 1000 0.4 \, bang;
+#X msg 44 86 4 500;
+#X text 60 340 1: bang : start delayed iterations \; 1: list : (float)
+max_iterations (float) time in msec;
+#X text 60 277 1: float : max_iterations \; 2: float : time in msec
+;
+#X text 20 50 Delayed Iterations output \$1 bangs delayed by \$2;
+#X obj 144 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 144 214 5 0 0 0 - - -;
+#X obj 239 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 60 410 1: float : delayed float \; 2: bang : when finished
+;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:05 EDT 2019
+;
+#X text 10 25 patch_name : fd_delit;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 11;
+#X text 10 130 total objects: 17;
+#X text 10 145 connections : 31;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0!msg];
+#X text 10 190 internals : 10/233 [0t:sel:outlet:f:unpack:spigot:route:inlet:del:+]
+;
+#X restore 438 423 pd meta;
+#X connect 7 0 16 0;
+#X connect 7 1 17 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 7 0;
+#X connect 15 0 7 0;

@@ -1,0 +1,86 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "cantor" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 1 outlets;
+#X text 237 11 "cantor";
+#X text 12 39 Output the cantor set;
+#N canvas 0 22 450 300 messages 0;
+#X msg 55 83 depth \$1 \, 100;
+#X obj 55 264 s \$0-msg;
+#X msg 74 140 width \$1 \, 100;
+#X floatatom 55 56 5 0 0 0 - - -;
+#X floatatom 74 116 5 0 0 0 - - -;
+#X floatatom 91 175 5 0 0 0 - - -;
+#X msg 91 197 coef \$1 \, 100;
+#X text 127 116 default 3;
+#X text 143 170 default 2;
+#X text 106 57 default 5;
+#X text 40 23 Tinker with these (>0):;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X restore 375 204 pd messages;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 27 float 3;
+#A 0 1 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 1;
+#X coords 0 1 27 -1 138 107 1 0 0;
+#X restore 369 83 graph;
+#X obj 43 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 43 110 metro 100;
+#X obj 22 204 cantor;
+#X msg 22 68 bang;
+#X text 71 84 <-- try continuously;
+#X text 156 135 <-- outputs a list of size N;
+#X text 123 108 (see the toggle below);
+#X text 69 66 <-- advances one line per bang;
+#X obj 49 136 r \$0-msg;
+#X msg 119 160 27;
+#X msg 122 183 3;
+#X msg 118 138 100;
+#X text 155 182 <-- size = 3 (see array1);
+#X text 153 159 <-- size = 28 (see array1);
+#N canvas 0 22 450 300 plot 0;
+#X obj 60 99 t a a;
+#X obj 97 130 list length;
+#X obj 97 155 change;
+#X obj 97 180 array size array1;
+#X obj 60 221 array set array1;
+#X obj 60 34 inlet;
+#X connect 0 0 4 0;
+#X connect 0 1 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 5 0 0 0;
+#X restore 176 263 pd plot array;
+#X obj 176 223 route list float;
+#X obj 230 245 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 60 340 1: float:;
+#X text 60 284 0 arguments;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 28 0;
+#X connect 16 0 15 0;
+#X connect 21 0 15 0;
+#X connect 22 0 15 0;
+#X connect 23 0 15 0;
+#X connect 24 0 15 0;
+#X connect 28 0 27 0;
+#X connect 28 1 29 0;

@@ -1,0 +1,46 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_dory" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 102 178 fd_dory;
+#X msg 102 108 3;
+#X msg 110 134 20;
+#X floatatom 102 209 5 0 0 0 - - -;
+#X obj 155 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 45 60 Toggle between last and current values;
+#X msg 156 208 20;
+#X text 60 340 1: float \; 2: float : 1|0;
+#X text 60 410 1: float \; 2: float;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:07 EDT 2019
+;
+#X text 10 25 patch_name : fd_dory;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 6;
+#X text 10 130 total objects: 11;
+#X text 10 145 connections : 17;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 1 [0fd_spigot];
+#X text 10 190 internals : 5/233 [0f:t:outlet:inlet:sel];
+#X restore 438 423 pd meta;
+#X connect 8 0 11 0;
+#X connect 8 1 14 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 12 0 8 1;

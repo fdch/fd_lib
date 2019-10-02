@@ -1,0 +1,162 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_filt" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X text 60 340 anything;
+#X text 60 410 no outlets;
+#X text 27 45 This is [ggee/equalizer] made abstraction. Takes freq
+\, gain and bandwidth and outputs biquad coefficients. See ggee/equalizer
+for more details.;
+#N canvas 0 22 887 656 more 0;
+#X obj 232 69 hsl 128 17 20 20000 1 1 empty empty frequency 5 9 0 10
+-203904 -1 -1 8900 0;
+#X obj 293 92 hsl 128 17 0 100 0 1 empty empty gain 5 9 0 10 -204786
+-1 -1 6400 0;
+#X obj 325 120 hsl 128 17 0 100 0 1 empty empty bandwidth 5 9 0 10
+-261682 -1 -1 12100 1;
+#X obj 125 231 biquad~;
+#X obj 227 133 fd_filt;
+#X obj 75 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 75 351 clear;
+#X obj 75 61 metro 255;
+#X floatatom 171 39 5 0 0 0 - - -;
+#X obj 90 113 vline~;
+#X msg 75 86 1 \, 0 0 1;
+#X obj 228 334 biquad~;
+#X obj 357 199 hsl 128 17 20 20000 1 1 empty empty frequency 5 9 0
+10 -203904 -1 -1 3300 0;
+#X obj 418 222 hsl 128 17 0 100 0 1 empty empty gain 5 9 0 10 -204786
+-1 -1 4700 0;
+#X obj 459 266 hsl 128 17 0 100 0 1 empty empty bandwidth 5 9 0 10
+-261682 -1 -1 12700 1;
+#X obj 278 505 dac~;
+#X obj 288 460 biquad~;
+#X obj 460 338 hsl 128 17 20 20000 1 1 empty empty frequency 5 9 0
+10 -203904 -1 -1 2900 0;
+#X obj 521 361 hsl 128 17 0 100 0 1 empty empty gain 5 9 0 10 -204786
+-1 -1 2100 0;
+#X obj 669 360 hsl 128 17 0 100 0 1 empty empty bandwidth 5 9 0 10
+-261682 -1 -1 10800 1;
+#X obj 352 263 fd_filt;
+#X obj 455 402 fd_filt;
+#X msg 296 144 set \$1 \$2 \$3;
+#X msg 296 169 2531.58 95.2756 50.3937;
+#X msg 361 286 set \$1 \$2 \$3;
+#X msg 361 311 120.381 100 37.0079;
+#X msg 507 424 set \$1 \$2 \$3;
+#X msg 507 449 96.8433 85.0394 16.5354;
+#X obj 47 174 counter -m 100;
+#X obj 47 199 sel 0;
+#X obj 561 89 spigot;
+#X obj 570 124 t f f;
+#X obj 611 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 561 160 * 1.33;
+#X obj 617 293 * 1.77;
+#X floatatom 633 127 5 0 0 0 - - -;
+#X floatatom 649 216 5 0 0 0 - - -;
+#X obj 215 191 list prepend set;
+#X obj 215 216 list trim;
+#X msg 215 241 1.85951 -0.987388 3.08032 -1.85951 -1.09293;
+#X obj 310 341 list prepend set;
+#X obj 310 366 list trim;
+#X msg 310 391 1.99827 -0.99856 1.05029 -1.99827 0.948272;
+#X obj 418 473 list prepend set;
+#X obj 418 498 list trim;
+#X msg 418 523 1.99712 -0.997306 1.00769 -1.99712 0.989613;
+#X text 729 603 fd_lib v0.1;
+#X connect 0 0 30 0;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X connect 2 0 4 2;
+#X connect 3 0 11 0;
+#X connect 4 0 3 0;
+#X connect 4 0 37 0;
+#X connect 4 1 22 0;
+#X connect 5 0 7 0;
+#X connect 6 0 3 0;
+#X connect 6 0 11 0;
+#X connect 6 0 16 0;
+#X connect 7 0 10 0;
+#X connect 7 0 28 0;
+#X connect 8 0 7 1;
+#X connect 9 0 3 0;
+#X connect 10 0 9 0;
+#X connect 11 0 16 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 1;
+#X connect 14 0 20 2;
+#X connect 16 0 15 0;
+#X connect 16 0 15 1;
+#X connect 17 0 21 0;
+#X connect 18 0 21 1;
+#X connect 19 0 21 2;
+#X connect 20 0 11 0;
+#X connect 20 0 40 0;
+#X connect 20 1 24 0;
+#X connect 21 0 16 0;
+#X connect 21 0 43 0;
+#X connect 21 1 26 0;
+#X connect 22 0 23 0;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 28 0 29 0;
+#X connect 29 0 6 0;
+#X connect 30 0 31 0;
+#X connect 31 0 33 0;
+#X connect 31 1 34 0;
+#X connect 32 0 30 1;
+#X connect 33 0 12 0;
+#X connect 34 0 17 0;
+#X connect 35 0 33 1;
+#X connect 36 0 34 1;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
+#X restore 397 197 pd more;
+#X obj 42 108 hsl 128 17 20 20000 1 1 empty empty frequency 5 9 0 10
+-203904 -1 -1 1600 0;
+#X obj 114 128 hsl 128 17 0 100 0 1 empty empty gain 5 9 0 10 -204786
+-1 -1 5900 0;
+#X obj 164 148 hsl 128 17 0 100 0 1 empty empty bandwidth 5 9 0 10
+-261682 -1 -1 10000 1;
+#X obj 87 183 fd_filt;
+#X obj 88 228 print biquad_coefficients;
+#X obj 156 197 print parameters;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:15 EDT 2019
+;
+#X text 10 25 patch_name : fd_filt;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 2;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 20;
+#X text 10 130 total objects: 68;
+#X text 10 145 connections : 100;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 20/233 [0t:*:/:pack:inlet:-:swap:outlet:moses:f:exp:+:unpack:sin:sel:samplerate~:route:pow:loadbang:cos]
+;
+#X restore 438 423 pd meta;
+#X connect 12 0 15 0;
+#X connect 13 0 15 1;
+#X connect 14 0 15 2;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;

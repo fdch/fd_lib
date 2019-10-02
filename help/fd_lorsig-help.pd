@@ -1,0 +1,44 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_lorsig" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:55 EDT 2019
+;
+#X text 10 25 patch_name : fd_lorsig;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 14;
+#X text 10 130 total objects: 20;
+#X text 10 145 connections : 29;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 3 [0switch~:lorenz:fd_switch];
+#X text 10 190 internals : 11/233 [0*~:vline~:t:unpack:sqrt~:sel:outlet~:metro:inlet:abs:>]
+;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 0 arguments;
+#X obj 161 152 fd_lorsig;
+#X obj 389 179 lorsig~;
+#X obj 161 187 dac~;
+#X text 18 63 Compute the distance of the lorenz as a signal.;
+#X floatatom 161 125 5 0 0 0 - - -;
+#X text 380 149 See also:;
+#X text 60 340 1: float: stepsize. If 0 \, then fd_lorsig switches
+off;
+#X text 60 410 1: signal;
+#X connect 9 0 11 0;
+#X connect 9 0 11 1;
+#X connect 13 0 9 0;

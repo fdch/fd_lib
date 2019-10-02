@@ -1,0 +1,48 @@
+#N canvas 500 50 530 480 12;
+#X declare -lib fd_lib;
+#X declare -lib Gem;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_any2list" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 5 364 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 no arguments;
+#X obj 380 33 declare -lib Gem;
+#X text 10 40 Takes incoming gemlist and outputs a dump;
+#X obj 170 135 fd_any2list;
+#X msg 170 84 gemlist;
+#X msg 244 164 pixel list;
+#X msg 207 192 gemlist;
+#X msg 170 218 status 1/0 after dump;
+#X text 65 392 1: status 1/0 after dump;
+#X text 65 412 2: gemlist;
+#X text 65 432 3: pixel list;
+#X text 61 337 gemlist;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:43 EDT 2019
+;
+#X text 10 25 patch_name : fd_any2list;
+#X text 10 40 inlet : 2;
+#X text 10 55 outlet : 3;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 0;
+#X text 10 115 classes used : 7;
+#X text 10 130 total objects: 15;
+#X text 10 145 connections : 23;
+#X text 10 160 dependencies : 1 [Gem];
+#X text 10 175 externals : 1 [0pix_dump];
+#X text 10 190 internals : 6/233 [0t:outlet:spigot:inlet:declare:b]
+;
+#X restore 438 423 pd meta;
+#X connect 10 0 14 0;
+#X connect 10 1 13 0;
+#X connect 10 2 12 0;
+#X connect 11 0 10 0;
