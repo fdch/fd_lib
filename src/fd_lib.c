@@ -12,6 +12,23 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 #include "fdLib.h"
+#include <stdlib.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#include <sys/stat.h>
+#ifdef _WIN32
+#include <io.h>
+#include <windows.h>
+#endif
+
+#ifdef _WIN32
+# include <malloc.h> /* MSVC or mingw on windows */
+#elif defined(__linux__) || defined(__APPLE__)
+# include <alloca.h> /* linux, mac, mingw, cygwin */
+#else
+# include <stdlib.h> /* BSDs for example */
+#endif
 
 typedef struct fd_lib
 {

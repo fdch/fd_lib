@@ -36,6 +36,10 @@ common.sources=$COMMONLIB
 printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
 echo "
 
+define forWindoes
+  cflags=-march=x86-64
+endef
+
 # build a multi-object library
 make-lib-executable=yes
 
