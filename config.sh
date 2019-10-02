@@ -36,7 +36,7 @@ common.sources=$COMMONLIB
 printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
 echo "
 
-define forWindoes
+define forWindows
   cflags=-march=x86-64
 endef
 
