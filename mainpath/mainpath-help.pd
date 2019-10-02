@@ -1,18 +1,22 @@
-#N canvas 526 49 551 557 12;
-#X msg 50 130 bang;
-#X msg 111 336 symbol ..;
-#X obj 50 411 mainpath;
-#X msg 136 361 symbol ../..;
-#X text 94 130 <-- Outputs the current directory (symbol);
-#X msg 146 388 symbol subdir/inside/another/subdirectory;
-#X msg 64 169 add myfile.ps;
-#X msg 78 200 prepend myfile.wav;
-#X msg 81 234 append myfile.txt;
-#X text 174 169 <-- "add" a filename to the end (symbol);
-#X text 234 199 <-- "prepend" a filename (list);
-#X text 228 233 <-- "appends" a filename (list);
-#X text 58 54 (like [ggee/getdir] and [tof/path] \, but with a twist)
-, f 54;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "mainpath" 20 15 0 15 -228856
+-1 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 2 inlets;
+#X text 60 410 1 outlets;
 #N canvas 541 191 565 498 file 0;
 #X obj 33 286 mainpath;
 #X msg 33 83 getfiles;
@@ -43,16 +47,15 @@ specified file in its default app, f 38;
 #X connect 13 0 6 0;
 #X connect 14 0 13 0;
 #X connect 15 0 13 0;
-#X restore 205 474 pd file stuff;
-#X text 222 14 "mainpath";
-#X text 240 362 <-- goes back two directories;
-#X text 196 336 <-- goes back one directory;
+#X restore 252 176 pd file stuff;
 #N canvas 0 22 450 300 erratum 0;
 #X text 36 57 NOTE: Compiled for mac \, don't know if it will work
 in linux or windows. It is simply "canvas_getcurrentdir()" with some
 twists. It also uses <dirent.h>, f 40;
-#X restore 408 501 pd erratum;
-#X text 105 293 Cold inlet / Argument --> relative directory:;
+#X obj 169 196 pdcontrol;
+#X text 40 156 this object can be replaced by new vanilla object:;
+#X text 61 238 (with the exception of 'getfiles' message...);
+#X restore 373 170 pd erratum;
 #N canvas 0 22 450 300 argument 0;
 #X msg 125 69 bang;
 #X obj 125 135 print -n;
@@ -60,23 +63,38 @@ twists. It also uses <dirent.h>, f 40;
 #X text 91 48 Optional argument:;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
-#X restore 206 502 pd argument;
-#X text 83 36 handles path relative to the containing patch.;
-#X text 207 445 See here:;
-#X obj 50 436 print -n;
-#X msg 97 263 reset;
-#X text 148 265 <-- removes stored relative directories;
-#X text 103 313 Use 'bang' \, 'add' or 'prepend' after these:;
-#X text 59 89 PATH STUFF: (to use 'read' \, 'open' \, 'write' \, 'print')
-;
+#X restore 252 199 pd argument;
+#N canvas 489 35 528 380 messages 0;
+#X msg 47 26 bang;
+#X msg 93 161 symbol ..;
+#X obj 47 307 mainpath;
+#X msg 118 186 symbol ../..;
+#X text 91 26 <-- Outputs the current directory (symbol);
+#X msg 128 213 symbol subdir/inside/another/subdirectory;
+#X msg 61 65 add myfile.ps;
+#X text 171 65 <-- "add" a filename to the end (symbol);
+#X text 222 187 <-- goes back two directories;
+#X text 178 161 <-- goes back one directory;
+#X text 87 118 Cold inlet / Argument --> relative directory:;
+#X obj 47 332 print -n;
+#X msg 141 251 reset;
+#X text 195 252 <-- removes stored relative directories;
+#X text 85 138 Use 'bang' \, 'add' or 'prepend' after these:;
 #X connect 0 0 2 0;
 #X connect 1 0 2 1;
-#X connect 2 0 22 0;
+#X connect 2 0 11 0;
 #X connect 3 0 2 1;
 #X connect 5 0 2 1;
 #X connect 6 0 2 0;
-#X connect 7 0 2 0;
-#X connect 8 0 2 0;
-#X connect 23 0 2 0;
-#X obj 387 15 declare -path fd_lib;
-#X text 451 527 fd_lib v0.1;
+#X connect 12 0 2 0;
+#X restore 252 153 pd messages;
+#X obj 38 167 mainpath;
+#X obj 38 192 print;
+#X msg 38 114 bang;
+#X text 17 53 Handles path relative to the containing patch. It acts
+like [ggee/getdir] and [tof/path] \, but with a twist. Some messages
+are 'read' \, 'open' \, 'write' \, 'print';
+#X msg 99 123 read;
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;
+#X connect 19 0 15 0;

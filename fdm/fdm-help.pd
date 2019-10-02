@@ -1,20 +1,46 @@
-#N canvas 545 50 450 300 10;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
 #X declare -lib fdm;
-#X floatatom 73 57 5 0 0 0 - - -, f 5;
-#X obj 182 29 declare -lib fdm;
-#X floatatom 198 107 5 0 0 0 - - -, f 5;
-#X obj 200 191 print;
-#X obj 77 133 print;
-#X floatatom 279 135 5 0 0 0 - - -, f 5;
-#X obj 200 169 **;
-#X obj 77 111 ++;
-#X msg 217 130 clear;
-#X msg 93 82 clear;
-#X connect 0 0 7 0;
-#X connect 2 0 6 0;
-#X connect 6 0 3 0;
-#X connect 7 0 4 0;
-#X connect 8 0 6 0;
-#X connect 9 0 7 0;
-#X obj 286 15 declare -path fd_lib;
-#X text 350 270 fd_lib v0.1;
+#X obj 4 4 cnv 15 522 30 empty empty "fdm" 20 15 0 15 -228856 -1 0
+;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X floatatom 146 128 5 0 0 0 - - -;
+#X obj 382 37 declare -lib fdm;
+#X obj 146 210 print;
+#X obj 146 188 ++;
+#X msg 168 156 clear;
+#X msg 146 74 1;
+#X msg 160 96 -1;
+#X floatatom 376 128 5 0 0 0 - - -;
+#X obj 375 210 print;
+#X msg 397 156 clear;
+#X obj 376 188 **;
+#X text 25 45 Accumulators (addition or multiplication);
+#X text 39 102 Addition:;
+#X text 250 100 Multiplication:;
+#X msg 376 74 2;
+#X msg 390 96 10;
+#X text 61 284 0 arguments;
+#X text 60 340 1: float: input to accumulate;
+#X text 60 410 1: float: accumulated sum or multiplication;
+#X connect 8 0 11 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 8 0;
+#X connect 15 0 18 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 22 0 15 0;
+#X connect 23 0 15 0;

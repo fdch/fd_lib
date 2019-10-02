@@ -1,10 +1,26 @@
-#N canvas 484 69 716 596 12;
-#X obj 22 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X floatatom 83 111 5 0 0 0 - - -;
-#X obj 22 346 siginfo;
-#X obj 22 198 lorenz;
-#X obj 22 139 metro 20;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "siginfo" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 459 422 pd meta;
+#X text 440 452 fd_lib v0.1;
+#N canvas 0 22 708 516 example 0;
+#X obj 18 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 79 37 5 0 0 0 - - -;
+#X obj 18 272 siginfo;
+#X obj 18 124 lorenz;
+#X obj 18 65 metro 20;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array xplot 100 float 5;
 #A 0 0.00367043 0.00241426 0.00133531 0.000401774 -0.000413714 -0.00113471
@@ -22,7 +38,7 @@
 0.0448577 0.0375689 0.031304 0.0259365 0.021351 0.0174432 0.0141194
 0.0112965 0.00890087 0.00686779 0.00514071;
 #X coords 0 1 99 -1 200 140 1 0 0;
-#X restore 208 113 graph;
+#X restore 204 39 graph;
 #N canvas 0 22 470 253 (subpatch) 0;
 #X array yplot 100 float 5;
 #A 0 -0.00661712 -0.00623306 -0.00595379 -0.00577004 -0.00567373 -0.00565799
@@ -40,7 +56,7 @@
 -0.0232112 -0.0208607 -0.0186655 -0.0166491 -0.0148238 -0.0131931 -0.0117544
 -0.0105006 -0.00942183 -0.00850644 -0.0077421 -0.00711635;
 #X coords 0 1 99 -1 200 140 1 0 0;
-#X restore 209 271 graph;
+#X restore 205 197 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array zplot 100 float 5;
 #A 0 -0.200819 -0.2088 -0.216567 -0.224126 -0.231483 -0.238643 -0.245612
@@ -59,24 +75,24 @@
 -0.138405 -0.148076 -0.157482 -0.166631 -0.175531 -0.184192 -0.192619
 ;
 #X coords 0 1 99 -1 200 140 1 0 0;
-#X restore 208 430 graph;
-#X obj 635 430 tgl 15 0 empty arrayz-updown empty 17 7 0 10 -262144
+#X restore 204 356 graph;
+#X obj 631 356 tgl 15 0 empty arrayz-updown empty 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 629 271 tgl 15 0 empty arrayy-updown empty 17 7 0 10 -262144
+#X obj 625 197 tgl 15 0 empty arrayy-updown empty 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 632 113 tgl 15 0 empty arrayx-updown empty 17 7 0 10 -262144
+#X obj 628 39 tgl 15 0 empty arrayx-updown empty 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 635 454 change;
-#X obj 635 480 t b;
-#X obj 635 507 bng 15 250 50 0 zchange empty zchange 17 7 0 10 -262144
+#X obj 631 380 change;
+#X obj 631 406 t b;
+#X obj 631 433 bng 15 250 50 0 zchange empty zchange 17 7 0 10 -262144
 -1 -1;
-#X obj 629 294 change;
-#X obj 629 321 t b;
-#X obj 629 347 bng 15 250 50 0 ychange empty ychange 17 7 0 10 -262144
+#X obj 625 220 change;
+#X obj 625 247 t b;
+#X obj 625 273 bng 15 250 50 0 ychange empty ychange 17 7 0 10 -262144
 -1 -1;
-#X obj 632 137 change;
-#X obj 632 163 t b;
-#X obj 632 190 bng 15 250 50 0 xchange empty xchange 17 7 0 10 -262144
+#X obj 628 63 change;
+#X obj 628 89 t b;
+#X obj 628 116 bng 15 250 50 0 xchange empty xchange 17 7 0 10 -262144
 -1 -1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array dist 100 float 5;
@@ -94,7 +110,7 @@
 0.516101 0.515472 0.514896 0.514366 0.513878 0.513425 0.513002 0.512605
 0.512231 0.511875 0.511537 0.511213;
 #X coords 0 1 99 0 200 140 1 0 0;
-#X restore 422 113 graph;
+#X restore 418 39 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array velo 100 float 5;
 #A 0 0.510906 0.510606 0.510317 0.510037 0.509766 0.509503 0.509248
@@ -111,7 +127,7 @@
 0.516797 0.516108 0.515478 0.514902 0.514372 0.513883 0.51343 0.513007
 0.51261 0.512235 0.51188 0.511541 0.511217;
 #X coords 0 1 99 0 200 140 1 0 0;
-#X restore 422 271 graph;
+#X restore 418 197 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array accel 100 float 5;
 #A 0 -0.0311255 -0.0299752 -0.0289321 -0.0279784 -0.0270903 -0.0262678
@@ -130,7 +146,7 @@
 -0.0488698 -0.0453353 -0.0423074 -0.0396967 -0.0374615 -0.0355422 -0.0338733
 -0.032413;
 #X coords 0 1 99 -1 200 140 1 0 0;
-#X restore 425 430 graph;
+#X restore 421 356 graph;
 #N canvas 0 22 450 300 time 0;
 #X obj 172 115 counter -m 100, f 7;
 #X obj 119 115 timer;
@@ -144,10 +160,9 @@
 #X connect 2 1 1 1;
 #X connect 2 2 0 0;
 #X connect 4 0 2 0;
-#X restore 101 184 pd time;
-#X text 274 10 "siginfo";
-#X msg 44 305 bang;
-#X msg 38 275 reset;
+#X restore 97 110 pd time;
+#X msg 40 231 bang;
+#X msg 34 201 reset;
 #N canvas 0 77 626 522 cook 0;
 #X obj 33 272 s arrayx-updown;
 #X obj 59 247 s arrayy-updown;
@@ -203,7 +218,7 @@ difference between x and x-1 \, y and y-1 \, z and z-1;
 #X connect 23 0 11 0;
 #X connect 23 1 22 0;
 #X connect 24 0 14 0;
-#X restore 48 393 pd cook;
+#X restore 44 319 pd cook;
 #N canvas 609 144 573 372 raw 0;
 #X obj 79 126 unpack f f f;
 #X obj 79 153 fd_norm;
@@ -229,23 +244,19 @@ difference between x and x-1 \, y and y-1 \, z and z-1;
 #X connect 8 0 10 0;
 #X connect 9 0 6 0;
 #X connect 10 1 0 0;
-#X restore 22 439 pd raw;
-#X text 112 391 <-- here;
-#X text 82 439 <-- here;
-#X text 24 38 Get information from an incoming flow of numbers. Inlet
-0 takes a list of floats (max 3). Outlet 0 outputs raw information
-\, outlet 1 gives 'cooked' information \, and outlet 2 outputs the
-previous numbers., f 82;
-#X text 282 92 "raw";
-#X text 554 90 "cook";
-#X obj 22 164 t b b;
-#X obj 22 232 list prepend 3, f 9;
+#X restore 18 365 pd raw;
+#X text 108 317 <-- here;
+#X text 78 365 <-- here;
+#X text 278 18 "raw";
+#X text 550 16 "cook";
+#X obj 18 90 t b b;
+#X obj 18 158 list prepend 3, f 9;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
-#X connect 2 0 28 0;
-#X connect 2 1 27 0;
-#X connect 3 0 35 0;
-#X connect 4 0 34 0;
+#X connect 2 0 27 0;
+#X connect 2 1 26 0;
+#X connect 3 0 33 0;
+#X connect 4 0 32 0;
 #X connect 8 0 11 0;
 #X connect 9 0 14 0;
 #X connect 10 0 17 0;
@@ -255,11 +266,34 @@ previous numbers., f 82;
 #X connect 15 0 16 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 23 0 27 1;
+#X connect 23 0 26 1;
+#X connect 24 0 2 0;
 #X connect 25 0 2 0;
-#X connect 26 0 2 0;
-#X connect 34 0 3 0;
-#X connect 34 1 23 0;
-#X connect 35 0 2 0;
-#X obj 552 15 declare -path fd_lib;
-#X text 616 566 fd_lib v0.1;
+#X connect 32 0 3 0;
+#X connect 32 1 23 0;
+#X connect 33 0 2 0;
+#X restore 363 184 pd example;
+#X floatatom 26 109 5 0 0 0 - - -;
+#X obj 26 162 siginfo;
+#X obj 26 135 list prepend 1;
+#X text 142 137 <-- prepend size of list;
+#X floatatom 49 217 5 0 0 0 - - -;
+#X floatatom 117 218 5 0 0 0 - - -;
+#X obj 49 193 unpack f f f f f f f;
+#X floatatom 186 216 5 0 0 0 - - -;
+#X text 52 281 0 arguments;
+#X text 50 345 1: list: prepended with size of input;
+#X text 49 398 1: list: same as input \; 2: list: (0..2) up/down (3..5)
+delta (6) total distance \; 3: list: previous values of incoming list
+(n=n-1);
+#X text 14 44 Get information from an incoming flow of numbers. Inlet
+0 takes a list of floats (max 3). Outlet 1 outputs raw information
+\, outlet 2 gives 'cooked' information \, and outlet 3 outputs the
+previous input;
+#X text 70 109 s;
+#X connect 9 0 11 0;
+#X connect 10 1 15 0;
+#X connect 11 0 10 0;
+#X connect 15 0 13 0;
+#X connect 15 3 14 0;
+#X connect 15 6 16 0;

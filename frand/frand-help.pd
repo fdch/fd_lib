@@ -1,11 +1,26 @@
-#N canvas 527 49 597 352 12;
-#X msg 68 154 bang;
-#X msg 78 183 set -1000 1000;
-#X msg 96 249 reset;
-#X floatatom 72 312 0 0 0 0 - - -;
-#X msg 90 214 set 20 30;
-#X text 327 201 see graphing example:;
-#X obj 68 289 frand -1 1;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "frand" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 392 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X msg 54 137 bang;
+#X msg 101 148 set -1000 1000;
+#X msg 193 173 reset;
+#X floatatom 54 231 0 0 0 0 - - -;
+#X msg 105 169 set 20 30;
+#X text 286 124 see graphing example:;
+#X obj 54 207 frand -1 1;
 #N canvas 378 112 656 387 graphing 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array frand-help-array 100 float 3;
@@ -56,7 +71,7 @@
 #X connect 11 0 15 0;
 #X connect 14 0 15 0;
 #X connect 15 0 16 0;
-#X restore 321 226 pd graphing frand;
+#X restore 302 144 pd graphing frand;
 #N canvas 447 133 632 381 frand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array frand-gauss-array 100 float 3;
@@ -114,7 +129,7 @@
 #X connect 15 0 17 0;
 #X connect 16 0 17 0;
 #X connect 17 0 14 0;
-#X restore 319 251 pd frand with gauss;
+#X restore 302 168 pd frand with gauss;
 #N canvas 163 75 986 598 frand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array frand1 30 float 1;
@@ -224,30 +239,31 @@ seed. The behavior is the same., f 87;
 #X connect 35 0 37 0;
 #X connect 36 0 38 0;
 #X connect 39 0 36 0;
-#X restore 321 275 pd frand seed test;
-#X text 259 24 FRAND;
+#X restore 302 192 pd frand seed test;
 #N canvas 0 23 450 300 noargument 0;
 #X msg 81 75 100;
 #X obj 81 99 until;
 #X obj 80 149 minimax;
 #X obj 80 123 frand;
-#X floatatom 111 218 5 0 0 0 - - -, f 5;
-#X floatatom 135 192 5 0 0 0 - - -, f 5;
+#X floatatom 111 218 5 0 0 0 - - -;
+#X floatatom 135 192 5 0 0 0 - - -;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 2 1 4 0;
 #X connect 2 2 5 0;
 #X connect 3 0 2 0;
-#X restore 321 303 pd noargument;
-#X text 56 59 Outputs random floats in a given range. 2 Creation arguments
+#X restore 302 221 pd noargument;
+#X text 21 43 Outputs random floats in a given range. 2 Creation arguments
 set up this range as minimum and maximum values. Send in a 'bang' to
 output a value. A 'set' message with two arguments resets the range.
 A 'reset' message resets to default. If no arguments are defined \,
 a random float between 0..1 is returned.;
-#X connect 0 0 6 0;
-#X connect 1 0 6 0;
-#X connect 2 0 6 0;
-#X connect 4 0 6 0;
-#X connect 6 0 3 0;
-#X obj 433 15 declare -path fd_lib;
-#X text 497 322 fd_lib v0.1;
+#X text 60 279 1: float: minimum range \; 2: float: maximum range;
+#X text 60 416 1: float: random number;
+#X text 60 340 1: bang: compute float random number \; 1: 'set': new
+range \; 1: 'reset': reset range to default (0-1);
+#X connect 8 0 14 0;
+#X connect 9 0 14 0;
+#X connect 10 0 14 0;
+#X connect 12 0 14 0;
+#X connect 14 0 11 0;

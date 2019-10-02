@@ -1,26 +1,34 @@
-#N canvas 528 54 629 321 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "scroll" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 410 0 outlets;
 #N canvas 532 401 207 150 canvas-1 1;
 #X text 996 52 Top Right;
 #X text 51 48 Top Left;
 #X text 60 644 Bottom Left;
 #X text 990 639 Bottom Right;
-#X restore 363 167 pd canvas-1;
-#N canvas 742 400 193 145 canvas-2 1;
+#X restore 411 210 pd canvas-1;
+#N canvas 742 400 193 145 canvas-2 0;
 #X text 996 52 Top Right;
 #X text 51 48 Top Left;
 #X text 60 644 Bottom Left;
 #X text 990 639 Bottom Right;
-#X restore 362 138 pd canvas-2;
-#X obj 27 217 scroll pd-canvas-1;
-#X msg 27 137 xaxis \$1;
-#X msg 108 138 yaxis \$1;
-#X msg 197 138 symbol pd-canvas-2;
-#X msg 196 166 symbol pd-canvas-1;
-#X floatatom 27 115 5 0 0 0 - - -, f 5;
-#X floatatom 108 114 5 0 0 0 - - -, f 5;
-#X text 197 113 Change canvas to scroll in:;
-#X text 219 13 "scroll" object;
-#X text 17 273 Canvas will pop-up if not visible.;
+#X restore 328 210 pd canvas-2;
+#X obj 18 218 scroll pd-canvas-1;
+#X text 249 232 Canvas will pop-up if not visible.;
 #N canvas 941 400 202 149 current 0;
 #X msg 24 28 xaxis 100;
 #X obj 58 335 scroll;
@@ -42,14 +50,9 @@
 #X connect 4 0 1 0;
 #X connect 9 0 1 0;
 #X connect 10 0 1 0;
-#X restore 492 138 pd current;
-#X obj 317 199 loadbang;
-#X text 472 112 If no argument:;
-#X msg 61 59 -10;
-#X msg 27 42 -10;
-#X msg 95 40 10;
-#X msg 60 26 10;
-#X text 162 45 Scrolls in step-sizes the X-axis or Y-axis on a given
+#X restore 379 115 pd current;
+#X text 363 93 If no argument:;
+#X text 20 42 Scrolls in step-sizes the X-axis or Y-axis on a given
 (or the current) canvas., f 42;
 #N canvas 705 333 450 300 noscroll 0;
 #X obj 99 130 scroll;
@@ -58,21 +61,42 @@
 #X text 52 177 It only works when canvas is scrollable.;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
-#X restore 492 164 pd noscroll;
-#X msg 317 224 \; pd-canvas-1 vis 0 \; pd-canvas-2 vis 0 \; pd-current
+#X restore 379 141 pd noscroll;
+#N canvas 0 22 450 300 init 0;
+#X obj 42 16 loadbang;
+#X msg 42 41 \; pd-canvas-1 vis 0 \; pd-canvas-2 vis 0 \; pd-current
 vis 0 \; pd-noscroll vis 0 \;;
-#X msg 196 190 symbol fake;
-#X connect 3 0 2 0;
-#X connect 4 0 2 0;
-#X connect 5 0 2 0;
-#X connect 6 0 2 0;
-#X connect 7 0 3 0;
-#X connect 8 0 4 0;
-#X connect 13 0 21 0;
-#X connect 15 0 8 0;
-#X connect 16 0 7 0;
-#X connect 17 0 7 0;
-#X connect 18 0 8 0;
-#X connect 22 0 2 0;
-#X obj 465 15 declare -path fd_lib;
-#X text 529 291 fd_lib v0.1;
+#X connect 0 0 1 0;
+#X restore 381 35 pd init;
+#X msg 101 135 \; msg xaxis -10;
+#X obj 18 193 r msg;
+#X msg 236 134 \; msg xaxis 10;
+#X msg 172 96 \; msg yaxis 10;
+#X msg 167 172 \; msg yaxis -10;
+#X text 324 190 The canvases:;
+#N canvas 0 22 450 300 messages 0;
+#X msg 185 149 symbol pd-canvas-2;
+#X msg 217 184 symbol pd-canvas-1;
+#X msg 241 222 symbol fake;
+#X text 179 124 Change canvas to scroll in:;
+#X obj 75 254 s msg;
+#X msg 67 80 xaxis \$1;
+#X msg 144 78 yaxis \$1;
+#X msg 66 49 10;
+#X msg 99 49 -10;
+#X msg 145 48 10;
+#X msg 178 48 -10;
+#X text 64 25 Scroll the canvas:;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 6 0;
+#X restore 378 75 pd messages;
+#X text 60 284 1: symbol: pd-canvas name;
+#X text 60 340 1: see pd-messages;
+#X connect 19 0 11 0;

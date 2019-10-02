@@ -1,10 +1,31 @@
-#N canvas 527 52 550 497 12;
-#X text 30 61 The [tracks] object is designed to find the best continuity
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "tracks" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 61 78 This object is used in the MANO and Silent Drum Instruments
+Jaime Oliver \, joliverl \, 2010, f 42;
+#X text 46 174 jaime.oliver2@gmail.com - www.jaimeoliver.pe;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
+#X text 18 38 The [tracks] object is designed to find the best continuity
 between indexed information. Usually tracking objects output data in
 order of appearance and need further logic to achieve continuity. Best
 continuity is defined as the smallest euclidean distance between two
 points in contiguous frames of time.;
-#X obj 128 194 r tracks;
+#X obj 34 132 r tracks;
 #N canvas 522 54 572 489 output 0;
 #X text 32 100 outlet 1: outputs incoming list with new indexes;
 #X text 32 120 outlet 2: outputs the indexes with best continuity \,
@@ -21,12 +42,8 @@ track is ended and noted with -2:;
 #X text 31 283 order of outlets: 1 \, 2 \, 3;
 #X text 31 263 outlet 3: outputs a 1 after spitting;
 #X text 202 65 Outlets:;
-#X restore 386 270 pd output;
-#X text 222 25 "Tracks";
-#X text 375 194 See here:;
-#X text 32 427 This object is used in the MANO and Silent Drum Instruments
-Jaime Oliver \, joliverl \, 2010;
-#X text 32 459 jaime.oliver2@gmail.com - www.jaimeoliver.pe;
+#X restore 329 198 pd output;
+#X text 318 122 See here:;
 #N canvas 524 50 474 276 init 0;
 #X obj 39 58 loadbang;
 #X msg 40 87 \; tracks max_distance 40 \, weights 1 1 1 \, dimen 3
@@ -35,7 +52,7 @@ Jaime Oliver \, joliverl \, 2010;
 #X msg 37 143 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 222;
 #X connect 0 0 1 0;
 #X connect 3 0 2 0;
-#X restore 386 292 pd init;
+#X restore 329 220 pd init;
 #N canvas 322 22 958 690 messages 0;
 #X text 347 379 The "max_distance" message tells the [tracks] object
 what is the limit for a good continuity. If [tracks] finds that the
@@ -86,10 +103,10 @@ is 2 \, etc. This is useful when dimen < elements \;;
 #X connect 14 0 6 0;
 #X connect 16 0 6 0;
 #X connect 19 0 6 0;
-#X restore 386 247 pd messages;
-#X obj 128 352 print OUT-1;
-#X obj 154 325 print OUT-2;
-#X obj 181 298 print OUT-3;
+#X restore 329 175 pd messages;
+#X obj 34 226 print OUT-1;
+#X obj 53 199 print OUT-2;
+#X obj 87 177 print OUT-3;
 #N canvas 497 22 657 721 example 0;
 #X msg 62 389 \; tracks 0 94 100 \, 1 194 28 \, bang;
 #X msg 67 432 \; tracks 0 25 75 \, 1 86 101 \, 2 190 23 \, bang;
@@ -174,11 +191,10 @@ object outputs:;
 #X connect 21 0 5 0;
 #X connect 29 0 30 0;
 #X connect 31 0 5 0;
-#X restore 386 223 pd example;
-#X obj 128 247 tracks;
-#X connect 1 0 13 0;
-#X connect 13 0 9 0;
-#X connect 13 1 10 0;
-#X connect 13 2 11 0;
-#X obj 386 15 declare -path fd_lib;
-#X text 450 467 fd_lib v0.1;
+#X restore 329 151 pd example;
+#X obj 34 158 tracks;
+#X text 186 10 hacked from Jaime Oliver;
+#X connect 12 0 21 0;
+#X connect 21 0 17 0;
+#X connect 21 1 18 0;
+#X connect 21 2 19 0;

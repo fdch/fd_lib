@@ -1,8 +1,0 @@
-#N canvas 0 22 450 350 12;
-#X obj 10 10 toggle;
-#X obj 10 40 metro 100;
-#X msg 10 70 message is \$1;
-#X obj 10 100 print;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;

@@ -1,5 +1,0 @@
-#N canvas 0 22 450 350 12;
-#X obj 10 10 loadbang;
-#X obj 10 40  toggle;
-#X msg 10 70  message \$1;
-#X obj 10 100  print;

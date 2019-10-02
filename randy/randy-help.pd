@@ -1,4 +1,21 @@
-#N canvas 577 62 657 438 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "randy" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 39 51 similar to Pd's [random];
+#N canvas 0 22 450 300 example 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array randy-array-help 100 float 3;
 #A 0 0 0.111111 0 0.111111 0.333333 0.777778 0.111111 1 0.666667 0.888889
@@ -13,21 +30,30 @@
 0.666667 0 1 0 0.444444 0.222222 0.555556 0.555556 0.888889 0.444444
 0.888889 0.111111 1 0 0.555556 0.777778 0 0.888889;
 #X coords 0 1 100 -1 200 140 1 0 0;
-#X restore 342 117 graph;
-#X msg 51 53 100;
-#X obj 51 79 iterate;
-#X obj 51 105 t b f;
-#X obj 52 184 array set randy-array-help;
-#X msg 52 240 \; randy-array-help normalize;
-#X text 237 21 randy;
-#X obj 51 139 randy 10;
-#X floatatom 125 119 5 0 0 0 - - -;
-#X text 162 48 similar to Pd's [random];
+#X restore 222 72 graph;
+#X msg 22 39 100;
+#X obj 22 65 iterate;
+#X obj 22 91 t b f;
+#X obj 23 170 array set randy-array-help;
+#X msg 23 226 \; randy-array-help normalize;
+#X obj 22 125 randy 10;
+#X floatatom 96 105 5 0 0 0 - - -;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
-#X connect 3 0 7 0;
+#X connect 2 1 5 0;
+#X connect 3 0 6 0;
 #X connect 3 1 4 1;
-#X connect 7 0 4 0;
-#X connect 8 0 7 1;
-#X obj 493 15 declare -path fd_lib;
-#X text 557 408 fd_lib v0.1;
+#X connect 6 0 4 0;
+#X connect 7 0 6 1;
+#X restore 274 119 pd example;
+#X msg 58 93 bang;
+#X floatatom 58 161 0 0 0 0 - - -;
+#X obj 58 137 randy 10;
+#X floatatom 148 104 5 0 0 0 - - -;
+#X text 60 284 1: float: range;
+#X text 60 340 1: bang: to output random number \; 2: float: set new
+range;
+#X text 60 410 1: float: random integer;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;

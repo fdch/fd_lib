@@ -1,4 +1,22 @@
-#N canvas 525 52 562 273 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "root" 20 15 0 15 -228856 -1 0
+;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
 #N canvas 533 149 450 300 child 0;
 #X msg 31 55 bang;
 #X obj 31 205 t b a;
@@ -43,13 +61,10 @@ clear the root \, and possibly crash pd!!, f 51;
 #X connect 4 0 1 0;
 #X connect 5 0 9 0;
 #X connect 9 0 1 0;
-#X restore 232 195 pd child;
-#X text 238 13 "root";
-#X text 36 48 Get the root canvas from inside a subpatch or abstraction.
+#X restore 194 186 pd child;
+#X text 20 48 Get the root canvas from inside a subpatch or abstraction.
 ;
-#X text 37 77 The outcome is a symbol in tk namespace (i.e. \, '.x60b060')
+#X text 21 77 The outcome is a symbol in tk namespace (i.e. \, '.x60b060')
 \, which is pd's inner way to refer to canvases. You can use it as
 a target to a [send <target>] object.;
-#X text 218 158 For example:;
-#X obj 398 15 declare -path fd_lib;
-#X text 462 243 fd_lib v0.1;
+#X text 180 149 For example:;

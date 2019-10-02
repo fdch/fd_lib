@@ -1,4 +1,29 @@
-#N canvas 522 52 704 553 12;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "reflect" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X floatatom 28 119 5 0 0 0 - - -;
+#X obj 84 223 print;
+#X text 11 33 Reflect an incoming float from -value to +value;
+#X floatatom 158 115 5 0 0 0 - - -;
+#X obj 158 154 reflect;
+#X msg 211 113 5;
+#X text 122 154 ==;
+#X obj 28 156 reflect 5;
+#X text 135 226 output: -5 \, 5;
+#N canvas 0 22 450 300 example 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array array1 100 float 3;
 #A 0 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
@@ -9,54 +34,46 @@
 -0.1 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 0.9 0.8 0.7 0.6 0.5 0.4
 0.3 0.2 0.1;
 #X coords 0 1 100 -1 200 140 1 0 0;
-#X restore 337 385 graph;
-#X obj 148 435 t f f, f 10;
-#X obj 148 513 tabwrite array1;
-#X floatatom 55 134 5 0 0 0 - - -, f 5;
-#X obj 111 238 print;
-#X text 274 15 "reflect";
-#X text 140 34 Reflect an incoming float from -value to +value;
-#X floatatom 185 130 5 0 0 0 - - -, f 5;
-#X obj 185 169 reflect;
-#X msg 238 128 5;
-#X text 149 169 ==;
-#X obj 55 171 reflect 5;
-#X obj 453 231 print;
-#X obj 148 462 reflect 10;
-#X floatatom 549 86 5 0 0 0 - - -, f 5;
-#X text 162 241 output: -5 \, 5;
-#X text 214 89 Arg 2: (optional) offset;
-#X text 214 70 Arg 1: range (also via 2nd inlet);
-#X text 25 289 Reflection is performed on the X-axis and the axis of
-symmetry is the Y-axis. The "value" is the range of the reflection.
-An offset is a value added to the Y-axis., f 81;
-#X text 505 232 output: 8 \, 12;
-#X obj 549 183 reflect;
-#X floatatom 388 148 5 0 0 0 - - -, f 5;
-#X text 503 183 ==;
-#X text 556 106 set message:;
-#X obj 388 183 reflect 2 10;
-#X msg 571 131 set 2 10;
-#X obj 148 411 counter -m 100;
-#X msg 148 360 100;
-#X obj 148 385 until;
-#X obj 148 487 / 10;
-#X connect 1 0 13 0;
+#X restore 210 63 graph;
+#X obj 21 113 t f f, f 10;
+#X obj 21 191 tabwrite array1;
+#X obj 21 140 reflect 10;
+#X obj 21 89 counter -m 100;
+#X msg 21 38 100;
+#X obj 21 63 until;
+#X obj 21 165 / 10;
+#X connect 1 0 3 0;
 #X connect 1 1 2 1;
-#X connect 3 0 11 0;
-#X connect 7 0 8 0;
-#X connect 8 0 4 0;
-#X connect 9 0 8 1;
-#X connect 11 0 4 0;
-#X connect 13 0 29 0;
-#X connect 14 0 20 0;
-#X connect 20 0 12 0;
-#X connect 21 0 24 0;
-#X connect 24 0 12 0;
-#X connect 25 0 20 0;
-#X connect 26 0 1 0;
-#X connect 27 0 28 0;
-#X connect 28 0 26 0;
-#X connect 29 0 2 0;
-#X obj 540 15 declare -path fd_lib;
-#X text 604 523 fd_lib v0.1;
+#X connect 3 0 7 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 2 0;
+#X restore 326 203 pd example;
+#N canvas 0 22 450 300 more 0;
+#X obj 125 188 print;
+#X floatatom 221 43 5 0 0 0 - - -;
+#X text 177 189 output: 8 \, 12;
+#X obj 221 140 reflect;
+#X floatatom 60 105 5 0 0 0 - - -;
+#X text 175 140 ==;
+#X text 228 63 set message:;
+#X obj 60 140 reflect 2 10;
+#X msg 243 88 set 2 10;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 0;
+#X restore 329 164 pd more;
+#X text 12 56 Reflection is performed on the X-axis and the axis of
+symmetry is the Y-axis. The "value" is the range of the reflection.
+An offset is a value added to the Y-axis.;
+#X text 60 284 1: float: range \; 2: float: offset;
+#X text 60 340 1: float: input \; 2: float: offset;
+#X text 60 410 1: float: reflected input over range;
+#X connect 8 0 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 1;
+#X connect 15 0 9 0;

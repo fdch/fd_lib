@@ -1,46 +1,22 @@
-#N canvas 524 51 626 547 12;
-#X msg 57 120 bang;
-#X obj 78 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 57 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 57 418 route float list;
-#X msg 336 196 clear;
-#X obj 392 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 392 245 focus \$1;
-#X obj 57 448 sel;
-#X obj 314 265 t a;
-#X floatatom 314 95 5 0 0 0 - - -;
-#X msg 314 121 number \$1;
-#X floatatom 71 152 5 0 0 0 - - -;
-#X msg 92 186 next;
-#X text 137 185 <-- next index;
-#X msg 100 214 prev;
-#X text 471 246 (overriden by next/prev), f 13;
-#X text 278 502 see fd_lib/tutorials/create-sradio.pd;
-#X text 258 18 "sradio";
-#X text 412 218 <-- show index;
-#X text 367 94 <-- array size;
-#X obj 328 146 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 328 171 set 0 \$1 1 0 1 0 1 \$1;
-#X text 349 144 <-- set array;
-#X text 383 194 <-- clear array;
-#X text 139 214 <-- previous index;
-#X obj 57 234 t a;
-#X obj 300 320 r sradio-help;
-#X obj 300 345 list prepend set;
-#X obj 300 370 list trim;
-#X msg 300 395 0;
-#X obj 119 449 t a b;
-#X obj 119 474 print;
-#X obj 173 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 419 321 <-- send like hradio;
-#X floatatom 457 373 5 0 0 0 - - -;
-#X text 454 350 receives :;
-#X obj 457 395 s sradio-r-help;
+#N canvas 500 50 530 480 12;
+#X declare -path fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty "sradio" 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -path fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 60 284 1 arguments;
+#X text 60 340 0 inlets;
+#X text 60 410 0 outlets;
 #N canvas 115 23 1075 676 storage 0;
 #X msg 43 286 set 1 1 0 1 0 0 1 0;
 #X msg 53 306 set 0 0 0 1 0 0 0 1;
@@ -129,44 +105,87 @@ arrays / t_textbuf hack, f 77;
 #X connect 33 0 34 0;
 #X connect 34 0 35 0;
 #X connect 36 0 24 0;
-#X restore 396 456 pd storage;
-#X obj 57 285 sradio 15 1 8 sradio-help sradio-r-help sradio 0 -8 0
-10 -261234 -33289 -86277;
-#X text 64 314 Right-click + properties is just like hradio, f 25
-;
-#X text 65 364 Shift+click to open (see pd-storage), f 19;
-#X text 44 43 A hack to the 'hradio' to behave like a small array of
+#X restore 332 133 pd storage;
+#X text 21 43 A hack to the 'hradio' to behave like a small array of
 toggles with internal storage (see pd-storage)., f 62;
-#X text 290 456 see here -->;
-#X text 105 121 <-- get the array;
-#X text 115 151 <-- get value at index;
-#X text 289 428 __________________________________;
-#X text 289 478 __________________________________;
-#X msg 143 251 print;
-#X connect 0 0 25 0;
-#X connect 3 0 7 0;
-#X connect 3 1 30 0;
-#X connect 4 0 8 0;
-#X connect 5 0 6 0;
-#X connect 6 0 8 0;
-#X connect 7 0 2 0;
-#X connect 7 1 1 0;
-#X connect 8 0 38 0;
-#X connect 9 0 10 0;
-#X connect 10 0 8 0;
-#X connect 11 0 25 0;
-#X connect 12 0 25 0;
-#X connect 14 0 25 0;
-#X connect 20 0 21 0;
-#X connect 21 0 8 0;
-#X connect 25 0 38 0;
-#X connect 26 0 27 0;
-#X connect 27 0 28 0;
-#X connect 28 0 29 0;
-#X connect 30 0 31 0;
-#X connect 30 1 32 0;
-#X connect 34 0 36 0;
-#X connect 38 0 3 0;
-#X connect 47 0 25 0;
-#X obj 462 15 declare -path fd_lib;
-#X text 526 517 fd_lib v0.1;
+#N canvas 446 77 671 474 messages 0;
+#X msg 360 133 clear;
+#X obj 416 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 416 182 focus \$1;
+#X floatatom 338 32 5 0 0 0 - - -;
+#X msg 338 58 number \$1;
+#X text 495 183 (overriden by next/prev), f 13;
+#X text 436 155 <-- show index;
+#X text 391 31 <-- array size;
+#X obj 352 83 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 352 108 set 0 \$1 1 0 1 0 1 \$1;
+#X text 373 81 <-- set array;
+#X text 407 131 <-- clear array;
+#X obj 338 232 s sradio-r-help;
+#X msg 50 53 bang;
+#X floatatom 64 85 5 0 0 0 - - -;
+#X msg 85 119 next;
+#X text 130 118 <-- next index;
+#X msg 93 147 prev;
+#X text 132 147 <-- previous index;
+#X text 98 54 <-- get the array;
+#X text 108 84 <-- get value at index;
+#X msg 136 184 print;
+#X obj 50 209 s sradio-r-help;
+#X obj 297 331 r sradio-help;
+#X obj 297 356 list prepend set;
+#X obj 297 381 list trim;
+#X msg 297 406 0;
+#X text 416 332 <-- send like hradio;
+#X floatatom 454 384 5 0 0 0 - - -;
+#X text 451 361 receives :;
+#X obj 454 406 s sradio-r-help;
+#X obj 76 411 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 55 411 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 55 346 route float list;
+#X obj 55 376 sel;
+#X obj 117 377 t a b;
+#X obj 117 402 print;
+#X obj 171 405 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 55 316 r sradio-help;
+#X obj 52 270 sradio 15 1 12 sradio-help sradio-r-help sradio 0 -8
+0 10 -261234 -33289 -86277;
+#X connect 0 0 12 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 0;
+#X connect 4 0 12 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 13 0 22 0;
+#X connect 14 0 22 0;
+#X connect 15 0 22 0;
+#X connect 17 0 22 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 28 0 30 0;
+#X connect 33 0 34 0;
+#X connect 33 1 35 0;
+#X connect 34 0 32 0;
+#X connect 34 1 31 0;
+#X connect 35 0 36 0;
+#X connect 35 1 37 0;
+#X connect 38 0 33 0;
+#X restore 331 110 pd messages;
+#X obj 21 181 sradio 15 1 8 empty empty empty 0 -8 0 10 -262144 -1
+-1;
+#X msg 21 97 next;
+#X msg 33 124 set 1 0 0 1 0 1 0 1;
+#X text 151 174 <-- Right-click + properties (like hradio) \; <-- Shift+click
+to open (see pd-storage), f 50;
+#X obj 21 201 print;
+#X connect 14 0 18 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
