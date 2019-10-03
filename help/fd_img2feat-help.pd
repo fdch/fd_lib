@@ -14,27 +14,26 @@
 #X obj 380 8 declare -lib fd_lib;
 #X text 440 452 fd_lib v0.1;
 #X text 378 163 Dependencies:;
-#X floatatom 176 202 5 0 0 1 spectral_Brightness - -;
+#X floatatom 177 213 5 0 0 1 spectral_Brightness - -;
 #X obj 16 68 gemhead;
-#X obj 16 198 pix_texture;
+#X obj 16 208 pix_texture;
 #X msg 406 85 0 \, destroy;
 #X obj 396 108 gemwin;
-#X floatatom 186 66 5 1 100 0 contrast - -;
-#X obj 16 222 circle 4;
+#X floatatom 133 63 5 1 100 0 contrast - -;
+#X obj 16 232 circle 4;
 #X text 10 40 Takes gemlist and applies feature defined in argument
 1;
 #X msg 396 62 create \, 1;
-#X obj 16 156 fd_img2feat ../img/subway-*.jpg 10 specBrightness;
 #X text 60 275 1: symbol: 'path/to/image-*.jpg' (see [pix_multiimage]
 \; 2: float: max number of images (see [pix_multiimage] \; 3: symbol:
 timbreID feature (see [timbreID]) \;;
 #X text 59 347 1: list: gemlist;
 #X text 56 406 1: list: gemlist \; 2: float: image index to show (see
 [pix_multiimage]);
-#X floatatom 301 127 5 0 9 0 index - -;
-#X floatatom 191 109 5 0 100 0 saturation - -;
-#X msg 186 86 c \$1;
-#X msg 191 132 s \$1;
+#X floatatom 236 124 5 0 9 0 index - -;
+#X floatatom 138 106 5 0 100 0 saturation - -;
+#X msg 133 83 c \$1;
+#X msg 138 129 s \$1;
 #N canvas 0 22 450 300 meta 0;
 #X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:36 EDT 2019
 ;
@@ -54,14 +53,16 @@ timbreID feature (see [timbreID]) \;;
 ;
 #X restore 438 423 pd meta;
 #X obj 373 195 declare -lib Gem -lib timbreIDLib, f 16;
-#X connect 9 0 17 0;
+#X obj 16 156 fd_img2feat ../doc/img/subway-*.jpg 10 specBrightness
+, f 26;
+#X connect 9 0 26 0;
 #X connect 10 0 14 0;
 #X connect 11 0 12 0;
-#X connect 13 0 23 0;
+#X connect 13 0 22 0;
 #X connect 16 0 12 0;
-#X connect 17 0 10 0;
-#X connect 17 1 8 0;
-#X connect 21 0 17 2;
-#X connect 22 0 24 0;
-#X connect 23 0 17 1;
-#X connect 24 0 17 1;
+#X connect 20 0 26 2;
+#X connect 21 0 23 0;
+#X connect 22 0 26 1;
+#X connect 23 0 26 1;
+#X connect 26 0 10 0;
+#X connect 26 1 8 0;

@@ -27,7 +27,6 @@ f 38;
 #X text 53 32 Some utilities to get files in the current or given directory
 ;
 #X obj 33 449 print file;
-#X msg 55 186 open ../88.jpg;
 #X text 52 164 Here we change directory and open an image:;
 #X text 157 452 used in "navigator.pd" and "fd_getfiles-help.pd";
 #X msg 83 237 bang;
@@ -39,14 +38,15 @@ or abstraction \, the directory will not change., f 47;
 #X msg 291 344 getpdfiles;
 #X text 206 185 <-- outputs a bang if successfull and then opens a
 specified file in its default app, f 38;
+#X msg 55 186 open ../doc/img/88.jpg;
 #X connect 0 0 6 0;
 #X connect 1 0 0 0;
 #X connect 3 0 0 0;
-#X connect 7 0 0 0;
-#X connect 10 0 0 0;
-#X connect 13 0 6 0;
-#X connect 14 0 13 0;
-#X connect 15 0 13 0;
+#X connect 9 0 0 0;
+#X connect 12 0 6 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 16 0 0 0;
 #X restore 252 176 pd file stuff;
 #N canvas 0 22 450 300 erratum 0;
 #X text 36 57 NOTE: Compiled for mac \, don't know if it will work

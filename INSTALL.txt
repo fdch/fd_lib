@@ -1,3 +1,15 @@
+Clone the library:
+
+$	git clone https://github.com/fdch/fd_lib.git
+
+You will be able to load abstractions, but to use the external objects you'll need to compile them. 
+
+For this you'll first need to initialize the pd-lib-builder submodule. Skip this step if you have pd-lib-builder already (pass its path to config.sh)
+
+$	cd fd_lib
+$	git submodule init
+$	git submodule update
+
 -------------------------------------------------------------------------------
 on Unix
 -------------------------------------------------------------------------------
@@ -13,7 +25,7 @@ on Windows:
 I basically used the same terminal to compile Pure Data and it works. So, check Pd's INSTALL.txt file for more information. If you have already done this, simply use the Mintty terminal (MYSYS2) and run a "Mingw-w64 64 bit" Shell (bash). I assume you are always on this shell emulator for the rest of this text.
 
 
-Once you are on the shell emulator, sun:
+Once you are on the shell emulator, run:
 
 $	sh config.sh
 $	make
@@ -24,7 +36,7 @@ You must indicate the path to pd's <bin> directory, as well as the <src> directo
 
 You might also need to determine which architecture, I do this by adding the following lines to the command above
 
-	CFLAGS=-march=x86-64 -Iinclude
+	CFLAGS= -march=x86-64 -Iinclude
 
 The whole command looks like this:
 

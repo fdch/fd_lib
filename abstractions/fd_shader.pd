@@ -28,7 +28,7 @@
 #X msg 411 114 0;
 #X obj 60 48 t a b;
 #X obj 189 17 declare -lib Gem;
-#X msg 109 103 dir 0;
+#X msg 109 103 dir 1;
 #X obj 109 127 pdcontrol;
 #X connect 0 0 12 0;
 #X connect 1 0 0 0;

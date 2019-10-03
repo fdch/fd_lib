@@ -14,7 +14,6 @@
 #X obj 380 8 declare -lib fd_lib;
 #X text 60 284 no arguments;
 #X text 60 340 anything;
-#X text 60 410 no outlets;
 #X text 222 177 <-- use this [x] to close/open this window, f 22;
 #X text 12 124 It is recommended to use [separator] as a second element
 of the chain. You can put whatever afterwards. The gemhead behind all
@@ -30,28 +29,28 @@ You can map any chain onto this 'gemsphere' by replacing the regular
 #N canvas 610 335 450 300 gemwin 0;
 #X obj 52 145 gemwin;
 #X msg 63 87 create \, 1;
-#X obj 196 122 pix_image ../88.jpg;
-#X obj 196 152 pix_texture;
+#X obj 193 181 pix_texture;
 #X obj 196 95 rotate 0 1 1 1;
 #X obj 196 58 t a b;
 #X obj 255 60 counter;
 #X obj 196 33 r gemlist;
-#X obj 196 184 cube 0.5;
+#X obj 193 213 cube 0.5;
 #X obj 45 34 inlet;
 #X obj 45 59 sel;
 #X msg 42 115 0 \, destroy;
+#X obj 193 151 pix_image ../doc/img/88.jpg;
 #X connect 1 0 0 0;
-#X connect 2 0 3 0;
-#X connect 3 0 8 0;
-#X connect 4 0 2 0;
-#X connect 5 0 4 0;
-#X connect 5 1 6 0;
-#X connect 6 0 4 1;
-#X connect 7 0 5 0;
+#X connect 2 0 7 0;
+#X connect 3 0 11 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 1;
+#X connect 6 0 4 0;
+#X connect 8 0 9 0;
 #X connect 9 0 10 0;
-#X connect 10 0 11 0;
-#X connect 10 1 1 0;
-#X connect 11 0 0 0;
+#X connect 9 1 1 0;
+#X connect 10 0 0 0;
+#X connect 11 0 2 0;
 #X restore 24 215 pd gemwin;
 #X text 436 454 fd_lib v0.1;
 #N canvas 0 22 450 300 keys 0;
@@ -82,4 +81,6 @@ plug in any midi faders/knobs with [ctlin n], f 50;
 #X text 10 220 internals : 31/233 [0r:s:bng:spigot:t:*:/:pack:+:line:tgl:min:-:vsl:sel:mod:max:hsl:f:==:swap:route:print:outlet:moses:metro:loadbang:declare:cnv:change:abs]
 ;
 #X restore 438 423 pd meta;
-#X connect 14 0 15 0;
+#X text 18 414 NOTE: this is crashing for some reason on latest Gem!!!
+;
+#X connect 13 0 14 0;
