@@ -1,4 +1,3 @@
-#N struct 999-plot float x float y float z float rgb;
 #N struct color-tester float x float y float color;
 #N struct template-1 float x float y float z float s float id array
 array-1 template-1-element;
@@ -24,15 +23,15 @@ array-7 template-7-element;
 #N struct template-8 float x float y float z float s float id array
 array-8 template-8-element;
 #N struct template-8-element float y float s float w;
-#N struct 2912-grey1-tmp float x float y float w float l;
-#N canvas 487 51 697 662 12;
+#N struct 2839-grey1-tmp float x float y float w float l;
+#N canvas 523 51 527 692 12;
 #X declare -lib Gem;
+#X declare -lib fd_lib;
 #N canvas 523 55 520 557 Signal 0;
 #X obj 51 325 fd_cosline~;
 #X obj 51 221 fd_dacout;
 #X obj 53 452 fd_dsp-bang;
 #X obj 53 479 fd_dspon;
-#X obj 204 251 fd_gt;
 #X obj 51 244 fd_input;
 #X obj 365 380 fd_pshift;
 #X obj 206 452 fd_write;
@@ -44,17 +43,13 @@ array-8 template-8-element;
 #X obj 52 350 fd_grain;
 #X obj 136 236 fd_sp;
 #X obj 367 221 fd_spat;
-#X obj 210 355 fd_polea;
 #X obj 210 327 fd_shift;
-#X obj 371 449 fd_test-tone;
-#X obj 371 474 fd_test8;
 #X obj 365 324 fd_vibrato;
 #X text 48 295 Amplitude;
 #X text 207 296 Frequency;
 #X text 366 294 Pitch;
 #X text 363 188 Space;
 #X text 49 422 DSP Switching;
-#X text 369 421 Tests;
 #X text 50 190 Input / Output;
 #X text 198 189 Analysis;
 #X text 198 421 Recording;
@@ -67,9 +62,8 @@ array-8 template-8-element;
 #X obj 285 96 fd_lorsig;
 #X text 185 60 Generators;
 #X obj 205 485 fd_arrayautotrim;
-#X obj 205 515 fd_arraytrim;
 #X text 99 33 right-click on any of them for help;
-#X restore 33 315 pd Signal ____;
+#X restore 13 357 pd Signal ____;
 #N canvas 527 58 613 565 Math 0;
 #X obj 443 151 fd_2bit;
 #X obj 316 336 fd_ceil;
@@ -152,23 +146,21 @@ array-8 template-8-element;
 #X connect 40 0 38 1;
 #X connect 40 0 37 1;
 #X connect 45 0 34 0;
-#X restore 33 287 pd Math ______;
+#X restore 13 319 pd Math ______;
 #N canvas 532 62 450 284 Gem 0;
 #X obj 39 132 fd_autopoly;
 #X obj 39 107 fd_circle;
 #X obj 180 201 fd_GEMbuffsize;
-#X obj 171 106 fd_vidfft;
 #X obj 40 202 fd_pixrecord;
 #X obj 297 106 fd_shader;
 #X text 42 74 Geos;
 #X text 43 177 Record;
-#X text 169 75 image FFT;
 #X text 179 171 Misc;
 #X text 292 76 Shader Load;
 #X text 163 19 Gem Utilities;
 #X text 81 44 right-click on any of them for help;
 #X obj 300 18 declare -lib Gem;
-#X restore 33 353 pd Gem _______;
+#X restore 13 405 pd Gem _______;
 #N canvas 527 58 607 408 Analysis 0;
 #X obj 136 155 fd_jumpv;
 #X obj 34 291 fd_minimax;
@@ -252,7 +244,7 @@ array-8 template-8-element;
 #X connect 27 0 6 0;
 #X connect 27 0 25 0;
 #X connect 28 0 7 1;
-#X restore 33 429 pd Analysis __;
+#X restore 13 481 pd Analysis __;
 #N canvas 528 57 472 303 Arrays 0;
 #X obj 259 193 fd_arraymorph;
 #X obj 39 114 fd_arraysort1;
@@ -264,7 +256,7 @@ array-8 template-8-element;
 #X text 220 83 Scramble/Shuffle an array;
 #X text 221 156 Morph an array into another;
 #X text 81 44 right-click on any of them for help;
-#X restore 33 467 pd Arrays ____;
+#X restore 13 519 pd Arrays ____;
 #N canvas 528 57 506 401 Lists 0;
 #X obj 59 319 fd_delit;
 #X obj 59 139 fd_etareti;
@@ -292,7 +284,7 @@ array-8 template-8-element;
 #X obj 362 272 fd_tracktopol;
 #X obj 223 135 fd_m-comb 8;
 #X text 101 30 right-click on any of them for help;
-#X restore 33 495 pd Lists _____;
+#X restore 13 547 pd Lists _____;
 #N canvas 527 57 562 474 GUI 0;
 #X obj 51 356 fd_autopatch;
 #X obj 47 249 fd_bang;
@@ -326,7 +318,7 @@ array-8 template-8-element;
 #X text 76 23 Utilities to make Gui interaction a tad easier;
 #X obj 396 393 fd_navigator;
 #X text 391 357 File stuff:;
-#X restore 33 391 pd GUI _______;
+#X restore 13 443 pd GUI _______;
 #N canvas 527 56 526 431 Misc 0;
 #X obj 45 101 fd_metro;
 #X obj 45 179 fd_midiread;
@@ -334,7 +326,6 @@ array-8 template-8-element;
 #X obj 356 158 fd_nonpulmonic;
 #X obj 48 270 fd_rbd;
 #X obj 46 139 fd_scales;
-#X obj 358 188 fd_t-read;
 #X obj 356 100 fd_toroman;
 #X obj 356 129 fd_tovowel;
 #X obj 205 102 fd_lspace;
@@ -352,7 +343,7 @@ array-8 template-8-element;
 #X obj 357 348 fd_dory;
 #X text 353 234 State Saving;
 #X text 101 35 right-click on any of them for help;
-#X restore 33 523 pd Misc ______;
+#X restore 13 575 pd Misc ______;
 #N canvas 525 53 401 405 Probs 0;
 #X obj 64 164 fd_markov3;
 #X obj 64 124 fd_markov;
@@ -365,12 +356,8 @@ array-8 template-8-element;
 #X text 215 165 Extra:;
 #X text 49 81 Markov Chains;
 #X text 51 37 right-click on any of them for help;
-#X restore 33 551 pd Probs _____;
+#X restore 13 603 pd Probs _____;
 #N canvas 237 55 815 665 Structs 0;
-#X msg 49 561 ..;
-#X obj 49 495 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 49 516 \; 99-files-template vis \$1;
 #X obj 46 245 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 46 274 \; pd-color-picker vis \$1 \;;
@@ -428,7 +415,6 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 , f 56;
 #X text 102 101 <-- click this;
 #X text 160 142 <-- then these;
-#X text 47 453 File Navigator;
 #X text 173 13 Data Structure Guis;
 #N canvas 47 47 849 577 plot-999 0;
 #X obj 225 150 fd_plot 999 pd-plot-999;
@@ -437,17 +423,12 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #N canvas 0 23 450 300 color_picker 0;
 #X obj 10 10 fd_colorpicker;
 #X restore 42 347 pd color_picker;
-#X obj 49 598 _fd_getfiles 99;
-#X msg 90 561 ./;
-#X connect 0 0 21 0;
-#X connect 1 0 2 0;
-#X connect 3 0 4 0;
-#X connect 5 0 6 0;
-#X connect 10 0 9 0;
-#X connect 11 0 9 0;
-#X connect 12 0 9 0;
-#X connect 22 0 21 0;
-#X restore 33 579 pd Structs ___;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X restore 13 631 pd Structs ___;
 #N canvas 309 68 734 553 Windows 0;
 #X obj 260 278 fd_arcsin~;
 #X obj 260 338 fd_blackman~;
@@ -508,7 +489,7 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X obj 40 398 fd_exp;
 #X connect 24 0 38 0;
 #X connect 38 0 25 0;
-#X restore 33 221 pd Windows ___;
+#X restore 13 253 pd Windows ___;
 #N canvas 527 60 607 442 Envs 0;
 #X obj 49 78 fd_data;
 #X obj 301 299 fd_dataDroplet;
@@ -536,7 +517,7 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X text 139 24 Data Structure Envelope Generators;
 #X obj 301 269 fd_dataMorph 1 2 100;
 #X text 131 44 right-click on any of them for help;
-#X restore 33 259 pd Envs ______;
+#X restore 13 291 pd Envs ______;
 #N canvas 524 54 526 539 Externs 0;
 #X obj 43 375 cantor;
 #X obj 119 404 clifford;
@@ -545,21 +526,17 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X obj 258 347 crand;
 #X obj 119 433 cuadratic;
 #X obj 114 295 factor;
-#X obj 335 403 gausstwister;
 #X obj 379 106 glistinfo;
 #X obj 43 404 halton;
 #X obj 43 433 henon;
-#X obj 412 464 ipa;
 #X obj 43 462 lorenz;
 #X obj 257 240 lorsig~;
 #X obj 334 240 lor~;
 #X obj 302 106 mainpath;
-#X obj 260 464 mainscore;
 #X obj 119 462 mandelbrot;
 #X obj 330 172 minimax;
 #X obj 335 347 mtwister;
 #X obj 119 375 parabola;
-#X obj 390 240 PdCon16~;
 #X obj 335 375 pmtwister;
 #X obj 258 403 prandom;
 #X obj 258 375 randy;
@@ -569,8 +546,6 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X obj 257 172 siginfo;
 #X obj 38 101 sradio 15 1 8 empty empty empty 0 -8 0 10 -228856 -1
 -1;
-#X obj 350 465 txt2pd;
-#X text 298 434 Text Stuff;
 #X text 44 73 Gui;
 #X text 36 189 Patching;
 #X text 239 303 Pseudo Random Number Generators;
@@ -582,33 +557,106 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X text 253 76 Canvas information:;
 #X text 35 144 [back] object;
 #X text 101 44 right-click on any of them for help;
-#X restore 33 163 pd Externs ___;
-#X text 164 16 This is my personal suite of abstractions for puredata.
-Feel free to use (at your own risk) \, copy \, edit and whatever. Contact
-me at camarafede@gmail.com if anything.;
-#X text 165 191 GOP: graph on parent;
-#X text 165 220 Windows: signal generated window functions for analysis
-\, envelopes \, signal \, etc;
-#X text 165 258 Envs: Data structure based envelope generators;
-#X text 165 286 Math: some math formulas for easy access when patching
-;
-#X text 164 314 Signal: Dsp abstractions \, synth generators \, recorders
+#X restore 13 195 pd Externs ___;
+#X text 125 252 Windows: signal generated window functions for analysis
+\, envelopes \, signal \, etc, f 52;
+#X text 125 290 Envs: Data structure based envelope generators;
+#X text 125 318 Math: some math formulas for easy access when patching
+, f 53;
+#X text 124 356 Signal: Dsp abstractions \, synth generators \, recorders
 \, spatializers \, effects \, utilities for mixing and other stuff.
+, f 53;
+#X text 126 404 Gem: abstractions using the Gem library (need to download
+it from deken: Help>Find Externals), f 53;
+#X text 126 480 Analysis: Get minimal information on an incoming stream
+of floats., f 53;
+#X text 126 194 External objects;
+#X text 126 442 GUI: Gui-related abstractions \, color \, cords \,
+coords \, dynamic patching \, navigating \, etc, f 53;
+#X text 126 518 Arrays: operations on arrays;
+#X text 126 546 Lists: operations on lists;
+#X text 127 574 Misc: miscellanea;
+#X text 125 602 Probs: markov chains \, z12 abstraction \,;
+#X text 124 630 Structs: Data structure guis;
+#N canvas 0 22 450 300 GoP 0;
+#N canvas 0 22 450 387 Control 0;
+#X obj 36 67 fd_clicktrack;
+#X obj 278 67 fd_pno;
+#X obj 282 150 fd_6x6;
+#X obj 286 329 sradio 15 1 8 empty empty empty 0 -8 0 10 -262144 -1
+-1;
+#X obj 36 328 fd_range;
+#X text 76 304 Range Selection:;
+#X text 289 296 Sradio (external);
+#X restore 38 53 pd Control _________;
+#N canvas 0 22 450 300 Structs 0;
+#X obj 161 64 fd_dataGui;
+#X obj 55 64 fd_dataMorphGui;
+#X obj 53 194 fd_dataStoreGui;
+#X obj 54 170 fd_dataVis;
+#X restore 38 227 pd Structs _________;
+#N canvas 0 22 483 516 Misc 0;
+#X obj 37 249 fd_nouns;
+#X obj 35 40 fd_untext;
+#X obj 384 31 fd_tglvis misc;
+#X obj 45 381 fd_key;
+#X obj 363 404 fd_cputime;
+#X text 339 379 CPU Monitoring;
+#X text 109 351 A keyboard;
+#X obj 36 7 fd_title 1 GOP Abstractions Overview;
+#X restore 38 198 pd Misc ____________;
+#N canvas 0 22 450 300 Network 0;
+#X obj 24 59 fd_netreceive;
+#X obj 24 84 fd_netsend;
+#X restore 38 169 pd Network _________;
+#N canvas 0 22 450 300 Gem 0;
+#X obj 181 35 fd_camara;
+#X obj 71 52 fd_gemsphere;
+#X restore 38 140 pd Gem _____________;
+#N canvas 0 22 450 300 Time 0;
+#X obj 241 48 fd_countdown;
+#X obj 78 49 fd_stopwatch;
+#X restore 38 111 pd Time ____________;
+#N canvas 672 20 380 623 Signal 0;
+#X obj 163 42 fd_bigmyvu;
+#X obj 92 8 fd_dsp;
+#X obj 58 223 fd_fftfilt;
+#X obj 15 36 fd_inputGui;
+#X obj 29 342 fd_rec;
+#X obj 251 69 fd_vu;
+#X obj 24 450 fd_write1;
+#X obj 184 343 fd_write2;
+#X obj 184 453 fd_write5;
+#X obj 250 14 fd_out;
+#X text 184 7 Output:;
+#X text 29 6 Input:;
+#X text 111 309 Recording:;
+#X text 121 194 Filtering;
+#X restore 38 82 pd Signal __________;
+#X text 195 55 <-- Control flow;
+#X text 201 226 <-- Data structures;
+#X text 197 199 <-- Miscellanea;
+#X text 198 168 <-- Network control;
+#X text 197 142 <-- Gem camera and position;
+#X text 196 112 <-- Time and stopwatches;
+#X text 196 81 <-- Signal GoP abstractions;
+#X text 115 19 All Graph-on-Parent abstractions;
+#X restore 13 224 pd GoP _______;
+#X obj 1 2 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1 0
 ;
-#X text 166 352 Gem: abstractions using the Gem library (need to download
-it from deken: Help>Find Externals);
-#X text 166 428 Analysis: Get minimal information on an incoming stream
-of floats.;
-#X text 166 162 External objects;
-#X text 166 390 GUI: Gui-related abstractions \, color \, cords \,
-coords \, dynamic patching \, navigating \, etc;
-#X text 166 466 Arrays: operations on arrays;
-#X text 166 494 Lists: operations on lists;
-#X text 164 86 Click to open the subpatches and right-click any object/abstraction
-for more info about how to use.;
-#X text 167 522 Misc: miscellanea;
-#X text 165 550 Probs: markov chains \, z12 abstraction \,;
-#X text 164 578 Structs: Data structure guis;
-#X text 134 623 fd_lib by Fede Camara Halac - fdch.github.io/tv - 2017
-;
-#X obj 33 192 all_gui ______;
+#X text 199 8 fd_lib - fdch - 2019;
+#X obj 382 7 declare -lib fd_lib;
+#X obj 1 152 cnv 15 522 30 empty empty overview: 20 15 0 15 -228856
+-1 0;
+#X text 10 41 This is my personal suite of abstractions for puredata.
+Feel free to use (at your own risk) \, copy \, edit and whatever. Contact
+me at camarafede@gmail.com if anything., f 71;
+#X text 11 94 Click to open the subpatches and right-click any object/abstraction
+for more info about how to use., f 34;
+#X msg 272 91 browse https://fdch.github.io;
+#X obj 272 118 pdcontrol;
+#X text 125 223 Graph-on-Parent (GOP) abstractions and externals;
+#X obj 1 658 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1
+0;
+#X text 377 663 fd_lib version 0.1;
+#X connect 33 0 34 0;

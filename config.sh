@@ -1,7 +1,8 @@
 #!/bin/bash
-PDLIBBUILDER_DIR="./pd-lib-builder"
+PDLIBBUILDER_DIR="pd-lib-builder"
 LIBNAME=fd_lib
 COMMONLIB=src/fdLib.c
+EXTFILE=doc/externals.pd
 SOURCES=''
 for i in src/*.c
 do
@@ -19,6 +20,9 @@ if [[ ! -d $PDLIBBUILDER_DIR ]]
 then
 	echo $PDLIBBUILDER_DIR
 	echo "Define path to pd-lib-builder on line 2"
+	echo "Or run the following:"
+	echo "$ git submodule init"
+	echo "$ git submodule update"
 	exit 1
 fi
 
@@ -54,11 +58,11 @@ SX=80
 SY=30
 echo "#N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 363 10 declare -lib fd_lib;" > externals.pd
+#X obj 363 10 declare -lib fd_lib;" > $EXTFILE
 C=1
 for i in $SOURCES;
 do
-	echo "#X obj $X $Y `basename $i .c`;" >> externals.pd
+	echo "#X obj $X $Y `basename $i .c`;" >> $EXTFILE
 	Y=$((Y+$SY))
 	modulo=$(($C%15))
 	if [[ 0 == "$modulo" ]]
