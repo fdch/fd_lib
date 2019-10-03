@@ -35,16 +35,16 @@ CABSTRAC=0
 # load abstractions
 for i in abstractions/*.pd
 do
-	DATAFILES+="$i "
+	DATAFILES+="${i} "
 	((CABSTRAC++))
 done
 # make sure readme and meta file are there
 touch $R
 touch $META
 # continue loading help files and text files
-for i in help/*-help.pd *.txt $META
+for i in help/*.pd *.txt $META
 do
-	DATAFILES+="$i "
+	DATAFILES+="${i} "
 done
 # -----------------------------------------------------------------------------
 #
