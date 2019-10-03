@@ -9,6 +9,7 @@ EXTFILE=doc/externals.pd
 PDLIBBUILDER_DIR="pd-lib-builder"
 R=README.txt
 META=fd_lib-meta.pd
+DATADIRS="doc data img include pd-lib-builder scripts src test"
 # -----------------------------------------------------------------------------
 #
 # Load all sources
@@ -42,7 +43,7 @@ done
 touch $R
 touch $META
 # continue loading help files and text files
-for i in help/*.pd *.txt $META
+for i in help/*.pd *.txt $META config.sh
 do
 	DATAFILES+="${i} "
 done
@@ -81,7 +82,7 @@ echo "common.sources = $COMMONLIB" >> Makefile
 # all abstractions, help files, and texts
 echo "datafiles = $DATAFILES" >> Makefile
 # all sub directories
-echo "datadirs = doc data img scripts test" >> Makefile
+echo "datadirs = $DATADIRS" >> Makefile
 # C flags
 echo "cflags= -Iinclude" >> Makefile
 # standard c99 flag for linux
