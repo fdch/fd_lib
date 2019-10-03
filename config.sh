@@ -36,16 +36,6 @@ common.sources=$COMMONLIB
 printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
 echo "
 
-define forWindows
-  cflags = -D_WIN32 -D_ -Iinclude -march=x86-64
-endef
-define forDarwin
-  cflags += -D__APPLE__ -DHAVE_UNISTD_H
-endef
-define forLinux
-  cflags += -D__linux__ -D__gnu_linux__ -DHAVE_UNISTD_H
-endef
-
 # build a multi-object library
 make-lib-executable=yes
 

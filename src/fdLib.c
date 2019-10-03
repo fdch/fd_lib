@@ -13,6 +13,25 @@ You should have received a copy of the GNU General Public License along with thi
 
 #include "fdLib.h"
 
+#ifdef UNIX
+#include <unistd.h>
+#endif
+
+#include <sys/stat.h>
+
+#ifdef MSW
+#include <io.h>
+#include <windows.h>
+#endif
+
+#ifdef MSW
+# include <malloc.h> /* MSVC or mingw on windows */
+#elif defined(UNIX) || defined(MACOSX)
+# include <alloca.h> /* linux, mac, mingw, cygwin */
+#else
+# include <stdlib.h> /* BSDs for example */
+#endif
+
 
 // Needed for qsort.  See http://w...content-available-to-author-only...s.com/reference/cstdlib/qsort/
 t_int compare (const void * a, const void * b) { 
@@ -107,7 +126,7 @@ void sys_expandpath(const char *from, char *to, int bufsize)
 {
     if ((strlen(from) == 1 && from[0] == '~') || (strncmp(from,"~/", 2) == 0))
     {
-#ifdef _WIN32
+#ifdef MSW
         const char *home = getenv("USERPROFILE");
 #else
         const char *home = getenv("HOME");
@@ -126,7 +145,7 @@ void sys_expandpath(const char *from, char *to, int bufsize)
         strncpy(to, from, bufsize);
         to[bufsize-1] = 0;
     }
-#ifdef _WIN32
+#ifdef MSW
     {
         char *buf = alloca(bufsize);
         ExpandEnvironmentStrings(to, buf, bufsize-1);

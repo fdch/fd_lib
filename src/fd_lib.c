@@ -14,25 +14,6 @@ You should have received a copy of the GNU General Public License along with thi
 #include "fdLib.h"
 
 
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#include <sys/stat.h>
-
-#ifdef _WIN32
-#include <io.h>
-#include <windows.h>
-#endif
-
-#ifdef _WIN32
-# include <malloc.h> /* MSVC or mingw on windows */
-#elif defined(__linux__) || defined(__APPLE__)
-# include <alloca.h> /* linux, mac, mingw, cygwin */
-#else
-# include <stdlib.h> /* BSDs for example */
-#endif
-
 typedef struct fd_lib
 {
   t_object t_ob;
@@ -52,15 +33,15 @@ static void fd_lib_declare_path()
 	// the environment-dependent path string
 	char pb[MAXPDSTRING];
 	
-#ifdef __gnu_linux__
+#ifdef UNIX
 	char pdlibdir[]="/usr/local/lib/pd-externals";
 #endif
 
-#ifdef __APPLE__
+#ifdef MACOS
 	char pdlibdir[]="~/Library/Pd";
 #endif
 
-#ifdef _WIN32
+#ifdef MSW
 	char pdlibdir[]="%AppData%/Pd";
 #endif
 	// expand the path
