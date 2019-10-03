@@ -1,4 +1,4 @@
-# Makefile for fd_lib - Wed Oct  2 19:57:29 EDT 2019
+# Makefile for fd_lib - Wed Oct  2 20:18:51 EDT 2019
 lib.name=fd_lib
 
 # specify the location of main header file
@@ -13,7 +13,13 @@ datafiles=help/!msg-help.pd help/__-help.pd help/_bass-help.pd help/_distor-help
 
 
 define forWindows
-  cflags = -Iinclude -march=x86-64
+  cflags = -D_WIN32 -D_ -Iinclude -march=x86-64
+endef
+define forDarwin
+  cflags += -D__APPLE__ -DHAVE_UNISTD_H
+endef
+define forLinux
+  cflags += -D__linux__ -D__gnu_linux__ -DHAVE_UNISTD_H
 endef
 
 # build a multi-object library

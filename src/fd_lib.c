@@ -12,11 +12,14 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 #include "fdLib.h"
-#include <stdlib.h>
+
+
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+
 #include <sys/stat.h>
+
 #ifdef _WIN32
 #include <io.h>
 #include <windows.h>
