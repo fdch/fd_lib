@@ -1,6 +1,6 @@
 #N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 363 10 declare -lib fd_lib;
+#X obj 360 10 declare -lib fd_lib;
 #X obj 10 10 cantor;
 #X obj 10 40 clifford;
 #X obj 10 70 colormap;

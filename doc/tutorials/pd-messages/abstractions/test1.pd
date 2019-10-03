@@ -1,6 +1,0 @@
-#N canvas 0 21 450 300 12;
-#X obj 20 20 phasor~ 391.995;
-#X obj 20 45 *~ 0.24;
-#X obj 20 70 dac~ 1;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;

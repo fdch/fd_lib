@@ -1,9 +1,19 @@
 #!/bin/bash
-PDLIBBUILDER_DIR="pd-lib-builder"
 LIBNAME=fd_lib
+FDLIBVERSION=0.1
+DESCRIPTION="A suite of externals and abstractions"
+AUTHOR="Fede Camara Halac"
+LICENSE="GPL -2+"
 COMMONLIB=src/fdLib.c
 EXTFILE=doc/externals.pd
-FDLIBVERSION=0.1
+PDLIBBUILDER_DIR="pd-lib-builder"
+R=README.txt
+META=fd_lib-meta.pd
+# -----------------------------------------------------------------------------
+#
+# Load all sources
+#
+# -----------------------------------------------------------------------------
 SOURCES=''
 CSOURCES=0
 for i in src/*.c
@@ -14,17 +24,33 @@ do
 		((CSOURCES++))
 	fi
 done
+# -----------------------------------------------------------------------------
+#
+# Load all datafiles (abstractions, help files, texts)
+#
+# -----------------------------------------------------------------------------
 DATAFILES=''
+# store number of abstractions here for README.txt
 CABSTRAC=0
+# load abstractions
 for i in abstractions/*.pd
 do
 	DATAFILES+="$i "
 	((CABSTRAC++))
 done
-for i in help/*-help.pd *.txt
+# make sure readme and meta file are there
+touch $R
+touch $META
+# continue loading help files and text files
+for i in help/*-help.pd *.txt $META
 do
 	DATAFILES+="$i "
 done
+# -----------------------------------------------------------------------------
+#
+# Check if pd-lib-dir exists here, otherwise make sure argument 1 has it
+#
+# -----------------------------------------------------------------------------
 if [[ ! -d $PDLIBBUILDER_DIR ]]
 then
 	if [[ "$1" ]] && [[ -d "$1" ]] && [[ -f "$1/Makefile.pdlibbuilder" ]]
@@ -39,68 +65,93 @@ then
 		exit 1
 	fi
 fi
-
+# -----------------------------------------------------------------------------
+#
+# Make Makefile
+#
+# -----------------------------------------------------------------------------
 echo "# Makefile for $LIBNAME version $FDLIBVERSION - `date`" > Makefile
-printf "%s\n" "lib.name=$LIBNAME"		>> Makefile
-echo "
+echo "lib.name=$LIBNAME" >> Makefile
 # specify the location of main header file
-cflags = -Iinclude
-lib.setup.sources = src/\$(lib.name).c
-" >> Makefile
-printf "%s\n" "class.sources=$SOURCES" 	>> Makefile
-echo "
-common.sources=$COMMONLIB
-" >> Makefile
-printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
-echo "
-
-define forLinux
-  cflags += -std=c99
-endef
-
+echo "lib.setup.sources = src/\$(lib.name).c" >> Makefile
+# all classes
+echo "class.sources = $SOURCES" >> Makefile
+# the common lib
+echo "common.sources = $COMMONLIB" >> Makefile
+# all abstractions, help files, and texts
+echo "datafiles = $DATAFILES" >> Makefile
+# all sub directories
+echo "datadirs = doc data img scripts test" >> Makefile
+# C flags
+echo "cflags= -Iinclude" >> Makefile
+# standard c99 flag for linux
+echo "define forLinux" >> Makefile
+echo "    cflags += -std=c99" >> Makefile
+echo "endef" >> Makefile
 # build a multi-object library
-make-lib-executable=yes
-
+echo "make-lib-executable=yes" >> Makefile
 # provide the path to pd-lib-builder
-PDLIBBUILDER_DIR=$PDLIBBUILDER_DIR
-include \$(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
-" >> Makefile
-
+echo "PDLIBBUILDER_DIR=$PDLIBBUILDER_DIR" >> Makefile
+echo "include \$(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder" >> Makefile
+# -----------------------------------------------------------------------------
+#
+# Make externals.pd
+#
+# -----------------------------------------------------------------------------
 X=10
 Y=10
 SX=80
 SY=30
-echo "#N canvas 500 50 530 480 12;
-#X declare -lib fd_lib;
-#X obj 363 10 declare -lib fd_lib;" > $EXTFILE
+echo "#N canvas 500 50 530 480 12;" > $EXTFILE
+echo "#X declare -lib $LIBNAME;" >> $EXTFILE
+echo "#X obj 360 $Y declare -lib $LIBNAME;" >> $EXTFILE
 C=1
 for i in $SOURCES;
 do
 	echo "#X obj $X $Y `basename $i .c`;" >> $EXTFILE
 	Y=$((Y+$SY))
-	modulo=$(($C%15))
-	if [[ 0 == "$modulo" ]]
+	M=$(($C%15))
+	if [[ 0 == "$M" ]]
 	then
 		X=$((X+$SX))
 		Y=10
 	fi
 	((C++))
 done
-echo "
-$LIBNAME 
-
-Current version: $FDLIBVERSION
-
-This is my personal [Pure Data](https://github.com/pure-data/pure-data) library of abstractions and externals. 
-It has around $CABSTRAC abstractions, $CSOURCES externals, shell scripts, and tutorials. 
-For an overview of the library, go open '_overview.pd'
-For instructions on how to compile see INSTALL.txt. 
-
-$LIBNAME is now available via \`deken\`, Pure Data's package/externals manager. 
-Open Pure Data and go to \`Help > Find Externals\`, then type \`$LIBNAME\` and download the binaries.
-
-Use at your own risk and have fun!
-
-fdch
-
-" > README.txt
+# -----------------------------------------------------------------------------
+#
+# Make README.txt
+#
+# -----------------------------------------------------------------------------
+echo "$LIBNAME">$R
+echo >>$R
+echo "Current version: $FDLIBVERSION">>$R
+echo "This is my personal Pure Data library of abstractions and externals.">>$R
+echo "Get Pure Data here: https://msp.ucsd.edu">>$R
+echo "It has:">>$R
+echo "    $CABSTRAC abstractions,">>$R
+echo "    $CSOURCES externals,">>$R
+echo "    shell scripts, and more.">>$R
+echo "For an overview of the library, go open '_overview.pd'">>$R
+echo "For instructions on how to compile see INSTALL.txt.">>$R
+echo >>$R
+echo "$LIBNAME is now available via \`deken\`, Pd's package manager.">>$R 
+echo "Open Pure Data and go to \`Help > Find Externals\`,">>$R
+echo "then type \`$LIBNAME\` and download the binaries.">>$R
+echo >>$R
+echo "Use at your own risk and have fun!">>$R
+echo "fdch">>$R
+# -----------------------------------------------------------------------------
+#
+# Make fd_lib-meta.pd
+#
+# -----------------------------------------------------------------------------
+echo "#N canvas 1 51 320 90 10;">$META
+echo "#N canvas 1 51 380 134 META 1;">>$META
+echo "#X text 10 10 NAME $LIBNAME;">>$META
+echo "#X text 10 30 VERSION $FDLIBVERSION;">>$META
+echo "#X text 10 40 DESCRIPTION $DESCRIPTION;">>$META
+echo "#X text 10 50 AUTHOR $AUTHOR;">>$META
+echo "#X text 10 90 LICENCE $LICENSE;">>$META
+echo "#X restore 43 36 pd META;">>$META
+echo "#X text 39 15 $LIBNAME: $DESCRIPTION;">>$META

@@ -32,17 +32,26 @@ static void fd_lib_declare_path()
 	ps[1]='\0';
 	// the environment-dependent path string
 	char pb[MAXPDSTRING];
+	int created=0;
+	char pdlibdir[MAXPDSTRING];
 	
+#ifdef MACOSX
+	if (created==0) {
+		sprintf(pdlibdir,"~/Library/Pd");
+		created=1;
+	}
+#endif
 #ifdef UNIX
-	char pdlibdir[]="/usr/local/lib/pd-externals";
+	if (created==0) {
+		sprintf(pdlibdir,"/usr/local/lib/pd-externals");
+		created=1;
+	}
 #endif
-
-#ifdef MACOS
-	char pdlibdir[]="~/Library/Pd";
-#endif
-
 #ifdef MSW
-	char pdlibdir[]="%AppData%/Pd";
+	if (created==0) {
+		sprintf(pdlibdir,"%AppData%/Pd");
+		created=1;
+	}
 #endif
 	// expand the path
 	sys_expandpath(pdlibdir, pb, MAXPDSTRING);
@@ -55,6 +64,7 @@ static void fd_lib_declare_path()
 	SETSYMBOL (ap+0, gensym(ps)); // add it as a symbol
 	SETFLOAT (ap+1, 1.0f);
 	SETFLOAT (ap+2,0);
+	post("Adding path to fd_lib in: %s",pb);
 	pd_typedmess(gensym("pd")->s_thing, gensym("add-to-path"), 3, ap);
 }
 

@@ -27,9 +27,3 @@ pd2json.py
 
 config.sh
 	creates the Makefile required by pdlibbuilder.
-
--------------------------------------------------------------------------------
-Tutorials
--------------------------------------------------------------------------------
-
-A brief tutorial on (mostly) undocumented pd-related messages.
