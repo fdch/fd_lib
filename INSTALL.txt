@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+on Unix
+-------------------------------------------------------------------------------
+
+$	sh config.sh
+$	make
+$	make install
+
+-------------------------------------------------------------------------------
+on Windows:
+-------------------------------------------------------------------------------
+
+I basically used the same terminal to compile Pure Data and it works. So, check Pd's INSTALL.txt file for more information. If you have already done this, simply use the Mintty terminal (MYSYS2) and run a "Mingw-w64 64 bit" Shell (bash). I assume you are always on this shell emulator for the rest of this text.
+
+
+Once you are on the shell emulator, sun:
+
+$	sh config.sh
+$	make
+
+You must indicate the path to pd's <bin> directory, as well as the <src> directory to include. 
+
+	pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src
+
+You might also need to determine which architecture, I do this by adding the following lines to the command above
+
+	CFLAGS=-march=x86-64 -Iinclude
+
+The whole command looks like this:
+
+$	make pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src CFLAGS=-march=x86-64 -Iinclude
+
+Finally, you can install the library:
+
+$	make install
+
+I recommend the usual library installation in %AppData%, which is the default. If you locate the library someplace else, please also place a [declare -path /path/to/fd_lib] in your patches or just ADD the PATH to fd_lib in File>Preferences>Path
