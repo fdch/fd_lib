@@ -36,6 +36,10 @@ common.sources=$COMMONLIB
 printf "%s\n" "datafiles=$DATAFILES"	>> Makefile
 echo "
 
+define forLinux
+  cflags += -std=c99
+endef
+
 # build a multi-object library
 make-lib-executable=yes
 
