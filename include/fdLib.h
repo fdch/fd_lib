@@ -60,7 +60,9 @@ You should have received a copy of the GNU General Public License along with thi
 #define DEF_SEED 4357
 #define MAXNUM 1
 
-#define TRACKSMAX 2048
+/* for tracks.c */
+#define TMAX 2048
+#define TINS 128
 
 t_int compare(const void * a, const void * b);
 t_float factorial(t_float f);

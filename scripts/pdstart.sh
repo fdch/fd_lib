@@ -124,6 +124,26 @@ PDTEMPLATE="\
 #X obj 20 20 declare $PATHS;
 #X restore 20 20 pd declare;
 "
+DACTEMPLATE="\
+#N canvas 1060 52 142 208 vol 1;
+#X obj 39 26 vsl 15 128 0 127 0 0 vol vol-set vol 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 40 161 nbx 5 14 -1e+37 1e+37 0 0 empty vol empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 64 31 vu 15 120 vu vu -1 -8 0 10 -66577 -1 1 0;
+#X restore 23 58 pd vol;
+#N canvas 0 22 450 300 dac 0;
+#X obj 39 23 catch~ mono;
+#X obj 39 49 clone -s 1 fd_dacout 2 vol;
+#X obj 39 75 env~;
+#X obj 39 101 - 100;
+#X obj 39 127 s vu;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X restore 22 88 pd dac;
+"
 #------------------------------------------------------------------------------
 #
 #	This is a backup command utility for easier (non-destructive) backup
@@ -254,6 +274,7 @@ function main() {
 	echo "creating $FILE in $BINDIR ..."
 	echo "$PDTEMPLATE" > $FILE 
 	echo "#X text 200 20 \"$NAME\";" >> $FILE
+	echo "$DACTEMPLATE" >> $FILE 
 }
 #------------------------------------------------------------------------------
 #
