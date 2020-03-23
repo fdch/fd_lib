@@ -121,5 +121,6 @@ void fd_lib_setup(void)
 	scroll_setup();
 	siginfo_setup();
 	tracks_setup();
+	// g_surface_setup();
 
 }

@@ -19,3 +19,4 @@
 .mov
 
 .tmp/
+src/surface.c
