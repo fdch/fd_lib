@@ -1,6 +1,6 @@
 fd_lib
 
-Current version: 0.1
+Current version: 0.2
 This is my personal Pure Data library of abstractions and externals.
 Get Pure Data here: https://msp.ucsd.edu
 It has:
