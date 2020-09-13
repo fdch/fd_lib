@@ -1,0 +1,101 @@
+#N canvas 500 50 530 479 12;
+#X declare -path ../abstractions;
+#X declare -lib fd_lib;
+#X obj 3 3 cnv 15 522 30 empty empty fd_comp~ 20 15 0 15 -228856 -1
+0;
+#X obj 3 253 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 3 313 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 3 373 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 3 452 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X text 439 451 fd_lib v0.1;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:18:25 EDT 2019
+;
+#X text 10 115 classes used : 8;
+#X text 10 130 total objects: 11;
+#X text 10 145 connections : 15;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 8/233 [0sel:inlet:f:t:outlet:loadbang:int:del]
+;
+#X text 10 25 patch_name : fd_comp~;
+#X text 10 40 inlet : 0;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 1;
+#X text 10 85 outlet~ : 1;
+#X text 10 100 arguments : 0;
+#X obj 25 235 declare -path ../abstractions;
+#X restore 437 422 pd meta;
+#X obj 45 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 114 153 fd_comp~;
+#X floatatom 167 79 5 0 0 0 - - -;
+#X msg 167 103 threshold \$1 \, ratio 2 \, response 40 \, gain 0 \,
+rmspeak 0 \, lookahead 0, f 24;
+#X obj 45 176 env~ 4096;
+#X obj 114 177 env~ 4096;
+#X obj 45 200 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8511 1;
+#X obj 45 219 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8070 1;
+#X text 24 48 Compress a signal. Designed by Varun Nair - re-sounding.com
+- @ntkeep;
+#X text 176 199 input;
+#X text 176 217 compressed;
+#X text 59 283 none;
+#X text 59 339 1: signal to compress \; 2: parameter input \;;
+#X text 58 403 1: signal: compressed output \; 2: list: parameter dump
+(for UI);
+#N canvas 0 22 450 300 impulse 0;
+#X obj 55 36 inlet;
+#X obj 55 60 switch~;
+#X obj 263 46 phasor~ 1;
+#X obj 147 102 noise~;
+#X obj 147 126 samphold~;
+#X obj 250 89 sig~ 1;
+#X obj 250 113 -~;
+#X obj 147 150 *~ 0.5;
+#X obj 147 174 +~ 0.5;
+#X obj 146 30 *~ 4;
+#X obj 202 225 *~;
+#X obj 172 224 *~;
+#X obj 172 248 outlet~;
+#X obj 245 166 delwrite~ \$0-d 10;
+#X obj 147 7 delread~ \$0-d 10;
+#X obj 147 54 +~ 2;
+#X obj 147 198 *~ 3;
+#X connect 0 0 1 0;
+#X connect 2 0 4 1;
+#X connect 2 0 6 1;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 1;
+#X connect 7 0 8 0;
+#X connect 8 0 13 0;
+#X connect 8 0 16 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 14 0 9 0;
+#X connect 15 0 2 0;
+#X connect 16 0 11 0;
+#X restore 45 121 pd impulse;
+#X obj 189 172 print dump;
+#X msg 217 79 -50;
+#X obj 385 6 declare -lib fd_lib;
+#X connect 7 0 21 0;
+#X connect 8 0 12 0;
+#X connect 8 1 22 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 1;
+#X connect 11 0 13 0;
+#X connect 12 0 14 0;
+#X connect 21 0 8 0;
+#X connect 21 0 11 0;
+#X connect 23 0 9 0;

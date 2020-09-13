@@ -37,7 +37,7 @@ static void fd_lib_declare_path()
 	
 #ifdef MACOSX
 	if (created==0) {
-		sprintf(pdlibdir,"~/Library/Pd");
+		sprintf(pdlibdir,"~/Documents/Pd/externals");
 		created=1;
 	}
 #endif

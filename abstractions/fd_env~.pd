@@ -15,8 +15,9 @@
 #X obj 263 234 s \$1;
 #X obj 314 45 inlet;
 #X obj 84 13 inlet~;
-#X obj 314 147 switch~;
-#X obj 314 74 t f f;
+#X obj 314 183 switch~;
+#X obj 217 146 sel;
+#X obj 314 110 t f f f;
 #X connect 0 0 8 3;
 #X connect 1 0 8 0;
 #X connect 2 0 3 0;
@@ -31,7 +32,9 @@
 #X connect 10 0 0 0;
 #X connect 11 0 12 0;
 #X connect 11 1 13 0;
-#X connect 14 0 17 0;
+#X connect 14 0 18 0;
 #X connect 15 0 1 0;
-#X connect 17 0 16 0;
-#X connect 17 1 2 0;
+#X connect 17 0 7 0;
+#X connect 18 0 17 0;
+#X connect 18 1 16 0;
+#X connect 18 2 2 0;
