@@ -37,4 +37,5 @@
 #X obj 170 100 scroll;
 #X obj 170 130 siginfo;
 #X obj 170 160 sradio;
-#X obj 170 190 tracks;
+#X obj 170 190 surface;
+#X obj 170 220 tracks;

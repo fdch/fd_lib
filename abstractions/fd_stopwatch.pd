@@ -35,7 +35,7 @@
 #X obj 140 280 s time;
 #X obj 115 168 t b f;
 #X obj 61 225 t l l;
-#X text 235 14 a simple stopwatch;
+#X text 311 149 a simple stopwatch;
 #X connect 0 0 22 0;
 #X connect 1 0 29 0;
 #X connect 2 0 6 0;

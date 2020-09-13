@@ -45,7 +45,7 @@ echo "
 waiting 5 seconds...
 "
 
-$($MYPD -stderr -verbose -open $PDFILE -nogui  2> "$LOGFILE") & 
+$($MYPD -stderr -verbose -noprefs -open $PDFILE -nogui  2> "$LOGFILE") & 
 sleep 5
 kill $!
 wait 2>/dev/null

@@ -1,6 +1,6 @@
 /* 
 
-Copyright 2019 Fede Camara Halac
+Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
 This file is part of fd_lib.
 

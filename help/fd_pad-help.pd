@@ -1,0 +1,55 @@
+#N canvas 539 48 535 499 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty fd_pad 20 15 0 15 -228856 -1 0
+;
+#X obj 4 234 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 304 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:57 EDT 2019
+;
+#X text 10 40 inlet : 3;
+#X text 10 55 outlet : 1;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 3;
+#X text 10 115 classes used : 9;
+#X text 10 130 total objects: 13;
+#X text 10 145 connections : 18;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 0 [0];
+#X text 10 190 internals : 9/233 [0inlet:sel:*:unpack:pack:outlet:loadbang:/:+]
+;
+#X text 10 25 patch_name : fd_pad;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 57 324 1: float: input value \; 2: float: range \; 3: float:
+offset;
+#X text 60 410 1: float: mapped value;
+#N canvas 0 22 450 300 more 0;
+#X restore 444 202 pd more;
+#X text 60 254 1: float: max input \; 2: float: range \; 3: float:
+offset (default 0);
+#X text 20 52 A 2d vanilla pad;
+#X obj 64 86 ../abstractions/fd_pad xypos;
+#X obj 68 134 r xypos;
+#X obj 68 160 unpack;
+#X floatatom 68 186 5 0 0 0 - - -;
+#X floatatom 146 188 5 0 0 0 - - -;
+#X obj 282 85 ../abstractions/fd_pad xypos2;
+#X obj 248 160 unpack;
+#X floatatom 248 186 5 0 0 0 - - -;
+#X floatatom 326 188 5 0 0 0 - - -;
+#X obj 248 134 r xypos2;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X connect 22 0 19 0;

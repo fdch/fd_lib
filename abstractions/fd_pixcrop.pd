@@ -1,6 +1,6 @@
 #N canvas 405 23 554 690 12;
 #X declare -lib Gem;
-#X obj 93 212 min;
+#X obj 93 191 min;
 #X obj 78 45 inlet;
 #X obj 78 576 outlet;
 #X obj 286 16 inlet;
@@ -14,7 +14,7 @@
 #X obj 168 367 min;
 #X obj 259 367 min;
 #X obj 78 528 pix_crop;
-#X obj 93 237 * 1;
+#X obj 93 216 * 1;
 #X obj 244 651 outlet;
 #X obj 93 274 fd_trunc2n;
 #X obj 168 392 max;

@@ -1,6 +1,6 @@
 /* 
 
-Copyright 2019 Fede Camara Halac
+Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
 This file is part of fd_lib.
 
@@ -37,7 +37,7 @@ static void fd_lib_declare_path()
 	
 #ifdef MACOSX
 	if (created==0) {
-		sprintf(pdlibdir,"~/Library/Pd");
+		sprintf(pdlibdir,"~/Documents/Pd/externals");
 		created=1;
 	}
 #endif
@@ -121,5 +121,6 @@ void fd_lib_setup(void)
 	scroll_setup();
 	siginfo_setup();
 	tracks_setup();
+	// g_surface_setup();
 
 }
