@@ -1,6 +1,6 @@
 #!/bin/bash
 LIBNAME=fd_lib
-FDLIBVERSION=0.1
+FDLIBVERSION=0.2
 DESCRIPTION="A suite of externals and abstractions"
 AUTHOR="Fede Camara Halac"
 LICENSE="GPL -2+"
