@@ -3,89 +3,87 @@
 # This script loads a pd patch (argument 1) and puts all dependencies in the 
 # directory specified with argument 2
 #
-if [[ -f /usr/local/bin/pd ]]
-then 
-	MYPD=/usr/local/bin/pd
-elif [[ -f /usr/bin/pd ]]
-then
-	MYPD=/usr/bin/pd
-elif [[ -f /Applications/Pd-0.50-0.app/Contents/Resources/bin/pd ]]
-then
-	MYPD=/Applications/Pd-0.50-0.app/Contents/Resources/bin/pd
-else
-	echo "Could not find Pd. Please provide full/path/to/bin/pd"
-	exit 1
+
+# get PD executable from aliases
+shopt -s expand_aliases && source ~/.bash_alias
+
+tmpsort=/tmp/sorted
+tmplog=/tmp/log
+
+function log_pdfile_load() {
+  #load pd file and output console printout to logfile
+  echo "Loading pd file..."
+  $(pd -stderr -nogui -open "$1" 2> "$2") & 
+  sleep 5
+  kill $!
+  wait 2> /dev/null
+  echo "Done."
+}
+
+function parse_log() {
+  grep 'succeeded' "$1" | 
+  sort -u | 
+  sed 's/tried //g' | 
+  sed 's/and succeeded//g' | 
+  sed 's/^.*: //' > $tmpsort 
+}
+
+function copy_files() {
+  # copy all files into the lib directory
+  while read line; do
+    cp -r "$line" "$1/"
+  done < $tmpsort
+}
+
+echo "**** Deps ****"
+
+# check if pd exists and exit if it doesnt
+if ! pd -version 2>&1; then 
+  echo "pd not found";
+  exit 1
 fi
-# echo using pd in $MYPD
 
 #get pdfile name from argument 1
-if [ "$1" ]
-then
+if [ "$1" ]; then
 	PDFILE="$1"
 else
 	echo "Please provide a pd patch in argument 1"
 	exit 1
 fi
-# echo using $PDFILE
+
 #get libdir name from argument 2
 if [ "$2" ]
 then
 	LIBDIR="$2"
 else
-	echo "Please provide a library directory name in argument 2"
-	exit 1
+	LIBDIR=$(echo "$PDFILE" | sed 's/.pd$//')
 fi
-# echo exporting all in $LIBDIR
-#get logfile name from pd file
-LOGFILE=$(basename $PDFILE .pd)-log
 
-# cat $LOGFILE
-#load pd file and output console printout to logfile
-echo "
-waiting 5 seconds...
-"
+# ----------------------------------------------------------------------------
 
-$($MYPD -stderr -verbose -noprefs -open $PDFILE -nogui  2> "$LOGFILE") & 
-sleep 5
-kill $!
-wait 2>/dev/null
+# load pd and get the console output into the temporary log file
+log_pdfile_load "$PDFILE" $tmplog
 
-SORTED=$(basename "$LOGFILE" .txt)
-SORTED="$SORTED-sort.txt"
+# parse the log
+parse_log $tmplog
 
-# cat $SORTED
-
-grep -e "succeeded" "$LOGFILE" | sort -u > "$SORTED"
-sed -i -e 's/tried //g' "$SORTED"
-sed -i -e 's/and succeeded//g' "$SORTED"
-
-# remove unwanted sorted text
-
-if [ -e "$SORTED-e" ]
-then
-	# echo removing $SORTED-e
-  	rm "$SORTED-e"
-fi
+# wait for use input
+while true; do
+  read -n 1 -p "The following files will be copied:
+$(paste <(echo) $tmpsort)
+Do you wish to continue? yY/nN" yn
+  case $yn in
+    [nN]* ) echo ; echo "Exiting." ; exit 0;;
+    *) echo ; break;;
+  esac
+done
 
 # make the lib directory
+mkdir -p "$LIBDIR"
+# copy the files
+copy_files "$LIBDIR"
+# show the dir structure
+ls $LIBDIR/*
 
-if [ ! -d "$LIBDIR" ]
-then
-	# echo making $LIBDIR
-  	mkdir "$LIBDIR"
-fi
-
-# read the text and copy all files into the lib directory
-
-while read line
-do
-  cp -r "$line" "$LIBDIR/"
-done < "$SORTED"
-
-# echo removing log files
-rm "$SORTED"
-rm "$LOGFILE"
-# echo done. exiting.
-
-tree $LIBDIR
+echo "**** Done. ****"
 exit

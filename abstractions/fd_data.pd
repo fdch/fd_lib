@@ -16,11 +16,11 @@ array-5 template-5-element;
 #N struct template-6 float x float y float z float s float id array
 array-6 template-6-element;
 #N struct template-6-element float y float s float w;
-#N struct template-7 float x float y float z float s float id array
+#N struct templa`te-7 float x float y float z float s float id array
 array-7 template-7-element;
 #N struct template-7-element float y float s float w;
 #N struct template-8 float x float y float z float s float id array
-array-8 template-8-element;
+array-8 template-8-elementz;
 #N struct template-8-element float y float s float w;
 #N canvas 525 49 431 534 12;
 #N canvas 0 22 165 185 envelopes 0;

@@ -34,6 +34,8 @@ wel noi, f 15;
 #X obj 25 362 route float bang;
 #X text 36 408 use [fd_seltab] on parent patch;
 #X obj 156 25 route bang;
+#X obj 199 3 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
@@ -85,3 +87,4 @@ wel noi, f 15;
 #X connect 21 1 0 0;
 #X connect 23 0 19 0;
 #X connect 23 1 18 0;
+#X connect 24 0 23 0;

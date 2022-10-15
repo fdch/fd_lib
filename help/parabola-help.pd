@@ -1,14 +1,14 @@
 #N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 4 4 cnv 15 522 30 empty empty "parabola" 20 15 0 15 -228856
--1 0;
-#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
--1 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+#X obj 4 4 cnv 15 522 30 empty empty "parabola" 20 15 0 15 #dcdcdc
+#000000 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc
+#000000 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000
 0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
--1 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc
+#000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000
 0;
 #X obj 380 8 declare -lib fd_lib;
 #N canvas 0 22 450 300 meta 0;
@@ -21,41 +21,43 @@ is not normalized. Takes "a" and "x" as selectors to floats representing
 coefficient 'a' and initial 'x' position. The creation argument is
 the iteration minima (also via float). A bang or a float (i.e. \, iteration
 minima) triggers iterations.;
-#N canvas 527 51 450 300 test 0;
-#X obj 18 18 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
+#N canvas 527 51 539 419 test 0;
+#X obj 18 18 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
 #X obj 18 38 metro 1;
 #X obj 18 138 parabola 1;
 #X msg 18 163 \$1 \, 0 0 1;
 #X obj 18 188 vline~;
 #X obj 18 88 pack f 0.5;
 #X msg 18 112 a \$1 \, x \$2 \, 1;
-#X floatatom 136 54 5 0 0 0 - - -;
-#X obj 18 261 dac~;
-#X floatatom 76 9 5 0 0 0 - - -;
+#X floatatom 136 54 5 0 0 0 - - - 0;
+#X floatatom 76 9 5 0 0 0 - - - 0;
 #X obj 18 63 crand -2 2;
 #X text 186 55 <-- shift scroll;
 #X msg 100 187 1.99651 -0.996729 0.00736951 0 -0.00736951;
 #X obj 18 214 biquad~ 1.80665 -0.938284 1.44434 -1.80665 0.493948;
 #X obj 18 236 biquad~ 1.77389 -0.892277 0.948653 -1.81983 0.897683
 ;
+#X obj 18 285 dac~;
+#X obj 18 261 *~ 0.1;
 #X connect 0 0 1 0;
-#X connect 1 0 10 0;
+#X connect 1 0 9 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
-#X connect 4 0 13 0;
+#X connect 4 0 12 0;
 #X connect 5 0 6 0;
 #X connect 6 0 2 0;
 #X connect 7 0 5 1;
-#X connect 9 0 1 1;
-#X connect 10 0 5 0;
-#X connect 12 0 14 0;
+#X connect 8 0 1 1;
+#X connect 9 0 5 0;
+#X connect 11 0 13 0;
+#X connect 11 0 12 0;
 #X connect 12 0 13 0;
-#X connect 13 0 14 0;
-#X connect 14 0 8 0;
-#X connect 14 0 8 1;
+#X connect 13 0 15 0;
+#X connect 15 0 14 0;
+#X connect 15 0 14 1;
 #X restore 320 191 pd test;
-#N canvas 0 22 450 300 example 0;
+#N canvas 194 212 450 300 example 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array parabola-help-array 100 float 5;
 #A 0 -0.377629 1 0.372892 -0.373745 0.986531 0.338732 -0.364881 0.956042
@@ -84,7 +86,7 @@ minima) triggers iterations.;
 #X obj 59 73 pack f 0.5;
 #X msg 75 27 1;
 #X msg 112 27 0.5;
-#X floatatom 22 25 5 0 0 0 - - -;
+#X floatatom 22 25 5 0 0 0 - - - 0;
 #X msg 149 27 -1.82;
 #X connect 1 0 5 0;
 #X connect 4 0 1 0;
@@ -102,8 +104,8 @@ minima) triggers iterations.;
 #X obj 35 217 print;
 #X obj 35 193 parabola;
 #X msg 62 151 a 1;
-#X obj 35 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 35 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X msg 114 152 x 0.1;
 #X text 60 340 1 inlets;
 #X connect 14 0 13 0;

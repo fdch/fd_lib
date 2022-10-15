@@ -1,0 +1,46 @@
+#N canvas 866 139 530 480 12;
+#X declare -lib fd_lib;
+#X obj 4 4 cnv 15 522 30 empty empty fd_gain~ 20 15 0 15 -228856 -1
+0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
+-1 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
+0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
+-1 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
+0;
+#X obj 380 8 declare -lib fd_lib;
+#N canvas 0 22 450 300 meta 0;
+#X restore 438 423 pd meta;
+#X text 440 452 fd_lib v0.1;
+#X text 237 11 "fd_gain~";
+#X text 12 39 A Gain utility with decibel input and signal ramp output
+;
+#X floatatom 167 69 5 -100 12 0 input-gain - -;
+#X obj 167 138 fd_gain~;
+#X obj 41 188 env~;
+#X floatatom 41 212 5 0 0 0 - - -;
+#X text 227 68 input range is -100 .. 12;
+#X obj 41 113 noise~;
+#X obj 41 157 *~;
+#X text 60 279 1: float : ramp time \; 2: symbol : receiver;
+#X floatatom 419 200 5 -100 12 0 - - -;
+#X obj 419 223 s \$0-input;
+#X obj 344 160 fd_gain~ 10 \$0-input;
+#X obj 344 184 env~;
+#X floatatom 344 208 5 0 0 0 - - -;
+#X msg 191 103 ramp 10;
+#X text 256 103 change ramp time (default 10);
+#X text 60 408 1 outlets: mapped and ramped signal;
+#X text 60 337 1: float: input range is -100 .. 12 1: ramp \$1: change
+ramp time (default 10);
+#X connect 10 0 11 0;
+#X connect 11 0 16 1;
+#X connect 12 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 12 0;
+#X connect 18 0 19 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 23 0 11 0;

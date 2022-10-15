@@ -18,9 +18,10 @@
 #X obj 363 278 switch~;
 #X obj 218 262 sel;
 #X obj 340 125 t f f f;
-#X obj 350 92 r \$1-switch-\$2;
 #X text 469 95 <-- turn vu meter on/off for this channel, f 17;
 #X obj 218 287 del 5;
+#X obj 350 92 r \$1-switch;
+#X obj 155 152 r \$1-speed;
 #X connect 0 0 8 3;
 #X connect 1 0 8 0;
 #X connect 2 0 3 0;
@@ -37,9 +38,10 @@
 #X connect 11 1 13 0;
 #X connect 14 0 18 0;
 #X connect 15 0 1 0;
-#X connect 17 0 21 0;
+#X connect 17 0 20 0;
 #X connect 18 0 17 0;
 #X connect 18 1 16 0;
 #X connect 18 2 2 0;
-#X connect 19 0 18 0;
-#X connect 21 0 7 0;
+#X connect 20 0 7 0;
+#X connect 21 0 18 0;
+#X connect 22 0 2 1;

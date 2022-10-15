@@ -1,0 +1,99 @@
+#N canvas 501 50 528 479 12;
+#X declare -lib fd_lib;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-display 100 float 3;
+#A 0 -0.708492 -0.705129 -0.698997 -0.690121 -0.678534 -0.664274 -0.647406
+-0.627997 -0.606124 -0.581872 -0.555336 -0.526621 -0.49584 -0.463113
+-0.428563 -0.392332 -0.354563 -0.315405 -0.27501 -0.233538 -0.191151
+-0.148016 -0.104302 -0.0601802 -0.0158243 0.0285902 0.0728894 0.1169
+0.160448 0.203364 0.245479 0.286627 0.326646 0.365377 0.402669 0.438379
+0.472364 0.504492 0.534637 0.562682 0.588515 0.612034 0.63314 0.651758
+0.667816 0.68125 0.692009 0.700049 0.70534 0.707861 0.707602 0.704553
+0.698738 0.690179 0.67891 0.664976 0.648432 0.629343 0.607783 0.583838
+0.557594 0.529161 0.498652 0.466186 0.431893 0.395905 0.358365 0.31942
+0.279222 0.237928 0.195701 0.152708 0.109119 0.0651038 0.0208359 -0.0235111
+-0.0677634 -0.111747 -0.155289 -0.198217 -0.240363 -0.281562 -0.321653
+-0.360479 -0.397886 -0.433729 -0.467867 -0.500165 -0.53049 -0.558729
+-0.584772 -0.608518 -0.629872 -0.648751 -0.665082 -0.678801 -0.689853
+-0.698186 -0.703775 -0.7066;
+#X coords 0 1 100 -1 106 50 1;
+#X restore 403 102 graph;
+#X obj 372 164 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 257 123 5 0 1000 0 - - - 0;
+#X floatatom 323 101 5 0 1000 0 - - - 0;
+#X msg 369 185 amount \$1;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_comp2~" 20 15 0 15 #dcdcdc
+#000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000
+0;
+#X obj 380 8 declare -lib fd_lib;
+#X text 431 453 fd_lib v0.1;
+#X msg 447 45 \; pd dsp 1;
+#X obj 4 244 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc
+#000000 0;
+#X obj 4 305 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000
+0;
+#X obj 4 404 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc
+#000000 0;
+#N canvas 0 22 450 300 meta 0;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:19:12 EDT 2019
+;
+#X text 10 25 patch_name : fd_expo~;
+#X text 10 40 inlet : 1;
+#X text 10 55 outlet : 0;
+#X text 10 70 inlet~ : 0;
+#X text 10 85 outlet~ : 0;
+#X text 10 100 arguments : 2;
+#X text 10 115 classes used : 17;
+#X text 10 130 total objects: 26;
+#X text 10 145 connections : 36;
+#X text 10 160 dependencies : 0 [0];
+#X text 10 175 externals : 2 [0switch~:fd_smooth_brute];
+#X text 10 190 internals : 15/233 [0t:/:route:inlet:array:tabsend~:sig~:samplerate~:phasor~:outlet:lop~:exp~:del:*~:/~]
+;
+#X restore 450 429 pd meta;
+#X obj 39 91 osc~ 440;
+#X obj 143 156 tgl 15 0 empty empty graph 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 143 176 metro 100;
+#X obj 143 200 tabwrite~ \$0-display;
+#X floatatom 106 68 5 0 0 0 - - - 0;
+#X obj 39 183 *~;
+#X obj 75 209 tgl 15 0 empty empty listen 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 66 184 * 0.1;
+#X obj 37 208 dac~;
+#X obj 39 127 comp2~;
+#X obj 106 89 phasor~;
+#X text 20 45 Compress the signal in the first inlet with the second
+one.;
+#X msg 257 146 down \$1;
+#X msg 323 124 up \$1;
+#X text 60 327 1: signal : signal to compress \; 2: signal : compression
+signal \; 3: "down" (float): max downward slope (0-1000) \; 3: "up"
+(float): max upward slope (0-1000) \; 3: "amount" (float): amount to
+compress (0-127) \;;
+#X text 62 275 No arguments;
+#X text 61 424 1: signal: compressed signal;
+#X obj 103 120 r \$0-params;
+#X obj 350 213 s \$0-params;
+#X text 360 274 See slop~-help.pd;
+#X connect 1 0 4 0;
+#X connect 2 0 26 0;
+#X connect 3 0 27 0;
+#X connect 4 0 32 0;
+#X connect 14 0 23 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 18 0 24 0;
+#X connect 19 0 22 0;
+#X connect 19 0 22 1;
+#X connect 20 0 21 0;
+#X connect 21 0 19 1;
+#X connect 23 0 17 0;
+#X connect 23 0 19 0;
+#X connect 24 0 23 1;
+#X connect 26 0 32 0;
+#X connect 27 0 32 0;
+#X connect 31 0 23 2;
