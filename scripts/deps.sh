@@ -37,6 +37,8 @@ function copy_files() {
 
 echo "**** Deps ****"
 
+echo "Locating Pd..."
+
 # check if pd exists and exit if it doesnt
 if ! pd -version 2>&1; then 
   echo "pd not found";
@@ -59,10 +61,12 @@ else
 	LIBDIR=$(echo "$PDFILE" | sed 's/.pd$//')
 fi
 
-# ----------------------------------------------------------------------------
+echo "Packaging $PDFILE into $LIBDIR"
 
 # load pd and get the console output into the temporary log file
 log_pdfile_load "$PDFILE" $tmplog
+
+echo "Parsing..."
 
 # parse the log
 parse_log $tmplog
@@ -86,4 +90,3 @@ copy_files "$LIBDIR"
 ls $LIBDIR/*
 
 echo "**** Done. ****"
-exit
