@@ -1,7 +1,7 @@
 #N canvas 1 51 320 90 10;
 #N canvas 1 51 380 134 META 1;
 #X text 10 10 NAME fd_lib;
-#X text 10 30 VERSION 0.2;
+#X text 10 30 VERSION 0.3;
 #X text 10 40 DESCRIPTION A suite of externals and abstractions;
 #X text 10 50 AUTHOR Fede Camara Halac;
 #X text 10 90 LICENCE GPL -2+;
