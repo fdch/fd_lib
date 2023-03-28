@@ -20,10 +20,10 @@
 #X obj 90 40 irpow;
 #X obj 90 70 irsqrt;
 #X obj 90 100 iterate;
-#X obj 90 130 lorenz;
-#X obj 90 160 lornorm;
-#X obj 90 190 lorsig~;
-#X obj 90 220 lor~;
+#X obj 90 130 lor~;
+#X obj 90 160 lorenz;
+#X obj 90 190 lornorm;
+#X obj 90 220 lorsig~;
 #X obj 90 250 mainpath;
 #X obj 90 280 mandelbrot;
 #X obj 90 310 minimax;
