@@ -1,0 +1,9 @@
+#N canvas 459 273 450 300 12;
+#X obj 160 188 outlet~;
+#X obj 201 43 inlet~;
+#X obj 201 148 s~ \$1-\$2;
+#X obj 159 95 catch~ \$1-\$2-bus;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 3 0 2 0;

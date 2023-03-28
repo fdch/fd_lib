@@ -81,7 +81,7 @@ void fd_lib_setup(void)
 	fd_lib_class = class_new(gensym("fd_lib"), fd_lib_new, 0, sizeof(t_fd_lib), CLASS_PD, 0);
 
 	post("fd_lib version %s", FDLIBVERSION);
-	fd_lib_declare_path();
+	//fd_lib_declare_path();
 
 
 	cantor_setup();
