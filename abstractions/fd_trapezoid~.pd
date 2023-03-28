@@ -1,4 +1,4 @@
-#N canvas 496 98 420 408 12;
+#N canvas 496 98 496 408 12;
 #X obj 42 114 samplerate~;
 #X msg 88 142 0;
 #X obj 42 170 phasor~;
@@ -17,7 +17,7 @@
 #X obj 113 213 * \$2;
 #X obj 113 190 / 10;
 #X obj 53 33 route bang float q w, f 39;
-#X obj 186 352 fd_smooth_brute \$1;
+#X obj 166 352 fd_smooth_brute \$1;
 #X obj 186 249 t b b;
 #X obj 42 325 lop~ 2048;
 #N canvas 0 22 450 300 open 0;
@@ -35,6 +35,11 @@
 #X obj 186 223 del 1 \$2 samp;
 #X obj 150 60 t f f f f f;
 #X msg 218 277 normalize;
+#X obj 533 516 r \$1-range;
+#X obj 533 541 array-range \$1;
+#X obj 342 13 r \$1-range;
+#X obj 342 38 array-rerange \$1;
+#X obj 166 321 r \$1-smooth;
 #X connect 0 0 6 0;
 #X connect 1 0 2 1;
 #X connect 2 0 9 0;
@@ -54,7 +59,6 @@
 #X connect 17 2 12 1;
 #X connect 17 3 16 0;
 #X connect 17 4 21 0;
-#X connect 19 0 18 0;
 #X connect 19 1 26 0;
 #X connect 20 0 7 0;
 #X connect 21 0 5 0;
@@ -69,3 +73,6 @@
 #X connect 25 3 24 1;
 #X connect 25 4 22 0;
 #X connect 26 0 5 0;
+#X connect 27 0 28 0;
+#X connect 29 0 30 0;
+#X connect 31 0 18 0;

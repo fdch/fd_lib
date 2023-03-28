@@ -25,7 +25,7 @@
 #X obj 182 120 t f f;
 #X obj 214 147 array size \$1;
 #X obj 48 344 sig~ 3.14159;
-#X obj 212 363 fd_smooth_brute \$1;
+#X obj 176 394 fd_smooth_brute \$1;
 #N canvas 0 22 450 300 open 0;
 #X obj 118 71 route open;
 #X msg 118 95 click 0 0 0 0 0;
@@ -37,6 +37,9 @@
 #X connect 2 0 0 0;
 #X restore 266 282 pd open;
 #X obj 212 255 del 1 \$2 samp;
+#X obj 295 5 r \$1-range;
+#X obj 295 30 array-rerange \$1;
+#X obj 176 354 r \$1-smooth;
 #X connect 0 0 5 0;
 #X connect 1 0 8 1;
 #X connect 2 0 19 0;
@@ -52,7 +55,6 @@
 #X connect 15 0 14 1;
 #X connect 16 0 12 0;
 #X connect 17 0 4 0;
-#X connect 18 0 26 0;
 #X connect 18 1 17 0;
 #X connect 19 0 20 0;
 #X connect 19 1 22 0;
@@ -71,3 +73,5 @@
 #X connect 25 0 15 0;
 #X connect 27 0 4 0;
 #X connect 28 0 18 0;
+#X connect 29 0 30 0;
+#X connect 31 0 26 0;

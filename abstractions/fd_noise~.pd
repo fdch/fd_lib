@@ -7,7 +7,7 @@
 #X text 221 34 see fd_windows.pd;
 #X obj 34 65 route bang float;
 #X obj 321 155 noise~;
-#X obj 97 306 fd_smooth_brute \$1;
+#X obj 53 326 fd_smooth_brute \$1;
 #X obj 97 221 t b b;
 #X obj 321 180 cos~;
 #X msg 129 249 normalize;
@@ -29,13 +29,15 @@
 #X obj 381 108 * 4;
 #X obj 398 86 f \$2;
 #X obj 398 62 loadbang;
+#X obj 247 51 r \$1-range;
+#X obj 247 76 array-rerange \$1;
+#X obj 53 284 r \$1-smooth;
 #X connect 0 0 6 0;
 #X connect 1 0 4 0;
 #X connect 6 0 12 0;
 #X connect 6 1 17 0;
 #X connect 6 2 15 0;
 #X connect 7 0 10 0;
-#X connect 9 0 8 0;
 #X connect 9 1 11 0;
 #X connect 10 0 16 0;
 #X connect 11 0 2 0;
@@ -51,3 +53,5 @@
 #X connect 18 0 16 1;
 #X connect 19 0 18 1;
 #X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 23 0 8 0;

@@ -17,7 +17,7 @@
 #X obj 101 230 * -2;
 #X msg 108 173 1 \$1;
 #X obj 108 198 /;
-#X obj 280 282 fd_smooth_brute \$1;
+#X obj 276 337 fd_smooth_brute \$1;
 #X msg 312 223 normalize 1;
 #X obj 280 198 t b b;
 #X obj 102 41 route bang float q;
@@ -34,6 +34,9 @@
 #X obj 183 96 array size \$1;
 #X obj 51 79 t b b b b;
 #X obj 143 66 t f f f f;
+#X obj 272 11 r \$1-range;
+#X obj 272 36 array-rerange \$1;
+#X obj 276 295 r \$1-smooth;
 #X connect 0 0 5 0;
 #X connect 1 0 8 1;
 #X connect 2 0 21 0;
@@ -50,7 +53,6 @@
 #X connect 16 0 17 0;
 #X connect 17 0 15 0;
 #X connect 19 0 4 0;
-#X connect 20 0 18 0;
 #X connect 20 1 19 0;
 #X connect 21 0 24 0;
 #X connect 21 1 25 0;
@@ -65,3 +67,5 @@
 #X connect 25 1 3 0;
 #X connect 25 2 23 0;
 #X connect 25 3 10 1;
+#X connect 26 0 27 0;
+#X connect 28 0 18 0;
