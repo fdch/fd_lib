@@ -12,13 +12,14 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 #include "fdLib.h"
+#include "s_stuff.h"
 
 typedef struct scroll {
 	t_object x_obj;
 	t_symbol *x_sym;
 	t_canvas *canvas;
+    t_float x_page;
 } t_scroll;
-
 
 static void setcanvassym_scroll(t_scroll *x, t_symbol *s)
 {
@@ -27,27 +28,52 @@ static void setcanvassym_scroll(t_scroll *x, t_symbol *s)
 		pd_error(x, "%s: No such canvas", s->s_name);
 	else 
 		x->canvas = canvas;
-	
 }
 
+static void scroll_page(t_scroll *x, t_float f)
+{
+    x->x_page = (int)f > 0 ? 1 : 0;
+}
 
 static void scroll_symbol(t_scroll *x, t_symbol *s)
 {
 	setcanvassym_scroll(x, s);
 }
 
+static void scroll_moveto(t_scroll *x, int d, float f)
+{
+    if (!sys_havegui())return;
+	if (!(glist_isvisible(x->canvas))) canvas_vis(x->canvas, 1);
+    float t = f > 1 ? 1 : f < 0 ? 0 : (float) f;
+	sys_vgui(".x%lx.c %sview moveto %f \n", x->canvas, d == 0 ? "x" : "y", t);
+}
+
+static void scroll_xmoveto(t_scroll *x, t_float f)
+{
+    scroll_moveto(x, 0, (float) f);
+}
+
+static void scroll_ymoveto(t_scroll *x, t_float f)
+{
+    scroll_moveto(x, 1, 1 - (float) f );
+}
+
+static void scroll_scroll(t_scroll *x, int d, int f)
+{
+    if (!sys_havegui())return;
+	if (!(glist_isvisible(x->canvas))) canvas_vis(x->canvas, 1);
+	sys_vgui(".x%lx.c %sview scroll %d %s \n", x->canvas, d == 0 ? "x" : "y", (int)f, x->x_page == 1 ? "pages" : "units");
+}
 
 static void scroll_xaxis(t_scroll *x, t_float f)
 {
-	if (!(glist_isvisible(x->canvas))) canvas_vis(x->canvas, 1);
-	sys_vgui(".x%lx.c xview scroll %d units \n", x->canvas, (int)f);
+    scroll_scroll(x, 0, (int)f);
 }
 
 
 static void scroll_yaxis(t_scroll *x, t_float f)
 {
-	if (!(glist_isvisible(x->canvas))) canvas_vis(x->canvas, 1);
-	sys_vgui(".x%lx.c yview scroll [expr {- (%d)}] units \n", x->canvas, (int)f);
+    scroll_scroll(x, 1, (int)f * -1);
 }
 
 static t_class *scroll_class;
@@ -61,6 +87,7 @@ static void *scroll_new(t_symbol *s)
 		x->canvas = canvas_getcurrent();
 	} else
 		setcanvassym_scroll(x, s);
+    x->x_page = 0; // default to units
 	return(x);
 }
 
@@ -70,4 +97,7 @@ void scroll_setup()
 	class_addsymbol(scroll_class, scroll_symbol);
 	class_addmethod(scroll_class, (t_method)scroll_xaxis, gensym("xaxis"), A_FLOAT, 0);
 	class_addmethod(scroll_class, (t_method)scroll_yaxis, gensym("yaxis"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_xmoveto, gensym("xpos"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_ymoveto, gensym("ypos"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_page, gensym("page"), A_FLOAT, 0);
 }

@@ -1,4 +1,4 @@
-# Makefile for fd_lib version 0.3 - Tue 28 Mar 2023 07:43:16 PM CEST
+# Makefile for fd_lib version 0.3 - Thu 11 May 2023 07:32:07 PM CEST
 lib.name=fd_lib
 lib.setup.sources = src/$(lib.name).c
 class.sources = src/cantor.c src/clifford.c src/colormap.c src/combi.c src/connect.c src/counter.c src/crand.c src/cuadratic.c src/delit.c src/factor.c src/fdm.c src/frand.c src/glistinfo.c src/halton.c src/henon.c src/irlog.c src/irpow.c src/irsqrt.c src/iterate.c src/lor~.c src/lorenz.c src/lornorm.c src/lorsig~.c src/mainpath.c src/mandelbrot.c src/minimax.c src/mtwister.c src/parabola.c src/pmtwister.c src/prandom.c src/randy.c src/reflect.c src/root.c src/scroll.c src/siginfo.c src/sradio.c src/tracks.c 
