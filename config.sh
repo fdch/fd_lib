@@ -71,7 +71,7 @@ fi
 # Make Makefile
 #
 # -----------------------------------------------------------------------------
-echo "# Makefile for $LIBNAME version $FDLIBVERSION - `date`" > Makefile
+echo "# Makefile for $LIBNAME version $FDLIBVERSION" > Makefile
 echo "lib.name=$LIBNAME" >> Makefile
 # specify the location of main header file
 echo "lib.setup.sources = src/\$(lib.name).c" >> Makefile

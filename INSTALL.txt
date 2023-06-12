@@ -14,7 +14,7 @@ $	git submodule update
 on Unix
 -------------------------------------------------------------------------------
 
-$	sh config.sh
+$	bash config.sh
 $	make
 $	make install
 
@@ -27,7 +27,7 @@ I basically used the same terminal to compile Pure Data and it works. So, check 
 
 Once you are on the shell emulator, run:
 
-$	sh config.sh
+$	bash config.sh
 $	make
 
 You must indicate the path to pd's <bin> directory, as well as the <src> directory to include. 
