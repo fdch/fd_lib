@@ -20,7 +20,7 @@ jobs:
         git clone https://github.com/pure-data/pure-data.git
         cd pure-data
         ./autogen.sh
-        ./configure
+        ./configure --disable-portaudio --disable-alsa
         make
         make install
     - name: configure
