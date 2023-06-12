@@ -13,17 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: get-pdlibbuilder
+    - name: get pdlibbuilder
       run: git submodule init && git submodule update
-    - name: get-pd
+    - name: get pd
       run: | 
         git clone https://github.com/pure-data/pure-data.git
-        cd pure-data
-        ./autogen.sh
-        ./configure --disable-portaudio --disable-alsa
-        make
-        make install
     - name: configure
       run: ./config.sh
     - name: make
-      run: make
+      run: make PDINCLUDEDIR=./pure-data/src
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r fd_lib.zip ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: make release
+        path: ./fd_lib.zip
