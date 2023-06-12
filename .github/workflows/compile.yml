@@ -16,7 +16,7 @@ jobs:
     - name: get-pdlibbuilder
       run: git submodule init && git submodule update
     - name: get-pd
-      run: sudo apt-get install pd pd-dev
+      run: sudo apt-get install pure-data pure-data-dev
     - name: configure
       run: ./config.sh
     - name: make
