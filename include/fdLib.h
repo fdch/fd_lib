@@ -74,6 +74,8 @@ t_float mod(t_float a, t_float n);
 
 void sys_expandpath(const char *from, char *to, int bufsize);
 
+
+
 void cantor_setup(void);
 void clifford_setup(void);
 void colormap_setup(void);
