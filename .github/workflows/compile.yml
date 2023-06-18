@@ -8,7 +8,7 @@ jobs:
   ubuntu-latest:
     runs-on: ubuntu-latest
     env:
-      OUTPUT: fd_lib-${{ github.job }}
+      OUTPUT: fd_lib-ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
@@ -36,7 +36,7 @@ jobs:
   macos-latest:
     runs-on: macos-latest
     env:
-      OUTPUT: fd_lib-${{ github.job }}
+      OUTPUT: fd_lib-macos-latest
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
@@ -46,6 +46,9 @@ jobs:
       with:
         repository: pure-data/pure-data
         path: pure-data
+    - name: get dependencies
+      run: |
+        brew install automake autoconf libtool 
     - name: configure
       run: ./config.sh
     - name: make
@@ -64,8 +67,11 @@ jobs:
 
   windows-latest:
     runs-on: windows-latest
+    defaults:
+        run:
+          shell: bash
     env:
-      OUTPUT: fd_lib-${{ github.job }}
+      OUTPUT: fd_lib-windows-latest
       PDVERSION: pd-0.53-2
     steps:
     - uses: actions/checkout@v3
@@ -73,12 +79,12 @@ jobs:
       run: git submodule init && git submodule update
     - name: get pd
       run: |
-        curl -O "http://msp.ucsd.edu/Software/$env:PDVERSION.msw.zip"
-        unzip "$env:PDVERSION.msw.zip"
+        curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
+        unzip "$PDVERSION.msw.zip"
     - name: configure
       run: ./config.sh
     - name: make
-      run : make pdbinpath="$env:PDVERSION/bin" PDINCLUDEDIR="$env:PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
+      run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
     - name: install lib
       run: |
         make install PDLIBDIR=.
