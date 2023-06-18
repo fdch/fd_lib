@@ -77,7 +77,7 @@ static void *counter_new(t_symbol *s, t_int argc, t_atom *argv)
 		else if (!strcmp(argv->a_w.w_symbol->s_name, "-i") && argc >= 2 && argv[1].a_type == A_FLOAT)
 			counter_i(x,atom_getfloatarg(1, argc, argv)), argc -= 1, argv += 1;
 		else
-			error("counter: unknown flag ..."), postatom(argc, argv), endpost();
+			pd_error(x, "counter: unknown flag ..."), postatom(argc, argv), endpost();
 		argc--; argv++;
 	}
 	if (argv->a_type == A_FLOAT)
