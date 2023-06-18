@@ -85,6 +85,8 @@ jobs:
       run: ./config.sh
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
+    - name: set environment variable
+      run: echo ("LOCAL_SHORT_COMMANDS := true") >> $env:GITHUB_ENV
     - name: install lib
       run: |
         make install PDLIBDIR=.
