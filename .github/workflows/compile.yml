@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
-      PDPATH: ./pure-data
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
@@ -18,11 +17,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: pure-data/pure-data
-        path: $PDPATH
+        path: pure-data
     - name: configure
       run: ./config.sh
     - name: make
-      run: make PDINCLUDEDIR=$PDPATH/src
+      run: make PDINCLUDEDIR=pure-data/src
     - name: install lib
       run: |
         make install PDLIBDIR=.
@@ -38,7 +37,6 @@ jobs:
     runs-on: macos-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
-      PDPATH: ./pure-data
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
@@ -47,11 +45,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: pure-data/pure-data
-        path: $PDPATH 
+        path: pure-data
     - name: configure
       run: ./config.sh
     - name: make
-      run: make PDINCLUDEDIR=$PDPATH/src
+      run: make PDINCLUDEDIR=pure-data/src
     - name: install lib
       run: |
         make install PDLIBDIR=.
@@ -67,7 +65,6 @@ jobs:
     runs-on: windows-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
-      PDPATH: ./pure-data
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
@@ -75,11 +72,11 @@ jobs:
     - name: get pd
       run: |
         curl -O http://msp.ucsd.edu/Software/pd-0.53-2.msw.zip
-        unzip -d $PDPATH pd-0.53-2.msw.zip
+        unzip -d pure-data pd-0.53-2.msw.zip
     - name: configure
       run: ./config.sh
     - name: make
-      run : make pdbinpath=$PDPATH/bin PDINCLUDEDIR=$PDPATH/src CFLAGS=-march=x86-64 -Iinclude
+      run : make pdbinpath=pure-data/bin PDINCLUDEDIR=pure-data/src CFLAGS=-march=x86-64 -Iinclude
     - name: install lib
       run: |
         make install PDLIBDIR=.
