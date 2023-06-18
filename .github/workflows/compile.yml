@@ -1,33 +1,90 @@
-name: C/C++ CI
+name: fd_lib-ci
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  ubuntu-latest:
+    runs-on: ${{ github.job }}
+    env:
+      OUTPUT: fd_lib-${{ github.job }}
+      PDPATH: resources/pure-data
     steps:
     - uses: actions/checkout@v3
     - name: get pdlibbuilder
       run: git submodule init && git submodule update
     - name: get pd
-      run: | 
-        git clone https://github.com/pure-data/pure-data.git
+      uses: actions/checkout@v2
+      with:
+        repository: pure-data/pure-data
+        path: $PDPATH
     - name: configure
       run: ./config.sh
     - name: make
-      run: make PDINCLUDEDIR=./pure-data/src
+      run: make PDINCLUDEDIR=$PDPATH/src
     - name: install lib
       run: |
         make install PDLIBDIR=.
-        zip -r fd_lib.zip ./fd_lib
+        zip -r $OUTPUT.zip ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: make release
-        path: ./fd_lib.zip
+        name: $OUTPUT
+        path: $OUTPUT.zip
+
+
+  macos-latest:
+    runs-on: ${{ github.job }}
+    env:
+      OUTPUT: fd_lib-${{ github.job }}
+      PDPATH: resources/pure-data
+    steps:
+    - uses: actions/checkout@v3
+    - name: get pdlibbuilder
+      run: git submodule init && git submodule update
+    - name: get pd
+      uses: actions/checkout@v2
+      with:
+        repository: pure-data/pure-data
+        path: $PDPATH 
+    - name: configure
+      run: ./config.sh
+    - name: make
+      run: make PDINCLUDEDIR=$PDPATH/src
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r $OUTPUT.zip ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: $OUTPUT
+        path: $OUTPUT.zip
+
+
+  windows-latest:
+    runs-on: ${{ github.job }}
+    env:
+      OUTPUT: fd_lib-${{ github.job }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: get pdlibbuilder
+      run: git submodule init && git submodule update
+    - name: get pd
+      run: |
+        curl -O http://msp.ucsd.edu/Software/pd-0.53-2.msw.zip
+        unzip -d pure-data pd-0.53-2.msw.zip
+    - name: configure
+      run: ./config.sh
+    - name: make
+      run : make pdbinpath=pure-data/bin PDINCLUDEDIR=pure-data/src CFLAGS=-march=x86-64 -Iinclude
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r $OUTPUT.zip ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: $OUTPUT
+        path: $OUTPUT.zip
