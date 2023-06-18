@@ -25,12 +25,12 @@ jobs:
     - name: install lib
       run: |
         make install PDLIBDIR=.
-        zip -r $OUTPUT.zip ./fd_lib
+        zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: $OUTPUT
-        path: $OUTPUT.zip
+        name: "$OUTPUT"
+        path: "$OUTPUT.zip"
 
 
   macos-latest:
@@ -53,12 +53,13 @@ jobs:
     - name: install lib
       run: |
         make install PDLIBDIR=.
-        zip -r $OUTPUT.zip ./fd_lib
+        zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: $OUTPUT
-        path: $OUTPUT.zip
+        name: "$OUTPUT"
+        path: "$OUTPUT.zip"
+
 
 
   windows-latest:
@@ -72,18 +73,18 @@ jobs:
       run: git submodule init && git submodule update
     - name: get pd
       run: |
-        curl -O http://msp.ucsd.edu/Software/$PDVERSION.msw.zip
-        unzip $PDVERSION.msw.zip
+        curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
+        unzip "$PDVERSION.msw.zip"
     - name: configure
       run: ./config.sh
     - name: make
-      run : make pdbinpath=$PDVERSION/bin PDINCLUDEDIR=$PDVERSION/src CFLAGS=-march=x86-64 -Iinclude
+      run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
     - name: install lib
       run: |
         make install PDLIBDIR=.
-        zip -r $OUTPUT.zip ./fd_lib
+        zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: $OUTPUT
-        path: $OUTPUT.zip
+        name: "$OUTPUT"
+        path: "$OUTPUT.zip"
