@@ -6,7 +6,7 @@ on:
 
 jobs:
   ubuntu-latest:
-    runs-on: ${{ github.job }}
+    runs-on: ubuntu-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
       PDPATH: resources/pure-data
@@ -35,7 +35,7 @@ jobs:
 
 
   macos-latest:
-    runs-on: ${{ github.job }}
+    runs-on: macos-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
       PDPATH: resources/pure-data
@@ -64,7 +64,7 @@ jobs:
 
 
   windows-latest:
-    runs-on: ${{ github.job }}
+    runs-on: windows-latest
     env:
       OUTPUT: fd_lib-${{ github.job }}
     steps:
