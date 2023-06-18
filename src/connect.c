@@ -23,6 +23,19 @@ typedef struct connect {
 } t_connect;
 
 int setcanvassym_connect(t_connect *x, t_symbol *s);
+int glist_getindex(t_glist *x, t_gobj *y);
+
+   /* get the index of a gobj in a glist.  If y is zero, return the
+       total number of objects. */
+int glist_getindex(t_glist *x, t_gobj *y)
+{
+    t_gobj *y2;
+    int indx;
+
+    for (y2 = x->gl_list, indx = 0; y2 && y2 != y; y2 = y2->g_next)
+        indx++;
+    return (indx);
+}
 
 int setcanvassym_connect(t_connect *x, t_symbol *s)
 {
