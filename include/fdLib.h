@@ -23,7 +23,7 @@ You should have received a copy of the GNU General Public License along with thi
 #include "g_canvas.h"
 
 
-#define FDLIBVERSION "0.3"
+#define FDLIBVERSION "0.3.1";
 
 #ifndef M_PI
 #define M_PI 3.1415926535897932384626433832795

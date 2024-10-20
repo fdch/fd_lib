@@ -16,9 +16,10 @@ You should have received a copy of the GNU General Public License along with thi
 
 typedef struct scroll {
 	t_object x_obj;
-	t_symbol *x_sym;
-	t_canvas *canvas;
-    t_float x_page;
+	t_symbol *x_sym; // the canvas name
+	t_canvas *canvas; // the canvas on which to scroll
+    t_float x_page; // define 'page' (1) or 'units' (0) (default=0)
+    t_float x_norm; // flag to user normalized coordinates (1) or not (0) (default=0)
 } t_scroll;
 
 static void setcanvassym_scroll(t_scroll *x, t_symbol *s)
@@ -35,16 +36,37 @@ static void scroll_page(t_scroll *x, t_float f)
     x->x_page = (int)f > 0 ? 1 : 0;
 }
 
+static void scroll_norm(t_scroll *x, t_float f)
+{
+    x->x_norm = (int)f > 0 ? 1 : 0;
+}
+
 static void scroll_symbol(t_scroll *x, t_symbol *s)
 {
 	setcanvassym_scroll(x, s);
+}
+
+static int scroll_get_screenx(t_scroll *x)
+{
+    return x->canvas->gl_screenx2 - x->canvas->gl_screenx1;
+}
+
+static int scroll_get_screeny(t_scroll *x)
+{
+    return x->canvas->gl_screeny2 - x->canvas->gl_screeny1;
 }
 
 static void scroll_moveto(t_scroll *x, int d, float f)
 {
     if (!sys_havegui())return;
 	if (!(glist_isvisible(x->canvas))) canvas_vis(x->canvas, 1);
-    float t = f > 1 ? 1 : f < 0 ? 0 : (float) f;
+    // allow unnormalized scrolling by normalizing the input
+    if (!x->x_norm) {
+        // adjust to x or y axis
+        f /= d == 0 ? scroll_get_screenx(x) : scroll_get_screeny(x);
+    }
+    // restrict bounds to 0-1
+    float t = f > 1 ? 1 : f < 0 ? 0 : f;
 	sys_vgui(".x%lx.c %sview moveto %f \n", x->canvas, d == 0 ? "x" : "y", t);
 }
 
@@ -88,6 +110,7 @@ static void *scroll_new(t_symbol *s)
 	} else
 		setcanvassym_scroll(x, s);
     x->x_page = 0; // default to units
+    x->x_norm = 0; // default to unnormalized scrolling
 	return(x);
 }
 
@@ -100,4 +123,7 @@ void scroll_setup()
 	class_addmethod(scroll_class, (t_method)scroll_xmoveto, gensym("xpos"), A_FLOAT, 0);
 	class_addmethod(scroll_class, (t_method)scroll_ymoveto, gensym("ypos"), A_FLOAT, 0);
 	class_addmethod(scroll_class, (t_method)scroll_page, gensym("page"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_norm, gensym("norm"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_get_screenx, gensym("screenx"), A_FLOAT, 0);
+	class_addmethod(scroll_class, (t_method)scroll_get_screeny, gensym("screeny"), A_FLOAT, 0);
 }
