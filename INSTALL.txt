@@ -1,22 +1,22 @@
 Clone the library:
 
-$	git clone https://github.com/fdch/fd_lib.git
+$ git clone https://github.com/fdch/fd_lib.git
 
 You will be able to load abstractions, but to use the external objects you'll need to compile them. 
 
 For this you'll first need to initialize the pd-lib-builder submodule. Skip this step if you have pd-lib-builder already (pass its path to config.sh)
 
-$	cd fd_lib
-$	git submodule init
-$	git submodule update
+$ cd fd_lib
+$ git submodule init
+$ git submodule update
 
 -------------------------------------------------------------------------------
 on Unix
 -------------------------------------------------------------------------------
 
-$	bash config.sh
-$	make
-$	make install
+$ bash config.sh
+$ make
+$ make install
 
 -------------------------------------------------------------------------------
 on Windows:
@@ -27,23 +27,23 @@ I basically used the same terminal to compile Pure Data and it works. So, check 
 
 Once you are on the shell emulator, run:
 
-$	bash config.sh
-$	make
+$ bash config.sh
+$ make
 
 You must indicate the path to pd's <bin> directory, as well as the <src> directory to include. 
 
-	pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src
+ pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src
 
 You might also need to determine which architecture, I do this by adding the following lines to the command above
 
-	CFLAGS= -march=x86-64 -Iinclude
+ CFLAGS= -march=x86-64 -Iinclude
 
 The whole command looks like this:
 
-$	make pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src CFLAGS=-march=x86-64 -Iinclude
+$ make pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src CFLAGS=-march=x86-64 -Iinclude
 
 Finally, you can install the library:
 
-$	make install
+$ make install
 
 I recommend the usual library installation in %AppData%, which is the default. If you locate the library someplace else, please also place a [declare -path /path/to/fd_lib] in your patches or just ADD the PATH to fd_lib in File>Preferences>Path
