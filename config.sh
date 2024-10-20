@@ -153,4 +153,4 @@ echo "#X text 39 15 $LIBNAME: $DESCRIPTION;" >>$META
 # Update version on header
 #
 # -----------------------------------------------------------------------------
-sed -i "s/\(#define FDLIBVERSION\).*$/\1 \"$FDLIBVERSION\";/" ./include/fdLib.h
+sed -i "s/\(#define FDLIBVERSION\).*$/\1 \"$FDLIBVERSION\"/" ./include/fdLib.h
