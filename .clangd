@@ -1,0 +1,5 @@
+CompileFlags:
+  Add: 
+    - -I/home/fdch/pure-data/src
+    - -I/home/fdch/fd_lib/include/
+

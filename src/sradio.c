@@ -434,13 +434,16 @@ static void sradio_focus(t_sradio *x, t_floatarg foc)
     t_radio *z= (t_radio *)&x->x_radio;
     t_canvas *canvas=glist_getcanvas(z->x_gui.x_glist);
     int i, n = z->x_number;
-    if (foc)
+
+    if (foc) {
         x->x_focflag = 1;
-    else
-    {
-        x->x_focflag = 0;
-        for (i=0;i<n;i++)
-            sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n", canvas, z, i, z->x_gui.x_bcol);
+        return
+    }
+
+    x->x_focflag = 0;
+
+    for (i=0; i<n; i++) {
+        sys_vgui(".x%lx.c itemconfigure %lxFOC%d -outline #%06x\n", canvas, z, i, z->x_gui.x_bcol);
     }
 }
 
@@ -478,52 +481,52 @@ static void sradio_number(t_sradio *x, t_floatarg num)
 
 static void sradio_orientation(t_sradio *x, t_floatarg forient)
 {
-    radio_orientation(&x->x_radio, forient);
+    radio_orientation(x->x_radio, forient);
 }
 
 static void sradio_size(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_size(&x->x_radio, s, ac, av);
+    radio_size(x->x_radio, s, ac, av);
 }
 
 static void sradio_delta(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_delta(&x->x_radio, s, ac, av);
+    radio_delta(x->x_radio, s, ac, av);
 }
 
 static void sradio_pos(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_pos(&x->x_radio, s, ac, av);
+    radio_pos(x->x_radio, s, ac, av);
 }
 
 static void sradio_color(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_color(&x->x_radio, s, ac, av);
+    radio_color(x->x_radio, s, ac, av);
 }
 
 static void sradio_send(t_sradio *x, t_symbol *s)
 {
-    radio_send(&x->x_radio, s);
+    radio_send(x->x_radio, s);
 }
 
 static void sradio_receive(t_sradio *x, t_symbol *s)
 {
-    radio_receive(&x->x_radio, s);
+    radio_receive(x->x_radio, s);
 }
 
 static void sradio_label(t_sradio *x, t_symbol *s)
 {
-    radio_label(&x->x_radio, s);
+    radio_label(x->x_radio, s);
 }
 
 static void sradio_label_pos(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_label_pos(&x->x_radio, s, ac, av);
+    radio_label_pos(x->x_radio, s, ac, av);
 }
 
 static void sradio_label_font(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
-    radio_label_font(&x->x_radio, s, ac, av);
+    radio_label_font(x->x_radio, s, ac, av);
 }
 
 static void *sradio_donew(t_symbol *s, int argc, t_atom *argv, int old)

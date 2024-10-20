@@ -7,6 +7,7 @@ pdstart.sh
 
 deps.sh
 	This script loads a pd patch (argument 1) and puts all dependencies in the directory specified with argument 2.
+  
 trim.sh
 	Trim a text between delimiters.
 
