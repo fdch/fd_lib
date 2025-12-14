@@ -82,7 +82,6 @@ typedef struct _mradio {
   t_iemgui x_gui;
   t_atom *x_onlist;
   t_atom *x_drawnlist;
-  t_atom *x_listout;
   t_symbol *x_bindsym;
   t_iem_orientation x_orientation;
   int x_number, x_pos, x_val, x_foc, x_old;
@@ -238,7 +237,6 @@ static void mradio_resizer(t_mradio *x, int nsize) {
     // initialization only
     x->x_onlist = (t_atom *)getbytes(newn * sizeof(t_atom));
     x->x_drawnlist = (t_atom *)getbytes(newn * sizeof(t_atom));
-    x->x_listout = (t_atom *)getbytes(newn * sizeof(t_atom));
   } else if (newn < oldn) {
     // old number is larger than the new
     size_t oldsize = (size_t)sizeof(t_atom) * oldn;
@@ -246,21 +244,17 @@ static void mradio_resizer(t_mradio *x, int nsize) {
 
     resizebytes(x->x_onlist, oldsize, newsize);
     resizebytes(x->x_drawnlist, oldsize, newsize);
-    resizebytes(x->x_listout, oldsize, newsize);
   } else {
     // new number is larger than old, discard everything
     freebytes(x->x_onlist, (size_t)sizeof(t_atom) * oldn);
     freebytes(x->x_drawnlist, (size_t)sizeof(t_atom) * oldn);
-    freebytes(x->x_listout, (size_t)sizeof(t_atom) * oldn);
     x->x_onlist = (t_atom *)getbytes(newn * sizeof(t_atom));
     x->x_drawnlist = (t_atom *)getbytes(newn * sizeof(t_atom));
-    x->x_listout = (t_atom *)getbytes(newn * sizeof(t_atom));
   }
 
   for (int i = 0; i <= newn - 1; i++) {
     SETFLOAT(&x->x_onlist[i], 0);
     SETFLOAT(&x->x_drawnlist[i], 0);
-    SETFLOAT(&x->x_listout[i], 0);
   }
 
   x->x_number = newn;
@@ -609,37 +603,25 @@ static void mradio_preset(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
   error:
     pd_error(x, "Can't parse:");
     postatom(argc, argv);
-    endpost();
+    endpost()
   }
 }
 
-static void mradio_set(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
+static void mradio_list(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
   (void)s; // silence -Wunused-parameter
-  int n = 0, i = 0;
-  if (argc) {
-    if (argc > x->x_number && argc < IEM_RADIO_MAX)
-      n = x->x_number;
-
-    if (argc <= x->x_number)
-      n = argc;
-
-    while (n--) {
-      if (IS_A_FLOAT(argv, i)) {
-        SETFLOAT(&x->x_onlist[i],
-                 (t_float)(atom_getintarg(i, argc, argv) == 0) ? 0 : 1);
-        SETFLOAT(&x->x_listout[i],
-                 (t_float)(atom_getintarg(i, argc, argv) == 0) ? 0 : 1);
-        i++;
-      } else {
-        pd_error(x, "mradio_set: index %d is not a number", i);
-      }
-    }
-    (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
-  } else {
-    pd_error(x, "Can't parse:");
-    postatom(argc, argv);
-    endpost();
+  int n, v, i = 0;
+  if (argc == 0)
+    return;
+  if (argc > x->x_number)
+    n = x->x_number;
+  if (argc <= x->x_number)
+    n = argc;
+  while (n--) {
+    v = (IS_A_FLOAT(argv, i) && (atom_getintarg(i, argc, argv) != 0)) ? 1 : 0;
+    SETFLOAT(&x->x_onlist[i], (t_float)v);
+    i++;
   }
+  (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
 }
 
 // TODO: is this needed?
@@ -655,10 +637,10 @@ static void textbuf_hack_addline(t_mradio *x, t_symbol *s, int argc,
 }
 
 static void mradio_bang(t_mradio *x) {
-  outlet_list(x->x_gui.x_obj.ob_outlet, 0, x->x_number, x->x_listout);
+  outlet_list(x->x_gui.x_obj.ob_outlet, 0, x->x_number, x->x_onlist);
 
   if (x->x_gui.x_fsf.x_snd_able && x->x_gui.x_snd->s_thing)
-    pd_list(x->x_gui.x_snd->s_thing, 0, x->x_number, x->x_listout);
+    pd_list(x->x_gui.x_snd->s_thing, 0, x->x_number, x->x_onlist);
 }
 
 static void mradio_fout(t_mradio *x, t_floatarg f) {
@@ -672,7 +654,6 @@ static void mradio_fout(t_mradio *x, t_floatarg f) {
   int curr_number = atom_getfloat(x->x_drawnlist + i);
 
   SETFLOAT(&x->x_onlist[i], curr_number == 1 ? 0 : 1);
-  SETFLOAT(&x->x_listout[i], atom_getfloat(x->x_onlist + i));
   (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
 }
 
@@ -719,7 +700,7 @@ val: %d\nfoc: %d\nold: %d\nfflag: %d\nkeep:%d",
   n = binbuf_getnatom(b);
 
   if (!text_nthline(n, vec, i, &start, &end)) {
-    postatom(x->x_number, x->x_listout);
+    postatom(x->x_number, x->x_onlist);
     endpost();
   } else {
     while (text_nthline(n, vec, i, &start, &end)) {
@@ -901,11 +882,11 @@ static void mradio_store(t_mradio *x, t_floatarg ff) {
     }
     // post("before loop");
     for (i = 0; i < x->x_number; i++) {
-      vec[start + i] = x->x_listout[i];
+      vec[start + i] = x->x_onlist[i];
       // post("loop:%d",n);
     }
   } else {
-    binbuf_restore(x->b_binbuf, x->x_number, x->x_listout);
+    binbuf_restore(x->b_binbuf, x->x_number, x->x_onlist);
     binbuf_addsemi(x->b_binbuf);
     textbuf_hack_senditup(x);
   }
@@ -928,7 +909,7 @@ static void mradio_recall(t_mradio *x, t_floatarg f) {
     for (k = 0; k < outc; k++) {
       outv[k] = vec[start + k];
     }
-    mradio_set(x, gensym("set"), outc, outv);
+    mradio_list(x, gensym("list"), outc, outv);
   }
 }
 
@@ -956,12 +937,10 @@ static void mradio_flush(t_mradio *x, t_symbol *s) {
 static void mradio_menu_open(t_mradio *x) { textbuf_hack_open(x); }
 
 static void mradio_clear(t_mradio *x) {
-  int n = x->x_number;
-  int i = 0;
+  int i = 0, n = x->x_number;
   while (n--) {
     SETFLOAT(&x->x_onlist[i], 0);
     SETFLOAT(&x->x_drawnlist[i], 0);
-    SETFLOAT(&x->x_listout[i], 0);
     i++;
   }
   (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
@@ -973,7 +952,6 @@ static void mradio_free(t_mradio *x) {
   textbuf_hack_free(x);
   freebytes(x->x_onlist, (size_t)sizeof(t_atom) * x->x_number);
   freebytes(x->x_drawnlist, (size_t)sizeof(t_atom) * x->x_number);
-  freebytes(x->x_listout, (size_t)sizeof(t_atom) * x->x_number);
   iemgui_free((t_iemgui *)x);
 }
 
@@ -1073,6 +1051,7 @@ void g_mradio_setup(void) {
 
   class_addbang(mradio_class, mradio_bang);
   class_addfloat(mradio_class, mradio_float);
+  class_addlist(mradio_class, mradio_list);
   class_addmethod(mradio_class, (t_method)mradio_click, gensym("click"),
                   A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT, 0);
   class_addmethod(mradio_class, (t_method)mradio_dialog, gensym("dialog"),
@@ -1087,8 +1066,6 @@ void g_mradio_setup(void) {
                   A_GIMME, 0);
   class_addmethod(mradio_class, (t_method)mradio_loadbang, gensym("loadbang"),
                   A_DEFFLOAT, 0);
-  class_addmethod(mradio_class, (t_method)mradio_set, gensym("set"), A_FLOAT,
-                  0);
   class_addmethod(mradio_class, (t_method)mradio_keep, gensym("keep"), A_FLOAT,
                   0);
   class_addmethod(mradio_class, (t_method)textbuf_hack_open, gensym("open"), 0);
