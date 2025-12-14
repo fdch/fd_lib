@@ -223,6 +223,15 @@ static void textbuf_hack_close(t_mradio *x) {
     }
   }
 }
+// FIXME: error no method for `notify` after ctrl+save on the text window
+static void textbuf_hack_addline(t_mradio *x, t_symbol *s, int argc,
+                                 t_atom *argv) {
+  (void)s; // silence -Wunused-parameter
+  t_binbuf *b = binbuf_new();
+  binbuf_restore(b, argc, argv);
+  binbuf_add(x->b_binbuf, binbuf_getnatom(b), binbuf_getvec(b));
+  binbuf_free(b);
+}
 
 /* widget helper functions */
 
@@ -580,31 +589,8 @@ static void mradio_keep(t_mradio *x, t_floatarg f) {
   x->x_keep = (unsigned char)(f > 0 ? 1 : 0);
 }
 
-// TODO: unify preset and set into a single function
 static void mradio_preset(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
-  (void)s; // silence -Wunused-parameter
-  int n = 0;
-  if (argc) {
-    if (argc > x->x_number && argc < IEM_RADIO_MAX)
-      n = x->x_number;
-
-    if (argc <= x->x_number)
-      n = argc;
-
-    int i = 0;
-    while (n--) {
-      if (!IS_A_FLOAT(argv, i)) {
-        goto error;
-      }
-    }
-    binbuf_restore(x->b_binbuf, argc, argv);
-    textbuf_hack_senditup(x);
-  } else {
-  error:
-    pd_error(x, "Can't parse:");
-    postatom(argc, argv);
-    endpost();
-  }
+  textbuf_hack_addline(x, s, argc, argv);
 }
 
 static void mradio_list(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
@@ -622,18 +608,6 @@ static void mradio_list(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
     i++;
   }
   (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_UPDATE);
-}
-
-// TODO: is this needed?
-static void textbuf_hack_addline(t_mradio *x, t_symbol *s, int argc,
-                                 t_atom *argv) {
-  (void)s; // silence -Wunused-parameter
-  t_binbuf *b = binbuf_new();
-  binbuf_restore(b, argc, argv);
-  binbuf_add(x->b_binbuf, binbuf_getnatom(b), binbuf_getvec(b));
-  binbuf_free(b);
-  // TODO: is this needed here?
-  mradio_preset(x, gensym("preset"), argc, argv);
 }
 
 static void mradio_bang(t_mradio *x) {
