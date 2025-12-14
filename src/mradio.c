@@ -953,6 +953,7 @@ static void mradio_flush(t_mradio *x, t_symbol *s) {
     }
   }
 }
+static void mradio_menu_open(t_mradio *x) { textbuf_hack_open(x); }
 
 static void mradio_clear(t_mradio *x) {
   int n = x->x_number;
@@ -1077,6 +1078,8 @@ void g_mradio_setup(void) {
   class_addmethod(mradio_class, (t_method)mradio_dialog, gensym("dialog"),
                   A_GIMME, 0);
   class_addmethod(mradio_class, (t_method)mradio_clear, gensym("clear"),
+                  A_NULL);
+  class_addmethod(mradio_class, (t_method)mradio_menu_open, gensym("menu-open"),
                   A_NULL);
   class_addmethod(mradio_class, (t_method)mradio_focus, gensym("focus"),
                   A_FLOAT, 0);
