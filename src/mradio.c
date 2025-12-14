@@ -257,7 +257,7 @@ static void mradio_resizer(t_mradio *x, int nsize) {
     x->x_listout = (t_atom *)getbytes(newn * sizeof(t_atom));
   }
 
-  for (int i = 0, j = 0; i <= newn - 1; i++, j++) {
+  for (int i = 0; i <= newn - 1; i++) {
     SETFLOAT(&x->x_onlist[i], 0);
     SETFLOAT(&x->x_drawnlist[i], 0);
     SETFLOAT(&x->x_listout[i], 0);
