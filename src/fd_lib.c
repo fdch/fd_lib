@@ -83,7 +83,6 @@ void fd_lib_setup(void)
 	post("fd_lib version %s", FDLIBVERSION);
 	//fd_lib_declare_path();
 
-
 	cantor_setup();
 	clifford_setup();
 	colormap_setup();
@@ -96,7 +95,6 @@ void fd_lib_setup(void)
 	factor_setup();
 	fdm_setup();
 	frand_setup();
-	g_sradio_setup();
 	glistinfo_setup();
 	halton_setup();
 	henon_setup();
@@ -121,6 +119,7 @@ void fd_lib_setup(void)
 	scroll_setup();
 	siginfo_setup();
 	tracks_setup();
+  g_mradio_setup();
 	// g_surface_setup();
 
 }

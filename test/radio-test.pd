@@ -1,0 +1,2 @@
+#N canvas 400 20 600 700 12;
+#X obj 100 100 hradio 30 1 0 8 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0;

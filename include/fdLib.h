@@ -23,7 +23,7 @@ You should have received a copy of the GNU General Public License along with thi
 #include "g_canvas.h"
 
 
-#define FDLIBVERSION "0.3.1"
+#define FDLIBVERSION "0.3.2beta"
 
 #ifndef M_PI
 #define M_PI 3.1415926535897932384626433832795
@@ -88,7 +88,7 @@ void delit_setup(void);
 void factor_setup(void);
 void fdm_setup(void);
 void frand_setup(void);
-void g_sradio_setup(void);
+void g_mradio_setup(void);
 void glistinfo_setup(void);
 void halton_setup(void);
 void henon_setup(void);
