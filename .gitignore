@@ -22,3 +22,4 @@
 src/surface.c
 .vscode/
 ./fd_lib/
+.editorconfig
