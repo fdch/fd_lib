@@ -91,7 +91,7 @@ typedef struct _mradio {
   t_canvas *b_canvas;
   t_guiconnect *b_guiconnect;
   t_symbol *b_sym;
-  int b_status;
+  int b_status; // flag to check if the text window is open or closed
 } t_mradio;
 
 /*--------Shamelessly Taken from x_text--------*/
@@ -603,7 +603,7 @@ static void mradio_preset(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
   error:
     pd_error(x, "Can't parse:");
     postatom(argc, argv);
-    endpost()
+    endpost();
   }
 }
 
