@@ -32,8 +32,6 @@
 #include <unistd.h>
 #endif
 
-#include <ctype.h>
-
 #include "g_all_guis.h"
 
 #ifdef _WIN32
@@ -223,7 +221,9 @@ static void textbuf_hack_close(t_mradio *x) {
     }
   }
 }
-// FIXME: error no method for `notify` after ctrl+save on the text window
+/* From the text window gui that we have been updated(ie after ctrl save) */
+static void textbuf_hack_notify(t_mradio *x) { textbuf_hack_senditup(x); }
+
 static void textbuf_hack_addline(t_mradio *x, t_symbol *s, int argc,
                                  t_atom *argv) {
   (void)s; // silence -Wunused-parameter
@@ -1032,8 +1032,6 @@ void g_mradio_setup(void) {
                   A_GIMME, 0);
   class_addmethod(mradio_class, (t_method)mradio_clear, gensym("clear"),
                   A_NULL);
-  class_addmethod(mradio_class, (t_method)mradio_menu_open, gensym("menu-open"),
-                  A_NULL);
   class_addmethod(mradio_class, (t_method)mradio_focus, gensym("focus"),
                   A_FLOAT, 0);
   class_addmethod(mradio_class, (t_method)mradio_preset, gensym("preset"),
@@ -1042,6 +1040,10 @@ void g_mradio_setup(void) {
                   A_DEFFLOAT, 0);
   class_addmethod(mradio_class, (t_method)mradio_keep, gensym("keep"), A_FLOAT,
                   0);
+  class_addmethod(mradio_class, (t_method)mradio_menu_open, gensym("menu-open"),
+                  A_NULL);
+  class_addmethod(mradio_class, (t_method)textbuf_hack_notify, gensym("notify"),
+                  A_NULL);
   class_addmethod(mradio_class, (t_method)textbuf_hack_open, gensym("open"), 0);
   class_addmethod(mradio_class, (t_method)textbuf_hack_close, gensym("close"),
                   0);
