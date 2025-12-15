@@ -1,32 +1,7 @@
-/* Copyright (c) 1997-1999 Miller Puckette.
- * For information on usage and redistribution, and for a DISCLAIMER OF ALL
- * WARRANTIES, see the file, "LICENSE.txt," in this distribution. */
-
-/* [hv]dial.c written by Thomas Musil (c) IEM KUG Graz Austria 2000-2001 */
-/* thanks to Miller Puckette, Guenther Geiger and Krzystof Czaja */
-
-/* name change to [vv]mradio by MSP (it's a mradio button really) and changed to
-   put out a "float" as in sliders, toggles, etc. */
-
 #include "m_pd.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
-
-/* Copyright (c) 1997-1999 Miller Puckette.
- * For information on usage and redistribution, and for a DISCLAIMER OF ALL
- * WARRANTIES, see the file, "LICENSE.txt," in this distribution. */
-
-/* g_7_guis.c written by Thomas Musil (c) IEM KUG Graz Austria 2000-2001 */
-/* thanks to Miller Puckette, Guenther Geiger and Krzystof Czaja */
-
-/* hradio hacked to behave like a small array
- * and store/recall t_atoms by Fede Camara Halac 2017 */
-
-/* Updated July 2018 for printing and corrected click action:
- * Used define for some default settings. */
-
-/* typesetting and cleanup June 2019 // fdch */
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -97,81 +72,71 @@ typedef struct _mradio {
 static void textbuf_hack_senditup(t_mradio *x) {
   if (!x->b_guiconnect)
     return;
-  /* send the binbuf directly and let the GUI figure out when to do
-   * linebreaks and how to escape special character $1*/
   pdgui_vmess("pdtk_textwindow_clear", "^", x);
   pdgui_vmess("pdtk_textwindow_appendatoms", "^A", x,
               binbuf_getnatom(x->b_binbuf), binbuf_getvec(x->b_binbuf));
-
   pdgui_vmess("pdtk_textwindow_setdirty", "^i", x, 0);
+}
+
+static int is_carriage_return_enabled(t_mradio *x, int *argc, t_atom **argv) {
+  int ac = *argc;
+  t_atom *av = *argv;
+  while (ac && IS_A_SYMBOL(av, ac) && *atom_getsymbol(av)->s_name == '-') {
+    if (!strcmp(atom_getsymbol(av)->s_name, "-c")) {
+      return (1);
+    } else {
+      pd_error(x, "text write: unknown flag ...");
+      postatom(ac, av);
+      endpost();
+    }
+    ac--;
+    av++;
+  }
+  *argc = ac;
+  *argv = av;
+  return (0);
+}
+
+static t_symbol *get_filename(t_mradio *x, int argc, t_atom *argv) {
+  t_symbol *filename;
+  if (argc && IS_A_SYMBOL(argv, 0)) {
+    filename = argv->a_w.w_symbol;
+    argc--;
+    argv++;
+    if (argc) {
+      post("warning: ignoring extra argument: ");
+      postatom(argc, argv);
+      endpost();
+    }
+    return (filename);
+  }
+  pd_error(x, "No file name given");
+  return (0);
 }
 
 static void textbuf_hack_read(t_mradio *x, t_symbol *s, int argc,
                               t_atom *argv) {
   (void)s; // silence -Wunused-parameter
-  int cr = 0;
+  int cr = is_carriage_return_enabled(x, &argc, &argv);
   t_symbol *filename;
-  while (argc && argv->a_type == A_SYMBOL &&
-         *argv->a_w.w_symbol->s_name == '-') {
-    if (!strcmp(argv->a_w.w_symbol->s_name, "-c")) {
-      cr = 1;
-    } else {
-      pd_error(x, "text read: unknown flag ...");
-      postatom(argc, argv);
-      endpost();
-    }
-    argc--;
-    argv++;
-  }
-  if (argc && argv->a_type == A_SYMBOL) {
-    filename = argv->a_w.w_symbol;
-    argc--;
-    argv++;
-  } else {
-    pd_error(x, "text read: no file name given");
+  if (!(filename = get_filename(x, argc, argv)))
     return;
-  }
-  if (argc) {
-    post("warning: text define ignoring extra argument: ");
-    postatom(argc, argv);
-    endpost();
-  }
+
   if (binbuf_read_via_canvas(x->b_binbuf, filename->s_name, x->b_canvas, cr))
     pd_error(x, "%s: read failed", filename->s_name);
+
   textbuf_hack_senditup(x);
 }
 
 static void textbuf_hack_write(t_mradio *x, t_symbol *s, int argc,
                                t_atom *argv) {
   (void)s; // silence -Wunused-parameter
-  int cr = 0;
+  int cr = is_carriage_return_enabled(x, &argc, &argv);
   t_symbol *filename;
-  char buf[MAXPDSTRING];
-  while (argc && argv->a_type == A_SYMBOL &&
-         *argv->a_w.w_symbol->s_name == '-') {
-    if (!strcmp(argv->a_w.w_symbol->s_name, "-c")) {
-      cr = 1;
-    } else {
-      pd_error(x, "text write: unknown flag ...");
-      postatom(argc, argv);
-      endpost();
-    }
-    argc--;
-    argv++;
-  }
-  if (argc && argv->a_type == A_SYMBOL) {
-    filename = argv->a_w.w_symbol;
-    argc--;
-    argv++;
-  } else {
-    pd_error(x, "text write: no file name given");
+  if (!(filename = get_filename(x, argc, argv)))
     return;
-  }
-  if (argc) {
-    post("warning: text define ignoring extra argument: ");
-    postatom(argc, argv);
-    endpost();
-  }
+
+  char buf[MAXPDSTRING];
 
   canvas_makefilename(x->b_canvas, filename->s_name, buf, MAXPDSTRING);
 
