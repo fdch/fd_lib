@@ -58,6 +58,7 @@ typedef struct _mradio {
   t_symbol *x_bindsym;
   t_iem_orientation x_orientation;
   int x_number, x_pos, x_val, x_foc, x_old;
+  int x_mode; // mode 0, 1, or 3 are modulo (default), limit, reflect
   unsigned char x_keep, x_focflag;
   /* the textbuf hack */
   t_binbuf *b_binbuf;
@@ -313,6 +314,7 @@ static void mradio_draw_config(t_mradio *x, t_glist *glist) {
   yy21 = yy11 + d4;
   yy22 = yy12 - d4;
   // the focus rectangle
+  // FIXME: fix FOC when orientation is vertical
   xx31 = xx11b + s6;
   yy31 = yy11 + s6;
   xx32 = xx11b + dx - s6;
@@ -514,8 +516,8 @@ static void mradio_properties(t_gobj *z, t_glist *owner) {
                     0, 0,       // range_min, range_max
                     0,          // schedule
                     0,          // mode
-                    "mode0",    // label mode0
-                    "mode1",    // label mode1
+                    "mod",      // label mode0
+                    "lim",      // label mode1
                     1,          // canloadbang
                     -1,         // steady
                     x->x_number // number
@@ -524,6 +526,7 @@ static void mradio_properties(t_gobj *z, t_glist *owner) {
 
 static void mradio_dialog(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
   (void)s; // silence -Wunused-parameter
+  // TODO: add mode argument to the creation args
   t_symbol *srl[3];
   int sr_flags;
   int a = (int)atom_getintarg(0, argc, argv);
@@ -548,6 +551,10 @@ static void mradio_dialog(t_mradio *x, t_symbol *s, int argc, t_atom *argv) {
     (*x->x_gui.x_draw)(x, x->x_gui.x_glist, IEM_GUI_DRAW_MODE_MOVE);
     canvas_fixlinesfor(x->x_gui.x_glist, (t_text *)x);
   }
+}
+
+static void mradio_mode(t_mradio *x, t_floatarg f) {
+  x->x_mode = (unsigned char)(f > 0 ? 1 : 0);
 }
 
 static void mradio_keep(t_mradio *x, t_floatarg f) {
@@ -582,7 +589,7 @@ static void mradio_bang(t_mradio *x) {
     pd_list(x->x_gui.x_snd->s_thing, 0, x->x_number, x->x_onlist);
 }
 
-static void mradio_fout(t_mradio *x, t_floatarg f) {
+static void mradio_toggle_cell(t_mradio *x, t_floatarg f) {
   int i = (int)f;
 
   if (i < 0)
@@ -597,12 +604,17 @@ static void mradio_fout(t_mradio *x, t_floatarg f) {
 }
 
 static void mradio_float(t_mradio *x, t_floatarg f) {
-  // TODO: fix this with edges and output mode
-  //  modulo the float
-  int abs_i = (unsigned int)(f < 0 ? -f : f);
-  int modulo_i = abs_i % x->x_number;
+  int next_pos, i = (int)f;
+  if (x->x_mode) {
+    if (i < 0)
+      i = 0;
+    if (i >= x->x_number)
+      i = x->x_number - 1;
+    next_pos = i;
 
-  int next_pos = modulo_i;
+  } else {
+    next_pos = ((unsigned int)(i < 0 ? -i : i)) % x->x_number;
+  }
 
   // send it out the outlet
   outlet_float(x->x_gui.x_obj.ob_outlet, atom_getfloat(x->x_onlist + next_pos));
@@ -677,7 +689,7 @@ static void mradio_click(t_mradio *x, t_floatarg xpos, t_floatarg ypos,
   (void)ctrl; // silence -Wunused-parameter
   (void)alt;  // silence -Wunused-parameter
   if (!shift) {
-    mradio_fout(x, (t_float)get_selection(x, xpos, ypos));
+    mradio_toggle_cell(x, (t_float)get_selection(x, xpos, ypos));
   } else {
     textbuf_hack_open(x);
   }
@@ -942,6 +954,8 @@ static void *mradio_donew(t_symbol *s, int argc, t_atom *argv, int old) {
   if (num > IEM_RADIO_MAX)
     num = IEM_RADIO_MAX;
 
+  // TODO: add this to args
+  x->x_mode = 0;
   // Initialize internal memory
   x->x_number = 0; // bash this to zero to ensure initialization
   mradio_resizer(x, num);
@@ -1004,6 +1018,8 @@ void g_mradio_setup(void) {
   class_addmethod(mradio_class, (t_method)mradio_loadbang, gensym("loadbang"),
                   A_DEFFLOAT, 0);
   class_addmethod(mradio_class, (t_method)mradio_keep, gensym("keep"), A_FLOAT,
+                  0);
+  class_addmethod(mradio_class, (t_method)mradio_mode, gensym("mode"), A_FLOAT,
                   0);
   class_addmethod(mradio_class, (t_method)mradio_menu_open, gensym("menu-open"),
                   A_NULL);
