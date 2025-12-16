@@ -4,8 +4,8 @@ Current version: 0.3.2beta
 This is my personal Pure Data library of abstractions and externals.
 Get Pure Data here: https://msp.ucsd.edu
 It has:
-    294 abstractions,
-    37 externals,
+    295 abstractions,
+    38 externals,
     shell scripts, and more.
 For an overview of the library, go open '_overview.pd'
 For instructions on how to compile see INSTALL.txt.

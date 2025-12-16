@@ -1,4 +1,4 @@
-#include "m_pd.h"
+#include "fdLib.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
@@ -25,25 +25,6 @@
 #include <alloca.h>
 #define FD_ALLOCA(nbytes) alloca(nbytes)
 #endif
-
-/* random helper function */
-static int text_nthline(int n, t_atom *vec, int line, int *startp, int *endp) {
-  int i, cnt = 0;
-  for (i = 0; i < n; i++) {
-    if (cnt == line) {
-      int j = i;
-      while (j < n && vec[j].a_type != A_SEMI && vec[j].a_type != A_COMMA) {
-        j++;
-      }
-      *startp = i;
-      *endp = j;
-      return (1);
-    } else if (vec[i].a_type == A_SEMI || vec[i].a_type == A_COMMA) {
-      cnt++;
-    }
-  }
-  return (0);
-}
 
 /* ------------- hdl     gui-horizontal dial ---------------------- */
 
@@ -79,48 +60,12 @@ static void textbuf_hack_senditup(t_mradio *x) {
   pdgui_vmess("pdtk_textwindow_setdirty", "^i", x, 0);
 }
 
-static int is_carriage_return_enabled(t_mradio *x, int *argc, t_atom **argv) {
-  int ac = *argc;
-  t_atom *av = *argv;
-  while (ac && IS_A_SYMBOL(av, ac) && *atom_getsymbol(av)->s_name == '-') {
-    if (!strcmp(atom_getsymbol(av)->s_name, "-c")) {
-      return (1);
-    } else {
-      pd_error(x, "text write: unknown flag ...");
-      postatom(ac, av);
-      endpost();
-    }
-    ac--;
-    av++;
-  }
-  *argc = ac;
-  *argv = av;
-  return (0);
-}
-
-static t_symbol *get_filename(t_mradio *x, int argc, t_atom *argv) {
-  t_symbol *filename;
-  if (argc && IS_A_SYMBOL(argv, 0)) {
-    filename = argv->a_w.w_symbol;
-    argc--;
-    argv++;
-    if (argc) {
-      post("warning: ignoring extra argument: ");
-      postatom(argc, argv);
-      endpost();
-    }
-    return (filename);
-  }
-  pd_error(x, "No file name given");
-  return (0);
-}
-
 static void textbuf_hack_read(t_mradio *x, t_symbol *s, int argc,
                               t_atom *argv) {
   (void)s; // silence -Wunused-parameter
-  int cr = is_carriage_return_enabled(x, &argc, &argv);
+  int cr = is_carriage_return_enabled(&argc, &argv);
   t_symbol *filename;
-  if (!(filename = get_filename(x, argc, argv)))
+  if (!(filename = get_filename(argc, argv)))
     return;
 
   if (binbuf_read_via_canvas(x->b_binbuf, filename->s_name, x->b_canvas, cr))
@@ -132,9 +77,9 @@ static void textbuf_hack_read(t_mradio *x, t_symbol *s, int argc,
 static void textbuf_hack_write(t_mradio *x, t_symbol *s, int argc,
                                t_atom *argv) {
   (void)s; // silence -Wunused-parameter
-  int cr = is_carriage_return_enabled(x, &argc, &argv);
+  int cr = is_carriage_return_enabled(&argc, &argv);
   t_symbol *filename;
-  if (!(filename = get_filename(x, argc, argv)))
+  if (!(filename = get_filename(argc, argv)))
     return;
 
   char buf[MAXPDSTRING];
@@ -667,29 +612,26 @@ val: %d\nfoc: %d\nold: %d\nfflag: %d\nkeep:%d",
   }
 }
 
-static int get_selection(t_mradio *x, t_floatarg xpos, t_floatarg ypos) {
-  int selected;
-  if (x->x_orientation == horizontal) {
-    int xx = (int)xpos - (int)text_xpix(&x->x_gui.x_obj, x->x_gui.x_glist);
-    selected = xx / (float)x->x_gui.x_w;
-  } else {
-    int yy = (int)ypos - (int)text_ypix(&x->x_gui.x_obj, x->x_gui.x_glist);
-    selected = yy / (float)x->x_gui.x_h;
-  }
-  if (selected >= x->x_number)
-    selected = x->x_number - 1;
-  if (selected < 0)
-    selected = 0;
-
-  return (selected);
-}
-
 static void mradio_click(t_mradio *x, t_floatarg xpos, t_floatarg ypos,
                          t_floatarg shift, t_floatarg ctrl, t_floatarg alt) {
   (void)ctrl; // silence -Wunused-parameter
   (void)alt;  // silence -Wunused-parameter
   if (!shift) {
-    mradio_toggle_cell(x, (t_float)get_selection(x, xpos, ypos));
+
+    int selected;
+    if (x->x_orientation == horizontal) {
+      int xx = (int)xpos - (int)text_xpix(&x->x_gui.x_obj, x->x_gui.x_glist);
+      selected = xx / (float)x->x_gui.x_w;
+    } else {
+      int yy = (int)ypos - (int)text_ypix(&x->x_gui.x_obj, x->x_gui.x_glist);
+      selected = yy / (float)x->x_gui.x_h;
+    }
+    if (selected >= x->x_number)
+      selected = x->x_number - 1;
+    if (selected < 0)
+      selected = 0;
+
+    mradio_toggle_cell(x, (t_float)selected);
   } else {
     textbuf_hack_open(x);
   }

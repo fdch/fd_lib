@@ -1,27 +1,34 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
 This file is part of fd_lib.
 
-fd_lib is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+fd_lib is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details. You
+should have received a copy of the GNU General Public License along with this
+program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
-//#include <stdbool.h>
-#include <string.h>	// for memset() and strlen()
-#include <limits.h> // for INT_MAX, etc
-#include <float.h>
 #include "m_pd.h"
+#ifdef __m_pd_h_
+// ensure g_canvas is loaded after m_pd.h
 #include "g_canvas.h"
+#endif
 
+#include <float.h>
+#include <limits.h> // for INT_MAX, etc
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> // for memset() and strlen()
+#include <time.h>
 
 #define FDLIBVERSION "0.3.2beta"
 
@@ -41,21 +48,20 @@ You should have received a copy of the GNU General Public License along with thi
 #define NORMMAX 1000000.0
 #define MAXFILEINDEX 8192
 
-
 /* Period parameters */
 #define NN 624
 #define MM 397
-#define MATRIX_A 0x9908b0df /* constant vector a */
+#define MATRIX_A 0x9908b0df   /* constant vector a */
 #define UPPER_MASK 0x80000000 /* most significant w-r bits */
 #define LOWER_MASK 0x7fffffff /* least significant r bits */
 
 /* Tempering parameters */
 #define TEMPERING_MASK_B 0x9d2c5680
 #define TEMPERING_MASK_C 0xefc60000
-#define TEMPERING_SHIFT_U(y)	(y >> 11)
-#define TEMPERING_SHIFT_S(y) 	(y << 7)
-#define TEMPERING_SHIFT_T(y)	(y << 15)
-#define TEMPERING_SHIFT_L(y)	(y >> 18)
+#define TEMPERING_SHIFT_U(y) (y >> 11)
+#define TEMPERING_SHIFT_S(y) (y << 7)
+#define TEMPERING_SHIFT_T(y) (y << 15)
+#define TEMPERING_SHIFT_L(y) (y >> 18)
 
 #define DEF_SEED 4357
 #define MAXNUM 1
@@ -64,17 +70,18 @@ You should have received a copy of the GNU General Public License along with thi
 #define TMAX 2048
 #define TINS 128
 
-t_int compare(const void * a, const void * b);
+t_int compare(const void *a, const void *b);
 t_float factorial(t_float f);
 t_float reflectit(t_float f, t_float r);
 unsigned long genrand(void);
 void sgenrand(unsigned long seed);
+int text_nthline(int n, t_atom *vec, int line, int *startp, int *endp);
+int is_carriage_return_enabled(int *argc, t_atom **argv);
+t_symbol *get_filename(int argc, t_atom *argv);
 
 t_float mod(t_float a, t_float n);
 
 void sys_expandpath(const char *from, char *to, int bufsize);
-
-
 
 void cantor_setup(void);
 void clifford_setup(void);
@@ -89,6 +96,7 @@ void factor_setup(void);
 void fdm_setup(void);
 void frand_setup(void);
 void g_mradio_setup(void);
+void g_sradio_setup(void);
 void glistinfo_setup(void);
 void halton_setup(void);
 void henon_setup(void);

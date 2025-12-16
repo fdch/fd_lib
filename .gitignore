@@ -24,3 +24,4 @@ src/surface.c
 ./fd_lib/
 .editorconfig
 tags
+.clangd
