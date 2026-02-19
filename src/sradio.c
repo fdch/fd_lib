@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,25 +10,7 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
-
-/* Copyright (c) 1997-1999 Miller Puckette.
- * For information on usage and redistribution, and for a DISCLAIMER OF ALL
- * WARRANTIES, see the file, "LICENSE.txt," in this distribution. */
-
-/* g_7_guis.c written by Thomas Musil (c) IEM KUG Graz Austria 2000-2001 */
-/* thanks to Miller Puckette, Guenther Geiger and Krzystof Czaja */
-
-/* hradio hacked to behave like a small array 
- * and store/recall t_atoms by Fede Camara Halac 2017 */
-
-/* Updated July 2018 for printing and corrected click action:
- * Used define for some default settings. */
-
-/* typesetting and cleanup June 2019 // fdch */
-
-
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -46,34 +28,6 @@ You should have received a copy of the GNU General Public License along with thi
 #endif
 
 static t_class *sradio_class;
-
-#ifdef _WIN32
-# include <malloc.h> /* MSVC or mingw on windows */
-#elif defined(__linux__) || defined(__APPLE__)
-# include <alloca.h> /* linux, mac, mingw, cygwin */
-#else
-# include <stdlib.h> /* BSDs for example */
-#endif
-
-#ifndef HAVE_ALLOCA     /* can work without alloca() but we never need it */
-#define HAVE_ALLOCA 1
-#endif
-#define TEXT_NGETBYTE 100 /* bigger that this we use alloc, not alloca */
-#if HAVE_ALLOCA
-#define ATOMS_ALLOCA(x, n) ((x) = (t_atom *)((n) < TEXT_NGETBYTE ?  \
-        alloca((n) * sizeof(t_atom)) : getbytes((n) * sizeof(t_atom))))
-#define ATOMS_FREEA(x, n) ( \
-    ((n) < TEXT_NGETBYTE || (freebytes((x), (n) * sizeof(t_atom)), 0)))
-#else
-#define ATOMS_ALLOCA(x, n) ((x) = (t_atom *)getbytes((n) * sizeof(t_atom)))
-#define ATOMS_FREEA(x, n) (freebytes((x), (n) * sizeof(t_atom)))
-#endif
-
-/* Default settings */
-
-#define DEF_KEEP 1
-#define DEF_NUMBER 8
-#define DEF_FONTSIZE 10
 
 typedef struct _textbuf
 {
@@ -304,9 +258,9 @@ static void sradio_resizer(t_sradio *x, int nsize)
   freebytes(x->x_onlist,    sizeof(&x->x_onlist));
   freebytes(x->x_drawnlist, sizeof(&x->x_drawnlist));
   freebytes(x->x_listout,   sizeof(&x->x_listout));
-  x->x_onlist    = (t_int  *)malloc(size * sizeof(t_int));
-  x->x_drawnlist = (t_int  *)malloc(size * sizeof(t_int));
-  x->x_listout   = (t_atom *)malloc(size * sizeof(t_atom));
+  x->x_onlist    = (t_int  *)getbytes(size * sizeof(t_int));
+  x->x_drawnlist = (t_int  *)getbytes(size * sizeof(t_int));
+  x->x_listout   = (t_atom *)getbytes(size * sizeof(t_atom));
   for (i=0,j=0;i<=size-1;i++,j++)
   {
     x->x_onlist[i]    = 0;
@@ -846,14 +800,13 @@ static void sradio_recall(t_sradio *x, t_floatarg f)
   if (text_nthline(n, vec, f, &start, &end))
   {
     int outc = end - start, k;
-    t_atom *outv;
-    ATOMS_ALLOCA(outv, outc);
+    t_atom *outv = (t_atom*)getbytes(outc * sizeof(t_atom));
     for (k = 0; k < outc; k++)
     {
       outv[k] = vec[start+k];
     }
     sradio_set(x, gensym("set"),outc, outv);
-    ATOMS_FREEA(outv, outc);
+    freebytes(outv, outc * sizeof(t_atom));
   }
 }
 
@@ -873,14 +826,13 @@ static void sradio_flush(t_sradio *x, t_symbol *s)
     while (text_nthline(n, vec, i, &start, &end))
     {
       int outc = end - start, k;
-      t_atom *outv;
-      ATOMS_ALLOCA(outv, outc);
+      t_atom *outv = (t_atom*)getbytes(outc * sizeof(t_atom));
       for (k = 0; k < outc; k++)
       {
         outv[k] = vec[start+k];
       }
       pd_list(s->s_thing, gensym("list"),outc, outv);
-      ATOMS_FREEA(outv, outc);
+      freebytes(outv, outc * sizeof(t_atom));
       i++;
     }
   }
@@ -981,15 +933,14 @@ val: %d\nfoc: %d\nold: %d\nfflag: %d\nkeep:%d",
     while (text_nthline(n, vec, i, &start, &end))
     {
       int outc = end - start, k;
-      t_atom *outv;
-      ATOMS_ALLOCA(outv, outc);
+      t_atom *outv = (t_atom*)getbytes(outc * sizeof(t_atom));
       for (k = 0; k < outc; k++)
       {
         outv[k] = vec[start+k];
       }
       postatom(outc, outv);
       endpost();
-      ATOMS_FREEA(outv, outc);
+      freebytes(outv, outc * sizeof(t_atom));
       i++;
     }
   }
@@ -1169,16 +1120,21 @@ static void sradio_label_font(t_sradio *x, t_symbol *s, int ac, t_atom *av)
   iemgui_label_font((void *)x, &x->x_gui, s, ac, av);
 }
 
-static void *sradio_donew(t_symbol *s, int argc, t_atom *argv, int old)
+static void *sradio_new(t_symbol *s, int argc, t_atom *argv)
 {
+#if 1
+    startpost("sradio_donew:: %s", s->s_name);
+    postatom(argc, argv);
+    endpost();
+#endif
   t_sradio *x = (t_sradio *)pd_new(sradio_class);
   int f       =  0;
   int ldx     =  0;
   int ldy     = -8;
-  int keep    =  DEF_KEEP;
-  int num     =  DEF_NUMBER;
+  int keep    =  1;
+  int num     =  8;
   int a       =  IEM_GUI_DEFAULTSIZE;
-  int fs      =  DEF_FONTSIZE;
+  int fs      =  10;
   int ftbreak =  IEM_BNG_DEFAULTBREAKFLASHTIME;
   int fthold  =  IEM_BNG_DEFAULTHOLDFLASHTIME;
   char str[144];
@@ -1275,11 +1231,6 @@ static void *sradio_donew(t_symbol *s, int argc, t_atom *argv, int old)
   outlet_new(&x->x_gui.x_obj, &s_list);
 
   return (x);
-}
-
-static void *sradio_new(t_symbol *s, int argc, t_atom *argv)
-{
-  return (sradio_donew(s, argc, argv, 0));
 }
 
 static void sradio_ff(t_sradio *x)
