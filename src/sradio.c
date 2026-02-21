@@ -11,21 +11,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 */
 #include "fdLib.h"
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#include <ctype.h>
-
-#include "m_imp.h"
-#include "s_stuff.h"    /* just for sys_hostfontsize, phooey */
 #include "g_all_guis.h"
-
-
-#ifdef _WIN32
-#include <io.h>
-#endif
 
 static t_class *sradio_class;
 
@@ -38,7 +24,6 @@ typedef struct _textbuf
     int b_status;
 } t_textbuf;
 
-/*This should be in g_all_guis.h*/
 typedef struct _sradio
 {
   t_iemgui  x_gui;
@@ -52,8 +37,6 @@ typedef struct _sradio
 } t_sradio;
 
 /*--------Shamelessly Taken from x_text--------*/
-
-/* --- common code for text define, textfile, and qlist for storing text -- */
 
 static void textbuf_senditup(t_textbuf *x)
 {
@@ -159,7 +142,6 @@ static void textbuf_free(t_textbuf *x)
     pd_unbind(x2, gensym("#A"));
 }
 
-/* random helper function */
 static int text_nthline(int n, t_atom *vec, int line, int *startp, int *endp)
 {
   int i, cnt = 0;
@@ -240,9 +222,6 @@ static void sradio_resizer(t_sradio *x, int nsize)
     SETFLOAT(&x->x_listout[i], 0.0);
   }
 }
-
-/*Shamelessly taken from hradio*/
-
 
 static t_widgetbehavior sradio_widgetbehavior;
 
@@ -383,6 +362,7 @@ static void sradio_draw_config(t_sradio *x, t_glist *glist)
 }
 
 #define sradio_draw_io 0
+
 static void sradio_draw_select(t_radio* x, t_glist* glist)
 {
     t_canvas *canvas = glist_getcanvas(glist);
@@ -691,18 +671,16 @@ val: %d\nfoc: %d\nold: %d\nfflag: %d\nkeep:%d",
     endpost();
   }
   else
-  {
     while (text_nthline(n, vec, i, &start, &end))
-    {
-      int outc = end - start, k;
-      t_atom *outv = (t_atom*)getbytes(outc * sizeof(t_atom));
-      for (k = 0; k < outc; k++)
-        outv[k] = vec[start+k];
-      postatom(outc, outv);
-      endpost();
-      freebytes(outv, outc * sizeof(t_atom));
-      i++;
-    }
+  {
+    int outc = end - start, k;
+    t_atom *outv = (t_atom*)getbytes(outc * sizeof(t_atom));
+    for (k = 0; k < outc; k++)
+      outv[k] = vec[start+k];
+    postatom(outc, outv);
+    endpost();
+    freebytes(outv, outc * sizeof(t_atom));
+    i++;
   }
 }
 
