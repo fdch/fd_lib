@@ -67,6 +67,7 @@ static void textbuf_senditup(t_textbuf *x)
 
 static void textbuf_read(t_sradio *z, t_symbol *s, int argc, t_atom *argv)
 {
+  (void)s;
   t_textbuf *x = (t_textbuf *)&z->x_textbuf;
   int cr = 0;
   t_symbol *filename;
@@ -105,6 +106,7 @@ static void textbuf_read(t_sradio *z, t_symbol *s, int argc, t_atom *argv)
 
 static void textbuf_write(t_sradio *z, t_symbol *s, int argc, t_atom *argv)
 {
+  (void)s;
   t_textbuf *x = (t_textbuf *)&z->x_textbuf;
   int cr = 0;
   t_symbol *filename;
@@ -440,9 +442,10 @@ static void sradio_save(t_gobj *z, t_binbuf *b)
 
 static void sradio_properties(t_gobj *z, t_glist *owner)
 {
+  (void)owner;
   t_sradio *x = (t_sradio *)z;
   iemgui_new_dialog(x, &x->x_gui, "sradio",
-      x->x_gui.x_w/IEMGUI_ZOOM(x), IEM_GUI_MINSIZE,
+      (t_float)x->x_gui.x_w/IEMGUI_ZOOM(x), IEM_GUI_MINSIZE,
       0, 0,
       0, 0,
       0,
@@ -452,6 +455,7 @@ static void sradio_properties(t_gobj *z, t_glist *owner)
 
 static void sradio_dialog(t_sradio *x, t_symbol *s, int argc, t_atom *argv) 
 {
+  (void)s;
   t_symbol *srl[3];
   int a = (int)atom_getfloatarg(0, argc, argv);
   int num = (int)atom_getfloatarg(6, argc, argv);
@@ -494,37 +498,26 @@ static void sradio_keep(t_sradio *x, t_floatarg f)
 
 static void sradio_preset(t_sradio *x, t_symbol *s, int argc, t_atom *argv)
 {
-  if(argc)
-  {
-    int n;
-    if (argc > x->x_number && argc < IEM_RADIO_MAX)
-      n = x->x_number;
-    if (argc <= x->x_number)
-      n = argc;
-    int i = 0;
-    while (n--) {
-      if (!IS_A_FLOAT(argv, i))
-        goto error;
-    }
-    binbuf_restore(x->x_textbuf.b_binbuf, argc, argv);
-    textbuf_senditup(&x->x_textbuf); 
-  }
-  else
-  {
-    error:
-      pd_error(x,"Can't parse:");
-      postatom(argc,argv);
-      endpost();
-  }
+  (void)s;
+  if(!argc)
+    return;
+  binbuf_restore(x->x_textbuf.b_binbuf, argc, argv);
+  textbuf_senditup(&x->x_textbuf);
 }
+
 //'addline' is needed because pdtk_textwindow uses that method
 static void textbuf_addline(t_sradio *x, t_symbol *s, int argc, t_atom *argv) 
-{ sradio_preset(x,gensym("preset"),argc,argv); }
+{
+  (void)s;
+  sradio_preset(x,gensym("preset"),argc,argv);
+}
 
 static void sradio_set(t_sradio *x, t_symbol *s, int argc, t_atom *argv)
 {
+  (void)s;
   if(!argc)
     return;
+
   int n;
   if (argc > x->x_number && argc < IEM_RADIO_MAX)
     n = x->x_number;
@@ -736,6 +729,8 @@ static void sradio_click(t_sradio *x,
 static int sradio_newclick(t_gobj *z, struct _glist *glist,
  int xpix, int ypix, int shift, int alt, int dbl, int doit)
 {
+  (void)glist;
+  (void)dbl;
   if(doit)
     sradio_click((t_sradio *)z, 
       (t_floatarg)xpix, (t_floatarg)ypix, 
@@ -789,6 +784,7 @@ static void sradio_number(t_sradio *x, t_floatarg num)
 
 static void sradio_size(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 {
+  (void)s;
   x->x_gui.x_w = iemgui_clip_size((int)atom_getintarg(0, ac, av));
   x->x_gui.x_h = x->x_gui.x_w;
   iemgui_size((void *)x, &x->x_gui);
@@ -820,6 +816,7 @@ static void sradio_label_font(t_sradio *x, t_symbol *s, int ac, t_atom *av)
 
 static void *sradio_new(t_symbol *s, int argc, t_atom *argv)
 {
+  (void)s;
   t_sradio *x = (t_sradio *)iemgui_new(sradio_class);
   int ldx     =  0;
   int ldy     = -8;
