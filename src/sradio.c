@@ -17,11 +17,12 @@ static t_class *sradio_class;
 
 typedef struct _textbuf
 {
-    t_object b_ob;
-    t_binbuf *b_binbuf;
-    t_canvas *b_canvas;
+    t_object     b_ob;
+    t_binbuf     *b_binbuf;
+    t_canvas     *b_canvas;
     t_guiconnect *b_guiconnect;
-    int b_status;
+    int          b_status;
+    t_symbol     *b_sym;
 } t_textbuf;
 
 typedef struct _sradio
@@ -37,6 +38,13 @@ typedef struct _sradio
 } t_sradio;
 
 /*--------Shamelessly Taken from x_text--------*/
+
+static void textbuf_init(t_textbuf *x, t_symbol *sym)
+{
+    x->b_binbuf = binbuf_new();
+    x->b_canvas = canvas_getcurrent();
+    x->b_sym = sym;
+}
 
 static void textbuf_senditup(t_textbuf *x)
 {
@@ -170,9 +178,9 @@ static void textbuf_open(t_sradio *z)
   if (x->b_guiconnect)
   {
     char textid[128];
-    sprintf(textid, ".x%lx.text", (unsigned long)z);
-    pdgui_vmess("wm", "r^", "deiconify", z);
-    pdgui_vmess("raise", "^", z);
+    sprintf(textid, ".x%lx.text", (unsigned long)x);
+    pdgui_vmess("wm", "r^", "deiconify", x);
+    pdgui_vmess("raise", "^", x);
     pdgui_vmess("focus", "s", textid);
   }
   else
@@ -180,9 +188,9 @@ static void textbuf_open(t_sradio *z)
     char buf[40];
     sprintf(buf, "%dx%d", 600, 340);
     pdgui_vmess("pdtk_textwindow_open", "^r si", z, buf,
-        "text", sys_hostfontsize(glist_getfont(x->b_canvas),
+        x->b_sym->s_name, sys_hostfontsize(glist_getfont(x->b_canvas),
             glist_getzoom(x->b_canvas)));
-    sprintf(buf, ".x%lx", (unsigned long)z);
+    sprintf(buf, ".x%lx", (unsigned long)x);
     x->b_guiconnect = guiconnect_new(&x->b_ob.ob_pd, gensym(buf));
     textbuf_senditup(x);
   }
@@ -846,8 +854,7 @@ static void *sradio_new(t_symbol *s, int argc, t_atom *argv)
       num = IEM_RADIO_MAX;
   x->x_number = num;
   sradio_resizer(x,num);
-  x->x_textbuf.b_binbuf = binbuf_new();
-  x->x_textbuf.b_canvas = canvas_getcurrent();
+  textbuf_init(&x->x_textbuf, gensym("sradio-text"));
   /* bashily unbind #A -- this would create garbage if #A were
   multiply bound but we believe in this context it's at most
   bound to whichever text_define or array was created most recently */
