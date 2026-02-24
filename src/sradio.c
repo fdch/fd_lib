@@ -212,8 +212,8 @@ static void sradio_draw_update(t_gobj *client, t_glist *glist)
 
     sprintf(tag, "%pBUT%d", x, i);
     pdgui_vmess(0, "crs rk rk", canvas, "itemconfigure", tag,
-        "-fill", col,
-        "-outline", col);
+      "-fill", col,
+      "-outline", col);
   }
 }
 
@@ -317,6 +317,10 @@ static void sradio_draw_new(t_sradio *x, t_glist *glist)
     sprintf(tag_n, "%pBASE", x);
     pdgui_vmess(0, "crss", canvas, "raise", tag, tag_n);
 
+    sprintf(tag, "%pBUT", x);
+    sprintf(tag_n, "%pFOC", x);
+    pdgui_vmess(0, "crss", canvas, "raise", tag, tag_n);
+
     sprintf(tag, "%pLABEL", x);
     sprintf(tag_n, "label");
     pdgui_vmess(0, "crr ii rs rS", canvas, "create", "text",
@@ -346,23 +350,22 @@ static void sradio_save(t_gobj *z, t_binbuf *b)
 {
   t_sradio *x  = (t_sradio *)z;
   t_binbuf *bb = (t_binbuf *)x->x_binbuf;
-  int n;
-  t_symbol *bflcol[3];
-  t_symbol *srl[3];
-  iemgui_save(&x->x_gui, srl, bflcol);
-  binbuf_addv(b, "ssiisiiisssiiiisss", 
-    gensym("#X"), gensym("obj"),
-    (int)x->x_gui.x_obj.te_xpix, (int)x->x_gui.x_obj.te_ypix,
-    gensym("sradio"),
-    x->x_gui.x_w, (int)x->x_keep, x->x_number,
-    srl[0], srl[1], srl[2],
-    x->x_gui.x_ldx, x->x_gui.x_ldy,
-    iem_fstyletoint(&x->x_gui.x_fsf), x->x_gui.x_fontsize,
-    bflcol[0], bflcol[1], bflcol[2]);
-  binbuf_addv(b, ";");
   if (!bb)
     return;
-  n = binbuf_getnatom(bb);
+  int n = binbuf_getnatom(bb);
+  t_symbol *bflcol[3], *srl[3];
+  iemgui_save(&x->x_gui, srl, bflcol);
+  binbuf_addv(b, "ssiisiiisssiiiisss", gensym("#X"), gensym("obj"),
+      (int)x->x_gui.x_obj.te_xpix,
+      (int)x->x_gui.x_obj.te_ypix,
+    gensym("sradio"),
+      x->x_gui.x_w/IEMGUI_ZOOM(x),
+      (int)x->x_keep, x->x_number,
+      srl[0], srl[1], srl[2],
+      x->x_gui.x_ldx, x->x_gui.x_ldy,
+      iem_fstyletoint(&x->x_gui.x_fsf), x->x_gui.x_fontsize,
+      bflcol[0], bflcol[1], bflcol[2]);
+  binbuf_addv(b, ";");
   if (x->x_keep && n)
   {
     binbuf_addv(b, "ss", gensym("#A"), gensym("preset"));
@@ -475,7 +478,6 @@ static void sradio_store(t_sradio *x, t_floatarg ff)
   int n = binbuf_getnatom(b);
   if (f && ((lineno = f<0?0:f)>=0) && text_nthline(n, vec, lineno, &start, &end))
   {
-    // post("n:%d, lineno:%d,start:%d,end:%d",n,lineno,start,end);
     int oldn = n;
     n = n + (x->x_number - (end-start));
     if (n > oldn)
