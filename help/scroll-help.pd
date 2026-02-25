@@ -122,8 +122,14 @@
 #X text 152 42 0 = units (default) small increments;
 #X text 152 74 1 = pages \, entire scrollable screen;
 #X msg 65 74 page \$1;
+#X obj 71 140 tgl 20 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X msg 71 165 norm \$1;
+#X text 131 135 set xpos/ypos to normalized scrolling or canvas units \; defaults to unnormalized, f 30;
+#X obj 71 190 s msg;
 #X connect 0 0 4 0;
 #X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
 #X restore 378 168 pd units;
 #N canvas 1342 517 450 300 pos 0;
 #X obj 44 36 hsl 170 20 0 127 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
