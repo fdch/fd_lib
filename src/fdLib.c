@@ -34,8 +34,8 @@ You should have received a copy of the GNU General Public License along with thi
 
 
 // Needed for qsort.  See http://w...content-available-to-author-only...s.com/reference/cstdlib/qsort/
-t_int compare (const void * a, const void * b) { 
-    return ( *(int*)a - *(int*)b );  
+int compare(const void *a, const void *b) { 
+    return ( *(int*)a - *(int*)b );
 }
 
 t_float factorial(t_float f) {

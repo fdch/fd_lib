@@ -64,7 +64,7 @@ You should have received a copy of the GNU General Public License along with thi
 #define TMAX 2048
 #define TINS 128
 
-t_int compare(const void * a, const void * b);
+int compare(const void *a, const void *b);
 t_float factorial(t_float f);
 t_float reflectit(t_float f, t_float r);
 unsigned long genrand(void);

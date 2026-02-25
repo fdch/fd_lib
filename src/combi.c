@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,96 +10,95 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
 
-// Find all possible combinations 
-// from incoming list taking "r" elements from array of size "n"
-//
-//
-// Adapted from:
-// https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/
-//
-// by github.com/fdch
+static t_class *combi_class;
 
-
-typedef struct _combi {
+typedef struct _combi
+{
   t_object  x_obj;
-  t_outlet *out;
-  t_float *arr;
-  int x_max, r;
+  float    *x_arr;
+  int       x_max, x_r;
 } t_combi;
 
-static void combinationUtil(t_combi *x, t_float data[], int start, int end, int index);
-
-static void combinationUtil(t_combi *x, t_float data[], int start, int end, int index) {
-  if (index == x->r)
+static void combinationUtil(t_combi *x, t_float data[], int start, int end, int index)
+{
+  if (index == x->x_r)
   {
-    for (int i=0; i<x->r; i++)
+    for (int i=0; i<x->x_r; i++)
       outlet_float(x->x_obj.ob_outlet, data[i]);
     return;
   }
 
-  for (int i=start; i<=end && end-i+1 >= x->r-index; i++)
+  for (int i=start; i<=end && end-i+1 >= x->x_r-index; i++)
   {
-    data[index] = x->arr[i];
+    data[index] = x->x_arr[i];
     combinationUtil(x, data, i+1, end, index+1);
-    while (x->arr[i] == x->arr[i+1]) i++;
+    while (x->x_arr[i] == x->x_arr[i+1])
+      i++;
   }
 }
 
-static void combi_set(t_combi *x, t_symbol *selector, t_float f) {
-  x->r = f;
-}
+static void combi_set(t_combi *x, t_symbol *s, t_float f)
+{ x->x_r = f; }
 
 
-static void combi_alloc(t_combi *x, int n) {
-  x->arr = (t_float *)t_getbytes(n*sizeof(t_float));
+static void combi_alloc(t_combi *x, int n)
+{
+  if(!n)
+    return pd_error(x, "Invalid size.");
+
+  if(x->x_max == n)
+    return;
+
+  if (x->x_arr)
+    t_freebytes(x->x_arr, n * sizeof(t_float));
+
+  x->x_arr = (t_float *)t_getbytes(n * sizeof(t_float));
   x->x_max = n;
 }
 
-static void combi_list(t_combi *x, t_symbol *s, int argc, t_atom *argv) {
-  int i, n;
-  t_float data[x->r];
+static void combi_list(t_combi *x, t_symbol *s, int argc, t_atom *argv)
+{
+  if(!argc)
+    return;
 
-  if (!argc) return;
-  if (argc != x->x_max) combi_alloc(x,argc);
-  
-  n=x->x_max;
-  
-  for(i=0; i<n; i++) x->arr[i] = argv[i].a_w.w_float;
+  (void)s;
+  t_float data[x->x_r];
+  combi_alloc(x, argc);
 
-  // Sort array to handle duplicates
-  qsort (x->arr, n, sizeof(int), compare);
+  for(int i=0; i<argc; i++)
+    x->x_arr[i] = atom_getfloat(argv + i);
 
-  // Print all combination using temprary array 'data[]'
-  combinationUtil(x, data, 0, n-1, 0);
+  /* Sort array to handle duplicates */
+  qsort(x->x_arr, argc, sizeof(float), compare);
+
+  /* Print all combination using temprary array 'data[]' */
+  combinationUtil(x, data, 0, argc-1, 0);
 
 }
 
-static t_class *combi_class;
-
-void *combi_new(t_floatarg f) {
+static void *combi_new(t_floatarg f)
+{
   t_combi *x = (t_combi *)pd_new(combi_class);
-  x->r = f;
+  x->x_r = f;
   outlet_new(&x->x_obj, &s_float);
-  return (void *)x;
+  return x;
 }
 
-static void combi_free(t_combi *x) {
-   t_freebytes(x->arr, (x->x_max)*sizeof(t_float));
+static void combi_free(t_combi *x)
+{
+  if (x->x_arr)
+    t_freebytes(x->x_arr, x->x_max * sizeof(t_float));
 }
 
-void combi_setup(void) {
+void combi_setup(void)
+{
   combi_class = class_new(gensym("combi"),
-    (t_newmethod)combi_new,
-    (t_method)combi_free,
-    sizeof(t_combi),
-    CLASS_DEFAULT,A_DEFFLOAT,0);
-  class_addlist(combi_class, combi_list);
-  class_addmethod(combi_class,
-    (t_method)combi_set,
-    gensym("set"),
-    A_GIMME, 0);
+    (t_newmethod)combi_new, (t_method)combi_free,
+    sizeof(t_combi), CLASS_DEFAULT,A_DEFFLOAT,0);
 
+  class_addlist(combi_class, combi_list);
+  class_addmethod(combi_class, (t_method)combi_set,
+    gensym("set"), A_GIMME, 0);
 }
