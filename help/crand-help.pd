@@ -1,15 +1,10 @@
 #N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 4 4 cnv 15 522 30 empty empty "crand" 20 15 0 15 -228856 -1
-0;
-#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
--1 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
-0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
--1 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
-0;
+#X obj 4 4 cnv 15 522 30 empty empty "crand" 20 15 0 15 #dcdcdc #000000 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000 0;
 #X obj 380 8 declare -lib fd_lib;
 #N canvas 0 22 450 300 meta 0;
 #X restore 438 423 pd meta;
@@ -21,40 +16,19 @@
 #X msg 40 133 set -1000 1000;
 #X obj 30 207 crand -1 1;
 #X msg 58 178 reset;
-#X text 20 45 Outputs random floats in a given range. 2 Creation arguments
-set up this range as minimum and maximum values. Send in a 'bang' to
-output a value. A 'set' message with two arguments resets the range.
-A 'reset' message resets to default.;
-#X floatatom 30 229 0 0 0 0 - - -;
+#X text 20 45 Outputs random floats in a given range. 2 Creation arguments set up this range as minimum and maximum values. Send in a 'bang' to output a value. A 'set' message with two arguments resets the range. A 'reset' message resets to default.;
+#X floatatom 30 229 0 0 0 0 - - - 0;
 #X msg 52 156 set 20 30;
 #N canvas 378 112 656 387 graphing 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand-help-array 100 float 3;
-#A 0 -0.0127163 -0.122547 -0.0393781 0.172261 -0.0131165 -0.0486222
-0.0070382 -0.108897 0.159707 0.194339 -0.145202 -0.0166076 0.0756537
--0.0883939 -0.0362887 0.0959727 -0.187498 -0.078427 -0.122941 0.125276
--0.0900525 0.0871044 -0.0365494 0.114029 0.0889172 0.0308237 0.0531754
-0.119438 -0.19989 0.0511179 -0.0614275 -0.0112574 -0.00311704 0.0118479
--0.0725803 0.14317 -0.144799 -0.040343 -0.0452348 0.138575 -0.177546
--0.0172484 0.106213 -0.083002 0.184768 0.2 0.199637 0.0966466 -0.060087
-0.118634 -0.1204 0.0402938 0.0171298 -0.0993229 -0.119353 0.0302496
-0.0055036 0.0990803 0.0432079 0.195854 0.11938 0.021911 -0.141331 -0.157196
-0.0095138 -0.10148 0.0286508 -0.0662539 0.0714838 -0.172253 0.137856
-0.150505 -0.0671709 -0.14184 0.0976298 0.0647564 -0.0388865 0.034011
-0.0221811 -0.00235344 0.0458006 0.169932 0.0455705 -0.0974465 -0.184135
-0.0482857 -0.0626043 -0.190333 -0.131443 0.0442893 -0.0304619 0.027375
-0.0921491 -0.0504108 -0.0537425 -0.0494892 -0.165358 0.0332461 -0.0327337
--0.155677;
+#A 0 -0.373331 -0.272448 0.446925 -0.486134 -0.339176 -0.380011 -0.0381522 0.148545 0.415221 -0.399143 0.114227 -0.429443 -0.106254 -0.00356904 -0.0634151 -0.206823 -0.255931 0.412391 0.0661645 -0.309291 -0.465284 -0.0681565 0.313904 0.253383 -0.143617 0.49797 -0.464334 0.0235484 -0.299053 0.161792 0.199787 -0.172384 0.389343 0.146712 -0.158518 -0.449832 0.266701 0.30333 0.198713 0.181922 0.404187 -0.18706 0.252479 -0.202067 0.309371 -0.310936 0.0911106 -0.446561 -0.398546 -0.342725 -0.255851 -0.363829 0.0891186 -0.441948 0.389553 0.445502 -0.443978 0.42522 -0.03095 -0.243031 0.0870112 -0.331163 0.0845852 -0.0236453 0.315549 0.426068 0.0265226 0.0822501 0.229398 -0.274764 -0.235828 0.133585 0.0381753 -0.483349 0.431518 -0.152454 -0.294286 0.0226287 -0.0990146 -0.192832 0.179904 0.145134 -0.0566611 -0.230978 0.203186 -0.167108 -0.285476 0.259208 -0.241888 0.183574 -0.483823 0.345123 0.352411 0.100763 -0.178522 0.16796 0.0268302 0.348 -0.24979 -0.243772;
+#A color 0;
+#A width 2;
 #X coords 0 1 100 -1 200 140 1 0 0;
 #X restore 363 111 graph;
-#X msg 44 142 100;
-#X obj 44 167 until;
-#X obj 44 192 f;
-#X obj 76 193 + 1;
-#X obj 45 119 t b b;
-#X msg 91 168 0;
 #X obj 44 217 t b f;
-#X msg 45 74 bang;
+#X msg 44 73 bang;
 #X msg 220 183 reset;
 #X msg 214 148 set 0.8 0.9;
 #X msg 202 117 set -0.2 0.2;
@@ -63,42 +37,23 @@ A 'reset' message resets to default.;
 #X obj 44 308 array set crand-help-array, f 16;
 #X msg 201 88 set 0 1;
 #X obj 44 258 crand -0.5 0.5;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 3 0 7 0;
-#X connect 4 0 3 1;
-#X connect 5 0 1 0;
-#X connect 5 1 6 0;
-#X connect 6 0 3 1;
-#X connect 7 0 16 0;
-#X connect 7 1 14 1;
-#X connect 8 0 5 0;
-#X connect 9 0 16 0;
-#X connect 10 0 16 0;
-#X connect 11 0 16 0;
-#X connect 15 0 16 0;
-#X connect 16 0 14 0;
+#X obj 44 118 iterate 100;
+#X connect 1 0 10 0;
+#X connect 1 1 8 1;
+#X connect 2 0 11 0;
+#X connect 3 0 10 0;
+#X connect 4 0 10 0;
+#X connect 5 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 1 0;
 #X restore 280 137 pd graphing crand;
 #N canvas 447 133 632 381 crand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand-gauss-array 100 float 3;
-#A 0 0.00182086 9.18899e-06 2.61497e-14 0.032761 0.00804646 7.32143e-06
-2.03042e-09 4.25597e-06 2.15774e-17 3.90427e-08 0.178013 3.46515e-21
-2.6555e-05 1.08839e-17 0.0287449 0.00116868 4.02207e-05 6.46854e-06
-0.0138485 6.89602e-06 0.0207476 0.988585 0.013243 0.882425 5.24658e-09
-0.00109093 3.64471e-15 2.14791e-06 3.11296e-11 0.00755668 0.0113927
-0.327821 2.32087e-06 0.139229 2.39749e-15 2.72297e-07 1.84933e-13 1.99831e-21
-1.45823e-05 0.447717 3.2989e-10 4.42363e-07 0.00511424 4.75966e-15
-0.000299653 1.08264e-09 0.204932 6.0388e-08 3.0732e-20 0.306398 7.9183e-17
-0.762965 0.361408 0.202021 1.77325e-21 0.986779 4.09697e-12 0.0311803
-2.43608e-18 0.236198 0.0949677 6.71117e-22 0.130743 0.000422427 1.08371e-21
-3.594e-05 0.000963587 3.44064e-21 5.35784e-11 0.000132814 9.66694e-11
-0.00235743 0.18154 0.0309186 0.0321023 0.00749257 3.65321e-17 0.0496869
-7.1419e-11 2.70861e-22 3.79109e-18 9.58523e-05 0.518496 3.29005e-14
-0.000642743 3.14238e-13 0.485072 9.40945e-19 3.79086e-09 0.000264664
-0.148579 8.34461e-09 0.00206731 0.131922 8.82666e-20 1 0.000246202
-0.945898 1.9835e-10 0.402578;
+#A 0 0.00182086 9.18899e-06 2.61497e-14 0.032761 0.00804646 7.32143e-06 2.03042e-09 4.25597e-06 2.15774e-17 3.90427e-08 0.178013 3.46515e-21 2.6555e-05 1.08839e-17 0.0287449 0.00116868 4.02207e-05 6.46854e-06 0.0138485 6.89602e-06 0.0207476 0.988585 0.013243 0.882425 5.24658e-09 0.00109093 3.64471e-15 2.14791e-06 3.11296e-11 0.00755668 0.0113927 0.327821 2.32087e-06 0.139229 2.39749e-15 2.72297e-07 1.84933e-13 1.99831e-21 1.45823e-05 0.447717 3.2989e-10 4.42363e-07 0.00511424 4.75966e-15 0.000299653 1.08264e-09 0.204932 6.0388e-08 3.0732e-20 0.306398 7.9183e-17 0.762965 0.361408 0.202021 1.77325e-21 0.986779 4.09697e-12 0.0311803 2.43608e-18 0.236198 0.0949677 6.71117e-22 0.130743 0.000422427 1.08371e-21 3.594e-05 0.000963587 3.44064e-21 5.35784e-11 0.000132814 9.66694e-11 0.00235743 0.18154 0.0309186 0.0321023 0.00749257 3.65321e-17 0.0496869 7.1419e-11 2.70861e-22 3.79109e-18 9.58523e-05 0.518496 3.29005e-14 0.000642743 3.14238e-13 0.485072 9.40945e-19 3.79086e-09 0.000264664 0.148579 8.34461e-09 0.00206731 0.131922 8.82666e-20 1 0.000246202 0.945898 1.9835e-10 0.402578;
+#A color 0;
+#A width 2;
 #X coords 0 1 100 -1 200 140 1 0 0;
 #X restore 363 111 graph;
 #X msg 61 110 100;
@@ -141,46 +96,44 @@ A 'reset' message resets to default.;
 #N canvas 163 75 986 598 crand 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand1 30 float 1;
-#A 0 0.392486 0.505881 0.339041 0.26686 -0.887119 0.196433 -0.545985
--0.362444 0.399669 -0.765126 0.525141 0.0522466 0.107823 0.175978 -0.340667
-0.405979 -0.71391 -0.676625 -0.0293496 0.720451 0.626531 0.113672 0.477993
--0.367985 -0.729336 0.0570965 -0.378522 0.176238 0.0361672 -0.138304
-;
+#A 0 -0.405423 0.809865 0.819286 0.747958 -0.00371215 0.152399 -0.674487 -0.452178 0.729158 -0.0152024 -0.0726757 0.697884 -0.00804521 -0.417893 -0.639158 0.368357 0.455101 -0.721884 0.206218 -0.0151566 0.676267 0.448504 -0.643585 -0.556069 -0.00294904 -0.757482 -0.723523 -0.279115 -0.350386 0.863791;
+#A color 0;
+#A width 1;
 #X coords 0 1 29 -1 352 38 1;
 #X restore 257 96 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array crand2 30 float 0;
+#A color 0;
+#A width 1;
 #X coords 0 1 29 -1 354 36 1 0 0;
 #X restore 257 152 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array random1 30 float 1;
-#A 0 4 1 3 0 1 4 3 9 3 9 9 5 8 0 3 5 8 8 4 8 2 9 1 5 2 1 8 5 2 3;
+#A 0 1 5 8 9 7 7 3 0 3 0 1 0 2 1 1 1 1 4 2 4 5 9 2 6 1 7 3 0 7 3;
+#A color 0;
+#A width 1;
 #X coords 0 10 29 0 354 36 1 0 0;
 #X restore 257 205 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array random2 30 float 1;
-#A 0 4 1 3 0 1 4 3 9 3 9 9 5 8 0 3 5 8 8 4 8 2 9 1 5 2 1 8 5 2 3;
+#A 0 5 0 5 6 2 2 1 8 3 2 0 3 6 1 6 6 6 2 9 6 4 3 7 6 3 5 7 4 4 2;
+#A color 0;
+#A width 1;
 #X coords 0 10 29 0 355 36 1 0 0;
 #X restore 257 258 graph;
-#X obj 135 399 fd_iterate;
 #X obj 135 423 t b f;
 #X obj 135 471 array set crand1;
 #X msg 191 373 seed 1;
-#X obj 211 313 bng 15 250 50 0 empty empty generate 17 7 0 10 -262144
--1 -1;
-#X obj 270 400 fd_iterate;
+#X obj 211 313 bng 15 250 50 0 empty empty generate 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 270 424 t b f;
 #X obj 270 472 array set crand2;
 #X msg 135 375 30;
 #X msg 270 376 30;
 #X obj 135 447 crand -1 1;
 #X obj 270 448 crand -1 1;
-#X obj 528 401 fd_iterate;
 #X obj 528 425 t b f;
 #X msg 641 336 seed 1;
-#X obj 568 313 bng 15 250 50 0 empty empty generate 17 7 0 10 -262144
--1 -1;
-#X obj 663 402 fd_iterate;
+#X obj 568 313 bng 15 250 50 0 empty empty generate 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 663 426 t b f;
 #X msg 528 377 30;
 #X msg 663 378 30;
@@ -190,65 +143,63 @@ A 'reset' message resets to default.;
 #X obj 663 474 array set random2;
 #X text 624 219 <-- these will be the same;
 #X text 624 258 <-- these will be the same;
-#X obj 641 242 bng 15 250 50 0 empty empty seed 17 7 0 10 -262144 -1
--1;
+#X obj 641 242 bng 15 250 50 0 empty empty seed 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 32 106 these will be different -->;
 #X text 35 157 these will be different -->;
-#X obj 191 135 bng 15 250 50 0 empty empty seed 17 7 0 10 -262144 -1
--1;
+#X obj 191 135 bng 15 250 50 0 empty empty seed 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 91 192 but the same every iteration, f 10;
 #X text 833 220 but different every iteration, f 12;
-#X obj 100 322 bng 15 250 50 0 empty empty no_change 17 7 0 10 -262144
--1 -1;
+#X obj 100 322 bng 15 250 50 0 empty empty no_change 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 135 345 t b b;
 #X msg 751 311 seed 4;
 #X msg 676 309 seed 3;
 #X text 671 291 (unless diff seeds);
 #X text 181 503 [crand];
 #X text 608 505 [random];
-#X text 128 523 [crand] uses <time.h> to make the seed for the C function
-'srand()', f 27;
-#X text 163 27 like [random] \, send a "seed \$1" message to change
-seed. But \, the behavior is different:, f 87;
-#X connect 4 0 5 0;
-#X connect 5 0 14 0;
-#X connect 5 1 6 1;
-#X connect 7 0 14 0;
-#X connect 7 0 15 0;
-#X connect 8 0 12 0;
+#X text 128 523 [crand] uses <time.h> to make the seed for the C function 'srand()', f 27;
+#X text 163 27 like [random] \, send a "seed \$1" message to change seed. But \, the behavior is different:, f 87;
+#X obj 135 399 iterate;
+#X obj 270 401 iterate;
+#X obj 528 401 iterate;
+#X obj 663 402 iterate;
+#X connect 4 0 12 0;
+#X connect 4 1 5 1;
+#X connect 6 0 12 0;
+#X connect 6 0 13 0;
+#X connect 7 0 10 0;
+#X connect 7 0 11 0;
 #X connect 8 0 13 0;
-#X connect 9 0 10 0;
-#X connect 10 0 15 0;
-#X connect 10 1 11 1;
-#X connect 12 0 4 0;
+#X connect 8 1 9 1;
+#X connect 10 0 41 0;
+#X connect 11 0 42 0;
+#X connect 12 0 5 0;
 #X connect 13 0 9 0;
-#X connect 14 0 6 0;
-#X connect 15 0 11 0;
-#X connect 16 0 17 0;
-#X connect 17 0 24 0;
-#X connect 17 1 26 1;
-#X connect 18 0 24 0;
-#X connect 18 0 25 0;
-#X connect 19 0 22 0;
-#X connect 19 0 23 0;
-#X connect 20 0 21 0;
-#X connect 21 0 25 0;
-#X connect 21 1 27 1;
-#X connect 22 0 16 0;
-#X connect 23 0 20 0;
-#X connect 24 0 26 0;
-#X connect 25 0 27 0;
-#X connect 30 0 18 0;
-#X connect 33 0 7 0;
-#X connect 36 0 37 0;
-#X connect 37 0 12 0;
-#X connect 37 0 13 0;
-#X connect 37 1 7 0;
-#X connect 38 0 25 0;
-#X connect 39 0 24 0;
+#X connect 14 0 20 0;
+#X connect 14 1 22 1;
+#X connect 15 0 20 0;
+#X connect 15 0 21 0;
+#X connect 16 0 18 0;
+#X connect 16 0 19 0;
+#X connect 17 0 21 0;
+#X connect 17 1 23 1;
+#X connect 18 0 43 0;
+#X connect 19 0 44 0;
+#X connect 20 0 22 0;
+#X connect 21 0 23 0;
+#X connect 26 0 15 0;
+#X connect 29 0 6 0;
+#X connect 32 0 33 0;
+#X connect 33 0 10 0;
+#X connect 33 0 11 0;
+#X connect 33 1 6 0;
+#X connect 34 0 21 0;
+#X connect 35 0 20 0;
+#X connect 41 0 4 0;
+#X connect 42 0 8 0;
+#X connect 43 0 14 0;
+#X connect 44 0 17 0;
 #X restore 281 225 pd crand seed test;
-#X text 182 190 [crand] uses <time.h> to make the seed for the C function
-'srand()', f 42;
+#X text 182 190 [crand] uses <time.h> to make the seed for the C function 'srand()', f 42;
 #X text 268 111 See graphing example:;
 #X connect 11 0 13 0;
 #X connect 12 0 13 0;
