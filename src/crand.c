@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,69 +10,66 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
-
-typedef struct crand	{
-  t_object x_ob;
-  t_outlet *x_outlet0;
-  double a, b, result;
-} t_crand;
-
-
-static void crand_set(t_crand *x, t_symbol *selector, int argcount, t_atom *argvec) {
-	int i;
-	for (i = 0; i < argcount; i++)
-    {
-			if (argvec[i].a_type == A_FLOAT) {
-			if 		(i == 0) {x->a	= (double)	argvec[i].a_w.w_float;}
-			else if (i == 1) {x->b	= (double)	argvec[i].a_w.w_float;}
-		}   
-    }
-}
-
-static void crand_reset(t_crand *x, t_symbol *selector, t_floatarg f, t_floatarg g){
-   	x->a = (f != 0) ? f : 0;
-	x->b = (g != 0) ? g : 1;
-	x->result = 0.0;}
-	
-
-static void crand_bang(t_crand *x) {
-	double t_r, t_a, t_b;
-	t_a = x->a;
-	t_b = x->b;
-	t_r	=	t_a	+ (double) rand() * (t_b-t_a) / RAND_MAX;
-	x->result = t_r;
-	outlet_float(x->x_outlet0, x->result);
-}
-
-
-static void crand_seed(t_crand *x, t_floatarg f) {
-	unsigned int seed = (unsigned int) f;
-	srand(seed);
-}
-
-
 
 static t_class *crand_class;
 
+typedef struct crand
+{
+  t_object     x_ob;
+  double       x_min, x_init_min;
+  double       x_max, x_init_max;
+  double       x_result;
+  time_t       x_time;
+  unsigned int x_seed, x_init_seed;
+} t_crand;
 
-static void *crand_new(t_floatarg f, t_floatarg g)	{
-    t_crand *x = (t_crand *)pd_new(crand_class);
-    x->x_outlet0 = outlet_new(&x->x_ob, &s_float);
-    time_t t;
-    srand((unsigned) time(&t));
-   	x->a = (f != 0) ? f : 0;
-	x->b = (g != 0) ? g : 1;
-	x->result = 0.0;
-    return (void *)x;
+static void crand_set(t_crand *x, t_floatarg fmin, t_floatarg fmax)
+{
+  x->x_min = (double)fmin;
+  x->x_max = (double)fmax;
 }
-void crand_setup(void)	{
-    crand_class = class_new(gensym("crand"),
-    (t_newmethod)crand_new, 0,
-    	sizeof(t_crand), 0, A_DEFFLOAT,A_DEFFLOAT, 0);
+
+static void crand_reset(t_crand *x)
+{
+  x->x_min = x->x_init_min;
+  x->x_max = x->x_init_max;
+  x->x_result = 0.0;
+}
+
+static void crand_bang(t_crand *x)
+{
+  x->x_result = rand();
+  x->x_result *= (x->x_max - x->x_min) / RAND_MAX;
+  x->x_result += x->x_min;
+  outlet_float(x->x_ob.te_outlet, (t_float)x->x_result);
+}
+
+static void crand_seed(t_crand *x, t_floatarg f)
+{
+  x->x_seed = (unsigned int)f;
+  srand(x->x_seed);
+}
+
+static void *crand_new(t_floatarg f, t_floatarg g)
+{
+  t_crand *x = (t_crand *)pd_new(crand_class);
+  x->x_init_seed = (unsigned int)time(&x->x_time);
+  x->x_min = x->x_init_min = (double)f;
+  x->x_max = x->x_init_max = (double)g;
+  x->x_result = 0.0;
+  crand_seed(x, (t_floatarg)x->x_init_seed);
+  outlet_new(&x->x_ob, &s_float);
+  return (void *)x;
+}
+void crand_setup(void)  {
+    crand_class = class_new(gensym("crand"), (t_newmethod)crand_new, 0,
+                            sizeof(t_crand), 0, A_DEFFLOAT, A_DEFFLOAT, A_NULL);
     class_addbang(crand_class, crand_bang);
-    class_addmethod(crand_class, (t_method)crand_set, gensym("set"), A_GIMME, 0);
-    class_addmethod(crand_class, (t_method)crand_reset, gensym("reset"), A_GIMME, 0);
-    class_addmethod(crand_class, (t_method)crand_seed, gensym("seed"), A_FLOAT, 0);
+    class_addmethod(crand_class, (t_method)crand_set,
+                    gensym("set"), A_FLOAT, A_FLOAT, A_NULL);
+    class_addmethod(crand_class, (t_method)crand_reset,
+                    gensym("reset"), A_DEFFLOAT, A_DEFFLOAT, A_NULL);
+    class_addmethod(crand_class, (t_method)crand_seed,
+                    gensym("seed"), A_FLOAT, A_NULL);
 }
