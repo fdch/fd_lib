@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,20 +10,17 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-//#include <stdbool.h>
 #include <string.h>	// for memset() and strlen()
 #include <limits.h> // for INT_MAX, etc
 #include <float.h>
 #include "m_pd.h"
 #include "g_canvas.h"
 
-
-#define FDLIBVERSION "0.3.1"
+#define FDLIBVERSION "0.4.0"
 
 #ifndef M_PI
 #define M_PI 3.1415926535897932384626433832795
@@ -71,10 +68,6 @@ unsigned long genrand(void);
 void sgenrand(unsigned long seed);
 
 t_float mod(t_float a, t_float n);
-
-void sys_expandpath(const char *from, char *to, int bufsize);
-
-
 
 void cantor_setup(void);
 void clifford_setup(void);

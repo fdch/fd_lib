@@ -11,28 +11,20 @@ You should have received a copy of the GNU General Public License along with thi
 
 */
 #include "fdLib.h"
+#include <sys/stat.h>
 
 #ifdef UNIX
 #include <unistd.h>
 #endif
 
-#include <sys/stat.h>
-
-#ifdef MSW
+#ifdef _WIN32
 #include <io.h>
 #include <windows.h>
 #endif
 
-#ifdef MSW
-# include <malloc.h> /* MSVC or mingw on windows */
-#elif defined(UNIX) || defined(MACOSX)
-# include <alloca.h> /* linux, mac, mingw, cygwin */
-#else
-# include <stdlib.h> /* BSDs for example */
-#endif
-
-
-// Needed for qsort.  See http://w...content-available-to-author-only...s.com/reference/cstdlib/qsort/
+  /* Needed for qsort.
+  * See http://w...content-available-to-author-only...s.com/reference/cstdlib/qsort/
+  */
 int compare(const void *a, const void *b)
 { return ( *(int*)a - *(int*)b ); }
 
@@ -116,40 +108,4 @@ unsigned long genrand()
 	
 	/* return ( (double)y / (unsigned long)0xffffffff ); */ /* reals */
 	return y;  /* for integer generation */
-}
-
-// shamelessly taken from s_path.c
-/* expand env vars and ~ at the beginning of a path and make a copy to return */
-void sys_expandpath(const char *from, char *to, int bufsize)
-{
-    if ((strlen(from) == 1 && from[0] == '~') || (strncmp(from,"~/", 2) == 0))
-    {
-#ifdef MSW
-        const char *home = getenv("USERPROFILE");
-#else
-        const char *home = getenv("HOME");
-#endif
-        if (home)
-        {
-            strncpy(to, home, bufsize);
-            to[bufsize-1] = 0;
-            strncpy(to + strlen(to), from + 1, bufsize - strlen(to));
-            to[bufsize-1] = 0;
-        }
-        else *to = 0;
-    }
-    else
-    {
-        strncpy(to, from, bufsize);
-        to[bufsize-1] = 0;
-    }
-#ifdef MSW
-    {
-        char *buf = alloca(bufsize);
-        ExpandEnvironmentStrings(to, buf, bufsize-1);
-        buf[bufsize-1] = 0;
-        strncpy(to, buf, bufsize);
-        to[bufsize-1] = 0;
-    }
-#endif
 }
