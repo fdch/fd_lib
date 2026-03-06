@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,7 +10,6 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
 
 #ifdef UNIX
@@ -34,34 +33,33 @@ You should have received a copy of the GNU General Public License along with thi
 
 
 // Needed for qsort.  See http://w...content-available-to-author-only...s.com/reference/cstdlib/qsort/
-int compare(const void *a, const void *b) { 
-    return ( *(int*)a - *(int*)b );
-}
+int compare(const void *a, const void *b)
+{ return ( *(int*)a - *(int*)b ); }
 
-t_float factorial(t_float f) {
+t_float factorial(t_float f)
+{
   if (f > 1)
-    return (f * factorial (f-1));
-  else
-    return 1;
+    return f * factorial(f - 1);
+  return 1;
 }
 
-t_float reflectit(t_float f, t_float r) {
+t_float reflectit(t_float f, t_float r)
+{
 	t_float t = f;
-	do 
-	t = (fabs((fabs(t + r) - r) * -1 + r ) - r) * -1;
+	do
+    t = (fabs((fabs(t + r) - r) * -1 + r ) - r) * -1;
 	while (t < (r * -1));
-	if (t==(-0))t=0;
+	if (t == -0)
+    t = 0;
 	return t;
 }
 
 t_float mod(t_float a, t_float n)
-{
-	return a - n*floor(a/n);
-}
+{ return a - n*floor(a/n); }
+
 
 /* ======== Original C code for genrand() and sgenrand() ======== */
 /* ======== with <time.h> as next seed ======== */
-
 
 unsigned long mt[NN]; /* the array for the state vector */
 int mti=NN+1; /* mti==NN+1 means mt[NN] is not initialized */
