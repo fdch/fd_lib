@@ -55,8 +55,8 @@ static void *crand_new(t_floatarg f, t_floatarg g)
 {
   t_crand *x = (t_crand *)pd_new(crand_class);
   x->x_init_seed = (unsigned int)time(&x->x_time);
-  x->x_min = x->x_init_min = (double)f;
-  x->x_max = x->x_init_max = (double)g;
+  x->x_min = x->x_init_min = f ? (double)f : 0.;
+  x->x_max = x->x_init_max = g ? (double)g : 1.;
   x->x_result = 0.0;
   crand_seed(x, (t_floatarg)x->x_init_seed);
   outlet_new(&x->x_ob, &s_float);
