@@ -1,4 +1,4 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
@@ -10,21 +10,60 @@ fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
+#include "m_pd.h"
 
 #define SLEN 33
 
-char vars[][SLEN+1]={ "gl_valid", "gl_pixwidth", "gl_pixheight", "gl_x1", "gl_y1", "gl_x2", "gl_y2", "gl_screenx1", "gl_screeny1", "gl_screenx2", "gl_screeny2", "gl_xmargin", "gl_ymargin", "gl_nxlabels", "gl_xlabely", "gl_nylabels", "gl_ylabelx", "gl_font", "gl_zoom", "gl_havewindow", "gl_mapped", "gl_dirty", "gl_loading", "gl_willvis", "gl_edit", "gl_isdeleting", "gl_goprect", "gl_isgraph", "gl_hidetext", "gl_private", "gl_isclone", "gl_name", "gl_owner", "\0"};
+char vars[][SLEN+1] = {
+  "gl_valid",
+  "gl_pixwidth",
+  "gl_pixheight",
+  "gl_x1",
+  "gl_y1",
+  "gl_x2",
+  "gl_y2",
+  "gl_screenx1",
+  "gl_screeny1",
+  "gl_screenx2",
+  "gl_screeny2",
+  "gl_xmargin",
+  "gl_ymargin",
+  "gl_nxlabels",
+  "gl_xlabely",
+  "gl_nylabels",
+  "gl_ylabelx",
+  "gl_font",
+  "gl_zoom",
+  "gl_havewindow",
+  "gl_mapped",
+  "gl_dirty",
+  "gl_loading",
+  "gl_willvis",
+  "gl_edit",
+  "gl_isdeleting",
+  "gl_goprect",
+  "gl_isgraph",
+  "gl_hidetext",
+  "gl_private",
+  "gl_isclone",
+  "gl_name",
+  "gl_owner",
+  "\0"
+};
 
-typedef struct _glistinfo {
+static t_class *glistinfo_class;
+
+typedef struct _glistinfo
+{
   t_object  x_obj;
   t_canvas *x_cnv;
-  t_atom syms[SLEN];
+  t_atom    syms[SLEN];
   t_symbol *x_owner;
 } t_glistinfo;
 
-static void glistinfo_load(t_glistinfo *x) {
+static void glistinfo_load(t_glistinfo *x)
+{
   SETFLOAT(&x->syms[0],x->x_cnv->gl_valid>1?1:0);
   SETFLOAT(&x->syms[1],x->x_cnv->gl_pixwidth);
   SETFLOAT(&x->syms[2],x->x_cnv->gl_pixheight);
@@ -59,23 +98,26 @@ static void glistinfo_load(t_glistinfo *x) {
   if (x->x_cnv->gl_name)
     SETSYMBOL(&x->syms[SLEN-2], x->x_cnv->gl_name);
   else
-    SETFLOAT(&x->syms[SLEN-2], 0); 
+    SETFLOAT(&x->syms[SLEN-2], 0);
   if (x->x_cnv->gl_owner)
     SETSYMBOL(&x->syms[SLEN-1], x->x_cnv->gl_owner->gl_name);
   else
-    SETFLOAT(&x->syms[SLEN-1], 0); 
+    SETFLOAT(&x->syms[SLEN-1], 0);
 }
 
-static void glistinfo_dump(t_glistinfo *x) {
+static void glistinfo_dump(t_glistinfo *x)
+{
   glistinfo_load(x);
   outlet_list(x->x_obj.ob_outlet, gensym("list"), SLEN, x->syms);
 }
 
-static void glistinfo_bang(t_glistinfo *x) {
+static void glistinfo_bang(t_glistinfo *x)
+{
   glistinfo_load(x);
   t_atom out[1];
   int i;
-  for (i = 0; i < SLEN; i++) {
+  for (i = 0; i < SLEN; i++)
+  {
     if (i>=SLEN-2)
       SETSYMBOL(&out[0],atom_getsymbol(&x->syms[i]));
     else
@@ -84,20 +126,23 @@ static void glistinfo_bang(t_glistinfo *x) {
   }
 }
 
-
-
-static t_class *glistinfo_class;
-
-
-static void *glistinfo_new(t_symbol *s) {
+static void *glistinfo_new(t_symbol *s)
+{
   t_glistinfo *x = (t_glistinfo *)pd_new(glistinfo_class);
-  x->x_cnv = (t_canvas *)canvas_getcurrent();
+  if (s && s->s_thing)
+    x->x_cnv = (t_canvas *)pd_findbyclass(s, canvas_class);
+  else
+    x->x_cnv = (t_canvas *)canvas_getcurrent();
   outlet_new(&x->x_obj, &s_list);
   return (void *)x;
 }
 
-void glistinfo_setup(void) {
-  glistinfo_class = class_new(gensym("glistinfo"),(t_newmethod)glistinfo_new,0, sizeof(t_glistinfo), CLASS_DEFAULT, A_DEFSYM,0);
+void glistinfo_setup(void)
+{
+  glistinfo_class = class_new(gensym("glistinfo"), (t_newmethod)glistinfo_new, 0,
+                              sizeof(t_glistinfo), CLASS_DEFAULT, A_DEFSYM, A_NULL);
+
   class_addbang(glistinfo_class, glistinfo_bang);
-  class_addmethod(glistinfo_class, (t_method)glistinfo_dump, gensym("dump"), 0);
+  class_addmethod(glistinfo_class, (t_method)glistinfo_dump,
+                  gensym("dump"), A_NULL);
 }
