@@ -148,9 +148,9 @@ static void *lor_new(void)
   x->out2 = outlet_new(&x->x_obj, &s_signal);
   x->out3 = outlet_new(&x->x_obj, &s_signal);
   x->x_f = 0.0;
-  x->x = INITX;
-  x->y = INITY;
-  x->z = INITZ;
+  x->x = (double)lorenz_types[0][4];
+  x->y = (double)lorenz_types[0][5];
+  x->z = (double)lorenz_types[0][6];
   /*
   x->x1max = 10000000000.0;
   x->x1min = 0.0;

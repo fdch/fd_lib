@@ -27,13 +27,7 @@ You should have received a copy of the GNU General Public License along with thi
 #endif
 
 #define LORMAX 100
-#define INITA 10.0
-#define INITB 28.0
-#define INITC 8.0 / 3.0
-#define INITH 0.01
-#define INITX 0.1
-#define INITY 0.0
-#define INITZ 0.0
+
 #define NORMMIN 0.0
 #define NORMMAX 1000000.0
 #define MAXFILEINDEX 8192
@@ -68,6 +62,8 @@ unsigned long genrand(void);
 void sgenrand(unsigned long seed);
 
 t_float mod(t_float a, t_float n);
+
+EXTERN float lorenz_types[20][7];
 
 void cantor_setup(void);
 void clifford_setup(void);
