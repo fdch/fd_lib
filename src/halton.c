@@ -45,7 +45,7 @@ static void halton_float(t_halton *x, t_floatarg f)
 static void *halton_new(t_floatarg f)
 {
   t_halton *x = (t_halton *)pd_new(halton_class);
-  halton_set(x,f);
+  halton_set(x, f);
   outlet_new(&x->x_ob, gensym("float"));
   return (void *)x;
 }
