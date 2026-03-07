@@ -48,9 +48,7 @@ void fd_lib_setup(void)
 	glistinfo_setup();
 	halton_setup();
 	henon_setup();
-	irlog_setup();
-	irpow_setup();
-	irsqrt_setup();
+	list_exec_setup();
 	iterate_setup();
 	lor_tilde_setup();
 	lorenz_setup();
