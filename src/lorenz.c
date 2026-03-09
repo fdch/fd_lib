@@ -11,6 +11,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 */
 #include "fdLib.h"
+#include "m_pd.h"
 
 /*
  * code for the "lorenz" pd class.
@@ -20,56 +21,101 @@ You should have received a copy of the GNU General Public License along with thi
  * Released under the GNU General Public License. 
  */
 
+#define MAXLORTYPES 20
+#define MAXLORPARAMS 7
+
+  /* inita, initb, initc, inith, x, y, z */
+t_float lorenz_types[MAXLORTYPES][MAXLORPARAMS] = {
+  /* stable */
+{10,28,8./3.,0.01,0.1,0,0},
+{10,20,8./3.,0.005,1,1,10},
+{11,20,2.8,0.005,3,5,8},
+{8,15,8./3.,0.01,4,4,4},
+{13,22,2.7,0.005,3,1,9},
+{9,16,2.4,0.01,3,6,8},
+{7,20,2.9,0.005,5,2,10},
+{10,22,8./3.,0.005,1,1,20},
+  /* unstable */
+{5,12,2.2,0.01,6,3,2},
+{10,10,8./3.,0.01,1,2,3},
+{10,15,8./3.,0.01,2,3,4},
+{8,12,3,0.01,3,4,5},
+{12,18,3,0.005,5,5,5},
+{14,16,2.5,0.005,4,3,2},
+{6,10,2,0.01,2,3,1},
+{7,14,2.5,0.01,1,4,6},
+{9,18,3,0.005,5,2,7},
+{6,8,2,0.01,2,2,2},
+{10,18,8./3.,0.005,7,5,3},
+{12,14,3,0.01,2,7,4},
+};
+
+/* --------------------------- a normalizable value ------------------------- */
+
+  /* keep a normalizable value to use as state variable */
+typedef struct norm
+{
+  t_float x_value;
+  t_float x_min;
+  t_float x_max;
+} t_norm;
+
+  /* set the value and the min/max accordingly */
+static void norm_setval(t_norm *x, t_float fval)
+{
+  if (fval > x->x_max)
+    x->x_max = fval;
+  if (fval < x->x_min)
+    x->x_min = fval;
+  x->x_value = fval;
+}
+
+  /* reset the value and the max and min */
+static void norm_reset(t_norm *x, t_float fval)
+{
+  x->x_max = fval;
+  x->x_min = fval;
+  x->x_value = fval;
+}
+
+  /* get the normalized version of the value */
+static t_float norm_getnorm(t_norm *x)
+{
+  t_float range = x->x_max - x->x_min;
+  if(range == 0)
+      return 0;
+  return (x->x_value - x->x_min) / range;
+}
+
+/* --------------------------- a base lorenz class -------------------------- */
+
 static t_class *lorenz_class;
 
 typedef struct lorenz
 {
-  t_object  x_ob;
-  t_outlet *x_outlet0;
-  t_outlet *x_outlet1;
-  t_outlet *x_outlet2;
-  double    x_x, x_y, x_z;
-  double    x_inita, x_initb, x_initc, x_inith;
-  int       x_count, x_type;
-  t_atom    x_raw[4];
+  t_pd    x_ob;
+  t_norm  x_x, x_y, x_z;
+  t_float x_inita, x_initb, x_initc, x_inith;
+  int     x_type, x_count, x_norm;
+  t_atom  x_raw[4];
 } t_lorenz;
 
 static void lorenz_doit(t_lorenz *x)
 {
-  double x0, y0, z0, x1, y1, z1;
-  x0 = x->x_x;
-  y0 = x->x_y;
-  z0 = x->x_z;
+  t_float x0, y0, z0, x1, y1, z1;
+  x0 = x->x_x.x_value;
+  y0 = x->x_y.x_value;
+  z0 = x->x_z.x_value;
   x1 = x0 + x->x_inith * x->x_inita * (y0 - x0);
   y1 = y0 + x->x_inith * (x0 * (x->x_initb - z0) - y0);
   z1 = z0 + x->x_inith * (x0 * y0 - x->x_initc * z0);
-  x->x_x = x1;
-  x->x_y = y1;
-  x->x_z = z1;
-  SETFLOAT(&x->x_raw[0], x->x_x);
-  SETFLOAT(&x->x_raw[1], x->x_y);
-  SETFLOAT(&x->x_raw[2], x->x_z);
+  norm_setval(&x->x_x, x1);
+  norm_setval(&x->x_y, y1);
+  norm_setval(&x->x_z, z1);
+  SETFLOAT(&x->x_raw[0], x->x_norm ? norm_getnorm(&x->x_x) : x->x_x.x_value);
+  SETFLOAT(&x->x_raw[1], x->x_norm ? norm_getnorm(&x->x_y) : x->x_y.x_value);
+  SETFLOAT(&x->x_raw[2], x->x_norm ? norm_getnorm(&x->x_z) : x->x_z.x_value);
   SETFLOAT(&x->x_raw[3], x->x_count++);
-}
-
-static void lorenz_bang(t_lorenz *x)
-{
-  lorenz_doit(x);
-  if (x->x_count > LORMAX)
-    outlet_list(x->x_outlet0, 0, 4, x->x_raw);
-  outlet_float(x->x_outlet2, x->x_count);
-}
-
-static void lorenz_print(t_lorenz *x, t_floatarg f)
-{
-  int max = (int)f;
-  for (int i = 0; i < max; i++)
-  {
-    lorenz_doit(x);
-    if (x->x_count > LORMAX)
-      outlet_list(x->x_outlet1, 0, 4, x->x_raw);
-    outlet_float(x->x_outlet2, x->x_count);
-  }
 }
 
 static void lorenz_type(t_lorenz *x, t_floatarg ftype)
@@ -77,15 +123,15 @@ static void lorenz_type(t_lorenz *x, t_floatarg ftype)
   int type = ftype ? (int)ftype : 0;
   if (type < 0)
     type = 0;
-  if (type > 20)
-    type = 19;
+  if (type > MAXLORTYPES)
+    type = MAXLORTYPES - 1;
   x->x_inita = lorenz_types[type][0];
   x->x_initb = lorenz_types[type][1];
   x->x_initc = lorenz_types[type][2];
   x->x_inith = lorenz_types[type][3];
-  x->x_x = (double)lorenz_types[type][4];
-  x->x_y = (double)lorenz_types[type][5];
-  x->x_z = (double)lorenz_types[type][6];
+  x->x_x.x_value = lorenz_types[type][4];
+  x->x_y.x_value = lorenz_types[type][5];
+  x->x_z.x_value = lorenz_types[type][6];
 }
 
 static void lorenz_reset(t_lorenz *x)
@@ -94,76 +140,290 @@ static void lorenz_reset(t_lorenz *x)
   x->x_count = 0;
 }
 
-static void lorenz_print_types(t_lorenz *x)
+static void lorenz_inita(t_lorenz *x, t_floatarg f)
+{ x->x_inita = f; }
+
+static void lorenz_initb(t_lorenz *x, t_floatarg f)
+{ x->x_initb = f; }
+
+static void lorenz_initc(t_lorenz *x, t_floatarg f)
+{ x->x_initc = f; }
+
+static void lorenz_inith(t_lorenz *x, t_floatarg f)
+{ x->x_inith = f; }
+
+static void lorenz_initx(t_lorenz *x, t_floatarg f)
+{ norm_reset(&x->x_x, f); }
+
+static void lorenz_inity(t_lorenz *x, t_floatarg f)
+{ norm_reset(&x->x_y, f); }
+
+static void lorenz_initz(t_lorenz *x, t_floatarg f)
+{ norm_reset(&x->x_z, f); }
+
+static void lorenz_print_types(t_outlet *outlet)
 {
-  for (int i=0; i<20; i++)
+  if (!outlet)
+    return;
+
+  for (int i = 0; i < MAXLORTYPES; i++)
   {
-    t_atom params[8];
+    t_atom params[MAXLORPARAMS + 1];
     SETFLOAT(&params[0], i);
-    for (int j=1; j<8; j++)
-      SETFLOAT(&params[j], lorenz_types[i][j]);
-    outlet_list(x->x_outlet1, gensym("list"), 8, params);
+    for (int j = 0; j < MAXLORPARAMS; j++)
+      SETFLOAT(&params[j + 1], lorenz_types[i][j]);
+    outlet_list(outlet, gensym("list"), MAXLORPARAMS + 1, params);
   }
 }
 
-static void lorenz_inita(t_lorenz *x, t_floatarg f)
-{ x->x_inita = (double)f; }
+static void lorenz_normalize(t_lorenz *x, t_floatarg fnorm)
+{ x->x_norm = !!(int)fnorm; }
 
-static void lorenz_initb(t_lorenz *x, t_floatarg f)
-{ x->x_initb = (double)f; }
-
-static void lorenz_initc(t_lorenz *x, t_floatarg f)
-{ x->x_initc = (double)f; }
-
-static void lorenz_inith(t_lorenz *x, t_floatarg f)
-{ x->x_inith = (double)f; }
-
-static void lorenz_initx(t_lorenz *x, t_floatarg f)
-{ x->x_x = (double)f; }
-
-static void lorenz_inity(t_lorenz *x, t_floatarg f)
-{ x->x_y = (double)f; }
-
-static void lorenz_initz(t_lorenz *x, t_floatarg f)
-{ x->x_z = (double)f; }
-
-static void *lorenz_new()
+static t_lorenz *lorenz_new(t_floatarg fnorm)
 {
   t_lorenz *x = (t_lorenz *)pd_new(lorenz_class);
-  x->x_outlet0 = outlet_new(&x->x_ob, gensym("list"));
+  lorenz_normalize(x, fnorm);
+  lorenz_reset(x);
+  return x;
+}
+
+/* ----------------------------------- [lorenz] ----------------------------- */
+
+static t_class *lorenz_obj_class;
+
+typedef struct lorenz_obj
+{
+  t_object  x_ob;
+  t_lorenz *x_lorenz;
+  t_outlet *x_outlet1, *x_outlet2;
+} t_lorenz_obj;
+
+static void lorenz_obj_bang(t_lorenz_obj *x)
+{
+  lorenz_doit(x->x_lorenz);
+  if (x->x_lorenz->x_count > LORMAX)
+    outlet_list(x->x_ob.te_outlet, 0, 4, x->x_lorenz->x_raw);
+  outlet_float(x->x_outlet2, x->x_lorenz->x_count);
+}
+
+static void lorenz_obj_print(t_lorenz_obj *x, t_floatarg f)
+{
+  int max = (int)f;
+  for (int i = 0; i < max; i++)
+  {
+    lorenz_doit(x->x_lorenz);
+    if (x->x_lorenz->x_count > LORMAX)
+      outlet_list(x->x_outlet1, 0, 4, x->x_lorenz->x_raw);
+    outlet_float(x->x_outlet2, x->x_lorenz->x_count);
+  }
+}
+
+static void lorenz_obj_inita(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_inita(x->x_lorenz, f); }
+
+static void lorenz_obj_initb(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_initb(x->x_lorenz, f); }
+
+static void lorenz_obj_initc(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_initc(x->x_lorenz, f); }
+
+static void lorenz_obj_inith(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_inith(x->x_lorenz, f); }
+
+static void lorenz_obj_initx(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_initx(x->x_lorenz, f); }
+
+static void lorenz_obj_inity(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_inity(x->x_lorenz, f); }
+
+static void lorenz_obj_initz(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_initz(x->x_lorenz, f); }
+
+static void lorenz_obj_type(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_type(x->x_lorenz, f); }
+
+static void lorenz_obj_reset(t_lorenz_obj *x)
+{ lorenz_reset(x->x_lorenz); }
+
+static void lorenz_obj_print_types(t_lorenz_obj *x)
+{ lorenz_print_types(x->x_outlet1); }
+
+static void lorenz_obj_normalize(t_lorenz_obj *x, t_floatarg f)
+{ lorenz_normalize(x->x_lorenz, f); }
+
+static void *lorenz_obj_new(t_floatarg fnorm)
+{
+  t_lorenz_obj *x = (t_lorenz_obj *)pd_new(lorenz_obj_class);
+  x->x_lorenz = lorenz_new(fnorm);
+  outlet_new(&x->x_ob, gensym("list"));
   x->x_outlet1 = outlet_new(&x->x_ob, gensym("list"));
   x->x_outlet2 = outlet_new(&x->x_ob, gensym("float"));
-  x->x_type = 0;
-  lorenz_reset(x);
+  x->x_lorenz->x_type = 0;
+  lorenz_reset(x->x_lorenz);
   return (void *)x;
 }
 
-void lorenz_setup(void)
-{
-  lorenz_class = class_new(gensym("lorenz"), (t_newmethod)lorenz_new, 0,
-                           sizeof(t_lorenz), CLASS_DEFAULT, A_NULL);
+/* ---------------------------------- [lorsig~] ----------------------------- */
 
-  class_addbang(lorenz_class, lorenz_bang);
-  class_addmethod(lorenz_class, (t_method)lorenz_inita,
+#ifdef NT
+#pragma warning( disable : 4244 )
+#pragma warning( disable : 4305 )
+#endif
+
+static t_class *lorsig_class;
+
+typedef struct _lorsig
+{
+  t_object  x_ob;
+  t_lorenz *x_lorenz;
+  t_outlet *x_outlet1;
+  t_float   x_f;
+  t_float   x_dist;
+} t_lorsig;
+
+static t_float lorsig_lorenz(t_lorsig *x)
+{
+  t_float nx, ny, nz;
+  lorenz_doit(x->x_lorenz);
+
+  if(x->x_lorenz->x_norm)
+  {
+    nx = norm_getnorm(&x->x_lorenz->x_x);
+    ny = norm_getnorm(&x->x_lorenz->x_y);
+    nz = norm_getnorm(&x->x_lorenz->x_z);
+  }
+  else
+  {
+    nx = x->x_lorenz->x_x.x_value;
+    ny = x->x_lorenz->x_y.x_value;
+    nz = x->x_lorenz->x_z.x_value;
+  }
+  return q8_sqrt((nx*nx)+(ny*ny)+(nz*nz));
+}
+
+static t_int *lorsig_perform(t_int *w)
+{
+  t_lorsig *x = (t_lorsig *)w[1];
+  t_sample *out = (t_sample *)w[2];
+  int n = (int)w[3];
+  while (n--)
+    *out++ = lorsig_lorenz(x);
+  return w + 4;
+}
+
+static void lorsig_dsp(t_lorsig *x, t_signal **sp)
+{ dsp_add(lorsig_perform, 3, x, sp[1]->s_vec, sp[0]->s_n); }
+
+static void lorsig_inita(t_lorsig *x, t_floatarg f)
+{ lorenz_inita(x->x_lorenz, f); }
+
+static void lorsig_initb(t_lorsig *x, t_floatarg f)
+{ lorenz_initb(x->x_lorenz, f); }
+
+static void lorsig_initc(t_lorsig *x, t_floatarg f)
+{ lorenz_initc(x->x_lorenz, f); }
+
+static void lorsig_inith(t_lorsig *x, t_floatarg f)
+{ lorenz_inith(x->x_lorenz, f); }
+
+static void lorsig_initx(t_lorsig *x, t_floatarg f)
+{ lorenz_initx(x->x_lorenz, f); }
+
+static void lorsig_inity(t_lorsig *x, t_floatarg f)
+{ lorenz_inity(x->x_lorenz, f); }
+
+static void lorsig_initz(t_lorsig *x, t_floatarg f)
+{ lorenz_initz(x->x_lorenz, f); }
+
+static void lorsig_type(t_lorsig *x, t_floatarg f)
+{ lorenz_type(x->x_lorenz, f); }
+
+static void lorsig_reset(t_lorsig *x)
+{ lorenz_reset(x->x_lorenz); }
+
+static void lorsig_print_types(t_lorsig *x)
+{ lorenz_print_types(x->x_outlet1); }
+
+static void lorsig_normalize(t_lorsig *x, t_floatarg f)
+{ lorenz_normalize(x->x_lorenz, f); }
+
+static void *lorsig_new()
+{
+  t_lorsig *x = (t_lorsig *)pd_new(lorsig_class);
+    /* default to normalized values */
+  x->x_lorenz = lorenz_new(1.0);
+  outlet_new(&x->x_ob, gensym("signal"));
+  x->x_outlet1 = outlet_new(&x->x_ob, &s_list);
+  x->x_f = 0;
+  x->x_lorenz->x_type = 0;
+  lorenz_reset(x->x_lorenz);
+  return (void *)x;
+}
+
+/* ------------------------------- global setup ----------------------------- */
+
+void lorenz_global_setup(void)
+{
+  lorenz_class = class_new(gensym("lorenz_base"), 0, 0,
+                           sizeof(t_lorenz), CLASS_PD, A_DEFFLOAT, A_NULL);
+
+  lorenz_obj_class = class_new(gensym("lorenz"), (t_newmethod)lorenz_obj_new, 0,
+                           sizeof(t_lorenz_obj), CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
+
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_inita,
                   gensym("inita"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_initb,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_initb,
                   gensym("initb"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_initc,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_initc,
                   gensym("initc"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_inith,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_inith,
                   gensym("inith"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_initx,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_initx,
                   gensym("initx"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_inity,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_inity,
                   gensym("inity"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_initz,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_initz,
                   gensym("initz"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_type,
-                  gensym("type"), A_DEFFLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_print,
-                  gensym("print"), A_FLOAT, A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_reset,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_type,
+                  gensym("type"), A_FLOAT, A_NULL);
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_normalize,
+                  gensym("normalize"), A_FLOAT, A_NULL);
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_reset,
                   gensym("reset"),A_NULL);
-  class_addmethod(lorenz_class, (t_method)lorenz_print_types,
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_print_types,
+                  gensym("print-types"),A_NULL);
+
+  class_addbang(lorenz_obj_class, lorenz_obj_bang);
+  class_addmethod(lorenz_obj_class, (t_method)lorenz_obj_print,
+                  gensym("print"), A_FLOAT, A_NULL);
+
+  lorsig_class = class_new(gensym("lorsig~"), (t_newmethod)lorsig_new, 0,
+                           sizeof(t_lorsig),CLASS_PATCHABLE, A_NULL);
+
+  CLASS_MAINSIGNALIN(lorsig_class, t_lorsig, x_f);
+  class_addmethod(lorsig_class, (t_method)lorsig_dsp,
+                  gensym("dsp"), 0);
+
+  class_addmethod(lorsig_class, (t_method)lorsig_inita,
+                  gensym("inita"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_initb,
+                  gensym("initb"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_initc,
+                  gensym("initc"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_inith,
+                  gensym("inith"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_initx,
+                  gensym("initx"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_inity,
+                  gensym("inity"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_initz,
+                  gensym("initz"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_type,
+                  gensym("type"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_normalize,
+                  gensym("normalize"), A_FLOAT, A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_reset,
+                  gensym("reset"),A_NULL);
+  class_addmethod(lorsig_class, (t_method)lorsig_print_types,
                   gensym("print-types"),A_NULL);
 }

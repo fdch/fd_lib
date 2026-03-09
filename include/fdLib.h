@@ -14,7 +14,7 @@ You should have received a copy of the GNU General Public License along with thi
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-#include <string.h>	// for memset() and strlen()
+#include <string.h>  // for memset() and strlen()
 #include <limits.h> // for INT_MAX, etc
 #include <float.h>
 #include "m_pd.h"
@@ -26,11 +26,10 @@ You should have received a copy of the GNU General Public License along with thi
 #define M_PI 3.1415926535897932384626433832795
 #endif
 
+#define MAXFILEINDEX 8192
 #define LORMAX 100
-
 #define NORMMIN 0.0
 #define NORMMAX 1000000.0
-#define MAXFILEINDEX 8192
 
 
 /* Period parameters */
@@ -43,10 +42,10 @@ You should have received a copy of the GNU General Public License along with thi
 /* Tempering parameters */
 #define TEMPERING_MASK_B 0x9d2c5680
 #define TEMPERING_MASK_C 0xefc60000
-#define TEMPERING_SHIFT_U(y)	(y >> 11)
-#define TEMPERING_SHIFT_S(y) 	(y << 7)
-#define TEMPERING_SHIFT_T(y)	(y << 15)
-#define TEMPERING_SHIFT_L(y)	(y >> 18)
+#define TEMPERING_SHIFT_U(y) (y >> 11)
+#define TEMPERING_SHIFT_S(y) (y << 7)
+#define TEMPERING_SHIFT_T(y) (y << 15)
+#define TEMPERING_SHIFT_L(y) (y >> 18)
 
 #define DEF_SEED 4357
 #define MAXNUM 1
@@ -63,7 +62,6 @@ void sgenrand(unsigned long seed);
 
 t_float mod(t_float a, t_float n);
 
-EXTERN float lorenz_types[20][7];
 
 void cantor_setup(void);
 void clifford_setup(void);
@@ -82,11 +80,9 @@ void glistinfo_setup(void);
 void halton_setup(void);
 void henon_setup(void);
 void list_exec_setup(void);
-void iterate_setup(void);
+void lorenz_global_setup(void);
 void lor_tilde_setup(void);
-void lorenz_setup(void);
-void lornorm_setup(void);
-void lorsig_tilde_setup(void);
+void iterate_setup(void);
 void mainpath_setup(void);
 void mandelbrot_setup(void);
 void minimax_setup(void);

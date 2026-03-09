@@ -49,11 +49,9 @@ void fd_lib_setup(void)
 	halton_setup();
 	henon_setup();
 	list_exec_setup();
+	lorenz_global_setup();
+  lor_tilde_setup();
 	iterate_setup();
-	lor_tilde_setup();
-	lorenz_setup();
-	lornorm_setup();
-	lorsig_tilde_setup();
 	mainpath_setup();
 	mandelbrot_setup();
 	minimax_setup();
