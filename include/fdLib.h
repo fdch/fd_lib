@@ -22,15 +22,8 @@ You should have received a copy of the GNU General Public License along with thi
 
 #define FDLIBVERSION "0.4.0"
 
-#ifndef M_PI
-#define M_PI 3.1415926535897932384626433832795
-#endif
-
-#define MAXFILEINDEX 8192
-#define LORMAX 100
 #define NORMMIN 0.0
 #define NORMMAX 1000000.0
-
 
 /* Period parameters */
 #define NN 624
