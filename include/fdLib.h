@@ -82,7 +82,6 @@ void henon_setup(void);
 void list_exec_setup(void);
 void lorenz_global_setup(void);
 void iterate_setup(void);
-void mainpath_setup(void);
 void mandelbrot_setup(void);
 void minimax_setup(void);
 void mtwister_setup(void);

@@ -51,7 +51,6 @@ void fd_lib_setup(void)
 	list_exec_setup();
 	lorenz_global_setup();
 	iterate_setup();
-	mainpath_setup();
 	mandelbrot_setup();
 	minimax_setup();
 	mtwister_setup();
