@@ -81,7 +81,6 @@ void halton_setup(void);
 void henon_setup(void);
 void list_exec_setup(void);
 void lorenz_global_setup(void);
-void lor_tilde_setup(void);
 void iterate_setup(void);
 void mainpath_setup(void);
 void mandelbrot_setup(void);

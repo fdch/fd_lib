@@ -50,7 +50,6 @@ void fd_lib_setup(void)
 	henon_setup();
 	list_exec_setup();
 	lorenz_global_setup();
-  lor_tilde_setup();
 	iterate_setup();
 	mainpath_setup();
 	mandelbrot_setup();
