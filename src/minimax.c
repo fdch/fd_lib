@@ -16,60 +16,52 @@ should have received a copy of the GNU General Public License along with this
 program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
+
+t_class *minimax_class;
 
 typedef struct minimax
 {
     t_object x_ob;
-    t_outlet *x_outlet0;
     t_outlet *x_outlet1;
     t_outlet *x_outlet2;
-    double minimum, maximum;
+    t_norm x_f;
+    int x_norm;
 } t_minimax;
 
 static void minimax_float(t_minimax *x, t_floatarg f)
 {
-    double min, max, nmin, nmax;
-
-    min = x->minimum;
-    max = x->maximum;
-
-    nmax = (f > max) ? f : max;
-    nmin = (f < min) ? f : min;
-
-    x->minimum = nmin;
-    x->maximum = nmax;
-
-    outlet_float(x->x_outlet2, x->maximum);
-    outlet_float(x->x_outlet1, x->minimum);
-    outlet_float(x->x_outlet0, f);
+    norm_setval(&x->x_f, f);
+    outlet_float(x->x_outlet2, x->x_f.x_max);
+    outlet_float(x->x_outlet1, x->x_f.x_min);
+    outlet_float(x->x_ob.te_outlet, x->x_norm ? norm_getnorm(&x->x_f) : f);
 }
 
-static void minimax_flush(t_minimax *x, t_symbol *selector)
+static void minimax_flush(t_minimax *x) { norm_reset(&x->x_f, 0.0); }
+
+static void minimax_normalize(t_minimax *x, t_floatarg fnorm)
 {
-    x->maximum = NORMMIN;
-    x->minimum = NORMMAX;
+    x->x_norm = !!(int)fnorm;
 }
 
-t_class *minimax_class;
-
-static void *minimax_new(t_floatarg f)
+static void *minimax_new(t_floatarg fnorm)
 {
     t_minimax *x = (t_minimax *)pd_new(minimax_class);
-    x->x_outlet0 = outlet_new(&x->x_ob, &s_float);
-    x->x_outlet1 = outlet_new(&x->x_ob, &s_float);
-    x->x_outlet2 = outlet_new(&x->x_ob, &s_float);
-    x->maximum = NORMMIN;
-    x->minimum = NORMMAX;
+    outlet_new(&x->x_ob, gensym("float"));
+    x->x_outlet1 = outlet_new(&x->x_ob, gensym("float"));
+    x->x_outlet2 = outlet_new(&x->x_ob, gensym("float"));
+    minimax_flush(x);
+    minimax_normalize(x, fnorm);
     return (void *)x;
 }
 
 void minimax_setup(void)
 {
     minimax_class = class_new(gensym("minimax"), (t_newmethod)minimax_new, 0,
-                              sizeof(t_minimax), 0, 0);
+                              sizeof(t_minimax), 0, A_DEFFLOAT, A_NULL);
     class_addfloat(minimax_class, minimax_float);
     class_addmethod(minimax_class, (t_method)minimax_flush, gensym("flush"),
-                    A_GIMME, 0);
+                    A_NULL);
+    class_addmethod(minimax_class, (t_method)minimax_normalize,
+                    gensym("normalize"), A_FLOAT, A_NULL);
 }

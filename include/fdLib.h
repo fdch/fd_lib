@@ -16,6 +16,9 @@ should have received a copy of the GNU General Public License along with this
 program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+#ifndef FDLIB_H
+#define FDLIB_H
+
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
@@ -61,6 +64,21 @@ void sgenrand(unsigned long seed);
 
 t_float mod(t_float a, t_float n);
 
+/* normalizable value defined in norm.c */
+
+/* keep a normalizable value to use as state variable */
+typedef struct norm
+{
+    t_float x_value;
+    t_float x_min;
+    t_float x_max;
+} t_norm;
+
+void norm_setval(t_norm *x, t_float fval);
+void norm_reset(t_norm *x, t_float fval);
+t_float norm_getnorm(t_norm *x);
+
+/* setup functions */
 void cantor_setup(void);
 void clifford_setup(void);
 void colormap_setup(void);
@@ -92,3 +110,5 @@ void root_setup(void);
 void scroll_setup(void);
 void siginfo_setup(void);
 void tracks_setup(void);
+
+#endif
