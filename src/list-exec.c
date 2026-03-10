@@ -27,93 +27,101 @@ typedef void (*t_list_exec_fun)(t_list_exec *, t_float, t_float *);
 
 struct _list_exec
 {
-  t_object        x_obj;
-  t_atom         *x_out;
-  t_list_exec_fun x_fun_ptr;
-  t_float         x_constant;
-  int             x_size;
+    t_object x_obj;
+    t_atom *x_out;
+    t_list_exec_fun x_fun_ptr;
+    t_float x_constant;
+    int x_size;
 };
 
 static void list_exec_log(t_list_exec *x, t_float f, t_float *o)
-{ *o = (f == 0.0 ? 0.0 : log(f)) + x->x_constant; }
+{
+    *o = (f == 0.0 ? 0.0 : log(f)) + x->x_constant;
+}
 
 static void list_exec_pow(t_list_exec *x, t_float f, t_float *o)
-{ *o = f * f + x->x_constant; }
+{
+    *o = f * f + x->x_constant;
+}
 
 static void list_exec_sqrt(t_list_exec *x, t_float f, t_float *o)
-{ *o = (t_float)sqrt((double)f) + x->x_constant; }
+{
+    *o = (t_float)sqrt((double)f) + x->x_constant;
+}
 
 static void list_exec_sum(t_list_exec *x, t_float f, t_float *o)
-{ *o = f + x->x_constant; }
+{
+    *o = f + x->x_constant;
+}
 
 static void list_exec_free(t_list_exec *x)
 {
-  if (!x->x_out)
-    return;
+    if (!x->x_out)
+        return;
 
-  freebytes(x->x_out, x->x_size * sizeof(t_atom));
-  x->x_size = 0;
+    freebytes(x->x_out, x->x_size * sizeof(t_atom));
+    x->x_size = 0;
 }
 
 static void list_exec_bang(t_list_exec *x)
 {
-  if (!x->x_size)
-    return;
-  outlet_list(x->x_obj.te_outlet, gensym("list"), x->x_size, x->x_out);
+    if (!x->x_size)
+        return;
+    outlet_list(x->x_obj.te_outlet, gensym("list"), x->x_size, x->x_out);
 }
 
 static void list_exec_list(t_list_exec *x, t_symbol *s, int argc, t_atom *argv)
 {
-  (void)s;
-  if (!argc)
-    return list_exec_bang(x);
+    (void)s;
+    if (!argc)
+        return list_exec_bang(x);
 
-  if (argc != x->x_size)
-  {
-    list_exec_free(x);
-    x->x_out = (t_atom *)t_getbytes(argc * sizeof(t_atom));
-    x->x_size = argc;
-  }
-  for (int i = 0; i < x->x_size; i++)
-  {
-    const t_float f = atom_getfloatarg(i, argc, argv);
-    t_float fout;
-    x->x_fun_ptr(x, f, &fout);
-    SETFLOAT(&x->x_out[i], fout);
-  }
-  list_exec_bang(x);
+    if (argc != x->x_size)
+    {
+        list_exec_free(x);
+        x->x_out = (t_atom *)t_getbytes(argc * sizeof(t_atom));
+        x->x_size = argc;
+    }
+    for (int i = 0; i < x->x_size; i++)
+    {
+        const t_float f = atom_getfloatarg(i, argc, argv);
+        t_float fout;
+        x->x_fun_ptr(x, f, &fout);
+        SETFLOAT(&x->x_out[i], fout);
+    }
+    list_exec_bang(x);
 }
 
 static void list_exec_symbol(t_list_exec *x, t_symbol *s)
 {
-  t_symbol *pow_sym = gensym("pow");
-  t_symbol *log_sym = gensym("log");
-  t_symbol *sqrt_sym = gensym("sqrt");
-  if (s == pow_sym)
-    x->x_fun_ptr = list_exec_pow;
-  else if (s == log_sym)
-    x->x_fun_ptr = list_exec_log;
-  else if (s == sqrt_sym)
-    x->x_fun_ptr = list_exec_sqrt;
-  else
-    x->x_fun_ptr = list_exec_sum;
+    t_symbol *pow_sym = gensym("pow");
+    t_symbol *log_sym = gensym("log");
+    t_symbol *sqrt_sym = gensym("sqrt");
+    if (s == pow_sym)
+        x->x_fun_ptr = list_exec_pow;
+    else if (s == log_sym)
+        x->x_fun_ptr = list_exec_log;
+    else if (s == sqrt_sym)
+        x->x_fun_ptr = list_exec_sqrt;
+    else
+        x->x_fun_ptr = list_exec_sum;
 }
 
 static void *list_exec_new(t_symbol *s, t_floatarg f)
 {
-  t_list_exec *x = (t_list_exec *)pd_new(list_exec_class);
-  outlet_new(&x->x_obj, gensym("list"));
-  x->x_size = 0;
-  x->x_constant = f;
-  list_exec_symbol(x, s);
-  return (void *)x;
+    t_list_exec *x = (t_list_exec *)pd_new(list_exec_class);
+    outlet_new(&x->x_obj, gensym("list"));
+    x->x_size = 0;
+    x->x_constant = f;
+    list_exec_symbol(x, s);
+    return (void *)x;
 }
 
 void list_exec_setup(void)
 {
-  list_exec_class = class_new(gensym("list-exec"), (t_newmethod)list_exec_new,
-                          (t_method)list_exec_free, sizeof(t_list_exec),
-                          CLASS_DEFAULT, A_DEFSYMBOL, A_DEFFLOAT, A_NULL);
-  class_addlist(list_exec_class, list_exec_list);
-  class_addsymbol(list_exec_class, list_exec_symbol);
+    list_exec_class = class_new(gensym("list-exec"), (t_newmethod)list_exec_new,
+                                (t_method)list_exec_free, sizeof(t_list_exec),
+                                CLASS_DEFAULT, A_DEFSYMBOL, A_DEFFLOAT, A_NULL);
+    class_addlist(list_exec_class, list_exec_list);
+    class_addsymbol(list_exec_class, list_exec_symbol);
 }

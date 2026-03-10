@@ -4,17 +4,23 @@ Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
 This file is part of fd_lib.
 
-fd_lib is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+fd_lib is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details. You
+should have received a copy of the GNU General Public License along with this
+program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-#include <string.h>  // for memset() and strlen()
+#include <string.h> // for memset() and strlen()
 #include <limits.h> // for INT_MAX, etc
 #include <float.h>
 #include "m_pd.h"
@@ -28,7 +34,7 @@ You should have received a copy of the GNU General Public License along with thi
 /* Period parameters */
 #define NN 624
 #define MM 397
-#define MATRIX_A 0x9908b0df /* constant vector a */
+#define MATRIX_A 0x9908b0df   /* constant vector a */
 #define UPPER_MASK 0x80000000 /* most significant w-r bits */
 #define LOWER_MASK 0x7fffffff /* least significant r bits */
 
@@ -54,7 +60,6 @@ unsigned long genrand(void);
 void sgenrand(unsigned long seed);
 
 t_float mod(t_float a, t_float n);
-
 
 void cantor_setup(void);
 void clifford_setup(void);
