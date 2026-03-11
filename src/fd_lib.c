@@ -61,7 +61,6 @@ void fd_lib_setup(void)
     minimax_setup();
     mtwister_setup();
     parabola_setup();
-    pmtwister_setup();
     prandom_setup();
     randy_setup();
     reflect_setup();

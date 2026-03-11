@@ -102,7 +102,6 @@ void mandelbrot_setup(void);
 void minimax_setup(void);
 void mtwister_setup(void);
 void parabola_setup(void);
-void pmtwister_setup(void);
 void prandom_setup(void);
 void randy_setup(void);
 void reflect_setup(void);

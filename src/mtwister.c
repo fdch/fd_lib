@@ -16,78 +16,85 @@ should have received a copy of the GNU General Public License along with this
 program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
 
-/* A C-Program for MT19937: Real number version						*/
-/* genrand() generates one pseudorandom real number (double)		*/
-/* which is uniformly distributed on [0,1]-interval, for each		*/
-/* call. sgenrand(seed) set initial values to the working area		*/
-/* of 624 words. Before genrand(), sgenrand() must be				*/
-/* called once. (seed is any 32-bit integer except for 0).			*/
-/* Integer generator is obtained by modifying two lines.			*/
-/* Coded by Takuji Nishimura, considering the suggestions by		*/
-/* Topher Cooper and Marc Rieffel in July-Aug. 1997. Comments		*/
-/* should be addressed to: matumoto@math.keio.ac.jp 				*/
-
-#include "m_pd.h"
+/* A C-Program for MT19937: Real number version genrand() generates one
+ * pseudorandom real number (t_float) which is uniformly distributed on
+ * [0,1]-interval, for each call. sgenrand(seed) set initial values to the
+ * working area of 624 words. Before genrand(), sgenrand() must be called once.
+ * (seed is any 32-bit integer except for 0). Integer generator is obtained by
+ * modifying two lines. Coded by Takuji Nishimura, considering the suggestions
+ * by Topher Cooper and Marc Rieffel in July-Aug. 1997. Comments should be
+ * addressed to: matumoto@math.keio.ac.jp
+ */
 
 static t_class *mtwister_class;
 
 typedef struct _mtwister
 {
     t_object x_obj;
-    double x_rng;
-    double x_off;
-    unsigned long x_see;
+    unsigned long x_seed;
+    t_norm x_result;
+    int x_norm;
 } t_mtwister;
 
-static void mtwister_set(t_mtwister *x, t_symbol *s, int argc, t_atom *argv)
+static void mtwister_norm(t_mtwister *x, t_floatarg fnorm)
 {
-    int i;
-    for (i = 0; i < argc; i++)
-    {
-        if (argv[i].a_type == A_FLOAT)
-        {
-            if (i == 0)
-            {
-                x->x_rng = (double)argv[i].a_w.w_float;
-            }
-            else if (i == 1)
-            {
-                x->x_off = (double)argv[i].a_w.w_float;
-            }
-        }
-    }
+    x->x_norm = !!(int)fnorm;
+}
+
+static void mtwister_output_result(t_mtwister *x)
+{
+    outlet_float(x->x_obj.te_outlet,
+                 x->x_norm ? norm_getnorm(&x->x_result) : x->x_result.x_value);
 }
 
 static void mtwister_bang(t_mtwister *x)
 {
-    outlet_float(x->x_obj.ob_outlet,
-                 genrand() * (x->x_rng - x->x_off) + x->x_off);
+    norm_setval(&x->x_result, genrand());
+    mtwister_output_result(x);
 }
 
 static void mtwister_seed(t_mtwister *x, t_floatarg h)
 {
-    x->x_see =
-        h == 0 ? (time(NULL) * rand()) : (unsigned long)h; //	store the seed
-    sgenrand(x->x_see); //	set the actual seed
+    x->x_seed = !h ? time(NULL) * rand() : (unsigned long)h;
+    sgenrand(x->x_seed);
 }
 
-static void mtwister_print(t_mtwister *x)
+static void mtwister_prime(t_mtwister *x, t_floatarg ftryouts)
 {
-    post("Range:%f\nOffset:%f\nSeed:%d", x->x_rng, x->x_off, x->x_see);
+    int max_tryouts = (!ftryouts || ftryouts < 1) ? 1 : (int)ftryouts;
+    while (max_tryouts--)
+    {
+        int n = genrand();
+        int prime = 1;
+
+        if (n < 2)
+            prime = 0;
+
+        for (int i = 2; i * i <= n; i++)
+            if (n % i == 0)
+            {
+                prime = 0;
+                break;
+            }
+
+        if (prime)
+        {
+            norm_setval(&x->x_result, n);
+            return mtwister_output_result(x);
+        }
+    }
+    outlet_bang(x->x_obj.te_outlet);
 }
 
-static void *mtwister_new(t_floatarg f, t_floatarg g, t_floatarg h)
+static void *mtwister_new(t_floatarg fseed)
 {
-
     t_mtwister *x = (t_mtwister *)pd_new(mtwister_class);
-    /* set range and min to map value */
-    x->x_rng = f == 0 ? 1.0 : (double)f;
-    x->x_off = g == 0 ? 0.0 : (double)g;
-    mtwister_seed(x, h); //	set new seed
     outlet_new(&x->x_obj, &s_float);
+    /* set range and min to map value */
+    x->x_norm = 1;
+    mtwister_seed(x, fseed);
     return (void *)x;
 }
 
@@ -97,10 +104,10 @@ void mtwister_setup(void)
                                sizeof(t_mtwister), CLASS_DEFAULT, A_DEFFLOAT,
                                A_DEFFLOAT, A_DEFFLOAT, 0);
     class_addbang(mtwister_class, mtwister_bang);
-    class_addmethod(mtwister_class, (t_method)mtwister_set, gensym("set"),
-                    A_GIMME, 0);
+    class_addmethod(mtwister_class, (t_method)mtwister_norm,
+                    gensym("normalize"), A_FLOAT, A_NULL);
     class_addmethod(mtwister_class, (t_method)mtwister_seed, gensym("seed"),
-                    A_DEFFLOAT, 0);
-    class_addmethod(mtwister_class, (t_method)mtwister_print, gensym("print"),
-                    0);
+                    A_DEFFLOAT, A_NULL);
+    class_addmethod(mtwister_class, (t_method)mtwister_prime, gensym("prime"),
+                    A_DEFFLOAT, A_NULL);
 }

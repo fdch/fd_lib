@@ -1,15 +1,10 @@
 #N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 4 4 cnv 15 522 30 empty empty "mtwister" 20 15 0 15 #dcdcdc
-#000000 0;
-#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc
-#000000 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000
-0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc
-#000000 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000
-0;
+#X obj 4 4 cnv 15 522 30 empty empty "mtwister" 20 15 0 15 #dcdcdc #000000 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000 0;
 #X obj 380 8 declare -lib fd_lib;
 #N canvas 0 22 450 300 meta 0;
 #X restore 438 423 pd meta;
@@ -19,59 +14,41 @@
 #X obj 32 209 mtwister;
 #X obj 32 231 print;
 #X text 26 39 Mersene Twister pseudorandom real number generator.;
-#X obj 32 69 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 32 69 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #N canvas 523 373 450 300 test 0;
-#X obj 37 55 fd_iterate;
 #X obj 37 119 t b f;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array mtwister-help 100 float 3;
-#A 0 0.69537 0.336818 0.768467 0.140673 0.791023 0.726151 0.572008
-0.406608 0.473066 0.217386 0.431324 0.398231 0.547315 0.0823228 0.309677
-1 0.974928 0.0465684 0.517901 0.17911 0.596261 0.118898 0.451863 0.48806
-0.748147 0.976668 0.585059 0.165254 0.323165 0.965994 0.733276 0.584702
-0.0230524 0.042803 0.815179 0.44925 0.608972 0.197644 0.31719 0.176007
-0.686198 0.713747 0.794947 0.178436 0.778466 0.354201 0.790185 0.710227
-0.360996 0.836444 0.145793 0.340324 0.907593 0.292049 0.717794 0.664908
-0.571866 0.0702136 0.895475 0.299686 0.740737 0.29628 0.529682 0.88287
-0.107388 0.13375 0.379481 0.703631 0.119724 0.651083 0.187194 0.673048
-0.657459 0.749174 0.230305 0.000673596 0.408503 0.67751 0.359666 0.762896
-0.0957738 0.976084 0.393446 0.602829 0.347024 0.745827 0.755109 0.251414
-0.739719 0.0593728 0.0570719 0.477637 0.566542 0.483048 0.19552 0.476744
-0.150683 0.0894618 0.997073 0.295382;
+#A 0 0.374529 0.871885 0.0582163 0.144087 0.437664 0.542867 0.539889 0.217187 0.46712 0.363009 0.335206 0.671639 0.368356 0.310016 0.263739 0.362012 0.596588 0.0616723 0.641534 0.52356 0.935674 0.699737 0.030623 0.56422 0.316122 0.747806 0.850343 0.785839 0.18632 0.595123 0.921677 0.226234 0.628609 0.317075 0.870172 0.563267 0.516915 0.578303 0.480979 0.932725 0.952408 0.412834 0.940826 0.394757 0.874171 0.594096 0.896093 0.915413 0.65149 0.20548 0.108355 0.94448 0.816956 0.576263 0.378877 0.49481 0.547724 0.985547 0.853511 0.192374 0.265192 0.789073 0.98133 0.874454 0.667833 0.971824 0.75485 0.0739215 0.834518 0.825343 0.939331 0.18997 0.822943 0.885533 0.359352 0.597167 0.739395 0.767618 0.706534 0.101513 0.889335 0.905791 0.0829003 0.508175 0.245 0.986353 0.701284 0.374477 0.0257168 0.431726 0.925947 0.719406 0.137654 0.834039 0.712132 0.533602 0.784787 0.0728418 0.302986 0.760643;
+#A color 0;
+#A width 2;
 #X coords 0 1 100 -1 200 140 1 0 0;
 #X restore 218 43 graph;
-#X obj 37 25 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 37 25 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 37 144 mtwister;
-#X msg 93 91 set -1 1;
-#X msg 97 116 set 0 1;
 #X obj 37 167 array set mtwister-help;
-#X msg 110 216 normalize;
-#X obj 110 240 s mtwister-help;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 1 1 7 1;
-#X connect 3 0 0 0;
-#X connect 4 0 7 0;
-#X connect 5 0 4 0;
-#X connect 6 0 4 0;
-#X connect 8 0 9 0;
-#X restore 274 230 pd test with arrays;
-#X msg 89 173 print;
+#X obj 37 55 iterate;
+#X connect 0 0 3 0;
+#X connect 0 1 4 1;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X restore 283 231 pd test with arrays;
 #X text 57 67 bang to generate;
 #X text 104 211 optional arguments are;
-#X text 133 142 set range and offset;
-#X msg 69 141 set 0 1;
 #X text 111 229 range \, offset \, seed;
-#X floatatom 65 89 5 0 0 0 - - - 0;
+#X floatatom 65 85 5 0 0 0 - - - 0;
 #X msg 65 109 seed \$1;
 #X text 128 109 set new seed (rand if 0);
-#X text 137 174 print internal data to console;
 #X text 60 340 1 inlets;
+#X msg 71 134 prime 100;
+#X msg 104 184 normalize \$1;
+#X obj 106 158 tgl 20 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X text 151 141 run up to 100 times to find a prime \; (better with unnormalized values);
 #X connect 10 0 11 0;
 #X connect 13 0 10 0;
-#X connect 15 0 10 0;
+#X connect 18 0 19 0;
 #X connect 19 0 10 0;
-#X connect 21 0 22 0;
 #X connect 22 0 10 0;
+#X connect 23 0 10 0;
+#X connect 24 0 23 0;
