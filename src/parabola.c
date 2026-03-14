@@ -25,50 +25,34 @@ static t_class *parabola_class;
 typedef struct parabola
 {
     t_object x_ob;
-    t_float x_alpha, x_iterations;
+    t_float x_alpha;
     t_norm x_x;
     int x_norm;
 } t_parabola;
 
 static void parabola_bang(t_parabola *x)
 {
-    int i = (int)x->x_iterations;
-    while (i--)
-    {
-        const t_float x0 = x->x_x.x_value;
-        norm_setval(&x->x_x, (1 - x0) * x->x_alpha * x0);
-        outlet_float(x->x_ob.te_outlet,
-                     x->x_norm ? norm_getnorm(&x->x_x) : x->x_x.x_value);
-    }
+    const t_float x0 = x->x_x.x_value;
+    norm_setval(&x->x_x, (1.0 - x0) * x->x_alpha * x0);
+    return outlet_float(x->x_ob.te_outlet,
+                        x->x_norm ? norm_getnorm(&x->x_x) : x->x_x.x_value);
 }
 
-static void parabola_iterations(t_parabola *x, t_floatarg fiterations)
+static void parabola_alpha(t_parabola *x, t_floatarg falpha)
 {
-    x->x_iterations = fiterations > 0.0 ? fiterations : 1;
+    x->x_alpha = !falpha ? 1.0 : falpha;
 }
 
-static void parabola_set(t_parabola *x, t_floatarg falpha)
+static void parabola_float(t_parabola *x, t_floatarg fval)
 {
-    x->x_alpha = falpha;
-}
-
-static void parabola_float(t_parabola *x, t_floatarg falpha)
-{
-    parabola_set(x, falpha);
+    norm_setval(&x->x_x, fval);
     parabola_bang(x);
-}
-
-static void parabola_x(t_parabola *x, t_floatarg fval)
-{
-    x->x_x.x_max = 0.0;
-    x->x_x.x_min = 1.0;
-    x->x_x.x_value = fval;
 }
 
 static void parabola_reset(t_parabola *x)
 {
-    parabola_x(x, 0.01);
-    parabola_set(x, 2.0);
+    norm_reset(&x->x_x, 1.0);
+    parabola_alpha(x, 1.0);
 }
 
 static void parabola_normalize(t_parabola *x, t_floatarg fnorm)
@@ -76,13 +60,14 @@ static void parabola_normalize(t_parabola *x, t_floatarg fnorm)
     x->x_norm = !!(int)fnorm;
 }
 
-static void *parabola_new(t_floatarg fiterations)
+static void *parabola_new(t_floatarg falpha)
 {
     t_parabola *x = (t_parabola *)pd_new(parabola_class);
-    parabola_reset(x);
-    parabola_iterations(x, fiterations);
-    if (!fiterations)
-        floatinlet_new(&x->x_ob, &x->x_iterations);
+    x->x_norm = 0;
+    norm_setval(&x->x_x, 1.0);
+    parabola_alpha(x, falpha);
+    if (!falpha)
+        floatinlet_new(&x->x_ob, &x->x_alpha);
 
     outlet_new(&x->x_ob, gensym("float"));
     return (void *)x;
@@ -95,12 +80,8 @@ void parabola_setup(void)
                   sizeof(t_parabola), CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
     class_addbang(parabola_class, parabola_bang);
     class_addfloat(parabola_class, parabola_float);
-    class_addmethod(parabola_class, (t_method)parabola_iterations,
-                    gensym("iterations"), A_FLOAT, A_NULL);
-    class_addmethod(parabola_class, (t_method)parabola_set, gensym("set"),
+    class_addmethod(parabola_class, (t_method)parabola_alpha, gensym("alpha"),
                     A_FLOAT, A_NULL);
-    class_addmethod(parabola_class, (t_method)parabola_x, gensym("x"), A_FLOAT,
-                    A_NULL);
     class_addmethod(parabola_class, (t_method)parabola_normalize,
                     gensym("normalize"), A_FLOAT, A_NULL);
     class_addmethod(parabola_class, (t_method)parabola_reset, gensym("reset"),
