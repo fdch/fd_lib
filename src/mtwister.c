@@ -88,11 +88,12 @@ static void mtwister_prime(t_mtwister *x, t_floatarg ftryouts)
     outlet_bang(x->x_obj.te_outlet);
 }
 
+static void mtwister_reset(t_mtwister *x) { norm_reset(&x->x_result, 1.0); }
+
 static void *mtwister_new(t_floatarg fseed)
 {
     t_mtwister *x = (t_mtwister *)pd_new(mtwister_class);
     outlet_new(&x->x_obj, &s_float);
-    /* set range and min to map value */
     x->x_norm = 1;
     mtwister_seed(x, fseed);
     return (void *)x;
@@ -110,4 +111,6 @@ void mtwister_setup(void)
                     A_DEFFLOAT, A_NULL);
     class_addmethod(mtwister_class, (t_method)mtwister_prime, gensym("prime"),
                     A_DEFFLOAT, A_NULL);
+    class_addmethod(mtwister_class, (t_method)mtwister_reset, gensym("reset"),
+                    A_NULL);
 }

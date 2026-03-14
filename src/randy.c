@@ -16,21 +16,22 @@ should have received a copy of the GNU General Public License along with this
 program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
+
+static t_class *randy_class;
 
 typedef struct _randy
 {
-    t_object x_obj;
+    t_object x_ob;
     t_float x_f;
     unsigned int x_state;
 } t_randy;
 
-static int makeseed_randy(void)
+static unsigned int makeseed_randy(void)
 {
     unsigned int randy_nextseed = 1489853723;
     randy_nextseed = randy_nextseed * 435898247 + 938284287;
-    return (randy_nextseed & 0x7fffffff);
+    return randy_nextseed & 0x7fffffff;
 }
 
 static void randy_bang(t_randy *x)
@@ -42,20 +43,18 @@ static void randy_bang(t_randy *x)
     nval = ((double)range) * ((double)randval) * (1. / 4294967296.);
     if (nval >= range)
         nval = range - 1;
-    outlet_float(x->x_obj.ob_outlet, nval);
+    outlet_float(x->x_ob.te_outlet, nval);
 }
 
-static void randy_seed(t_randy *x, t_float f, t_float glob) { x->x_state = f; }
-
-static t_class *randy_class;
+static void randy_seed(t_randy *x, t_float f) { x->x_state = (unsigned int)f; }
 
 static void *randy_new(t_floatarg f)
 {
     t_randy *x = (t_randy *)pd_new(randy_class);
     x->x_f = f;
     x->x_state = makeseed_randy();
-    floatinlet_new(&x->x_obj, &x->x_f);
-    outlet_new(&x->x_obj, &s_float);
+    floatinlet_new(&x->x_ob, &x->x_f);
+    outlet_new(&x->x_ob, gensym("float"));
     return (x);
 }
 
@@ -65,5 +64,5 @@ void randy_setup(void)
                             sizeof(t_randy), 0, A_DEFFLOAT, 0);
     class_addbang(randy_class, randy_bang);
     class_addmethod(randy_class, (t_method)randy_seed, gensym("seed"), A_FLOAT,
-                    0);
+                    A_NULL);
 }
