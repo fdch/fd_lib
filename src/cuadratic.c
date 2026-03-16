@@ -61,7 +61,7 @@ static void cuadratic_reset(t_cuadratic *x)
 static void *cuadratic_new(t_floatarg fx, t_floatarg fc)
 {
     t_cuadratic *x = (t_cuadratic *)pd_new(cuadratic_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     cuadratic_reset(x);
     if (fx)
         x->x_x = fx;

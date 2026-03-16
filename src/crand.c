@@ -65,7 +65,7 @@ static void *crand_new(t_floatarg f, t_floatarg g)
     x->x_max = x->x_init_max = g ? (double)g : 1.;
     x->x_result = 0.0;
     crand_seed(x, (t_floatarg)x->x_init_seed);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     return (void *)x;
 }
 void crand_setup(void)

@@ -49,7 +49,7 @@ static void multmult_clear(t_multmult *x) { x->x_sum = 1.; }
 static void *multmult_new()
 {
     t_multmult *x = (t_multmult *)pd_new(multmult_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     multmult_clear(x);
     return x;
 }
@@ -57,7 +57,7 @@ static void *multmult_new()
 static void *plusplus_new()
 {
     t_plusplus *x = (t_plusplus *)pd_new(plusplus_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     plusplus_clear(x);
     return x;
 }

@@ -93,7 +93,7 @@ static void mtwister_reset(t_mtwister *x) { norm_reset(&x->x_result, 1.0); }
 static void *mtwister_new(t_floatarg fseed)
 {
     t_mtwister *x = (t_mtwister *)pd_new(mtwister_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     x->x_norm = 1;
     mtwister_seed(x, fseed);
     return (void *)x;

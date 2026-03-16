@@ -73,7 +73,7 @@ static void cantor_coef(t_cantor *x, t_floatarg f) { x->x_f = f; }
 static void *cantor_new(t_floatarg f)
 {
     t_cantor *x = (t_cantor *)pd_new(cantor_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     x->x_n = 80;
     if (f)
         x->x_n = f;

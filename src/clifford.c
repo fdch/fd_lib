@@ -131,7 +131,7 @@ static void *clifford_new()
     x->gmax = 1;
     x->x_outlet0 = outlet_new(&x->x_ob, gensym("list"));
     x->x_outlet1 = outlet_new(&x->x_ob, gensym("list"));
-    x->x_outlet2 = outlet_new(&x->x_ob, &s_float);
+    x->x_outlet2 = outlet_new(&x->x_ob, gensym("float"));
     return x;
 }
 

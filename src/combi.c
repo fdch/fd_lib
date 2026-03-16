@@ -86,7 +86,7 @@ static void *combi_new(t_floatarg f)
 {
     t_combi *x = (t_combi *)pd_new(combi_class);
     x->x_r = f;
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     return x;
 }
 

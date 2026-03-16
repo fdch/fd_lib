@@ -58,7 +58,7 @@ static void frand_seed(t_frand *x, t_floatarg f)
 static void *frand_new(t_floatarg f, t_floatarg g)
 {
     t_frand *x = (t_frand *)pd_new(frand_class);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     x->x_seed = x->x_init_seed = 42;
     x->x_min = x->x_init_min = f ? (double)f : 0.;
     x->x_max = x->x_init_max = g ? (double)g : 1.;

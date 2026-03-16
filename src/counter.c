@@ -77,7 +77,7 @@ static void *counter_new(t_symbol *s, int argc, t_atom *argv)
     if (argc && argv->a_type == A_FLOAT)
         counter_float(x, atom_getfloatarg(0, argc, argv));
     floatinlet_new(&x->x_ob, &x->x_i);
-    outlet_new(&x->x_ob, &s_float);
+    outlet_new(&x->x_ob, gensym("float"));
     return (void *)x;
 }
 
