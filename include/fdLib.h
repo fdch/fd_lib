@@ -78,7 +78,22 @@ void norm_setval(t_norm *x, t_float fval);
 void norm_reset(t_norm *x, t_float fval);
 t_float norm_getnorm(t_norm *x);
 
+/* particle to calculate nth order derivatives defined in particle.c */
+
+typedef struct particle
+{
+    t_float *x_stored;
+    t_float x_diff;
+    int x_up, x_size;
+} t_particle;
+
+void particle_update(t_particle *x, t_float fvalue);
+void particle_free(t_particle *x);
+void particle_reset(t_particle *x);
+void particle_init(t_particle *x, int size);
+
 /* setup functions */
+
 void cantor_setup(void);
 void clifford_setup(void);
 void colormap_setup(void);
@@ -101,6 +116,7 @@ void iterate_setup(void);
 void mandelbrot_setup(void);
 void minimax_setup(void);
 void mtwister_setup(void);
+void norm_obj_setup(void);
 void parabola_setup(void);
 void prandom_setup(void);
 void randy_setup(void);
@@ -108,6 +124,7 @@ void reflect_setup(void);
 void root_setup(void);
 void scroll_setup(void);
 void siginfo_setup(void);
+void particle_obj_setup(void);
 void tracks_setup(void);
 
 #endif

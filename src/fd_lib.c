@@ -60,6 +60,7 @@ void fd_lib_setup(void)
     mandelbrot_setup();
     minimax_setup();
     mtwister_setup();
+    norm_obj_setup();
     parabola_setup();
     prandom_setup();
     randy_setup();
@@ -67,6 +68,7 @@ void fd_lib_setup(void)
     root_setup();
     scroll_setup();
     siginfo_setup();
+    particle_obj_setup();
     tracks_setup();
 
     post("fd_lib version %s", FDLIBVERSION);

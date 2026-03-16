@@ -18,73 +18,9 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "fdLib.h"
 
+/* --------------------------------- siginfo  -------------------------- */
+
 static t_class *siginfo_class;
-
-typedef struct particle
-{
-    t_float *x_stored;
-    t_float x_diff;
-    int x_up, x_size;
-} t_particle;
-
-static int particle_binom(t_particle *x, int k)
-{
-    int r = 1;
-    for (int i = 1; i <= k; i++)
-        r = r * (x->x_size - k + i) / i;
-    return r;
-}
-
-static t_float particle_nth_diff(t_particle *x)
-{
-    t_float sum = 0;
-
-    for (int k = 0; k <= x->x_size; k++)
-    {
-        int sign = (k % 2) ? -1 : 1;
-        sum += sign * particle_binom(x, k) * x->x_stored[k];
-    }
-
-    return sum;
-}
-
-static void particle_free(t_particle *x)
-{
-    if (x->x_stored)
-        freebytes(x->x_stored, (x->x_size + 1) * sizeof(t_float));
-}
-
-static void particle_update(t_particle *x, t_float fvalue)
-{
-    if (!x->x_size)
-        return pd_error(x, "Set order first.");
-
-    for (int i = x->x_size; i > 0; i--)
-        x->x_stored[i] = x->x_stored[i - 1];
-    x->x_stored[0] = fvalue;
-    x->x_diff = particle_nth_diff(x);
-    x->x_up = x->x_diff >= 0 ? 1 : 0;
-}
-
-static void particle_allocate(t_particle *x, t_float forder)
-{
-    if (x->x_stored && (x->x_size == (int)forder))
-        return;
-    particle_free(x);
-    x->x_size = (int)forder;
-    x->x_stored = (t_float *)getbytes((x->x_size + 1) * sizeof(t_float));
-    memset(x->x_stored, 0.0, x->x_size + 1);
-}
-
-static void particle_reset(t_particle *x) { particle_allocate(x, x->x_size); }
-
-static int particle_init(t_particle *x, int size)
-{
-    if (size <= 0)
-        return 0;
-    particle_allocate(x, size);
-    return x->x_stored != NULL;
-}
 
 typedef struct siginfo
 {
@@ -160,6 +96,7 @@ static void *siginfo_new(t_floatarg forder)
     siginfo_order(x, forder);
     return (void *)x;
 }
+
 void siginfo_setup(void)
 {
     siginfo_class = class_new(gensym("siginfo"), (t_newmethod)siginfo_new,
