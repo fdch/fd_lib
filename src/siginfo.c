@@ -69,7 +69,6 @@ static void siginfo_list(t_siginfo *x, t_symbol *s, int argc, t_atom *argv)
 
     siginfo_allocate_particles(x, argc);
 
-    // t_atom previous[3], cook[7], raw[4];
     int cook_size = x->x_num_parts * 2 + 1;
 
     t_atom *previous = (t_atom *)getbytes(x->x_num_parts * sizeof(t_atom));
