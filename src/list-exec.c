@@ -27,7 +27,7 @@ typedef void (*t_list_exec_fun)(t_list_exec *, t_float, t_float *);
 
 struct _list_exec
 {
-    t_object x_obj;
+    t_object x_ob;
     t_atom *x_out;
     t_list_exec_fun x_fun_ptr;
     t_float x_constant;
@@ -67,7 +67,7 @@ static void list_exec_bang(t_list_exec *x)
 {
     if (!x->x_size)
         return;
-    outlet_list(x->x_obj.te_outlet, gensym("list"), x->x_size, x->x_out);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), x->x_size, x->x_out);
 }
 
 static void list_exec_list(t_list_exec *x, t_symbol *s, int argc, t_atom *argv)
@@ -110,7 +110,7 @@ static void list_exec_symbol(t_list_exec *x, t_symbol *s)
 static void *list_exec_new(t_symbol *s, t_floatarg f)
 {
     t_list_exec *x = (t_list_exec *)pd_new(list_exec_class);
-    outlet_new(&x->x_obj, gensym("list"));
+    outlet_new(&x->x_ob, gensym("list"));
     x->x_size = 0;
     x->x_constant = f;
     list_exec_symbol(x, s);

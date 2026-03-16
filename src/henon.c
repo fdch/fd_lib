@@ -22,7 +22,7 @@ static t_class *henon_class;
 
 typedef struct _henon
 {
-    t_object x_obj;
+    t_object x_ob;
     t_float x_a, x_b;
     double x_ox, x_oy;
     int x_i;
@@ -45,7 +45,7 @@ static void henon_bang(t_henon *x)
 {
     henon_doit(x);
     SETFLOAT(&x->x_ixy[2], 0.);
-    outlet_list(x->x_obj.te_outlet, gensym("list"), 3, x->x_ixy);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), 3, x->x_ixy);
 }
 
 static void henon_print(t_henon *x, t_floatarg f)
@@ -57,7 +57,7 @@ static void henon_print(t_henon *x, t_floatarg f)
     while (f--)
     {
         henon_doit(x);
-        outlet_list(x->x_obj.te_outlet, gensym("list"), 3, x->x_ixy);
+        outlet_list(x->x_ob.te_outlet, gensym("list"), 3, x->x_ixy);
         x->x_i++;
     }
 }
@@ -75,14 +75,14 @@ static void henon_reset(t_henon *x)
 static void *henon_new(t_floatarg i, t_floatarg a, t_floatarg b)
 {
     t_henon *x = (t_henon *)pd_new(henon_class);
-    outlet_new(&x->x_obj, &s_list);
+    outlet_new(&x->x_ob, &s_list);
     x->x_i = i ? (int)i : 1000;
     x->x_a = a ? a : (7. / 5.);
     x->x_b = b ? b : .3;
     if (!a)
-        floatinlet_new(&x->x_obj, &x->x_a);
+        floatinlet_new(&x->x_ob, &x->x_a);
     if (!b)
-        floatinlet_new(&x->x_obj, &x->x_b);
+        floatinlet_new(&x->x_ob, &x->x_b);
     return (void *)x;
 }
 

@@ -22,7 +22,7 @@ static t_class *combi_class;
 
 typedef struct _combi
 {
-    t_object x_obj;
+    t_object x_ob;
     float *x_arr;
     int x_max, x_r;
 } t_combi;
@@ -33,7 +33,7 @@ static void combinationUtil(t_combi *x, t_float data[], int start, int end,
     if (index == x->x_r)
     {
         for (int i = 0; i < x->x_r; i++)
-            outlet_float(x->x_obj.ob_outlet, data[i]);
+            outlet_float(x->x_ob.te_outlet, data[i]);
         return;
     }
 
@@ -86,7 +86,7 @@ static void *combi_new(t_floatarg f)
 {
     t_combi *x = (t_combi *)pd_new(combi_class);
     x->x_r = f;
-    outlet_new(&x->x_obj, &s_float);
+    outlet_new(&x->x_ob, &s_float);
     return x;
 }
 

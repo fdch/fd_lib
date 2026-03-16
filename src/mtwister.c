@@ -32,7 +32,7 @@ static t_class *mtwister_class;
 
 typedef struct _mtwister
 {
-    t_object x_obj;
+    t_object x_ob;
     unsigned long x_seed;
     t_norm x_result;
     int x_norm;
@@ -45,7 +45,7 @@ static void mtwister_norm(t_mtwister *x, t_floatarg fnorm)
 
 static void mtwister_output_result(t_mtwister *x)
 {
-    outlet_float(x->x_obj.te_outlet,
+    outlet_float(x->x_ob.te_outlet,
                  x->x_norm ? norm_getnorm(&x->x_result) : x->x_result.x_value);
 }
 
@@ -85,7 +85,7 @@ static void mtwister_prime(t_mtwister *x, t_floatarg ftryouts)
             return mtwister_output_result(x);
         }
     }
-    outlet_bang(x->x_obj.te_outlet);
+    outlet_bang(x->x_ob.te_outlet);
 }
 
 static void mtwister_reset(t_mtwister *x) { norm_reset(&x->x_result, 1.0); }
@@ -93,7 +93,7 @@ static void mtwister_reset(t_mtwister *x) { norm_reset(&x->x_result, 1.0); }
 static void *mtwister_new(t_floatarg fseed)
 {
     t_mtwister *x = (t_mtwister *)pd_new(mtwister_class);
-    outlet_new(&x->x_obj, &s_float);
+    outlet_new(&x->x_ob, &s_float);
     x->x_norm = 1;
     mtwister_seed(x, fseed);
     return (void *)x;

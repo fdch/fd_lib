@@ -22,7 +22,7 @@ static t_class *cuadratic_class;
 
 typedef struct cuadratic
 {
-    t_object x_obj;
+    t_object x_ob;
     double x_x, x_c;
 } t_cuadratic;
 
@@ -38,14 +38,14 @@ static void cuadratic_float(t_cuadratic *x, t_floatarg fsize)
         cuadratic_step(&x->x_x, x->x_c);
         SETFLOAT(&xy[i], (t_float)x->x_x);
     }
-    outlet_list(x->x_obj.ob_outlet, gensym("list"), size, xy);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), size, xy);
     t_freebytes(xy, size * sizeof(t_atom));
 }
 
 static void cuadratic_bang(t_cuadratic *x)
 {
     cuadratic_step(&x->x_x, x->x_c);
-    outlet_float(x->x_obj.ob_outlet, x->x_x);
+    outlet_float(x->x_ob.te_outlet, x->x_x);
 }
 
 static void cuadratic_c(t_cuadratic *x, t_float f) { x->x_c = (double)f; }
@@ -61,14 +61,14 @@ static void cuadratic_reset(t_cuadratic *x)
 static void *cuadratic_new(t_floatarg fx, t_floatarg fc)
 {
     t_cuadratic *x = (t_cuadratic *)pd_new(cuadratic_class);
-    outlet_new(&x->x_obj, &s_float);
+    outlet_new(&x->x_ob, &s_float);
     cuadratic_reset(x);
     if (fx)
         x->x_x = fx;
     if (fc)
         x->x_c = fc;
-    floatinlet_new(&x->x_obj, (t_float *)&x->x_x);
-    floatinlet_new(&x->x_obj, (t_float *)&x->x_c);
+    floatinlet_new(&x->x_ob, (t_float *)&x->x_x);
+    floatinlet_new(&x->x_ob, (t_float *)&x->x_c);
     return (void *)x;
 }
 

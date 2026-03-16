@@ -38,7 +38,7 @@ static t_class *glistinfo_class;
 
 typedef struct _glistinfo
 {
-    t_object x_obj;
+    t_object x_ob;
     t_canvas *x_cnv;
     t_atom syms[SLEN];
     t_symbol *x_owner;
@@ -90,7 +90,7 @@ static void glistinfo_load(t_glistinfo *x)
 static void glistinfo_dump(t_glistinfo *x)
 {
     glistinfo_load(x);
-    outlet_list(x->x_obj.ob_outlet, gensym("list"), SLEN, x->syms);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), SLEN, x->syms);
 }
 
 static void glistinfo_bang(t_glistinfo *x)
@@ -104,7 +104,7 @@ static void glistinfo_bang(t_glistinfo *x)
             SETSYMBOL(&out[0], atom_getsymbol(&x->syms[i]));
         else
             SETFLOAT(&out[0], atom_getfloat(&x->syms[i]));
-        outlet_anything(x->x_obj.ob_outlet, gensym(vars[i]), 1, out);
+        outlet_anything(x->x_ob.te_outlet, gensym(vars[i]), 1, out);
     }
 }
 
@@ -115,7 +115,7 @@ static void *glistinfo_new(t_symbol *s)
         x->x_cnv = (t_canvas *)pd_findbyclass(s, canvas_class);
     else
         x->x_cnv = (t_canvas *)canvas_getcurrent();
-    outlet_new(&x->x_obj, &s_list);
+    outlet_new(&x->x_ob, &s_list);
     return (void *)x;
 }
 

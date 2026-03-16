@@ -23,7 +23,7 @@ static t_class *colormap_class;
 
 typedef struct _colormap
 {
-    t_object x_obj;
+    t_object x_ob;
     int x_size;
     double *x_r, *x_g, *x_b;
 } t_colormap;
@@ -70,7 +70,7 @@ static void colormap_float(t_colormap *x, t_floatarg f)
     SETFLOAT(out + 0, x->x_r[i]);
     SETFLOAT(out + 1, x->x_g[i]);
     SETFLOAT(out + 2, x->x_b[i]);
-    outlet_list(x->x_obj.ob_outlet, gensym("list"), 3, out);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), 3, out);
 }
 
 static void colormap_free(t_colormap *x)
@@ -83,7 +83,7 @@ static void colormap_free(t_colormap *x)
 void *colormap_new(t_floatarg f)
 {
     t_colormap *x = (t_colormap *)pd_new(colormap_class);
-    outlet_new(&x->x_obj, &s_list);
+    outlet_new(&x->x_ob, &s_list);
 
     x->x_size = (int)f;
     if (f < 128)

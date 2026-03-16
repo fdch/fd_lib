@@ -23,7 +23,7 @@ static t_class *counter_class;
 
 typedef struct _counter
 {
-    t_object x_obj;
+    t_object x_ob;
     int x_m, x_r;
     t_float x_i, x_count;
 } t_counter;
@@ -39,7 +39,7 @@ static void counter_bang(t_counter *x)
     else
         x->x_count++;
 
-    outlet_float(x->x_obj.ob_outlet, x->x_count);
+    outlet_float(x->x_ob.te_outlet, x->x_count);
 }
 
 static void counter_reset(t_counter *x) { x->x_count = 0; }
@@ -76,8 +76,8 @@ static void *counter_new(t_symbol *s, int argc, t_atom *argv)
     }
     if (argc && argv->a_type == A_FLOAT)
         counter_float(x, atom_getfloatarg(0, argc, argv));
-    floatinlet_new(&x->x_obj, &x->x_i);
-    outlet_new(&x->x_obj, &s_float);
+    floatinlet_new(&x->x_ob, &x->x_i);
+    outlet_new(&x->x_ob, &s_float);
     return (void *)x;
 }
 

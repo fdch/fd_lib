@@ -22,7 +22,7 @@ static t_class *cantor_class;
 
 typedef struct cantor
 {
-    t_object x_obj;
+    t_object x_ob;
     int x_d, x_n, x_u, x_i;
     t_float x_f;
 } t_cantor;
@@ -47,14 +47,14 @@ static void cantor_doit(t_cantor *x)
         for (int i = 0; i < x->x_n; i++, idx++)
             SETFLOAT(&set[idx], cantor_inner(x, d, i));
 
-    outlet_list(x->x_obj.ob_outlet, &s_list, x->x_d * x->x_n, set);
+    outlet_list(x->x_ob.te_outlet, &s_list, x->x_d * x->x_n, set);
 
     freebytes(set, x->x_d * x->x_n * sizeof(t_atom));
 }
 
 static void cantor_bang(t_cantor *x)
 {
-    outlet_float(x->x_obj.ob_outlet, cantor_inner(x, x->x_d, x->x_i));
+    outlet_float(x->x_ob.te_outlet, cantor_inner(x, x->x_d, x->x_i));
     x->x_i++;
 }
 
@@ -73,7 +73,7 @@ static void cantor_coef(t_cantor *x, t_floatarg f) { x->x_f = f; }
 static void *cantor_new(t_floatarg f)
 {
     t_cantor *x = (t_cantor *)pd_new(cantor_class);
-    outlet_new(&x->x_obj, &s_float);
+    outlet_new(&x->x_ob, &s_float);
     x->x_n = 80;
     if (f)
         x->x_n = f;

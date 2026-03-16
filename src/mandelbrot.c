@@ -31,7 +31,7 @@ static t_class *mandelbrot_class;
 
 typedef struct _mandelbrot
 {
-    t_object x_obj;
+    t_object x_ob;
     t_float cr;
     t_float ci;
     t_float k;
@@ -41,16 +41,16 @@ typedef struct _mandelbrot
 static void *mandelbrot_new()
 {
     t_mandelbrot *x = (t_mandelbrot *)pd_new(mandelbrot_class);
-    floatinlet_new(&x->x_obj, &x->ci);
-    floatinlet_new(&x->x_obj, &x->k);
-    outlet_new(&x->x_obj, 0);
+    floatinlet_new(&x->x_ob, &x->ci);
+    floatinlet_new(&x->x_ob, &x->k);
+    outlet_new(&x->x_ob, 0);
     x->k = 100;
     return (x);
 }
 
 static void mandelbrot_bang(t_mandelbrot *x)
 {
-    outlet_float(x->x_obj.ob_outlet, x->result);
+    outlet_float(x->x_ob.te_outlet, x->result);
 }
 
 static void mandelbrot_float(t_mandelbrot *x, t_float f)
@@ -75,7 +75,7 @@ static void mandelbrot_float(t_mandelbrot *x, t_float f)
         }
         x->result = i;
     }
-    outlet_float(x->x_obj.ob_outlet, x->result);
+    outlet_float(x->x_ob.te_outlet, x->result);
 }
 
 void mandelbrot_setup(void)

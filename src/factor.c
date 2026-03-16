@@ -22,16 +22,16 @@ static t_class *factor_class;
 
 typedef struct factor
 {
-    t_object x_obj;
+    t_object x_ob;
     t_float x_f;
 } t_factor;
 
 static void factor_bang(t_factor *x)
 {
     if (x->x_f >= 1.0)
-        outlet_float(x->x_obj.ob_outlet, factorial(x->x_f));
+        outlet_float(x->x_ob.te_outlet, factorial(x->x_f));
     else
-        outlet_float(x->x_obj.ob_outlet, 1.0);
+        outlet_float(x->x_ob.te_outlet, 1.0);
 }
 
 static void factor_float(t_factor *x, t_floatarg f)
@@ -43,10 +43,10 @@ static void factor_float(t_factor *x, t_floatarg f)
 static void *factor_new(t_floatarg f)
 {
     t_factor *x = (t_factor *)pd_new(factor_class);
-    outlet_new(&x->x_obj, gensym("float"));
+    outlet_new(&x->x_ob, gensym("float"));
     x->x_f = f;
     if (!f)
-        floatinlet_new(&x->x_obj, &x->x_f);
+        floatinlet_new(&x->x_ob, &x->x_f);
     return (void *)x;
 }
 

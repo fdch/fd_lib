@@ -16,7 +16,7 @@ static t_class *connect_class;
 
 typedef struct connect
 {
-  t_object x_obj;
+  t_object x_ob;
   t_symbol *x_tgtsym;
   t_canvas *x_tgtcnv;
 } t_connect;
@@ -61,7 +61,7 @@ static void connect_disconnect(t_connect *x, t_floatarg index1, t_floatarg outno
 static void *connect_new(t_symbol *s)
 {
   t_connect *x = (t_connect *)pd_new(connect_class);
-  symbolinlet_new(&x->x_obj, &x->x_tgtsym);
+  symbolinlet_new(&x->x_ob, &x->x_tgtsym);
   if (!connect_settargetcanvas(x, s))
       pd_error(x, "%s: could not set canvas.", s->s_name);
   return (x);

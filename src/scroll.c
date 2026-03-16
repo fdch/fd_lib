@@ -24,7 +24,7 @@ static t_class *scroll_class;
 
 typedef struct scroll
 {
-    t_object x_obj;
+    t_object x_ob;
     t_canvas *x_canvas;      /* the canvas in which to scroll */
     t_symbol *x_canvas_name; /* the name of the canvas in which to scroll */
     int x_page;              /* define 'page' (1) or 'units' (0) */
@@ -148,7 +148,7 @@ static void *scroll_new(t_symbol *s, int argc, t_atom *argv)
         }
     }
     else
-        symbolinlet_new(&x->x_obj, &x->x_canvas_name);
+        symbolinlet_new(&x->x_ob, &x->x_canvas_name);
     x->x_page = x->x_norm = 0;
     return x;
 }
