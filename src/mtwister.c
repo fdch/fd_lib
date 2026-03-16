@@ -57,7 +57,7 @@ static void mtwister_bang(t_mtwister *x)
 
 static void mtwister_seed(t_mtwister *x, t_floatarg h)
 {
-    x->x_seed = !h ? time(NULL) * rand() : (unsigned long)h;
+    x->x_seed = !h ? (unsigned long)time(NULL) * rand() : (unsigned long)h;
     sgenrand(x->x_seed);
 }
 

@@ -63,6 +63,7 @@ static double tracks_getdist(t_tracks *x, int i, int j)
 static void tracks_choose_dimen(t_tracks *x, t_symbol *s, int argc,
                                 t_atom *argv)
 {
+    (void)s;
     int i, d = x->dimen, dim;
     if (argc > d)
     {
@@ -96,6 +97,7 @@ static void tracks_choose_dimen(t_tracks *x, t_symbol *s, int argc,
 
 static void tracks_weights(t_tracks *x, t_symbol *s, int argc, t_atom *argv)
 {
+    (void)s;
     int i;
     x->w_sum = 0;
     if (x->dimen != argc) // adjust to new dimensions
@@ -138,6 +140,7 @@ static void tracks_max_distance(t_tracks *x, t_floatarg f)
 
 static void tracks_input(t_tracks *x, t_symbol *s, int argc, t_atom *argv)
 {
+    (void)s;
     int i;
     float val;
     if (argc - 1 > TINS)

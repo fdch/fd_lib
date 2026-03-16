@@ -46,7 +46,7 @@ static void combinationUtil(t_combi *x, t_float data[], int start, int end,
     }
 }
 
-static void combi_set(t_combi *x, t_symbol *s, t_float f) { x->x_r = f; }
+static void combi_set(t_combi *x, t_floatarg f) { x->x_r = f; }
 
 static void combi_alloc(t_combi *x, int n)
 {
@@ -103,6 +103,6 @@ void combi_setup(void)
                   sizeof(t_combi), CLASS_DEFAULT, A_DEFFLOAT, 0);
 
     class_addlist(combi_class, combi_list);
-    class_addmethod(combi_class, (t_method)combi_set, gensym("set"), A_GIMME,
+    class_addmethod(combi_class, (t_method)combi_set, gensym("set"), A_FLOAT,
                     0);
 }
