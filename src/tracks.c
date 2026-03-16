@@ -426,9 +426,9 @@ static void *tracks_new(void)
     x->w_sum = 0;
     for (i = 0; i < x->dimen; i++)
         x->w_sum += x->w[i];
-    x->out01 = outlet_new(&x->x_ob, &s_list);
-    x->out02 = outlet_new(&x->x_ob, &s_list);
-    x->out03 = outlet_new(&x->x_ob, &s_list);
+    x->out01 = outlet_new(&x->x_ob, gensym("list"));
+    x->out02 = outlet_new(&x->x_ob, gensym("list"));
+    x->out03 = outlet_new(&x->x_ob, gensym("list"));
     post("[tracks] version by Fede Camara Halac of Jaime Oliver's [tracks]");
     return (void *)x;
 }

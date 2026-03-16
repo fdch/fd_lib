@@ -823,7 +823,7 @@ static void *sradio_donew(t_symbol *s, int argc, t_atom *argv)
     x->x_gui.x_h = x->x_gui.x_w;
     iemgui_verify_snd_ne_rcv(&x->x_gui);
     iemgui_newzoom(&x->x_gui);
-    outlet_new(&x->x_gui.x_ob, &s_list);
+    outlet_new(&x->x_gui.x_ob, gensym("list"));
     return (x);
 }
 

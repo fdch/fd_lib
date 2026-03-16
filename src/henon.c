@@ -75,7 +75,7 @@ static void henon_reset(t_henon *x)
 static void *henon_new(t_floatarg i, t_floatarg a, t_floatarg b)
 {
     t_henon *x = (t_henon *)pd_new(henon_class);
-    outlet_new(&x->x_ob, &s_list);
+    outlet_new(&x->x_ob, gensym("list"));
     x->x_i = i ? (int)i : 1000;
     x->x_a = a ? a : (7. / 5.);
     x->x_b = b ? b : .3;

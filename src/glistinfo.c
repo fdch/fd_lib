@@ -115,7 +115,7 @@ static void *glistinfo_new(t_symbol *s)
         x->x_cnv = (t_canvas *)pd_findbyclass(s, canvas_class);
     else
         x->x_cnv = (t_canvas *)canvas_getcurrent();
-    outlet_new(&x->x_ob, &s_list);
+    outlet_new(&x->x_ob, gensym("list"));
     return (void *)x;
 }
 

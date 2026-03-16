@@ -83,7 +83,7 @@ static void colormap_free(t_colormap *x)
 void *colormap_new(t_floatarg f)
 {
     t_colormap *x = (t_colormap *)pd_new(colormap_class);
-    outlet_new(&x->x_ob, &s_list);
+    outlet_new(&x->x_ob, gensym("list"));
 
     x->x_size = (int)f;
     if (f < 128)

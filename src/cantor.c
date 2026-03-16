@@ -47,7 +47,7 @@ static void cantor_doit(t_cantor *x)
         for (int i = 0; i < x->x_n; i++, idx++)
             SETFLOAT(&set[idx], cantor_inner(x, d, i));
 
-    outlet_list(x->x_ob.te_outlet, &s_list, x->x_d * x->x_n, set);
+    outlet_list(x->x_ob.te_outlet, gensym("list"), x->x_d * x->x_n, set);
 
     freebytes(set, x->x_d * x->x_n * sizeof(t_atom));
 }

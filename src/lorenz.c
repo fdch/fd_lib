@@ -357,7 +357,7 @@ static void *lorsig_new()
     /* default to normalized values */
     x->x_lorenz = lorenz_new(1.0);
     outlet_new(&x->x_ob, gensym("signal"));
-    x->x_outlet1 = outlet_new(&x->x_ob, &s_list);
+    x->x_outlet1 = outlet_new(&x->x_ob, gensym("list"));
     x->x_f = 0;
     x->x_lorenz->x_type = 0;
     norm_setval(&x->x_dist, 0.0);
