@@ -25,74 +25,92 @@ static t_class *siginfo_class;
 typedef struct siginfo
 {
     t_object x_ob;
-    t_outlet *x_outlet0;
     t_outlet *x_outlet1;
     t_outlet *x_outlet2;
-    t_particle x_x, x_y, x_z;
-    int x_ref, x_order;
+    t_outlet *x_outlet3;
+    t_particle *x_particles;
+    int x_num_parts, x_order;
 } t_siginfo;
 
-static void siginfo_list(t_siginfo *x, t_symbol *s, int argc, t_atom *argv)
+static void siginfo_free(t_siginfo *x)
 {
-    (void)s;
-    t_atom previous[3], cook[7], raw[4];
-    x->x_ref = atom_getfloatarg(0, argc, argv);
-    t_float x_val = atom_getfloatarg(1, argc, argv);
-    t_float y_val = atom_getfloatarg(2, argc, argv);
-    t_float z_val = atom_getfloatarg(3, argc, argv);
-    particle_update(&x->x_x, x_val);
-    particle_update(&x->x_y, y_val);
-    particle_update(&x->x_z, z_val);
-    t_float dist =
-        sqrt((x->x_x.x_diff * x->x_x.x_diff) + (x->x_y.x_diff * x->x_y.x_diff) +
-             (x->x_z.x_diff * x->x_z.x_diff));
-    SETFLOAT(&raw[0], (int)x->x_ref);
-    SETFLOAT(&raw[1], x_val);
-    SETFLOAT(&raw[2], y_val);
-    SETFLOAT(&raw[3], z_val);
-    SETFLOAT(&cook[0], x->x_x.x_up);
-    SETFLOAT(&cook[1], x->x_y.x_up);
-    SETFLOAT(&cook[2], x->x_z.x_up);
-    SETFLOAT(&cook[3], x->x_x.x_diff);
-    SETFLOAT(&cook[4], x->x_y.x_diff);
-    SETFLOAT(&cook[5], x->x_z.x_diff);
-    SETFLOAT(&cook[6], dist);
-    SETFLOAT(&previous[0], x->x_x.x_stored[0]);
-    SETFLOAT(&previous[1], x->x_y.x_stored[0]);
-    SETFLOAT(&previous[2], x->x_z.x_stored[0]);
-    outlet_list(x->x_outlet0, gensym("list"), 4, raw);
-    outlet_list(x->x_outlet1, gensym("list"), 7, cook);
-    outlet_list(x->x_outlet2, gensym("list"), 3, previous);
+    if (x->x_particles)
+        freebytes(x->x_particles, x->x_num_parts * sizeof(t_particle));
 }
 
-static void siginfo_reset(t_siginfo *x)
+static void siginfo_init_particles(t_siginfo *x)
 {
-    particle_reset(&x->x_x);
-    particle_reset(&x->x_y);
-    particle_reset(&x->x_z);
+    for (int i = 0; i < x->x_num_parts; i++)
+        particle_init(x->x_particles + i, x->x_order);
 }
 
 static void siginfo_order(t_siginfo *x, t_floatarg forder)
 {
     x->x_order = forder <= 0.0 ? 1 : (int)forder;
-    particle_init(&x->x_x, x->x_order);
-    particle_init(&x->x_y, x->x_order);
-    particle_init(&x->x_z, x->x_order);
 }
 
-static void siginfo_free(t_siginfo *x)
+static void siginfo_allocate_particles(t_siginfo *x, t_floatarg fnumparts)
 {
-    particle_free(&x->x_x);
-    particle_free(&x->x_y);
-    particle_free(&x->x_z);
+    if (fnumparts == x->x_num_parts)
+        return;
+
+    siginfo_free(x);
+    x->x_particles = (t_particle *)getbytes(fnumparts * sizeof(t_particle));
+    x->x_num_parts = fnumparts;
+    siginfo_init_particles(x);
+}
+
+static void siginfo_list(t_siginfo *x, t_symbol *s, int argc, t_atom *argv)
+{
+    (void)s;
+
+    if (argc < 1)
+        return logpost(x, PD_DEBUG, "At least 1 argument must be passed");
+
+    siginfo_allocate_particles(x, argc);
+
+    // t_atom previous[3], cook[7], raw[4];
+    int cook_size = x->x_num_parts * 2 + 1;
+
+    t_atom *previous = (t_atom *)getbytes(x->x_num_parts * sizeof(t_atom));
+    t_atom *cook = (t_atom *)getbytes(cook_size * sizeof(t_atom));
+    t_atom *raw = (t_atom *)getbytes(x->x_num_parts * sizeof(t_atom));
+
+    t_float square_sum = 0.0;
+    for (int i = 0; i < argc; i++)
+    {
+        t_float val = atom_getfloatarg(i, argc, argv);
+        SETFLOAT(raw + i, val);
+        particle_update(x->x_particles + i, val);
+        SETFLOAT(previous + i, x->x_particles[i].x_stored[0]);
+        SETFLOAT(cook + i, x->x_particles[i].x_up);
+        SETFLOAT(cook + i + x->x_num_parts, x->x_particles[i].x_diff);
+        square_sum += (x->x_particles[i].x_diff * x->x_particles[i].x_diff);
+    }
+    SETFLOAT(cook + cook_size - 1, sqrt(square_sum));
+
+    outlet_list(x->x_outlet1, gensym("list"), x->x_num_parts, raw);
+    outlet_list(x->x_outlet2, gensym("list"), cook_size, cook);
+    outlet_list(x->x_outlet3, gensym("list"), x->x_num_parts, previous);
+
+    freebytes(previous, x->x_num_parts * sizeof(t_atom));
+    freebytes(cook, cook_size * sizeof(t_atom));
+    freebytes(raw, x->x_num_parts * sizeof(t_atom));
+}
+
+static void siginfo_reset(t_siginfo *x)
+{
+    for (int i = 0; i < x->x_num_parts; i++)
+        particle_reset(x->x_particles + i);
 }
 
 static void *siginfo_new(t_floatarg forder)
 {
     t_siginfo *x = (t_siginfo *)pd_new(siginfo_class);
-    x->x_outlet0 = outlet_new(&x->x_ob, gensym("list"));
     x->x_outlet1 = outlet_new(&x->x_ob, gensym("list"));
     x->x_outlet2 = outlet_new(&x->x_ob, gensym("list"));
+    x->x_outlet3 = outlet_new(&x->x_ob, gensym("list"));
+    x->x_num_parts = 0;
     siginfo_order(x, forder);
     return (void *)x;
 }
