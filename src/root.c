@@ -17,6 +17,7 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 #include "fdLib.h"
+#include "s_stuff.h" /* for pd_snprintf */
 
 static t_class *root_class;
 
@@ -30,10 +31,10 @@ static void root_bang(t_root *x)
 {
     char buf[MAXPDSTRING];
     if (x->x_glist->gl_owner)
-        snprintf(buf, MAXPDSTRING - 1, ".x%lx",
-                 (t_int)canvas_getrootfor(x->x_glist->gl_owner));
+        pd_snprintf(buf, MAXPDSTRING - 1, ".x%lx",
+                    (t_int)canvas_getrootfor(x->x_glist->gl_owner));
     else
-        snprintf(buf, MAXPDSTRING - 1, ".x%lx", (t_int)x->x_glist->gl_name);
+        pd_snprintf(buf, MAXPDSTRING - 1, ".x%lx", (t_int)x->x_glist->gl_name);
     buf[MAXPDSTRING - 1] = 0;
     outlet_symbol(x->x_ob.te_outlet, gensym(buf));
 }
