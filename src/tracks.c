@@ -34,8 +34,10 @@ This is [tracks] from Jaime Oliver
 
   TODO: elements should really be structures, with proper memory management;
 */
-
 #include "fdLib.h"
+
+#define TMAX 2048
+#define TINS 128
 
 static t_class *tracks_class;
 
@@ -439,22 +441,25 @@ static void *tracks_new(void)
 void tracks_setup(void)
 {
     tracks_class = class_new(gensym("tracks"), (t_newmethod)tracks_new, 0,
-                             sizeof(t_tracks), 0, A_GIMME, 0);
+                             sizeof(t_tracks), 0, A_GIMME, A_NULL);
     class_addbang(tracks_class, tracks_spit);
     class_addlist(tracks_class, tracks_input);
     class_addmethod(tracks_class, (t_method)tracks_input, gensym("input"),
-                    A_GIMME, 0);
+                    A_GIMME, A_NULL);
     class_addmethod(tracks_class, (t_method)tracks_dimen, gensym("dimen"),
-                    A_FLOAT, 0);
+                    A_FLOAT, A_NULL);
     class_addmethod(tracks_class, (t_method)tracks_debug, gensym("debug"),
-                    A_FLOAT, 0);
+                    A_FLOAT, A_NULL);
     class_addmethod(tracks_class, (t_method)tracks_max_distance,
-                    gensym("max_distance"), A_FLOAT, 0);
+                    gensym("max_distance"), A_FLOAT, A_NULL);
     class_addmethod(tracks_class, (t_method)tracks_weights, gensym("weights"),
-                    A_GIMME, 0);
+                    A_GIMME, A_NULL);
     class_addmethod(tracks_class, (t_method)tracks_choose_dimen,
-                    gensym("choose_dimen"), A_GIMME, 0);
-    class_addmethod(tracks_class, (t_method)tracks_spit, gensym("spit"), 0);
-    class_addmethod(tracks_class, (t_method)tracks_clear, gensym("clear"), 0);
-    class_addmethod(tracks_class, (t_method)tracks_print, gensym("print"), 0);
+                    gensym("choose_dimen"), A_GIMME, A_NULL);
+    class_addmethod(tracks_class, (t_method)tracks_spit, gensym("spit"),
+                    A_NULL);
+    class_addmethod(tracks_class, (t_method)tracks_clear, gensym("clear"),
+                    A_NULL);
+    class_addmethod(tracks_class, (t_method)tracks_print, gensym("print"),
+                    A_NULL);
 }

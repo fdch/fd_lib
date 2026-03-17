@@ -83,8 +83,9 @@ static void *counter_new(t_symbol *s, int argc, t_atom *argv)
 
 void counter_setup(void)
 {
-    counter_class = class_new(gensym("counter"), (t_newmethod)counter_new, 0,
-                              sizeof(t_counter), CLASS_DEFAULT, A_GIMME, 0);
+    counter_class =
+        class_new(gensym("counter"), (t_newmethod)counter_new, 0,
+                  sizeof(t_counter), CLASS_DEFAULT, A_GIMME, A_NULL);
 
     class_addcreator((t_newmethod)counter_new, gensym("c"), A_GIMME, A_NULL);
     class_addbang(counter_class, counter_bang);

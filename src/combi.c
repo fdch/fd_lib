@@ -100,9 +100,9 @@ void combi_setup(void)
 {
     combi_class =
         class_new(gensym("combi"), (t_newmethod)combi_new, (t_method)combi_free,
-                  sizeof(t_combi), CLASS_DEFAULT, A_DEFFLOAT, 0);
+                  sizeof(t_combi), CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
 
     class_addlist(combi_class, combi_list);
     class_addmethod(combi_class, (t_method)combi_set, gensym("set"), A_FLOAT,
-                    0);
+                    A_NULL);
 }

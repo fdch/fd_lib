@@ -85,14 +85,15 @@ static void *cantor_new(t_floatarg f)
 
 void cantor_setup()
 {
-    cantor_class = class_new(gensym("cantor"), (t_newmethod)cantor_new, 0,
-                             sizeof(t_cantor), CLASS_DEFAULT, A_DEFFLOAT, 0);
+    cantor_class =
+        class_new(gensym("cantor"), (t_newmethod)cantor_new, 0,
+                  sizeof(t_cantor), CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
     class_addbang(cantor_class, cantor_bang);
     class_addfloat(cantor_class, cantor_float);
     class_addmethod(cantor_class, (t_method)cantor_depth, gensym("depth"),
-                    A_FLOAT, 0);
+                    A_FLOAT, A_NULL);
     class_addmethod(cantor_class, (t_method)cantor_width, gensym("width"),
-                    A_FLOAT, 0);
+                    A_FLOAT, A_NULL);
     class_addmethod(cantor_class, (t_method)cantor_coef, gensym("coef"),
-                    A_FLOAT, 0);
+                    A_FLOAT, A_NULL);
 }

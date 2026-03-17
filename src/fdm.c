@@ -67,18 +67,18 @@ void fdm_setup(void)
     t_symbol *fdm_help = gensym("fdm-help");
 
     plusplus_class = class_new(gensym("fdm"), (t_newmethod)plusplus_new, 0,
-                               sizeof(t_plusplus), CLASS_DEFAULT, 0);
-    class_addcreator((t_newmethod)plusplus_new, gensym("++"), 0);
+                               sizeof(t_plusplus), CLASS_DEFAULT, A_NULL);
+    class_addcreator((t_newmethod)plusplus_new, gensym("++"), A_NULL);
     class_addfloat(plusplus_class, plusplus_float);
     class_sethelpsymbol(plusplus_class, fdm_help);
     class_addmethod(plusplus_class, (t_method)plusplus_clear, gensym("clear"),
-                    0);
+                    A_NULL);
 
     multmult_class = class_new(gensym("fdm"), (t_newmethod)multmult_new, 0,
-                               sizeof(t_multmult), CLASS_DEFAULT, 0);
-    class_addcreator((t_newmethod)multmult_new, gensym("**"), 0);
+                               sizeof(t_multmult), CLASS_DEFAULT, A_NULL);
+    class_addcreator((t_newmethod)multmult_new, gensym("**"), A_NULL);
     class_addfloat(multmult_class, multmult_float);
     class_sethelpsymbol(multmult_class, fdm_help);
     class_addmethod(multmult_class, (t_method)multmult_clear, gensym("clear"),
-                    0);
+                    A_NULL);
 }

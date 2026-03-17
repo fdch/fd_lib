@@ -70,10 +70,11 @@ static void *reflect_new(t_symbol *s, t_int argc, t_atom *argv)
 }
 void reflect_setup(void)
 {
-    reflect_class = class_new(gensym("reflect"), (t_newmethod)reflect_new, 0,
-                              sizeof(t_reflect), CLASS_DEFAULT, A_GIMME, 0);
+    reflect_class =
+        class_new(gensym("reflect"), (t_newmethod)reflect_new, 0,
+                  sizeof(t_reflect), CLASS_DEFAULT, A_GIMME, A_NULL);
     class_addbang(reflect_class, reflect_bang);
     class_addfloat(reflect_class, reflect_float);
     class_addmethod(reflect_class, (t_method)reflect_set, gensym("set"),
-                    A_FLOAT, A_FLOAT, 0);
+                    A_FLOAT, A_FLOAT, A_NULL);
 }

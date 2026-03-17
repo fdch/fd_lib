@@ -853,7 +853,7 @@ void g_sradio_setup(void)
 {
     sradio_class =
         class_new(gensym("sradio"), (t_newmethod)sradio_new,
-                  (t_method)sradio_free, sizeof(t_sradio), 0, A_GIMME, 0);
+                  (t_method)sradio_free, sizeof(t_sradio), 0, A_GIMME, A_NULL);
 
     class_addbang(sradio_class, sradio_bang);
     class_addfloat(sradio_class, sradio_float);
@@ -930,6 +930,4 @@ void g_sradio_setup(void)
     class_sethelpsymbol(sradio_class, gensym("sradio"));
     class_setsavefn(sradio_class, sradio_save);
     class_setpropertiesfn(sradio_class, sradio_properties);
-
-    post("[sradio] version 0.3 ~ fdch");
 }

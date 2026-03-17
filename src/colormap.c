@@ -97,6 +97,6 @@ void colormap_setup(void)
 {
     colormap_class = class_new(gensym("colormap"), (t_newmethod)colormap_new,
                                (t_method)colormap_free, sizeof(t_colormap),
-                               CLASS_DEFAULT, A_DEFFLOAT, 0);
+                               CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
     class_addfloat(colormap_class, colormap_float);
 }

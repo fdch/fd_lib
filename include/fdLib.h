@@ -29,39 +29,13 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 #include "m_pd.h"
 #include "g_canvas.h"
 
+/* this line is automatically updated by config.sh */
 #define FDLIBVERSION "0.4.0"
-
-#define NORMMIN 0.0
-#define NORMMAX 1000000.0
-
-/* Period parameters */
-#define NN 624
-#define MM 397
-#define MATRIX_A 0x9908b0df   /* constant vector a */
-#define UPPER_MASK 0x80000000 /* most significant w-r bits */
-#define LOWER_MASK 0x7fffffff /* least significant r bits */
-
-/* Tempering parameters */
-#define TEMPERING_MASK_B 0x9d2c5680
-#define TEMPERING_MASK_C 0xefc60000
-#define TEMPERING_SHIFT_U(y) (y >> 11)
-#define TEMPERING_SHIFT_S(y) (y << 7)
-#define TEMPERING_SHIFT_T(y) (y << 15)
-#define TEMPERING_SHIFT_L(y) (y >> 18)
-
-#define DEF_SEED 4357
-#define MAXNUM 1
-
-/* for tracks.c */
-#define TMAX 2048
-#define TINS 128
+/* end lines automatically updated by config.sh */
 
 int compare(const void *a, const void *b);
 t_float factorial(t_float f);
 t_float reflectit(t_float f, t_float r);
-unsigned long genrand(void);
-void sgenrand(unsigned long seed);
-
 t_float mod(t_float a, t_float n);
 
 /* normalizable value defined in norm.c */

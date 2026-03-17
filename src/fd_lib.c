@@ -17,9 +17,8 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 #include "fdLib.h"
-#include "m_pd.h"
 
-t_class *fd_lib_class;
+static t_class *fd_lib_class;
 
 typedef struct fd_lib
 {
