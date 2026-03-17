@@ -271,7 +271,7 @@
 #X obj 223 135 fd_m-comb 8;
 #X text 101 30 right-click on any of them for help;
 #X restore 13 547 pd Lists _____;
-#N canvas 527 57 562 474 GUI 0;
+#N canvas 527 57 769 517 GUI 1;
 #X obj 51 356 fd_autopatch;
 #X obj 47 249 fd_bang;
 #X obj 47 186 fd_calm;
@@ -303,6 +303,7 @@
 #X text 233 357 Vising;
 #X text 76 23 Utilities to make Gui interaction a tad easier;
 #X obj 396 393 fd_navigator;
+#A saved 0;
 #X text 391 357 File stuff:;
 #X restore 13 443 pd GUI _______;
 #N canvas 527 56 526 431 Misc 0;

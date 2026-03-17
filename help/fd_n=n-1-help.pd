@@ -1,19 +1,13 @@
 #N canvas 500 50 530 480 12;
 #X declare -lib fd_lib;
-#X obj 4 4 cnv 15 522 30 empty empty "fd_n=n-1" 20 15 0 15 -228856
--1 0;
-#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
--1 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
-0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
--1 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
-0;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_n=n-1" 20 15 0 15 #dcdcdc #000000 0;
+#X obj 4 254 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000 0;
 #X obj 380 8 declare -lib fd_lib;
 #N canvas 0 22 450 300 meta 0;
-#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:20:08 EDT 2019
-;
+#X text 10 10 fd_lib - metadata file - Fri Sep 13 18:20:08 EDT 2019;
 #X text 10 25 patch_name : fd_n=n-1;
 #X text 10 40 inlet : 1;
 #X text 10 55 outlet : 2;
@@ -29,44 +23,37 @@
 #X restore 438 423 pd meta;
 #X text 440 452 fd_lib v0.1;
 #X text 60 284 0 arguments;
-#X obj 135 157 fd_n=n-1;
-#X floatatom 188 198 5 0 0 0 - - -;
-#X obj 135 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 14 55 Outputs a bang if previous number is equal to current
-(n = n-1). 2nd outlet outputs the current value.;
+#X obj 57 158 fd_n=n-1;
+#X floatatom 110 199 5 0 0 0 - - - 0;
+#X obj 56 228 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X text 21 48 Outputs a bang if previous number is equal to current (n = n-1). 2nd outlet outputs the current value.;
 #X text 60 340 1: float: input value;
-#X text 60 410 1: bang: if previous value is equal to current \; 2:
-float: current (input) value;
-#N canvas 0 22 450 300 example 0;
-#X obj 60 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 60 62 metro 200;
-#X obj 60 96 fd_markov3;
-#X obj 126 167 fd_n=n-1;
-#X obj 126 237 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 179 191 5 0 0 0 - - -;
-#X obj 256 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 256 60 metro 100;
-#X obj 255 94 random 10;
-#X text 158 237 <-- bangs when number is repeated;
-#X text 258 13 random test;
-#X text 56 13 markov test;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 3 0;
-#X restore 396 192 pd example;
-#X msg 98 108 2;
-#X msg 135 108 3;
-#X text 176 108 <-- alternate or bang repeatedly;
+#X text 60 410 1: bang: if previous value is equal to current \; 2: float: current (input) value;
+#X msg 62 91 2;
+#X msg 68 117 3;
+#X text 106 90 <-- alternate or bang repeatedly, f 17;
+#X obj 428 186 random 10;
+#X obj 373 88 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 342 187 fd_markov3;
+#X text 89 227 <-- bangs when number is repeated;
+#X obj 364 158 sel 0 1;
+#X obj 392 210 t f;
+#X obj 344 165 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 426 164 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 373 108 metro 100;
+#X obj 370 133 hradio 20 1 0 2 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0;
+#X text 219 132 switch markov/random;
 #X connect 9 0 11 0;
 #X connect 9 1 10 0;
+#X connect 15 0 9 0;
 #X connect 16 0 9 0;
-#X connect 17 0 9 0;
+#X connect 18 0 23 0;
+#X connect 19 0 26 0;
+#X connect 20 0 23 0;
+#X connect 22 0 24 0;
+#X connect 22 1 25 0;
+#X connect 23 0 9 0;
+#X connect 24 0 20 0;
+#X connect 25 0 18 0;
+#X connect 26 0 27 0;
+#X connect 27 0 22 0;
