@@ -9,6 +9,10 @@ $ make
 $ make install
 
 The last step will allow Pure Data to load the library with the Help Browser.
+You can pass your default paths, for example:
+
+ PDLIBDIR=path/to/Pd/externals
+
 In Pure Data, you probably need to declare the library with [declare -lib fd_lib -path fd_lib]
 
 -------------------------------------------------------------------------------
