@@ -46,9 +46,9 @@
 #X restore 340 182 pd open;
 #X msg 255 206 normalize;
 #X obj 361 8 r \$1-range;
-#X obj 361 33 array-rerange \$1;
 #X obj 323 331 fd_smooth_brute \$1;
 #X obj 329 302 r \$1-smooth;
+#X obj 361 33 fd_array-rerange \$1;
 #X connect 0 0 33 0;
 #X connect 1 0 2 1;
 #X connect 2 0 24 0;
@@ -93,5 +93,5 @@
 #X connect 34 0 27 0;
 #X connect 35 0 5 0;
 #X connect 36 0 5 0;
-#X connect 37 0 38 0;
-#X connect 40 0 39 0;
+#X connect 37 0 40 0;
+#X connect 39 0 38 0;
