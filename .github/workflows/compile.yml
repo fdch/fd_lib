@@ -22,7 +22,7 @@ jobs:
     env:
       OUTPUT: fd_lib-ubuntu-latest
     steps:
-    - uses: ./.github/actions/setup-pd
+    - uses: ./.github/actions/setup-pd/action.yml
     - name: configure
       run: bash config.sh
     - name: make
@@ -43,7 +43,7 @@ jobs:
     env:
       OUTPUT: fd_lib-macos-latest
     steps:
-    - uses: ./.github/actions/setup-pd
+    - uses: ./.github/actions/setup-pd/action.yml
     - name: get dependencies
       run: |
         brew install automake autoconf libtool
