@@ -10,6 +10,13 @@ on:
       - "Makefile"
       - "config.sh"
 
+  pull_request:
+    paths:
+      - "include/**"
+      - "src/**"
+      - "Makefile"
+      - "config.sh"
+
 jobs:
   build:
     strategy:
