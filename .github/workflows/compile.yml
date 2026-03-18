@@ -1,13 +1,13 @@
-name: fd_lib-ci
+name: cross-platform-compile
 
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - "include/**"
-      - "src/**"
-      - "Makefile"
-      - "config.sh"
+  # push:
+  #   branches: [ "main" ]
+  #   paths:
+  #     - "include/**"
+  #     - "src/**"
+  #     - "Makefile"
+  #     - "config.sh"
   pull_request:
     branches: [ "main" ]
     paths:
@@ -87,8 +87,10 @@ jobs:
     - name: package lib
       run: |
         mkdir fd_lib
-        cp *.dll Makefile config.sh *.txt *.pd fd_lib/ 2>/dev/null || true
-        cp -r abstractions help examples scripts doc data include src test fd_lib/ 2>/dev/null || true
+        cp *.dll *.txt *.pd abstractions/*.pd help/*.pd fd_lib/ 2>/dev/null || true
+        cp -r examples scripts doc data test fd_lib/ 2>/dev/null || true
+        mkdir fd_lib/sources
+        cp -r include src Makefile config.sh fd_lib/sources 2>/dev/null || true
         tar -a -c -f "$OUTPUT.zip" fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
