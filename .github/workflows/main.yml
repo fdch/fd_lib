@@ -47,7 +47,7 @@ jobs:
       - name: setup windows deps
         if: matrix.os == 'windows-latest'
         run: |
-          echo "local_short_commands=true" >> $GITHUB_ENV
+          echo "local_short_commands=false" >> $GITHUB_ENV
           git submodule init && git submodule update
           curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
           unzip "$PDVERSION.msw.zip"
@@ -65,14 +65,8 @@ jobs:
         run: make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
 
       # ---- package ----
-      - name: package (unix)
-        if: matrix.os != 'windows-latest'
+      - name: package
         run: make install PDLIBDIR="${{ matrix.os }}"
-      - name: package (windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          bash scripts/package_lib.sh
-          mv fd_lib "${{ matrix.os }}"
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
