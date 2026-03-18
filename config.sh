@@ -126,7 +126,7 @@ echo "It has:" >>$R
 echo "    $CABSTRAC abstractions," >>$R
 echo "    $CSOURCES externals," >>$R
 echo "    shell scripts, and more." >>$R
-echo "For an overview of the library, go open '_overview.pd'" >>$R
+echo "For an overview of the library open 'help/fd_lib-help.pd'" >>$R
 echo "For instructions on how to compile see INSTALL.txt." >>$R
 echo >>$R
 echo "$LIBNAME is now available via \`deken\`, Pd's package manager." >>$R
@@ -154,4 +154,4 @@ echo "#X text 39 15 $LIBNAME: $DESCRIPTION;" >>$META
 # Update version on header
 #
 # -----------------------------------------------------------------------------
-sed -i "s|\\(#define FDLIBVERSION\\).*$|\\1 \"$FDLIBVERSION\"|" ./include/fdLib.h
+perl -pi -e 's/(#define FDLIBVERSION).*/$1 "'"$FDLIBVERSION"'"/' ./include/fdLib.h

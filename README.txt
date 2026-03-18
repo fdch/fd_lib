@@ -4,10 +4,10 @@ Current version: 0.4.0
 This is my personal Pure Data library of abstractions and externals.
 Get Pure Data here: https://msp.ucsd.edu
 It has:
-    295 abstractions,
+    296 abstractions,
     32 externals,
     shell scripts, and more.
-For an overview of the library, go open '_overview.pd'
+For an overview of the library open 'help/fd_lib-help.pd'
 For instructions on how to compile see INSTALL.txt.
 
 fd_lib is now available via `deken`, Pd's package manager.
