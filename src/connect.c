@@ -27,7 +27,7 @@ typedef struct connect
     t_canvas *x_tgtcnv;
 } t_connect;
 
-int connect_settargetcanvas(t_connect *x, t_symbol *s)
+static int connect_settargetcanvas(t_connect *x, t_symbol *s)
 {
     if (!s)
         return 0;

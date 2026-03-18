@@ -68,6 +68,7 @@ static void *crand_new(t_floatarg f, t_floatarg g)
     outlet_new(&x->x_ob, gensym("float"));
     return (void *)x;
 }
+
 void crand_setup(void)
 {
     crand_class = class_new(gensym("crand"), (t_newmethod)crand_new, 0,

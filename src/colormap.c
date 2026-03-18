@@ -16,7 +16,6 @@ should have received a copy of the GNU General Public License along with this
 program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
 
 static t_class *colormap_class;
@@ -80,7 +79,7 @@ static void colormap_free(t_colormap *x)
     t_freebytes(x->x_b, (x->x_size) * sizeof(double));
 }
 
-void *colormap_new(t_floatarg f)
+static void *colormap_new(t_floatarg f)
 {
     t_colormap *x = (t_colormap *)pd_new(colormap_class);
     outlet_new(&x->x_ob, gensym("list"));

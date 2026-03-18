@@ -17,7 +17,6 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 #include "fdLib.h"
-#include "m_pd.h"
 #include "s_stuff.h" /* for sys_havegui */
 
 static t_class *scroll_class;

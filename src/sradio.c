@@ -18,9 +18,9 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "fdLib.h"
 #include "g_all_guis.h"
-#include "m_pd.h"
 
 static t_class *sradio_class;
+
 static t_widgetbehavior sradio_widgetbehavior;
 
 typedef struct _sradio

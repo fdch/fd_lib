@@ -18,7 +18,7 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "fdLib.h"
 
-t_class *clifford_class;
+static t_class *clifford_class;
 
 typedef struct clifford
 {

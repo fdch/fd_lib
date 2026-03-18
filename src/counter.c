@@ -17,7 +17,6 @@ program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 #include "fdLib.h"
-#include "m_pd.h"
 
 static t_class *counter_class;
 
