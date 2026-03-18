@@ -14,7 +14,3 @@ runs:
       with:
         repository: pure-data/pure-data
         path: pure-data
-
-    - name: ls files
-      shell: bash
-      run: ls -la

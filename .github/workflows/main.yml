@@ -58,11 +58,11 @@ jobs:
 
       - name: make (unix)
         if: matrix.os != 'windows-latest'
-        run: make pdincludedir=pure-data/src
+        run: make PDINCLUDEDIR=pure-data/src
 
       - name: make (windows)
         if: matrix.os == 'windows-latest'
-        run: make pdbinpath="$pdversion/bin" pdincludedir="$pdversion/src" cflags=-march=x86-64
+        run: make PDBINPATH="$pdversion/bin" PDINCLUDEDIR="$pdversion/src" CFLAGS=-march=x86-64
 
       # ---- package ----
       - name: package lib
