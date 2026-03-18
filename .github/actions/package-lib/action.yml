@@ -4,6 +4,7 @@ description: Package Pd library via deken
 runs:
   using: "composite"
   steps:
+
     - name: Copy Library
       shell: bash
       run: |
@@ -13,4 +14,14 @@ runs:
         cp Makefile *.{sh,txt} fd_lib/sources/
         cp src/*.{h,c} fd_lib/sources/
         cp pd-lib-builder/Makefile.pdlibbuilder fd_lib/sources/pd-lib-builder/
+
+    - name: Compress Package
+      run: |
+        tar -cfz "$OUTPUT.tar" ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.tar
+
 
