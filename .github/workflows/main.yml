@@ -30,7 +30,7 @@ jobs:
         shell: bash
 
     env:
-      pdversion: pd-0.56-2
+      PDVERSION: pd-0.56-2
 
     steps:
       - uses: actions/checkout@v5
@@ -49,8 +49,8 @@ jobs:
         run: |
           echo "local_short_commands=true" >> $GITHUB_ENV
           git submodule init && git submodule update
-          curl -L -o pd.zip "http://msp.ucsd.edu/software/${pdversion}.msw.zip"
-          unzip pd.zip
+          curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
+          unzip "$PDVERSION.msw.zip"
 
       # ---- build ----
       - name: configure
@@ -62,7 +62,7 @@ jobs:
 
       - name: make (windows)
         if: matrix.os == 'windows-latest'
-        run: make PDBINPATH="$pdversion/bin" PDINCLUDEDIR="$pdversion/src" CFLAGS=-march=x86-64
+        run: make PDBINPATH="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
 
       # ---- package ----
       - name: package (unix)
