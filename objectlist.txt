@@ -1,0 +1,35 @@
+cantor	Outputs a Cantor set.
+clifford	Computes the Clifford attractor.
+colormap	Maps linear value to an RGB output.
+combi	Finds all possible combinations from incoming list taking "r" elements from array of size "n".
+connect	Connects the first outlet to the first inlet of consecutive objects.
+counter	A counter external.
+crand	Outputs random floats in a given range.
+cuadratic	Computes the quadratic equation.
+delit	A delayed iterator.
+factor	Computes the factorial of the stored float (<= 34).
+fd_lib	The single object of this single object library.
+fdm	Accumulators (addition or multiplication).
+frand	Outputs random floats in a given range.
+glistinfo	Gets all information on the current canvas (aka. All there is to know about a pd-canvas).
+halton	Computes a Halton sequence.
+henon	Computes a Henon map.
+iterate	A glorified "for" loop.
+list-exec	Computes a function on all elements on a given list.
+lor~	Computes the Lorenz Equations with different inlets for each axis.
+lorenz	Computes the Lorenz System of equations.
+lorsig~	Computes the Lorenz equations on every sample.
+mandelbrot	Runs the equations for the Mandelbrot system.
+minimax	Gets minima and maxima of a stream of floats of unknown range.
+mtwister	Generates Mersene Twister pseudorandom real numbers.
+norm	Normalizes an unknown range over time into a range of 0-1.
+parabola	Performs the function for the parabola.
+particle	Treats the incoming float as a particle in a stream and computes the nth order derivative on the stream.
+prandom	Interfaces with a plain random C function rand().
+randy	A random integer object similar to Pd's random object.
+reflect	Reflects an incoming float from -value to +value.
+root	Gets the root canvas from inside a subpatch or abstraction.
+scroll	Scrolls a canvas.
+siginfo Computes the nth order derivative on an incoming list.
+sradio	A hack to the horizontal radio that behaves like a small array of toggles with internal storage.
+tracks	Finds the best continuity between indexed information.

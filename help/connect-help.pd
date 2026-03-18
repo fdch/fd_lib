@@ -20,7 +20,7 @@
 #X text 156 195 Symbol argument changes the target canvas.;
 #X text 157 212 Default is current.;
 #X msg 157 166 symbol pd-test2;
-#N canvas 1382 200 300 257 test2 1;
+#N canvas 1382 200 300 257 test2 0;
 #X floatatom 24 24 0 0 0 0 - - - 0;
 #X obj 14 151 +;
 #X obj 22 205 print;
@@ -37,7 +37,7 @@
 #X connect 4 0 1 0;
 #X connect 4 1 1 1;
 #X restore 389 117 pd test2;
-#N canvas 1046 228 309 260 test1 1;
+#N canvas 1046 228 309 260 test1 0;
 #X obj 31 24 phasor~;
 #X obj 43 109 cos~;
 #X connect 0 0 1 0;
