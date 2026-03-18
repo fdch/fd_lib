@@ -24,3 +24,4 @@ src/surface.c
 ./fd_lib/
 .cache/
 compile_commands.json
+fd_lib/

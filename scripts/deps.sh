@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This script loads a pd patch (argument 1) and puts all dependencies in the 
+# This script loads a pd patch (argument 1) and puts all dependencies in the
 # directory specified with argument 2
 #
 
@@ -11,28 +11,28 @@ tmpsort=/tmp/sorted
 tmplog=/tmp/log
 
 function log_pdfile_load() {
-  #load pd file and output console printout to logfile
-  echo "Loading pd file..."
-  $(pd -stderr -nogui -open "$1" 2> "$2") & 
-  sleep 5
-  kill $!
-  wait 2> /dev/null
-  echo "Done."
+	#load pd file and output console printout to logfile
+	echo "Loading pd file..."
+	$(pd -stderr -nogui -open "$1" 2>"$2") &
+	sleep 5
+	kill $!
+	wait 2>/dev/null
+	echo "Done."
 }
 
 function parse_log() {
-  grep 'succeeded' "$1" | 
-  sort -u | 
-  sed 's/tried //g' | 
-  sed 's/and succeeded//g' | 
-  sed 's/^.*: //' > $tmpsort 
+	grep 'succeeded' "$1" |
+		sort -u |
+		sed 's/tried //g' |
+		sed 's/and succeeded//g' |
+		sed 's/^.*: //' >$tmpsort
 }
 
 function copy_files() {
-  # copy all files into the lib directory
-  while read line; do
-    cp -r "$line" "$1/"
-  done < $tmpsort
+	# copy all files into the lib directory
+	while read line; do
+		cp -r "$line" "$1/"
+	done <$tmpsort
 }
 
 echo "**** Deps ****"
@@ -40,9 +40,9 @@ echo "**** Deps ****"
 echo "Locating Pd..."
 
 # check if pd exists and exit if it doesnt
-if ! pd -version 2>&1; then 
-  echo "pd not found";
-  exit 1
+if ! pd -version 2>&1; then
+	echo "pd not found"
+	exit 1
 fi
 
 #get pdfile name from argument 1
@@ -54,8 +54,7 @@ else
 fi
 
 #get libdir name from argument 2
-if [ "$2" ]
-then
+if [ "$2" ]; then
 	LIBDIR="$2"
 else
 	LIBDIR=$(echo "$PDFILE" | sed 's/.pd$//')
@@ -73,13 +72,20 @@ parse_log $tmplog
 
 # wait for use input
 while true; do
-  read -n 1 -p "The following files will be copied:
+	read -n 1 -p "The following files will be copied:
 $(paste <(echo) $tmpsort)
 Do you wish to continue? yY/nN" yn
-  case $yn in
-    [nN]* ) echo ; echo "Exiting." ; exit 0;;
-    *) echo ; break;;
-  esac
+	case $yn in
+	[nN]*)
+		echo
+		echo "Exiting."
+		exit 0
+		;;
+	*)
+		echo
+		break
+		;;
+	esac
 done
 
 # make the lib directory

@@ -4,19 +4,19 @@ FULLPATH=$1
 FILENAME=$2
 LENGTH=$3
 if [$FULLPATH]; then
-FULLPATH=$1
+	FULLPATH=$1
 else
-FULLPATH=$MAIN
+	FULLPATH=$MAIN
 fi
 if [$FILENAME]; then
-FILENAME=$2
+	FILENAME=$2
 else
-FILENAME="file"
+	FILENAME="file"
 fi
 if [$LENGTH]; then
-LENGTH=$3
+	LENGTH=$3
 else
-LENGTH="0.1"
+	LENGTH="0.1"
 fi
 PDPATH=/Applications/Pd-0.47-1.app/Contents/Resources/bin/
 echo "

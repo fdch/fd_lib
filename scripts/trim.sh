@@ -16,24 +16,21 @@ ARG1=$1
 ARG2=$2
 ARG3=$3
 
-if [ ! ARG1 ]
-then
-echo "No argument 1: must specify source file"
+if [ ! ARG1 ]; then
+	echo "No argument 1: must specify source file"
 fi
 
-if [ ! ARG2 ] 
-then
-echo "No argument 2: must specify delimiter start"
+if [ ! ARG2 ]; then
+	echo "No argument 2: must specify delimiter start"
 fi
 
-if [ ! ARG3 ] 
-then
-ARG3=ARG2
-echo "trim: using same delimiter to start and end"
+if [ ! ARG3 ]; then
+	ARG3=ARG2
+	echo "trim: using same delimiter to start and end"
 fi
 
-if [ ARG3 ] || [ ARG2 ] && [ ARG1 ]
-then
-awk -F"$ARG2" '{gsub(/$ARG3.*/,"",$2);print $2}' $ARG1 | sed '/^$/d'
+if [ ARG3 ] || [ ARG2 ] && [ ARG1 ]; then
+	awk -F"$ARG2" '{gsub(/$ARG3.*/,"",$2);print $2}' $ARG1 | sed '/^$/d'
 fi
 exit
+
