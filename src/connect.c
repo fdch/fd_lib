@@ -65,12 +65,17 @@ static void connect_disconnect(t_connect *x, t_floatarg index1,
     canvas_disconnect(x->x_tgtcnv, index1, outno, index2, inno);
 }
 
+static void connect_symbol(t_connect *x, t_symbol *s)
+{
+    if (!connect_settargetcanvas(x, s))
+        return pd_error(x, "%s: could not set canvas.", s->s_name);
+}
+
 static void *connect_new(t_symbol *s)
 {
     t_connect *x = (t_connect *)pd_new(connect_class);
-    symbolinlet_new(&x->x_ob, &x->x_tgtsym);
     if (!connect_settargetcanvas(x, s))
-        pd_error(x, "%s: could not set canvas.", s->s_name);
+        symbolinlet_new(&x->x_ob, &x->x_tgtsym);
     return (x);
 }
 
@@ -79,6 +84,7 @@ void connect_setup()
     connect_class =
         class_new(gensym("connect"), (t_newmethod)connect_new, 0,
                   sizeof(t_connect), CLASS_DEFAULT, A_DEFSYM, A_NULL);
+    class_addsymbol(connect_class, (t_method)connect_symbol);
     class_addmethod(connect_class, (t_method)connect_disconnect,
                     gensym("disconnect"), A_FLOAT, A_FLOAT, A_FLOAT, A_FLOAT,
                     A_NULL);
