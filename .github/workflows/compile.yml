@@ -38,32 +38,32 @@ jobs:
         name: ${{ env.OUTPUT }}
         path: ${{ env.OUTPUT }}.zip
 
-  # macos-latest:
-  #   runs-on: macos-latest
-  #   env:
-  #     OUTPUT: fd_lib-macos-latest
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - uses: ./.github/actions/setup-pd
-  #   - name: get dependencies
-  #     run: |
-  #       brew install automake autoconf libtool
-  #   - name: configure
-  #     run: bash config.sh
-  #   - name: make
-  #     run: make PDINCLUDEDIR=pure-data/src
-  #   - name: install lib
-  #     run: |
-  #       make install PDLIBDIR=.
-  #       zip -r "$OUTPUT.zip" ./fd_lib
-  #   - name: upload artifacts
-  #     uses: actions/upload-artifact@v4
-  #     with:
-  #       name: "$OUTPUT"
-  #       path: "$OUTPUT.zip"
-  #
-  #
-  #
+  macos-latest:
+    runs-on: macos-latest
+    env:
+      OUTPUT: fd_lib-macos-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/setup-pd
+    - name: get dependencies
+      run: |
+        brew install automake autoconf libtool
+    - name: configure
+      run: bash config.sh
+    - name: make
+      run: make PDINCLUDEDIR=pure-data/src
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.zip
+
+
+
   # windows-latest:
   #   runs-on: windows-latest
   #   defaults:
