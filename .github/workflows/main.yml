@@ -65,15 +65,20 @@ jobs:
         run: make PDBINPATH="$pdversion/bin" PDINCLUDEDIR="$pdversion/src" CFLAGS=-march=x86-64
 
       # ---- package ----
-      - name: package lib
+      - name: package (unix)
+        if: matrix.os != 'windows-latest'
+        run: make install PDLIBDIR="${{ matrix.os }}"
+      - name: package (windows)
+        if: matrix.os == 'windows-latest'
         run: |
           bash scripts/package_lib.sh
+          mv fd_lib "${{ matrix.os }}"
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
         with:
           name: fd_lib-${{ matrix.os }}
-          path: fd_lib-${{ matrix.os }}
+          path: ${{ matrix.os }}/fd_lib
 
   publish:
     runs-on: ubuntu-latest
