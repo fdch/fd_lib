@@ -12,8 +12,6 @@ on:
 jobs:
   ubuntu-latest:
     runs-on: ubuntu-latest
-    env:
-      OUTPUT: fd_lib-ubuntu-latest
     steps:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-pd
@@ -23,11 +21,11 @@ jobs:
       run: make PDINCLUDEDIR=pure-data/src
     - name: package lib
       uses: ./.github/actions/package-lib
+      with:
+          output: fd_lib-ubuntu-latest
 
   macos-latest:
     runs-on: macos-latest
-    env:
-      OUTPUT: fd_lib-macos-latest
     steps:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-pd
@@ -40,6 +38,8 @@ jobs:
       run: make PDINCLUDEDIR=pure-data/src
     - name: package lib
       uses: ./.github/actions/package-lib
+      with:
+          output: fd_lib-macos-latest
 
   windows-latest:
     runs-on: windows-latest
@@ -47,7 +47,6 @@ jobs:
         run:
           shell: bash
     env:
-      OUTPUT: fd_lib-windows-latest
       PDVERSION: pd-0.56-2
     steps:
     - name: set environment variable
@@ -65,3 +64,5 @@ jobs:
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
     - name: package lib
       uses: ./.github/actions/package-lib
+      with:
+          output: fd_lib-windows-latest

@@ -1,5 +1,10 @@
 name: package-lib
-description: Package Pd library via deken
+description: Package Pd library
+
+inputs:
+  output:
+    description: "Output filename base"
+    required: true
 
 runs:
   using: "composite"
@@ -18,11 +23,12 @@ runs:
     - name: Compress Package
       shell: bash
       run: |
-        tar -czf "$OUTPUT.tar.gz" ./fd_lib
-    - name: upload artifacts
+        tar -czf "${{ inputs.output }}.tar.gz" ./fd_lib
+
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v5
       with:
-        name: ${{ env.OUTPUT }}
-        path: ${{ env.OUTPUT }}.tar
+        name: ${{ inputs.output }}
+        path: ${{ inputs.output }}.tar.gz
 
 
