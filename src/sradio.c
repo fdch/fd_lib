@@ -452,11 +452,10 @@ static void sradio_set(t_sradio *x, t_symbol *s, int argc, t_atom *argv)
     if (!argc)
         return;
 
-    int n;
-    if (argc > x->x_number && argc < IEM_RADIO_MAX)
+    int n = argc;
+    if (argc > x->x_number)
         n = x->x_number;
-    if (argc <= x->x_number)
-        n = argc;
+
     int i = 0;
     while (n--)
     {

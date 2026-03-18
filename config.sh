@@ -9,7 +9,7 @@ EXTFILE=doc/externals.pd
 PDLIBBUILDER_DIR="pd-lib-builder"
 R=README.txt
 META=fd_lib-meta.pd
-DATADIRS="doc data img include pd-lib-builder scripts src test"
+DATADIRS="doc data img scripts test examples"
 # -----------------------------------------------------------------------------
 #
 # Load all sources
