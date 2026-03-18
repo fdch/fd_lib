@@ -6,8 +6,8 @@ runs:
   steps:
     - uses: actions/checkout@v5
     - name: get pdlibbuilder
-      shell: bash
       run: git submodule init && git submodule update
+      shell: bash
 
     - name: get pd
       uses: actions/checkout@v5
@@ -16,4 +16,5 @@ runs:
         path: pure-data
 
     - name: ls files
+      shell: bash
       run: ls -la
