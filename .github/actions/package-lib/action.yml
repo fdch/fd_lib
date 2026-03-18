@@ -9,6 +9,12 @@ runs:
       run: |
         mkdir -p fd_lib/sources/pd-lib-builder
 
+    - name: Copy Library
+      shell: bash
+      run: |
+        cp fd_lib.* {.,abstractions,help}/*.pd *.txt fd_lib/
+        cp -r examples doc data img scripts test fd_lib/
+
     - name: Copy sources
       shell: bash
       run: |
@@ -16,26 +22,3 @@ runs:
         cp src/*.{h,c} fd_lib/sources/ || true
         cp pd-lib-builder/Makefile.pdlibbuilder fd_lib/sources/pd-lib-builder/
 
-    - name: Copy built artifacts
-      shell: bash
-      run: |
-        cp fd_lib.* fd_lib/
-
-    # - name: Install deken
-    #   shell: bash
-    #   run: |
-    #     curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
-    #     chmod +x deken
-    #
-    # - name: Package library
-    #   shell: bash
-    #   run: |
-    #     ./deken package --version "${GITHUB_REF_NAME:-main}" fd_lib
-    #
-    # - name: Upload to deken
-    #   shell: bash
-    #   env:
-    #     DEKEN_USERNAME: ${{ env.DEKEN_USERNAME }}
-    #     DEKEN_PASSWORD: ${{ env.DEKEN_PASSWORD }}
-    #   run: |
-    #     ./deken upload *.dek

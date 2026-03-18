@@ -21,7 +21,7 @@ jobs:
       run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
-    - name: package lir
+    - name: package lib
       uses: ./.github/actions/package-lib
     - name: compress lib
       run: |
