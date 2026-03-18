@@ -24,6 +24,8 @@ jobs:
     - name: install lib
       run: |
         make install PDLIBDIR=.
+        mkdir fd_lib/sources
+        cp -r include src/*.c Makefile config.sh fd_lib/sources
         zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
@@ -48,6 +50,8 @@ jobs:
     - name: install lib
       run: |
         make install PDLIBDIR=.
+        mkdir fd_lib/sources
+        cp -r include src/*.c Makefile config.sh fd_lib/sources
         zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
@@ -76,14 +80,14 @@ jobs:
     - name: configure
       run: bash config.sh
     - name: make
-      run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
+      run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
     - name: package lib
-      run: |
+      run: | # dont use make install here due to error 87
         mkdir fd_lib
-        cp *.dll *.txt *.pd abstractions/*.pd help/*.pd fd_lib/ 2>/dev/null || true
-        cp -r examples scripts doc data test fd_lib/ 2>/dev/null || true
+        cp *.dll *.txt *.pd abstractions/*.pd help/*.pd fd_lib/
+        cp -r examples scripts doc data test fd_lib/
         mkdir fd_lib/sources
-        cp -r include src/*.c Makefile config.sh fd_lib/sources 2>/dev/null || true
+        cp -r include src/*.c Makefile config.sh fd_lib/sources
         tar -a -c -f "$OUTPUT.zip" fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
