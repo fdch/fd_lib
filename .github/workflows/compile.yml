@@ -85,11 +85,12 @@ jobs:
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
     - name: package lib
+      shell: pwsh
       run: |
         mkdir fd_lib
         cp *.dll Makefile config.sh *.txt *.pd fd_lib/
         cp -r abstractions help examples scripts doc data include src test fd_lib/
-        zip -r "$OUTPUT.zip" ./fd_lib
+        Compress-Archive -Path fd_lib -DestinationPath "$env:OUTPUT.zip"
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
