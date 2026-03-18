@@ -18,7 +18,6 @@ on:
 
 jobs:
   ubuntu-latest:
-    needs: setup
     runs-on: ubuntu-latest
     env:
       OUTPUT: fd_lib-ubuntu-latest
