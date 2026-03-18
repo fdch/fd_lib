@@ -31,15 +31,12 @@ jobs:
     - name: install lib
       run: |
         make install PDLIBDIR=.
-        ls -la ./fd_lib
         zip -r "$OUTPUT.zip" ./fd_lib
-        ls -la *.zip
     - name: upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: "$OUTPUT"
-        path: "$OUTPUT.zip"
-
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.zip
 
   # macos-latest:
   #   runs-on: macos-latest
