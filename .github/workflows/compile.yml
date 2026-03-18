@@ -21,8 +21,11 @@ jobs:
       run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
-    - name: package lib
+    - name: package lir
       uses: ./.github/actions/package-lib
+    - name: compress lib
+      run: |
+        zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
@@ -45,6 +48,9 @@ jobs:
       run: make PDINCLUDEDIR=pure-data/src
     - name: package lib
       uses: ./.github/actions/package-lib
+    - name: compress lib
+      run: |
+        zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
@@ -75,6 +81,9 @@ jobs:
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
     - name: package lib
       uses: ./.github/actions/package-lib
+    - name: compress lib
+      run: |
+        tar -a -c -f "$OUTPUT.zip" fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:

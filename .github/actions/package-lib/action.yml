@@ -21,17 +21,17 @@ runs:
       run: |
         cp fd_lib.* fd_lib/
 
-    - name: Install deken
-      shell: bash
-      run: |
-        curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
-        chmod +x deken
-
-    - name: Package library
-      shell: bash
-      run: |
-        ./deken package --version "${GITHUB_REF_NAME:-main}" fd_lib
-
+    # - name: Install deken
+    #   shell: bash
+    #   run: |
+    #     curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
+    #     chmod +x deken
+    #
+    # - name: Package library
+    #   shell: bash
+    #   run: |
+    #     ./deken package --version "${GITHUB_REF_NAME:-main}" fd_lib
+    #
     # - name: Upload to deken
     #   shell: bash
     #   env:
