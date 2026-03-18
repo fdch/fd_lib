@@ -7,7 +7,7 @@ counter	A counter external.
 crand	Outputs random floats in a given range.
 cuadratic	Computes the quadratic equation.
 delit	A delayed iterator.
-factor	Computes the factorial of the stored float (<= 34).
+factor	Computes the factorial of the stored float.
 fd_lib	The single object of this single object library.
 fdm	Accumulators (addition or multiplication).
 frand	Outputs random floats in a given range.
@@ -25,7 +25,7 @@ mtwister	Generates Mersene Twister pseudorandom real numbers.
 norm	Normalizes an unknown range over time into a range of 0-1.
 parabola	Performs the function for the parabola.
 particle	Computes the nth order derivative on float streams.
-prandom	Interfaces with a plain random C function rand().
+prandom	Interfaces with a plain random C function rand.
 randy	A random integer object similar to Pd's random object.
 reflect	Reflects an incoming float from -value to +value.
 root	Gets the root canvas from inside a subpatch or abstraction.

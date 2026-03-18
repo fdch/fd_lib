@@ -1,0 +1,116 @@
+name: Cross-Platform Compile and Publish
+description: Compiles on multiple platforms and publishes to deken if merging to main
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "include/**"
+      - "src/**"
+      - "Makefile"
+      - "config.sh"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    defaults:
+      run:
+        shell: bash
+
+    env:
+      pdversion: pd-0.56-2
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # ---- platform-specific setup ----
+      - name: setup pd (unix)
+        if: matrix.os != 'windows-latest'
+        uses: ./.github/actions/setup-pd
+
+      - name: install mac deps
+        if: matrix.os == 'macos-latest'
+        run: brew install automake autoconf libtool
+
+      - name: setup windows deps
+        if: matrix.os == 'windows-latest'
+        run: |
+          echo "local_short_commands=true" >> $GITHUB_ENV
+          git submodule init && git submodule update
+          curl -L -o "$pdversion.zip" "http://msp.ucsd.edu/software/${pdversion}.msw.zip"
+          unzip "$pdversion.zip"
+
+      # ---- build ----
+      - name: configure
+        run: bash config.sh
+
+      - name: make (unix)
+        if: matrix.os != 'windows-latest'
+        run: make pdincludedir=pure-data/src
+
+      - name: make (windows)
+        if: matrix.os == 'windows-latest'
+        run: make pdbinpath="$pdversion/bin" pdincludedir="$pdversion/src" cflags=-march=x86-64
+
+      # ---- package ----
+      - name: package lib
+        run: |
+          bash scripts/package_lib.sh
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: fd_lib-${{ matrix.os }}
+          path: fd_lib-${{ matrix.os }}
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: download all artifacts
+        uses: actions/download-artifact@v5
+
+      - name: install deken
+        run: |
+          curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
+          chmod +x deken
+
+      - name: list files
+        run: ls -R
+
+      - name: import gpg key
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          # trust the key (required in CI)
+          KEY_ID=$(gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {print $5; exit}')
+          echo "5\ny\n" | gpg --command-fd 0 --batch --yes --edit-key $KEY_ID trust
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: configure gpg
+        run: |
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+          echo "use-agent" >> ~/.gnupg/gpg.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+      - name: package all
+        run: |
+          for dir in fd_lib-*; do
+            ./deken package --version "${GITHUB_REF_NAME:-main}" "$dir"
+          done
+
+      - name: upload all to deken
+        env:
+          deken_username: ${{ secrets.DEKEN_USERNAME }}
+          deken_password: ${{ secrets.DEKEN_PASSWORD }}
+        run: ./deken upload *.dek
