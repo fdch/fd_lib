@@ -1,4 +1,5 @@
 #N canvas 491 165 682 550 12;
+#X declare -lib fd_lib;
 #X obj 30 246 tgl 20 0 empty empty graph 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array array1 4410 float 2;
@@ -36,6 +37,7 @@
 #X obj 127 128 phasor~ 80;
 #X msg 259 24 \; pd dsp 1;
 #X msg 258 64 \; pd dsp 0;
+#X obj 24 18 declare -lib fd_lib;
 #X connect 0 0 8 0;
 #X connect 4 0 9 0;
 #X connect 4 0 13 0;

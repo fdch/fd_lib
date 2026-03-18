@@ -1,5 +1,6 @@
-#N canvas 0 0 450 300 12;
+#N canvas 0 0 830 482 12;
 #X declare -lib Gem;
+#X declare -lib fd_lib;
 #X msg 298 8 create \, 1;
 #X obj 298 32 gemwin;
 #X obj 35 30 gemhead;
@@ -135,6 +136,7 @@
 #X msg 496 261 x y x;
 #X obj 38 149 scale 4;
 #X obj 442 14 declare -lib Gem;
+#X obj 445 53 declare -lib fd_lib;
 #X connect 0 0 1 0;
 #X connect 2 0 11 0;
 #X connect 3 0 1 0;

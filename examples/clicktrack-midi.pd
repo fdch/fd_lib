@@ -1,5 +1,6 @@
 #N canvas 449 89 742 723 12;
 #X declare -path mrpeach;
+#X declare -lib fd_lib;
 #X obj 240 612 dac~;
 #X obj 289 371 route 144;
 #X obj 27 202 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
@@ -180,6 +181,7 @@
 #X text 197 112 <-- type full path to file;
 #X text 39 26 You can use [fd_clicktrack] to interact with mrpeach's [midifile]. Download "mrpeach" from Help > Find externals. Then you can load a midifile with the 'read' message., f 77;
 #X obj 404 72 declare -path mrpeach;
+#X obj 430 100 declare -lib fd_lib;
 #X connect 1 0 21 0;
 #X connect 1 1 9 0;
 #X connect 2 0 5 0;

@@ -1,4 +1,5 @@
-#N canvas 0 0 450 300 12;
+#N canvas 0 0 614 582 12;
+#X declare -lib fd_lib;
 #X msg 304 97 bang;
 #X obj 304 171 fd_corr array1_corr array2_corr;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -25,6 +26,7 @@
 #X text 52 150 correlation --> 0;
 #X floatatom 304 195 0 0 0 0 - - - 0;
 #X obj 304 218 print correlation;
+#X obj 406 9 declare -lib fd_lib;
 #X connect 0 0 1 0;
 #X connect 1 0 12 0;
 #X connect 12 0 13 0;

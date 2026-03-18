@@ -1,5 +1,6 @@
 #N canvas 0 0 705 597 12;
 #X declare -lib Gem;
+#X declare -lib fd_lib;
 #X obj 12 248 cnv 15 430 260 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
 #X obj 12 215 cnv 15 430 30 empty empty empty 20 12 0 14 #bcbcbc #404040 0;
 #X obj 11 87 cnv 15 430 125 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
@@ -217,6 +218,7 @@
 #X floatatom 572 436 5 0 0 0 - - - 0;
 #X text 49 485 Outlet 3: (float) elapsed frames;
 #X obj 300 16 declare -lib Gem;
+#X obj 294 42 declare -lib fd_lib;
 #X connect 5 0 29 0;
 #X connect 28 0 5 0;
 #X connect 29 0 6 0;

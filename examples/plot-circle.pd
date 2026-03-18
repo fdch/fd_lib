@@ -1,5 +1,5 @@
 #N canvas 783 311 747 401 12;
-#N struct \$1-plot float x float y float z float rgb;
+#X declare -lib fd_lib;
 #N canvas 1122 91 450 300 plotter 0;
 #X obj 100 100 fd_plot 12345 pd-plotter;
 #X coords 0 0 450 350 450 350 2 0 0;
@@ -16,6 +16,7 @@
 #X obj 23 282 s fd_plot-12345;
 #X obj 25 158 * 112;
 #X msg 22 248 set \$1 \$2 15 900;
+#X obj 35 344 declare -lib fd_lib;
 #X connect 1 0 5 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;

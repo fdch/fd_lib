@@ -1,4 +1,5 @@
 #N canvas 289 98 713 578 12;
+#X declare -lib fd_lib;
 #N canvas 947 130 656 359 \$0-2dgauss 0;
 #X obj 100 130 fd_plot 105;
 #X coords 0 359 1 358 377 282 0;
@@ -30,6 +31,7 @@
 #X obj 41 318 fd_miller-gauss -1 1.8 -0.8 -1.65;
 #X text 150 30 <-- see here;
 #X text 401 37 clear the canvas before it's too late;
+#X obj 400 17 declare -lib fd_lib;
 #X connect 1 0 2 0;
 #X connect 2 0 21 0;
 #X connect 2 1 25 1;

@@ -1,4 +1,5 @@
 #N canvas 69 97 1181 634 12;
+#X declare -lib fd_lib;
 #X obj 54 506 dac~;
 #X obj 96 452 *~;
 #X obj 208 43 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 #fcfcfc #000000 #000000 0 1;
@@ -321,6 +322,7 @@
 #X obj 67 392 rev3~ 100 90 5000 80;
 #X obj 46 351 *~;
 #X obj 79 349 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 37 37 declare -lib fd_lib;
 #X connect 1 0 0 0;
 #X connect 2 0 24 0;
 #X connect 3 0 4 0;

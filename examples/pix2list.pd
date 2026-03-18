@@ -1,5 +1,6 @@
 #N canvas 441 118 744 545 12;
 #X declare -lib Gem;
+#X declare -lib fd_lib;
 #X text 287 22 "fd_pix2list";
 #X obj 532 39 declare -lib Gem;
 #X obj 497 154 gemwin;
@@ -26,6 +27,7 @@
 #X obj 245 132 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 257 181 reset;
 #X msg 251 155 xpos 150 \, ypos 100 \, size 0.5;
+#X obj 531 64 declare -lib fd_lib;
 #X connect 3 0 2 0;
 #X connect 4 0 22 0;
 #X connect 5 0 6 0;

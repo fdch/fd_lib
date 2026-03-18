@@ -1,4 +1,5 @@
 #N canvas 0 0 773 540 12;
+#X declare -lib fd_lib;
 #X obj 99 196 random 100;
 #X obj 123 356 tabwrite wielevy;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -28,6 +29,7 @@
 #X obj 66 352 * -1;
 #X obj 153 328 - 1;
 #X text 67 413 Qt ( x \, y) = (w^1/2/(PI*(1-e^-2wt))^-1/2) EXP(-w*((y-x*e^-wt)^2/(1-e^-2wt)) ), f 78;
+#X obj 447 45 declare -lib fd_lib;
 #X connect 0 0 4 0;
 #X connect 3 0 0 0;
 #X connect 4 0 5 0;

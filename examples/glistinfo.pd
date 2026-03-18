@@ -1,4 +1,5 @@
 #N canvas 543 100 727 641 12;
+#X declare -lib fd_lib;
 #N canvas 0 22 450 300 subpatch 0;
 #X obj 100 15 inlet;
 #X obj 206 235 s parse-dump;
@@ -140,6 +141,7 @@
 #X text 32 234 Here is how the output from the above can be routed:;
 #X obj 449 180 clone glistinfo_dummy 10;
 #X obj 282 175 glistinfo_dummy;
+#X obj 524 35 declare -lib fd_lib;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 76 0;

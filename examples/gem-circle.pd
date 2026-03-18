@@ -1,5 +1,6 @@
-#N canvas 0 0 450 300 12;
+#N canvas 0 0 665 401 12;
 #X declare -lib Gem;
+#X declare -lib fd_lib;
 #X obj 24 120 color 1 0 0;
 #X obj 24 252 pix_texture;
 #X obj 24 274 circle 1;
@@ -28,6 +29,7 @@
 #X obj 460 62 gemwin;
 #X msg 500 37 0 \, destroy;
 #X obj 26 13 declare -lib Gem;
+#X obj 164 13 declare -lib fd_lib;
 #X connect 0 0 6 0;
 #X connect 1 0 2 0;
 #X connect 3 0 0 0;

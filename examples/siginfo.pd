@@ -1,4 +1,5 @@
 #N canvas 0 0 746 555 12;
+#X declare -lib fd_lib;
 #X obj 18 35 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X floatatom 55 36 5 0 0 0 - - - 0;
 #X obj 18 232 siginfo;
@@ -162,6 +163,7 @@
 #X obj 71 96 counter -m 100;
 #X obj 71 121 s index;
 #X obj 18 95 t b b;
+#X obj 23 492 declare -lib fd_lib;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
 #X connect 2 0 27 0;

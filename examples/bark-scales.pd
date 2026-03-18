@@ -1,4 +1,5 @@
 #N canvas 172 54 1342 725 12;
+#X declare -lib fd_lib;
 #X text 92 134 To convert a frequency f (Hz) into Bark use:;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array bark-0 20000 float 2;
@@ -53,6 +54,7 @@
 #X obj 723 519 fd_critical bark-1 critical-1 1;
 #X text 701 422 Critical bandwidth;
 #X text 510 46 Bark scale examples;
+#X obj 888 31 declare -lib fd_lib;
 #X connect 4 0 7 0;
 #X connect 15 0 16 0;
 #X connect 23 0 24 0;

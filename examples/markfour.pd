@@ -1,5 +1,6 @@
-#N canvas 0 25 1680 967 12;
+#N canvas 0 25 1266 1041 12;
 #X declare -lib iemmatrix;
+#X declare -lib fd_lib;
 #X msg 3 49 2;
 #X obj 62 121 list split 1;
 #X obj 96 143 route 1 2 3;
@@ -326,6 +327,7 @@
 #X msg 322 36 80 2 39 2 2 33;
 #X obj 62 99 fd_markfour;
 #X obj 491 10 declare -lib iemmatrix;
+#X obj 490 35 declare -lib fd_lib;
 #X connect 0 0 16 0;
 #X connect 1 1 2 0;
 #X connect 2 0 7 0;
