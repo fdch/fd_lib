@@ -58,7 +58,7 @@ jobs:
 
       - name: make (unix)
         if: matrix.os != 'windows-latest'
-        run: make pdincludedir=$GITHUB_WORKSPACE/pure-data/src
+        run: make pdincludedir=pure-data/src
 
       - name: make (windows)
         if: matrix.os == 'windows-latest'
