@@ -78,8 +78,6 @@ echo "common.sources = $COMMONLIB" >>Makefile
 echo "datafiles = $DATAFILES" >>Makefile
 # all sub directories
 echo "datadirs = $DATADIRS" >>Makefile
-# C flags
-echo "cflags= -Iinclude" >>Makefile
 # standard c99 flag for linux
 echo "define forLinux" >>Makefile
 echo "    cflags += -std=c99" >>Makefile
@@ -154,4 +152,4 @@ echo "#X text 39 15 $LIBNAME: $DESCRIPTION;" >>$META
 # Update version on header
 #
 # -----------------------------------------------------------------------------
-perl -pi -e 's/(#define FDLIBVERSION).*/$1 "'"$FDLIBVERSION"'"/' ./include/fdLib.h
+perl -pi -e 's/(#define FDLIBVERSION).*/$1 "'"$FDLIBVERSION"'"/' ./src/fdLib.h

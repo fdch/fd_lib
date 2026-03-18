@@ -21,12 +21,8 @@ jobs:
       run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
-    - name: install lib
-      run: |
-        make install PDLIBDIR=.
-        mkdir fd_lib/sources
-        cp -r include src/*.c Makefile config.sh fd_lib/sources
-        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: package lib
+      uses: ./.github/actions/package-lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
@@ -47,12 +43,8 @@ jobs:
       run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
-    - name: install lib
-      run: |
-        make install PDLIBDIR=.
-        mkdir fd_lib/sources
-        cp -r include src/*.c Makefile config.sh fd_lib/sources
-        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: package lib
+      uses: ./.github/actions/package-lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
@@ -82,13 +74,7 @@ jobs:
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
     - name: package lib
-      run: | # dont use make install here due to error 87
-        mkdir fd_lib
-        cp *.dll *.txt *.pd abstractions/*.pd help/*.pd fd_lib/
-        cp -r examples scripts doc data test fd_lib/
-        mkdir fd_lib/sources
-        cp -r include src/*.c Makefile config.sh fd_lib/sources
-        tar -a -c -f "$OUTPUT.zip" fd_lib
+      uses: ./.github/actions/package-lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
