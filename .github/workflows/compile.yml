@@ -22,7 +22,7 @@ jobs:
     env:
       OUTPUT: fd_lib-ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-pd
     - name: configure
       run: bash config.sh
@@ -33,7 +33,7 @@ jobs:
         make install PDLIBDIR=.
         zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: ${{ env.OUTPUT }}
         path: ${{ env.OUTPUT }}.zip
