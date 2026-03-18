@@ -17,81 +17,79 @@ on:
       - "config.sh"
 
 jobs:
-  ubuntu-latest:
-    runs-on: ubuntu-latest
-    env:
-      OUTPUT: fd_lib-ubuntu-latest
-    steps:
-    - uses: actions/checkout@v5
-    - uses: ./.github/actions/setup-pd
-    - name: configure
-      run: bash config.sh
-    - name: make
-      run: make PDINCLUDEDIR=pure-data/src
-    - name: install lib
-      run: |
-        make install PDLIBDIR=.
-        zip -r "$OUTPUT.zip" ./fd_lib
-    - name: upload artifacts
-      uses: actions/upload-artifact@v5
-      with:
-        name: ${{ env.OUTPUT }}
-        path: ${{ env.OUTPUT }}.zip
-
-  macos-latest:
-    runs-on: macos-latest
-    env:
-      OUTPUT: fd_lib-macos-latest
-    steps:
-    - uses: actions/checkout@v5
-    - uses: ./.github/actions/setup-pd
-    - name: get dependencies
-      run: |
-        brew install automake autoconf libtool
-    - name: configure
-      run: bash config.sh
-    - name: make
-      run: make PDINCLUDEDIR=pure-data/src
-    - name: install lib
-      run: |
-        make install PDLIBDIR=.
-        zip -r "$OUTPUT.zip" ./fd_lib
-    - name: upload artifacts
-      uses: actions/upload-artifact@v5
-      with:
-        name: ${{ env.OUTPUT }}
-        path: ${{ env.OUTPUT }}.zip
-
-
-
-  # windows-latest:
-  #   runs-on: windows-latest
-  #   defaults:
-  #       run:
-  #         shell: bash
+  # ubuntu-latest:
+  #   runs-on: ubuntu-latest
   #   env:
-  #     OUTPUT: fd_lib-windows-latest
-  #     PDVERSION: pd-0.56-2
+  #     OUTPUT: fd_lib-ubuntu-latest
   #   steps:
-  #   - name: set environment variable
-  #     run: echo "LOCAL_SHORT_COMMANDS=true" >> $GITHUB_ENV
-  #   - uses: actions/checkout@v4
-  #   - name: get pdlibbuilder
-  #     run: git submodule init && git submodule update
-  #   - name: get pd
-  #     run: |
-  #       curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
-  #       unzip "$PDVERSION.msw.zip"
+  #   - uses: actions/checkout@v5
+  #   - uses: ./.github/actions/setup-pd
   #   - name: configure
   #     run: bash config.sh
   #   - name: make
-  #     run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
+  #     run: make PDINCLUDEDIR=pure-data/src
   #   - name: install lib
   #     run: |
   #       make install PDLIBDIR=.
   #       zip -r "$OUTPUT.zip" ./fd_lib
   #   - name: upload artifacts
-  #     uses: actions/upload-artifact@v4
+  #     uses: actions/upload-artifact@v5
   #     with:
-  #       name: "$OUTPUT"
-  #       path: "$OUTPUT.zip"
+  #       name: ${{ env.OUTPUT }}
+  #       path: ${{ env.OUTPUT }}.zip
+  #
+  # macos-latest:
+  #   runs-on: macos-latest
+  #   env:
+  #     OUTPUT: fd_lib-macos-latest
+  #   steps:
+  #   - uses: actions/checkout@v5
+  #   - uses: ./.github/actions/setup-pd
+  #   - name: get dependencies
+  #     run: |
+  #       brew install automake autoconf libtool
+  #   - name: configure
+  #     run: bash config.sh
+  #   - name: make
+  #     run: make PDINCLUDEDIR=pure-data/src
+  #   - name: install lib
+  #     run: |
+  #       make install PDLIBDIR=.
+  #       zip -r "$OUTPUT.zip" ./fd_lib
+  #   - name: upload artifacts
+  #     uses: actions/upload-artifact@v5
+  #     with:
+  #       name: ${{ env.OUTPUT }}
+  #       path: ${{ env.OUTPUT }}.zip
+
+  windows-latest:
+    runs-on: windows-latest
+    defaults:
+        run:
+          shell: bash
+    env:
+      OUTPUT: fd_lib-windows-latest
+      PDVERSION: pd-0.56-2
+    steps:
+    - name: set environment variable
+      run: echo "LOCAL_SHORT_COMMANDS=true" >> $GITHUB_ENV
+    - uses: actions/checkout@v5
+    - name: get pdlibbuilder
+      run: git submodule init && git submodule update
+    - name: get pd
+      run: |
+        curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
+        unzip "$PDVERSION.msw.zip"
+    - name: configure
+      run: bash config.sh
+    - name: make
+      run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.zip
