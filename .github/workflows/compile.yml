@@ -1,13 +1,6 @@
-name: cross-platform-compile
+name: Cross-platform Compile
 
 on:
-  # push:
-  #   branches: [ "main" ]
-  #   paths:
-  #     - "include/**"
-  #     - "src/**"
-  #     - "Makefile"
-  #     - "config.sh"
   pull_request:
     branches: [ "main" ]
     paths:
@@ -17,50 +10,50 @@ on:
       - "config.sh"
 
 jobs:
-  # ubuntu-latest:
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     OUTPUT: fd_lib-ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v5
-  #   - uses: ./.github/actions/setup-pd
-  #   - name: configure
-  #     run: bash config.sh
-  #   - name: make
-  #     run: make PDINCLUDEDIR=pure-data/src
-  #   - name: install lib
-  #     run: |
-  #       make install PDLIBDIR=.
-  #       zip -r "$OUTPUT.zip" ./fd_lib
-  #   - name: upload artifacts
-  #     uses: actions/upload-artifact@v5
-  #     with:
-  #       name: ${{ env.OUTPUT }}
-  #       path: ${{ env.OUTPUT }}.zip
-  #
-  # macos-latest:
-  #   runs-on: macos-latest
-  #   env:
-  #     OUTPUT: fd_lib-macos-latest
-  #   steps:
-  #   - uses: actions/checkout@v5
-  #   - uses: ./.github/actions/setup-pd
-  #   - name: get dependencies
-  #     run: |
-  #       brew install automake autoconf libtool
-  #   - name: configure
-  #     run: bash config.sh
-  #   - name: make
-  #     run: make PDINCLUDEDIR=pure-data/src
-  #   - name: install lib
-  #     run: |
-  #       make install PDLIBDIR=.
-  #       zip -r "$OUTPUT.zip" ./fd_lib
-  #   - name: upload artifacts
-  #     uses: actions/upload-artifact@v5
-  #     with:
-  #       name: ${{ env.OUTPUT }}
-  #       path: ${{ env.OUTPUT }}.zip
+  ubuntu-latest:
+    runs-on: ubuntu-latest
+    env:
+      OUTPUT: fd_lib-ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/setup-pd
+    - name: configure
+      run: bash config.sh
+    - name: make
+      run: make PDINCLUDEDIR=pure-data/src
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.zip
+
+  macos-latest:
+    runs-on: macos-latest
+    env:
+      OUTPUT: fd_lib-macos-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/setup-pd
+    - name: get dependencies
+      run: |
+        brew install automake autoconf libtool
+    - name: configure
+      run: bash config.sh
+    - name: make
+      run: make PDINCLUDEDIR=pure-data/src
+    - name: install lib
+      run: |
+        make install PDLIBDIR=.
+        zip -r "$OUTPUT.zip" ./fd_lib
+    - name: upload artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: ${{ env.OUTPUT }}
+        path: ${{ env.OUTPUT }}.zip
 
   windows-latest:
     runs-on: windows-latest
@@ -90,7 +83,7 @@ jobs:
         cp *.dll *.txt *.pd abstractions/*.pd help/*.pd fd_lib/ 2>/dev/null || true
         cp -r examples scripts doc data test fd_lib/ 2>/dev/null || true
         mkdir fd_lib/sources
-        cp -r include src Makefile config.sh fd_lib/sources 2>/dev/null || true
+        cp -r include src/*.c Makefile config.sh fd_lib/sources 2>/dev/null || true
         tar -a -c -f "$OUTPUT.zip" fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
