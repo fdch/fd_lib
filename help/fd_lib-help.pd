@@ -1,32 +1,24 @@
-#N struct color-tester float x float y float color;
-#N struct template-1 float x float y float z float s float id array
-array-1 template-1-element;
-#N struct template-1-element float y float s float w;
-#N struct template-2 float x float y float z float s float id array
-array-2 template-2-element;
-#N struct template-2-element float y float s float w;
-#N struct template-3 float x float y float z float s float id array
-array-3 template-3-element;
-#N struct template-3-element float y float s float w;
-#N struct template-4 float x float y float z float s float id array
-array-4 template-4-element;
-#N struct template-4-element float y float s float w;
-#N struct template-5 float x float y float z float s float id array
-array-5 template-5-element;
-#N struct template-5-element float y float s float w;
-#N struct template-6 float x float y float z float s float id array
-array-6 template-6-element;
-#N struct template-6-element float y float s float w;
-#N struct template-7 float x float y float z float s float id array
-array-7 template-7-element;
-#N struct template-7-element float y float s float w;
-#N struct template-8 float x float y float z float s float id array
-array-8 template-8-element;
-#N struct template-8-element float y float s float w;
-#N struct 2839-grey1-tmp float x float y float w float l;
 #N canvas 523 51 527 692 12;
 #X declare -lib Gem;
-#X declare -lib fd_lib;
+#X declare -lib fd_lib -path fd_lib;
+#N struct color-tester float x float y float color;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct template-\$1 float x float y float z float s float id array array-\$1 template-\$1-element;
+#N struct template-\$1-element float y float s float w;
+#N struct \$0-grey1-tmp float x float y float w float l;
 #N canvas 523 55 520 557 Signal 0;
 #X obj 51 325 fd_cosline~;
 #X obj 51 221 fd_dacout;
@@ -77,37 +69,37 @@ array-8 template-8-element;
 #X obj 142 333 fd_cubic;
 #X obj 83 333 fd_sin;
 #X text 297 280 Rounding functions;
-#X floatatom 211 272 5 0 0 0 - - -;
-#X floatatom 235 361 5 0 0 0 - - -;
-#X floatatom 316 361 5 0 0 0 - - -;
-#X floatatom 470 361 5 0 0 0 - - -;
-#X floatatom 386 361 5 0 0 0 - - -;
+#X floatatom 211 272 5 0 0 0 - - - 0;
+#X floatatom 235 361 5 0 0 0 - - - 0;
+#X floatatom 316 361 5 0 0 0 - - - 0;
+#X floatatom 470 361 5 0 0 0 - - - 0;
+#X floatatom 386 361 5 0 0 0 - - - 0;
 #X obj 470 336 fd_round 0 10;
-#X floatatom 28 358 5 0 0 0 - - -;
-#X floatatom 83 358 5 0 0 0 - - -;
-#X floatatom 142 358 5 0 0 0 - - -;
-#X floatatom 388 174 5 0 0 0 - - -;
-#X floatatom 388 103 5 0 0 0 - - -;
+#X floatatom 28 358 5 0 0 0 - - - 0;
+#X floatatom 83 358 5 0 0 0 - - - 0;
+#X floatatom 142 358 5 0 0 0 - - - 0;
+#X floatatom 388 174 5 0 0 0 - - - 0;
+#X floatatom 388 103 5 0 0 0 - - - 0;
 #X text 48 277 Math functions;
-#X floatatom 160 99 5 0 0 0 - - -;
-#X floatatom 25 173 5 0 0 0 - - -;
-#X floatatom 115 173 5 0 0 0 - - -;
-#X symbolatom 228 173 10 0 0 0 - - -;
+#X floatatom 160 99 5 0 0 0 - - - 0;
+#X floatatom 25 173 5 0 0 0 - - - 0;
+#X floatatom 115 173 5 0 0 0 - - - 0;
+#X symbolatom 228 173 10 0 0 0 - - - 0;
 #X text 137 72 Milliseconds;
 #X text 147 229 Floating point values:;
 #X text 389 69 Integer values;
 #X obj 443 178 list prepend set;
 #X obj 443 203 list trim;
 #X msg 443 228 1 0 0 0 1 0;
-#X floatatom 304 518 5 0 0 0 - - -;
-#X floatatom 304 427 5 0 512 0 - - -;
+#X floatatom 304 518 5 0 0 0 - - - 0;
+#X floatatom 304 427 5 0 512 0 - - - 0;
 #X text 325 452 Mapping;
 #X obj 112 493 fd_mult;
 #X obj 54 493 fd_sum;
-#X floatatom 79 431 5 0 0 0 - - -;
+#X floatatom 79 431 5 0 0 0 - - - 0;
 #X msg 179 451 bang;
-#X floatatom 54 518 5 0 0 0 - - -;
-#X floatatom 112 518 5 0 0 0 - - -;
+#X floatatom 54 518 5 0 0 0 - - - 0;
+#X floatatom 112 518 5 0 0 0 - - - 0;
 #X text 48 456 Accumulative;
 #X text 130 27 Math utilities sorted by input/function;
 #X obj 304 493 fd_map 512 2 10;
@@ -173,39 +165,33 @@ array-8 template-8-element;
 #X obj 279 155 fd_updown;
 #X obj 366 155 fd_kinetica;
 #X obj 464 155 fd_n=n-1;
-#X floatatom 235 80 5 0 0 0 - - -;
-#X obj 464 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 525 180 5 0 0 0 - - -;
+#X floatatom 235 80 5 0 0 0 - - - 0;
+#X obj 464 180 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X floatatom 525 180 5 0 0 0 - - - 0;
 #X obj 366 180 unpack;
-#X floatatom 366 203 5 0 0 0 - - -;
-#X floatatom 415 203 5 0 0 0 - - -;
-#X obj 279 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 309 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 339 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 212 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 249 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 136 180 5 0 0 0 - - -;
-#X floatatom 35 180 5 0 0 0 - - -;
-#X floatatom 81 180 5 0 0 0 - - -;
+#X floatatom 366 203 5 0 0 0 - - - 0;
+#X floatatom 415 203 5 0 0 0 - - - 0;
+#X obj 279 180 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 309 180 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 339 180 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 212 180 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 249 180 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X floatatom 136 180 5 0 0 0 - - - 0;
+#X floatatom 35 180 5 0 0 0 - - - 0;
+#X floatatom 81 180 5 0 0 0 - - - 0;
 #X obj 377 292 fd_reflect 4;
-#X floatatom 377 317 5 0 0 0 - - -;
-#X floatatom 204 234 5 0 0 0 - - -;
+#X floatatom 377 317 5 0 0 0 - - - 0;
+#X floatatom 204 234 5 0 0 0 - - - 0;
 #X msg 366 251 bang;
-#X floatatom 34 316 5 0 0 0 - - -;
-#X floatatom 65 338 5 0 0 0 - - -;
-#X floatatom 83 315 5 0 0 0 - - -;
-#X floatatom 127 317 5 0 0 0 - - -;
-#X floatatom 160 346 5 0 0 0 - - -;
-#X floatatom 192 319 5 0 0 0 - - -;
-#X floatatom 235 343 5 0 0 0 - - -;
-#X floatatom 297 317 5 0 0 0 - - -;
-#X floatatom 482 317 5 0 0 0 - - -;
+#X floatatom 34 316 5 0 0 0 - - - 0;
+#X floatatom 65 338 5 0 0 0 - - - 0;
+#X floatatom 83 315 5 0 0 0 - - - 0;
+#X floatatom 127 317 5 0 0 0 - - - 0;
+#X floatatom 160 346 5 0 0 0 - - - 0;
+#X floatatom 192 319 5 0 0 0 - - - 0;
+#X floatatom 235 343 5 0 0 0 - - - 0;
+#X floatatom 297 317 5 0 0 0 - - - 0;
+#X floatatom 482 317 5 0 0 0 - - - 0;
 #X text 476 268 (list <=3);
 #X text 150 27 Get info from a stream of floats;
 #X connect 0 0 22 0;
@@ -285,7 +271,7 @@ array-8 template-8-element;
 #X obj 223 135 fd_m-comb 8;
 #X text 101 30 right-click on any of them for help;
 #X restore 13 547 pd Lists _____;
-#N canvas 527 57 562 474 GUI 0;
+#N canvas 527 57 769 517 GUI 1;
 #X obj 51 356 fd_autopatch;
 #X obj 47 249 fd_bang;
 #X obj 47 186 fd_calm;
@@ -317,6 +303,7 @@ array-8 template-8-element;
 #X text 233 357 Vising;
 #X text 76 23 Utilities to make Gui interaction a tad easier;
 #X obj 396 393 fd_navigator;
+#A saved 0;
 #X text 391 357 File stuff:;
 #X restore 13 443 pd GUI _______;
 #N canvas 527 56 526 431 Misc 0;
@@ -358,11 +345,10 @@ array-8 template-8-element;
 #X text 51 37 right-click on any of them for help;
 #X restore 13 603 pd Probs _____;
 #N canvas 237 55 815 665 Structs 0;
-#X obj 46 245 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 46 245 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 46 274 \; pd-color-picker vis \$1 \;;
 #X obj 40 374 r fd_color;
-#X floatatom 40 399 5 0 0 0 - - -;
+#X floatatom 40 399 5 0 0 0 - - - 0;
 #X text 99 34 right-click on any of them for help;
 #X text 38 217 Color Picker;
 #N canvas 0 23 645 395 move 0;
@@ -377,17 +363,14 @@ array-8 template-8-element;
 #X msg 208 252 \$1 100;
 #X msg 268 252 \$1 100;
 #X obj 208 170 metro 1;
-#X obj 208 195 expr cos(2*PI*a)*200 \; sin(2*PI*a)*250 \; a = a + 1000
-\;;
+#X obj 208 195 expr cos(2*PI*a)*200 \; sin(2*PI*a)*250 \; a = a + 1000 \;;
 #X obj 27 78 route bang float;
 #X obj 236 120 t f b;
 #X obj 31 25 inlet;
 #X obj 349 286 r fd_color;
 #X obj 208 307 pack f f 900;
 #X msg 208 352 \; fd_plot-999 set \$1 \$2 30 \$3;
-#X msg 27 161 \; pd-plot-999 vis 1 \, clear \, vis 0 \, obj 225 150
-fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
-10 10 fd_colorpicker \;, f 19;
+#X msg 27 161 \; pd-plot-999 vis 1 \, clear \, vis 0 \, obj 225 150 fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj 10 10 fd_colorpicker \;, f 19;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
 #X connect 5 0 0 0;
@@ -411,8 +394,7 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X msg 115 142 0;
 #X msg 49 102 bang;
 #X text 477 181 fd_plot:;
-#X text 281 101 (use the colorpicker to change the color of the circle)
-, f 56;
+#X text 281 101 (use the colorpicker to change the color of the circle), f 56;
 #X text 102 101 <-- click this;
 #X text 160 142 <-- then these;
 #X text 173 13 Data Structure Guis;
@@ -454,8 +436,8 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X text 403 158 Load all DSP generated windows;
 #X obj 471 275 fd_winreceive~ hann 64;
 #X text 403 248 Load ONE of DSP generated windows;
-#X floatatom 471 339 5 0 0 0 - - -;
-#X symbolatom 471 388 0 0 0 0 - - -;
+#X floatatom 471 339 5 0 0 0 - - - 0;
+#X symbolatom 471 388 0 0 0 0 - - - 0;
 #X text 140 99 ------------->;
 #X text 140 129 ------------->;
 #X text 140 159 ------------->;
@@ -526,30 +508,27 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X obj 258 347 crand;
 #X obj 119 433 cuadratic;
 #X obj 114 295 factor;
-#X obj 379 106 glistinfo;
+#X obj 304 105 glistinfo;
 #X obj 43 404 halton;
 #X obj 43 433 henon;
 #X obj 43 462 lorenz;
-#X obj 257 240 lorsig~;
-#X obj 334 240 lor~;
-#X obj 302 106 mainpath;
+#X obj 257 278 lorsig~;
+#X obj 334 278 lor~;
 #X obj 119 462 mandelbrot;
 #X obj 330 172 minimax;
 #X obj 335 347 mtwister;
 #X obj 119 375 parabola;
-#X obj 335 375 pmtwister;
 #X obj 258 403 prandom;
 #X obj 258 375 randy;
 #X obj 400 172 reflect;
 #X obj 254 106 root;
 #X obj 123 218 scroll;
 #X obj 257 172 siginfo;
-#X obj 38 101 sradio 15 1 8 empty empty empty 0 -8 0 10 -228856 -1
--1;
+#X obj 38 101 sradio 15 1 8 empty empty empty 0 -8 0 10 #dcdcdc #000000 #000000;
 #X text 44 73 Gui;
 #X text 36 189 Patching;
 #X text 239 303 Pseudo Random Number Generators;
-#X text 286 208 Signal objects:;
+#X text 286 246 Signal objects:;
 #X text 246 141 Float stream analysis / stuff;
 #X text 38 260 Math;
 #X text 46 340 Chaotic Systems;
@@ -557,22 +536,17 @@ fd_plot 999 pd-plot-999 \, loadbang \; pd-color_picker clear \, obj
 #X text 253 76 Canvas information:;
 #X text 35 144 [back] object;
 #X text 101 44 right-click on any of them for help;
+#X obj 361 206 norm;
+#X obj 285 206 particle;
 #X restore 13 195 pd Externs ___;
-#X text 125 252 Windows: signal generated window functions for analysis
-\, envelopes \, signal \, etc, f 52;
+#X text 125 252 Windows: signal generated window functions for analysis \, envelopes \, signal \, etc, f 52;
 #X text 125 290 Envs: Data structure based envelope generators;
-#X text 125 318 Math: some math formulas for easy access when patching
-, f 53;
-#X text 124 356 Signal: Dsp abstractions \, synth generators \, recorders
-\, spatializers \, effects \, utilities for mixing and other stuff.
-, f 53;
-#X text 126 404 Gem: abstractions using the Gem library (need to download
-it from deken: Help>Find Externals), f 53;
-#X text 126 480 Analysis: Get minimal information on an incoming stream
-of floats., f 53;
+#X text 125 318 Math: some math formulas for easy access when patching, f 53;
+#X text 124 356 Signal: Dsp abstractions \, synth generators \, recorders \, spatializers \, effects \, utilities for mixing and other stuff., f 53;
+#X text 126 404 Gem: abstractions using the Gem library (need to download it from deken: Help>Find Externals), f 53;
+#X text 126 480 Analysis: Get minimal information on an incoming stream of floats., f 53;
 #X text 126 194 External objects;
-#X text 126 442 GUI: Gui-related abstractions \, color \, cords \,
-coords \, dynamic patching \, navigating \, etc, f 53;
+#X text 126 442 GUI: Gui-related abstractions \, color \, cords \, coords \, dynamic patching \, navigating \, etc, f 53;
 #X text 126 518 Arrays: operations on arrays;
 #X text 126 546 Lists: operations on lists;
 #X text 127 574 Misc: miscellanea;
@@ -583,8 +557,7 @@ coords \, dynamic patching \, navigating \, etc, f 53;
 #X obj 36 67 fd_clicktrack;
 #X obj 278 67 fd_pno;
 #X obj 282 150 fd_6x6;
-#X obj 286 329 sradio 15 1 8 empty empty empty 0 -8 0 10 -262144 -1
--1;
+#X obj 286 329 sradio 15 1 8 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000;
 #X obj 36 328 fd_range;
 #X text 76 304 Range Selection:;
 #X text 289 296 Sradio (external);
@@ -642,21 +615,14 @@ coords \, dynamic patching \, navigating \, etc, f 53;
 #X text 196 81 <-- Signal GoP abstractions;
 #X text 115 19 All Graph-on-Parent abstractions;
 #X restore 13 224 pd GoP _______;
-#X obj 1 2 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1 0
-;
-#X text 199 8 fd_lib - fdch - 2019;
-#X obj 382 7 declare -lib fd_lib;
-#X obj 1 152 cnv 15 522 30 empty empty overview: 20 15 0 15 -228856
--1 0;
-#X text 10 41 This is my personal suite of abstractions for puredata.
-Feel free to use (at your own risk) \, copy \, edit and whatever. Contact
-me at camarafede@gmail.com if anything., f 71;
-#X text 11 94 Click to open the subpatches and right-click any object/abstraction
-for more info about how to use., f 34;
+#X obj 1 2 cnv 15 522 30 empty empty fd_lib 20 15 0 15 #dcdcdc #000000 0;
+#X obj 1 152 cnv 15 522 30 empty empty overview: 20 15 0 15 #dcdcdc #000000 0;
+#X text 10 41 This is my personal suite of abstractions for puredata. Feel free to use (at your own risk) \, copy \, edit and whatever. Contact me at camarafede@gmail.com if anything., f 71;
+#X text 11 94 Click to open the subpatches and right-click any object/abstraction for more info about how to use., f 34;
 #X msg 272 91 browse https://fdch.github.io;
 #X obj 272 118 pdcontrol;
 #X text 125 223 Graph-on-Parent (GOP) abstractions and externals;
-#X obj 1 658 cnv 15 522 30 empty empty fd_lib 20 15 0 15 -228856 -1
-0;
+#X obj 1 658 cnv 15 522 30 empty empty fd_lib 20 15 0 15 #dcdcdc #000000 0;
 #X text 377 663 fd_lib version 0.1;
-#X connect 33 0 34 0;
+#X obj 277 8 declare -lib fd_lib -path fd_lib;
+#X connect 31 0 32 0;

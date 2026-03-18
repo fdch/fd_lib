@@ -38,8 +38,8 @@
 #X connect 2 0 0 0;
 #X restore 293 160 pd open;
 #X obj 254 43 r \$1-range;
-#X obj 254 68 array-rerange \$1;
 #X obj 205 404 r \$1-smooth;
+#X obj 254 68 fd_array-rerange \$1;
 #X connect 0 0 6 0;
 #X connect 1 0 2 1;
 #X connect 2 0 13 0;
@@ -77,5 +77,5 @@
 #X connect 27 2 11 1;
 #X connect 27 3 20 1;
 #X connect 28 0 5 0;
-#X connect 29 0 30 0;
-#X connect 31 0 17 0;
+#X connect 29 0 31 0;
+#X connect 30 0 17 0;

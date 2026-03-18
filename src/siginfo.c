@@ -1,102 +1,127 @@
-/* 
+/*
 
 Copyright 2017-2020 Fede Camara Halac - ffddcchh
 
 This file is part of fd_lib.
 
-fd_lib is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+fd_lib is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+fd_lib is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details. You
+should have received a copy of the GNU General Public License along with this
+program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-
 #include "fdLib.h"
+
+/* --------------------------------- siginfo  -------------------------- */
 
 static t_class *siginfo_class;
 
-typedef struct siginfo {
-  t_object x_ob;
-  t_outlet *x_outlet0;
-  t_outlet *x_outlet1;
-  t_outlet *x_outlet2;
-  double xcheckprev, ycheckprev, zcheckprev;
-  double xprev, yprev, zprev;
-  double xcurr, ycurr, zcurr;
-  double dist;
-  int ref, xup, yup, zup;
+typedef struct siginfo
+{
+    t_object x_ob;
+    t_outlet *x_outlet1;
+    t_outlet *x_outlet2;
+    t_outlet *x_outlet3;
+    t_particle *x_particles;
+    int x_num_parts, x_order;
 } t_siginfo;
 
-static void siginfo_list(t_siginfo *x, t_symbol *s, int argc, t_atom *argv) {
-  double xpre, ypre, zpre, xdiffn, ydiffn, zdiffn, t_dist;
-  t_atom previous[3], cook[7], raw[4];
-  x->ref = atom_getfloatarg(0,argc,argv);
-  x->xcurr = atom_getfloatarg(1,argc,argv);
-  x->ycurr = atom_getfloatarg(2,argc,argv);
-  x->zcurr = atom_getfloatarg(3,argc,argv);
-  xpre = x->xprev;
-  ypre = x->yprev;
-  zpre = x->zprev;
-  xdiffn = x->xcurr - xpre;
-  ydiffn = x->ycurr - ypre;
-  zdiffn = x->zcurr - zpre;
-  x->xup = (xdiffn >= 0 ) ? 1 : 0;
-  x->yup = (ydiffn >= 0 ) ? 1 : 0;
-  x->zup = (zdiffn >= 0 ) ? 1 : 0;
-  t_dist = sqrt( (xdiffn * xdiffn) + (ydiffn * ydiffn) + (zdiffn * zdiffn) );
-  x->xcheckprev = x->xprev;
-  x->ycheckprev = x->yprev;
-  x->zcheckprev = x->zprev;
-  x->xprev = x->xcurr;
-  x->yprev = x->ycurr;
-  x->zprev = x->zcurr;
-  x->dist = t_dist;
-  SETFLOAT(&previous[0], (double) x->xcheckprev); 
-  SETFLOAT(&previous[1], (double) x->ycheckprev); 
-  SETFLOAT(&previous[2], (double) x->zcheckprev); 
-  SETFLOAT(&cook[0], (int) x->xup);
-  SETFLOAT(&cook[1], (int) x->yup);
-  SETFLOAT(&cook[2], (int) x->zup);
-  SETFLOAT(&cook[3], (double) xdiffn);
-  SETFLOAT(&cook[4], (double) ydiffn);
-  SETFLOAT(&cook[5], (double) zdiffn);
-  SETFLOAT(&cook[6], (double) x->dist);
-  SETFLOAT(&raw[0], (int) x->ref);
-  SETFLOAT(&raw[1], (double) x->xcurr);
-  SETFLOAT(&raw[2], (double) x->ycurr);
-  SETFLOAT(&raw[3], (double) x->zcurr);
-  outlet_list(x->x_outlet0, 0, 4, raw);
-  outlet_list(x->x_outlet1, 0, 7, cook);
-  outlet_list(x->x_outlet2, 0, 3, previous);
-  
+static void siginfo_free(t_siginfo *x)
+{
+    if (x->x_particles)
+        freebytes(x->x_particles, x->x_num_parts * sizeof(t_particle));
 }
 
-
-static void siginfo_bang(t_siginfo *x) {
-  post("prev xyz: %f, %f, %f\ncurr xyz: %f, %f, %f\ndist: %f", x->xcheckprev, x->ycheckprev, x->zcheckprev, x->xcurr,x->ycurr,x->zcurr, x->dist);
+static void siginfo_init_particles(t_siginfo *x)
+{
+    for (int i = 0; i < x->x_num_parts; i++)
+        particle_init(x->x_particles + i, x->x_order);
 }
 
-static void siginfo_reset(t_siginfo *x) {
-  x->ref = x->xcurr = x->ycurr = x->zcurr = x->dist = 0;
-  x->xprev = x->yprev = x->zprev = 0;
-  x->xup = x->yup = x->zup = 0;
-  x->xcheckprev =  x->ycheckprev = x->zcheckprev = 0;
+static void siginfo_order(t_siginfo *x, t_floatarg forder)
+{
+    x->x_order = forder <= 0.0 ? 1 : (int)forder;
 }
 
+static void siginfo_allocate_particles(t_siginfo *x, t_floatarg fnumparts)
+{
+    if (fnumparts == x->x_num_parts)
+        return;
 
-static void *siginfo_new() {
-  t_siginfo *x = (t_siginfo *)pd_new(siginfo_class);
-  x->ref = x->xcurr = x->ycurr = x->zcurr = x->dist = 0;
-  x->xprev = x->yprev = x->zprev = 0;
-  x->xcheckprev =  x->ycheckprev = x->zcheckprev = 0;
-  x->x_outlet0 = outlet_new(&x->x_ob, &s_list);
-  x->x_outlet1 = outlet_new(&x->x_ob, &s_list);
-  x->x_outlet2 = outlet_new(&x->x_ob, &s_list);
-  return (void *)x;
+    siginfo_free(x);
+    x->x_particles = (t_particle *)getbytes(fnumparts * sizeof(t_particle));
+    x->x_num_parts = fnumparts;
+    siginfo_init_particles(x);
 }
-void siginfo_setup(void) {
-  siginfo_class = class_new(gensym("siginfo"), (t_newmethod)siginfo_new, 0, sizeof(t_siginfo), CLASS_DEFAULT, 0);
-  class_addbang(siginfo_class, siginfo_bang);  
-  class_addlist(siginfo_class, siginfo_list);
-  class_addmethod(siginfo_class, (t_method)siginfo_reset, gensym("reset"), 0);
+
+static void siginfo_list(t_siginfo *x, t_symbol *s, int argc, t_atom *argv)
+{
+    (void)s;
+
+    if (argc < 1)
+        return logpost(x, PD_DEBUG, "At least 1 argument must be passed");
+
+    siginfo_allocate_particles(x, argc);
+
+    int cook_size = x->x_num_parts * 2 + 1;
+
+    t_atom *previous = (t_atom *)getbytes(x->x_num_parts * sizeof(t_atom));
+    t_atom *cook = (t_atom *)getbytes(cook_size * sizeof(t_atom));
+    t_atom *raw = (t_atom *)getbytes(x->x_num_parts * sizeof(t_atom));
+
+    t_float square_sum = 0.0;
+    for (int i = 0; i < argc; i++)
+    {
+        t_float val = atom_getfloatarg(i, argc, argv);
+        SETFLOAT(raw + i, val);
+        particle_update(x->x_particles + i, val);
+        SETFLOAT(previous + i, x->x_particles[i].x_stored[0]);
+        SETFLOAT(cook + i, x->x_particles[i].x_up);
+        SETFLOAT(cook + i + x->x_num_parts, x->x_particles[i].x_diff);
+        square_sum += (x->x_particles[i].x_diff * x->x_particles[i].x_diff);
+    }
+    SETFLOAT(cook + cook_size - 1, sqrt(square_sum));
+
+    outlet_list(x->x_outlet1, gensym("list"), x->x_num_parts, raw);
+    outlet_list(x->x_outlet2, gensym("list"), cook_size, cook);
+    outlet_list(x->x_outlet3, gensym("list"), x->x_num_parts, previous);
+
+    freebytes(previous, x->x_num_parts * sizeof(t_atom));
+    freebytes(cook, cook_size * sizeof(t_atom));
+    freebytes(raw, x->x_num_parts * sizeof(t_atom));
+}
+
+static void siginfo_reset(t_siginfo *x)
+{
+    for (int i = 0; i < x->x_num_parts; i++)
+        particle_reset(x->x_particles + i);
+}
+
+static void *siginfo_new(t_floatarg forder)
+{
+    t_siginfo *x = (t_siginfo *)pd_new(siginfo_class);
+    x->x_outlet1 = outlet_new(&x->x_ob, gensym("list"));
+    x->x_outlet2 = outlet_new(&x->x_ob, gensym("list"));
+    x->x_outlet3 = outlet_new(&x->x_ob, gensym("list"));
+    x->x_num_parts = 0;
+    siginfo_order(x, forder);
+    return (void *)x;
+}
+
+void siginfo_setup(void)
+{
+    siginfo_class = class_new(gensym("siginfo"), (t_newmethod)siginfo_new,
+                              (t_method)siginfo_free, sizeof(t_siginfo),
+                              CLASS_DEFAULT, A_DEFFLOAT, A_NULL);
+    class_addlist(siginfo_class, siginfo_list);
+    class_addmethod(siginfo_class, (t_method)siginfo_reset, gensym("reset"),
+                    A_NULL);
+    class_addmethod(siginfo_class, (t_method)siginfo_order, gensym("order"),
+                    A_FLOAT, A_NULL);
 }

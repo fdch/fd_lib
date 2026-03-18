@@ -39,8 +39,8 @@
 #X obj 114 63 t f f f f;
 #X obj 174 87 array size \$1;
 #X obj 272 11 r \$1-range;
-#X obj 272 36 array-rerange \$1;
 #X obj 124 347 r \$1-smooth;
+#X obj 272 36 fd_array-rerange \$1;
 #X connect 0 0 5 0;
 #X connect 1 0 8 1;
 #X connect 2 0 24 0;
@@ -76,5 +76,5 @@
 #X connect 28 1 5 1;
 #X connect 28 2 3 0;
 #X connect 28 3 29 0;
-#X connect 30 0 31 0;
-#X connect 32 0 20 0;
+#X connect 30 0 32 0;
+#X connect 31 0 20 0;

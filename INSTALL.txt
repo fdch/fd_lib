@@ -2,48 +2,42 @@ Clone the library:
 
 $ git clone https://github.com/fdch/fd_lib.git
 
-You will be able to load abstractions, but to use the external objects you'll need to compile them. 
+You will be able to load abstractions, but to use the external objects you'll need to compile them:
 
-For this you'll first need to initialize the pd-lib-builder submodule. Skip this step if you have pd-lib-builder already (pass its path to config.sh)
-
-$ cd fd_lib
-$ git submodule init
-$ git submodule update
-
--------------------------------------------------------------------------------
-on Unix
--------------------------------------------------------------------------------
-
-$ bash config.sh
+$ bash config.sh [/path/to/pd-lib-builder] (*)
 $ make
 $ make install
 
+The last step will allow Pure Data to load the library with the Help Browser.
+You can pass your default paths, for example:
+
+ PDLIBDIR=path/to/Pd/externals
+
+In Pure Data, you probably need to declare the library with [declare -lib fd_lib -path fd_lib]
+
 -------------------------------------------------------------------------------
-on Windows:
+Windows
 -------------------------------------------------------------------------------
 
-I basically used the same terminal to compile Pure Data and it works. So, check Pd's INSTALL.txt file for more information. If you have already done this, simply use the Mintty terminal (MYSYS2) and run a "Mingw-w64 64 bit" Shell (bash). I assume you are always on this shell emulator for the rest of this text.
+Check Pd's INSTALL.txt file for more information, because the build environment is the same.
+Use the Mintty terminal (MYSYS2) and run a "Mingw-w64 64 bit" Shell (bash) emulator.
 
-
-Once you are on the shell emulator, run:
-
-$ bash config.sh
-$ make
-
-You must indicate the path to pd's <bin> directory, as well as the <src> directory to include. 
+Before running make, you must indicate the path to Pure Data's "bin" and "src" directories:
 
  pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src
 
-You might also need to determine which architecture, I do this by adding the following lines to the command above
+You might also need to determine which architecture, for example:
 
  CFLAGS= -march=x86-64 -Iinclude
 
-The whole command looks like this:
+The complete make command in Windows might looks like this:
 
 $ make pdbinpath=/c/Users/.../pd-0.50-0/bin PDINCLUDEDIR=/c/Users/.../src CFLAGS=-march=x86-64 -Iinclude
 
-Finally, you can install the library:
+I recommend the usual library installation in %AppData%, which is the default.
+If you locate the library someplace else, please also place a [declare -path /path/to/fd_lib]
+in your patches or just ADD the PATH to "fd_lib" in File > Preferences > Path
 
-$ make install
-
-I recommend the usual library installation in %AppData%, which is the default. If you locate the library someplace else, please also place a [declare -path /path/to/fd_lib] in your patches or just ADD the PATH to fd_lib in File>Preferences>Path
+(*) fd_lib is shipped with pd-lib-builder, so you can clone it with --recurse-submodules or
+do "git submodule init" and "git submodule update". If you do this, you dont need to pass the
+pd-lib-builder path to the config.sh command.

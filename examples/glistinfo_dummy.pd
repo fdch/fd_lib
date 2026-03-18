@@ -1,11 +1,10 @@
 #N canvas 44 88 450 300 12;
+#X declare -lib fd_lib;
 #X obj 41 18 inlet;
 #X obj 304 17 inlet;
 #N canvas 0 22 450 300 gopsubpatch 0;
-#X obj 117 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 141 135 bng 15 250 50 0 empty empty dump 17 7 0 10 -262144 -1
--1;
+#X obj 117 133 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 141 135 bng 15 250 50 0 empty empty dump 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 200 12 inlet;
 #X obj 187 230 s parse-dump;
 #X obj 81 231 s parse-bang;
@@ -50,6 +49,7 @@
 #X obj 158 75 route dump bang;
 #X msg 158 129 0;
 #X msg 192 129 1;
+#X obj 113 14 declare -lib fd_lib;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 3 0 10 0;

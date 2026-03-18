@@ -22,3 +22,7 @@
 src/surface.c
 .vscode/
 ./fd_lib/
+.cache/
+compile_commands.json
+fd_lib/
+build/

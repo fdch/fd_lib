@@ -1,19 +1,13 @@
-#N canvas 500 50 530 480 12;
+#N canvas 653 59 530 480 12;
 #X declare -lib fd_lib;
-#X obj 4 4 cnv 15 522 30 empty empty "fd_sp" 20 15 0 15 -228856 -1
-0;
-#X obj 4 214 cnv 15 522 20 empty empty arguments: 10 10 0 14 -228856
--1 0;
-#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 -228856 -1
-0;
-#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 -228856
--1 0;
-#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 -228856 -1
-0;
+#X obj 4 4 cnv 15 522 30 empty empty "fd_sp" 20 15 0 15 #dcdcdc #000000 0;
+#X obj 4 214 cnv 15 522 20 empty empty arguments: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 314 cnv 15 522 20 empty empty inlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 374 cnv 15 522 20 empty empty outlets: 10 10 0 14 #dcdcdc #000000 0;
+#X obj 4 453 cnv 15 522 20 empty empty version 10 10 0 14 #dcdcdc #000000 0;
 #X obj 380 8 declare -lib fd_lib;
 #N canvas 0 22 450 300 meta 0;
-#X text 10 10 fd_lib - metadata file - Sun Sep 29 12:40:26 EDT 2019
-;
+#X text 10 10 fd_lib - metadata file - Sun Sep 29 12:40:26 EDT 2019;
 #X text 10 25 patch_name : fd_sp;
 #X text 10 40 inlet : 0;
 #X text 10 55 outlet : 0;
@@ -31,44 +25,36 @@
 #X text 60 340 0 inlets;
 #X text 60 410 0 outlets;
 #X msg 432 48 \; pd dsp 1;
-#N canvas 80 22 450 468 example 0;
-#X obj 80 318 catch~ \$0-1-0;
-#X floatatom 188 221 5 0 0 0 - - -;
-#X floatatom 60 211 5 0 0 0 - - -;
-#X obj 80 342 env~;
-#X floatatom 80 366 5 0 0 0 - - -;
-#X obj 287 339 env~;
-#X floatatom 287 363 5 0 0 0 - - -;
-#X obj 287 315 catch~ \$0-2-1;
-#X obj 112 256 s \$0-0;
-#X obj 239 265 s \$0-1;
-#X obj 164 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 239 206 == 0;
-#X msg 239 238 \$1 1000;
-#X msg 112 229 \$1 1000;
-#X obj 164 175 t a a;
-#X obj 256 18 fd_sp 0 \$0 0 1;
-#X obj 32 19 osc~ 440;
-#X obj 32 43 s~ \$0-sig;
-#X obj 256 40 fd_sp 1 \$0 1 2;
-#X text 106 33 <-- one signal;
-#X text 41 123 multiplied independently in different tracks;
-#X connect 0 0 3 0;
-#X connect 1 0 9 0;
-#X connect 2 0 8 0;
-#X connect 3 0 4 0;
-#X connect 5 0 6 0;
-#X connect 7 0 5 0;
-#X connect 10 0 14 0;
-#X connect 11 0 12 0;
-#X connect 12 0 9 0;
-#X connect 13 0 8 0;
-#X connect 14 0 13 0;
-#X connect 14 1 11 0;
-#X connect 16 0 17 0;
-#X restore 43 116 pd example;
-#X text 60 239 1: float: instance number \; 2: float: \$0 from parent
-\; 3: float: signal id \; 4: float: speaker id \;;
-#X text 21 47 Signal multiplier with square-root line amp (aka. signal
-panner);
+#X text 60 239 1: float: instance number \; 2: float: \$0 from parent \; 3: float: signal id \; 4: float: speaker id \;;
+#X text 21 47 Signal multiplier with square-root line amp (aka. signal panner);
+#X obj 18 157 fd_sp 0 \$0 0 1;
+#X obj 22 93 osc~ 440;
+#X obj 22 117 s~ \$0-sig;
+#X obj 18 179 fd_sp 1 \$0 1 2;
+#X text 96 107 <-- one signal;
+#X obj 263 171 s \$0-0;
+#X obj 329 160 s \$0-1;
+#X obj 269 96 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 329 101 == 0;
+#X msg 329 133 \$1 1000;
+#X msg 263 144 \$1 1000;
+#X obj 269 117 t a a;
+#X text 144 135 multiplied independently in different tracks, f 15;
+#X obj 323 186 catch~ \$0-1-0;
+#X obj 323 210 env~;
+#X floatatom 323 234 5 0 0 0 - - - 0;
+#X obj 368 234 env~;
+#X floatatom 368 258 5 0 0 0 - - - 0;
+#X obj 368 210 catch~ \$0-2-1;
+#X msg 431 86 \; pd dsp 0;
+#X connect 14 0 15 0;
+#X connect 20 0 24 0;
+#X connect 21 0 22 0;
+#X connect 22 0 19 0;
+#X connect 23 0 18 0;
+#X connect 24 0 23 0;
+#X connect 24 1 21 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 29 0 30 0;
+#X connect 31 0 29 0;

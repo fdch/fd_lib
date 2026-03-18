@@ -36,9 +36,9 @@
 #X restore 242 319 pd open;
 #X obj 98 40 route bang float q w;
 #X obj 272 11 r \$1-range;
-#X obj 272 36 array-rerange \$1;
 #X obj 28 435 fd_smooth_brute \$1;
 #X obj 34 406 r \$1-smooth;
+#X obj 272 36 fd_array-rerange \$1;
 #X connect 0 0 5 0;
 #X connect 1 0 14 0;
 #X connect 2 0 26 0;
@@ -72,5 +72,5 @@
 #X connect 26 2 13 1;
 #X connect 26 3 14 1;
 #X connect 26 4 25 0;
-#X connect 27 0 28 0;
-#X connect 30 0 29 0;
+#X connect 27 0 30 0;
+#X connect 29 0 28 0;
