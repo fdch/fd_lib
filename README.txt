@@ -1,7 +1,7 @@
 fd_lib
 
 Current version: 0.4.0
-This is my personal Pure Data library of abstractions and externals.
+A suite of externals and abstractions
 Get Pure Data here: https://msp.ucsd.edu
 It has:
     296 abstractions,
