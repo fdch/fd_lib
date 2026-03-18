@@ -62,7 +62,7 @@ jobs:
 
       - name: make (windows)
         if: matrix.os == 'windows-latest'
-        run: make PDBINPATH="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
+        run: make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64
 
       # ---- package ----
       - name: package (unix)
