@@ -18,7 +18,7 @@ runs:
     - name: Compress Package
       shell: bash
       run: |
-        tar -cfz "$OUTPUT.tar" ./fd_lib
+        tar -czf "$OUTPUT.tar.gz" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
