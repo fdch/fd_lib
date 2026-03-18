@@ -16,6 +16,7 @@ runs:
         cp pd-lib-builder/Makefile.pdlibbuilder fd_lib/sources/pd-lib-builder/
 
     - name: Compress Package
+      shell: bash
       run: |
         tar -cfz "$OUTPUT.tar" ./fd_lib
     - name: upload artifacts
