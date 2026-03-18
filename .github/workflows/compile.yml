@@ -3,23 +3,29 @@ name: fd_lib-ci
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "include/**"
+      - "src/**"
+      - "Makefile"
+      - "config.sh"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "include/**"
+      - "src/**"
+      - "Makefile"
+      - "config.sh"
 
 jobs:
   ubuntu-latest:
+    needs: setup
     runs-on: ubuntu-latest
     env:
       OUTPUT: fd_lib-ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: get pdlibbuilder
-      run: git submodule init && git submodule update
-    - name: get pd
-      uses: actions/checkout@v2
-      with:
-        repository: pure-data/pure-data
-        path: pure-data
+    - uses: ./.github/actions/setup-pd
     - name: configure
-      run: ./config.sh
+      run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
     - name: install lib
@@ -38,19 +44,12 @@ jobs:
     env:
       OUTPUT: fd_lib-macos-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: get pdlibbuilder
-      run: git submodule init && git submodule update
-    - name: get pd
-      uses: actions/checkout@v2
-      with:
-        repository: pure-data/pure-data
-        path: pure-data
+    - uses: ./.github/actions/setup-pd
     - name: get dependencies
       run: |
-        brew install automake autoconf libtool 
+        brew install automake autoconf libtool
     - name: configure
-      run: ./config.sh
+      run: bash config.sh
     - name: make
       run: make PDINCLUDEDIR=pure-data/src
     - name: install lib
@@ -72,11 +71,11 @@ jobs:
           shell: bash
     env:
       OUTPUT: fd_lib-windows-latest
-      PDVERSION: pd-0.53-2
+      PDVERSION: pd-0.56-2
     steps:
     - name: set environment variable
       run: echo "LOCAL_SHORT_COMMANDS=true" >> $GITHUB_ENV
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: get pdlibbuilder
       run: git submodule init && git submodule update
     - name: get pd
@@ -84,7 +83,7 @@ jobs:
         curl -O "http://msp.ucsd.edu/Software/$PDVERSION.msw.zip"
         unzip "$PDVERSION.msw.zip"
     - name: configure
-      run: ./config.sh
+      run: bash config.sh
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
     - name: install lib
