@@ -3,7 +3,7 @@
 #X obj 18 35 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X floatatom 55 36 5 0 0 0 - - - 0;
 #X obj 18 232 siginfo;
-#X obj 18 154 lorenz;
+#X obj 18 164 lorenz;
 #X obj 18 65 metro 20;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array xplot 100 float 4;
@@ -160,10 +160,13 @@
 #X connect 21 0 14 0;
 #X connect 22 0 15 0;
 #X restore 18 365 pd raw and accel;
-#X obj 71 96 counter -m 100;
-#X obj 71 121 s index;
+#X obj 71 146 counter -m 100;
+#X obj 71 171 s index;
 #X obj 18 95 t b b;
 #X obj 23 492 declare -lib fd_lib;
+#X obj 92 65 bng 20 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
+#X obj 92 90 iterate;
+#X obj 92 115 t b f;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
 #X connect 2 0 27 0;
@@ -183,3 +186,7 @@
 #X connect 28 0 29 0;
 #X connect 30 0 3 0;
 #X connect 30 1 28 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 34 0 3 0;
+#X connect 34 1 29 0;

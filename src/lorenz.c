@@ -463,8 +463,8 @@ static void *lor_new(void)
 
 void lorenz_global_setup(void)
 {
-    lorenz_class = class_new(gensym("lorenz_base"), 0, 0, sizeof(t_lorenz),
-                             CLASS_PD, A_DEFFLOAT, A_NULL);
+    lorenz_class =
+        class_new(0, 0, 0, sizeof(t_lorenz), CLASS_PD, A_DEFFLOAT, A_NULL);
 
     lorenz_obj_class =
         class_new(gensym("lorenz"), (t_newmethod)lorenz_obj_new, 0,
