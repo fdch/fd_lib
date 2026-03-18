@@ -83,7 +83,7 @@ jobs:
       uses: ./.github/actions/package-lib
     - name: compress lib
       run: |
-        tar -c -f "$OUTPUT.tar" fd_lib
+        tar -a -c -f "$OUTPUT.tar" fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
       with:
