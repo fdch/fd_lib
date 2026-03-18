@@ -85,7 +85,6 @@ jobs:
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
     - name: package lib
-    - name: package lib
       run: |
         mkdir fd_lib
         cp *.dll Makefile config.sh *.txt *.pd fd_lib/ 2>/dev/null || true
