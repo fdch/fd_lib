@@ -84,9 +84,11 @@ jobs:
       run: bash config.sh
     - name: make
       run : make pdbinpath="$PDVERSION/bin" PDINCLUDEDIR="$PDVERSION/src" CFLAGS=-march=x86-64 -Iinclude
-    - name: install lib
+    - name: package lib
       run: |
-        make install PDLIBDIR=.
+        mkdir fd_lib
+        cp *.dll Makefile config.sh *.txt *.pd fd_lib/
+        cp -r abstractions help examples scripts doc data include src test fd_lib/
         zip -r "$OUTPUT.zip" ./fd_lib
     - name: upload artifacts
       uses: actions/upload-artifact@v5
