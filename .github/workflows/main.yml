@@ -84,9 +84,7 @@ jobs:
       - name: create deken packages
         run: |
           mkdir -p build
-          for dir in fd_lib-*; do
-            ./deken package --output-dir ./build --no-sign-gpg --name fd_lib --version "${{ github.ref_name }}" "$dir"
-          done
+          ./deken package --output-dir ./build --no-sign-gpg --name fd_lib --version "${{ github.ref_name }}" "fd_lib-${{ matrix.os }}"
 
       - name: upload artifact
         uses: actions/upload-artifact@v6
