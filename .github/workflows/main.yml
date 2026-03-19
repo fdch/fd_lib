@@ -100,11 +100,13 @@ jobs:
         run: |
           ls -la
           for artifact in *; do
+            unzip -d fd_lib $artifact
             docker run --rm \
               --user $(id -u) \
               --volume ${{ github.workspace }}:/deken \
               registry.git.iem.at/pd/deken \
-              deken package --name --version "${{ github.ref_name }}" fd_lib
+              deken package --name fd_lib --version "${{ github.ref_name }}" fd_lib
+            rm -rf fd_lib
           done
 
       - name: Upload all to deken
