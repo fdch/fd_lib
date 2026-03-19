@@ -85,7 +85,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: "fd_lib-${{ github.ref_name }}-build"
+          name: "fd_lib-${{ github.ref_name }}-${{ matrix.os }}"
           path: ./build
           if-no-files-found: error
           compression-level: 0
