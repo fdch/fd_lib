@@ -9,4 +9,4 @@ runs:
       run: |
         curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
         chmod +x deken
-        deken --version
+        ./deken --version
