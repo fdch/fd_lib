@@ -92,8 +92,6 @@ jobs:
 
       - name: download all artifacts
         uses: actions/download-artifact@v8
-        run: |
-          ls -la
 
       - name: Pull deken image
         run: docker pull registry.git.iem.at/pd/deken
