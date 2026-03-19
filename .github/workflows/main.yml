@@ -1,5 +1,5 @@
 name: Cross-Platform Compile and Publish
-description: Compiles on multiple platforms and publishes to deken if merging to main
+description: Compiles on multiple platforms and publishes to deken when tags are pushed
 
 on:
   workflow_dispatch:
