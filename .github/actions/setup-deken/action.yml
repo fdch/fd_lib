@@ -1,0 +1,12 @@
+name: Setup Deken
+description: Download and install the deken commandline utility.
+
+runs:
+  using: composite
+  steps:
+    - name: install deken
+      shell: bash
+      run: |
+        curl -L https://raw.githubusercontent.com/pure-data/deken/main/developer/deken -o deken
+        chmod +x deken
+        deken --version
