@@ -6,15 +6,15 @@ on:
 
   push:
     branches:
-      - "main"
+      - main
     paths:
       - "include/**"
       - "src/**"
       - "Makefile"
       - "config.sh"
 
-  tags:
-    - 'v*'
+    tags:
+      - 'v*'
 
   pull_request:
     paths:
