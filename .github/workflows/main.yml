@@ -2,14 +2,19 @@ name: Cross-Platform Compile and Publish
 description: Compiles on multiple platforms and publishes to deken if merging to main
 
 on:
+  workflow_dispatch:
+
   push:
-    branches: ["main"]
+    branches:
+      - "main"
     paths:
       - "include/**"
       - "src/**"
       - "Makefile"
       - "config.sh"
-    tags: ['v*']
+
+  tags:
+    - 'v*'
 
   pull_request:
     paths:
