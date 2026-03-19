@@ -77,14 +77,10 @@ jobs:
       - name: package library
         run: |
           bash scripts/package_lib.sh
-          ls -la
           mkdir -p "${{ matrix.os }}"
-          cp -r fd_lib "${{ matrix.os }}/"
-
-      - name: create deken packages
-        run: |
           mkdir -p build
-          ./deken package --output-dir ./build --no-sign-gpg --name fd_lib --version "${{ github.ref_name }}" "fd_lib-${{ matrix.os }}"
+          ls -la
+          ./deken package --output-dir ./build --no-sign-gpg --version "${{ github.ref_name }}" fd_lib
 
       - name: upload artifact
         uses: actions/upload-artifact@v6
