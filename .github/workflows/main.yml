@@ -78,7 +78,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: "fd_lib-${{ github.ref_name }}-${{ matrix.os }}.zip"
+          name: "fd_lib-${{ github.ref_name }}-${{ matrix.os }}-build"
           path: "${{ matrix.os }}"
           if-no-files-found: error
 
@@ -99,15 +99,13 @@ jobs:
       - name: create deken packages
         run: |
           ls -la
-          for artifact in fd_lib-*.zip; do
+          for artifact in fd_lib-*-build; do
             echo "Packaging $artifact ..."
-            unzip -d fd_lib $artifact
             docker run --rm \
               --user $(id -u) \
               --volume ${{ github.workspace }}:/deken \
               registry.git.iem.at/pd/deken \
-              deken package --version "${{ github.ref_name }}" fd_lib
-            rm -rf fd_lib
+              deken package --name fd_lib --version "${{ github.ref_name }}" "$artifact"
           done
 
       - name: Upload all to deken
