@@ -88,6 +88,8 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
 
     steps:
+      - uses: actions/checkout@v6
+
       - name: setup deken
         uses: ./.github/actions/setup-deken
 
