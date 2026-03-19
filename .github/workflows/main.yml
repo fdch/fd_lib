@@ -90,16 +90,35 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: setup deken
-        uses: ./.github/actions/setup-deken
-
       - name: download all artifacts
         uses: actions/download-artifact@v8
-
-      - name: upload all to deken
-        env:
-          deken_username: ${{ secrets.DEKEN_USERNAME }}
-          deken_password: ${{ secrets.DEKEN_PASSWORD }}
         run: |
-          ./deken package --name fd_lib --no-sign-gpg --version "${{ github.ref_name }}" fd_lib
-          ./deken upload *.dek
+          ls -la
+
+      - name: Pull deken image
+        run: docker pull registry.git.iem.at/pd/deken
+
+      - name: create deken packages
+        run: |
+          ls -la
+          for artifact in *; do
+            docker run --rm \
+              --user $(id -u) \
+              --volume ${{ github.workspace }}:/deken \
+              registry.git.iem.at/pd/deken \
+              deken package --name --version "${{ github.ref_name }}" fd_lib
+          done
+
+      - name: Upload all to deken
+        env:
+          DEKEN_USERNAME: ${{ secrets.DEKEN_USERNAME }}
+          DEKEN_PASSWORD: ${{ secrets.DEKEN_PASSWORD }}
+        run: |
+          ls -la
+          docker run --rm \
+            --user $(id -u) \
+            --volume ${{ github.workspace }}:/deken \
+            --env DEKEN_USERNAME \
+            --env DEKEN_PASSWORD \
+            registry.git.iem.at/pd/deken \
+            sh -c "deken upload *.dek"
